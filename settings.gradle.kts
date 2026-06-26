@@ -1,9 +1,4 @@
 pluginManagement {
-    val localLibfdxPluginDir = file("../libfdx/libfdx/tools/gradle-plugin")
-    if(localLibfdxPluginDir.isDirectory) {
-        includeBuild(localLibfdxPluginDir)
-    }
-
     repositories {
         google()
         mavenCentral()
