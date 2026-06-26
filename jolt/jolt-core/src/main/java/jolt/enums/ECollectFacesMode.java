@@ -6,9 +6,9 @@
 
 package jolt.enums;
 
-import com.github.xpenatan.jParser.idl.IDLEnum;
+import com.github.xpenatan.jParser.api.NativeEnum;
 
-public enum ECollectFacesMode implements IDLEnum<ECollectFacesMode> {
+public enum ECollectFacesMode implements NativeEnum<ECollectFacesMode> {
 
     CUSTOM(0), CollectFaces(ECollectFacesMode_CollectFaces_NATIVE()), NoFaces(ECollectFacesMode_NoFaces_NATIVE());
 
@@ -34,13 +34,7 @@ public enum ECollectFacesMode implements IDLEnum<ECollectFacesMode> {
         return CUSTOM;
     }
 
-    /*[-JNI;-NATIVE]
-return (jlong)ECollectFacesMode_CollectFaces;
-*/
     private static native int ECollectFacesMode_CollectFaces_NATIVE();
 
-    /*[-JNI;-NATIVE]
-return (jlong)ECollectFacesMode_NoFaces;
-*/
     private static native int ECollectFacesMode_NoFaces_NATIVE();
 }

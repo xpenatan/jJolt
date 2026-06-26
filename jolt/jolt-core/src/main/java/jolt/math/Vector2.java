@@ -6,23 +6,14 @@
 
 package jolt.math;
 
-import com.github.xpenatan.jParser.idl.IDLBase;
+import com.github.xpenatan.jParser.api.NativeObject;
 
-public class Vector2 extends IDLBase {
-
-    private Vector2 Vector2_TEMP_GEN_0;
+public class Vector2 extends NativeObject {
 
     static public final Vector2 NULL = Vector2.native_new();
 
     public Vector2() {
-        long addr = internal_native_create_addr();
-        internal_reset(addr, true);
     }
-
-    /*[-JNI;-NATIVE]
-return (jlong)new Vector2();
-*/
-    public static native long internal_native_create_addr();
 
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
@@ -38,100 +29,29 @@ return (jlong)new Vector2();
         return new Vector2((byte) 0, (char) 0);
     }
 
-    protected void deleteNative() {
-        internal_native_deleteNative(native_address);
-    }
-
-    /*[-JNI;-NATIVE]
-Vector2* nativeObject = (Vector2*)this_addr;
-delete nativeObject;
-*/
-    public static native void internal_native_deleteNative(long this_addr);
-
     public void SetZero() {
-        internal_native_SetZero(native_address);
     }
-
-    /*[-JNI;-NATIVE]
-Vector2* nativeObject = (Vector2*)this_addr;
-nativeObject->SetZero();
-*/
-    public static native void internal_native_SetZero(long this_addr);
 
     public void IsZero() {
-        internal_native_IsZero(native_address);
     }
-
-    /*[-JNI;-NATIVE]
-Vector2* nativeObject = (Vector2*)this_addr;
-nativeObject->IsZero();
-*/
-    public static native void internal_native_IsZero(long this_addr);
 
     public void IsClose(Vector2 inV, float inMaxDistSq) {
-        internal_native_IsClose(native_address, inV.native_address, inMaxDistSq);
     }
-
-    /*[-JNI;-NATIVE]
-Vector2* nativeObject = (Vector2*)this_addr;
-nativeObject->IsClose(*((Vector2* )inV_addr), (float)inMaxDistSq);
-*/
-    public static native void internal_native_IsClose(long this_addr, long inV_addr, float inMaxDistSq);
 
     public void IsClose(Vector2 inV) {
-        internal_native_IsClose(native_address, inV.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-Vector2* nativeObject = (Vector2*)this_addr;
-nativeObject->IsClose(*((Vector2* )inV_addr));
-*/
-    public static native void internal_native_IsClose(long this_addr, long inV_addr);
 
     public void IsNormalized(float inTolerance) {
-        internal_native_IsNormalized(native_address, inTolerance);
     }
-
-    /*[-JNI;-NATIVE]
-Vector2* nativeObject = (Vector2*)this_addr;
-nativeObject->IsNormalized((float)inTolerance);
-*/
-    public static native void internal_native_IsNormalized(long this_addr, float inTolerance);
 
     public void IsNormalized() {
-        internal_native_IsNormalized(native_address);
     }
-
-    /*[-JNI;-NATIVE]
-Vector2* nativeObject = (Vector2*)this_addr;
-nativeObject->IsNormalized();
-*/
-    public static native void internal_native_IsNormalized(long this_addr);
 
     public Vector2 Normalized() {
-        long addr = internal_native_Normalized_addr(native_address);
-        if (addr == 0)
-            return Vector2.NULL;
-        if (Vector2_TEMP_GEN_0 == null)
-            Vector2_TEMP_GEN_0 = Vector2.native_new();
-        Vector2_TEMP_GEN_0.internal_reset(addr, false);
-        return Vector2_TEMP_GEN_0;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-Vector2* nativeObject = (Vector2*)this_addr;
-static Vector2 copy_addr;
-copy_addr = nativeObject->Normalized();
-return (jlong)&copy_addr;*/
-    public static native long internal_native_Normalized_addr(long this_addr);
 
     public float Dot(Vector2 inRHS) {
-        return internal_native_Dot(native_address, inRHS.native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-Vector2* nativeObject = (Vector2*)this_addr;
-return nativeObject->Dot(*((Vector2* )inRHS_addr));
-*/
-    public static native float internal_native_Dot(long this_addr, long inRHS_addr);
 }

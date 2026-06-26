@@ -8,22 +8,11 @@ package jolt.physics.vehicle;
 
 public class TrackedVehicleController extends VehicleController {
 
-    private VehicleEngine VehicleEngine_TEMP_GEN_0;
-
-    private VehicleTransmission VehicleTransmission_TEMP_GEN_0;
-
     static public final TrackedVehicleController NULL = TrackedVehicleController.native_new();
 
     public TrackedVehicleController(TrackedVehicleControllerSettings inSettings, VehicleConstraint inConstraint) {
         super((byte) 1, (char) 1);
-        long addr = internal_native_create_TrackedVehicleControllerSettings_VehicleConstraint_addr(inSettings.native_address, inConstraint.native_address);
-        internal_reset(addr, true);
     }
-
-    /*[-JNI;-NATIVE]
-return (jlong)new TrackedVehicleController(*((TrackedVehicleControllerSettings* )inSettings_addr), *((VehicleConstraint* )inConstraint_addr));
-*/
-    public static native long internal_native_create_TrackedVehicleControllerSettings_VehicleConstraint_addr(long inSettings_addr, long inConstraint_addr);
 
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
@@ -40,135 +29,42 @@ return (jlong)new TrackedVehicleController(*((TrackedVehicleControllerSettings* 
         return new TrackedVehicleController((byte) 0, (char) 0);
     }
 
-    protected void deleteNative() {
-        internal_native_deleteNative(native_address);
-    }
-
-    /*[-JNI;-NATIVE]
-TrackedVehicleController* nativeObject = (TrackedVehicleController*)this_addr;
-delete nativeObject;
-*/
-    public static native void internal_native_deleteNative(long this_addr);
-
     public void SetDriverInput(float inForward, float inLeftRatio, float inRightRatio, float inBrake) {
-        internal_native_SetDriverInput(native_address, inForward, inLeftRatio, inRightRatio, inBrake);
     }
-
-    /*[-JNI;-NATIVE]
-TrackedVehicleController* nativeObject = (TrackedVehicleController*)this_addr;
-nativeObject->SetDriverInput((float)inForward, (float)inLeftRatio, (float)inRightRatio, (float)inBrake);
-*/
-    public static native void internal_native_SetDriverInput(long this_addr, float inForward, float inLeftRatio, float inRightRatio, float inBrake);
 
     public void SetForwardInput(float inForward) {
-        internal_native_SetForwardInput(native_address, inForward);
     }
-
-    /*[-JNI;-NATIVE]
-TrackedVehicleController* nativeObject = (TrackedVehicleController*)this_addr;
-nativeObject->SetForwardInput((float)inForward);
-*/
-    public static native void internal_native_SetForwardInput(long this_addr, float inForward);
 
     public float GetForwardInput() {
-        return internal_native_GetForwardInput(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-TrackedVehicleController* nativeObject = (TrackedVehicleController*)this_addr;
-return nativeObject->GetForwardInput();
-*/
-    public static native float internal_native_GetForwardInput(long this_addr);
 
     public void SetLeftRatio(float inLeftRatio) {
-        internal_native_SetLeftRatio(native_address, inLeftRatio);
     }
-
-    /*[-JNI;-NATIVE]
-TrackedVehicleController* nativeObject = (TrackedVehicleController*)this_addr;
-nativeObject->SetLeftRatio((float)inLeftRatio);
-*/
-    public static native void internal_native_SetLeftRatio(long this_addr, float inLeftRatio);
 
     public float GetLeftRatio() {
-        return internal_native_GetLeftRatio(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-TrackedVehicleController* nativeObject = (TrackedVehicleController*)this_addr;
-return nativeObject->GetLeftRatio();
-*/
-    public static native float internal_native_GetLeftRatio(long this_addr);
 
     public void SetRightRatio(float inRightRatio) {
-        internal_native_SetRightRatio(native_address, inRightRatio);
     }
-
-    /*[-JNI;-NATIVE]
-TrackedVehicleController* nativeObject = (TrackedVehicleController*)this_addr;
-nativeObject->SetRightRatio((float)inRightRatio);
-*/
-    public static native void internal_native_SetRightRatio(long this_addr, float inRightRatio);
 
     public float GetRightRatio() {
-        return internal_native_GetRightRatio(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-TrackedVehicleController* nativeObject = (TrackedVehicleController*)this_addr;
-return nativeObject->GetRightRatio();
-*/
-    public static native float internal_native_GetRightRatio(long this_addr);
 
     public void SetBrakeInput(float inBrake) {
-        internal_native_SetBrakeInput(native_address, inBrake);
     }
-
-    /*[-JNI;-NATIVE]
-TrackedVehicleController* nativeObject = (TrackedVehicleController*)this_addr;
-nativeObject->SetBrakeInput((float)inBrake);
-*/
-    public static native void internal_native_SetBrakeInput(long this_addr, float inBrake);
 
     public float GetBrakeInput() {
-        return internal_native_GetBrakeInput(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-TrackedVehicleController* nativeObject = (TrackedVehicleController*)this_addr;
-return nativeObject->GetBrakeInput();
-*/
-    public static native float internal_native_GetBrakeInput(long this_addr);
 
     public VehicleEngine GetEngine() {
-        long addr = internal_native_GetEngine_addr(native_address);
-        if (addr == 0)
-            return VehicleEngine.NULL;
-        if (VehicleEngine_TEMP_GEN_0 == null)
-            VehicleEngine_TEMP_GEN_0 = VehicleEngine.native_new();
-        VehicleEngine_TEMP_GEN_0.internal_reset(addr, false);
-        return VehicleEngine_TEMP_GEN_0;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-TrackedVehicleController* nativeObject = (TrackedVehicleController*)this_addr;
-return (jlong)&nativeObject->GetEngine();
-*/
-    public static native long internal_native_GetEngine_addr(long this_addr);
 
     public VehicleTransmission GetTransmission() {
-        long addr = internal_native_GetTransmission_addr(native_address);
-        if (addr == 0)
-            return VehicleTransmission.NULL;
-        if (VehicleTransmission_TEMP_GEN_0 == null)
-            VehicleTransmission_TEMP_GEN_0 = VehicleTransmission.native_new();
-        VehicleTransmission_TEMP_GEN_0.internal_reset(addr, false);
-        return VehicleTransmission_TEMP_GEN_0;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-TrackedVehicleController* nativeObject = (TrackedVehicleController*)this_addr;
-return (jlong)&nativeObject->GetTransmission();
-*/
-    public static native long internal_native_GetTransmission_addr(long this_addr);
 }

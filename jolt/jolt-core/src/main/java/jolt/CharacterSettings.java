@@ -15,14 +15,7 @@ public class CharacterSettings extends CharacterBaseSettings {
 
     public CharacterSettings() {
         super((byte) 1, (char) 1);
-        long addr = internal_native_create_addr();
-        internal_reset(addr, true);
     }
-
-    /*[-JNI;-NATIVE]
-return (jlong)new CharacterSettings();
-*/
-    public static native long internal_native_create_addr();
 
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
@@ -39,120 +32,38 @@ return (jlong)new CharacterSettings();
         return new CharacterSettings((byte) 0, (char) 0);
     }
 
-    protected void deleteNative() {
-        internal_native_deleteNative(native_address);
-    }
-
-    /*[-JNI;-NATIVE]
-CharacterSettings* nativeObject = (CharacterSettings*)this_addr;
-delete nativeObject;
-*/
-    public static native void internal_native_deleteNative(long this_addr);
-
     public int get_mLayer() {
-        return internal_native_get_mLayer(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-CharacterSettings* nativeObject = (CharacterSettings*)this_addr;
-return nativeObject->mLayer;
-*/
-    public static native int internal_native_get_mLayer(long this_addr);
 
     public void set_mLayer(int mLayer) {
-        internal_native_set_mLayer(native_address, mLayer);
     }
-
-    /*[-JNI;-NATIVE]
-CharacterSettings* nativeObject = (CharacterSettings*)this_addr;
-nativeObject->mLayer = mLayer;
-*/
-    public static native void internal_native_set_mLayer(long this_addr, int mLayer);
 
     public float get_mMass() {
-        return internal_native_get_mMass(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-CharacterSettings* nativeObject = (CharacterSettings*)this_addr;
-return nativeObject->mMass;
-*/
-    public static native float internal_native_get_mMass(long this_addr);
 
     public void set_mMass(float mMass) {
-        internal_native_set_mMass(native_address, mMass);
     }
-
-    /*[-JNI;-NATIVE]
-CharacterSettings* nativeObject = (CharacterSettings*)this_addr;
-nativeObject->mMass = mMass;
-*/
-    public static native void internal_native_set_mMass(long this_addr, float mMass);
 
     public float get_mFriction() {
-        return internal_native_get_mFriction(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-CharacterSettings* nativeObject = (CharacterSettings*)this_addr;
-return nativeObject->mFriction;
-*/
-    public static native float internal_native_get_mFriction(long this_addr);
 
     public void set_mFriction(float mFriction) {
-        internal_native_set_mFriction(native_address, mFriction);
     }
-
-    /*[-JNI;-NATIVE]
-CharacterSettings* nativeObject = (CharacterSettings*)this_addr;
-nativeObject->mFriction = mFriction;
-*/
-    public static native void internal_native_set_mFriction(long this_addr, float mFriction);
 
     public float get_mGravityFactor() {
-        return internal_native_get_mGravityFactor(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-CharacterSettings* nativeObject = (CharacterSettings*)this_addr;
-return nativeObject->mGravityFactor;
-*/
-    public static native float internal_native_get_mGravityFactor(long this_addr);
 
     public void set_mGravityFactor(float mGravityFactor) {
-        internal_native_set_mGravityFactor(native_address, mGravityFactor);
     }
-
-    /*[-JNI;-NATIVE]
-CharacterSettings* nativeObject = (CharacterSettings*)this_addr;
-nativeObject->mGravityFactor = mGravityFactor;
-*/
-    public static native void internal_native_set_mGravityFactor(long this_addr, float mGravityFactor);
 
     public EAllowedDOFs get_mAllowedDOFs() {
-        int value = internal_native_get_mAllowedDOFs(native_address);
-        EAllowedDOFs[] values = EAllowedDOFs.values();
-        for (int i = 0; i < values.length; i++) {
-            EAllowedDOFs enumVal = values[i];
-            if (enumVal != EAllowedDOFs.CUSTOM && enumVal.getValue() == value)
-                return enumVal;
-        }
-        return EAllowedDOFs.CUSTOM.setValue(value);
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-CharacterSettings* nativeObject = (CharacterSettings*)this_addr;
-return (jint)nativeObject->mAllowedDOFs;
-*/
-    public static native int internal_native_get_mAllowedDOFs(long this_addr);
 
     public void set_mAllowedDOFs(EAllowedDOFs mAllowedDOFs) {
-        internal_native_set_mAllowedDOFs(native_address, mAllowedDOFs.getValue());
     }
-
-    /*[-JNI;-NATIVE]
-CharacterSettings* nativeObject = (CharacterSettings*)this_addr;
-nativeObject->mAllowedDOFs = (::EAllowedDOFs)mAllowedDOFs;
-*/
-    public static native void internal_native_set_mAllowedDOFs(long this_addr, int mAllowedDOFs);
 }

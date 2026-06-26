@@ -6,9 +6,9 @@
 
 package jolt.physics.constraints;
 
-import com.github.xpenatan.jParser.idl.IDLBase;
+import com.github.xpenatan.jParser.api.NativeObject;
 
-public class ConstraintSettings extends IDLBase {
+public class ConstraintSettings extends NativeObject {
 
     static public final ConstraintSettings NULL = ConstraintSettings.native_new();
 
@@ -26,143 +26,48 @@ public class ConstraintSettings extends IDLBase {
         return new ConstraintSettings((byte) 0, (char) 0);
     }
 
-    protected void deleteNative() {
-        internal_native_deleteNative(native_address);
-    }
-
-    /*[-JNI;-NATIVE]
-ConstraintSettings* nativeObject = (ConstraintSettings*)this_addr;
-delete nativeObject;
-*/
-    public static native void internal_native_deleteNative(long this_addr);
-
     public int GetRefCount() {
-        return internal_native_GetRefCount(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-ConstraintSettings* nativeObject = (ConstraintSettings*)this_addr;
-return nativeObject->GetRefCount();
-*/
-    public static native int internal_native_GetRefCount(long this_addr);
 
     public void AddRef() {
-        internal_native_AddRef(native_address);
     }
-
-    /*[-JNI;-NATIVE]
-ConstraintSettings* nativeObject = (ConstraintSettings*)this_addr;
-nativeObject->AddRef();
-*/
-    public static native void internal_native_AddRef(long this_addr);
 
     public void Release() {
-        internal_native_Release(native_address);
     }
-
-    /*[-JNI;-NATIVE]
-ConstraintSettings* nativeObject = (ConstraintSettings*)this_addr;
-nativeObject->Release();
-*/
-    public static native void internal_native_Release(long this_addr);
 
     public boolean get_mEnabled() {
-        return internal_native_get_mEnabled(native_address);
+        return false;
     }
-
-    /*[-JNI;-NATIVE]
-ConstraintSettings* nativeObject = (ConstraintSettings*)this_addr;
-return nativeObject->mEnabled;
-*/
-    public static native boolean internal_native_get_mEnabled(long this_addr);
 
     public void set_mEnabled(boolean mEnabled) {
-        internal_native_set_mEnabled(native_address, mEnabled);
     }
-
-    /*[-JNI;-NATIVE]
-ConstraintSettings* nativeObject = (ConstraintSettings*)this_addr;
-nativeObject->mEnabled = mEnabled;
-*/
-    public static native void internal_native_set_mEnabled(long this_addr, boolean mEnabled);
 
     public int get_mConstraintPriority() {
-        return internal_native_get_mConstraintPriority(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-ConstraintSettings* nativeObject = (ConstraintSettings*)this_addr;
-return nativeObject->mConstraintPriority;
-*/
-    public static native int internal_native_get_mConstraintPriority(long this_addr);
 
     public void set_mConstraintPriority(int mConstraintPriority) {
-        internal_native_set_mConstraintPriority(native_address, mConstraintPriority);
     }
-
-    /*[-JNI;-NATIVE]
-ConstraintSettings* nativeObject = (ConstraintSettings*)this_addr;
-nativeObject->mConstraintPriority = mConstraintPriority;
-*/
-    public static native void internal_native_set_mConstraintPriority(long this_addr, int mConstraintPriority);
 
     public int get_mNumVelocityStepsOverride() {
-        return internal_native_get_mNumVelocityStepsOverride(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-ConstraintSettings* nativeObject = (ConstraintSettings*)this_addr;
-return nativeObject->mNumVelocityStepsOverride;
-*/
-    public static native int internal_native_get_mNumVelocityStepsOverride(long this_addr);
 
     public void set_mNumVelocityStepsOverride(int mNumVelocityStepsOverride) {
-        internal_native_set_mNumVelocityStepsOverride(native_address, mNumVelocityStepsOverride);
     }
-
-    /*[-JNI;-NATIVE]
-ConstraintSettings* nativeObject = (ConstraintSettings*)this_addr;
-nativeObject->mNumVelocityStepsOverride = mNumVelocityStepsOverride;
-*/
-    public static native void internal_native_set_mNumVelocityStepsOverride(long this_addr, int mNumVelocityStepsOverride);
 
     public int get_mNumPositionStepsOverride() {
-        return internal_native_get_mNumPositionStepsOverride(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-ConstraintSettings* nativeObject = (ConstraintSettings*)this_addr;
-return nativeObject->mNumPositionStepsOverride;
-*/
-    public static native int internal_native_get_mNumPositionStepsOverride(long this_addr);
 
     public void set_mNumPositionStepsOverride(int mNumPositionStepsOverride) {
-        internal_native_set_mNumPositionStepsOverride(native_address, mNumPositionStepsOverride);
     }
-
-    /*[-JNI;-NATIVE]
-ConstraintSettings* nativeObject = (ConstraintSettings*)this_addr;
-nativeObject->mNumPositionStepsOverride = mNumPositionStepsOverride;
-*/
-    public static native void internal_native_set_mNumPositionStepsOverride(long this_addr, int mNumPositionStepsOverride);
 
     public float get_mDrawConstraintSize() {
-        return internal_native_get_mDrawConstraintSize(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-ConstraintSettings* nativeObject = (ConstraintSettings*)this_addr;
-return nativeObject->mDrawConstraintSize;
-*/
-    public static native float internal_native_get_mDrawConstraintSize(long this_addr);
 
     public void set_mDrawConstraintSize(float mDrawConstraintSize) {
-        internal_native_set_mDrawConstraintSize(native_address, mDrawConstraintSize);
     }
-
-    /*[-JNI;-NATIVE]
-ConstraintSettings* nativeObject = (ConstraintSettings*)this_addr;
-nativeObject->mDrawConstraintSize = mDrawConstraintSize;
-*/
-    public static native void internal_native_set_mDrawConstraintSize(long this_addr, float mDrawConstraintSize);
 }

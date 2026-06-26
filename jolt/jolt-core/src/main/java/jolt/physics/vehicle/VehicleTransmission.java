@@ -25,63 +25,22 @@ public class VehicleTransmission extends VehicleTransmissionSettings {
         return new VehicleTransmission((byte) 0, (char) 0);
     }
 
-    protected void deleteNative() {
-        internal_native_deleteNative(native_address);
-    }
-
-    /*[-JNI;-NATIVE]
-VehicleTransmission* nativeObject = (VehicleTransmission*)this_addr;
-delete nativeObject;
-*/
-    public static native void internal_native_deleteNative(long this_addr);
-
     public void Set(int inCurrentGear, float inClutchFriction) {
-        internal_native_Set(native_address, inCurrentGear, inClutchFriction);
     }
-
-    /*[-JNI;-NATIVE]
-VehicleTransmission* nativeObject = (VehicleTransmission*)this_addr;
-nativeObject->Set((int)inCurrentGear, (float)inClutchFriction);
-*/
-    public static native void internal_native_Set(long this_addr, int inCurrentGear, float inClutchFriction);
 
     public int GetCurrentGear() {
-        return internal_native_GetCurrentGear(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-VehicleTransmission* nativeObject = (VehicleTransmission*)this_addr;
-return nativeObject->GetCurrentGear();
-*/
-    public static native int internal_native_GetCurrentGear(long this_addr);
 
     public float GetClutchFriction() {
-        return internal_native_GetClutchFriction(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-VehicleTransmission* nativeObject = (VehicleTransmission*)this_addr;
-return nativeObject->GetClutchFriction();
-*/
-    public static native float internal_native_GetClutchFriction(long this_addr);
 
     public boolean IsSwitchingGear() {
-        return internal_native_IsSwitchingGear(native_address);
+        return false;
     }
-
-    /*[-JNI;-NATIVE]
-VehicleTransmission* nativeObject = (VehicleTransmission*)this_addr;
-return nativeObject->IsSwitchingGear();
-*/
-    public static native boolean internal_native_IsSwitchingGear(long this_addr);
 
     public float GetCurrentRatio() {
-        return internal_native_GetCurrentRatio(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-VehicleTransmission* nativeObject = (VehicleTransmission*)this_addr;
-return nativeObject->GetCurrentRatio();
-*/
-    public static native float internal_native_GetCurrentRatio(long this_addr);
 }

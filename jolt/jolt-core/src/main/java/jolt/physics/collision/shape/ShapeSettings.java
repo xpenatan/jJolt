@@ -10,8 +10,6 @@ import jolt.core.RefTargetShapeSettings;
 
 public class ShapeSettings extends RefTargetShapeSettings {
 
-    private ShapeResult ShapeResult_TEMP_GEN_0;
-
     static public final ShapeSettings NULL = ShapeSettings.native_new();
 
     /**
@@ -30,79 +28,26 @@ public class ShapeSettings extends RefTargetShapeSettings {
     }
 
     public int GetRefCount() {
-        return internal_native_GetRefCount(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-ShapeSettings* nativeObject = (ShapeSettings*)this_addr;
-return nativeObject->GetRefCount();
-*/
-    public static native int internal_native_GetRefCount(long this_addr);
 
     public void AddRef() {
-        internal_native_AddRef(native_address);
     }
-
-    /*[-JNI;-NATIVE]
-ShapeSettings* nativeObject = (ShapeSettings*)this_addr;
-nativeObject->AddRef();
-*/
-    public static native void internal_native_AddRef(long this_addr);
 
     public void Release() {
-        internal_native_Release(native_address);
     }
-
-    /*[-JNI;-NATIVE]
-ShapeSettings* nativeObject = (ShapeSettings*)this_addr;
-nativeObject->Release();
-*/
-    public static native void internal_native_Release(long this_addr);
 
     public ShapeResult Create() {
-        long addr = internal_native_Create_addr(native_address);
-        if (addr == 0)
-            return ShapeResult.NULL;
-        if (ShapeResult_TEMP_GEN_0 == null)
-            ShapeResult_TEMP_GEN_0 = ShapeResult.native_new();
-        ShapeResult_TEMP_GEN_0.internal_reset(addr, false);
-        return ShapeResult_TEMP_GEN_0;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-ShapeSettings* nativeObject = (ShapeSettings*)this_addr;
-static Shape::ShapeResult copy_addr;
-copy_addr = nativeObject->Create();
-return (jlong)&copy_addr;*/
-    public static native long internal_native_Create_addr(long this_addr);
 
     public void ClearCachedResult() {
-        internal_native_ClearCachedResult(native_address);
     }
-
-    /*[-JNI;-NATIVE]
-ShapeSettings* nativeObject = (ShapeSettings*)this_addr;
-nativeObject->ClearCachedResult();
-*/
-    public static native void internal_native_ClearCachedResult(long this_addr);
 
     public long get_mUserData() {
-        return internal_native_get_mUserData(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-ShapeSettings* nativeObject = (ShapeSettings*)this_addr;
-return nativeObject->mUserData;
-*/
-    public static native long internal_native_get_mUserData(long this_addr);
 
     public void set_mUserData(long mUserData) {
-        internal_native_set_mUserData(native_address, mUserData);
     }
-
-    /*[-JNI;-NATIVE]
-ShapeSettings* nativeObject = (ShapeSettings*)this_addr;
-nativeObject->mUserData = mUserData;
-*/
-    public static native void internal_native_set_mUserData(long this_addr, long mUserData);
 }

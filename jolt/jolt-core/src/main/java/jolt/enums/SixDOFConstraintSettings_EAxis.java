@@ -6,9 +6,9 @@
 
 package jolt.enums;
 
-import com.github.xpenatan.jParser.idl.IDLEnum;
+import com.github.xpenatan.jParser.api.NativeEnum;
 
-public enum SixDOFConstraintSettings_EAxis implements IDLEnum<SixDOFConstraintSettings_EAxis> {
+public enum SixDOFConstraintSettings_EAxis implements NativeEnum<SixDOFConstraintSettings_EAxis> {
 
     CUSTOM(0),
     TranslationX(SixDOFConstraintSettings_EAxis_TranslationX_NATIVE()),
@@ -40,33 +40,15 @@ public enum SixDOFConstraintSettings_EAxis implements IDLEnum<SixDOFConstraintSe
         return CUSTOM;
     }
 
-    /*[-JNI;-NATIVE]
-return (jlong)SixDOFConstraintSettings_EAxis_TranslationX;
-*/
     private static native int SixDOFConstraintSettings_EAxis_TranslationX_NATIVE();
 
-    /*[-JNI;-NATIVE]
-return (jlong)SixDOFConstraintSettings_EAxis_TranslationY;
-*/
     private static native int SixDOFConstraintSettings_EAxis_TranslationY_NATIVE();
 
-    /*[-JNI;-NATIVE]
-return (jlong)SixDOFConstraintSettings_EAxis_TranslationZ;
-*/
     private static native int SixDOFConstraintSettings_EAxis_TranslationZ_NATIVE();
 
-    /*[-JNI;-NATIVE]
-return (jlong)SixDOFConstraintSettings_EAxis_RotationX;
-*/
     private static native int SixDOFConstraintSettings_EAxis_RotationX_NATIVE();
 
-    /*[-JNI;-NATIVE]
-return (jlong)SixDOFConstraintSettings_EAxis_RotationY;
-*/
     private static native int SixDOFConstraintSettings_EAxis_RotationY_NATIVE();
 
-    /*[-JNI;-NATIVE]
-return (jlong)SixDOFConstraintSettings_EAxis_RotationZ;
-*/
     private static native int SixDOFConstraintSettings_EAxis_RotationZ_NATIVE();
 }

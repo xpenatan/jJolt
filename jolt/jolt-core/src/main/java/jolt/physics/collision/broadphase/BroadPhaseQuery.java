@@ -6,7 +6,7 @@
 
 package jolt.physics.collision.broadphase;
 
-import com.github.xpenatan.jParser.idl.IDLBase;
+import com.github.xpenatan.jParser.api.NativeObject;
 import jolt.physics.collision.RayCast;
 import jolt.physics.softbody.RayCastBodyCollector;
 import jolt.physics.collision.ObjectLayerFilter;
@@ -17,7 +17,7 @@ import jolt.geometry.OrientedBox;
 import jolt.physics.collision.AABoxCast;
 import jolt.physics.softbody.CastShapeBodyCollector;
 
-public class BroadPhaseQuery extends IDLBase {
+public class BroadPhaseQuery extends NativeObject {
 
     static public final BroadPhaseQuery NULL = BroadPhaseQuery.native_new();
 
@@ -35,193 +35,57 @@ public class BroadPhaseQuery extends IDLBase {
         return new BroadPhaseQuery((byte) 0, (char) 0);
     }
 
-    protected void deleteNative() {
-        internal_native_deleteNative(native_address);
-    }
-
-    /*[-JNI;-NATIVE]
-BroadPhaseQuery* nativeObject = (BroadPhaseQuery*)this_addr;
-delete nativeObject;
-*/
-    public static native void internal_native_deleteNative(long this_addr);
-
     public void CastRay(RayCast inRay, RayCastBodyCollector ioCollector, BroadPhaseLayerFilter inBroadPhaseFilter, ObjectLayerFilter inObjectLayerFilter) {
-        internal_native_CastRay(native_address, inRay.native_address, ioCollector.native_address, inBroadPhaseFilter.native_address, inObjectLayerFilter.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-BroadPhaseQuery* nativeObject = (BroadPhaseQuery*)this_addr;
-nativeObject->CastRay(*((RayCast* )inRay_addr), *((RayCastBodyCollector* )ioCollector_addr), *((BroadPhaseLayerFilter* )inBroadPhaseFilter_addr), *((ObjectLayerFilter* )inObjectLayerFilter_addr));
-*/
-    public static native void internal_native_CastRay(long this_addr, long inRay_addr, long ioCollector_addr, long inBroadPhaseFilter_addr, long inObjectLayerFilter_addr);
 
     public void CastRay(RayCast inRay, RayCastBodyCollector ioCollector, BroadPhaseLayerFilter inBroadPhaseFilter) {
-        internal_native_CastRay(native_address, inRay.native_address, ioCollector.native_address, inBroadPhaseFilter.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-BroadPhaseQuery* nativeObject = (BroadPhaseQuery*)this_addr;
-nativeObject->CastRay(*((RayCast* )inRay_addr), *((RayCastBodyCollector* )ioCollector_addr), *((BroadPhaseLayerFilter* )inBroadPhaseFilter_addr));
-*/
-    public static native void internal_native_CastRay(long this_addr, long inRay_addr, long ioCollector_addr, long inBroadPhaseFilter_addr);
 
     public void CastRay(RayCast inRay, RayCastBodyCollector ioCollector) {
-        internal_native_CastRay(native_address, inRay.native_address, ioCollector.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-BroadPhaseQuery* nativeObject = (BroadPhaseQuery*)this_addr;
-nativeObject->CastRay(*((RayCast* )inRay_addr), *((RayCastBodyCollector* )ioCollector_addr));
-*/
-    public static native void internal_native_CastRay(long this_addr, long inRay_addr, long ioCollector_addr);
 
     public void CollideAABox(AABox inBox, CollideShapeBodyCollector ioCollector, BroadPhaseLayerFilter inBroadPhaseFilter, ObjectLayerFilter inObjectLayerFilter) {
-        internal_native_CollideAABox(native_address, inBox.native_address, ioCollector.native_address, inBroadPhaseFilter.native_address, inObjectLayerFilter.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-BroadPhaseQuery* nativeObject = (BroadPhaseQuery*)this_addr;
-nativeObject->CollideAABox(*((AABox* )inBox_addr), *((CollideShapeBodyCollector* )ioCollector_addr), *((BroadPhaseLayerFilter* )inBroadPhaseFilter_addr), *((ObjectLayerFilter* )inObjectLayerFilter_addr));
-*/
-    public static native void internal_native_CollideAABox(long this_addr, long inBox_addr, long ioCollector_addr, long inBroadPhaseFilter_addr, long inObjectLayerFilter_addr);
 
     public void CollideAABox(AABox inBox, CollideShapeBodyCollector ioCollector, BroadPhaseLayerFilter inBroadPhaseFilter) {
-        internal_native_CollideAABox(native_address, inBox.native_address, ioCollector.native_address, inBroadPhaseFilter.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-BroadPhaseQuery* nativeObject = (BroadPhaseQuery*)this_addr;
-nativeObject->CollideAABox(*((AABox* )inBox_addr), *((CollideShapeBodyCollector* )ioCollector_addr), *((BroadPhaseLayerFilter* )inBroadPhaseFilter_addr));
-*/
-    public static native void internal_native_CollideAABox(long this_addr, long inBox_addr, long ioCollector_addr, long inBroadPhaseFilter_addr);
 
     public void CollideAABox(AABox inBox, CollideShapeBodyCollector ioCollector) {
-        internal_native_CollideAABox(native_address, inBox.native_address, ioCollector.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-BroadPhaseQuery* nativeObject = (BroadPhaseQuery*)this_addr;
-nativeObject->CollideAABox(*((AABox* )inBox_addr), *((CollideShapeBodyCollector* )ioCollector_addr));
-*/
-    public static native void internal_native_CollideAABox(long this_addr, long inBox_addr, long ioCollector_addr);
 
     public void CollideSphere(Vec3 inCenter, float inRadius, CollideShapeBodyCollector ioCollector, BroadPhaseLayerFilter inBroadPhaseLayerFilter, ObjectLayerFilter inObjectLayerFilter) {
-        internal_native_CollideSphere(native_address, inCenter.native_address, inRadius, ioCollector.native_address, inBroadPhaseLayerFilter.native_address, inObjectLayerFilter.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-BroadPhaseQuery* nativeObject = (BroadPhaseQuery*)this_addr;
-nativeObject->CollideSphere(*((Vec3* )inCenter_addr), (float)inRadius, *((CollideShapeBodyCollector* )ioCollector_addr), *((BroadPhaseLayerFilter* )inBroadPhaseLayerFilter_addr), *((ObjectLayerFilter* )inObjectLayerFilter_addr));
-*/
-    public static native void internal_native_CollideSphere(long this_addr, long inCenter_addr, float inRadius, long ioCollector_addr, long inBroadPhaseLayerFilter_addr, long inObjectLayerFilter_addr);
 
     public void CollideSphere(Vec3 inCenter, float inRadius, CollideShapeBodyCollector ioCollector, BroadPhaseLayerFilter inBroadPhaseLayerFilter) {
-        internal_native_CollideSphere(native_address, inCenter.native_address, inRadius, ioCollector.native_address, inBroadPhaseLayerFilter.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-BroadPhaseQuery* nativeObject = (BroadPhaseQuery*)this_addr;
-nativeObject->CollideSphere(*((Vec3* )inCenter_addr), (float)inRadius, *((CollideShapeBodyCollector* )ioCollector_addr), *((BroadPhaseLayerFilter* )inBroadPhaseLayerFilter_addr));
-*/
-    public static native void internal_native_CollideSphere(long this_addr, long inCenter_addr, float inRadius, long ioCollector_addr, long inBroadPhaseLayerFilter_addr);
 
     public void CollideSphere(Vec3 inCenter, float inRadius, CollideShapeBodyCollector ioCollector) {
-        internal_native_CollideSphere(native_address, inCenter.native_address, inRadius, ioCollector.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-BroadPhaseQuery* nativeObject = (BroadPhaseQuery*)this_addr;
-nativeObject->CollideSphere(*((Vec3* )inCenter_addr), (float)inRadius, *((CollideShapeBodyCollector* )ioCollector_addr));
-*/
-    public static native void internal_native_CollideSphere(long this_addr, long inCenter_addr, float inRadius, long ioCollector_addr);
 
     public void CollidePoint(Vec3 inPoint, CollideShapeBodyCollector ioCollector, BroadPhaseLayerFilter inBroadPhaseFilter, ObjectLayerFilter inObjectLayerFilter) {
-        internal_native_CollidePoint(native_address, inPoint.native_address, ioCollector.native_address, inBroadPhaseFilter.native_address, inObjectLayerFilter.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-BroadPhaseQuery* nativeObject = (BroadPhaseQuery*)this_addr;
-nativeObject->CollidePoint(*((Vec3* )inPoint_addr), *((CollideShapeBodyCollector* )ioCollector_addr), *((BroadPhaseLayerFilter* )inBroadPhaseFilter_addr), *((ObjectLayerFilter* )inObjectLayerFilter_addr));
-*/
-    public static native void internal_native_CollidePoint(long this_addr, long inPoint_addr, long ioCollector_addr, long inBroadPhaseFilter_addr, long inObjectLayerFilter_addr);
 
     public void CollidePoint(Vec3 inPoint, CollideShapeBodyCollector ioCollector, BroadPhaseLayerFilter inBroadPhaseFilter) {
-        internal_native_CollidePoint(native_address, inPoint.native_address, ioCollector.native_address, inBroadPhaseFilter.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-BroadPhaseQuery* nativeObject = (BroadPhaseQuery*)this_addr;
-nativeObject->CollidePoint(*((Vec3* )inPoint_addr), *((CollideShapeBodyCollector* )ioCollector_addr), *((BroadPhaseLayerFilter* )inBroadPhaseFilter_addr));
-*/
-    public static native void internal_native_CollidePoint(long this_addr, long inPoint_addr, long ioCollector_addr, long inBroadPhaseFilter_addr);
 
     public void CollidePoint(Vec3 inPoint, CollideShapeBodyCollector ioCollector) {
-        internal_native_CollidePoint(native_address, inPoint.native_address, ioCollector.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-BroadPhaseQuery* nativeObject = (BroadPhaseQuery*)this_addr;
-nativeObject->CollidePoint(*((Vec3* )inPoint_addr), *((CollideShapeBodyCollector* )ioCollector_addr));
-*/
-    public static native void internal_native_CollidePoint(long this_addr, long inPoint_addr, long ioCollector_addr);
 
     public void CollideOrientedBox(OrientedBox inBox, CollideShapeBodyCollector ioCollector, BroadPhaseLayerFilter inBroadPhaseFilter, ObjectLayerFilter inObjectLayerFilter) {
-        internal_native_CollideOrientedBox(native_address, inBox.native_address, ioCollector.native_address, inBroadPhaseFilter.native_address, inObjectLayerFilter.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-BroadPhaseQuery* nativeObject = (BroadPhaseQuery*)this_addr;
-nativeObject->CollideOrientedBox(*((OrientedBox* )inBox_addr), *((CollideShapeBodyCollector* )ioCollector_addr), *((BroadPhaseLayerFilter* )inBroadPhaseFilter_addr), *((ObjectLayerFilter* )inObjectLayerFilter_addr));
-*/
-    public static native void internal_native_CollideOrientedBox(long this_addr, long inBox_addr, long ioCollector_addr, long inBroadPhaseFilter_addr, long inObjectLayerFilter_addr);
 
     public void CollideOrientedBox(OrientedBox inBox, CollideShapeBodyCollector ioCollector, BroadPhaseLayerFilter inBroadPhaseFilter) {
-        internal_native_CollideOrientedBox(native_address, inBox.native_address, ioCollector.native_address, inBroadPhaseFilter.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-BroadPhaseQuery* nativeObject = (BroadPhaseQuery*)this_addr;
-nativeObject->CollideOrientedBox(*((OrientedBox* )inBox_addr), *((CollideShapeBodyCollector* )ioCollector_addr), *((BroadPhaseLayerFilter* )inBroadPhaseFilter_addr));
-*/
-    public static native void internal_native_CollideOrientedBox(long this_addr, long inBox_addr, long ioCollector_addr, long inBroadPhaseFilter_addr);
 
     public void CollideOrientedBox(OrientedBox inBox, CollideShapeBodyCollector ioCollector) {
-        internal_native_CollideOrientedBox(native_address, inBox.native_address, ioCollector.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-BroadPhaseQuery* nativeObject = (BroadPhaseQuery*)this_addr;
-nativeObject->CollideOrientedBox(*((OrientedBox* )inBox_addr), *((CollideShapeBodyCollector* )ioCollector_addr));
-*/
-    public static native void internal_native_CollideOrientedBox(long this_addr, long inBox_addr, long ioCollector_addr);
 
     public void CastAABox(AABoxCast inBox, CastShapeBodyCollector ioCollector, BroadPhaseLayerFilter inBroadPhaseFilter, ObjectLayerFilter inObjectLayerFilter) {
-        internal_native_CastAABox(native_address, inBox.native_address, ioCollector.native_address, inBroadPhaseFilter.native_address, inObjectLayerFilter.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-BroadPhaseQuery* nativeObject = (BroadPhaseQuery*)this_addr;
-nativeObject->CastAABox(*((AABoxCast* )inBox_addr), *((CastShapeBodyCollector* )ioCollector_addr), *((BroadPhaseLayerFilter* )inBroadPhaseFilter_addr), *((ObjectLayerFilter* )inObjectLayerFilter_addr));
-*/
-    public static native void internal_native_CastAABox(long this_addr, long inBox_addr, long ioCollector_addr, long inBroadPhaseFilter_addr, long inObjectLayerFilter_addr);
 
     public void CastAABox(AABoxCast inBox, CastShapeBodyCollector ioCollector, BroadPhaseLayerFilter inBroadPhaseFilter) {
-        internal_native_CastAABox(native_address, inBox.native_address, ioCollector.native_address, inBroadPhaseFilter.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-BroadPhaseQuery* nativeObject = (BroadPhaseQuery*)this_addr;
-nativeObject->CastAABox(*((AABoxCast* )inBox_addr), *((CastShapeBodyCollector* )ioCollector_addr), *((BroadPhaseLayerFilter* )inBroadPhaseFilter_addr));
-*/
-    public static native void internal_native_CastAABox(long this_addr, long inBox_addr, long ioCollector_addr, long inBroadPhaseFilter_addr);
 
     public void CastAABox(AABoxCast inBox, CastShapeBodyCollector ioCollector) {
-        internal_native_CastAABox(native_address, inBox.native_address, ioCollector.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-BroadPhaseQuery* nativeObject = (BroadPhaseQuery*)this_addr;
-nativeObject->CastAABox(*((AABoxCast* )inBox_addr), *((CastShapeBodyCollector* )ioCollector_addr));
-*/
-    public static native void internal_native_CastAABox(long this_addr, long inBox_addr, long ioCollector_addr);
 }

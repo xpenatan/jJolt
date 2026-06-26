@@ -6,9 +6,9 @@
 
 package jolt.physics.constraints;
 
-import com.github.xpenatan.jParser.idl.IDLBase;
+import com.github.xpenatan.jParser.api.NativeObject;
 
-public class PathConstraintPath extends IDLBase {
+public class PathConstraintPath extends NativeObject {
 
     static public final PathConstraintPath NULL = PathConstraintPath.native_new();
 
@@ -26,63 +26,20 @@ public class PathConstraintPath extends IDLBase {
         return new PathConstraintPath((byte) 0, (char) 0);
     }
 
-    protected void deleteNative() {
-        internal_native_deleteNative(native_address);
-    }
-
-    /*[-JNI;-NATIVE]
-PathConstraintPath* nativeObject = (PathConstraintPath*)this_addr;
-delete nativeObject;
-*/
-    public static native void internal_native_deleteNative(long this_addr);
-
     public boolean IsLooping() {
-        return internal_native_IsLooping(native_address);
+        return false;
     }
-
-    /*[-JNI;-NATIVE]
-PathConstraintPath* nativeObject = (PathConstraintPath*)this_addr;
-return nativeObject->IsLooping();
-*/
-    public static native boolean internal_native_IsLooping(long this_addr);
 
     public void SetIsLooping(boolean inIsLooping) {
-        internal_native_SetIsLooping(native_address, inIsLooping);
     }
-
-    /*[-JNI;-NATIVE]
-PathConstraintPath* nativeObject = (PathConstraintPath*)this_addr;
-nativeObject->SetIsLooping(inIsLooping);
-*/
-    public static native void internal_native_SetIsLooping(long this_addr, boolean inIsLooping);
 
     public int GetRefCount() {
-        return internal_native_GetRefCount(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-PathConstraintPath* nativeObject = (PathConstraintPath*)this_addr;
-return nativeObject->GetRefCount();
-*/
-    public static native int internal_native_GetRefCount(long this_addr);
 
     public void AddRef() {
-        internal_native_AddRef(native_address);
     }
-
-    /*[-JNI;-NATIVE]
-PathConstraintPath* nativeObject = (PathConstraintPath*)this_addr;
-nativeObject->AddRef();
-*/
-    public static native void internal_native_AddRef(long this_addr);
 
     public void Release() {
-        internal_native_Release(native_address);
     }
-
-    /*[-JNI;-NATIVE]
-PathConstraintPath* nativeObject = (PathConstraintPath*)this_addr;
-nativeObject->Release();
-*/
-    public static native void internal_native_Release(long this_addr);
 }

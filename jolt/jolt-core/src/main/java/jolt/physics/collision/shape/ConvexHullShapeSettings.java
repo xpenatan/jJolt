@@ -11,53 +11,23 @@ import jolt.physics.collision.PhysicsMaterial;
 
 public class ConvexHullShapeSettings extends ConvexShapeSettings {
 
-    private ArrayVec3 ArrayVec3_TEMP_GEN_0;
-
     static public final ConvexHullShapeSettings NULL = ConvexHullShapeSettings.native_new();
 
     public ConvexHullShapeSettings() {
         super((byte) 1, (char) 1);
-        long addr = internal_native_create_addr();
-        internal_reset(addr, true);
     }
-
-    /*[-JNI;-NATIVE]
-return (jlong)new ConvexHullShapeSettings();
-*/
-    public static native long internal_native_create_addr();
 
     public ConvexHullShapeSettings(ArrayVec3 inPoints, float inConvexRadius, PhysicsMaterial inMaterial) {
         super((byte) 1, (char) 1);
-        long addr = internal_native_create_ArrayVec3_float_PhysicsMaterial_addr(inPoints.native_address, inConvexRadius, inMaterial.native_address);
-        internal_reset(addr, true);
     }
-
-    /*[-JNI;-NATIVE]
-return (jlong)new ConvexHullShapeSettings(*((ArrayVec3* )inPoints_addr), (float)inConvexRadius, (PhysicsMaterial* )inMaterial_addr);
-*/
-    public static native long internal_native_create_ArrayVec3_float_PhysicsMaterial_addr(long inPoints_addr, float inConvexRadius, long inMaterial_addr);
 
     public ConvexHullShapeSettings(ArrayVec3 inPoints, float inConvexRadius) {
         super((byte) 1, (char) 1);
-        long addr = internal_native_create_ArrayVec3_float_addr(inPoints.native_address, inConvexRadius);
-        internal_reset(addr, true);
     }
-
-    /*[-JNI;-NATIVE]
-return (jlong)new ConvexHullShapeSettings(*((ArrayVec3* )inPoints_addr), (float)inConvexRadius);
-*/
-    public static native long internal_native_create_ArrayVec3_float_addr(long inPoints_addr, float inConvexRadius);
 
     public ConvexHullShapeSettings(ArrayVec3 inPoints) {
         super((byte) 1, (char) 1);
-        long addr = internal_native_create_ArrayVec3_addr(inPoints.native_address);
-        internal_reset(addr, true);
     }
-
-    /*[-JNI;-NATIVE]
-return (jlong)new ConvexHullShapeSettings(*((ArrayVec3* )inPoints_addr));
-*/
-    public static native long internal_native_create_ArrayVec3_addr(long inPoints_addr);
 
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
@@ -74,99 +44,31 @@ return (jlong)new ConvexHullShapeSettings(*((ArrayVec3* )inPoints_addr));
         return new ConvexHullShapeSettings((byte) 0, (char) 0);
     }
 
-    protected void deleteNative() {
-        internal_native_deleteNative(native_address);
-    }
-
-    /*[-JNI;-NATIVE]
-ConvexHullShapeSettings* nativeObject = (ConvexHullShapeSettings*)this_addr;
-delete nativeObject;
-*/
-    public static native void internal_native_deleteNative(long this_addr);
-
     public ArrayVec3 get_mPoints() {
-        long addr = internal_native_get_mPoints_addr(native_address);
-        if (addr == 0)
-            return ArrayVec3.NULL;
-        if (ArrayVec3_TEMP_GEN_0 == null)
-            ArrayVec3_TEMP_GEN_0 = ArrayVec3.native_new();
-        ArrayVec3_TEMP_GEN_0.internal_reset(addr, false);
-        return ArrayVec3_TEMP_GEN_0;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-ConvexHullShapeSettings* nativeObject = (ConvexHullShapeSettings*)this_addr;
-return (jlong)&nativeObject->mPoints;
-*/
-    public static native long internal_native_get_mPoints_addr(long this_addr);
 
     public void set_mPoints(ArrayVec3 mPoints) {
-        internal_native_set_mPoints(native_address, mPoints.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-ConvexHullShapeSettings* nativeObject = (ConvexHullShapeSettings*)this_addr;
-nativeObject->mPoints = *((ArrayVec3*)mPoints_addr);
-*/
-    public static native void internal_native_set_mPoints(long this_addr, long mPoints_addr);
 
     public float get_mMaxConvexRadius() {
-        return internal_native_get_mMaxConvexRadius(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-ConvexHullShapeSettings* nativeObject = (ConvexHullShapeSettings*)this_addr;
-return nativeObject->mMaxConvexRadius;
-*/
-    public static native float internal_native_get_mMaxConvexRadius(long this_addr);
 
     public void set_mMaxConvexRadius(float mMaxConvexRadius) {
-        internal_native_set_mMaxConvexRadius(native_address, mMaxConvexRadius);
     }
-
-    /*[-JNI;-NATIVE]
-ConvexHullShapeSettings* nativeObject = (ConvexHullShapeSettings*)this_addr;
-nativeObject->mMaxConvexRadius = mMaxConvexRadius;
-*/
-    public static native void internal_native_set_mMaxConvexRadius(long this_addr, float mMaxConvexRadius);
 
     public float get_mMaxErrorConvexRadius() {
-        return internal_native_get_mMaxErrorConvexRadius(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-ConvexHullShapeSettings* nativeObject = (ConvexHullShapeSettings*)this_addr;
-return nativeObject->mMaxErrorConvexRadius;
-*/
-    public static native float internal_native_get_mMaxErrorConvexRadius(long this_addr);
 
     public void set_mMaxErrorConvexRadius(float mMaxErrorConvexRadius) {
-        internal_native_set_mMaxErrorConvexRadius(native_address, mMaxErrorConvexRadius);
     }
-
-    /*[-JNI;-NATIVE]
-ConvexHullShapeSettings* nativeObject = (ConvexHullShapeSettings*)this_addr;
-nativeObject->mMaxErrorConvexRadius = mMaxErrorConvexRadius;
-*/
-    public static native void internal_native_set_mMaxErrorConvexRadius(long this_addr, float mMaxErrorConvexRadius);
 
     public float get_mHullTolerance() {
-        return internal_native_get_mHullTolerance(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-ConvexHullShapeSettings* nativeObject = (ConvexHullShapeSettings*)this_addr;
-return nativeObject->mHullTolerance;
-*/
-    public static native float internal_native_get_mHullTolerance(long this_addr);
 
     public void set_mHullTolerance(float mHullTolerance) {
-        internal_native_set_mHullTolerance(native_address, mHullTolerance);
     }
-
-    /*[-JNI;-NATIVE]
-ConvexHullShapeSettings* nativeObject = (ConvexHullShapeSettings*)this_addr;
-nativeObject->mHullTolerance = mHullTolerance;
-*/
-    public static native void internal_native_set_mHullTolerance(long this_addr, float mHullTolerance);
 }

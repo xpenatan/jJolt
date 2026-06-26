@@ -26,22 +26,9 @@ public class GearConstraint extends TwoBodyConstraint {
     }
 
     public void SetConstraints(Constraint inGear1, Constraint inGear2) {
-        internal_native_SetConstraints(native_address, inGear1.native_address, inGear2.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-GearConstraint* nativeObject = (GearConstraint*)this_addr;
-nativeObject->SetConstraints((Constraint* )inGear1_addr, (Constraint* )inGear2_addr);
-*/
-    public static native void internal_native_SetConstraints(long this_addr, long inGear1_addr, long inGear2_addr);
 
     public float GetTotalLambda() {
-        return internal_native_GetTotalLambda(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-GearConstraint* nativeObject = (GearConstraint*)this_addr;
-return nativeObject->GetTotalLambda();
-*/
-    public static native float internal_native_GetTotalLambda(long this_addr);
 }

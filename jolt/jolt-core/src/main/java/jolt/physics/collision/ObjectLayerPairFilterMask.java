@@ -12,14 +12,7 @@ public class ObjectLayerPairFilterMask extends ObjectLayerPairFilter {
 
     public ObjectLayerPairFilterMask() {
         super((byte) 1, (char) 1);
-        long addr = internal_native_create_addr();
-        internal_reset(addr, true);
     }
-
-    /*[-JNI;-NATIVE]
-return (jlong)new ObjectLayerPairFilterMask();
-*/
-    public static native long internal_native_create_addr();
 
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
@@ -36,40 +29,15 @@ return (jlong)new ObjectLayerPairFilterMask();
         return new ObjectLayerPairFilterMask((byte) 0, (char) 0);
     }
 
-    protected void deleteNative() {
-        internal_native_deleteNative(native_address);
-    }
-
-    /*[-JNI;-NATIVE]
-ObjectLayerPairFilterMask* nativeObject = (ObjectLayerPairFilterMask*)this_addr;
-delete nativeObject;
-*/
-    public static native void internal_native_deleteNative(long this_addr);
-
     public static int sGetObjectLayer(int inGroup, int inMask) {
-        return internal_native_sGetObjectLayer(inGroup, inMask);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-return ObjectLayerPairFilterMask::sGetObjectLayer(inGroup, inMask);
-*/
-    public static native int internal_native_sGetObjectLayer(int inGroup, int inMask);
 
     public static int sGetGroup(int inObjectLayer) {
-        return internal_native_sGetGroup(inObjectLayer);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-return ObjectLayerPairFilterMask::sGetGroup(inObjectLayer);
-*/
-    public static native int internal_native_sGetGroup(int inObjectLayer);
 
     public static int sGetMask(int inObjectLayer) {
-        return internal_native_sGetMask(inObjectLayer);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-return ObjectLayerPairFilterMask::sGetMask(inObjectLayer);
-*/
-    public static native int internal_native_sGetMask(int inObjectLayer);
 }

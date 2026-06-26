@@ -6,23 +6,14 @@
 
 package jolt.physics.raddoll;
 
-import com.github.xpenatan.jParser.idl.IDLBase;
+import com.github.xpenatan.jParser.api.NativeObject;
 
-public class ArrayRagdollAdditionalConstraint extends IDLBase {
-
-    private RagdollAdditionalConstraint RagdollAdditionalConstraint_TEMP_GEN_0;
+public class ArrayRagdollAdditionalConstraint extends NativeObject {
 
     static public final ArrayRagdollAdditionalConstraint NULL = ArrayRagdollAdditionalConstraint.native_new();
 
     public ArrayRagdollAdditionalConstraint() {
-        long addr = internal_native_create_addr();
-        internal_reset(addr, true);
     }
-
-    /*[-JNI;-NATIVE]
-return (jlong)new ArrayRagdollAdditionalConstraint();
-*/
-    public static native long internal_native_create_addr();
 
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
@@ -38,89 +29,27 @@ return (jlong)new ArrayRagdollAdditionalConstraint();
         return new ArrayRagdollAdditionalConstraint((byte) 0, (char) 0);
     }
 
-    protected void deleteNative() {
-        internal_native_deleteNative(native_address);
-    }
-
-    /*[-JNI;-NATIVE]
-ArrayRagdollAdditionalConstraint* nativeObject = (ArrayRagdollAdditionalConstraint*)this_addr;
-delete nativeObject;
-*/
-    public static native void internal_native_deleteNative(long this_addr);
-
     public boolean empty() {
-        return internal_native_empty(native_address);
+        return false;
     }
-
-    /*[-JNI;-NATIVE]
-ArrayRagdollAdditionalConstraint* nativeObject = (ArrayRagdollAdditionalConstraint*)this_addr;
-return nativeObject->empty();
-*/
-    public static native boolean internal_native_empty(long this_addr);
 
     public int size() {
-        return internal_native_size(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-ArrayRagdollAdditionalConstraint* nativeObject = (ArrayRagdollAdditionalConstraint*)this_addr;
-return nativeObject->size();
-*/
-    public static native int internal_native_size(long this_addr);
 
     public RagdollAdditionalConstraint at(int inIndex) {
-        long addr = internal_native_at_addr(native_address, inIndex);
-        if (addr == 0)
-            return RagdollAdditionalConstraint.NULL;
-        if (RagdollAdditionalConstraint_TEMP_GEN_0 == null)
-            RagdollAdditionalConstraint_TEMP_GEN_0 = RagdollAdditionalConstraint.native_new();
-        RagdollAdditionalConstraint_TEMP_GEN_0.internal_reset(addr, false);
-        return RagdollAdditionalConstraint_TEMP_GEN_0;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-ArrayRagdollAdditionalConstraint* nativeObject = (ArrayRagdollAdditionalConstraint*)this_addr;
-return (jlong)&nativeObject->at((int)inIndex);
-*/
-    public static native long internal_native_at_addr(long this_addr, int inIndex);
 
     public void push_back(RagdollAdditionalConstraint inValue) {
-        internal_native_push_back(native_address, inValue.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-ArrayRagdollAdditionalConstraint* nativeObject = (ArrayRagdollAdditionalConstraint*)this_addr;
-nativeObject->push_back(*((RagdollAdditionalConstraint* )inValue_addr));
-*/
-    public static native void internal_native_push_back(long this_addr, long inValue_addr);
 
     public void reserve(int inSize) {
-        internal_native_reserve(native_address, inSize);
     }
-
-    /*[-JNI;-NATIVE]
-ArrayRagdollAdditionalConstraint* nativeObject = (ArrayRagdollAdditionalConstraint*)this_addr;
-nativeObject->reserve(inSize);
-*/
-    public static native void internal_native_reserve(long this_addr, int inSize);
 
     public void resize(int inSize) {
-        internal_native_resize(native_address, inSize);
     }
-
-    /*[-JNI;-NATIVE]
-ArrayRagdollAdditionalConstraint* nativeObject = (ArrayRagdollAdditionalConstraint*)this_addr;
-nativeObject->resize(inSize);
-*/
-    public static native void internal_native_resize(long this_addr, int inSize);
 
     public void clear() {
-        internal_native_clear(native_address);
     }
-
-    /*[-JNI;-NATIVE]
-ArrayRagdollAdditionalConstraint* nativeObject = (ArrayRagdollAdditionalConstraint*)this_addr;
-nativeObject->clear();
-*/
-    public static native void internal_native_clear(long this_addr);
 }

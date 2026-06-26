@@ -6,43 +6,20 @@
 
 package jolt.physics.constraints;
 
-import com.github.xpenatan.jParser.idl.IDLBase;
+import com.github.xpenatan.jParser.api.NativeObject;
 
-public class MotorSettings extends IDLBase {
-
-    private SpringSettings SpringSettings_TEMP_GEN_0;
+public class MotorSettings extends NativeObject {
 
     static public final MotorSettings NULL = MotorSettings.native_new();
 
     public MotorSettings() {
-        long addr = internal_native_create_addr();
-        internal_reset(addr, true);
     }
-
-    /*[-JNI;-NATIVE]
-return (jlong)new MotorSettings();
-*/
-    public static native long internal_native_create_addr();
 
     public MotorSettings(float inFrequency, float inDamping) {
-        long addr = internal_native_create_float_float_addr(inFrequency, inDamping);
-        internal_reset(addr, true);
     }
-
-    /*[-JNI;-NATIVE]
-return (jlong)new MotorSettings((float)inFrequency, (float)inDamping);
-*/
-    public static native long internal_native_create_float_float_addr(float inFrequency, float inDamping);
 
     public MotorSettings(float inFrequency, float inDamping, float inForceLimit, float inTorqueLimit) {
-        long addr = internal_native_create_float_float_float_float_addr(inFrequency, inDamping, inForceLimit, inTorqueLimit);
-        internal_reset(addr, true);
     }
-
-    /*[-JNI;-NATIVE]
-return (jlong)new MotorSettings((float)inFrequency, (float)inDamping, (float)inForceLimit, (float)inTorqueLimit);
-*/
-    public static native long internal_native_create_float_float_float_float_addr(float inFrequency, float inDamping, float inForceLimit, float inTorqueLimit);
 
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
@@ -58,119 +35,38 @@ return (jlong)new MotorSettings((float)inFrequency, (float)inDamping, (float)inF
         return new MotorSettings((byte) 0, (char) 0);
     }
 
-    protected void deleteNative() {
-        internal_native_deleteNative(native_address);
-    }
-
-    /*[-JNI;-NATIVE]
-MotorSettings* nativeObject = (MotorSettings*)this_addr;
-delete nativeObject;
-*/
-    public static native void internal_native_deleteNative(long this_addr);
-
     public SpringSettings get_mSpringSettings() {
-        long addr = internal_native_get_mSpringSettings_addr(native_address);
-        if (addr == 0)
-            return SpringSettings.NULL;
-        if (SpringSettings_TEMP_GEN_0 == null)
-            SpringSettings_TEMP_GEN_0 = SpringSettings.native_new();
-        SpringSettings_TEMP_GEN_0.internal_reset(addr, false);
-        return SpringSettings_TEMP_GEN_0;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-MotorSettings* nativeObject = (MotorSettings*)this_addr;
-return (jlong)&nativeObject->mSpringSettings;
-*/
-    public static native long internal_native_get_mSpringSettings_addr(long this_addr);
 
     public void set_mSpringSettings(SpringSettings mSpringSettings) {
-        internal_native_set_mSpringSettings(native_address, mSpringSettings.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-MotorSettings* nativeObject = (MotorSettings*)this_addr;
-nativeObject->mSpringSettings = *((SpringSettings*)mSpringSettings_addr);
-*/
-    public static native void internal_native_set_mSpringSettings(long this_addr, long mSpringSettings_addr);
 
     public float get_mMinForceLimit() {
-        return internal_native_get_mMinForceLimit(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-MotorSettings* nativeObject = (MotorSettings*)this_addr;
-return nativeObject->mMinForceLimit;
-*/
-    public static native float internal_native_get_mMinForceLimit(long this_addr);
 
     public void set_mMinForceLimit(float mMinForceLimit) {
-        internal_native_set_mMinForceLimit(native_address, mMinForceLimit);
     }
-
-    /*[-JNI;-NATIVE]
-MotorSettings* nativeObject = (MotorSettings*)this_addr;
-nativeObject->mMinForceLimit = mMinForceLimit;
-*/
-    public static native void internal_native_set_mMinForceLimit(long this_addr, float mMinForceLimit);
 
     public float get_mMaxForceLimit() {
-        return internal_native_get_mMaxForceLimit(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-MotorSettings* nativeObject = (MotorSettings*)this_addr;
-return nativeObject->mMaxForceLimit;
-*/
-    public static native float internal_native_get_mMaxForceLimit(long this_addr);
 
     public void set_mMaxForceLimit(float mMaxForceLimit) {
-        internal_native_set_mMaxForceLimit(native_address, mMaxForceLimit);
     }
-
-    /*[-JNI;-NATIVE]
-MotorSettings* nativeObject = (MotorSettings*)this_addr;
-nativeObject->mMaxForceLimit = mMaxForceLimit;
-*/
-    public static native void internal_native_set_mMaxForceLimit(long this_addr, float mMaxForceLimit);
 
     public float get_mMinTorqueLimit() {
-        return internal_native_get_mMinTorqueLimit(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-MotorSettings* nativeObject = (MotorSettings*)this_addr;
-return nativeObject->mMinTorqueLimit;
-*/
-    public static native float internal_native_get_mMinTorqueLimit(long this_addr);
 
     public void set_mMinTorqueLimit(float mMinTorqueLimit) {
-        internal_native_set_mMinTorqueLimit(native_address, mMinTorqueLimit);
     }
-
-    /*[-JNI;-NATIVE]
-MotorSettings* nativeObject = (MotorSettings*)this_addr;
-nativeObject->mMinTorqueLimit = mMinTorqueLimit;
-*/
-    public static native void internal_native_set_mMinTorqueLimit(long this_addr, float mMinTorqueLimit);
 
     public float get_mMaxTorqueLimit() {
-        return internal_native_get_mMaxTorqueLimit(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-MotorSettings* nativeObject = (MotorSettings*)this_addr;
-return nativeObject->mMaxTorqueLimit;
-*/
-    public static native float internal_native_get_mMaxTorqueLimit(long this_addr);
 
     public void set_mMaxTorqueLimit(float mMaxTorqueLimit) {
-        internal_native_set_mMaxTorqueLimit(native_address, mMaxTorqueLimit);
     }
-
-    /*[-JNI;-NATIVE]
-MotorSettings* nativeObject = (MotorSettings*)this_addr;
-nativeObject->mMaxTorqueLimit = mMaxTorqueLimit;
-*/
-    public static native void internal_native_set_mMaxTorqueLimit(long this_addr, float mMaxTorqueLimit);
 }

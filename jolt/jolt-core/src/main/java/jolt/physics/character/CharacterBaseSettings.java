@@ -6,18 +6,12 @@
 
 package jolt.physics.character;
 
-import com.github.xpenatan.jParser.idl.IDLBase;
+import com.github.xpenatan.jParser.api.NativeObject;
 import jolt.math.Vec3;
 import jolt.geometry.Plane;
 import jolt.physics.collision.shape.Shape;
 
-public class CharacterBaseSettings extends IDLBase {
-
-    private Vec3 Vec3_TEMP_GEN_0;
-
-    private Plane Plane_TEMP_GEN_0;
-
-    private Shape Shape_TEMP_GEN_0;
+public class CharacterBaseSettings extends NativeObject {
 
     static public final CharacterBaseSettings NULL = CharacterBaseSettings.native_new();
 
@@ -36,151 +30,47 @@ public class CharacterBaseSettings extends IDLBase {
     }
 
     public int GetRefCount() {
-        return internal_native_GetRefCount(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-CharacterBaseSettings* nativeObject = (CharacterBaseSettings*)this_addr;
-return nativeObject->GetRefCount();
-*/
-    public static native int internal_native_GetRefCount(long this_addr);
 
     public void AddRef() {
-        internal_native_AddRef(native_address);
     }
-
-    /*[-JNI;-NATIVE]
-CharacterBaseSettings* nativeObject = (CharacterBaseSettings*)this_addr;
-nativeObject->AddRef();
-*/
-    public static native void internal_native_AddRef(long this_addr);
 
     public void Release() {
-        internal_native_Release(native_address);
     }
-
-    /*[-JNI;-NATIVE]
-CharacterBaseSettings* nativeObject = (CharacterBaseSettings*)this_addr;
-nativeObject->Release();
-*/
-    public static native void internal_native_Release(long this_addr);
 
     public Vec3 get_mUp() {
-        long addr = internal_native_get_mUp_addr(native_address);
-        if (addr == 0)
-            return Vec3.NULL;
-        if (Vec3_TEMP_GEN_0 == null)
-            Vec3_TEMP_GEN_0 = Vec3.native_new();
-        Vec3_TEMP_GEN_0.internal_reset(addr, false);
-        return Vec3_TEMP_GEN_0;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-CharacterBaseSettings* nativeObject = (CharacterBaseSettings*)this_addr;
-return (jlong)&nativeObject->mUp;
-*/
-    public static native long internal_native_get_mUp_addr(long this_addr);
 
     public void set_mUp(Vec3 mUp) {
-        internal_native_set_mUp(native_address, mUp.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-CharacterBaseSettings* nativeObject = (CharacterBaseSettings*)this_addr;
-nativeObject->mUp = *((Vec3*)mUp_addr);
-*/
-    public static native void internal_native_set_mUp(long this_addr, long mUp_addr);
 
     public Plane get_mSupportingVolume() {
-        long addr = internal_native_get_mSupportingVolume_addr(native_address);
-        if (addr == 0)
-            return Plane.NULL;
-        if (Plane_TEMP_GEN_0 == null)
-            Plane_TEMP_GEN_0 = Plane.native_new();
-        Plane_TEMP_GEN_0.internal_reset(addr, false);
-        return Plane_TEMP_GEN_0;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-CharacterBaseSettings* nativeObject = (CharacterBaseSettings*)this_addr;
-return (jlong)&nativeObject->mSupportingVolume;
-*/
-    public static native long internal_native_get_mSupportingVolume_addr(long this_addr);
 
     public void set_mSupportingVolume(Plane mSupportingVolume) {
-        internal_native_set_mSupportingVolume(native_address, mSupportingVolume.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-CharacterBaseSettings* nativeObject = (CharacterBaseSettings*)this_addr;
-nativeObject->mSupportingVolume = *((Plane*)mSupportingVolume_addr);
-*/
-    public static native void internal_native_set_mSupportingVolume(long this_addr, long mSupportingVolume_addr);
 
     public float get_mMaxSlopeAngle() {
-        return internal_native_get_mMaxSlopeAngle(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-CharacterBaseSettings* nativeObject = (CharacterBaseSettings*)this_addr;
-return nativeObject->mMaxSlopeAngle;
-*/
-    public static native float internal_native_get_mMaxSlopeAngle(long this_addr);
 
     public void set_mMaxSlopeAngle(float mMaxSlopeAngle) {
-        internal_native_set_mMaxSlopeAngle(native_address, mMaxSlopeAngle);
     }
-
-    /*[-JNI;-NATIVE]
-CharacterBaseSettings* nativeObject = (CharacterBaseSettings*)this_addr;
-nativeObject->mMaxSlopeAngle = mMaxSlopeAngle;
-*/
-    public static native void internal_native_set_mMaxSlopeAngle(long this_addr, float mMaxSlopeAngle);
 
     public boolean get_mEnhancedInternalEdgeRemoval() {
-        return internal_native_get_mEnhancedInternalEdgeRemoval(native_address);
+        return false;
     }
-
-    /*[-JNI;-NATIVE]
-CharacterBaseSettings* nativeObject = (CharacterBaseSettings*)this_addr;
-return nativeObject->mEnhancedInternalEdgeRemoval;
-*/
-    public static native boolean internal_native_get_mEnhancedInternalEdgeRemoval(long this_addr);
 
     public void set_mEnhancedInternalEdgeRemoval(boolean mEnhancedInternalEdgeRemoval) {
-        internal_native_set_mEnhancedInternalEdgeRemoval(native_address, mEnhancedInternalEdgeRemoval);
     }
-
-    /*[-JNI;-NATIVE]
-CharacterBaseSettings* nativeObject = (CharacterBaseSettings*)this_addr;
-nativeObject->mEnhancedInternalEdgeRemoval = mEnhancedInternalEdgeRemoval;
-*/
-    public static native void internal_native_set_mEnhancedInternalEdgeRemoval(long this_addr, boolean mEnhancedInternalEdgeRemoval);
 
     public Shape get_mShape() {
-        long addr = internal_native_get_mShape_addr(native_address);
-        if (addr == 0)
-            return Shape.NULL;
-        if (Shape_TEMP_GEN_0 == null)
-            Shape_TEMP_GEN_0 = Shape.native_new();
-        Shape_TEMP_GEN_0.internal_reset(addr, false);
-        return Shape_TEMP_GEN_0;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-CharacterBaseSettings* nativeObject = (CharacterBaseSettings*)this_addr;
-const Shape* attr = nativeObject->mShape;
-return (jlong)attr;
-*/
-    public static native long internal_native_get_mShape_addr(long this_addr);
 
     public void set_mShape(Shape mShape) {
-        internal_native_set_mShape(native_address, mShape.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-CharacterBaseSettings* nativeObject = (CharacterBaseSettings*)this_addr;
-nativeObject->mShape = (Shape*)mShape_addr;
-*/
-    public static native void internal_native_set_mShape(long this_addr, long mShape_addr);
 }

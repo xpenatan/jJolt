@@ -6,11 +6,11 @@
 
 package jolt.physics.constraints;
 
-import com.github.xpenatan.jParser.idl.IDLBase;
+import com.github.xpenatan.jParser.api.NativeObject;
 import jolt.enums.EConstraintType;
 import jolt.enums.EConstraintSubType;
 
-public class Constraint extends IDLBase {
+public class Constraint extends NativeObject {
 
     static public final Constraint NULL = Constraint.native_new();
 
@@ -29,186 +29,62 @@ public class Constraint extends IDLBase {
     }
 
     public int GetRefCount() {
-        return internal_native_GetRefCount(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-Constraint* nativeObject = (Constraint*)this_addr;
-return nativeObject->GetRefCount();
-*/
-    public static native int internal_native_GetRefCount(long this_addr);
 
     public void AddRef() {
-        internal_native_AddRef(native_address);
     }
-
-    /*[-JNI;-NATIVE]
-Constraint* nativeObject = (Constraint*)this_addr;
-nativeObject->AddRef();
-*/
-    public static native void internal_native_AddRef(long this_addr);
 
     public void Release() {
-        internal_native_Release(native_address);
     }
-
-    /*[-JNI;-NATIVE]
-Constraint* nativeObject = (Constraint*)this_addr;
-nativeObject->Release();
-*/
-    public static native void internal_native_Release(long this_addr);
 
     public EConstraintType GetType() {
-        int value = internal_native_GetType(native_address);
-        EConstraintType[] values = EConstraintType.values();
-        for (int i = 0; i < values.length; i++) {
-            EConstraintType enumVal = values[i];
-            if (enumVal != EConstraintType.CUSTOM && enumVal.getValue() == value)
-                return enumVal;
-        }
-        return EConstraintType.CUSTOM.setValue(value);
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-Constraint* nativeObject = (Constraint*)this_addr;
-return (int)nativeObject->GetType();
-*/
-    public static native int internal_native_GetType(long this_addr);
 
     public EConstraintSubType GetSubType() {
-        int value = internal_native_GetSubType(native_address);
-        EConstraintSubType[] values = EConstraintSubType.values();
-        for (int i = 0; i < values.length; i++) {
-            EConstraintSubType enumVal = values[i];
-            if (enumVal != EConstraintSubType.CUSTOM && enumVal.getValue() == value)
-                return enumVal;
-        }
-        return EConstraintSubType.CUSTOM.setValue(value);
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-Constraint* nativeObject = (Constraint*)this_addr;
-return (int)nativeObject->GetSubType();
-*/
-    public static native int internal_native_GetSubType(long this_addr);
 
     public int GetConstraintPriority() {
-        return internal_native_GetConstraintPriority(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-Constraint* nativeObject = (Constraint*)this_addr;
-return nativeObject->GetConstraintPriority();
-*/
-    public static native int internal_native_GetConstraintPriority(long this_addr);
 
     public void SetConstraintPriority(int inPriority) {
-        internal_native_SetConstraintPriority(native_address, inPriority);
     }
-
-    /*[-JNI;-NATIVE]
-Constraint* nativeObject = (Constraint*)this_addr;
-nativeObject->SetConstraintPriority(inPriority);
-*/
-    public static native void internal_native_SetConstraintPriority(long this_addr, int inPriority);
 
     public void SetNumVelocityStepsOverride(int inN) {
-        internal_native_SetNumVelocityStepsOverride(native_address, inN);
     }
-
-    /*[-JNI;-NATIVE]
-Constraint* nativeObject = (Constraint*)this_addr;
-nativeObject->SetNumVelocityStepsOverride((int)inN);
-*/
-    public static native void internal_native_SetNumVelocityStepsOverride(long this_addr, int inN);
 
     public int GetNumVelocityStepsOverride() {
-        return internal_native_GetNumVelocityStepsOverride(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-Constraint* nativeObject = (Constraint*)this_addr;
-return nativeObject->GetNumVelocityStepsOverride();
-*/
-    public static native int internal_native_GetNumVelocityStepsOverride(long this_addr);
 
     public void SetNumPositionStepsOverride(int inN) {
-        internal_native_SetNumPositionStepsOverride(native_address, inN);
     }
-
-    /*[-JNI;-NATIVE]
-Constraint* nativeObject = (Constraint*)this_addr;
-nativeObject->SetNumPositionStepsOverride((int)inN);
-*/
-    public static native void internal_native_SetNumPositionStepsOverride(long this_addr, int inN);
 
     public int GetNumPositionStepsOverride() {
-        return internal_native_GetNumPositionStepsOverride(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-Constraint* nativeObject = (Constraint*)this_addr;
-return nativeObject->GetNumPositionStepsOverride();
-*/
-    public static native int internal_native_GetNumPositionStepsOverride(long this_addr);
 
     public void SetEnabled(boolean inEnabled) {
-        internal_native_SetEnabled(native_address, inEnabled);
     }
-
-    /*[-JNI;-NATIVE]
-Constraint* nativeObject = (Constraint*)this_addr;
-nativeObject->SetEnabled(inEnabled);
-*/
-    public static native void internal_native_SetEnabled(long this_addr, boolean inEnabled);
 
     public boolean GetEnabled() {
-        return internal_native_GetEnabled(native_address);
+        return false;
     }
-
-    /*[-JNI;-NATIVE]
-Constraint* nativeObject = (Constraint*)this_addr;
-return nativeObject->GetEnabled();
-*/
-    public static native boolean internal_native_GetEnabled(long this_addr);
 
     public boolean IsActive() {
-        return internal_native_IsActive(native_address);
+        return false;
     }
-
-    /*[-JNI;-NATIVE]
-Constraint* nativeObject = (Constraint*)this_addr;
-return nativeObject->IsActive();
-*/
-    public static native boolean internal_native_IsActive(long this_addr);
 
     public long GetUserData() {
-        return internal_native_GetUserData(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-Constraint* nativeObject = (Constraint*)this_addr;
-return nativeObject->GetUserData();
-*/
-    public static native long internal_native_GetUserData(long this_addr);
 
     public void SetUserData(long inUserData) {
-        internal_native_SetUserData(native_address, inUserData);
     }
-
-    /*[-JNI;-NATIVE]
-Constraint* nativeObject = (Constraint*)this_addr;
-nativeObject->SetUserData(inUserData);
-*/
-    public static native void internal_native_SetUserData(long this_addr, long inUserData);
 
     public void ResetWarmStart() {
-        internal_native_ResetWarmStart(native_address);
     }
-
-    /*[-JNI;-NATIVE]
-Constraint* nativeObject = (Constraint*)this_addr;
-nativeObject->ResetWarmStart();
-*/
-    public static native void internal_native_ResetWarmStart(long this_addr);
 }

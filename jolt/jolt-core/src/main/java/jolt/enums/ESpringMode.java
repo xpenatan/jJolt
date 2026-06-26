@@ -6,9 +6,9 @@
 
 package jolt.enums;
 
-import com.github.xpenatan.jParser.idl.IDLEnum;
+import com.github.xpenatan.jParser.api.NativeEnum;
 
-public enum ESpringMode implements IDLEnum<ESpringMode> {
+public enum ESpringMode implements NativeEnum<ESpringMode> {
 
     CUSTOM(0), FrequencyAndDamping(ESpringMode_FrequencyAndDamping_NATIVE()), StiffnessAndDamping(ESpringMode_StiffnessAndDamping_NATIVE());
 
@@ -34,13 +34,7 @@ public enum ESpringMode implements IDLEnum<ESpringMode> {
         return CUSTOM;
     }
 
-    /*[-JNI;-NATIVE]
-return (jlong)ESpringMode_FrequencyAndDamping;
-*/
     private static native int ESpringMode_FrequencyAndDamping_NATIVE();
 
-    /*[-JNI;-NATIVE]
-return (jlong)ESpringMode_StiffnessAndDamping;
-*/
     private static native int ESpringMode_StiffnessAndDamping_NATIVE();
 }

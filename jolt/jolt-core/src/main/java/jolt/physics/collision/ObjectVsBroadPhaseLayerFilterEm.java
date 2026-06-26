@@ -15,28 +15,9 @@ public class ObjectVsBroadPhaseLayerFilterEm extends ObjectVsBroadPhaseLayerFilt
 
     static public final ObjectVsBroadPhaseLayerFilterEm NULL = ObjectVsBroadPhaseLayerFilterEm.native_new();
 
-    /*[-JNI;-NATIVE]
-	static jmethodID ObjectVsBroadPhaseLayerFilterJS_ShouldCollideIJ_ID;
-
-class ObjectVsBroadPhaseLayerFilterJS : public ObjectVsBroadPhaseLayerFilterEm {
-private:
-	JNIEnv* env;
-	jobject obj;
-public:
-void setupCallback(JNIEnv* env, jobject obj) {
-	this->env = env;
-	this->obj = env->NewGlobalRef(obj);
-	static jclass jClassID = 0;
-	if(jClassID == 0) {
-		jClassID = (jclass)env->NewGlobalRef(env->GetObjectClass(obj));
-		ObjectVsBroadPhaseLayerFilterJS_ShouldCollideIJ_ID = env->GetMethodID(jClassID, "internal_ShouldCollide", "(IJ)Z");
-	}
-}
-virtual bool ShouldCollide(unsigned int inLayer1, BroadPhaseLayer* inLayer2) const {
-   return env->CallBooleanMethod(obj, ObjectVsBroadPhaseLayerFilterJS_ShouldCollideIJ_ID, inLayer1, (jlong)inLayer2);
-}
-};
-*/
+    /**
+     * Dummy constructor, used internally to creates objects without C++ pointer
+     */
     @Deprecated()
     protected ObjectVsBroadPhaseLayerFilterEm(byte b, char c) {
         super((byte) 1, (char) 1);
@@ -49,16 +30,6 @@ virtual bool ShouldCollide(unsigned int inLayer1, BroadPhaseLayer* inLayer2) con
         return new ObjectVsBroadPhaseLayerFilterEm((byte) 0, (char) 0);
     }
 
-    protected void deleteNative() {
-        internal_native_deleteNative(native_address);
-    }
-
-    /*[-JNI;-NATIVE]
-ObjectVsBroadPhaseLayerFilterJS* nativeObject = (ObjectVsBroadPhaseLayerFilterJS*)this_addr;
-delete nativeObject;
-*/
-    public static native void internal_native_deleteNative(long this_addr);
-
     public ObjectVsBroadPhaseLayerFilterEm() {
         super((byte) 1, (char) 1);
         long addr = internal_native_create_addr();
@@ -67,7 +38,6 @@ delete nativeObject;
     }
 
     private void setupCallback() {
-        internal_native_setupCallback(native_address);
     }
 
     protected boolean ShouldCollide(int inLayer1, BroadPhaseLayer inLayer2) {
@@ -81,14 +51,5 @@ delete nativeObject;
         return ShouldCollide(inLayer1, BroadPhaseLayer_TEMP_STATIC_GEN_0);
     }
 
-    /*[-JNI;-NATIVE]
-return (jlong)new ObjectVsBroadPhaseLayerFilterJS();
-*/
     public static native long internal_native_create_addr();
-
-    /*[-JNI;-NATIVE]
-ObjectVsBroadPhaseLayerFilterJS* nativeObject = (ObjectVsBroadPhaseLayerFilterJS*)this_addr;
-nativeObject->setupCallback(env, object);
-*/
-    public native void internal_native_setupCallback(long this_addr);
 }

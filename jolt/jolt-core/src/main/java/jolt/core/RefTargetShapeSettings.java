@@ -6,9 +6,9 @@
 
 package jolt.core;
 
-import com.github.xpenatan.jParser.idl.IDLBase;
+import com.github.xpenatan.jParser.api.NativeObject;
 
-public class RefTargetShapeSettings extends IDLBase {
+public class RefTargetShapeSettings extends NativeObject {
 
     static public final RefTargetShapeSettings NULL = RefTargetShapeSettings.native_new();
 
@@ -27,12 +27,5 @@ public class RefTargetShapeSettings extends IDLBase {
     }
 
     public void SetEmbedded() {
-        internal_native_SetEmbedded(native_address);
     }
-
-    /*[-JNI;-NATIVE]
-RefTargetShapeSettings* nativeObject = (RefTargetShapeSettings*)this_addr;
-nativeObject->SetEmbedded();
-*/
-    public static native void internal_native_SetEmbedded(long this_addr);
 }

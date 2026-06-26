@@ -12,28 +12,6 @@ import jolt.enums.EMotorState;
 
 public class SwingTwistConstraint extends TwoBodyConstraint {
 
-    private Vec3 Vec3_TEMP_GEN_0;
-
-    private Vec3 Vec3_TEMP_GEN_1;
-
-    private Quat Quat_TEMP_GEN_0;
-
-    private Quat Quat_TEMP_GEN_1;
-
-    private MotorSettings MotorSettings_TEMP_GEN_0;
-
-    private MotorSettings MotorSettings_TEMP_GEN_1;
-
-    private Vec3 Vec3_TEMP_GEN_2;
-
-    private Quat Quat_TEMP_GEN_2;
-
-    private Quat Quat_TEMP_GEN_3;
-
-    private Vec3 Vec3_TEMP_GEN_3;
-
-    private Vec3 Vec3_TEMP_GEN_4;
-
     static public final SwingTwistConstraint NULL = SwingTwistConstraint.native_new();
 
     /**
@@ -52,401 +30,116 @@ public class SwingTwistConstraint extends TwoBodyConstraint {
     }
 
     public Vec3 GetLocalSpacePosition1() {
-        long addr = internal_native_GetLocalSpacePosition1_addr(native_address);
-        if (addr == 0)
-            return Vec3.NULL;
-        if (Vec3_TEMP_GEN_0 == null)
-            Vec3_TEMP_GEN_0 = Vec3.native_new();
-        Vec3_TEMP_GEN_0.internal_reset(addr, false);
-        return Vec3_TEMP_GEN_0;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-SwingTwistConstraint* nativeObject = (SwingTwistConstraint*)this_addr;
-static Vec3 copy_addr;
-copy_addr = nativeObject->GetLocalSpacePosition1();
-return (jlong)&copy_addr;*/
-    public static native long internal_native_GetLocalSpacePosition1_addr(long this_addr);
 
     public Vec3 GetLocalSpacePosition2() {
-        long addr = internal_native_GetLocalSpacePosition2_addr(native_address);
-        if (addr == 0)
-            return Vec3.NULL;
-        if (Vec3_TEMP_GEN_1 == null)
-            Vec3_TEMP_GEN_1 = Vec3.native_new();
-        Vec3_TEMP_GEN_1.internal_reset(addr, false);
-        return Vec3_TEMP_GEN_1;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-SwingTwistConstraint* nativeObject = (SwingTwistConstraint*)this_addr;
-static Vec3 copy_addr;
-copy_addr = nativeObject->GetLocalSpacePosition2();
-return (jlong)&copy_addr;*/
-    public static native long internal_native_GetLocalSpacePosition2_addr(long this_addr);
 
     public Quat GetConstraintToBody1() {
-        long addr = internal_native_GetConstraintToBody1_addr(native_address);
-        if (addr == 0)
-            return Quat.NULL;
-        if (Quat_TEMP_GEN_0 == null)
-            Quat_TEMP_GEN_0 = Quat.native_new();
-        Quat_TEMP_GEN_0.internal_reset(addr, false);
-        return Quat_TEMP_GEN_0;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-SwingTwistConstraint* nativeObject = (SwingTwistConstraint*)this_addr;
-static Quat copy_addr;
-copy_addr = nativeObject->GetConstraintToBody1();
-return (jlong)&copy_addr;*/
-    public static native long internal_native_GetConstraintToBody1_addr(long this_addr);
 
     public Quat GetConstraintToBody2() {
-        long addr = internal_native_GetConstraintToBody2_addr(native_address);
-        if (addr == 0)
-            return Quat.NULL;
-        if (Quat_TEMP_GEN_1 == null)
-            Quat_TEMP_GEN_1 = Quat.native_new();
-        Quat_TEMP_GEN_1.internal_reset(addr, false);
-        return Quat_TEMP_GEN_1;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-SwingTwistConstraint* nativeObject = (SwingTwistConstraint*)this_addr;
-static Quat copy_addr;
-copy_addr = nativeObject->GetConstraintToBody2();
-return (jlong)&copy_addr;*/
-    public static native long internal_native_GetConstraintToBody2_addr(long this_addr);
 
     public float GetNormalHalfConeAngle() {
-        return internal_native_GetNormalHalfConeAngle(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-SwingTwistConstraint* nativeObject = (SwingTwistConstraint*)this_addr;
-return nativeObject->GetNormalHalfConeAngle();
-*/
-    public static native float internal_native_GetNormalHalfConeAngle(long this_addr);
 
     public void SetNormalHalfConeAngle(float inAngle) {
-        internal_native_SetNormalHalfConeAngle(native_address, inAngle);
     }
-
-    /*[-JNI;-NATIVE]
-SwingTwistConstraint* nativeObject = (SwingTwistConstraint*)this_addr;
-nativeObject->SetNormalHalfConeAngle((float)inAngle);
-*/
-    public static native void internal_native_SetNormalHalfConeAngle(long this_addr, float inAngle);
 
     public float GetPlaneHalfConeAngle() {
-        return internal_native_GetPlaneHalfConeAngle(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-SwingTwistConstraint* nativeObject = (SwingTwistConstraint*)this_addr;
-return nativeObject->GetPlaneHalfConeAngle();
-*/
-    public static native float internal_native_GetPlaneHalfConeAngle(long this_addr);
 
     public void SetPlaneHalfConeAngle(float inAngle) {
-        internal_native_SetPlaneHalfConeAngle(native_address, inAngle);
     }
-
-    /*[-JNI;-NATIVE]
-SwingTwistConstraint* nativeObject = (SwingTwistConstraint*)this_addr;
-nativeObject->SetPlaneHalfConeAngle((float)inAngle);
-*/
-    public static native void internal_native_SetPlaneHalfConeAngle(long this_addr, float inAngle);
 
     public float GetTwistMinAngle() {
-        return internal_native_GetTwistMinAngle(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-SwingTwistConstraint* nativeObject = (SwingTwistConstraint*)this_addr;
-return nativeObject->GetTwistMinAngle();
-*/
-    public static native float internal_native_GetTwistMinAngle(long this_addr);
 
     public void SetTwistMinAngle(float inAngle) {
-        internal_native_SetTwistMinAngle(native_address, inAngle);
     }
-
-    /*[-JNI;-NATIVE]
-SwingTwistConstraint* nativeObject = (SwingTwistConstraint*)this_addr;
-nativeObject->SetTwistMinAngle((float)inAngle);
-*/
-    public static native void internal_native_SetTwistMinAngle(long this_addr, float inAngle);
 
     public float GetTwistMaxAngle() {
-        return internal_native_GetTwistMaxAngle(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-SwingTwistConstraint* nativeObject = (SwingTwistConstraint*)this_addr;
-return nativeObject->GetTwistMaxAngle();
-*/
-    public static native float internal_native_GetTwistMaxAngle(long this_addr);
 
     public void SetTwistMaxAngle(float inAngle) {
-        internal_native_SetTwistMaxAngle(native_address, inAngle);
     }
-
-    /*[-JNI;-NATIVE]
-SwingTwistConstraint* nativeObject = (SwingTwistConstraint*)this_addr;
-nativeObject->SetTwistMaxAngle((float)inAngle);
-*/
-    public static native void internal_native_SetTwistMaxAngle(long this_addr, float inAngle);
 
     public MotorSettings GetSwingMotorSettings() {
-        long addr = internal_native_GetSwingMotorSettings_addr(native_address);
-        if (addr == 0)
-            return MotorSettings.NULL;
-        if (MotorSettings_TEMP_GEN_0 == null)
-            MotorSettings_TEMP_GEN_0 = MotorSettings.native_new();
-        MotorSettings_TEMP_GEN_0.internal_reset(addr, false);
-        return MotorSettings_TEMP_GEN_0;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-SwingTwistConstraint* nativeObject = (SwingTwistConstraint*)this_addr;
-return (jlong)&nativeObject->GetSwingMotorSettings();
-*/
-    public static native long internal_native_GetSwingMotorSettings_addr(long this_addr);
 
     public MotorSettings GetTwistMotorSettings() {
-        long addr = internal_native_GetTwistMotorSettings_addr(native_address);
-        if (addr == 0)
-            return MotorSettings.NULL;
-        if (MotorSettings_TEMP_GEN_1 == null)
-            MotorSettings_TEMP_GEN_1 = MotorSettings.native_new();
-        MotorSettings_TEMP_GEN_1.internal_reset(addr, false);
-        return MotorSettings_TEMP_GEN_1;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-SwingTwistConstraint* nativeObject = (SwingTwistConstraint*)this_addr;
-return (jlong)&nativeObject->GetTwistMotorSettings();
-*/
-    public static native long internal_native_GetTwistMotorSettings_addr(long this_addr);
 
     public void SetMaxFrictionTorque(float inFrictionTorque) {
-        internal_native_SetMaxFrictionTorque(native_address, inFrictionTorque);
     }
-
-    /*[-JNI;-NATIVE]
-SwingTwistConstraint* nativeObject = (SwingTwistConstraint*)this_addr;
-nativeObject->SetMaxFrictionTorque((float)inFrictionTorque);
-*/
-    public static native void internal_native_SetMaxFrictionTorque(long this_addr, float inFrictionTorque);
 
     public float GetMaxFrictionTorque() {
-        return internal_native_GetMaxFrictionTorque(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-SwingTwistConstraint* nativeObject = (SwingTwistConstraint*)this_addr;
-return nativeObject->GetMaxFrictionTorque();
-*/
-    public static native float internal_native_GetMaxFrictionTorque(long this_addr);
 
     public void SetSwingMotorState(EMotorState inState) {
-        internal_native_SetSwingMotorState(native_address, inState.getValue());
     }
-
-    /*[-JNI;-NATIVE]
-SwingTwistConstraint* nativeObject = (SwingTwistConstraint*)this_addr;
-nativeObject->SetSwingMotorState((::EMotorState)inState);
-*/
-    public static native void internal_native_SetSwingMotorState(long this_addr, int inState);
 
     public EMotorState GetSwingMotorState() {
-        int value = internal_native_GetSwingMotorState(native_address);
-        EMotorState[] values = EMotorState.values();
-        for (int i = 0; i < values.length; i++) {
-            EMotorState enumVal = values[i];
-            if (enumVal != EMotorState.CUSTOM && enumVal.getValue() == value)
-                return enumVal;
-        }
-        return EMotorState.CUSTOM.setValue(value);
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-SwingTwistConstraint* nativeObject = (SwingTwistConstraint*)this_addr;
-return (int)nativeObject->GetSwingMotorState();
-*/
-    public static native int internal_native_GetSwingMotorState(long this_addr);
 
     public void SetTwistMotorState(EMotorState inState) {
-        internal_native_SetTwistMotorState(native_address, inState.getValue());
     }
-
-    /*[-JNI;-NATIVE]
-SwingTwistConstraint* nativeObject = (SwingTwistConstraint*)this_addr;
-nativeObject->SetTwistMotorState((::EMotorState)inState);
-*/
-    public static native void internal_native_SetTwistMotorState(long this_addr, int inState);
 
     public EMotorState GetTwistMotorState() {
-        int value = internal_native_GetTwistMotorState(native_address);
-        EMotorState[] values = EMotorState.values();
-        for (int i = 0; i < values.length; i++) {
-            EMotorState enumVal = values[i];
-            if (enumVal != EMotorState.CUSTOM && enumVal.getValue() == value)
-                return enumVal;
-        }
-        return EMotorState.CUSTOM.setValue(value);
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-SwingTwistConstraint* nativeObject = (SwingTwistConstraint*)this_addr;
-return (int)nativeObject->GetTwistMotorState();
-*/
-    public static native int internal_native_GetTwistMotorState(long this_addr);
 
     public void SetTargetAngularVelocityCS(Vec3 inAngularVelocity) {
-        internal_native_SetTargetAngularVelocityCS(native_address, inAngularVelocity.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-SwingTwistConstraint* nativeObject = (SwingTwistConstraint*)this_addr;
-nativeObject->SetTargetAngularVelocityCS(*((Vec3* )inAngularVelocity_addr));
-*/
-    public static native void internal_native_SetTargetAngularVelocityCS(long this_addr, long inAngularVelocity_addr);
 
     public Vec3 GetTargetAngularVelocityCS() {
-        long addr = internal_native_GetTargetAngularVelocityCS_addr(native_address);
-        if (addr == 0)
-            return Vec3.NULL;
-        if (Vec3_TEMP_GEN_2 == null)
-            Vec3_TEMP_GEN_2 = Vec3.native_new();
-        Vec3_TEMP_GEN_2.internal_reset(addr, false);
-        return Vec3_TEMP_GEN_2;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-SwingTwistConstraint* nativeObject = (SwingTwistConstraint*)this_addr;
-static Vec3 copy_addr;
-copy_addr = nativeObject->GetTargetAngularVelocityCS();
-return (jlong)&copy_addr;*/
-    public static native long internal_native_GetTargetAngularVelocityCS_addr(long this_addr);
 
     public void SetTargetOrientationCS(Quat inOrientation) {
-        internal_native_SetTargetOrientationCS(native_address, inOrientation.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-SwingTwistConstraint* nativeObject = (SwingTwistConstraint*)this_addr;
-nativeObject->SetTargetOrientationCS(*((Quat* )inOrientation_addr));
-*/
-    public static native void internal_native_SetTargetOrientationCS(long this_addr, long inOrientation_addr);
 
     public Quat GetTargetOrientationCS() {
-        long addr = internal_native_GetTargetOrientationCS_addr(native_address);
-        if (addr == 0)
-            return Quat.NULL;
-        if (Quat_TEMP_GEN_2 == null)
-            Quat_TEMP_GEN_2 = Quat.native_new();
-        Quat_TEMP_GEN_2.internal_reset(addr, false);
-        return Quat_TEMP_GEN_2;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-SwingTwistConstraint* nativeObject = (SwingTwistConstraint*)this_addr;
-static Quat copy_addr;
-copy_addr = nativeObject->GetTargetOrientationCS();
-return (jlong)&copy_addr;*/
-    public static native long internal_native_GetTargetOrientationCS_addr(long this_addr);
 
     public void SetTargetOrientationBS(Quat inOrientation) {
-        internal_native_SetTargetOrientationBS(native_address, inOrientation.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-SwingTwistConstraint* nativeObject = (SwingTwistConstraint*)this_addr;
-nativeObject->SetTargetOrientationBS(*((Quat* )inOrientation_addr));
-*/
-    public static native void internal_native_SetTargetOrientationBS(long this_addr, long inOrientation_addr);
 
     public Quat GetRotationInConstraintSpace() {
-        long addr = internal_native_GetRotationInConstraintSpace_addr(native_address);
-        if (addr == 0)
-            return Quat.NULL;
-        if (Quat_TEMP_GEN_3 == null)
-            Quat_TEMP_GEN_3 = Quat.native_new();
-        Quat_TEMP_GEN_3.internal_reset(addr, false);
-        return Quat_TEMP_GEN_3;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-SwingTwistConstraint* nativeObject = (SwingTwistConstraint*)this_addr;
-static Quat copy_addr;
-copy_addr = nativeObject->GetRotationInConstraintSpace();
-return (jlong)&copy_addr;*/
-    public static native long internal_native_GetRotationInConstraintSpace_addr(long this_addr);
 
     public Vec3 GetTotalLambdaPosition() {
-        long addr = internal_native_GetTotalLambdaPosition_addr(native_address);
-        if (addr == 0)
-            return Vec3.NULL;
-        if (Vec3_TEMP_GEN_3 == null)
-            Vec3_TEMP_GEN_3 = Vec3.native_new();
-        Vec3_TEMP_GEN_3.internal_reset(addr, false);
-        return Vec3_TEMP_GEN_3;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-SwingTwistConstraint* nativeObject = (SwingTwistConstraint*)this_addr;
-static Vec3 copy_addr;
-copy_addr = nativeObject->GetTotalLambdaPosition();
-return (jlong)&copy_addr;*/
-    public static native long internal_native_GetTotalLambdaPosition_addr(long this_addr);
 
     public float GetTotalLambdaTwist() {
-        return internal_native_GetTotalLambdaTwist(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-SwingTwistConstraint* nativeObject = (SwingTwistConstraint*)this_addr;
-return nativeObject->GetTotalLambdaTwist();
-*/
-    public static native float internal_native_GetTotalLambdaTwist(long this_addr);
 
     public float GetTotalLambdaSwingY() {
-        return internal_native_GetTotalLambdaSwingY(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-SwingTwistConstraint* nativeObject = (SwingTwistConstraint*)this_addr;
-return nativeObject->GetTotalLambdaSwingY();
-*/
-    public static native float internal_native_GetTotalLambdaSwingY(long this_addr);
 
     public float GetTotalLambdaSwingZ() {
-        return internal_native_GetTotalLambdaSwingZ(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-SwingTwistConstraint* nativeObject = (SwingTwistConstraint*)this_addr;
-return nativeObject->GetTotalLambdaSwingZ();
-*/
-    public static native float internal_native_GetTotalLambdaSwingZ(long this_addr);
 
     public Vec3 GetTotalLambdaMotor() {
-        long addr = internal_native_GetTotalLambdaMotor_addr(native_address);
-        if (addr == 0)
-            return Vec3.NULL;
-        if (Vec3_TEMP_GEN_4 == null)
-            Vec3_TEMP_GEN_4 = Vec3.native_new();
-        Vec3_TEMP_GEN_4.internal_reset(addr, false);
-        return Vec3_TEMP_GEN_4;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-SwingTwistConstraint* nativeObject = (SwingTwistConstraint*)this_addr;
-static Vec3 copy_addr;
-copy_addr = nativeObject->GetTotalLambdaMotor();
-return (jlong)&copy_addr;*/
-    public static native long internal_native_GetTotalLambdaMotor_addr(long this_addr);
 }

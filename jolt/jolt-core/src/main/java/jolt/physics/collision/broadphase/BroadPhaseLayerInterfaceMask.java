@@ -12,14 +12,7 @@ public class BroadPhaseLayerInterfaceMask extends BroadPhaseLayerInterface {
 
     public BroadPhaseLayerInterfaceMask(int inNumBroadPhaseLayers) {
         super((byte) 1, (char) 1);
-        long addr = internal_native_create_int_addr(inNumBroadPhaseLayers);
-        internal_reset(addr, true);
     }
-
-    /*[-JNI;-NATIVE]
-return (jlong)new BroadPhaseLayerInterfaceMask(inNumBroadPhaseLayers);
-*/
-    public static native long internal_native_create_int_addr(int inNumBroadPhaseLayers);
 
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
@@ -36,23 +29,6 @@ return (jlong)new BroadPhaseLayerInterfaceMask(inNumBroadPhaseLayers);
         return new BroadPhaseLayerInterfaceMask((byte) 0, (char) 0);
     }
 
-    protected void deleteNative() {
-        internal_native_deleteNative(native_address);
-    }
-
-    /*[-JNI;-NATIVE]
-BroadPhaseLayerInterfaceMask* nativeObject = (BroadPhaseLayerInterfaceMask*)this_addr;
-delete nativeObject;
-*/
-    public static native void internal_native_deleteNative(long this_addr);
-
     public void ConfigureLayer(BroadPhaseLayer inBroadPhaseLayer, int inGroupsToInclude, int inGroupsToExclude) {
-        internal_native_ConfigureLayer(native_address, inBroadPhaseLayer.native_address, inGroupsToInclude, inGroupsToExclude);
     }
-
-    /*[-JNI;-NATIVE]
-BroadPhaseLayerInterfaceMask* nativeObject = (BroadPhaseLayerInterfaceMask*)this_addr;
-nativeObject->ConfigureLayer(*((BroadPhaseLayer* )inBroadPhaseLayer_addr), inGroupsToInclude, inGroupsToExclude);
-*/
-    public static native void internal_native_ConfigureLayer(long this_addr, long inBroadPhaseLayer_addr, int inGroupsToInclude, int inGroupsToExclude);
 }

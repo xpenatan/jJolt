@@ -6,24 +6,15 @@
 
 package jolt.physics.body;
 
-import com.github.xpenatan.jparser.idl.helper.IDLArray;
+import com.github.xpenatan.jparser.runtime.helper.NativeArray;
 
-public class IDLArrayBodyID extends IDLArray {
-
-    private BodyID BodyID_TEMP_GEN_0;
+public class IDLArrayBodyID extends NativeArray {
 
     static public final IDLArrayBodyID NULL = IDLArrayBodyID.native_new();
 
     public IDLArrayBodyID(int size) {
         super((byte) 1, (char) 1);
-        long addr = internal_native_create_int_addr(size);
-        internal_reset(addr, true);
     }
-
-    /*[-JNI;-NATIVE]
-return (jlong)new IDLArrayBodyID((int)size);
-*/
-    public static native long internal_native_create_int_addr(int size);
 
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
@@ -40,40 +31,10 @@ return (jlong)new IDLArrayBodyID((int)size);
         return new IDLArrayBodyID((byte) 0, (char) 0);
     }
 
-    protected void deleteNative() {
-        internal_native_deleteNative(native_address);
-    }
-
-    /*[-JNI;-NATIVE]
-IDLArrayBodyID* nativeObject = (IDLArrayBodyID*)this_addr;
-delete nativeObject;
-*/
-    public static native void internal_native_deleteNative(long this_addr);
-
     public BodyID getValue(int index) {
-        long addr = internal_native_getValue_addr(native_address, index);
-        if (addr == 0)
-            return BodyID.NULL;
-        if (BodyID_TEMP_GEN_0 == null)
-            BodyID_TEMP_GEN_0 = BodyID.native_new();
-        BodyID_TEMP_GEN_0.internal_reset(addr, false);
-        return BodyID_TEMP_GEN_0;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-IDLArrayBodyID* nativeObject = (IDLArrayBodyID*)this_addr;
-BodyID* obj = nativeObject->getValue((int)index);
-return (jlong)obj;
-*/
-    public static native long internal_native_getValue_addr(long this_addr, int index);
 
     public void setValue(int index, BodyID value) {
-        internal_native_setValue(native_address, index, value.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-IDLArrayBodyID* nativeObject = (IDLArrayBodyID*)this_addr;
-nativeObject->setValue((int)index, (BodyID* )value_addr);
-*/
-    public static native void internal_native_setValue(long this_addr, int index, long value_addr);
 }

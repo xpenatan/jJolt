@@ -6,28 +6,15 @@
 
 package jolt.physics.character;
 
-import com.github.xpenatan.jParser.idl.IDLBase;
+import com.github.xpenatan.jParser.api.NativeObject;
 import jolt.math.Vec3;
 
-public class ExtendedUpdateSettings extends IDLBase {
-
-    private Vec3 Vec3_TEMP_GEN_0;
-
-    private Vec3 Vec3_TEMP_GEN_1;
-
-    private Vec3 Vec3_TEMP_GEN_2;
+public class ExtendedUpdateSettings extends NativeObject {
 
     static public final ExtendedUpdateSettings NULL = ExtendedUpdateSettings.native_new();
 
     public ExtendedUpdateSettings() {
-        long addr = internal_native_create_addr();
-        internal_reset(addr, true);
     }
-
-    /*[-JNI;-NATIVE]
-return (jlong)new CharacterVirtual::ExtendedUpdateSettings();
-*/
-    public static native long internal_native_create_addr();
 
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
@@ -43,151 +30,45 @@ return (jlong)new CharacterVirtual::ExtendedUpdateSettings();
         return new ExtendedUpdateSettings((byte) 0, (char) 0);
     }
 
-    protected void deleteNative() {
-        internal_native_deleteNative(native_address);
-    }
-
-    /*[-JNI;-NATIVE]
-CharacterVirtual::ExtendedUpdateSettings* nativeObject = (CharacterVirtual::ExtendedUpdateSettings*)this_addr;
-delete nativeObject;
-*/
-    public static native void internal_native_deleteNative(long this_addr);
-
     public Vec3 get_mStickToFloorStepDown() {
-        long addr = internal_native_get_mStickToFloorStepDown_addr(native_address);
-        if (addr == 0)
-            return Vec3.NULL;
-        if (Vec3_TEMP_GEN_0 == null)
-            Vec3_TEMP_GEN_0 = Vec3.native_new();
-        Vec3_TEMP_GEN_0.internal_reset(addr, false);
-        return Vec3_TEMP_GEN_0;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-CharacterVirtual::ExtendedUpdateSettings* nativeObject = (CharacterVirtual::ExtendedUpdateSettings*)this_addr;
-return (jlong)&nativeObject->mStickToFloorStepDown;
-*/
-    public static native long internal_native_get_mStickToFloorStepDown_addr(long this_addr);
 
     public void set_mStickToFloorStepDown(Vec3 mStickToFloorStepDown) {
-        internal_native_set_mStickToFloorStepDown(native_address, mStickToFloorStepDown.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-CharacterVirtual::ExtendedUpdateSettings* nativeObject = (CharacterVirtual::ExtendedUpdateSettings*)this_addr;
-nativeObject->mStickToFloorStepDown = *((Vec3*)mStickToFloorStepDown_addr);
-*/
-    public static native void internal_native_set_mStickToFloorStepDown(long this_addr, long mStickToFloorStepDown_addr);
 
     public Vec3 get_mWalkStairsStepUp() {
-        long addr = internal_native_get_mWalkStairsStepUp_addr(native_address);
-        if (addr == 0)
-            return Vec3.NULL;
-        if (Vec3_TEMP_GEN_1 == null)
-            Vec3_TEMP_GEN_1 = Vec3.native_new();
-        Vec3_TEMP_GEN_1.internal_reset(addr, false);
-        return Vec3_TEMP_GEN_1;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-CharacterVirtual::ExtendedUpdateSettings* nativeObject = (CharacterVirtual::ExtendedUpdateSettings*)this_addr;
-return (jlong)&nativeObject->mWalkStairsStepUp;
-*/
-    public static native long internal_native_get_mWalkStairsStepUp_addr(long this_addr);
 
     public void set_mWalkStairsStepUp(Vec3 mWalkStairsStepUp) {
-        internal_native_set_mWalkStairsStepUp(native_address, mWalkStairsStepUp.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-CharacterVirtual::ExtendedUpdateSettings* nativeObject = (CharacterVirtual::ExtendedUpdateSettings*)this_addr;
-nativeObject->mWalkStairsStepUp = *((Vec3*)mWalkStairsStepUp_addr);
-*/
-    public static native void internal_native_set_mWalkStairsStepUp(long this_addr, long mWalkStairsStepUp_addr);
 
     public float get_mWalkStairsMinStepForward() {
-        return internal_native_get_mWalkStairsMinStepForward(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-CharacterVirtual::ExtendedUpdateSettings* nativeObject = (CharacterVirtual::ExtendedUpdateSettings*)this_addr;
-return nativeObject->mWalkStairsMinStepForward;
-*/
-    public static native float internal_native_get_mWalkStairsMinStepForward(long this_addr);
 
     public void set_mWalkStairsMinStepForward(float mWalkStairsMinStepForward) {
-        internal_native_set_mWalkStairsMinStepForward(native_address, mWalkStairsMinStepForward);
     }
-
-    /*[-JNI;-NATIVE]
-CharacterVirtual::ExtendedUpdateSettings* nativeObject = (CharacterVirtual::ExtendedUpdateSettings*)this_addr;
-nativeObject->mWalkStairsMinStepForward = mWalkStairsMinStepForward;
-*/
-    public static native void internal_native_set_mWalkStairsMinStepForward(long this_addr, float mWalkStairsMinStepForward);
 
     public float get_mWalkStairsStepForwardTest() {
-        return internal_native_get_mWalkStairsStepForwardTest(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-CharacterVirtual::ExtendedUpdateSettings* nativeObject = (CharacterVirtual::ExtendedUpdateSettings*)this_addr;
-return nativeObject->mWalkStairsStepForwardTest;
-*/
-    public static native float internal_native_get_mWalkStairsStepForwardTest(long this_addr);
 
     public void set_mWalkStairsStepForwardTest(float mWalkStairsStepForwardTest) {
-        internal_native_set_mWalkStairsStepForwardTest(native_address, mWalkStairsStepForwardTest);
     }
-
-    /*[-JNI;-NATIVE]
-CharacterVirtual::ExtendedUpdateSettings* nativeObject = (CharacterVirtual::ExtendedUpdateSettings*)this_addr;
-nativeObject->mWalkStairsStepForwardTest = mWalkStairsStepForwardTest;
-*/
-    public static native void internal_native_set_mWalkStairsStepForwardTest(long this_addr, float mWalkStairsStepForwardTest);
 
     public float get_mWalkStairsCosAngleForwardContact() {
-        return internal_native_get_mWalkStairsCosAngleForwardContact(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-CharacterVirtual::ExtendedUpdateSettings* nativeObject = (CharacterVirtual::ExtendedUpdateSettings*)this_addr;
-return nativeObject->mWalkStairsCosAngleForwardContact;
-*/
-    public static native float internal_native_get_mWalkStairsCosAngleForwardContact(long this_addr);
 
     public void set_mWalkStairsCosAngleForwardContact(float mWalkStairsCosAngleForwardContact) {
-        internal_native_set_mWalkStairsCosAngleForwardContact(native_address, mWalkStairsCosAngleForwardContact);
     }
-
-    /*[-JNI;-NATIVE]
-CharacterVirtual::ExtendedUpdateSettings* nativeObject = (CharacterVirtual::ExtendedUpdateSettings*)this_addr;
-nativeObject->mWalkStairsCosAngleForwardContact = mWalkStairsCosAngleForwardContact;
-*/
-    public static native void internal_native_set_mWalkStairsCosAngleForwardContact(long this_addr, float mWalkStairsCosAngleForwardContact);
 
     public Vec3 get_mWalkStairsStepDownExtra() {
-        long addr = internal_native_get_mWalkStairsStepDownExtra_addr(native_address);
-        if (addr == 0)
-            return Vec3.NULL;
-        if (Vec3_TEMP_GEN_2 == null)
-            Vec3_TEMP_GEN_2 = Vec3.native_new();
-        Vec3_TEMP_GEN_2.internal_reset(addr, false);
-        return Vec3_TEMP_GEN_2;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-CharacterVirtual::ExtendedUpdateSettings* nativeObject = (CharacterVirtual::ExtendedUpdateSettings*)this_addr;
-return (jlong)&nativeObject->mWalkStairsStepDownExtra;
-*/
-    public static native long internal_native_get_mWalkStairsStepDownExtra_addr(long this_addr);
 
     public void set_mWalkStairsStepDownExtra(Vec3 mWalkStairsStepDownExtra) {
-        internal_native_set_mWalkStairsStepDownExtra(native_address, mWalkStairsStepDownExtra.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-CharacterVirtual::ExtendedUpdateSettings* nativeObject = (CharacterVirtual::ExtendedUpdateSettings*)this_addr;
-nativeObject->mWalkStairsStepDownExtra = *((Vec3*)mWalkStairsStepDownExtra_addr);
-*/
-    public static native void internal_native_set_mWalkStairsStepDownExtra(long this_addr, long mWalkStairsStepDownExtra_addr);
 }

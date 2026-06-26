@@ -12,22 +12,11 @@ import jolt.math.Vec3;
 
 public class RackAndPinionConstraintSettings extends TwoBodyConstraintSettings {
 
-    private Vec3 Vec3_TEMP_GEN_0;
-
-    private Vec3 Vec3_TEMP_GEN_1;
-
     static public final RackAndPinionConstraintSettings NULL = RackAndPinionConstraintSettings.native_new();
 
     public RackAndPinionConstraintSettings() {
         super((byte) 1, (char) 1);
-        long addr = internal_native_create_addr();
-        internal_reset(addr, true);
     }
-
-    /*[-JNI;-NATIVE]
-return (jlong)new RackAndPinionConstraintSettings();
-*/
-    public static native long internal_native_create_addr();
 
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
@@ -44,122 +33,34 @@ return (jlong)new RackAndPinionConstraintSettings();
         return new RackAndPinionConstraintSettings((byte) 0, (char) 0);
     }
 
-    protected void deleteNative() {
-        internal_native_deleteNative(native_address);
-    }
-
-    /*[-JNI;-NATIVE]
-RackAndPinionConstraintSettings* nativeObject = (RackAndPinionConstraintSettings*)this_addr;
-delete nativeObject;
-*/
-    public static native void internal_native_deleteNative(long this_addr);
-
     public void SetRatio(int inNumTeethRack, float inRackLength, int inNumTeethPinion) {
-        internal_native_SetRatio(native_address, inNumTeethRack, inRackLength, inNumTeethPinion);
     }
-
-    /*[-JNI;-NATIVE]
-RackAndPinionConstraintSettings* nativeObject = (RackAndPinionConstraintSettings*)this_addr;
-nativeObject->SetRatio((int)inNumTeethRack, (float)inRackLength, (int)inNumTeethPinion);
-*/
-    public static native void internal_native_SetRatio(long this_addr, int inNumTeethRack, float inRackLength, int inNumTeethPinion);
 
     public EConstraintSpace get_mSpace() {
-        int value = internal_native_get_mSpace(native_address);
-        EConstraintSpace[] values = EConstraintSpace.values();
-        for (int i = 0; i < values.length; i++) {
-            EConstraintSpace enumVal = values[i];
-            if (enumVal != EConstraintSpace.CUSTOM && enumVal.getValue() == value)
-                return enumVal;
-        }
-        return EConstraintSpace.CUSTOM.setValue(value);
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-RackAndPinionConstraintSettings* nativeObject = (RackAndPinionConstraintSettings*)this_addr;
-return (jint)nativeObject->mSpace;
-*/
-    public static native int internal_native_get_mSpace(long this_addr);
 
     public void set_mSpace(EConstraintSpace mSpace) {
-        internal_native_set_mSpace(native_address, mSpace.getValue());
     }
-
-    /*[-JNI;-NATIVE]
-RackAndPinionConstraintSettings* nativeObject = (RackAndPinionConstraintSettings*)this_addr;
-nativeObject->mSpace = (::EConstraintSpace)mSpace;
-*/
-    public static native void internal_native_set_mSpace(long this_addr, int mSpace);
 
     public Vec3 get_mHingeAxis() {
-        long addr = internal_native_get_mHingeAxis_addr(native_address);
-        if (addr == 0)
-            return Vec3.NULL;
-        if (Vec3_TEMP_GEN_0 == null)
-            Vec3_TEMP_GEN_0 = Vec3.native_new();
-        Vec3_TEMP_GEN_0.internal_reset(addr, false);
-        return Vec3_TEMP_GEN_0;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-RackAndPinionConstraintSettings* nativeObject = (RackAndPinionConstraintSettings*)this_addr;
-return (jlong)&nativeObject->mHingeAxis;
-*/
-    public static native long internal_native_get_mHingeAxis_addr(long this_addr);
 
     public void set_mHingeAxis(Vec3 mHingeAxis) {
-        internal_native_set_mHingeAxis(native_address, mHingeAxis.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-RackAndPinionConstraintSettings* nativeObject = (RackAndPinionConstraintSettings*)this_addr;
-nativeObject->mHingeAxis = *((Vec3*)mHingeAxis_addr);
-*/
-    public static native void internal_native_set_mHingeAxis(long this_addr, long mHingeAxis_addr);
 
     public Vec3 get_mSliderAxis() {
-        long addr = internal_native_get_mSliderAxis_addr(native_address);
-        if (addr == 0)
-            return Vec3.NULL;
-        if (Vec3_TEMP_GEN_1 == null)
-            Vec3_TEMP_GEN_1 = Vec3.native_new();
-        Vec3_TEMP_GEN_1.internal_reset(addr, false);
-        return Vec3_TEMP_GEN_1;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-RackAndPinionConstraintSettings* nativeObject = (RackAndPinionConstraintSettings*)this_addr;
-return (jlong)&nativeObject->mSliderAxis;
-*/
-    public static native long internal_native_get_mSliderAxis_addr(long this_addr);
 
     public void set_mSliderAxis(Vec3 mSliderAxis) {
-        internal_native_set_mSliderAxis(native_address, mSliderAxis.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-RackAndPinionConstraintSettings* nativeObject = (RackAndPinionConstraintSettings*)this_addr;
-nativeObject->mSliderAxis = *((Vec3*)mSliderAxis_addr);
-*/
-    public static native void internal_native_set_mSliderAxis(long this_addr, long mSliderAxis_addr);
 
     public float get_mRatio() {
-        return internal_native_get_mRatio(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-RackAndPinionConstraintSettings* nativeObject = (RackAndPinionConstraintSettings*)this_addr;
-return nativeObject->mRatio;
-*/
-    public static native float internal_native_get_mRatio(long this_addr);
 
     public void set_mRatio(float mRatio) {
-        internal_native_set_mRatio(native_address, mRatio);
     }
-
-    /*[-JNI;-NATIVE]
-RackAndPinionConstraintSettings* nativeObject = (RackAndPinionConstraintSettings*)this_addr;
-nativeObject->mRatio = mRatio;
-*/
-    public static native void internal_native_set_mRatio(long this_addr, float mRatio);
 }

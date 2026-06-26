@@ -6,28 +6,14 @@
 
 package jolt.physics.character;
 
-import com.github.xpenatan.jParser.idl.IDLBase;
+import com.github.xpenatan.jParser.api.NativeObject;
 import jolt.math.Vec3;
 import jolt.physics.collision.shape.Shape;
 import jolt.enums.EGroundState;
 import jolt.physics.collision.PhysicsMaterial;
 import jolt.physics.body.BodyID;
 
-public class CharacterBase extends IDLBase {
-
-    private Vec3 Vec3_TEMP_GEN_0;
-
-    private Shape Shape_TEMP_GEN_0;
-
-    private Vec3 Vec3_TEMP_GEN_1;
-
-    private Vec3 Vec3_TEMP_GEN_2;
-
-    private Vec3 Vec3_TEMP_GEN_3;
-
-    private PhysicsMaterial PhysicsMaterial_TEMP_GEN_0;
-
-    private BodyID BodyID_TEMP_GEN_0;
+public class CharacterBase extends NativeObject {
 
     static public final CharacterBase NULL = CharacterBase.native_new();
 
@@ -46,218 +32,62 @@ public class CharacterBase extends IDLBase {
     }
 
     public int GetRefCount() {
-        return internal_native_GetRefCount(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-CharacterBase* nativeObject = (CharacterBase*)this_addr;
-return nativeObject->GetRefCount();
-*/
-    public static native int internal_native_GetRefCount(long this_addr);
 
     public void AddRef() {
-        internal_native_AddRef(native_address);
     }
-
-    /*[-JNI;-NATIVE]
-CharacterBase* nativeObject = (CharacterBase*)this_addr;
-nativeObject->AddRef();
-*/
-    public static native void internal_native_AddRef(long this_addr);
 
     public void Release() {
-        internal_native_Release(native_address);
     }
-
-    /*[-JNI;-NATIVE]
-CharacterBase* nativeObject = (CharacterBase*)this_addr;
-nativeObject->Release();
-*/
-    public static native void internal_native_Release(long this_addr);
 
     public void SetMaxSlopeAngle(float inMaxSlopeAngle) {
-        internal_native_SetMaxSlopeAngle(native_address, inMaxSlopeAngle);
     }
-
-    /*[-JNI;-NATIVE]
-CharacterBase* nativeObject = (CharacterBase*)this_addr;
-nativeObject->SetMaxSlopeAngle((float)inMaxSlopeAngle);
-*/
-    public static native void internal_native_SetMaxSlopeAngle(long this_addr, float inMaxSlopeAngle);
 
     public float GetCosMaxSlopeAngle() {
-        return internal_native_GetCosMaxSlopeAngle(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-CharacterBase* nativeObject = (CharacterBase*)this_addr;
-return nativeObject->GetCosMaxSlopeAngle();
-*/
-    public static native float internal_native_GetCosMaxSlopeAngle(long this_addr);
 
     public void SetUp(Vec3 inUp) {
-        internal_native_SetUp(native_address, inUp.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-CharacterBase* nativeObject = (CharacterBase*)this_addr;
-nativeObject->SetUp(*((Vec3* )inUp_addr));
-*/
-    public static native void internal_native_SetUp(long this_addr, long inUp_addr);
 
     public Vec3 GetUp() {
-        long addr = internal_native_GetUp_addr(native_address);
-        if (addr == 0)
-            return Vec3.NULL;
-        if (Vec3_TEMP_GEN_0 == null)
-            Vec3_TEMP_GEN_0 = Vec3.native_new();
-        Vec3_TEMP_GEN_0.internal_reset(addr, false);
-        return Vec3_TEMP_GEN_0;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-CharacterBase* nativeObject = (CharacterBase*)this_addr;
-static Vec3 copy_addr;
-copy_addr = nativeObject->GetUp();
-return (jlong)&copy_addr;*/
-    public static native long internal_native_GetUp_addr(long this_addr);
 
     public Shape GetShape() {
-        long addr = internal_native_GetShape_addr(native_address);
-        if (addr == 0)
-            return Shape.NULL;
-        if (Shape_TEMP_GEN_0 == null)
-            Shape_TEMP_GEN_0 = Shape.native_new();
-        Shape_TEMP_GEN_0.internal_reset(addr, false);
-        return Shape_TEMP_GEN_0;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-CharacterBase* nativeObject = (CharacterBase*)this_addr;
-const Shape* obj = nativeObject->GetShape();
-return (jlong)obj;
-*/
-    public static native long internal_native_GetShape_addr(long this_addr);
 
     public EGroundState GetGroundState() {
-        int value = internal_native_GetGroundState(native_address);
-        EGroundState[] values = EGroundState.values();
-        for (int i = 0; i < values.length; i++) {
-            EGroundState enumVal = values[i];
-            if (enumVal != EGroundState.CUSTOM && enumVal.getValue() == value)
-                return enumVal;
-        }
-        return EGroundState.CUSTOM.setValue(value);
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-CharacterBase* nativeObject = (CharacterBase*)this_addr;
-return (int)nativeObject->GetGroundState();
-*/
-    public static native int internal_native_GetGroundState(long this_addr);
 
     public boolean IsSlopeTooSteep(Vec3 inNormal) {
-        return internal_native_IsSlopeTooSteep(native_address, inNormal.native_address);
+        return false;
     }
-
-    /*[-JNI;-NATIVE]
-CharacterBase* nativeObject = (CharacterBase*)this_addr;
-return nativeObject->IsSlopeTooSteep(*((Vec3* )inNormal_addr));
-*/
-    public static native boolean internal_native_IsSlopeTooSteep(long this_addr, long inNormal_addr);
 
     public boolean IsSupported() {
-        return internal_native_IsSupported(native_address);
+        return false;
     }
-
-    /*[-JNI;-NATIVE]
-CharacterBase* nativeObject = (CharacterBase*)this_addr;
-return nativeObject->IsSupported();
-*/
-    public static native boolean internal_native_IsSupported(long this_addr);
 
     public Vec3 GetGroundPosition() {
-        long addr = internal_native_GetGroundPosition_addr(native_address);
-        if (addr == 0)
-            return Vec3.NULL;
-        if (Vec3_TEMP_GEN_1 == null)
-            Vec3_TEMP_GEN_1 = Vec3.native_new();
-        Vec3_TEMP_GEN_1.internal_reset(addr, false);
-        return Vec3_TEMP_GEN_1;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-CharacterBase* nativeObject = (CharacterBase*)this_addr;
-static Vec3 copy_addr;
-copy_addr = nativeObject->GetGroundPosition();
-return (jlong)&copy_addr;*/
-    public static native long internal_native_GetGroundPosition_addr(long this_addr);
 
     public Vec3 GetGroundNormal() {
-        long addr = internal_native_GetGroundNormal_addr(native_address);
-        if (addr == 0)
-            return Vec3.NULL;
-        if (Vec3_TEMP_GEN_2 == null)
-            Vec3_TEMP_GEN_2 = Vec3.native_new();
-        Vec3_TEMP_GEN_2.internal_reset(addr, false);
-        return Vec3_TEMP_GEN_2;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-CharacterBase* nativeObject = (CharacterBase*)this_addr;
-static Vec3 copy_addr;
-copy_addr = nativeObject->GetGroundNormal();
-return (jlong)&copy_addr;*/
-    public static native long internal_native_GetGroundNormal_addr(long this_addr);
 
     public Vec3 GetGroundVelocity() {
-        long addr = internal_native_GetGroundVelocity_addr(native_address);
-        if (addr == 0)
-            return Vec3.NULL;
-        if (Vec3_TEMP_GEN_3 == null)
-            Vec3_TEMP_GEN_3 = Vec3.native_new();
-        Vec3_TEMP_GEN_3.internal_reset(addr, false);
-        return Vec3_TEMP_GEN_3;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-CharacterBase* nativeObject = (CharacterBase*)this_addr;
-static Vec3 copy_addr;
-copy_addr = nativeObject->GetGroundVelocity();
-return (jlong)&copy_addr;*/
-    public static native long internal_native_GetGroundVelocity_addr(long this_addr);
 
     public PhysicsMaterial GetGroundMaterial() {
-        long addr = internal_native_GetGroundMaterial_addr(native_address);
-        if (addr == 0)
-            return PhysicsMaterial.NULL;
-        if (PhysicsMaterial_TEMP_GEN_0 == null)
-            PhysicsMaterial_TEMP_GEN_0 = PhysicsMaterial.native_new();
-        PhysicsMaterial_TEMP_GEN_0.internal_reset(addr, false);
-        return PhysicsMaterial_TEMP_GEN_0;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-CharacterBase* nativeObject = (CharacterBase*)this_addr;
-const PhysicsMaterial* obj = nativeObject->GetGroundMaterial();
-return (jlong)obj;
-*/
-    public static native long internal_native_GetGroundMaterial_addr(long this_addr);
 
     public BodyID GetGroundBodyID() {
-        long addr = internal_native_GetGroundBodyID_addr(native_address);
-        if (addr == 0)
-            return BodyID.NULL;
-        if (BodyID_TEMP_GEN_0 == null)
-            BodyID_TEMP_GEN_0 = BodyID.native_new();
-        BodyID_TEMP_GEN_0.internal_reset(addr, false);
-        return BodyID_TEMP_GEN_0;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-CharacterBase* nativeObject = (CharacterBase*)this_addr;
-static BodyID copy_addr;
-copy_addr = nativeObject->GetGroundBodyID();
-return (jlong)&copy_addr;*/
-    public static native long internal_native_GetGroundBodyID_addr(long this_addr);
 }

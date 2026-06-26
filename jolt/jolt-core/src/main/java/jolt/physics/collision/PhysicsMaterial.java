@@ -6,21 +6,14 @@
 
 package jolt.physics.collision;
 
-import com.github.xpenatan.jParser.idl.IDLBase;
+import com.github.xpenatan.jParser.api.NativeObject;
 
-public class PhysicsMaterial extends IDLBase {
+public class PhysicsMaterial extends NativeObject {
 
     static public final PhysicsMaterial NULL = PhysicsMaterial.native_new();
 
     public PhysicsMaterial() {
-        long addr = internal_native_create_addr();
-        internal_reset(addr, true);
     }
-
-    /*[-JNI;-NATIVE]
-return (jlong)new PhysicsMaterial();
-*/
-    public static native long internal_native_create_addr();
 
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
@@ -36,43 +29,13 @@ return (jlong)new PhysicsMaterial();
         return new PhysicsMaterial((byte) 0, (char) 0);
     }
 
-    protected void deleteNative() {
-        internal_native_deleteNative(native_address);
-    }
-
-    /*[-JNI;-NATIVE]
-PhysicsMaterial* nativeObject = (PhysicsMaterial*)this_addr;
-delete nativeObject;
-*/
-    public static native void internal_native_deleteNative(long this_addr);
-
     public int GetRefCount() {
-        return internal_native_GetRefCount(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-PhysicsMaterial* nativeObject = (PhysicsMaterial*)this_addr;
-return nativeObject->GetRefCount();
-*/
-    public static native int internal_native_GetRefCount(long this_addr);
 
     public void AddRef() {
-        internal_native_AddRef(native_address);
     }
-
-    /*[-JNI;-NATIVE]
-PhysicsMaterial* nativeObject = (PhysicsMaterial*)this_addr;
-nativeObject->AddRef();
-*/
-    public static native void internal_native_AddRef(long this_addr);
 
     public void Release() {
-        internal_native_Release(native_address);
     }
-
-    /*[-JNI;-NATIVE]
-PhysicsMaterial* nativeObject = (PhysicsMaterial*)this_addr;
-nativeObject->Release();
-*/
-    public static native void internal_native_Release(long this_addr);
 }

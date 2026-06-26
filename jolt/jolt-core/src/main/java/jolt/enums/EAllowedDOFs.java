@@ -6,9 +6,9 @@
 
 package jolt.enums;
 
-import com.github.xpenatan.jParser.idl.IDLEnum;
+import com.github.xpenatan.jParser.api.NativeEnum;
 
-public enum EAllowedDOFs implements IDLEnum<EAllowedDOFs> {
+public enum EAllowedDOFs implements NativeEnum<EAllowedDOFs> {
 
     CUSTOM(0),
     TranslationX(EAllowedDOFs_TranslationX_NATIVE()),
@@ -42,43 +42,19 @@ public enum EAllowedDOFs implements IDLEnum<EAllowedDOFs> {
         return CUSTOM;
     }
 
-    /*[-JNI;-NATIVE]
-return (jlong)EAllowedDOFs_TranslationX;
-*/
     private static native int EAllowedDOFs_TranslationX_NATIVE();
 
-    /*[-JNI;-NATIVE]
-return (jlong)EAllowedDOFs_TranslationY;
-*/
     private static native int EAllowedDOFs_TranslationY_NATIVE();
 
-    /*[-JNI;-NATIVE]
-return (jlong)EAllowedDOFs_TranslationZ;
-*/
     private static native int EAllowedDOFs_TranslationZ_NATIVE();
 
-    /*[-JNI;-NATIVE]
-return (jlong)EAllowedDOFs_RotationX;
-*/
     private static native int EAllowedDOFs_RotationX_NATIVE();
 
-    /*[-JNI;-NATIVE]
-return (jlong)EAllowedDOFs_RotationY;
-*/
     private static native int EAllowedDOFs_RotationY_NATIVE();
 
-    /*[-JNI;-NATIVE]
-return (jlong)EAllowedDOFs_RotationZ;
-*/
     private static native int EAllowedDOFs_RotationZ_NATIVE();
 
-    /*[-JNI;-NATIVE]
-return (jlong)EAllowedDOFs_Plane2D;
-*/
     private static native int EAllowedDOFs_Plane2D_NATIVE();
 
-    /*[-JNI;-NATIVE]
-return (jlong)EAllowedDOFs_All;
-*/
     private static native int EAllowedDOFs_All_NATIVE();
 }

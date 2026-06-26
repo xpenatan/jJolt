@@ -1,13 +1,12 @@
 plugins {
     id("com.android.library")
-    kotlin("android")
 }
 
 val moduleName = "jolt-android"
 
 android {
     namespace = "jolt"
-    compileSdk = 35
+    compileSdk = 36
 
     defaultConfig {
         minSdk = 21
@@ -19,15 +18,28 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.toVersion(LibExt.java8Target)
-        targetCompatibility = JavaVersion.toVersion(LibExt.java8Target)
+        sourceCompatibility = JavaVersion.toVersion(LibExt.javaMainTarget)
+        targetCompatibility = JavaVersion.toVersion(LibExt.javaMainTarget)
     }
-    kotlinOptions {
-        jvmTarget = LibExt.java8Target
+
+    buildTypes {
+        release {
+            isMinifyEnabled = false
+            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+        }
+    }
+
+    publishing {
+        singleVariant("release")
     }
 }
 
 dependencies {
+    api(project(":jolt:jolt-jni"))
+    api("com.github.xpenatan.jParser:runtime-jni:${LibExt.jParserVersion}")
+    api("com.github.xpenatan.jParser:runtime-android:${LibExt.jParserVersion}")
+    api("com.github.xpenatan.jParser:api-core:${LibExt.jParserVersion}")
+    api("com.github.xpenatan.jParser:loader-core:${LibExt.jParserVersion}")
 }
 
 publishing {
@@ -36,9 +48,21 @@ publishing {
             artifactId = moduleName
             group = LibExt.groupId
             version = LibExt.libVersion
-            afterEvaluate {
-                from(components["release"])
-            }
         }
+    }
+}
+
+afterEvaluate {
+    publishing {
+        publications.named<MavenPublication>("maven") {
+            from(components["release"])
+        }
+    }
+}
+
+tasks.named("clean") {
+    doFirst {
+        val srcPath = "$projectDir/src/main/"
+        project.delete(files(srcPath))
     }
 }

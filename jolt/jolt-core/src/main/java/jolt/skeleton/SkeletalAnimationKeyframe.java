@@ -12,14 +12,7 @@ public class SkeletalAnimationKeyframe extends SkeletalAnimationJointState {
 
     public SkeletalAnimationKeyframe() {
         super((byte) 1, (char) 1);
-        long addr = internal_native_create_addr();
-        internal_reset(addr, true);
     }
-
-    /*[-JNI;-NATIVE]
-return (jlong)new SkeletalAnimationKeyframe();
-*/
-    public static native long internal_native_create_addr();
 
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
@@ -36,33 +29,10 @@ return (jlong)new SkeletalAnimationKeyframe();
         return new SkeletalAnimationKeyframe((byte) 0, (char) 0);
     }
 
-    protected void deleteNative() {
-        internal_native_deleteNative(native_address);
-    }
-
-    /*[-JNI;-NATIVE]
-SkeletalAnimationKeyframe* nativeObject = (SkeletalAnimationKeyframe*)this_addr;
-delete nativeObject;
-*/
-    public static native void internal_native_deleteNative(long this_addr);
-
     public float get_mTime() {
-        return internal_native_get_mTime(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-SkeletalAnimationKeyframe* nativeObject = (SkeletalAnimationKeyframe*)this_addr;
-return nativeObject->mTime;
-*/
-    public static native float internal_native_get_mTime(long this_addr);
 
     public void set_mTime(float mTime) {
-        internal_native_set_mTime(native_address, mTime);
     }
-
-    /*[-JNI;-NATIVE]
-SkeletalAnimationKeyframe* nativeObject = (SkeletalAnimationKeyframe*)this_addr;
-nativeObject->mTime = mTime;
-*/
-    public static native void internal_native_set_mTime(long this_addr, float mTime);
 }

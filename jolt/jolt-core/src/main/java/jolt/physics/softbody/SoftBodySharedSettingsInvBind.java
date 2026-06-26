@@ -6,12 +6,10 @@
 
 package jolt.physics.softbody;
 
-import com.github.xpenatan.jParser.idl.IDLBase;
+import com.github.xpenatan.jParser.api.NativeObject;
 import jolt.math.Mat44;
 
-public class SoftBodySharedSettingsInvBind extends IDLBase {
-
-    private Mat44 Mat44_TEMP_GEN_0;
+public class SoftBodySharedSettingsInvBind extends NativeObject {
 
     static public final SoftBodySharedSettingsInvBind NULL = SoftBodySharedSettingsInvBind.native_new();
 
@@ -29,59 +27,17 @@ public class SoftBodySharedSettingsInvBind extends IDLBase {
         return new SoftBodySharedSettingsInvBind((byte) 0, (char) 0);
     }
 
-    protected void deleteNative() {
-        internal_native_deleteNative(native_address);
-    }
-
-    /*[-JNI;-NATIVE]
-SoftBodySharedSettingsInvBind* nativeObject = (SoftBodySharedSettingsInvBind*)this_addr;
-delete nativeObject;
-*/
-    public static native void internal_native_deleteNative(long this_addr);
-
     public int get_mJointIndex() {
-        return internal_native_get_mJointIndex(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-SoftBodySharedSettingsInvBind* nativeObject = (SoftBodySharedSettingsInvBind*)this_addr;
-return nativeObject->mJointIndex;
-*/
-    public static native int internal_native_get_mJointIndex(long this_addr);
 
     public void set_mJointIndex(int mJointIndex) {
-        internal_native_set_mJointIndex(native_address, mJointIndex);
     }
-
-    /*[-JNI;-NATIVE]
-SoftBodySharedSettingsInvBind* nativeObject = (SoftBodySharedSettingsInvBind*)this_addr;
-nativeObject->mJointIndex = mJointIndex;
-*/
-    public static native void internal_native_set_mJointIndex(long this_addr, int mJointIndex);
 
     public Mat44 get_mInvBind() {
-        long addr = internal_native_get_mInvBind_addr(native_address);
-        if (addr == 0)
-            return Mat44.NULL;
-        if (Mat44_TEMP_GEN_0 == null)
-            Mat44_TEMP_GEN_0 = Mat44.native_new();
-        Mat44_TEMP_GEN_0.internal_reset(addr, false);
-        return Mat44_TEMP_GEN_0;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-SoftBodySharedSettingsInvBind* nativeObject = (SoftBodySharedSettingsInvBind*)this_addr;
-return (jlong)&nativeObject->mInvBind;
-*/
-    public static native long internal_native_get_mInvBind_addr(long this_addr);
 
     public void set_mInvBind(Mat44 mInvBind) {
-        internal_native_set_mInvBind(native_address, mInvBind.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-SoftBodySharedSettingsInvBind* nativeObject = (SoftBodySharedSettingsInvBind*)this_addr;
-nativeObject->mInvBind = *((Mat44*)mInvBind_addr);
-*/
-    public static native void internal_native_set_mInvBind(long this_addr, long mInvBind_addr);
 }

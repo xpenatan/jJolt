@@ -14,14 +14,7 @@ public class ObjectVsBroadPhaseLayerFilterTable extends ObjectVsBroadPhaseLayerF
 
     public ObjectVsBroadPhaseLayerFilterTable(BroadPhaseLayerInterface inBroadPhaseLayerInterface, int inNumBroadPhaseLayers, ObjectLayerPairFilter inObjectLayerPairFilter, int inNumObjectLayers) {
         super((byte) 1, (char) 1);
-        long addr = internal_native_create_BroadPhaseLayerInterface_int_ObjectLayerPairFilter_int_addr(inBroadPhaseLayerInterface.native_address, inNumBroadPhaseLayers, inObjectLayerPairFilter.native_address, inNumObjectLayers);
-        internal_reset(addr, true);
     }
-
-    /*[-JNI;-NATIVE]
-return (jlong)new ObjectVsBroadPhaseLayerFilterTable(*((BroadPhaseLayerInterface* )inBroadPhaseLayerInterface_addr), inNumBroadPhaseLayers, *((ObjectLayerPairFilter* )inObjectLayerPairFilter_addr), inNumObjectLayers);
-*/
-    public static native long internal_native_create_BroadPhaseLayerInterface_int_ObjectLayerPairFilter_int_addr(long inBroadPhaseLayerInterface_addr, int inNumBroadPhaseLayers, long inObjectLayerPairFilter_addr, int inNumObjectLayers);
 
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
@@ -37,14 +30,4 @@ return (jlong)new ObjectVsBroadPhaseLayerFilterTable(*((BroadPhaseLayerInterface
     public static ObjectVsBroadPhaseLayerFilterTable native_new() {
         return new ObjectVsBroadPhaseLayerFilterTable((byte) 0, (char) 0);
     }
-
-    protected void deleteNative() {
-        internal_native_deleteNative(native_address);
-    }
-
-    /*[-JNI;-NATIVE]
-ObjectVsBroadPhaseLayerFilterTable* nativeObject = (ObjectVsBroadPhaseLayerFilterTable*)this_addr;
-delete nativeObject;
-*/
-    public static native void internal_native_deleteNative(long this_addr);
 }

@@ -6,36 +6,17 @@
 
 package jolt.physics;
 
-import com.github.xpenatan.jParser.idl.IDLBase;
+import com.github.xpenatan.jParser.api.NativeObject;
 
-public class PhysicsStepListener extends IDLBase {
+public class PhysicsStepListener extends NativeObject {
 
     static private PhysicsStepListenerContext PhysicsStepListenerContext_TEMP_STATIC_GEN_0;
 
     static public final PhysicsStepListener NULL = PhysicsStepListener.native_new();
 
-    /*[-JNI;-NATIVE]
-	static jmethodID PhysicsStepListenerJS_OnStepJ_ID;
-
-class PhysicsStepListenerJS : public PhysicsStepListener {
-private:
-	JNIEnv* env;
-	jobject obj;
-public:
-void setupCallback(JNIEnv* env, jobject obj) {
-	this->env = env;
-	this->obj = env->NewGlobalRef(obj);
-	static jclass jClassID = 0;
-	if(jClassID == 0) {
-		jClassID = (jclass)env->NewGlobalRef(env->GetObjectClass(obj));
-		PhysicsStepListenerJS_OnStepJ_ID = env->GetMethodID(jClassID, "internal_OnStep", "(J)V");
-	}
-}
-virtual void OnStep(const PhysicsStepListenerContext& inContext) {
-   env->CallVoidMethod(obj, PhysicsStepListenerJS_OnStepJ_ID, (jlong)&inContext);
-}
-};
-*/
+    /**
+     * Dummy constructor, used internally to creates objects without C++ pointer
+     */
     @Deprecated()
     protected PhysicsStepListener(byte b, char c) {
     }
@@ -47,16 +28,6 @@ virtual void OnStep(const PhysicsStepListenerContext& inContext) {
         return new PhysicsStepListener((byte) 0, (char) 0);
     }
 
-    protected void deleteNative() {
-        internal_native_deleteNative(native_address);
-    }
-
-    /*[-JNI;-NATIVE]
-PhysicsStepListenerJS* nativeObject = (PhysicsStepListenerJS*)this_addr;
-delete nativeObject;
-*/
-    public static native void internal_native_deleteNative(long this_addr);
-
     public PhysicsStepListener() {
         long addr = internal_native_create_addr();
         internal_reset(addr, true);
@@ -64,7 +35,6 @@ delete nativeObject;
     }
 
     private void setupCallback() {
-        internal_native_setupCallback(native_address);
     }
 
     protected void OnStep(PhysicsStepListenerContext inContext) {
@@ -77,14 +47,5 @@ delete nativeObject;
         OnStep(PhysicsStepListenerContext_TEMP_STATIC_GEN_0);
     }
 
-    /*[-JNI;-NATIVE]
-return (jlong)new PhysicsStepListenerJS();
-*/
     public static native long internal_native_create_addr();
-
-    /*[-JNI;-NATIVE]
-PhysicsStepListenerJS* nativeObject = (PhysicsStepListenerJS*)this_addr;
-nativeObject->setupCallback(env, object);
-*/
-    public native void internal_native_setupCallback(long this_addr);
 }

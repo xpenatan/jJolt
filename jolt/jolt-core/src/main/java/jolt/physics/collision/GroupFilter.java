@@ -6,9 +6,9 @@
 
 package jolt.physics.collision;
 
-import com.github.xpenatan.jParser.idl.IDLBase;
+import com.github.xpenatan.jParser.api.NativeObject;
 
-public class GroupFilter extends IDLBase {
+public class GroupFilter extends NativeObject {
 
     static private CollisionGroup CollisionGroup_TEMP_STATIC_GEN_0;
 
@@ -16,28 +16,9 @@ public class GroupFilter extends IDLBase {
 
     static public final GroupFilter NULL = GroupFilter.native_new();
 
-    /*[-JNI;-NATIVE]
-	static jmethodID GroupFilterJS_CanCollideJJ_ID;
-
-class GroupFilterJS : public GroupFilter {
-private:
-	JNIEnv* env;
-	jobject obj;
-public:
-void setupCallback(JNIEnv* env, jobject obj) {
-	this->env = env;
-	this->obj = env->NewGlobalRef(obj);
-	static jclass jClassID = 0;
-	if(jClassID == 0) {
-		jClassID = (jclass)env->NewGlobalRef(env->GetObjectClass(obj));
-		GroupFilterJS_CanCollideJJ_ID = env->GetMethodID(jClassID, "internal_CanCollide", "(JJ)Z");
-	}
-}
-virtual bool CanCollide(const CollisionGroup& inGroup1, const CollisionGroup& inGroup2) const {
-   return env->CallBooleanMethod(obj, GroupFilterJS_CanCollideJJ_ID, (jlong)&inGroup1, (jlong)&inGroup2);
-}
-};
-*/
+    /**
+     * Dummy constructor, used internally to creates objects without C++ pointer
+     */
     @Deprecated()
     protected GroupFilter(byte b, char c) {
     }
@@ -49,45 +30,15 @@ virtual bool CanCollide(const CollisionGroup& inGroup1, const CollisionGroup& in
         return new GroupFilter((byte) 0, (char) 0);
     }
 
-    protected void deleteNative() {
-        internal_native_deleteNative(native_address);
-    }
-
-    /*[-JNI;-NATIVE]
-GroupFilterJS* nativeObject = (GroupFilterJS*)this_addr;
-delete nativeObject;
-*/
-    public static native void internal_native_deleteNative(long this_addr);
-
     public int GetRefCount() {
-        return internal_native_GetRefCount(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-GroupFilter* nativeObject = (GroupFilter*)this_addr;
-return nativeObject->GetRefCount();
-*/
-    public static native int internal_native_GetRefCount(long this_addr);
 
     public void AddRef() {
-        internal_native_AddRef(native_address);
     }
-
-    /*[-JNI;-NATIVE]
-GroupFilter* nativeObject = (GroupFilter*)this_addr;
-nativeObject->AddRef();
-*/
-    public static native void internal_native_AddRef(long this_addr);
 
     public void Release() {
-        internal_native_Release(native_address);
     }
-
-    /*[-JNI;-NATIVE]
-GroupFilter* nativeObject = (GroupFilter*)this_addr;
-nativeObject->Release();
-*/
-    public static native void internal_native_Release(long this_addr);
 
     public GroupFilter() {
         long addr = internal_native_create_addr();
@@ -96,7 +47,6 @@ nativeObject->Release();
     }
 
     private void setupCallback() {
-        internal_native_setupCallback(native_address);
     }
 
     protected boolean CanCollide(CollisionGroup inGroup1, CollisionGroup inGroup2) {
@@ -113,14 +63,5 @@ nativeObject->Release();
         return CanCollide(CollisionGroup_TEMP_STATIC_GEN_0, CollisionGroup_TEMP_STATIC_GEN_1);
     }
 
-    /*[-JNI;-NATIVE]
-return (jlong)new GroupFilterJS();
-*/
     public static native long internal_native_create_addr();
-
-    /*[-JNI;-NATIVE]
-GroupFilterJS* nativeObject = (GroupFilterJS*)this_addr;
-nativeObject->setupCallback(env, object);
-*/
-    public native void internal_native_setupCallback(long this_addr);
 }

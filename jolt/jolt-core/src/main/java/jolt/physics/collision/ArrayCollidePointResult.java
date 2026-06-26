@@ -6,11 +6,9 @@
 
 package jolt.physics.collision;
 
-import com.github.xpenatan.jParser.idl.IDLBase;
+import com.github.xpenatan.jParser.api.NativeObject;
 
-public class ArrayCollidePointResult extends IDLBase {
-
-    private CollidePointResult CollidePointResult_TEMP_GEN_0;
+public class ArrayCollidePointResult extends NativeObject {
 
     static public final ArrayCollidePointResult NULL = ArrayCollidePointResult.native_new();
 
@@ -28,89 +26,27 @@ public class ArrayCollidePointResult extends IDLBase {
         return new ArrayCollidePointResult((byte) 0, (char) 0);
     }
 
-    protected void deleteNative() {
-        internal_native_deleteNative(native_address);
-    }
-
-    /*[-JNI;-NATIVE]
-ArrayCollidePointResult* nativeObject = (ArrayCollidePointResult*)this_addr;
-delete nativeObject;
-*/
-    public static native void internal_native_deleteNative(long this_addr);
-
     public boolean empty() {
-        return internal_native_empty(native_address);
+        return false;
     }
-
-    /*[-JNI;-NATIVE]
-ArrayCollidePointResult* nativeObject = (ArrayCollidePointResult*)this_addr;
-return nativeObject->empty();
-*/
-    public static native boolean internal_native_empty(long this_addr);
 
     public int size() {
-        return internal_native_size(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-ArrayCollidePointResult* nativeObject = (ArrayCollidePointResult*)this_addr;
-return nativeObject->size();
-*/
-    public static native int internal_native_size(long this_addr);
 
     public CollidePointResult at(int inIndex) {
-        long addr = internal_native_at_addr(native_address, inIndex);
-        if (addr == 0)
-            return CollidePointResult.NULL;
-        if (CollidePointResult_TEMP_GEN_0 == null)
-            CollidePointResult_TEMP_GEN_0 = CollidePointResult.native_new();
-        CollidePointResult_TEMP_GEN_0.internal_reset(addr, false);
-        return CollidePointResult_TEMP_GEN_0;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-ArrayCollidePointResult* nativeObject = (ArrayCollidePointResult*)this_addr;
-return (jlong)&nativeObject->at((int)inIndex);
-*/
-    public static native long internal_native_at_addr(long this_addr, int inIndex);
 
     public void push_back(CollidePointResult inValue) {
-        internal_native_push_back(native_address, inValue.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-ArrayCollidePointResult* nativeObject = (ArrayCollidePointResult*)this_addr;
-nativeObject->push_back(*((CollidePointResult* )inValue_addr));
-*/
-    public static native void internal_native_push_back(long this_addr, long inValue_addr);
 
     public void reserve(int inSize) {
-        internal_native_reserve(native_address, inSize);
     }
-
-    /*[-JNI;-NATIVE]
-ArrayCollidePointResult* nativeObject = (ArrayCollidePointResult*)this_addr;
-nativeObject->reserve(inSize);
-*/
-    public static native void internal_native_reserve(long this_addr, int inSize);
 
     public void resize(int inSize) {
-        internal_native_resize(native_address, inSize);
     }
-
-    /*[-JNI;-NATIVE]
-ArrayCollidePointResult* nativeObject = (ArrayCollidePointResult*)this_addr;
-nativeObject->resize(inSize);
-*/
-    public static native void internal_native_resize(long this_addr, int inSize);
 
     public void clear() {
-        internal_native_clear(native_address);
     }
-
-    /*[-JNI;-NATIVE]
-ArrayCollidePointResult* nativeObject = (ArrayCollidePointResult*)this_addr;
-nativeObject->clear();
-*/
-    public static native void internal_native_clear(long this_addr);
 }

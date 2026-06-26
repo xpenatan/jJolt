@@ -6,37 +6,18 @@
 
 package jolt;
 
-import com.github.xpenatan.jParser.idl.IDLBase;
+import com.github.xpenatan.jParser.api.NativeObject;
 import jolt.physics.vehicle.WheeledVehicleController;
 
-public class WheeledVehicleControllerCallbacksEm extends IDLBase {
+public class WheeledVehicleControllerCallbacksEm extends NativeObject {
 
     static private TireMaxImpulseCallbackResult TireMaxImpulseCallbackResult_TEMP_STATIC_GEN_0;
 
     static public final WheeledVehicleControllerCallbacksEm NULL = WheeledVehicleControllerCallbacksEm.native_new();
 
-    /*[-JNI;-NATIVE]
-	static jmethodID WheeledVehicleControllerCallbacksJS_OnTireMaxImpulseCallbackIJFFFFFF_ID;
-
-class WheeledVehicleControllerCallbacksJS : public WheeledVehicleControllerCallbacksEm {
-private:
-	JNIEnv* env;
-	jobject obj;
-public:
-void setupCallback(JNIEnv* env, jobject obj) {
-	this->env = env;
-	this->obj = env->NewGlobalRef(obj);
-	static jclass jClassID = 0;
-	if(jClassID == 0) {
-		jClassID = (jclass)env->NewGlobalRef(env->GetObjectClass(obj));
-		WheeledVehicleControllerCallbacksJS_OnTireMaxImpulseCallbackIJFFFFFF_ID = env->GetMethodID(jClassID, "internal_OnTireMaxImpulseCallback", "(IJFFFFFF)V");
-	}
-}
-virtual void OnTireMaxImpulseCallback(unsigned int inWheelIndex, TireMaxImpulseCallbackResult* outResult, float inSuspensionImpulse, float inLongitudinalFriction, float inLateralFriction, float inLongitudinalSlip, float inLateralSlip, float inDeltaTime) {
-   env->CallVoidMethod(obj, WheeledVehicleControllerCallbacksJS_OnTireMaxImpulseCallbackIJFFFFFF_ID, inWheelIndex, (jlong)outResult, inSuspensionImpulse, inLongitudinalFriction, inLateralFriction, inLongitudinalSlip, inLateralSlip, inDeltaTime);
-}
-};
-*/
+    /**
+     * Dummy constructor, used internally to creates objects without C++ pointer
+     */
     @Deprecated()
     protected WheeledVehicleControllerCallbacksEm(byte b, char c) {
     }
@@ -48,25 +29,8 @@ virtual void OnTireMaxImpulseCallback(unsigned int inWheelIndex, TireMaxImpulseC
         return new WheeledVehicleControllerCallbacksEm((byte) 0, (char) 0);
     }
 
-    protected void deleteNative() {
-        internal_native_deleteNative(native_address);
-    }
-
-    /*[-JNI;-NATIVE]
-WheeledVehicleControllerCallbacksJS* nativeObject = (WheeledVehicleControllerCallbacksJS*)this_addr;
-delete nativeObject;
-*/
-    public static native void internal_native_deleteNative(long this_addr);
-
     public void SetWheeledVehicleController(WheeledVehicleController inController) {
-        internal_native_SetWheeledVehicleController(native_address, inController.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-WheeledVehicleControllerCallbacksEm* nativeObject = (WheeledVehicleControllerCallbacksEm*)this_addr;
-nativeObject->SetWheeledVehicleController(*((WheeledVehicleController* )inController_addr));
-*/
-    public static native void internal_native_SetWheeledVehicleController(long this_addr, long inController_addr);
 
     public WheeledVehicleControllerCallbacksEm() {
         long addr = internal_native_create_addr();
@@ -75,7 +39,6 @@ nativeObject->SetWheeledVehicleController(*((WheeledVehicleController* )inContro
     }
 
     private void setupCallback() {
-        internal_native_setupCallback(native_address);
     }
 
     protected void OnTireMaxImpulseCallback(int inWheelIndex, TireMaxImpulseCallbackResult outResult, float inSuspensionImpulse, float inLongitudinalFriction, float inLateralFriction, float inLongitudinalSlip, float inLateralSlip, float inDeltaTime) {
@@ -88,14 +51,5 @@ nativeObject->SetWheeledVehicleController(*((WheeledVehicleController* )inContro
         OnTireMaxImpulseCallback(inWheelIndex, TireMaxImpulseCallbackResult_TEMP_STATIC_GEN_0, inSuspensionImpulse, inLongitudinalFriction, inLateralFriction, inLongitudinalSlip, inLateralSlip, inDeltaTime);
     }
 
-    /*[-JNI;-NATIVE]
-return (jlong)new WheeledVehicleControllerCallbacksJS();
-*/
     public static native long internal_native_create_addr();
-
-    /*[-JNI;-NATIVE]
-WheeledVehicleControllerCallbacksJS* nativeObject = (WheeledVehicleControllerCallbacksJS*)this_addr;
-nativeObject->setupCallback(env, object);
-*/
-    public native void internal_native_setupCallback(long this_addr);
 }

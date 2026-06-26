@@ -10,20 +10,11 @@ import jolt.physics.softbody.CollideShapeCollector;
 
 public class CollideShapeAllHitCollisionCollector extends CollideShapeCollector {
 
-    private ArrayCollideShapeResult ArrayCollideShapeResult_TEMP_GEN_0;
-
     static public final CollideShapeAllHitCollisionCollector NULL = CollideShapeAllHitCollisionCollector.native_new();
 
     public CollideShapeAllHitCollisionCollector() {
         super((byte) 1, (char) 1);
-        long addr = internal_native_create_addr();
-        internal_reset(addr, true);
     }
-
-    /*[-JNI;-NATIVE]
-return (jlong)new CollideShapeAllHitCollisionCollector();
-*/
-    public static native long internal_native_create_addr();
 
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
@@ -40,59 +31,17 @@ return (jlong)new CollideShapeAllHitCollisionCollector();
         return new CollideShapeAllHitCollisionCollector((byte) 0, (char) 0);
     }
 
-    protected void deleteNative() {
-        internal_native_deleteNative(native_address);
-    }
-
-    /*[-JNI;-NATIVE]
-CollideShapeAllHitCollisionCollector* nativeObject = (CollideShapeAllHitCollisionCollector*)this_addr;
-delete nativeObject;
-*/
-    public static native void internal_native_deleteNative(long this_addr);
-
     public void Sort() {
-        internal_native_Sort(native_address);
     }
-
-    /*[-JNI;-NATIVE]
-CollideShapeAllHitCollisionCollector* nativeObject = (CollideShapeAllHitCollisionCollector*)this_addr;
-nativeObject->Sort();
-*/
-    public static native void internal_native_Sort(long this_addr);
 
     public boolean HadHit() {
-        return internal_native_HadHit(native_address);
+        return false;
     }
-
-    /*[-JNI;-NATIVE]
-CollideShapeAllHitCollisionCollector* nativeObject = (CollideShapeAllHitCollisionCollector*)this_addr;
-return nativeObject->HadHit();
-*/
-    public static native boolean internal_native_HadHit(long this_addr);
 
     public ArrayCollideShapeResult get_mHits() {
-        long addr = internal_native_get_mHits_addr(native_address);
-        if (addr == 0)
-            return ArrayCollideShapeResult.NULL;
-        if (ArrayCollideShapeResult_TEMP_GEN_0 == null)
-            ArrayCollideShapeResult_TEMP_GEN_0 = ArrayCollideShapeResult.native_new();
-        ArrayCollideShapeResult_TEMP_GEN_0.internal_reset(addr, false);
-        return ArrayCollideShapeResult_TEMP_GEN_0;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-CollideShapeAllHitCollisionCollector* nativeObject = (CollideShapeAllHitCollisionCollector*)this_addr;
-return (jlong)&nativeObject->mHits;
-*/
-    public static native long internal_native_get_mHits_addr(long this_addr);
 
     public void set_mHits(ArrayCollideShapeResult mHits) {
-        internal_native_set_mHits(native_address, mHits.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-CollideShapeAllHitCollisionCollector* nativeObject = (CollideShapeAllHitCollisionCollector*)this_addr;
-nativeObject->mHits = *((ArrayCollideShapeResult*)mHits_addr);
-*/
-    public static native void internal_native_set_mHits(long this_addr, long mHits_addr);
 }

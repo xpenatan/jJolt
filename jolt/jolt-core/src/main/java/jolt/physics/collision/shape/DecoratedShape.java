@@ -8,8 +8,6 @@ package jolt.physics.collision.shape;
 
 public class DecoratedShape extends Shape {
 
-    private Shape Shape_TEMP_GEN_0;
-
     static public final DecoratedShape NULL = DecoratedShape.native_new();
 
     /**
@@ -28,19 +26,6 @@ public class DecoratedShape extends Shape {
     }
 
     public Shape GetInnerShape() {
-        long addr = internal_native_GetInnerShape_addr(native_address);
-        if (addr == 0)
-            return Shape.NULL;
-        if (Shape_TEMP_GEN_0 == null)
-            Shape_TEMP_GEN_0 = Shape.native_new();
-        Shape_TEMP_GEN_0.internal_reset(addr, false);
-        return Shape_TEMP_GEN_0;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-DecoratedShape* nativeObject = (DecoratedShape*)this_addr;
-const Shape* obj = nativeObject->GetInnerShape();
-return (jlong)obj;
-*/
-    public static native long internal_native_GetInnerShape_addr(long this_addr);
 }

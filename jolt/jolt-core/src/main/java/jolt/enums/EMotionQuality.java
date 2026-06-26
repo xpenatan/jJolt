@@ -6,9 +6,9 @@
 
 package jolt.enums;
 
-import com.github.xpenatan.jParser.idl.IDLEnum;
+import com.github.xpenatan.jParser.api.NativeEnum;
 
-public enum EMotionQuality implements IDLEnum<EMotionQuality> {
+public enum EMotionQuality implements NativeEnum<EMotionQuality> {
 
     CUSTOM(0), Discrete(EMotionQuality_Discrete_NATIVE()), LinearCast(EMotionQuality_LinearCast_NATIVE());
 
@@ -34,13 +34,7 @@ public enum EMotionQuality implements IDLEnum<EMotionQuality> {
         return CUSTOM;
     }
 
-    /*[-JNI;-NATIVE]
-return (jlong)EMotionQuality_Discrete;
-*/
     private static native int EMotionQuality_Discrete_NATIVE();
 
-    /*[-JNI;-NATIVE]
-return (jlong)EMotionQuality_LinearCast;
-*/
     private static native int EMotionQuality_LinearCast_NATIVE();
 }

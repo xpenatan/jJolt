@@ -6,9 +6,9 @@
 
 package jolt.renderer;
 
-import com.github.xpenatan.jParser.idl.IDLBase;
+import com.github.xpenatan.jParser.api.NativeObject;
 
-public class DebugRenderer extends IDLBase {
+public class DebugRenderer extends NativeObject {
 
     static public final DebugRenderer NULL = DebugRenderer.native_new();
 
@@ -25,14 +25,4 @@ public class DebugRenderer extends IDLBase {
     public static DebugRenderer native_new() {
         return new DebugRenderer((byte) 0, (char) 0);
     }
-
-    protected void deleteNative() {
-        internal_native_deleteNative(native_address);
-    }
-
-    /*[-JNI;-NATIVE]
-DebugRenderer* nativeObject = (DebugRenderer*)this_addr;
-delete nativeObject;
-*/
-    public static native void internal_native_deleteNative(long this_addr);
 }

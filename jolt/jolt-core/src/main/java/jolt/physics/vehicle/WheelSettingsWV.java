@@ -10,22 +10,11 @@ import jolt.core.LinearCurve;
 
 public class WheelSettingsWV extends WheelSettings {
 
-    private LinearCurve LinearCurve_TEMP_GEN_0;
-
-    private LinearCurve LinearCurve_TEMP_GEN_1;
-
     static public final WheelSettingsWV NULL = WheelSettingsWV.native_new();
 
     public WheelSettingsWV() {
         super((byte) 1, (char) 1);
-        long addr = internal_native_create_addr();
-        internal_reset(addr, true);
     }
-
-    /*[-JNI;-NATIVE]
-return (jlong)new WheelSettingsWV();
-*/
-    public static native long internal_native_create_addr();
 
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
@@ -42,165 +31,52 @@ return (jlong)new WheelSettingsWV();
         return new WheelSettingsWV((byte) 0, (char) 0);
     }
 
-    protected void deleteNative() {
-        internal_native_deleteNative(native_address);
-    }
-
-    /*[-JNI;-NATIVE]
-WheelSettingsWV* nativeObject = (WheelSettingsWV*)this_addr;
-delete nativeObject;
-*/
-    public static native void internal_native_deleteNative(long this_addr);
-
     public float get_mInertia() {
-        return internal_native_get_mInertia(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-WheelSettingsWV* nativeObject = (WheelSettingsWV*)this_addr;
-return nativeObject->mInertia;
-*/
-    public static native float internal_native_get_mInertia(long this_addr);
 
     public void set_mInertia(float mInertia) {
-        internal_native_set_mInertia(native_address, mInertia);
     }
-
-    /*[-JNI;-NATIVE]
-WheelSettingsWV* nativeObject = (WheelSettingsWV*)this_addr;
-nativeObject->mInertia = mInertia;
-*/
-    public static native void internal_native_set_mInertia(long this_addr, float mInertia);
 
     public float get_mAngularDamping() {
-        return internal_native_get_mAngularDamping(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-WheelSettingsWV* nativeObject = (WheelSettingsWV*)this_addr;
-return nativeObject->mAngularDamping;
-*/
-    public static native float internal_native_get_mAngularDamping(long this_addr);
 
     public void set_mAngularDamping(float mAngularDamping) {
-        internal_native_set_mAngularDamping(native_address, mAngularDamping);
     }
-
-    /*[-JNI;-NATIVE]
-WheelSettingsWV* nativeObject = (WheelSettingsWV*)this_addr;
-nativeObject->mAngularDamping = mAngularDamping;
-*/
-    public static native void internal_native_set_mAngularDamping(long this_addr, float mAngularDamping);
 
     public float get_mMaxSteerAngle() {
-        return internal_native_get_mMaxSteerAngle(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-WheelSettingsWV* nativeObject = (WheelSettingsWV*)this_addr;
-return nativeObject->mMaxSteerAngle;
-*/
-    public static native float internal_native_get_mMaxSteerAngle(long this_addr);
 
     public void set_mMaxSteerAngle(float mMaxSteerAngle) {
-        internal_native_set_mMaxSteerAngle(native_address, mMaxSteerAngle);
     }
-
-    /*[-JNI;-NATIVE]
-WheelSettingsWV* nativeObject = (WheelSettingsWV*)this_addr;
-nativeObject->mMaxSteerAngle = mMaxSteerAngle;
-*/
-    public static native void internal_native_set_mMaxSteerAngle(long this_addr, float mMaxSteerAngle);
 
     public LinearCurve get_mLongitudinalFriction() {
-        long addr = internal_native_get_mLongitudinalFriction_addr(native_address);
-        if (addr == 0)
-            return LinearCurve.NULL;
-        if (LinearCurve_TEMP_GEN_0 == null)
-            LinearCurve_TEMP_GEN_0 = LinearCurve.native_new();
-        LinearCurve_TEMP_GEN_0.internal_reset(addr, false);
-        return LinearCurve_TEMP_GEN_0;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-WheelSettingsWV* nativeObject = (WheelSettingsWV*)this_addr;
-return (jlong)&nativeObject->mLongitudinalFriction;
-*/
-    public static native long internal_native_get_mLongitudinalFriction_addr(long this_addr);
 
     public void set_mLongitudinalFriction(LinearCurve mLongitudinalFriction) {
-        internal_native_set_mLongitudinalFriction(native_address, mLongitudinalFriction.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-WheelSettingsWV* nativeObject = (WheelSettingsWV*)this_addr;
-nativeObject->mLongitudinalFriction = *((LinearCurve*)mLongitudinalFriction_addr);
-*/
-    public static native void internal_native_set_mLongitudinalFriction(long this_addr, long mLongitudinalFriction_addr);
 
     public LinearCurve get_mLateralFriction() {
-        long addr = internal_native_get_mLateralFriction_addr(native_address);
-        if (addr == 0)
-            return LinearCurve.NULL;
-        if (LinearCurve_TEMP_GEN_1 == null)
-            LinearCurve_TEMP_GEN_1 = LinearCurve.native_new();
-        LinearCurve_TEMP_GEN_1.internal_reset(addr, false);
-        return LinearCurve_TEMP_GEN_1;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-WheelSettingsWV* nativeObject = (WheelSettingsWV*)this_addr;
-return (jlong)&nativeObject->mLateralFriction;
-*/
-    public static native long internal_native_get_mLateralFriction_addr(long this_addr);
 
     public void set_mLateralFriction(LinearCurve mLateralFriction) {
-        internal_native_set_mLateralFriction(native_address, mLateralFriction.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-WheelSettingsWV* nativeObject = (WheelSettingsWV*)this_addr;
-nativeObject->mLateralFriction = *((LinearCurve*)mLateralFriction_addr);
-*/
-    public static native void internal_native_set_mLateralFriction(long this_addr, long mLateralFriction_addr);
 
     public float get_mMaxBrakeTorque() {
-        return internal_native_get_mMaxBrakeTorque(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-WheelSettingsWV* nativeObject = (WheelSettingsWV*)this_addr;
-return nativeObject->mMaxBrakeTorque;
-*/
-    public static native float internal_native_get_mMaxBrakeTorque(long this_addr);
 
     public void set_mMaxBrakeTorque(float mMaxBrakeTorque) {
-        internal_native_set_mMaxBrakeTorque(native_address, mMaxBrakeTorque);
     }
-
-    /*[-JNI;-NATIVE]
-WheelSettingsWV* nativeObject = (WheelSettingsWV*)this_addr;
-nativeObject->mMaxBrakeTorque = mMaxBrakeTorque;
-*/
-    public static native void internal_native_set_mMaxBrakeTorque(long this_addr, float mMaxBrakeTorque);
 
     public float get_mMaxHandBrakeTorque() {
-        return internal_native_get_mMaxHandBrakeTorque(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-WheelSettingsWV* nativeObject = (WheelSettingsWV*)this_addr;
-return nativeObject->mMaxHandBrakeTorque;
-*/
-    public static native float internal_native_get_mMaxHandBrakeTorque(long this_addr);
 
     public void set_mMaxHandBrakeTorque(float mMaxHandBrakeTorque) {
-        internal_native_set_mMaxHandBrakeTorque(native_address, mMaxHandBrakeTorque);
     }
-
-    /*[-JNI;-NATIVE]
-WheelSettingsWV* nativeObject = (WheelSettingsWV*)this_addr;
-nativeObject->mMaxHandBrakeTorque = mMaxHandBrakeTorque;
-*/
-    public static native void internal_native_set_mMaxHandBrakeTorque(long this_addr, float mMaxHandBrakeTorque);
 }

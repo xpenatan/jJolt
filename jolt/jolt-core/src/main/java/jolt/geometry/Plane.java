@@ -6,33 +6,16 @@
 
 package jolt.geometry;
 
-import com.github.xpenatan.jParser.idl.IDLBase;
+import com.github.xpenatan.jParser.api.NativeObject;
 import jolt.math.Vec3;
 import jolt.math.Mat44;
 
-public class Plane extends IDLBase {
-
-    private Vec3 Vec3_TEMP_GEN_0;
-
-    private Plane Plane_TEMP_GEN_0;
-
-    private Plane Plane_TEMP_GEN_1;
-
-    private Plane Plane_TEMP_GEN_2;
-
-    private Plane Plane_TEMP_GEN_3;
+public class Plane extends NativeObject {
 
     static public final Plane NULL = Plane.native_new();
 
     public Plane(Vec3 inNormal, float inConstant) {
-        long addr = internal_native_create_Vec3_float_addr(inNormal.native_address, inConstant);
-        internal_reset(addr, true);
     }
-
-    /*[-JNI;-NATIVE]
-return (jlong)new Plane(*((Vec3* )inNormal_addr), (float)inConstant);
-*/
-    public static native long internal_native_create_Vec3_float_addr(long inNormal_addr, float inConstant);
 
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
@@ -48,138 +31,37 @@ return (jlong)new Plane(*((Vec3* )inNormal_addr), (float)inConstant);
         return new Plane((byte) 0, (char) 0);
     }
 
-    protected void deleteNative() {
-        internal_native_deleteNative(native_address);
-    }
-
-    /*[-JNI;-NATIVE]
-Plane* nativeObject = (Plane*)this_addr;
-delete nativeObject;
-*/
-    public static native void internal_native_deleteNative(long this_addr);
-
     public Vec3 GetNormal() {
-        long addr = internal_native_GetNormal_addr(native_address);
-        if (addr == 0)
-            return Vec3.NULL;
-        if (Vec3_TEMP_GEN_0 == null)
-            Vec3_TEMP_GEN_0 = Vec3.native_new();
-        Vec3_TEMP_GEN_0.internal_reset(addr, false);
-        return Vec3_TEMP_GEN_0;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-Plane* nativeObject = (Plane*)this_addr;
-static Vec3 copy_addr;
-copy_addr = nativeObject->GetNormal();
-return (jlong)&copy_addr;*/
-    public static native long internal_native_GetNormal_addr(long this_addr);
 
     public void SetNormal(Vec3 inNormal) {
-        internal_native_SetNormal(native_address, inNormal.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-Plane* nativeObject = (Plane*)this_addr;
-nativeObject->SetNormal(*((Vec3* )inNormal_addr));
-*/
-    public static native void internal_native_SetNormal(long this_addr, long inNormal_addr);
 
     public float GetConstant() {
-        return internal_native_GetConstant(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-Plane* nativeObject = (Plane*)this_addr;
-return nativeObject->GetConstant();
-*/
-    public static native float internal_native_GetConstant(long this_addr);
 
     public void SetConstant(float inConstant) {
-        internal_native_SetConstant(native_address, inConstant);
     }
-
-    /*[-JNI;-NATIVE]
-Plane* nativeObject = (Plane*)this_addr;
-nativeObject->SetConstant((float)inConstant);
-*/
-    public static native void internal_native_SetConstant(long this_addr, float inConstant);
 
     public Plane sFromPointAndNormal(Vec3 inPoint, Vec3 inNormal) {
-        long addr = internal_native_sFromPointAndNormal_addr(native_address, inPoint.native_address, inNormal.native_address);
-        if (addr == 0)
-            return Plane.NULL;
-        if (Plane_TEMP_GEN_0 == null)
-            Plane_TEMP_GEN_0 = Plane.native_new();
-        Plane_TEMP_GEN_0.internal_reset(addr, false);
-        return Plane_TEMP_GEN_0;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-Plane* nativeObject = (Plane*)this_addr;
-static Plane copy_addr;
-copy_addr = nativeObject->sFromPointAndNormal(*((Vec3* )inPoint_addr), *((Vec3* )inNormal_addr));
-return (jlong)&copy_addr;*/
-    public static native long internal_native_sFromPointAndNormal_addr(long this_addr, long inPoint_addr, long inNormal_addr);
 
     public Plane sFromPointsCCW(Vec3 inPoint1, Vec3 inPoint2, Vec3 inPoint3) {
-        long addr = internal_native_sFromPointsCCW_addr(native_address, inPoint1.native_address, inPoint2.native_address, inPoint3.native_address);
-        if (addr == 0)
-            return Plane.NULL;
-        if (Plane_TEMP_GEN_1 == null)
-            Plane_TEMP_GEN_1 = Plane.native_new();
-        Plane_TEMP_GEN_1.internal_reset(addr, false);
-        return Plane_TEMP_GEN_1;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-Plane* nativeObject = (Plane*)this_addr;
-static Plane copy_addr;
-copy_addr = nativeObject->sFromPointsCCW(*((Vec3* )inPoint1_addr), *((Vec3* )inPoint2_addr), *((Vec3* )inPoint3_addr));
-return (jlong)&copy_addr;*/
-    public static native long internal_native_sFromPointsCCW_addr(long this_addr, long inPoint1_addr, long inPoint2_addr, long inPoint3_addr);
 
     public Plane Offset(float inDistance) {
-        long addr = internal_native_Offset_addr(native_address, inDistance);
-        if (addr == 0)
-            return Plane.NULL;
-        if (Plane_TEMP_GEN_2 == null)
-            Plane_TEMP_GEN_2 = Plane.native_new();
-        Plane_TEMP_GEN_2.internal_reset(addr, false);
-        return Plane_TEMP_GEN_2;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-Plane* nativeObject = (Plane*)this_addr;
-static Plane copy_addr;
-copy_addr = nativeObject->Offset((float)inDistance);
-return (jlong)&copy_addr;*/
-    public static native long internal_native_Offset_addr(long this_addr, float inDistance);
 
     public Plane GetTransformed(Mat44 inTransform) {
-        long addr = internal_native_GetTransformed_addr(native_address, inTransform.native_address);
-        if (addr == 0)
-            return Plane.NULL;
-        if (Plane_TEMP_GEN_3 == null)
-            Plane_TEMP_GEN_3 = Plane.native_new();
-        Plane_TEMP_GEN_3.internal_reset(addr, false);
-        return Plane_TEMP_GEN_3;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-Plane* nativeObject = (Plane*)this_addr;
-static Plane copy_addr;
-copy_addr = nativeObject->GetTransformed(*((Mat44* )inTransform_addr));
-return (jlong)&copy_addr;*/
-    public static native long internal_native_GetTransformed_addr(long this_addr, long inTransform_addr);
 
     public float SignedDistance(Vec3 inPoint) {
-        return internal_native_SignedDistance(native_address, inPoint.native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-Plane* nativeObject = (Plane*)this_addr;
-return nativeObject->SignedDistance(*((Vec3* )inPoint_addr));
-*/
-    public static native float internal_native_SignedDistance(long this_addr, long inPoint_addr);
 }

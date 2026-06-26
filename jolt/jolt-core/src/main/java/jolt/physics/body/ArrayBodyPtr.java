@@ -6,13 +6,9 @@
 
 package jolt.physics.body;
 
-import com.github.xpenatan.jParser.idl.IDLBase;
+import com.github.xpenatan.jParser.api.NativeObject;
 
-public class ArrayBodyPtr extends IDLBase {
-
-    private Body Body_TEMP_GEN_0;
-
-    private BodyPtrMemRef BodyPtrMemRef_TEMP_GEN_0;
+public class ArrayBodyPtr extends NativeObject {
 
     static public final ArrayBodyPtr NULL = ArrayBodyPtr.native_new();
 
@@ -30,107 +26,31 @@ public class ArrayBodyPtr extends IDLBase {
         return new ArrayBodyPtr((byte) 0, (char) 0);
     }
 
-    protected void deleteNative() {
-        internal_native_deleteNative(native_address);
-    }
-
-    /*[-JNI;-NATIVE]
-ArrayBodyPtr* nativeObject = (ArrayBodyPtr*)this_addr;
-delete nativeObject;
-*/
-    public static native void internal_native_deleteNative(long this_addr);
-
     public boolean empty() {
-        return internal_native_empty(native_address);
+        return false;
     }
-
-    /*[-JNI;-NATIVE]
-ArrayBodyPtr* nativeObject = (ArrayBodyPtr*)this_addr;
-return nativeObject->empty();
-*/
-    public static native boolean internal_native_empty(long this_addr);
 
     public int size() {
-        return internal_native_size(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-ArrayBodyPtr* nativeObject = (ArrayBodyPtr*)this_addr;
-return nativeObject->size();
-*/
-    public static native int internal_native_size(long this_addr);
 
     public Body at(int inIndex) {
-        long addr = internal_native_at_addr(native_address, inIndex);
-        if (addr == 0)
-            return Body.NULL;
-        if (Body_TEMP_GEN_0 == null)
-            Body_TEMP_GEN_0 = Body.native_new();
-        Body_TEMP_GEN_0.internal_reset(addr, false);
-        return Body_TEMP_GEN_0;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-ArrayBodyPtr* nativeObject = (ArrayBodyPtr*)this_addr;
-Body* obj = nativeObject->at((int)inIndex);
-return (jlong)obj;
-*/
-    public static native long internal_native_at_addr(long this_addr, int inIndex);
 
     public void push_back(Body inValue) {
-        internal_native_push_back(native_address, inValue.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-ArrayBodyPtr* nativeObject = (ArrayBodyPtr*)this_addr;
-nativeObject->push_back((Body* )inValue_addr);
-*/
-    public static native void internal_native_push_back(long this_addr, long inValue_addr);
 
     public void reserve(int inSize) {
-        internal_native_reserve(native_address, inSize);
     }
-
-    /*[-JNI;-NATIVE]
-ArrayBodyPtr* nativeObject = (ArrayBodyPtr*)this_addr;
-nativeObject->reserve(inSize);
-*/
-    public static native void internal_native_reserve(long this_addr, int inSize);
 
     public void resize(int inSize) {
-        internal_native_resize(native_address, inSize);
     }
-
-    /*[-JNI;-NATIVE]
-ArrayBodyPtr* nativeObject = (ArrayBodyPtr*)this_addr;
-nativeObject->resize(inSize);
-*/
-    public static native void internal_native_resize(long this_addr, int inSize);
 
     public void clear() {
-        internal_native_clear(native_address);
     }
-
-    /*[-JNI;-NATIVE]
-ArrayBodyPtr* nativeObject = (ArrayBodyPtr*)this_addr;
-nativeObject->clear();
-*/
-    public static native void internal_native_clear(long this_addr);
 
     public BodyPtrMemRef data() {
-        long addr = internal_native_data_addr(native_address);
-        if (addr == 0)
-            return BodyPtrMemRef.NULL;
-        if (BodyPtrMemRef_TEMP_GEN_0 == null)
-            BodyPtrMemRef_TEMP_GEN_0 = BodyPtrMemRef.native_new();
-        BodyPtrMemRef_TEMP_GEN_0.internal_reset(addr, false);
-        return BodyPtrMemRef_TEMP_GEN_0;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-ArrayBodyPtr* nativeObject = (ArrayBodyPtr*)this_addr;
-BodyPtrMemRef* obj = nativeObject->data();
-return (jlong)obj;
-*/
-    public static native long internal_native_data_addr(long this_addr);
 }

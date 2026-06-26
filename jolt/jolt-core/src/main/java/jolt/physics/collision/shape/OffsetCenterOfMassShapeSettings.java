@@ -10,20 +10,11 @@ import jolt.math.Vec3;
 
 public class OffsetCenterOfMassShapeSettings extends DecoratedShapeSettings {
 
-    private Vec3 Vec3_TEMP_GEN_0;
-
     static public final OffsetCenterOfMassShapeSettings NULL = OffsetCenterOfMassShapeSettings.native_new();
 
     public OffsetCenterOfMassShapeSettings(Vec3 inOffset, Shape inShape) {
         super((byte) 1, (char) 1);
-        long addr = internal_native_create_Vec3_Shape_addr(inOffset.native_address, inShape.native_address);
-        internal_reset(addr, true);
     }
-
-    /*[-JNI;-NATIVE]
-return (jlong)new OffsetCenterOfMassShapeSettings(*((Vec3* )inOffset_addr), (Shape* )inShape_addr);
-*/
-    public static native long internal_native_create_Vec3_Shape_addr(long inOffset_addr, long inShape_addr);
 
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
@@ -40,39 +31,10 @@ return (jlong)new OffsetCenterOfMassShapeSettings(*((Vec3* )inOffset_addr), (Sha
         return new OffsetCenterOfMassShapeSettings((byte) 0, (char) 0);
     }
 
-    protected void deleteNative() {
-        internal_native_deleteNative(native_address);
-    }
-
-    /*[-JNI;-NATIVE]
-OffsetCenterOfMassShapeSettings* nativeObject = (OffsetCenterOfMassShapeSettings*)this_addr;
-delete nativeObject;
-*/
-    public static native void internal_native_deleteNative(long this_addr);
-
     public Vec3 get_mOffset() {
-        long addr = internal_native_get_mOffset_addr(native_address);
-        if (addr == 0)
-            return Vec3.NULL;
-        if (Vec3_TEMP_GEN_0 == null)
-            Vec3_TEMP_GEN_0 = Vec3.native_new();
-        Vec3_TEMP_GEN_0.internal_reset(addr, false);
-        return Vec3_TEMP_GEN_0;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-OffsetCenterOfMassShapeSettings* nativeObject = (OffsetCenterOfMassShapeSettings*)this_addr;
-return (jlong)&nativeObject->mOffset;
-*/
-    public static native long internal_native_get_mOffset_addr(long this_addr);
 
     public void set_mOffset(Vec3 mOffset) {
-        internal_native_set_mOffset(native_address, mOffset.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-OffsetCenterOfMassShapeSettings* nativeObject = (OffsetCenterOfMassShapeSettings*)this_addr;
-nativeObject->mOffset = *((Vec3*)mOffset_addr);
-*/
-    public static native void internal_native_set_mOffset(long this_addr, long mOffset_addr);
 }

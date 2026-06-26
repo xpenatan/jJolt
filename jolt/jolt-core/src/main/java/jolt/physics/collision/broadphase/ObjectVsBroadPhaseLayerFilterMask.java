@@ -12,14 +12,7 @@ public class ObjectVsBroadPhaseLayerFilterMask extends ObjectVsBroadPhaseLayerFi
 
     public ObjectVsBroadPhaseLayerFilterMask(BroadPhaseLayerInterfaceMask inBroadPhaseLayerInterface) {
         super((byte) 1, (char) 1);
-        long addr = internal_native_create_BroadPhaseLayerInterfaceMask_addr(inBroadPhaseLayerInterface.native_address);
-        internal_reset(addr, true);
     }
-
-    /*[-JNI;-NATIVE]
-return (jlong)new ObjectVsBroadPhaseLayerFilterMask(*((BroadPhaseLayerInterfaceMask* )inBroadPhaseLayerInterface_addr));
-*/
-    public static native long internal_native_create_BroadPhaseLayerInterfaceMask_addr(long inBroadPhaseLayerInterface_addr);
 
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
@@ -35,14 +28,4 @@ return (jlong)new ObjectVsBroadPhaseLayerFilterMask(*((BroadPhaseLayerInterfaceM
     public static ObjectVsBroadPhaseLayerFilterMask native_new() {
         return new ObjectVsBroadPhaseLayerFilterMask((byte) 0, (char) 0);
     }
-
-    protected void deleteNative() {
-        internal_native_deleteNative(native_address);
-    }
-
-    /*[-JNI;-NATIVE]
-ObjectVsBroadPhaseLayerFilterMask* nativeObject = (ObjectVsBroadPhaseLayerFilterMask*)this_addr;
-delete nativeObject;
-*/
-    public static native void internal_native_deleteNative(long this_addr);
 }

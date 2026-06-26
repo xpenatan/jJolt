@@ -12,24 +12,11 @@ import jolt.math.Vec3;
 
 public class DistanceConstraintSettings extends TwoBodyConstraintSettings {
 
-    private Vec3 Vec3_TEMP_GEN_0;
-
-    private Vec3 Vec3_TEMP_GEN_1;
-
-    private SpringSettings SpringSettings_TEMP_GEN_0;
-
     static public final DistanceConstraintSettings NULL = DistanceConstraintSettings.native_new();
 
     public DistanceConstraintSettings() {
         super((byte) 1, (char) 1);
-        long addr = internal_native_create_addr();
-        internal_reset(addr, true);
     }
-
-    /*[-JNI;-NATIVE]
-return (jlong)new DistanceConstraintSettings();
-*/
-    public static native long internal_native_create_addr();
 
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
@@ -46,158 +33,45 @@ return (jlong)new DistanceConstraintSettings();
         return new DistanceConstraintSettings((byte) 0, (char) 0);
     }
 
-    protected void deleteNative() {
-        internal_native_deleteNative(native_address);
-    }
-
-    /*[-JNI;-NATIVE]
-DistanceConstraintSettings* nativeObject = (DistanceConstraintSettings*)this_addr;
-delete nativeObject;
-*/
-    public static native void internal_native_deleteNative(long this_addr);
-
     public EConstraintSpace get_mSpace() {
-        int value = internal_native_get_mSpace(native_address);
-        EConstraintSpace[] values = EConstraintSpace.values();
-        for (int i = 0; i < values.length; i++) {
-            EConstraintSpace enumVal = values[i];
-            if (enumVal != EConstraintSpace.CUSTOM && enumVal.getValue() == value)
-                return enumVal;
-        }
-        return EConstraintSpace.CUSTOM.setValue(value);
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-DistanceConstraintSettings* nativeObject = (DistanceConstraintSettings*)this_addr;
-return (jint)nativeObject->mSpace;
-*/
-    public static native int internal_native_get_mSpace(long this_addr);
 
     public void set_mSpace(EConstraintSpace mSpace) {
-        internal_native_set_mSpace(native_address, mSpace.getValue());
     }
-
-    /*[-JNI;-NATIVE]
-DistanceConstraintSettings* nativeObject = (DistanceConstraintSettings*)this_addr;
-nativeObject->mSpace = (::EConstraintSpace)mSpace;
-*/
-    public static native void internal_native_set_mSpace(long this_addr, int mSpace);
 
     public Vec3 get_mPoint1() {
-        long addr = internal_native_get_mPoint1_addr(native_address);
-        if (addr == 0)
-            return Vec3.NULL;
-        if (Vec3_TEMP_GEN_0 == null)
-            Vec3_TEMP_GEN_0 = Vec3.native_new();
-        Vec3_TEMP_GEN_0.internal_reset(addr, false);
-        return Vec3_TEMP_GEN_0;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-DistanceConstraintSettings* nativeObject = (DistanceConstraintSettings*)this_addr;
-return (jlong)&nativeObject->mPoint1;
-*/
-    public static native long internal_native_get_mPoint1_addr(long this_addr);
 
     public void set_mPoint1(Vec3 mPoint1) {
-        internal_native_set_mPoint1(native_address, mPoint1.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-DistanceConstraintSettings* nativeObject = (DistanceConstraintSettings*)this_addr;
-nativeObject->mPoint1 = *((Vec3*)mPoint1_addr);
-*/
-    public static native void internal_native_set_mPoint1(long this_addr, long mPoint1_addr);
 
     public Vec3 get_mPoint2() {
-        long addr = internal_native_get_mPoint2_addr(native_address);
-        if (addr == 0)
-            return Vec3.NULL;
-        if (Vec3_TEMP_GEN_1 == null)
-            Vec3_TEMP_GEN_1 = Vec3.native_new();
-        Vec3_TEMP_GEN_1.internal_reset(addr, false);
-        return Vec3_TEMP_GEN_1;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-DistanceConstraintSettings* nativeObject = (DistanceConstraintSettings*)this_addr;
-return (jlong)&nativeObject->mPoint2;
-*/
-    public static native long internal_native_get_mPoint2_addr(long this_addr);
 
     public void set_mPoint2(Vec3 mPoint2) {
-        internal_native_set_mPoint2(native_address, mPoint2.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-DistanceConstraintSettings* nativeObject = (DistanceConstraintSettings*)this_addr;
-nativeObject->mPoint2 = *((Vec3*)mPoint2_addr);
-*/
-    public static native void internal_native_set_mPoint2(long this_addr, long mPoint2_addr);
 
     public float get_mMinDistance() {
-        return internal_native_get_mMinDistance(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-DistanceConstraintSettings* nativeObject = (DistanceConstraintSettings*)this_addr;
-return nativeObject->mMinDistance;
-*/
-    public static native float internal_native_get_mMinDistance(long this_addr);
 
     public void set_mMinDistance(float mMinDistance) {
-        internal_native_set_mMinDistance(native_address, mMinDistance);
     }
-
-    /*[-JNI;-NATIVE]
-DistanceConstraintSettings* nativeObject = (DistanceConstraintSettings*)this_addr;
-nativeObject->mMinDistance = mMinDistance;
-*/
-    public static native void internal_native_set_mMinDistance(long this_addr, float mMinDistance);
 
     public float get_mMaxDistance() {
-        return internal_native_get_mMaxDistance(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-DistanceConstraintSettings* nativeObject = (DistanceConstraintSettings*)this_addr;
-return nativeObject->mMaxDistance;
-*/
-    public static native float internal_native_get_mMaxDistance(long this_addr);
 
     public void set_mMaxDistance(float mMaxDistance) {
-        internal_native_set_mMaxDistance(native_address, mMaxDistance);
     }
-
-    /*[-JNI;-NATIVE]
-DistanceConstraintSettings* nativeObject = (DistanceConstraintSettings*)this_addr;
-nativeObject->mMaxDistance = mMaxDistance;
-*/
-    public static native void internal_native_set_mMaxDistance(long this_addr, float mMaxDistance);
 
     public SpringSettings get_mLimitsSpringSettings() {
-        long addr = internal_native_get_mLimitsSpringSettings_addr(native_address);
-        if (addr == 0)
-            return SpringSettings.NULL;
-        if (SpringSettings_TEMP_GEN_0 == null)
-            SpringSettings_TEMP_GEN_0 = SpringSettings.native_new();
-        SpringSettings_TEMP_GEN_0.internal_reset(addr, false);
-        return SpringSettings_TEMP_GEN_0;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-DistanceConstraintSettings* nativeObject = (DistanceConstraintSettings*)this_addr;
-return (jlong)&nativeObject->mLimitsSpringSettings;
-*/
-    public static native long internal_native_get_mLimitsSpringSettings_addr(long this_addr);
 
     public void set_mLimitsSpringSettings(SpringSettings mLimitsSpringSettings) {
-        internal_native_set_mLimitsSpringSettings(native_address, mLimitsSpringSettings.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-DistanceConstraintSettings* nativeObject = (DistanceConstraintSettings*)this_addr;
-nativeObject->mLimitsSpringSettings = *((SpringSettings*)mLimitsSpringSettings_addr);
-*/
-    public static native void internal_native_set_mLimitsSpringSettings(long this_addr, long mLimitsSpringSettings_addr);
 }

@@ -6,9 +6,9 @@
 
 package jolt.physics.body;
 
-import com.github.xpenatan.jParser.idl.IDLBase;
+import com.github.xpenatan.jParser.api.NativeObject;
 
-public class BodyActivationListener extends IDLBase {
+public class BodyActivationListener extends NativeObject {
 
     static private BodyID BodyID_TEMP_STATIC_GEN_0;
 
@@ -16,33 +16,9 @@ public class BodyActivationListener extends IDLBase {
 
     static public final BodyActivationListener NULL = BodyActivationListener.native_new();
 
-    /*[-JNI;-NATIVE]
-	static jmethodID BodyActivationListenerJS_OnBodyActivatedJJ_ID;
-	static jmethodID BodyActivationListenerJS_OnBodyDeactivatedJJ_ID;
-
-class BodyActivationListenerJS : public BodyActivationListener {
-private:
-	JNIEnv* env;
-	jobject obj;
-public:
-void setupCallback(JNIEnv* env, jobject obj) {
-	this->env = env;
-	this->obj = env->NewGlobalRef(obj);
-	static jclass jClassID = 0;
-	if(jClassID == 0) {
-		jClassID = (jclass)env->NewGlobalRef(env->GetObjectClass(obj));
-		BodyActivationListenerJS_OnBodyActivatedJJ_ID = env->GetMethodID(jClassID, "internal_OnBodyActivated", "(JJ)V");
-		BodyActivationListenerJS_OnBodyDeactivatedJJ_ID = env->GetMethodID(jClassID, "internal_OnBodyDeactivated", "(JJ)V");
-	}
-}
-virtual void OnBodyActivated(const BodyID& inBodyID, uint64 inBodyUserData) {
-   env->CallVoidMethod(obj, BodyActivationListenerJS_OnBodyActivatedJJ_ID, (jlong)&inBodyID, inBodyUserData);
-}
-virtual void OnBodyDeactivated(const BodyID& inBodyID, uint64 inBodyUserData) {
-   env->CallVoidMethod(obj, BodyActivationListenerJS_OnBodyDeactivatedJJ_ID, (jlong)&inBodyID, inBodyUserData);
-}
-};
-*/
+    /**
+     * Dummy constructor, used internally to creates objects without C++ pointer
+     */
     @Deprecated()
     protected BodyActivationListener(byte b, char c) {
     }
@@ -54,16 +30,6 @@ virtual void OnBodyDeactivated(const BodyID& inBodyID, uint64 inBodyUserData) {
         return new BodyActivationListener((byte) 0, (char) 0);
     }
 
-    protected void deleteNative() {
-        internal_native_deleteNative(native_address);
-    }
-
-    /*[-JNI;-NATIVE]
-BodyActivationListenerJS* nativeObject = (BodyActivationListenerJS*)this_addr;
-delete nativeObject;
-*/
-    public static native void internal_native_deleteNative(long this_addr);
-
     public BodyActivationListener() {
         long addr = internal_native_create_addr();
         internal_reset(addr, true);
@@ -71,7 +37,6 @@ delete nativeObject;
     }
 
     private void setupCallback() {
-        internal_native_setupCallback(native_address);
     }
 
     protected void OnBodyActivated(BodyID inBodyID, long inBodyUserData) {
@@ -94,14 +59,5 @@ delete nativeObject;
         OnBodyDeactivated(BodyID_TEMP_STATIC_GEN_1, inBodyUserData);
     }
 
-    /*[-JNI;-NATIVE]
-return (jlong)new BodyActivationListenerJS();
-*/
     public static native long internal_native_create_addr();
-
-    /*[-JNI;-NATIVE]
-BodyActivationListenerJS* nativeObject = (BodyActivationListenerJS*)this_addr;
-nativeObject->setupCallback(env, object);
-*/
-    public native void internal_native_setupCallback(long this_addr);
 }

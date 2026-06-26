@@ -12,14 +12,7 @@ public class StateRecorderImpl extends StateRecorder {
 
     public StateRecorderImpl() {
         super((byte) 1, (char) 1);
-        long addr = internal_native_create_addr();
-        internal_reset(addr, true);
     }
-
-    /*[-JNI;-NATIVE]
-return (jlong)new StateRecorderImpl();
-*/
-    public static native long internal_native_create_addr();
 
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
@@ -36,43 +29,13 @@ return (jlong)new StateRecorderImpl();
         return new StateRecorderImpl((byte) 0, (char) 0);
     }
 
-    protected void deleteNative() {
-        internal_native_deleteNative(native_address);
-    }
-
-    /*[-JNI;-NATIVE]
-StateRecorderImpl* nativeObject = (StateRecorderImpl*)this_addr;
-delete nativeObject;
-*/
-    public static native void internal_native_deleteNative(long this_addr);
-
     public void Clear() {
-        internal_native_Clear(native_address);
     }
-
-    /*[-JNI;-NATIVE]
-StateRecorderImpl* nativeObject = (StateRecorderImpl*)this_addr;
-nativeObject->Clear();
-*/
-    public static native void internal_native_Clear(long this_addr);
 
     public void Rewind() {
-        internal_native_Rewind(native_address);
     }
-
-    /*[-JNI;-NATIVE]
-StateRecorderImpl* nativeObject = (StateRecorderImpl*)this_addr;
-nativeObject->Rewind();
-*/
-    public static native void internal_native_Rewind(long this_addr);
 
     public boolean IsEqual(StateRecorderImpl inReference) {
-        return internal_native_IsEqual(native_address, inReference.native_address);
+        return false;
     }
-
-    /*[-JNI;-NATIVE]
-StateRecorderImpl* nativeObject = (StateRecorderImpl*)this_addr;
-return nativeObject->IsEqual(*((StateRecorderImpl* )inReference_addr));
-*/
-    public static native boolean internal_native_IsEqual(long this_addr, long inReference_addr);
 }

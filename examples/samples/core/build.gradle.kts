@@ -3,23 +3,21 @@ plugins {
 }
 
 dependencies {
-    implementation("com.github.xpenatan.gdx-gltf:core:dev-SNAPSHOT")
-
     if(LibExt.useRepoLibs) {
-        implementation("com.github.xpenatan.xJolt:jolt-core:${LibExt.exampleVersion}")
-        implementation("com.github.xpenatan.xJolt:gdx-utils:${LibExt.exampleVersion}")
+        compileOnly("com.github.xpenatan.xJolt:jolt-core:${LibExt.exampleVersion}")
     }
     else {
-        implementation(project(":jolt:jolt-core"))
-        implementation(project(":extensions:gdx:gdx-utils"))
+        compileOnly(project(":jolt:jolt-core"))
     }
 
-    implementation(project(":examples:graphics:gdx-shared"))
-    api("com.badlogicgames.gdx:gdx:${LibExt.gdxVersion}")
-    implementation("com.github.xpenatan.xImGui:imgui-core:${LibExt.gdxImGuiVersion}")
+    api("${LibExt.fdxGroup}:application:${LibExt.fdxVersion}")
+    api("${LibExt.fdxGroup}:display:${LibExt.fdxVersion}")
+    api("${LibExt.fdxGroup}:graphics:${LibExt.fdxVersion}")
+    api("${LibExt.fdxGroup}:g3d:${LibExt.fdxVersion}")
+    api("${LibExt.fdxGroup}:asset_manager:${LibExt.fdxVersion}")
 }
 
 java {
-    sourceCompatibility = JavaVersion.toVersion(LibExt.java8Target)
-    targetCompatibility = JavaVersion.toVersion(LibExt.java8Target)
+    sourceCompatibility = JavaVersion.toVersion(LibExt.javaFFMTarget)
+    targetCompatibility = JavaVersion.toVersion(LibExt.javaFFMTarget)
 }

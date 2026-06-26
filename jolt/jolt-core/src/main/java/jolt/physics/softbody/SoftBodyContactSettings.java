@@ -6,9 +6,9 @@
 
 package jolt.physics.softbody;
 
-import com.github.xpenatan.jParser.idl.IDLBase;
+import com.github.xpenatan.jParser.api.NativeObject;
 
-public class SoftBodyContactSettings extends IDLBase {
+public class SoftBodyContactSettings extends NativeObject {
 
     static public final SoftBodyContactSettings NULL = SoftBodyContactSettings.native_new();
 
@@ -26,93 +26,31 @@ public class SoftBodyContactSettings extends IDLBase {
         return new SoftBodyContactSettings((byte) 0, (char) 0);
     }
 
-    protected void deleteNative() {
-        internal_native_deleteNative(native_address);
-    }
-
-    /*[-JNI;-NATIVE]
-SoftBodyContactSettings* nativeObject = (SoftBodyContactSettings*)this_addr;
-delete nativeObject;
-*/
-    public static native void internal_native_deleteNative(long this_addr);
-
     public float get_mInvMassScale1() {
-        return internal_native_get_mInvMassScale1(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-SoftBodyContactSettings* nativeObject = (SoftBodyContactSettings*)this_addr;
-return nativeObject->mInvMassScale1;
-*/
-    public static native float internal_native_get_mInvMassScale1(long this_addr);
 
     public void set_mInvMassScale1(float mInvMassScale1) {
-        internal_native_set_mInvMassScale1(native_address, mInvMassScale1);
     }
-
-    /*[-JNI;-NATIVE]
-SoftBodyContactSettings* nativeObject = (SoftBodyContactSettings*)this_addr;
-nativeObject->mInvMassScale1 = mInvMassScale1;
-*/
-    public static native void internal_native_set_mInvMassScale1(long this_addr, float mInvMassScale1);
 
     public float get_mInvMassScale2() {
-        return internal_native_get_mInvMassScale2(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-SoftBodyContactSettings* nativeObject = (SoftBodyContactSettings*)this_addr;
-return nativeObject->mInvMassScale2;
-*/
-    public static native float internal_native_get_mInvMassScale2(long this_addr);
 
     public void set_mInvMassScale2(float mInvMassScale2) {
-        internal_native_set_mInvMassScale2(native_address, mInvMassScale2);
     }
-
-    /*[-JNI;-NATIVE]
-SoftBodyContactSettings* nativeObject = (SoftBodyContactSettings*)this_addr;
-nativeObject->mInvMassScale2 = mInvMassScale2;
-*/
-    public static native void internal_native_set_mInvMassScale2(long this_addr, float mInvMassScale2);
 
     public float get_mInvInertiaScale2() {
-        return internal_native_get_mInvInertiaScale2(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-SoftBodyContactSettings* nativeObject = (SoftBodyContactSettings*)this_addr;
-return nativeObject->mInvInertiaScale2;
-*/
-    public static native float internal_native_get_mInvInertiaScale2(long this_addr);
 
     public void set_mInvInertiaScale2(float mInvInertiaScale2) {
-        internal_native_set_mInvInertiaScale2(native_address, mInvInertiaScale2);
     }
-
-    /*[-JNI;-NATIVE]
-SoftBodyContactSettings* nativeObject = (SoftBodyContactSettings*)this_addr;
-nativeObject->mInvInertiaScale2 = mInvInertiaScale2;
-*/
-    public static native void internal_native_set_mInvInertiaScale2(long this_addr, float mInvInertiaScale2);
 
     public boolean get_mIsSensor() {
-        return internal_native_get_mIsSensor(native_address);
+        return false;
     }
-
-    /*[-JNI;-NATIVE]
-SoftBodyContactSettings* nativeObject = (SoftBodyContactSettings*)this_addr;
-return nativeObject->mIsSensor;
-*/
-    public static native boolean internal_native_get_mIsSensor(long this_addr);
 
     public void set_mIsSensor(boolean mIsSensor) {
-        internal_native_set_mIsSensor(native_address, mIsSensor);
     }
-
-    /*[-JNI;-NATIVE]
-SoftBodyContactSettings* nativeObject = (SoftBodyContactSettings*)this_addr;
-nativeObject->mIsSensor = mIsSensor;
-*/
-    public static native void internal_native_set_mIsSensor(long this_addr, boolean mIsSensor);
 }

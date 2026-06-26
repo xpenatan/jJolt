@@ -72,7 +72,9 @@
 #include "Jolt/Skeleton/SkeletonPose.h"
 #include "Jolt/Skeleton/Skeleton.h"
 
-#include "IDLHelper.h"
+#include "RuntimeHelper.h"
+#include <cstdarg>
+#include <cstdio>
 #include <optional>
 
 #include <iostream>
@@ -80,6 +82,16 @@
 #include <stdlib.h>
 //#include <unistd.h>
 //#include <emscripten/em_asm.h>
+
+template<typename T>
+using IDLArray = NativeArray<T>;
+using IDLString = NativeString;
+using IDLBoolArray = NativeBoolArray;
+using IDLIntArray = NativeIntArray;
+using IDLLongArray = NativeLongArray;
+using IDLFloatArray = NativeFloatArray;
+using IDLDoubleArray = NativeDoubleArray;
+using IDLByteArray = NativeByteArray;
 
 using namespace JPH;
 using namespace std;

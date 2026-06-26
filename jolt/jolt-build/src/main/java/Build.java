@@ -7,7 +7,6 @@ import com.github.xpenatan.jParser.builder.targets.WindowsMSVCTarget;
 import com.github.xpenatan.jParser.builder.tool.BuildToolListener;
 import com.github.xpenatan.jParser.builder.tool.BuildToolOptions;
 import com.github.xpenatan.jParser.builder.tool.BuilderTool;
-import com.github.xpenatan.jParser.core.JParser;
 import com.github.xpenatan.jParser.idl.IDLClassOrEnum;
 import com.github.xpenatan.jParser.idl.IDLHelper;
 import com.github.xpenatan.jParser.idl.IDLReader;
@@ -31,8 +30,24 @@ public class Build {
             }
             return null;
         };
-
-        JParser.CREATE_IDL_HELPER = false;
+        IDLHelper.javaConverter = idlType -> {
+            if(idlType.equals("IDLArray")) {
+                return "NativeArray";
+            }
+            if(idlType.equals("IDLFloatArray")) {
+                return "NativeFloatArray";
+            }
+            if(idlType.equals("IDLString")) {
+                return "NativeString";
+            }
+            if(idlType.equals("BodyID[]")) {
+                return "IDLArrayBodyID";
+            }
+            if(idlType.equals("NativeArrayBodyID")) {
+                return "IDLArrayBodyID";
+            }
+            return null;
+        };
 
         BuildToolOptions.BuildToolParams data = new BuildToolOptions.BuildToolParams();
         data.libName = libName;
@@ -43,7 +58,7 @@ public class Build {
         data.modulePrefix = modulePrefix;
 
         BuildToolOptions op = new BuildToolOptions(data, args);
-        op.addAdditionalIDLRefPath(IDLReader.getIDLHelperFile());
+        op.addAdditionalIDLRefPath(IDLReader.getRuntimeHelperFile());
         if(double_precision) {
             op.addAdditionalIDLPath(IDLReader.parseFile(op.getCPPPath() + "jolt_double.idl"));
         }
@@ -54,27 +69,39 @@ public class Build {
         BuilderTool.build(op, new BuildToolListener() {
             @Override
             public void onAddTarget(BuildToolOptions op, IDLReader idlReader, ArrayList<BuildMultiTarget> targets) {
-                if(op.containsArg("teavm")) {
+                if(op.containsArg("web_wasm")) {
                     targets.add(getTeaVMTarget(op, idlReader));
                 }
-                if(op.containsArg("windows64")) {
-                    targets.add(getWindowTarget(op));
+                if(op.containsArg("windows64_jni")) {
+                    targets.add(getWindowTarget(op, false));
                 }
-                if(op.containsArg("linux64")) {
-                    targets.add(getLinuxTarget(op));
+                if(op.containsArg("linux64_jni")) {
+                    targets.add(getLinuxTarget(op, false));
                 }
-                if(op.containsArg("mac64")) {
-                    targets.add(getMacTarget(op, false));
+                if(op.containsArg("mac64_jni")) {
+                    targets.add(getMacTarget(op, false, false));
                 }
-                if(op.containsArg("macArm")) {
-                    targets.add(getMacTarget(op, true));
+                if(op.containsArg("macArm_jni")) {
+                    targets.add(getMacTarget(op, true, false));
                 }
-                if(op.containsArg("android")) {
+                if(op.containsArg("android_jni")) {
                     targets.add(getAndroidTarget(op));
                 }
 //                if(op.containsArg("iOS")) {
 //                    targets.add(getIOSTarget(op));
 //                }
+                if(op.containsArg("windows64_ffm")) {
+                    targets.add(getWindowTarget(op, true));
+                }
+                if(op.containsArg("linux64_ffm")) {
+                    targets.add(getLinuxTarget(op, true));
+                }
+                if(op.containsArg("mac64_ffm")) {
+                    targets.add(getMacTarget(op, false, true));
+                }
+                if(op.containsArg("macArm_ffm")) {
+                    targets.add(getMacTarget(op, true, true));
+                }
             }
         }, new IDLRenaming() {
             @Override
@@ -86,19 +113,25 @@ public class Build {
         });
     }
 
-    private static BuildMultiTarget getWindowTarget(BuildToolOptions op) {
+    private static BuildMultiTarget getWindowTarget(BuildToolOptions op, boolean isFFM) {
         BuildMultiTarget multiTarget = new BuildMultiTarget();
         String libBuildCPPPath = op.getModuleBuildCPPPath();
         String sourceDir = op.getSourceDir();
+        String api = isFFM ? "ffm" : "jni";
+        String idlDir = libBuildCPPPath + "/src/idl";
+        String runtimeDir = libBuildCPPPath + "/src/runtime";
 
 //        WindowsMSVCTarget.DEBUG_BUILD = true;
 
         // Make a static library
         WindowsMSVCTarget compileStaticTarget = new WindowsMSVCTarget();
+        compileStaticTarget.libDirSuffix += api;
         compileStaticTarget.isStatic = true;
         compileStaticTarget.cppFlags.add("-std:c++17");
         compileStaticTarget.headerDirs.add("-I" + sourceDir);
         compileStaticTarget.headerDirs.add("-I" + op.getCustomSourceDir());
+        compileStaticTarget.headerDirs.add("-I" + idlDir);
+        compileStaticTarget.headerDirs.add("-I" + runtimeDir);
         compileStaticTarget.cppInclude.add(sourceDir + "/Jolt/**.cpp");
         compileStaticTarget.cppFlags.add("-DJPH_DEBUG_RENDERER");
         compileStaticTarget.cppFlags.add("-DJPH_DISABLE_CUSTOM_ALLOCATOR");
@@ -109,12 +142,19 @@ public class Build {
 
         // Compile glue code and link
         WindowsMSVCTarget linkTarget = new WindowsMSVCTarget();
-        linkTarget.addJNIHeaders();
+        linkTarget.libDirSuffix += api;
+        if(isFFM) {
+            linkTarget.setupFFMGlueCode(libBuildCPPPath);
+        }
+        else {
+            linkTarget.setupJNIGlueCode(libBuildCPPPath);
+        }
         linkTarget.cppFlags.add("-std:c++17");
         linkTarget.headerDirs.add("-I" + sourceDir);
         linkTarget.headerDirs.add("-I" + op.getCustomSourceDir());
-        linkTarget.cppInclude.add(libBuildCPPPath + "/src/jniglue/JNIGlue.cpp");
-        linkTarget.linkerFlags.add(libBuildCPPPath + "/libs/windows/vc/jolt64_.lib");
+        linkTarget.headerDirs.add("-I" + idlDir);
+        linkTarget.headerDirs.add("-I" + runtimeDir);
+        linkTarget.linkerFlags.add("/WHOLEARCHIVE:" + libBuildCPPPath + "/libs/windows/vc/" + api + "/jolt64_.lib");
         linkTarget.cppFlags.add("-DJPH_DEBUG_RENDERER");
         linkTarget.cppFlags.add("-DJPH_DISABLE_CUSTOM_ALLOCATOR");
         linkTarget.cppFlags.add("-DJPH_ENABLE_ASSERTS");
@@ -126,18 +166,24 @@ public class Build {
         return multiTarget;
     }
 
-    private static BuildMultiTarget getLinuxTarget(BuildToolOptions op) {
+    private static BuildMultiTarget getLinuxTarget(BuildToolOptions op, boolean isFFM) {
         BuildMultiTarget multiTarget = new BuildMultiTarget();
         String libBuildCPPPath = op.getModuleBuildCPPPath();
         String sourceDir = op.getSourceDir();
+        String api = isFFM ? "ffm" : "jni";
+        String idlDir = libBuildCPPPath + "/src/idl";
+        String runtimeDir = libBuildCPPPath + "/src/runtime";
 
         // Make a static library
         LinuxTarget compileStaticTarget = new LinuxTarget();
+        compileStaticTarget.libDirSuffix += api;
         compileStaticTarget.isStatic = true;
         compileStaticTarget.cppFlags.add("-std=c++17");
         compileStaticTarget.cppFlags.add("-fPIC");
         compileStaticTarget.headerDirs.add("-I" + sourceDir);
         compileStaticTarget.headerDirs.add("-I" + op.getCustomSourceDir());
+        compileStaticTarget.headerDirs.add("-I" + idlDir);
+        compileStaticTarget.headerDirs.add("-I" + runtimeDir);
         compileStaticTarget.cppInclude.add(sourceDir + "/Jolt/**.cpp");
         compileStaticTarget.cppFlags.add("-DJPH_DEBUG_RENDERER");
         compileStaticTarget.cppFlags.add("-DJPH_DISABLE_CUSTOM_ALLOCATOR");
@@ -148,13 +194,22 @@ public class Build {
 
         // Compile glue code and link
         LinuxTarget linkTarget = new LinuxTarget();
-        linkTarget.addJNIHeaders();
+        linkTarget.libDirSuffix += api;
+        if(isFFM) {
+            linkTarget.setupFFMGlueCode(libBuildCPPPath);
+        }
+        else {
+            linkTarget.setupJNIGlueCode(libBuildCPPPath);
+        }
         linkTarget.cppFlags.add("-std=c++17");
         linkTarget.cppFlags.add("-fPIC");
         linkTarget.headerDirs.add("-I" + sourceDir);
         linkTarget.headerDirs.add("-I" + op.getCustomSourceDir());
-        linkTarget.linkerFlags.add(libBuildCPPPath + "/libs/linux/libjolt64_.a");
-        linkTarget.cppInclude.add(libBuildCPPPath + "/src/jniglue/JNIGlue.cpp");
+        linkTarget.headerDirs.add("-I" + idlDir);
+        linkTarget.headerDirs.add("-I" + runtimeDir);
+        linkTarget.linkerFlags.add("-Wl,--whole-archive");
+        linkTarget.linkerFlags.add(libBuildCPPPath + "/libs/linux/" + api + "/libjolt64_.a");
+        linkTarget.linkerFlags.add("-Wl,--no-whole-archive");
         linkTarget.cppFlags.add("-DJPH_DEBUG_RENDERER");
         linkTarget.cppFlags.add("-DJPH_DISABLE_CUSTOM_ALLOCATOR");
         linkTarget.cppFlags.add("-DJPH_ENABLE_ASSERTS");
@@ -165,18 +220,24 @@ public class Build {
         return multiTarget;
     }
 
-    private static BuildMultiTarget getMacTarget(BuildToolOptions op, boolean isArm) {
+    private static BuildMultiTarget getMacTarget(BuildToolOptions op, boolean isArm, boolean isFFM) {
         BuildMultiTarget multiTarget = new BuildMultiTarget();
         String libBuildCPPPath = op.getModuleBuildCPPPath();
         String sourceDir = op.getSourceDir();
+        String api = isFFM ? "ffm" : "jni";
+        String idlDir = libBuildCPPPath + "/src/idl";
+        String runtimeDir = libBuildCPPPath + "/src/runtime";
 
         // Make a static library
         MacTarget compileStaticTarget = new MacTarget(isArm);
+        compileStaticTarget.libDirSuffix += api;
         compileStaticTarget.isStatic = true;
         compileStaticTarget.cppFlags.add("-std=c++17");
         compileStaticTarget.cppFlags.add("-fPIC");
         compileStaticTarget.headerDirs.add("-I" + sourceDir);
         compileStaticTarget.headerDirs.add("-I" + op.getCustomSourceDir());
+        compileStaticTarget.headerDirs.add("-I" + idlDir);
+        compileStaticTarget.headerDirs.add("-I" + runtimeDir);
         compileStaticTarget.cppInclude.add(sourceDir + "/Jolt/**.cpp");
         compileStaticTarget.cppFlags.add("-DJPH_DEBUG_RENDERER");
         compileStaticTarget.cppFlags.add("-DJPH_DISABLE_CUSTOM_ALLOCATOR");
@@ -187,18 +248,27 @@ public class Build {
 
         // Compile glue code and link
         MacTarget linkTarget = new MacTarget(isArm);
-        linkTarget.addJNIHeaders();
+        linkTarget.libDirSuffix += api;
+        if(isFFM) {
+            linkTarget.setupFFMGlueCode(libBuildCPPPath);
+        }
+        else {
+            linkTarget.setupJNIGlueCode(libBuildCPPPath);
+        }
         linkTarget.cppFlags.add("-std=c++17");
         linkTarget.cppFlags.add("-fPIC");
         linkTarget.headerDirs.add("-I" + sourceDir);
         linkTarget.headerDirs.add("-I" + op.getCustomSourceDir());
+        linkTarget.headerDirs.add("-I" + idlDir);
+        linkTarget.headerDirs.add("-I" + runtimeDir);
         if(isArm) {
-            linkTarget.linkerFlags.add(libBuildCPPPath + "/libs/mac/arm/libjolt64_.a");
+            linkTarget.linkerFlags.add("-Wl,-force_load");
+            linkTarget.linkerFlags.add(libBuildCPPPath + "/libs/mac/arm/" + api + "/libjolt64_.a");
         }
         else {
-            linkTarget.linkerFlags.add(libBuildCPPPath + "/libs/mac/libjolt64_.a");
+            linkTarget.linkerFlags.add("-Wl,-force_load");
+            linkTarget.linkerFlags.add(libBuildCPPPath + "/libs/mac/" + api + "/libjolt64_.a");
         }
-        linkTarget.cppInclude.add(libBuildCPPPath + "/src/jniglue/JNIGlue.cpp");
         linkTarget.cppFlags.add("-DJPH_DEBUG_RENDERER");
         linkTarget.cppFlags.add("-DJPH_DISABLE_CUSTOM_ALLOCATOR");
         linkTarget.cppFlags.add("-DJPH_ENABLE_ASSERTS");
@@ -213,6 +283,8 @@ public class Build {
         BuildMultiTarget multiTarget = new BuildMultiTarget();
         String libBuildCPPPath = op.getModuleBuildCPPPath();
         String sourceDir = op.getSourceDir();
+        String idlDir = libBuildCPPPath + "/src/idl";
+        String runtimeDir = libBuildCPPPath + "/src/runtime";
 
         EmscriptenTarget.DEBUG_BUILD = false;
 
@@ -223,6 +295,8 @@ public class Build {
         compileStaticTarget.compileGlueCode = false;
         compileStaticTarget.headerDirs.add("-I" + sourceDir);
         compileStaticTarget.headerDirs.add("-I" + op.getCustomSourceDir());
+        compileStaticTarget.headerDirs.add("-I" + idlDir);
+        compileStaticTarget.headerDirs.add("-I" + runtimeDir);
         compileStaticTarget.cppInclude.add(sourceDir + "/Jolt/**.cpp");
         compileStaticTarget.cppFlags.add("-DJPH_DEBUG_RENDERER");
         compileStaticTarget.cppFlags.add("-DJPH_DISABLE_CUSTOM_ALLOCATOR");
@@ -235,12 +309,16 @@ public class Build {
 
         // Compile glue code and link
         EmscriptenTarget linkTarget = new EmscriptenTarget();
-        linkTarget.mainModuleName = "idl";
+        linkTarget.mainModuleName = "runtime";
         linkTarget.idlReader = idlReader;
         linkTarget.cppFlags.add("-std=c++17");
         linkTarget.headerDirs.add("-I" + sourceDir);
+        linkTarget.headerDirs.add("-I" + idlDir);
+        linkTarget.headerDirs.add("-I" + runtimeDir);
         linkTarget.headerDirs.add("-include" + op.getCustomSourceDir() + "JoltCustom.h");
+        linkTarget.linkerFlags.add("-Wl,--whole-archive");
         linkTarget.linkerFlags.add(libBuildCPPPath + "/libs/emscripten/jolt_.a");
+        linkTarget.linkerFlags.add("-Wl,--no-whole-archive");
         linkTarget.cppFlags.add("-DJPH_DEBUG_RENDERER");
         linkTarget.cppFlags.add("-DJPH_DISABLE_CUSTOM_ALLOCATOR");
         linkTarget.cppFlags.add("-DJPH_ENABLE_ASSERTS");
@@ -261,6 +339,8 @@ public class Build {
         BuildMultiTarget multiTarget = new BuildMultiTarget();
         String sourceDir = op.getSourceDir();
         String libBuildCPPPath = op.getModuleBuildCPPPath();
+        String idlDir = libBuildCPPPath + "/src/idl";
+        String runtimeDir = libBuildCPPPath + "/src/runtime";
 
         AndroidTarget.ApiLevel apiLevel = AndroidTarget.ApiLevel.Android_10_29;
         ArrayList<AndroidTarget.Target> targets = new ArrayList<>();
@@ -280,6 +360,8 @@ public class Build {
             compileStaticTarget.cppCompiler.add("-fPIC");
             compileStaticTarget.headerDirs.add("-I" + sourceDir);
             compileStaticTarget.headerDirs.add("-I" + op.getCustomSourceDir());
+            compileStaticTarget.headerDirs.add("-I" + idlDir);
+            compileStaticTarget.headerDirs.add("-I" + runtimeDir);
             compileStaticTarget.cppInclude.add(sourceDir + "/Jolt/**.cpp");
             compileStaticTarget.cppFlags.add("-DJPH_DEBUG_RENDERER");
             compileStaticTarget.cppFlags.add("-DJPH_DISABLE_CUSTOM_ALLOCATOR");
@@ -290,13 +372,16 @@ public class Build {
 
             // Compile glue code and link
             AndroidTarget linkTarget = new AndroidTarget(target, apiLevel);
-            linkTarget.addJNIHeaders();
+            linkTarget.setupJNIGlueCode(libBuildCPPPath);
             linkTarget.cppFlags.add("-std=c++17");
             linkTarget.cppCompiler.add("-fPIC");
             linkTarget.headerDirs.add("-I" + sourceDir);
             linkTarget.headerDirs.add("-I" + op.getCustomSourceDir());
-            linkTarget.cppInclude.add(libBuildCPPPath + "/src/jniglue/JNIGlue.cpp");
+            linkTarget.headerDirs.add("-I" + idlDir);
+            linkTarget.headerDirs.add("-I" + runtimeDir);
+            linkTarget.linkerFlags.add("-Wl,--whole-archive");
             linkTarget.linkerFlags.add(libBuildCPPPath + "/libs/android/" + target.getFolder() +"/lib" + op.libName + ".a");
+            linkTarget.linkerFlags.add("-Wl,--no-whole-archive");
             linkTarget.cppFlags.add("-DJPH_DEBUG_RENDERER");
             linkTarget.cppFlags.add("-DJPH_DISABLE_CUSTOM_ALLOCATOR");
             linkTarget.cppFlags.add("-DJPH_ENABLE_ASSERTS");

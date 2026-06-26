@@ -6,9 +6,9 @@
 
 package jolt.enums;
 
-import com.github.xpenatan.jParser.idl.IDLEnum;
+import com.github.xpenatan.jParser.api.NativeEnum;
 
-public enum EBackFaceMode implements IDLEnum<EBackFaceMode> {
+public enum EBackFaceMode implements NativeEnum<EBackFaceMode> {
 
     CUSTOM(0), IgnoreBackFaces(EBackFaceMode_IgnoreBackFaces_NATIVE()), CollideWithBackFaces(EBackFaceMode_CollideWithBackFaces_NATIVE());
 
@@ -34,13 +34,7 @@ public enum EBackFaceMode implements IDLEnum<EBackFaceMode> {
         return CUSTOM;
     }
 
-    /*[-JNI;-NATIVE]
-return (jlong)EBackFaceMode_IgnoreBackFaces;
-*/
     private static native int EBackFaceMode_IgnoreBackFaces_NATIVE();
 
-    /*[-JNI;-NATIVE]
-return (jlong)EBackFaceMode_CollideWithBackFaces;
-*/
     private static native int EBackFaceMode_CollideWithBackFaces_NATIVE();
 }

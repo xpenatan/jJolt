@@ -6,9 +6,9 @@
 
 package jolt.enums;
 
-import com.github.xpenatan.jParser.idl.IDLEnum;
+import com.github.xpenatan.jParser.api.NativeEnum;
 
-public enum EMotionType implements IDLEnum<EMotionType> {
+public enum EMotionType implements NativeEnum<EMotionType> {
 
     CUSTOM(0), Static(EMotionType_Static_NATIVE()), Kinematic(EMotionType_Kinematic_NATIVE()), Dynamic(EMotionType_Dynamic_NATIVE());
 
@@ -34,18 +34,9 @@ public enum EMotionType implements IDLEnum<EMotionType> {
         return CUSTOM;
     }
 
-    /*[-JNI;-NATIVE]
-return (jlong)EMotionType_Static;
-*/
     private static native int EMotionType_Static_NATIVE();
 
-    /*[-JNI;-NATIVE]
-return (jlong)EMotionType_Kinematic;
-*/
     private static native int EMotionType_Kinematic_NATIVE();
 
-    /*[-JNI;-NATIVE]
-return (jlong)EMotionType_Dynamic;
-*/
     private static native int EMotionType_Dynamic_NATIVE();
 }

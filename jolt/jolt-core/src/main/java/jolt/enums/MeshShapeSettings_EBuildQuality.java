@@ -6,9 +6,9 @@
 
 package jolt.enums;
 
-import com.github.xpenatan.jParser.idl.IDLEnum;
+import com.github.xpenatan.jParser.api.NativeEnum;
 
-public enum MeshShapeSettings_EBuildQuality implements IDLEnum<MeshShapeSettings_EBuildQuality> {
+public enum MeshShapeSettings_EBuildQuality implements NativeEnum<MeshShapeSettings_EBuildQuality> {
 
     CUSTOM(0), FavorRuntimePerformance(MeshShapeSettings_EBuildQuality_FavorRuntimePerformance_NATIVE()), FavorBuildSpeed(MeshShapeSettings_EBuildQuality_FavorBuildSpeed_NATIVE());
 
@@ -34,13 +34,7 @@ public enum MeshShapeSettings_EBuildQuality implements IDLEnum<MeshShapeSettings
         return CUSTOM;
     }
 
-    /*[-JNI;-NATIVE]
-return (jlong)MeshShapeSettings_EBuildQuality_FavorRuntimePerformance;
-*/
     private static native int MeshShapeSettings_EBuildQuality_FavorRuntimePerformance_NATIVE();
 
-    /*[-JNI;-NATIVE]
-return (jlong)MeshShapeSettings_EBuildQuality_FavorBuildSpeed;
-*/
     private static native int MeshShapeSettings_EBuildQuality_FavorBuildSpeed_NATIVE();
 }

@@ -6,22 +6,15 @@
 
 package jolt.physics.constraints;
 
-import com.github.xpenatan.jParser.idl.IDLBase;
+import com.github.xpenatan.jParser.api.NativeObject;
 import jolt.enums.ESpringMode;
 
-public class SpringSettings extends IDLBase {
+public class SpringSettings extends NativeObject {
 
     static public final SpringSettings NULL = SpringSettings.native_new();
 
     public SpringSettings() {
-        long addr = internal_native_create_addr();
-        internal_reset(addr, true);
     }
-
-    /*[-JNI;-NATIVE]
-return (jlong)new SpringSettings();
-*/
-    public static native long internal_native_create_addr();
 
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
@@ -37,110 +30,35 @@ return (jlong)new SpringSettings();
         return new SpringSettings((byte) 0, (char) 0);
     }
 
-    protected void deleteNative() {
-        internal_native_deleteNative(native_address);
-    }
-
-    /*[-JNI;-NATIVE]
-SpringSettings* nativeObject = (SpringSettings*)this_addr;
-delete nativeObject;
-*/
-    public static native void internal_native_deleteNative(long this_addr);
-
     public boolean HasStiffness() {
-        return internal_native_HasStiffness(native_address);
+        return false;
     }
-
-    /*[-JNI;-NATIVE]
-SpringSettings* nativeObject = (SpringSettings*)this_addr;
-return nativeObject->HasStiffness();
-*/
-    public static native boolean internal_native_HasStiffness(long this_addr);
 
     public ESpringMode get_mMode() {
-        int value = internal_native_get_mMode(native_address);
-        ESpringMode[] values = ESpringMode.values();
-        for (int i = 0; i < values.length; i++) {
-            ESpringMode enumVal = values[i];
-            if (enumVal != ESpringMode.CUSTOM && enumVal.getValue() == value)
-                return enumVal;
-        }
-        return ESpringMode.CUSTOM.setValue(value);
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-SpringSettings* nativeObject = (SpringSettings*)this_addr;
-return (jint)nativeObject->mMode;
-*/
-    public static native int internal_native_get_mMode(long this_addr);
 
     public void set_mMode(ESpringMode mMode) {
-        internal_native_set_mMode(native_address, mMode.getValue());
     }
-
-    /*[-JNI;-NATIVE]
-SpringSettings* nativeObject = (SpringSettings*)this_addr;
-nativeObject->mMode = (::ESpringMode)mMode;
-*/
-    public static native void internal_native_set_mMode(long this_addr, int mMode);
 
     public float get_mFrequency() {
-        return internal_native_get_mFrequency(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-SpringSettings* nativeObject = (SpringSettings*)this_addr;
-return nativeObject->mFrequency;
-*/
-    public static native float internal_native_get_mFrequency(long this_addr);
 
     public void set_mFrequency(float mFrequency) {
-        internal_native_set_mFrequency(native_address, mFrequency);
     }
-
-    /*[-JNI;-NATIVE]
-SpringSettings* nativeObject = (SpringSettings*)this_addr;
-nativeObject->mFrequency = mFrequency;
-*/
-    public static native void internal_native_set_mFrequency(long this_addr, float mFrequency);
 
     public float get_mStiffness() {
-        return internal_native_get_mStiffness(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-SpringSettings* nativeObject = (SpringSettings*)this_addr;
-return nativeObject->mStiffness;
-*/
-    public static native float internal_native_get_mStiffness(long this_addr);
 
     public void set_mStiffness(float mStiffness) {
-        internal_native_set_mStiffness(native_address, mStiffness);
     }
-
-    /*[-JNI;-NATIVE]
-SpringSettings* nativeObject = (SpringSettings*)this_addr;
-nativeObject->mStiffness = mStiffness;
-*/
-    public static native void internal_native_set_mStiffness(long this_addr, float mStiffness);
 
     public float get_mDamping() {
-        return internal_native_get_mDamping(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-SpringSettings* nativeObject = (SpringSettings*)this_addr;
-return nativeObject->mDamping;
-*/
-    public static native float internal_native_get_mDamping(long this_addr);
 
     public void set_mDamping(float mDamping) {
-        internal_native_set_mDamping(native_address, mDamping);
     }
-
-    /*[-JNI;-NATIVE]
-SpringSettings* nativeObject = (SpringSettings*)this_addr;
-nativeObject->mDamping = mDamping;
-*/
-    public static native void internal_native_set_mDamping(long this_addr, float mDamping);
 }

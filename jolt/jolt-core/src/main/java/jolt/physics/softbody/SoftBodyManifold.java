@@ -6,19 +6,11 @@
 
 package jolt.physics.softbody;
 
-import com.github.xpenatan.jParser.idl.IDLBase;
+import com.github.xpenatan.jParser.api.NativeObject;
 import jolt.math.Vec3;
 import jolt.physics.body.BodyID;
 
-public class SoftBodyManifold extends IDLBase {
-
-    private ArraySoftBodyVertex ArraySoftBodyVertex_TEMP_GEN_0;
-
-    private Vec3 Vec3_TEMP_GEN_0;
-
-    private Vec3 Vec3_TEMP_GEN_1;
-
-    private BodyID BodyID_TEMP_GEN_0;
+public class SoftBodyManifold extends NativeObject {
 
     static public final SoftBodyManifold NULL = SoftBodyManifold.native_new();
 
@@ -36,90 +28,23 @@ public class SoftBodyManifold extends IDLBase {
         return new SoftBodyManifold((byte) 0, (char) 0);
     }
 
-    protected void deleteNative() {
-        internal_native_deleteNative(native_address);
-    }
-
-    /*[-JNI;-NATIVE]
-SoftBodyManifold* nativeObject = (SoftBodyManifold*)this_addr;
-delete nativeObject;
-*/
-    public static native void internal_native_deleteNative(long this_addr);
-
     public ArraySoftBodyVertex GetVertices() {
-        long addr = internal_native_GetVertices_addr(native_address);
-        if (addr == 0)
-            return ArraySoftBodyVertex.NULL;
-        if (ArraySoftBodyVertex_TEMP_GEN_0 == null)
-            ArraySoftBodyVertex_TEMP_GEN_0 = ArraySoftBodyVertex.native_new();
-        ArraySoftBodyVertex_TEMP_GEN_0.internal_reset(addr, false);
-        return ArraySoftBodyVertex_TEMP_GEN_0;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-SoftBodyManifold* nativeObject = (SoftBodyManifold*)this_addr;
-return (jlong)&nativeObject->GetVertices();
-*/
-    public static native long internal_native_GetVertices_addr(long this_addr);
 
     public boolean HasContact(SoftBodyVertex inVertex) {
-        return internal_native_HasContact(native_address, inVertex.native_address);
+        return false;
     }
-
-    /*[-JNI;-NATIVE]
-SoftBodyManifold* nativeObject = (SoftBodyManifold*)this_addr;
-return nativeObject->HasContact(*((SoftBodyVertex* )inVertex_addr));
-*/
-    public static native boolean internal_native_HasContact(long this_addr, long inVertex_addr);
 
     public Vec3 GetLocalContactPoint(SoftBodyVertex inVertex) {
-        long addr = internal_native_GetLocalContactPoint_addr(native_address, inVertex.native_address);
-        if (addr == 0)
-            return Vec3.NULL;
-        if (Vec3_TEMP_GEN_0 == null)
-            Vec3_TEMP_GEN_0 = Vec3.native_new();
-        Vec3_TEMP_GEN_0.internal_reset(addr, false);
-        return Vec3_TEMP_GEN_0;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-SoftBodyManifold* nativeObject = (SoftBodyManifold*)this_addr;
-static Vec3 copy_addr;
-copy_addr = nativeObject->GetLocalContactPoint(*((SoftBodyVertex* )inVertex_addr));
-return (jlong)&copy_addr;*/
-    public static native long internal_native_GetLocalContactPoint_addr(long this_addr, long inVertex_addr);
 
     public Vec3 GetContactNormal(SoftBodyVertex inVertex) {
-        long addr = internal_native_GetContactNormal_addr(native_address, inVertex.native_address);
-        if (addr == 0)
-            return Vec3.NULL;
-        if (Vec3_TEMP_GEN_1 == null)
-            Vec3_TEMP_GEN_1 = Vec3.native_new();
-        Vec3_TEMP_GEN_1.internal_reset(addr, false);
-        return Vec3_TEMP_GEN_1;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-SoftBodyManifold* nativeObject = (SoftBodyManifold*)this_addr;
-static Vec3 copy_addr;
-copy_addr = nativeObject->GetContactNormal(*((SoftBodyVertex* )inVertex_addr));
-return (jlong)&copy_addr;*/
-    public static native long internal_native_GetContactNormal_addr(long this_addr, long inVertex_addr);
 
     public BodyID GetContactBodyID(SoftBodyVertex inVertex) {
-        long addr = internal_native_GetContactBodyID_addr(native_address, inVertex.native_address);
-        if (addr == 0)
-            return BodyID.NULL;
-        if (BodyID_TEMP_GEN_0 == null)
-            BodyID_TEMP_GEN_0 = BodyID.native_new();
-        BodyID_TEMP_GEN_0.internal_reset(addr, false);
-        return BodyID_TEMP_GEN_0;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-SoftBodyManifold* nativeObject = (SoftBodyManifold*)this_addr;
-static BodyID copy_addr;
-copy_addr = nativeObject->GetContactBodyID(*((SoftBodyVertex* )inVertex_addr));
-return (jlong)&copy_addr;*/
-    public static native long internal_native_GetContactBodyID_addr(long this_addr, long inVertex_addr);
 }

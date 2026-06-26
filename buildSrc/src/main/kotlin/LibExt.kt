@@ -10,20 +10,17 @@ object LibExt {
             return getVersion()
         }
 
-    const val java8Target = "1.8"
-    const val java11Target = "11"
+    const val javaMainTarget = "1.8"
+    const val javaWebTarget = "17"
+    const val javaFFMTarget = "25"
 
-    //Library dependencies
-    const val gdxVersion = "1.14.0"
-    const val jParserVersion = "1.0.0"
-    const val gdxWebGPUVersion = "0.8"
+    // Library dependencies
+    const val jParserVersion = "-SNAPSHOT"
+    const val fdxGroup = "io.github.libfdx"
+    const val fdxVersion = "-SNAPSHOT"
 
-    //Example dependencies
-    const val gdxTeaVMVersion = "1.5.1"
-    const val gdxImGuiVersion = "1.92.4.0"
-    const val jUnitVersion = "4.12"
-
-    const val useRepoLibs = true
+    // Example dependencies
+    const val useRepoLibs = false
     const val exampleVersion = "-SNAPSHOT"
 }
 

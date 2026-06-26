@@ -12,14 +12,7 @@ public class BroadPhaseLayerInterfaceTable extends BroadPhaseLayerInterface {
 
     public BroadPhaseLayerInterfaceTable(int inNumObjectLayers, int inNumBroadPhaseLayers) {
         super((byte) 1, (char) 1);
-        long addr = internal_native_create_int_int_addr(inNumObjectLayers, inNumBroadPhaseLayers);
-        internal_reset(addr, true);
     }
-
-    /*[-JNI;-NATIVE]
-return (jlong)new BroadPhaseLayerInterfaceTable(inNumObjectLayers, inNumBroadPhaseLayers);
-*/
-    public static native long internal_native_create_int_int_addr(int inNumObjectLayers, int inNumBroadPhaseLayers);
 
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
@@ -36,23 +29,6 @@ return (jlong)new BroadPhaseLayerInterfaceTable(inNumObjectLayers, inNumBroadPha
         return new BroadPhaseLayerInterfaceTable((byte) 0, (char) 0);
     }
 
-    protected void deleteNative() {
-        internal_native_deleteNative(native_address);
-    }
-
-    /*[-JNI;-NATIVE]
-BroadPhaseLayerInterfaceTable* nativeObject = (BroadPhaseLayerInterfaceTable*)this_addr;
-delete nativeObject;
-*/
-    public static native void internal_native_deleteNative(long this_addr);
-
     public void MapObjectToBroadPhaseLayer(int inObjectLayer, BroadPhaseLayer inBroadPhaseLayer) {
-        internal_native_MapObjectToBroadPhaseLayer(native_address, inObjectLayer, inBroadPhaseLayer.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-BroadPhaseLayerInterfaceTable* nativeObject = (BroadPhaseLayerInterfaceTable*)this_addr;
-nativeObject->MapObjectToBroadPhaseLayer(inObjectLayer, *((BroadPhaseLayer* )inBroadPhaseLayer_addr));
-*/
-    public static native void internal_native_MapObjectToBroadPhaseLayer(long this_addr, int inObjectLayer, long inBroadPhaseLayer_addr);
 }

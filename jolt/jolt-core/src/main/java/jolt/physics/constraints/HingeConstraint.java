@@ -12,14 +12,6 @@ import jolt.math.Vector2;
 
 public class HingeConstraint extends TwoBodyConstraint {
 
-    private MotorSettings MotorSettings_TEMP_GEN_0;
-
-    private SpringSettings SpringSettings_TEMP_GEN_0;
-
-    private Vec3 Vec3_TEMP_GEN_0;
-
-    private Vector2 Vector2_TEMP_GEN_0;
-
     static public final HingeConstraint NULL = HingeConstraint.native_new();
 
     /**
@@ -38,235 +30,76 @@ public class HingeConstraint extends TwoBodyConstraint {
     }
 
     public float GetCurrentAngle() {
-        return internal_native_GetCurrentAngle(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-HingeConstraint* nativeObject = (HingeConstraint*)this_addr;
-return nativeObject->GetCurrentAngle();
-*/
-    public static native float internal_native_GetCurrentAngle(long this_addr);
 
     public void SetMaxFrictionTorque(float inFrictionTorque) {
-        internal_native_SetMaxFrictionTorque(native_address, inFrictionTorque);
     }
-
-    /*[-JNI;-NATIVE]
-HingeConstraint* nativeObject = (HingeConstraint*)this_addr;
-nativeObject->SetMaxFrictionTorque((float)inFrictionTorque);
-*/
-    public static native void internal_native_SetMaxFrictionTorque(long this_addr, float inFrictionTorque);
 
     public float GetMaxFrictionTorque() {
-        return internal_native_GetMaxFrictionTorque(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-HingeConstraint* nativeObject = (HingeConstraint*)this_addr;
-return nativeObject->GetMaxFrictionTorque();
-*/
-    public static native float internal_native_GetMaxFrictionTorque(long this_addr);
 
     public MotorSettings GetMotorSettings() {
-        long addr = internal_native_GetMotorSettings_addr(native_address);
-        if (addr == 0)
-            return MotorSettings.NULL;
-        if (MotorSettings_TEMP_GEN_0 == null)
-            MotorSettings_TEMP_GEN_0 = MotorSettings.native_new();
-        MotorSettings_TEMP_GEN_0.internal_reset(addr, false);
-        return MotorSettings_TEMP_GEN_0;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-HingeConstraint* nativeObject = (HingeConstraint*)this_addr;
-return (jlong)&nativeObject->GetMotorSettings();
-*/
-    public static native long internal_native_GetMotorSettings_addr(long this_addr);
 
     public void SetMotorState(EMotorState inState) {
-        internal_native_SetMotorState(native_address, inState.getValue());
     }
-
-    /*[-JNI;-NATIVE]
-HingeConstraint* nativeObject = (HingeConstraint*)this_addr;
-nativeObject->SetMotorState((::EMotorState)inState);
-*/
-    public static native void internal_native_SetMotorState(long this_addr, int inState);
 
     public EMotorState GetMotorState() {
-        int value = internal_native_GetMotorState(native_address);
-        EMotorState[] values = EMotorState.values();
-        for (int i = 0; i < values.length; i++) {
-            EMotorState enumVal = values[i];
-            if (enumVal != EMotorState.CUSTOM && enumVal.getValue() == value)
-                return enumVal;
-        }
-        return EMotorState.CUSTOM.setValue(value);
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-HingeConstraint* nativeObject = (HingeConstraint*)this_addr;
-return (int)nativeObject->GetMotorState();
-*/
-    public static native int internal_native_GetMotorState(long this_addr);
 
     public void SetTargetAngularVelocity(float inAngularVelocity) {
-        internal_native_SetTargetAngularVelocity(native_address, inAngularVelocity);
     }
-
-    /*[-JNI;-NATIVE]
-HingeConstraint* nativeObject = (HingeConstraint*)this_addr;
-nativeObject->SetTargetAngularVelocity((float)inAngularVelocity);
-*/
-    public static native void internal_native_SetTargetAngularVelocity(long this_addr, float inAngularVelocity);
 
     public float GetTargetAngularVelocity() {
-        return internal_native_GetTargetAngularVelocity(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-HingeConstraint* nativeObject = (HingeConstraint*)this_addr;
-return nativeObject->GetTargetAngularVelocity();
-*/
-    public static native float internal_native_GetTargetAngularVelocity(long this_addr);
 
     public void SetTargetAngle(float inAngle) {
-        internal_native_SetTargetAngle(native_address, inAngle);
     }
-
-    /*[-JNI;-NATIVE]
-HingeConstraint* nativeObject = (HingeConstraint*)this_addr;
-nativeObject->SetTargetAngle((float)inAngle);
-*/
-    public static native void internal_native_SetTargetAngle(long this_addr, float inAngle);
 
     public float GetTargetAngle() {
-        return internal_native_GetTargetAngle(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-HingeConstraint* nativeObject = (HingeConstraint*)this_addr;
-return nativeObject->GetTargetAngle();
-*/
-    public static native float internal_native_GetTargetAngle(long this_addr);
 
     public void SetLimits(float inLimitsMin, float inLimitsMax) {
-        internal_native_SetLimits(native_address, inLimitsMin, inLimitsMax);
     }
-
-    /*[-JNI;-NATIVE]
-HingeConstraint* nativeObject = (HingeConstraint*)this_addr;
-nativeObject->SetLimits((float)inLimitsMin, (float)inLimitsMax);
-*/
-    public static native void internal_native_SetLimits(long this_addr, float inLimitsMin, float inLimitsMax);
 
     public float GetLimitsMin() {
-        return internal_native_GetLimitsMin(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-HingeConstraint* nativeObject = (HingeConstraint*)this_addr;
-return nativeObject->GetLimitsMin();
-*/
-    public static native float internal_native_GetLimitsMin(long this_addr);
 
     public float GetLimitsMax() {
-        return internal_native_GetLimitsMax(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-HingeConstraint* nativeObject = (HingeConstraint*)this_addr;
-return nativeObject->GetLimitsMax();
-*/
-    public static native float internal_native_GetLimitsMax(long this_addr);
 
     public boolean HasLimits() {
-        return internal_native_HasLimits(native_address);
+        return false;
     }
-
-    /*[-JNI;-NATIVE]
-HingeConstraint* nativeObject = (HingeConstraint*)this_addr;
-return nativeObject->HasLimits();
-*/
-    public static native boolean internal_native_HasLimits(long this_addr);
 
     public SpringSettings GetLimitsSpringSettings() {
-        long addr = internal_native_GetLimitsSpringSettings_addr(native_address);
-        if (addr == 0)
-            return SpringSettings.NULL;
-        if (SpringSettings_TEMP_GEN_0 == null)
-            SpringSettings_TEMP_GEN_0 = SpringSettings.native_new();
-        SpringSettings_TEMP_GEN_0.internal_reset(addr, false);
-        return SpringSettings_TEMP_GEN_0;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-HingeConstraint* nativeObject = (HingeConstraint*)this_addr;
-return (jlong)&nativeObject->GetLimitsSpringSettings();
-*/
-    public static native long internal_native_GetLimitsSpringSettings_addr(long this_addr);
 
     public void SetLimitsSpringSettings(SpringSettings inLimitsSpringSettings) {
-        internal_native_SetLimitsSpringSettings(native_address, inLimitsSpringSettings.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-HingeConstraint* nativeObject = (HingeConstraint*)this_addr;
-nativeObject->SetLimitsSpringSettings(*((SpringSettings* )inLimitsSpringSettings_addr));
-*/
-    public static native void internal_native_SetLimitsSpringSettings(long this_addr, long inLimitsSpringSettings_addr);
 
     public Vec3 GetTotalLambdaPosition() {
-        long addr = internal_native_GetTotalLambdaPosition_addr(native_address);
-        if (addr == 0)
-            return Vec3.NULL;
-        if (Vec3_TEMP_GEN_0 == null)
-            Vec3_TEMP_GEN_0 = Vec3.native_new();
-        Vec3_TEMP_GEN_0.internal_reset(addr, false);
-        return Vec3_TEMP_GEN_0;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-HingeConstraint* nativeObject = (HingeConstraint*)this_addr;
-static Vec3 copy_addr;
-copy_addr = nativeObject->GetTotalLambdaPosition();
-return (jlong)&copy_addr;*/
-    public static native long internal_native_GetTotalLambdaPosition_addr(long this_addr);
 
     public Vector2 GetTotalLambdaRotation() {
-        long addr = internal_native_GetTotalLambdaRotation_addr(native_address);
-        if (addr == 0)
-            return Vector2.NULL;
-        if (Vector2_TEMP_GEN_0 == null)
-            Vector2_TEMP_GEN_0 = Vector2.native_new();
-        Vector2_TEMP_GEN_0.internal_reset(addr, false);
-        return Vector2_TEMP_GEN_0;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-HingeConstraint* nativeObject = (HingeConstraint*)this_addr;
-static Vector2 copy_addr;
-copy_addr = nativeObject->GetTotalLambdaRotation();
-return (jlong)&copy_addr;*/
-    public static native long internal_native_GetTotalLambdaRotation_addr(long this_addr);
 
     public float GetTotalLambdaRotationLimits() {
-        return internal_native_GetTotalLambdaRotationLimits(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-HingeConstraint* nativeObject = (HingeConstraint*)this_addr;
-return nativeObject->GetTotalLambdaRotationLimits();
-*/
-    public static native float internal_native_GetTotalLambdaRotationLimits(long this_addr);
 
     public float GetTotalLambdaMotor() {
-        return internal_native_GetTotalLambdaMotor(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-HingeConstraint* nativeObject = (HingeConstraint*)this_addr;
-return nativeObject->GetTotalLambdaMotor();
-*/
-    public static native float internal_native_GetTotalLambdaMotor(long this_addr);
 }

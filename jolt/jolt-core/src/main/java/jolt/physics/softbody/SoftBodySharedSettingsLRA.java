@@ -6,21 +6,14 @@
 
 package jolt.physics.softbody;
 
-import com.github.xpenatan.jParser.idl.IDLBase;
+import com.github.xpenatan.jParser.api.NativeObject;
 
-public class SoftBodySharedSettingsLRA extends IDLBase {
+public class SoftBodySharedSettingsLRA extends NativeObject {
 
     static public final SoftBodySharedSettingsLRA NULL = SoftBodySharedSettingsLRA.native_new();
 
     public SoftBodySharedSettingsLRA(int inVertex1, int inVertex2, float inMaxDistance) {
-        long addr = internal_native_create_int_int_float_addr(inVertex1, inVertex2, inMaxDistance);
-        internal_reset(addr, true);
     }
-
-    /*[-JNI;-NATIVE]
-return (jlong)new SoftBodySharedSettingsLRA(inVertex1, inVertex2, (float)inMaxDistance);
-*/
-    public static native long internal_native_create_int_int_float_addr(int inVertex1, int inVertex2, float inMaxDistance);
 
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
@@ -36,53 +29,17 @@ return (jlong)new SoftBodySharedSettingsLRA(inVertex1, inVertex2, (float)inMaxDi
         return new SoftBodySharedSettingsLRA((byte) 0, (char) 0);
     }
 
-    protected void deleteNative() {
-        internal_native_deleteNative(native_address);
-    }
-
-    /*[-JNI;-NATIVE]
-SoftBodySharedSettingsLRA* nativeObject = (SoftBodySharedSettingsLRA*)this_addr;
-delete nativeObject;
-*/
-    public static native void internal_native_deleteNative(long this_addr);
-
     public int get_mVertex(int index) {
-        return internal_native_get_mVertex(native_address, index);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-SoftBodySharedSettingsLRA* nativeObject = (SoftBodySharedSettingsLRA*)this_addr;
-return nativeObject->mVertex[index];
-*/
-    public static native int internal_native_get_mVertex(long this_addr, int index);
 
     public void set_mVertex(int index, int mVertex) {
-        internal_native_set_mVertex(native_address, index, mVertex);
     }
-
-    /*[-JNI;-NATIVE]
-SoftBodySharedSettingsLRA* nativeObject = (SoftBodySharedSettingsLRA*)this_addr;
-nativeObject->mVertex[index] = mVertex;
-*/
-    public static native void internal_native_set_mVertex(long this_addr, int index, int mVertex);
 
     public float get_mMaxDistance() {
-        return internal_native_get_mMaxDistance(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-SoftBodySharedSettingsLRA* nativeObject = (SoftBodySharedSettingsLRA*)this_addr;
-return nativeObject->mMaxDistance;
-*/
-    public static native float internal_native_get_mMaxDistance(long this_addr);
 
     public void set_mMaxDistance(float mMaxDistance) {
-        internal_native_set_mMaxDistance(native_address, mMaxDistance);
     }
-
-    /*[-JNI;-NATIVE]
-SoftBodySharedSettingsLRA* nativeObject = (SoftBodySharedSettingsLRA*)this_addr;
-nativeObject->mMaxDistance = mMaxDistance;
-*/
-    public static native void internal_native_set_mMaxDistance(long this_addr, float mMaxDistance);
 }

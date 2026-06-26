@@ -6,9 +6,9 @@
 
 package jolt.enums;
 
-import com.github.xpenatan.jParser.idl.IDLEnum;
+import com.github.xpenatan.jParser.api.NativeEnum;
 
-public enum EConstraintSpace implements IDLEnum<EConstraintSpace> {
+public enum EConstraintSpace implements NativeEnum<EConstraintSpace> {
 
     CUSTOM(0), LocalToBodyCOM(EConstraintSpace_LocalToBodyCOM_NATIVE()), WorldSpace(EConstraintSpace_WorldSpace_NATIVE());
 
@@ -34,13 +34,7 @@ public enum EConstraintSpace implements IDLEnum<EConstraintSpace> {
         return CUSTOM;
     }
 
-    /*[-JNI;-NATIVE]
-return (jlong)EConstraintSpace_LocalToBodyCOM;
-*/
     private static native int EConstraintSpace_LocalToBodyCOM_NATIVE();
 
-    /*[-JNI;-NATIVE]
-return (jlong)EConstraintSpace_WorldSpace;
-*/
     private static native int EConstraintSpace_WorldSpace_NATIVE();
 }

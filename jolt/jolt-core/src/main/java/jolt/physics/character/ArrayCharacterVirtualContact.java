@@ -6,11 +6,9 @@
 
 package jolt.physics.character;
 
-import com.github.xpenatan.jParser.idl.IDLBase;
+import com.github.xpenatan.jParser.api.NativeObject;
 
-public class ArrayCharacterVirtualContact extends IDLBase {
-
-    private CharacterVirtualContact CharacterVirtualContact_TEMP_GEN_0;
+public class ArrayCharacterVirtualContact extends NativeObject {
 
     static public final ArrayCharacterVirtualContact NULL = ArrayCharacterVirtualContact.native_new();
 
@@ -28,49 +26,15 @@ public class ArrayCharacterVirtualContact extends IDLBase {
         return new ArrayCharacterVirtualContact((byte) 0, (char) 0);
     }
 
-    protected void deleteNative() {
-        internal_native_deleteNative(native_address);
-    }
-
-    /*[-JNI;-NATIVE]
-ArrayCharacterVirtualContact* nativeObject = (ArrayCharacterVirtualContact*)this_addr;
-delete nativeObject;
-*/
-    public static native void internal_native_deleteNative(long this_addr);
-
     public boolean empty() {
-        return internal_native_empty(native_address);
+        return false;
     }
-
-    /*[-JNI;-NATIVE]
-ArrayCharacterVirtualContact* nativeObject = (ArrayCharacterVirtualContact*)this_addr;
-return nativeObject->empty();
-*/
-    public static native boolean internal_native_empty(long this_addr);
 
     public int size() {
-        return internal_native_size(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-ArrayCharacterVirtualContact* nativeObject = (ArrayCharacterVirtualContact*)this_addr;
-return nativeObject->size();
-*/
-    public static native int internal_native_size(long this_addr);
 
     public CharacterVirtualContact at(int inIndex) {
-        long addr = internal_native_at_addr(native_address, inIndex);
-        if (addr == 0)
-            return CharacterVirtualContact.NULL;
-        if (CharacterVirtualContact_TEMP_GEN_0 == null)
-            CharacterVirtualContact_TEMP_GEN_0 = CharacterVirtualContact.native_new();
-        CharacterVirtualContact_TEMP_GEN_0.internal_reset(addr, false);
-        return CharacterVirtualContact_TEMP_GEN_0;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-ArrayCharacterVirtualContact* nativeObject = (ArrayCharacterVirtualContact*)this_addr;
-return (jlong)&nativeObject->at((int)inIndex);
-*/
-    public static native long internal_native_at_addr(long this_addr, int inIndex);
 }

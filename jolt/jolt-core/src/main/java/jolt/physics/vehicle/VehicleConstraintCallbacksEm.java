@@ -6,13 +6,13 @@
 
 package jolt.physics.vehicle;
 
-import com.github.xpenatan.jParser.idl.IDLBase;
+import com.github.xpenatan.jParser.api.NativeObject;
 import jolt.enums.ETireFrictionDirection;
 import jolt.physics.body.Body;
 import jolt.physics.collision.shape.SubShapeID;
 import jolt.physics.PhysicsStepListenerContext;
 
-public class VehicleConstraintCallbacksEm extends IDLBase {
+public class VehicleConstraintCallbacksEm extends NativeObject {
 
     static private Body Body_TEMP_STATIC_GEN_0;
 
@@ -32,43 +32,9 @@ public class VehicleConstraintCallbacksEm extends IDLBase {
 
     static public final VehicleConstraintCallbacksEm NULL = VehicleConstraintCallbacksEm.native_new();
 
-    /*[-JNI;-NATIVE]
-	static jmethodID VehicleConstraintCallbacksJS_GetCombinedFrictionIIFJJ_ID;
-	static jmethodID VehicleConstraintCallbacksJS_OnPreStepCallbackJJ_ID;
-	static jmethodID VehicleConstraintCallbacksJS_OnPostCollideCallbackJJ_ID;
-	static jmethodID VehicleConstraintCallbacksJS_OnPostStepCallbackJJ_ID;
-
-class VehicleConstraintCallbacksJS : public VehicleConstraintCallbacksEm {
-private:
-	JNIEnv* env;
-	jobject obj;
-public:
-void setupCallback(JNIEnv* env, jobject obj) {
-	this->env = env;
-	this->obj = env->NewGlobalRef(obj);
-	static jclass jClassID = 0;
-	if(jClassID == 0) {
-		jClassID = (jclass)env->NewGlobalRef(env->GetObjectClass(obj));
-		VehicleConstraintCallbacksJS_GetCombinedFrictionIIFJJ_ID = env->GetMethodID(jClassID, "internal_GetCombinedFriction", "(IIFJJ)F");
-		VehicleConstraintCallbacksJS_OnPreStepCallbackJJ_ID = env->GetMethodID(jClassID, "internal_OnPreStepCallback", "(JJ)V");
-		VehicleConstraintCallbacksJS_OnPostCollideCallbackJJ_ID = env->GetMethodID(jClassID, "internal_OnPostCollideCallback", "(JJ)V");
-		VehicleConstraintCallbacksJS_OnPostStepCallbackJJ_ID = env->GetMethodID(jClassID, "internal_OnPostStepCallback", "(JJ)V");
-	}
-}
-virtual float GetCombinedFriction(unsigned int inWheelIndex, ETireFrictionDirection inTireFrictionDirection, float inTireFriction, const Body& inBody2, const SubShapeID& inSubShapeID2) {
-   return env->CallFloatMethod(obj, VehicleConstraintCallbacksJS_GetCombinedFrictionIIFJJ_ID, inWheelIndex, inTireFrictionDirection, inTireFriction, (jlong)&inBody2, (jlong)&inSubShapeID2);
-}
-virtual void OnPreStepCallback(VehicleConstraint& inVehicle, const PhysicsStepListenerContext& inContext) {
-   env->CallVoidMethod(obj, VehicleConstraintCallbacksJS_OnPreStepCallbackJJ_ID, (jlong)&inVehicle, (jlong)&inContext);
-}
-virtual void OnPostCollideCallback(VehicleConstraint& inVehicle, const PhysicsStepListenerContext& inContext) {
-   env->CallVoidMethod(obj, VehicleConstraintCallbacksJS_OnPostCollideCallbackJJ_ID, (jlong)&inVehicle, (jlong)&inContext);
-}
-virtual void OnPostStepCallback(VehicleConstraint& inVehicle, const PhysicsStepListenerContext& inContext) {
-   env->CallVoidMethod(obj, VehicleConstraintCallbacksJS_OnPostStepCallbackJJ_ID, (jlong)&inVehicle, (jlong)&inContext);
-}
-};
-*/
+    /**
+     * Dummy constructor, used internally to creates objects without C++ pointer
+     */
     @Deprecated()
     protected VehicleConstraintCallbacksEm(byte b, char c) {
     }
@@ -80,25 +46,8 @@ virtual void OnPostStepCallback(VehicleConstraint& inVehicle, const PhysicsStepL
         return new VehicleConstraintCallbacksEm((byte) 0, (char) 0);
     }
 
-    protected void deleteNative() {
-        internal_native_deleteNative(native_address);
-    }
-
-    /*[-JNI;-NATIVE]
-VehicleConstraintCallbacksJS* nativeObject = (VehicleConstraintCallbacksJS*)this_addr;
-delete nativeObject;
-*/
-    public static native void internal_native_deleteNative(long this_addr);
-
     public void SetVehicleConstraint(VehicleConstraint inConstraint) {
-        internal_native_SetVehicleConstraint(native_address, inConstraint.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-VehicleConstraintCallbacksEm* nativeObject = (VehicleConstraintCallbacksEm*)this_addr;
-nativeObject->SetVehicleConstraint(*((VehicleConstraint* )inConstraint_addr));
-*/
-    public static native void internal_native_SetVehicleConstraint(long this_addr, long inConstraint_addr);
 
     public VehicleConstraintCallbacksEm() {
         long addr = internal_native_create_addr();
@@ -107,7 +56,6 @@ nativeObject->SetVehicleConstraint(*((VehicleConstraint* )inConstraint_addr));
     }
 
     private void setupCallback() {
-        internal_native_setupCallback(native_address);
     }
 
     protected float GetCombinedFriction(int inWheelIndex, ETireFrictionDirection inTireFrictionDirection, float inTireFriction, Body inBody2, SubShapeID inSubShapeID2) {
@@ -172,14 +120,5 @@ nativeObject->SetVehicleConstraint(*((VehicleConstraint* )inConstraint_addr));
         OnPostStepCallback(VehicleConstraint_TEMP_STATIC_GEN_2, PhysicsStepListenerContext_TEMP_STATIC_GEN_2);
     }
 
-    /*[-JNI;-NATIVE]
-return (jlong)new VehicleConstraintCallbacksJS();
-*/
     public static native long internal_native_create_addr();
-
-    /*[-JNI;-NATIVE]
-VehicleConstraintCallbacksJS* nativeObject = (VehicleConstraintCallbacksJS*)this_addr;
-nativeObject->setupCallback(env, object);
-*/
-    public native void internal_native_setupCallback(long this_addr);
 }

@@ -23,38 +23,9 @@ public class PathConstraintPathEm extends PathConstraintPath {
 
     static public final PathConstraintPathEm NULL = PathConstraintPathEm.native_new();
 
-    /*[-JNI;-NATIVE]
-	static jmethodID PathConstraintPathJS_GetPathMaxFraction_ID;
-	static jmethodID PathConstraintPathJS_GetClosestPointJF_ID;
-	static jmethodID PathConstraintPathJS_GetPointOnPathFJJJJ_ID;
-
-class PathConstraintPathJS : public PathConstraintPathEm {
-private:
-	JNIEnv* env;
-	jobject obj;
-public:
-void setupCallback(JNIEnv* env, jobject obj) {
-	this->env = env;
-	this->obj = env->NewGlobalRef(obj);
-	static jclass jClassID = 0;
-	if(jClassID == 0) {
-		jClassID = (jclass)env->NewGlobalRef(env->GetObjectClass(obj));
-		PathConstraintPathJS_GetPathMaxFraction_ID = env->GetMethodID(jClassID, "internal_GetPathMaxFraction", "()F");
-		PathConstraintPathJS_GetClosestPointJF_ID = env->GetMethodID(jClassID, "internal_GetClosestPoint", "(JF)F");
-		PathConstraintPathJS_GetPointOnPathFJJJJ_ID = env->GetMethodID(jClassID, "internal_GetPointOnPath", "(FJJJJ)V");
-	}
-}
-virtual float GetPathMaxFraction() const {
-   return env->CallFloatMethod(obj, PathConstraintPathJS_GetPathMaxFraction_ID);
-}
-virtual float GetClosestPoint(const Vec3* inPosition, float inFractionHint) const {
-   return env->CallFloatMethod(obj, PathConstraintPathJS_GetClosestPointJF_ID, (jlong)inPosition, inFractionHint);
-}
-virtual void GetPointOnPath(float inFraction, Vec3* outPathPosition, Vec3* outPathTangent, Vec3* outPathNormal, Vec3* outPathBinormal) const {
-   env->CallVoidMethod(obj, PathConstraintPathJS_GetPointOnPathFJJJJ_ID, inFraction, (jlong)outPathPosition, (jlong)outPathTangent, (jlong)outPathNormal, (jlong)outPathBinormal);
-}
-};
-*/
+    /**
+     * Dummy constructor, used internally to creates objects without C++ pointer
+     */
     @Deprecated()
     protected PathConstraintPathEm(byte b, char c) {
         super((byte) 1, (char) 1);
@@ -67,16 +38,6 @@ virtual void GetPointOnPath(float inFraction, Vec3* outPathPosition, Vec3* outPa
         return new PathConstraintPathEm((byte) 0, (char) 0);
     }
 
-    protected void deleteNative() {
-        internal_native_deleteNative(native_address);
-    }
-
-    /*[-JNI;-NATIVE]
-PathConstraintPathJS* nativeObject = (PathConstraintPathJS*)this_addr;
-delete nativeObject;
-*/
-    public static native void internal_native_deleteNative(long this_addr);
-
     public PathConstraintPathEm() {
         super((byte) 1, (char) 1);
         long addr = internal_native_create_addr();
@@ -85,7 +46,6 @@ delete nativeObject;
     }
 
     private void setupCallback() {
-        internal_native_setupCallback(native_address);
     }
 
     protected float GetPathMaxFraction() {
@@ -126,14 +86,5 @@ delete nativeObject;
         GetPointOnPath(inFraction, Vec3_TEMP_STATIC_GEN_1, Vec3_TEMP_STATIC_GEN_2, Vec3_TEMP_STATIC_GEN_3, Vec3_TEMP_STATIC_GEN_4);
     }
 
-    /*[-JNI;-NATIVE]
-return (jlong)new PathConstraintPathJS();
-*/
     public static native long internal_native_create_addr();
-
-    /*[-JNI;-NATIVE]
-PathConstraintPathJS* nativeObject = (PathConstraintPathJS*)this_addr;
-nativeObject->setupCallback(env, object);
-*/
-    public native void internal_native_setupCallback(long this_addr);
 }

@@ -6,14 +6,12 @@
 
 package jolt.physics.softbody;
 
-import com.github.xpenatan.jParser.idl.IDLBase;
+import com.github.xpenatan.jParser.api.NativeObject;
 import jolt.physics.collision.TransformedShape;
 import jolt.physics.body.Body;
 import jolt.physics.collision.shape.ShapeCastResult;
 
-public class CastShapeCollector extends IDLBase {
-
-    private TransformedShape TransformedShape_TEMP_GEN_0;
+public class CastShapeCollector extends NativeObject {
 
     static private Body Body_TEMP_STATIC_GEN_0;
 
@@ -21,38 +19,9 @@ public class CastShapeCollector extends IDLBase {
 
     static public final CastShapeCollector NULL = CastShapeCollector.native_new();
 
-    /*[-JNI;-NATIVE]
-	static jmethodID CastShapeCollectorJS_Reset_ID;
-	static jmethodID CastShapeCollectorJS_OnBodyJ_ID;
-	static jmethodID CastShapeCollectorJS_AddHitJ_ID;
-
-class CastShapeCollectorJS : public CastShapeCollector {
-private:
-	JNIEnv* env;
-	jobject obj;
-public:
-void setupCallback(JNIEnv* env, jobject obj) {
-	this->env = env;
-	this->obj = env->NewGlobalRef(obj);
-	static jclass jClassID = 0;
-	if(jClassID == 0) {
-		jClassID = (jclass)env->NewGlobalRef(env->GetObjectClass(obj));
-		CastShapeCollectorJS_Reset_ID = env->GetMethodID(jClassID, "internal_Reset", "()V");
-		CastShapeCollectorJS_OnBodyJ_ID = env->GetMethodID(jClassID, "internal_OnBody", "(J)V");
-		CastShapeCollectorJS_AddHitJ_ID = env->GetMethodID(jClassID, "internal_AddHit", "(J)V");
-	}
-}
-virtual void Reset() {
-   env->CallVoidMethod(obj, CastShapeCollectorJS_Reset_ID);
-}
-virtual void OnBody(const Body& inBody) {
-   env->CallVoidMethod(obj, CastShapeCollectorJS_OnBodyJ_ID, (jlong)&inBody);
-}
-virtual void AddHit(const ShapeCastResult& inResult) {
-   env->CallVoidMethod(obj, CastShapeCollectorJS_AddHitJ_ID, (jlong)&inResult);
-}
-};
-*/
+    /**
+     * Dummy constructor, used internally to creates objects without C++ pointer
+     */
     @Deprecated()
     protected CastShapeCollector(byte b, char c) {
     }
@@ -64,112 +33,36 @@ virtual void AddHit(const ShapeCastResult& inResult) {
         return new CastShapeCollector((byte) 0, (char) 0);
     }
 
-    protected void deleteNative() {
-        internal_native_deleteNative(native_address);
-    }
-
-    /*[-JNI;-NATIVE]
-CastShapeCollectorJS* nativeObject = (CastShapeCollectorJS*)this_addr;
-delete nativeObject;
-*/
-    public static native void internal_native_deleteNative(long this_addr);
-
     public void SetContext(TransformedShape inContext) {
-        internal_native_SetContext(native_address, inContext.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-CastShapeCollector* nativeObject = (CastShapeCollector*)this_addr;
-nativeObject->SetContext((TransformedShape* )inContext_addr);
-*/
-    public static native void internal_native_SetContext(long this_addr, long inContext_addr);
 
     public TransformedShape GetContext() {
-        long addr = internal_native_GetContext_addr(native_address);
-        if (addr == 0)
-            return TransformedShape.NULL;
-        if (TransformedShape_TEMP_GEN_0 == null)
-            TransformedShape_TEMP_GEN_0 = TransformedShape.native_new();
-        TransformedShape_TEMP_GEN_0.internal_reset(addr, false);
-        return TransformedShape_TEMP_GEN_0;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-CastShapeCollector* nativeObject = (CastShapeCollector*)this_addr;
-const TransformedShape* obj = nativeObject->GetContext();
-return (jlong)obj;
-*/
-    public static native long internal_native_GetContext_addr(long this_addr);
 
     public void UpdateEarlyOutFraction(float inFraction) {
-        internal_native_UpdateEarlyOutFraction(native_address, inFraction);
     }
-
-    /*[-JNI;-NATIVE]
-CastShapeCollector* nativeObject = (CastShapeCollector*)this_addr;
-nativeObject->UpdateEarlyOutFraction((float)inFraction);
-*/
-    public static native void internal_native_UpdateEarlyOutFraction(long this_addr, float inFraction);
 
     public void ResetEarlyOutFraction(float inFraction) {
-        internal_native_ResetEarlyOutFraction(native_address, inFraction);
     }
-
-    /*[-JNI;-NATIVE]
-CastShapeCollector* nativeObject = (CastShapeCollector*)this_addr;
-nativeObject->ResetEarlyOutFraction((float)inFraction);
-*/
-    public static native void internal_native_ResetEarlyOutFraction(long this_addr, float inFraction);
 
     public void ResetEarlyOutFraction() {
-        internal_native_ResetEarlyOutFraction(native_address);
     }
-
-    /*[-JNI;-NATIVE]
-CastShapeCollector* nativeObject = (CastShapeCollector*)this_addr;
-nativeObject->ResetEarlyOutFraction();
-*/
-    public static native void internal_native_ResetEarlyOutFraction(long this_addr);
 
     public void ForceEarlyOut() {
-        internal_native_ForceEarlyOut(native_address);
     }
-
-    /*[-JNI;-NATIVE]
-CastShapeCollector* nativeObject = (CastShapeCollector*)this_addr;
-nativeObject->ForceEarlyOut();
-*/
-    public static native void internal_native_ForceEarlyOut(long this_addr);
 
     public boolean ShouldEarlyOut() {
-        return internal_native_ShouldEarlyOut(native_address);
+        return false;
     }
-
-    /*[-JNI;-NATIVE]
-CastShapeCollector* nativeObject = (CastShapeCollector*)this_addr;
-return nativeObject->ShouldEarlyOut();
-*/
-    public static native boolean internal_native_ShouldEarlyOut(long this_addr);
 
     public float GetEarlyOutFraction() {
-        return internal_native_GetEarlyOutFraction(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-CastShapeCollector* nativeObject = (CastShapeCollector*)this_addr;
-return nativeObject->GetEarlyOutFraction();
-*/
-    public static native float internal_native_GetEarlyOutFraction(long this_addr);
 
     public float GetPositiveEarlyOutFraction() {
-        return internal_native_GetPositiveEarlyOutFraction(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-CastShapeCollector* nativeObject = (CastShapeCollector*)this_addr;
-return nativeObject->GetPositiveEarlyOutFraction();
-*/
-    public static native float internal_native_GetPositiveEarlyOutFraction(long this_addr);
 
     public CastShapeCollector() {
         long addr = internal_native_create_addr();
@@ -178,7 +71,6 @@ return nativeObject->GetPositiveEarlyOutFraction();
     }
 
     private void setupCallback() {
-        internal_native_setupCallback(native_address);
     }
 
     protected void Reset() {
@@ -208,14 +100,5 @@ return nativeObject->GetPositiveEarlyOutFraction();
         AddHit(ShapeCastResult_TEMP_STATIC_GEN_0);
     }
 
-    /*[-JNI;-NATIVE]
-return (jlong)new CastShapeCollectorJS();
-*/
     public static native long internal_native_create_addr();
-
-    /*[-JNI;-NATIVE]
-CastShapeCollectorJS* nativeObject = (CastShapeCollectorJS*)this_addr;
-nativeObject->setupCallback(env, object);
-*/
-    public native void internal_native_setupCallback(long this_addr);
 }

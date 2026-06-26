@@ -12,14 +12,7 @@ public class MotorcycleController extends WheeledVehicleController {
 
     public MotorcycleController(MotorcycleControllerSettings inSettings, VehicleConstraint inConstraint) {
         super((byte) 1, (char) 1);
-        long addr = internal_native_create_MotorcycleControllerSettings_VehicleConstraint_addr(inSettings.native_address, inConstraint.native_address);
-        internal_reset(addr, true);
     }
-
-    /*[-JNI;-NATIVE]
-return (jlong)new MotorcycleController(*((MotorcycleControllerSettings* )inSettings_addr), *((VehicleConstraint* )inConstraint_addr));
-*/
-    public static native long internal_native_create_MotorcycleControllerSettings_VehicleConstraint_addr(long inSettings_addr, long inConstraint_addr);
 
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
@@ -36,43 +29,14 @@ return (jlong)new MotorcycleController(*((MotorcycleControllerSettings* )inSetti
         return new MotorcycleController((byte) 0, (char) 0);
     }
 
-    protected void deleteNative() {
-        internal_native_deleteNative(native_address);
-    }
-
-    /*[-JNI;-NATIVE]
-MotorcycleController* nativeObject = (MotorcycleController*)this_addr;
-delete nativeObject;
-*/
-    public static native void internal_native_deleteNative(long this_addr);
-
     public float GetWheelBase() {
-        return internal_native_GetWheelBase(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-MotorcycleController* nativeObject = (MotorcycleController*)this_addr;
-return nativeObject->GetWheelBase();
-*/
-    public static native float internal_native_GetWheelBase(long this_addr);
 
     public void EnableLeanController(boolean inEnable) {
-        internal_native_EnableLeanController(native_address, inEnable);
     }
-
-    /*[-JNI;-NATIVE]
-MotorcycleController* nativeObject = (MotorcycleController*)this_addr;
-nativeObject->EnableLeanController(inEnable);
-*/
-    public static native void internal_native_EnableLeanController(long this_addr, boolean inEnable);
 
     public boolean IsLeanControllerEnabled() {
-        return internal_native_IsLeanControllerEnabled(native_address);
+        return false;
     }
-
-    /*[-JNI;-NATIVE]
-MotorcycleController* nativeObject = (MotorcycleController*)this_addr;
-return nativeObject->IsLeanControllerEnabled();
-*/
-    public static native boolean internal_native_IsLeanControllerEnabled(long this_addr);
 }

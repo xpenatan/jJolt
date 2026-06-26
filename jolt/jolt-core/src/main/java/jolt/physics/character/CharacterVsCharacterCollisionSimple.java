@@ -25,33 +25,9 @@ public class CharacterVsCharacterCollisionSimple extends CharacterVsCharacterCol
         return new CharacterVsCharacterCollisionSimple((byte) 0, (char) 0);
     }
 
-    protected void deleteNative() {
-        internal_native_deleteNative(native_address);
-    }
-
-    /*[-JNI;-NATIVE]
-CharacterVsCharacterCollisionSimple* nativeObject = (CharacterVsCharacterCollisionSimple*)this_addr;
-delete nativeObject;
-*/
-    public static native void internal_native_deleteNative(long this_addr);
-
     public void Add(CharacterVirtual inCharacter) {
-        internal_native_Add(native_address, inCharacter.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-CharacterVsCharacterCollisionSimple* nativeObject = (CharacterVsCharacterCollisionSimple*)this_addr;
-nativeObject->Add((CharacterVirtual* )inCharacter_addr);
-*/
-    public static native void internal_native_Add(long this_addr, long inCharacter_addr);
 
     public void Remove(CharacterVirtual inCharacter) {
-        internal_native_Remove(native_address, inCharacter.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-CharacterVsCharacterCollisionSimple* nativeObject = (CharacterVsCharacterCollisionSimple*)this_addr;
-nativeObject->Remove((CharacterVirtual* )inCharacter_addr);
-*/
-    public static native void internal_native_Remove(long this_addr, long inCharacter_addr);
 }

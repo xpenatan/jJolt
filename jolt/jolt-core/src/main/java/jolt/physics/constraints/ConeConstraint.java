@@ -10,8 +10,6 @@ import jolt.math.Vec3;
 
 public class ConeConstraint extends TwoBodyConstraint {
 
-    private Vec3 Vec3_TEMP_GEN_0;
-
     static public final ConeConstraint NULL = ConeConstraint.native_new();
 
     /**
@@ -30,49 +28,17 @@ public class ConeConstraint extends TwoBodyConstraint {
     }
 
     public void SetHalfConeAngle(float inHalfConeAngle) {
-        internal_native_SetHalfConeAngle(native_address, inHalfConeAngle);
     }
-
-    /*[-JNI;-NATIVE]
-ConeConstraint* nativeObject = (ConeConstraint*)this_addr;
-nativeObject->SetHalfConeAngle((float)inHalfConeAngle);
-*/
-    public static native void internal_native_SetHalfConeAngle(long this_addr, float inHalfConeAngle);
 
     public float GetCosHalfConeAngle() {
-        return internal_native_GetCosHalfConeAngle(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-ConeConstraint* nativeObject = (ConeConstraint*)this_addr;
-return nativeObject->GetCosHalfConeAngle();
-*/
-    public static native float internal_native_GetCosHalfConeAngle(long this_addr);
 
     public Vec3 GetTotalLambdaPosition() {
-        long addr = internal_native_GetTotalLambdaPosition_addr(native_address);
-        if (addr == 0)
-            return Vec3.NULL;
-        if (Vec3_TEMP_GEN_0 == null)
-            Vec3_TEMP_GEN_0 = Vec3.native_new();
-        Vec3_TEMP_GEN_0.internal_reset(addr, false);
-        return Vec3_TEMP_GEN_0;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-ConeConstraint* nativeObject = (ConeConstraint*)this_addr;
-static Vec3 copy_addr;
-copy_addr = nativeObject->GetTotalLambdaPosition();
-return (jlong)&copy_addr;*/
-    public static native long internal_native_GetTotalLambdaPosition_addr(long this_addr);
 
     public float GetTotalLambdaRotation() {
-        return internal_native_GetTotalLambdaRotation(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-ConeConstraint* nativeObject = (ConeConstraint*)this_addr;
-return nativeObject->GetTotalLambdaRotation();
-*/
-    public static native float internal_native_GetTotalLambdaRotation(long this_addr);
 }

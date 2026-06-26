@@ -6,9 +6,9 @@
 
 package jolt.enums;
 
-import com.github.xpenatan.jParser.idl.IDLEnum;
+import com.github.xpenatan.jParser.api.NativeEnum;
 
-public enum EOverrideMassProperties implements IDLEnum<EOverrideMassProperties> {
+public enum EOverrideMassProperties implements NativeEnum<EOverrideMassProperties> {
 
     CUSTOM(0), CalculateMassAndInertia(EOverrideMassProperties_CalculateMassAndInertia_NATIVE()), CalculateInertia(EOverrideMassProperties_CalculateInertia_NATIVE()), MassAndInertiaProvided(EOverrideMassProperties_MassAndInertiaProvided_NATIVE());
 
@@ -34,18 +34,9 @@ public enum EOverrideMassProperties implements IDLEnum<EOverrideMassProperties> 
         return CUSTOM;
     }
 
-    /*[-JNI;-NATIVE]
-return (jlong)EOverrideMassProperties_CalculateMassAndInertia;
-*/
     private static native int EOverrideMassProperties_CalculateMassAndInertia_NATIVE();
 
-    /*[-JNI;-NATIVE]
-return (jlong)EOverrideMassProperties_CalculateInertia;
-*/
     private static native int EOverrideMassProperties_CalculateInertia_NATIVE();
 
-    /*[-JNI;-NATIVE]
-return (jlong)EOverrideMassProperties_MassAndInertiaProvided;
-*/
     private static native int EOverrideMassProperties_MassAndInertiaProvided_NATIVE();
 }

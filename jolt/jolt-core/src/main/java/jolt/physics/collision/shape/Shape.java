@@ -6,7 +6,7 @@
 
 package jolt.physics.collision.shape;
 
-import com.github.xpenatan.jParser.idl.IDLBase;
+import com.github.xpenatan.jParser.api.NativeObject;
 import jolt.enums.EShapeType;
 import jolt.enums.EShapeSubType;
 import jolt.geometry.AABox;
@@ -19,27 +19,7 @@ import jolt.physics.collision.TransformedShape;
 import jolt.renderer.DebugRenderer;
 import jolt.core.Color;
 
-public class Shape extends IDLBase {
-
-    private AABox AABox_TEMP_GEN_0;
-
-    private AABox AABox_TEMP_GEN_1;
-
-    private Vec3 Vec3_TEMP_GEN_0;
-
-    private MassProperties MassProperties_TEMP_GEN_0;
-
-    private Shape Shape_TEMP_GEN_0;
-
-    private PhysicsMaterial PhysicsMaterial_TEMP_GEN_0;
-
-    private Vec3 Vec3_TEMP_GEN_1;
-
-    private TransformedShape TransformedShape_TEMP_GEN_0;
-
-    private Vec3 Vec3_TEMP_GEN_2;
-
-    private ShapeResult ShapeResult_TEMP_GEN_0;
+public class Shape extends NativeObject {
 
     static public final Shape NULL = Shape.native_new();
 
@@ -58,326 +38,94 @@ public class Shape extends IDLBase {
     }
 
     public int GetRefCount() {
-        return internal_native_GetRefCount(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-Shape* nativeObject = (Shape*)this_addr;
-return nativeObject->GetRefCount();
-*/
-    public static native int internal_native_GetRefCount(long this_addr);
 
     public void AddRef() {
-        internal_native_AddRef(native_address);
     }
-
-    /*[-JNI;-NATIVE]
-Shape* nativeObject = (Shape*)this_addr;
-nativeObject->AddRef();
-*/
-    public static native void internal_native_AddRef(long this_addr);
 
     public void Release() {
-        internal_native_Release(native_address);
     }
-
-    /*[-JNI;-NATIVE]
-Shape* nativeObject = (Shape*)this_addr;
-nativeObject->Release();
-*/
-    public static native void internal_native_Release(long this_addr);
 
     public EShapeType GetType() {
-        int value = internal_native_GetType(native_address);
-        EShapeType[] values = EShapeType.values();
-        for (int i = 0; i < values.length; i++) {
-            EShapeType enumVal = values[i];
-            if (enumVal != EShapeType.CUSTOM && enumVal.getValue() == value)
-                return enumVal;
-        }
-        return EShapeType.CUSTOM.setValue(value);
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-Shape* nativeObject = (Shape*)this_addr;
-return (int)nativeObject->GetType();
-*/
-    public static native int internal_native_GetType(long this_addr);
 
     public EShapeSubType GetSubType() {
-        int value = internal_native_GetSubType(native_address);
-        EShapeSubType[] values = EShapeSubType.values();
-        for (int i = 0; i < values.length; i++) {
-            EShapeSubType enumVal = values[i];
-            if (enumVal != EShapeSubType.CUSTOM && enumVal.getValue() == value)
-                return enumVal;
-        }
-        return EShapeSubType.CUSTOM.setValue(value);
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-Shape* nativeObject = (Shape*)this_addr;
-return (int)nativeObject->GetSubType();
-*/
-    public static native int internal_native_GetSubType(long this_addr);
 
     public boolean MustBeStatic() {
-        return internal_native_MustBeStatic(native_address);
+        return false;
     }
-
-    /*[-JNI;-NATIVE]
-Shape* nativeObject = (Shape*)this_addr;
-return nativeObject->MustBeStatic();
-*/
-    public static native boolean internal_native_MustBeStatic(long this_addr);
 
     public AABox GetLocalBounds() {
-        long addr = internal_native_GetLocalBounds_addr(native_address);
-        if (addr == 0)
-            return AABox.NULL;
-        if (AABox_TEMP_GEN_0 == null)
-            AABox_TEMP_GEN_0 = AABox.native_new();
-        AABox_TEMP_GEN_0.internal_reset(addr, false);
-        return AABox_TEMP_GEN_0;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-Shape* nativeObject = (Shape*)this_addr;
-static AABox copy_addr;
-copy_addr = nativeObject->GetLocalBounds();
-return (jlong)&copy_addr;*/
-    public static native long internal_native_GetLocalBounds_addr(long this_addr);
 
     public AABox GetWorldSpaceBounds(Mat44 inCenterOfMassTransform, Vec3 inScale) {
-        long addr = internal_native_GetWorldSpaceBounds_addr(native_address, inCenterOfMassTransform.native_address, inScale.native_address);
-        if (addr == 0)
-            return AABox.NULL;
-        if (AABox_TEMP_GEN_1 == null)
-            AABox_TEMP_GEN_1 = AABox.native_new();
-        AABox_TEMP_GEN_1.internal_reset(addr, false);
-        return AABox_TEMP_GEN_1;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-Shape* nativeObject = (Shape*)this_addr;
-static AABox copy_addr;
-copy_addr = nativeObject->GetWorldSpaceBounds(*((Mat44* )inCenterOfMassTransform_addr), *((Vec3* )inScale_addr));
-return (jlong)&copy_addr;*/
-    public static native long internal_native_GetWorldSpaceBounds_addr(long this_addr, long inCenterOfMassTransform_addr, long inScale_addr);
 
     public Vec3 GetCenterOfMass() {
-        long addr = internal_native_GetCenterOfMass_addr(native_address);
-        if (addr == 0)
-            return Vec3.NULL;
-        if (Vec3_TEMP_GEN_0 == null)
-            Vec3_TEMP_GEN_0 = Vec3.native_new();
-        Vec3_TEMP_GEN_0.internal_reset(addr, false);
-        return Vec3_TEMP_GEN_0;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-Shape* nativeObject = (Shape*)this_addr;
-static Vec3 copy_addr;
-copy_addr = nativeObject->GetCenterOfMass();
-return (jlong)&copy_addr;*/
-    public static native long internal_native_GetCenterOfMass_addr(long this_addr);
 
     public long GetUserData() {
-        return internal_native_GetUserData(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-Shape* nativeObject = (Shape*)this_addr;
-return nativeObject->GetUserData();
-*/
-    public static native long internal_native_GetUserData(long this_addr);
 
     public void SetUserData(long inUserData) {
-        internal_native_SetUserData(native_address, inUserData);
     }
-
-    /*[-JNI;-NATIVE]
-Shape* nativeObject = (Shape*)this_addr;
-nativeObject->SetUserData(inUserData);
-*/
-    public static native void internal_native_SetUserData(long this_addr, long inUserData);
 
     public int GetSubShapeIDBitsRecursive() {
-        return internal_native_GetSubShapeIDBitsRecursive(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-Shape* nativeObject = (Shape*)this_addr;
-return nativeObject->GetSubShapeIDBitsRecursive();
-*/
-    public static native int internal_native_GetSubShapeIDBitsRecursive(long this_addr);
 
     public float GetInnerRadius() {
-        return internal_native_GetInnerRadius(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-Shape* nativeObject = (Shape*)this_addr;
-return nativeObject->GetInnerRadius();
-*/
-    public static native float internal_native_GetInnerRadius(long this_addr);
 
     public MassProperties GetMassProperties() {
-        long addr = internal_native_GetMassProperties_addr(native_address);
-        if (addr == 0)
-            return MassProperties.NULL;
-        if (MassProperties_TEMP_GEN_0 == null)
-            MassProperties_TEMP_GEN_0 = MassProperties.native_new();
-        MassProperties_TEMP_GEN_0.internal_reset(addr, false);
-        return MassProperties_TEMP_GEN_0;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-Shape* nativeObject = (Shape*)this_addr;
-static MassProperties copy_addr;
-copy_addr = nativeObject->GetMassProperties();
-return (jlong)&copy_addr;*/
-    public static native long internal_native_GetMassProperties_addr(long this_addr);
 
     public Shape GetLeafShape(SubShapeID inSubShapeID, SubShapeID outRemainder) {
-        long addr = internal_native_GetLeafShape_addr(native_address, inSubShapeID.native_address, outRemainder.native_address);
-        if (addr == 0)
-            return Shape.NULL;
-        if (Shape_TEMP_GEN_0 == null)
-            Shape_TEMP_GEN_0 = Shape.native_new();
-        Shape_TEMP_GEN_0.internal_reset(addr, false);
-        return Shape_TEMP_GEN_0;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-Shape* nativeObject = (Shape*)this_addr;
-const Shape* obj = nativeObject->GetLeafShape(*((SubShapeID* )inSubShapeID_addr), *((SubShapeID* )outRemainder_addr));
-return (jlong)obj;
-*/
-    public static native long internal_native_GetLeafShape_addr(long this_addr, long inSubShapeID_addr, long outRemainder_addr);
 
     public PhysicsMaterial GetMaterial(SubShapeID inSubShapeID) {
-        long addr = internal_native_GetMaterial_addr(native_address, inSubShapeID.native_address);
-        if (addr == 0)
-            return PhysicsMaterial.NULL;
-        if (PhysicsMaterial_TEMP_GEN_0 == null)
-            PhysicsMaterial_TEMP_GEN_0 = PhysicsMaterial.native_new();
-        PhysicsMaterial_TEMP_GEN_0.internal_reset(addr, false);
-        return PhysicsMaterial_TEMP_GEN_0;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-Shape* nativeObject = (Shape*)this_addr;
-const PhysicsMaterial* obj = nativeObject->GetMaterial(*((SubShapeID* )inSubShapeID_addr));
-return (jlong)obj;
-*/
-    public static native long internal_native_GetMaterial_addr(long this_addr, long inSubShapeID_addr);
 
     public Vec3 GetSurfaceNormal(SubShapeID inSubShapeID, Vec3 inLocalSurfacePosition) {
-        long addr = internal_native_GetSurfaceNormal_addr(native_address, inSubShapeID.native_address, inLocalSurfacePosition.native_address);
-        if (addr == 0)
-            return Vec3.NULL;
-        if (Vec3_TEMP_GEN_1 == null)
-            Vec3_TEMP_GEN_1 = Vec3.native_new();
-        Vec3_TEMP_GEN_1.internal_reset(addr, false);
-        return Vec3_TEMP_GEN_1;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-Shape* nativeObject = (Shape*)this_addr;
-static Vec3 copy_addr;
-copy_addr = nativeObject->GetSurfaceNormal(*((SubShapeID* )inSubShapeID_addr), *((Vec3* )inLocalSurfacePosition_addr));
-return (jlong)&copy_addr;*/
-    public static native long internal_native_GetSurfaceNormal_addr(long this_addr, long inSubShapeID_addr, long inLocalSurfacePosition_addr);
 
     public long GetSubShapeUserData(SubShapeID inSubShapeID) {
-        return internal_native_GetSubShapeUserData(native_address, inSubShapeID.native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-Shape* nativeObject = (Shape*)this_addr;
-return nativeObject->GetSubShapeUserData(*((SubShapeID* )inSubShapeID_addr));
-*/
-    public static native long internal_native_GetSubShapeUserData(long this_addr, long inSubShapeID_addr);
 
     public TransformedShape GetSubShapeTransformedShape(SubShapeID inSubShapeID, Vec3 inPositionCOM, Quat inRotation, Vec3 inScale, SubShapeID outRemainder) {
-        long addr = internal_native_GetSubShapeTransformedShape_addr(native_address, inSubShapeID.native_address, inPositionCOM.native_address, inRotation.native_address, inScale.native_address, outRemainder.native_address);
-        if (addr == 0)
-            return TransformedShape.NULL;
-        if (TransformedShape_TEMP_GEN_0 == null)
-            TransformedShape_TEMP_GEN_0 = TransformedShape.native_new();
-        TransformedShape_TEMP_GEN_0.internal_reset(addr, false);
-        return TransformedShape_TEMP_GEN_0;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-Shape* nativeObject = (Shape*)this_addr;
-static TransformedShape copy_addr;
-copy_addr = nativeObject->GetSubShapeTransformedShape(*((SubShapeID* )inSubShapeID_addr), *((Vec3* )inPositionCOM_addr), *((Quat* )inRotation_addr), *((Vec3* )inScale_addr), *((SubShapeID* )outRemainder_addr));
-return (jlong)&copy_addr;*/
-    public static native long internal_native_GetSubShapeTransformedShape_addr(long this_addr, long inSubShapeID_addr, long inPositionCOM_addr, long inRotation_addr, long inScale_addr, long outRemainder_addr);
 
     public float GetVolume() {
-        return internal_native_GetVolume(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-Shape* nativeObject = (Shape*)this_addr;
-return nativeObject->GetVolume();
-*/
-    public static native float internal_native_GetVolume(long this_addr);
 
     public boolean IsValidScale(Vec3 inScale) {
-        return internal_native_IsValidScale(native_address, inScale.native_address);
+        return false;
     }
-
-    /*[-JNI;-NATIVE]
-Shape* nativeObject = (Shape*)this_addr;
-return nativeObject->IsValidScale(*((Vec3* )inScale_addr));
-*/
-    public static native boolean internal_native_IsValidScale(long this_addr, long inScale_addr);
 
     public Vec3 MakeScaleValid(Vec3 inScale) {
-        long addr = internal_native_MakeScaleValid_addr(native_address, inScale.native_address);
-        if (addr == 0)
-            return Vec3.NULL;
-        if (Vec3_TEMP_GEN_2 == null)
-            Vec3_TEMP_GEN_2 = Vec3.native_new();
-        Vec3_TEMP_GEN_2.internal_reset(addr, false);
-        return Vec3_TEMP_GEN_2;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-Shape* nativeObject = (Shape*)this_addr;
-static Vec3 copy_addr;
-copy_addr = nativeObject->MakeScaleValid(*((Vec3* )inScale_addr));
-return (jlong)&copy_addr;*/
-    public static native long internal_native_MakeScaleValid_addr(long this_addr, long inScale_addr);
 
     public ShapeResult ScaleShape(Vec3 inScale) {
-        long addr = internal_native_ScaleShape_addr(native_address, inScale.native_address);
-        if (addr == 0)
-            return ShapeResult.NULL;
-        if (ShapeResult_TEMP_GEN_0 == null)
-            ShapeResult_TEMP_GEN_0 = ShapeResult.native_new();
-        ShapeResult_TEMP_GEN_0.internal_reset(addr, false);
-        return ShapeResult_TEMP_GEN_0;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-Shape* nativeObject = (Shape*)this_addr;
-static Shape::ShapeResult copy_addr;
-copy_addr = nativeObject->ScaleShape(*((Vec3* )inScale_addr));
-return (jlong)&copy_addr;*/
-    public static native long internal_native_ScaleShape_addr(long this_addr, long inScale_addr);
 
     public void Draw(DebugRenderer inRenderer, Mat44 inCenterOfMassTransform, Vec3 inScale, Color inColor, boolean inUseMaterialColors, boolean inDrawWireframe) {
-        internal_native_Draw(native_address, inRenderer.native_address, inCenterOfMassTransform.native_address, inScale.native_address, inColor.native_address, inUseMaterialColors, inDrawWireframe);
     }
-
-    /*[-JNI;-NATIVE]
-Shape* nativeObject = (Shape*)this_addr;
-nativeObject->Draw((DebugRenderer* )inRenderer_addr, *((Mat44* )inCenterOfMassTransform_addr), *((Vec3* )inScale_addr), *((Color* )inColor_addr), inUseMaterialColors, inDrawWireframe);
-*/
-    public static native void internal_native_Draw(long this_addr, long inRenderer_addr, long inCenterOfMassTransform_addr, long inScale_addr, long inColor_addr, boolean inUseMaterialColors, boolean inDrawWireframe);
 }

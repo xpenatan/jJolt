@@ -8,24 +8,11 @@ package jolt.physics.vehicle;
 
 public class WheeledVehicleControllerSettings extends VehicleControllerSettings {
 
-    private VehicleEngineSettings VehicleEngineSettings_TEMP_GEN_0;
-
-    private VehicleTransmissionSettings VehicleTransmissionSettings_TEMP_GEN_0;
-
-    private ArrayVehicleDifferentialSettings ArrayVehicleDifferentialSettings_TEMP_GEN_0;
-
     static public final WheeledVehicleControllerSettings NULL = WheeledVehicleControllerSettings.native_new();
 
     public WheeledVehicleControllerSettings() {
         super((byte) 1, (char) 1);
-        long addr = internal_native_create_addr();
-        internal_reset(addr, true);
     }
-
-    /*[-JNI;-NATIVE]
-return (jlong)new WheeledVehicleControllerSettings();
-*/
-    public static native long internal_native_create_addr();
 
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
@@ -42,111 +29,31 @@ return (jlong)new WheeledVehicleControllerSettings();
         return new WheeledVehicleControllerSettings((byte) 0, (char) 0);
     }
 
-    protected void deleteNative() {
-        internal_native_deleteNative(native_address);
-    }
-
-    /*[-JNI;-NATIVE]
-WheeledVehicleControllerSettings* nativeObject = (WheeledVehicleControllerSettings*)this_addr;
-delete nativeObject;
-*/
-    public static native void internal_native_deleteNative(long this_addr);
-
     public VehicleEngineSettings get_mEngine() {
-        long addr = internal_native_get_mEngine_addr(native_address);
-        if (addr == 0)
-            return VehicleEngineSettings.NULL;
-        if (VehicleEngineSettings_TEMP_GEN_0 == null)
-            VehicleEngineSettings_TEMP_GEN_0 = VehicleEngineSettings.native_new();
-        VehicleEngineSettings_TEMP_GEN_0.internal_reset(addr, false);
-        return VehicleEngineSettings_TEMP_GEN_0;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-WheeledVehicleControllerSettings* nativeObject = (WheeledVehicleControllerSettings*)this_addr;
-return (jlong)&nativeObject->mEngine;
-*/
-    public static native long internal_native_get_mEngine_addr(long this_addr);
 
     public void set_mEngine(VehicleEngineSettings mEngine) {
-        internal_native_set_mEngine(native_address, mEngine.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-WheeledVehicleControllerSettings* nativeObject = (WheeledVehicleControllerSettings*)this_addr;
-nativeObject->mEngine = *((VehicleEngineSettings*)mEngine_addr);
-*/
-    public static native void internal_native_set_mEngine(long this_addr, long mEngine_addr);
 
     public VehicleTransmissionSettings get_mTransmission() {
-        long addr = internal_native_get_mTransmission_addr(native_address);
-        if (addr == 0)
-            return VehicleTransmissionSettings.NULL;
-        if (VehicleTransmissionSettings_TEMP_GEN_0 == null)
-            VehicleTransmissionSettings_TEMP_GEN_0 = VehicleTransmissionSettings.native_new();
-        VehicleTransmissionSettings_TEMP_GEN_0.internal_reset(addr, false);
-        return VehicleTransmissionSettings_TEMP_GEN_0;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-WheeledVehicleControllerSettings* nativeObject = (WheeledVehicleControllerSettings*)this_addr;
-return (jlong)&nativeObject->mTransmission;
-*/
-    public static native long internal_native_get_mTransmission_addr(long this_addr);
 
     public void set_mTransmission(VehicleTransmissionSettings mTransmission) {
-        internal_native_set_mTransmission(native_address, mTransmission.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-WheeledVehicleControllerSettings* nativeObject = (WheeledVehicleControllerSettings*)this_addr;
-nativeObject->mTransmission = *((VehicleTransmissionSettings*)mTransmission_addr);
-*/
-    public static native void internal_native_set_mTransmission(long this_addr, long mTransmission_addr);
 
     public ArrayVehicleDifferentialSettings get_mDifferentials() {
-        long addr = internal_native_get_mDifferentials_addr(native_address);
-        if (addr == 0)
-            return ArrayVehicleDifferentialSettings.NULL;
-        if (ArrayVehicleDifferentialSettings_TEMP_GEN_0 == null)
-            ArrayVehicleDifferentialSettings_TEMP_GEN_0 = ArrayVehicleDifferentialSettings.native_new();
-        ArrayVehicleDifferentialSettings_TEMP_GEN_0.internal_reset(addr, false);
-        return ArrayVehicleDifferentialSettings_TEMP_GEN_0;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-WheeledVehicleControllerSettings* nativeObject = (WheeledVehicleControllerSettings*)this_addr;
-return (jlong)&nativeObject->mDifferentials;
-*/
-    public static native long internal_native_get_mDifferentials_addr(long this_addr);
 
     public void set_mDifferentials(ArrayVehicleDifferentialSettings mDifferentials) {
-        internal_native_set_mDifferentials(native_address, mDifferentials.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-WheeledVehicleControllerSettings* nativeObject = (WheeledVehicleControllerSettings*)this_addr;
-nativeObject->mDifferentials = *((ArrayVehicleDifferentialSettings*)mDifferentials_addr);
-*/
-    public static native void internal_native_set_mDifferentials(long this_addr, long mDifferentials_addr);
 
     public float get_mDifferentialLimitedSlipRatio() {
-        return internal_native_get_mDifferentialLimitedSlipRatio(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-WheeledVehicleControllerSettings* nativeObject = (WheeledVehicleControllerSettings*)this_addr;
-return nativeObject->mDifferentialLimitedSlipRatio;
-*/
-    public static native float internal_native_get_mDifferentialLimitedSlipRatio(long this_addr);
 
     public void set_mDifferentialLimitedSlipRatio(float mDifferentialLimitedSlipRatio) {
-        internal_native_set_mDifferentialLimitedSlipRatio(native_address, mDifferentialLimitedSlipRatio);
     }
-
-    /*[-JNI;-NATIVE]
-WheeledVehicleControllerSettings* nativeObject = (WheeledVehicleControllerSettings*)this_addr;
-nativeObject->mDifferentialLimitedSlipRatio = mDifferentialLimitedSlipRatio;
-*/
-    public static native void internal_native_set_mDifferentialLimitedSlipRatio(long this_addr, float mDifferentialLimitedSlipRatio);
 }

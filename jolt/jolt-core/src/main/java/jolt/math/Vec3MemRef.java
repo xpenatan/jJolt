@@ -6,9 +6,9 @@
 
 package jolt.math;
 
-import com.github.xpenatan.jParser.idl.IDLBase;
+import com.github.xpenatan.jParser.api.NativeObject;
 
-public class Vec3MemRef extends IDLBase {
+public class Vec3MemRef extends NativeObject {
 
     static public final Vec3MemRef NULL = Vec3MemRef.native_new();
 
@@ -25,14 +25,4 @@ public class Vec3MemRef extends IDLBase {
     public static Vec3MemRef native_new() {
         return new Vec3MemRef((byte) 0, (char) 0);
     }
-
-    protected void deleteNative() {
-        internal_native_deleteNative(native_address);
-    }
-
-    /*[-JNI;-NATIVE]
-Vec3MemRef* nativeObject = (Vec3MemRef*)this_addr;
-delete nativeObject;
-*/
-    public static native void internal_native_deleteNative(long this_addr);
 }

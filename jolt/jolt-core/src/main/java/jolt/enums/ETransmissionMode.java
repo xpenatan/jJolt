@@ -6,9 +6,9 @@
 
 package jolt.enums;
 
-import com.github.xpenatan.jParser.idl.IDLEnum;
+import com.github.xpenatan.jParser.api.NativeEnum;
 
-public enum ETransmissionMode implements IDLEnum<ETransmissionMode> {
+public enum ETransmissionMode implements NativeEnum<ETransmissionMode> {
 
     CUSTOM(0), Auto(ETransmissionMode_Auto_NATIVE()), Manual(ETransmissionMode_Manual_NATIVE());
 
@@ -34,13 +34,7 @@ public enum ETransmissionMode implements IDLEnum<ETransmissionMode> {
         return CUSTOM;
     }
 
-    /*[-JNI;-NATIVE]
-return (jlong)ETransmissionMode_Auto;
-*/
     private static native int ETransmissionMode_Auto_NATIVE();
 
-    /*[-JNI;-NATIVE]
-return (jlong)ETransmissionMode_Manual;
-*/
     private static native int ETransmissionMode_Manual_NATIVE();
 }

@@ -12,34 +12,11 @@ import jolt.math.Vec3;
 
 public class SliderConstraintSettings extends TwoBodyConstraintSettings {
 
-    private Vec3 Vec3_TEMP_GEN_0;
-
-    private Vec3 Vec3_TEMP_GEN_1;
-
-    private Vec3 Vec3_TEMP_GEN_2;
-
-    private Vec3 Vec3_TEMP_GEN_3;
-
-    private Vec3 Vec3_TEMP_GEN_4;
-
-    private Vec3 Vec3_TEMP_GEN_5;
-
-    private SpringSettings SpringSettings_TEMP_GEN_0;
-
-    private MotorSettings MotorSettings_TEMP_GEN_0;
-
     static public final SliderConstraintSettings NULL = SliderConstraintSettings.native_new();
 
     public SliderConstraintSettings() {
         super((byte) 1, (char) 1);
-        long addr = internal_native_create_addr();
-        internal_reset(addr, true);
     }
-
-    /*[-JNI;-NATIVE]
-return (jlong)new SliderConstraintSettings();
-*/
-    public static native long internal_native_create_addr();
 
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
@@ -56,328 +33,94 @@ return (jlong)new SliderConstraintSettings();
         return new SliderConstraintSettings((byte) 0, (char) 0);
     }
 
-    protected void deleteNative() {
-        internal_native_deleteNative(native_address);
-    }
-
-    /*[-JNI;-NATIVE]
-SliderConstraintSettings* nativeObject = (SliderConstraintSettings*)this_addr;
-delete nativeObject;
-*/
-    public static native void internal_native_deleteNative(long this_addr);
-
     public EConstraintSpace get_mSpace() {
-        int value = internal_native_get_mSpace(native_address);
-        EConstraintSpace[] values = EConstraintSpace.values();
-        for (int i = 0; i < values.length; i++) {
-            EConstraintSpace enumVal = values[i];
-            if (enumVal != EConstraintSpace.CUSTOM && enumVal.getValue() == value)
-                return enumVal;
-        }
-        return EConstraintSpace.CUSTOM.setValue(value);
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-SliderConstraintSettings* nativeObject = (SliderConstraintSettings*)this_addr;
-return (jint)nativeObject->mSpace;
-*/
-    public static native int internal_native_get_mSpace(long this_addr);
 
     public void set_mSpace(EConstraintSpace mSpace) {
-        internal_native_set_mSpace(native_address, mSpace.getValue());
     }
-
-    /*[-JNI;-NATIVE]
-SliderConstraintSettings* nativeObject = (SliderConstraintSettings*)this_addr;
-nativeObject->mSpace = (::EConstraintSpace)mSpace;
-*/
-    public static native void internal_native_set_mSpace(long this_addr, int mSpace);
 
     public boolean get_mAutoDetectPoint() {
-        return internal_native_get_mAutoDetectPoint(native_address);
+        return false;
     }
-
-    /*[-JNI;-NATIVE]
-SliderConstraintSettings* nativeObject = (SliderConstraintSettings*)this_addr;
-return nativeObject->mAutoDetectPoint;
-*/
-    public static native boolean internal_native_get_mAutoDetectPoint(long this_addr);
 
     public void set_mAutoDetectPoint(boolean mAutoDetectPoint) {
-        internal_native_set_mAutoDetectPoint(native_address, mAutoDetectPoint);
     }
-
-    /*[-JNI;-NATIVE]
-SliderConstraintSettings* nativeObject = (SliderConstraintSettings*)this_addr;
-nativeObject->mAutoDetectPoint = mAutoDetectPoint;
-*/
-    public static native void internal_native_set_mAutoDetectPoint(long this_addr, boolean mAutoDetectPoint);
 
     public Vec3 get_mPoint1() {
-        long addr = internal_native_get_mPoint1_addr(native_address);
-        if (addr == 0)
-            return Vec3.NULL;
-        if (Vec3_TEMP_GEN_0 == null)
-            Vec3_TEMP_GEN_0 = Vec3.native_new();
-        Vec3_TEMP_GEN_0.internal_reset(addr, false);
-        return Vec3_TEMP_GEN_0;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-SliderConstraintSettings* nativeObject = (SliderConstraintSettings*)this_addr;
-return (jlong)&nativeObject->mPoint1;
-*/
-    public static native long internal_native_get_mPoint1_addr(long this_addr);
 
     public void set_mPoint1(Vec3 mPoint1) {
-        internal_native_set_mPoint1(native_address, mPoint1.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-SliderConstraintSettings* nativeObject = (SliderConstraintSettings*)this_addr;
-nativeObject->mPoint1 = *((Vec3*)mPoint1_addr);
-*/
-    public static native void internal_native_set_mPoint1(long this_addr, long mPoint1_addr);
 
     public Vec3 get_mSliderAxis1() {
-        long addr = internal_native_get_mSliderAxis1_addr(native_address);
-        if (addr == 0)
-            return Vec3.NULL;
-        if (Vec3_TEMP_GEN_1 == null)
-            Vec3_TEMP_GEN_1 = Vec3.native_new();
-        Vec3_TEMP_GEN_1.internal_reset(addr, false);
-        return Vec3_TEMP_GEN_1;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-SliderConstraintSettings* nativeObject = (SliderConstraintSettings*)this_addr;
-return (jlong)&nativeObject->mSliderAxis1;
-*/
-    public static native long internal_native_get_mSliderAxis1_addr(long this_addr);
 
     public void set_mSliderAxis1(Vec3 mSliderAxis1) {
-        internal_native_set_mSliderAxis1(native_address, mSliderAxis1.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-SliderConstraintSettings* nativeObject = (SliderConstraintSettings*)this_addr;
-nativeObject->mSliderAxis1 = *((Vec3*)mSliderAxis1_addr);
-*/
-    public static native void internal_native_set_mSliderAxis1(long this_addr, long mSliderAxis1_addr);
 
     public Vec3 get_mNormalAxis1() {
-        long addr = internal_native_get_mNormalAxis1_addr(native_address);
-        if (addr == 0)
-            return Vec3.NULL;
-        if (Vec3_TEMP_GEN_2 == null)
-            Vec3_TEMP_GEN_2 = Vec3.native_new();
-        Vec3_TEMP_GEN_2.internal_reset(addr, false);
-        return Vec3_TEMP_GEN_2;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-SliderConstraintSettings* nativeObject = (SliderConstraintSettings*)this_addr;
-return (jlong)&nativeObject->mNormalAxis1;
-*/
-    public static native long internal_native_get_mNormalAxis1_addr(long this_addr);
 
     public void set_mNormalAxis1(Vec3 mNormalAxis1) {
-        internal_native_set_mNormalAxis1(native_address, mNormalAxis1.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-SliderConstraintSettings* nativeObject = (SliderConstraintSettings*)this_addr;
-nativeObject->mNormalAxis1 = *((Vec3*)mNormalAxis1_addr);
-*/
-    public static native void internal_native_set_mNormalAxis1(long this_addr, long mNormalAxis1_addr);
 
     public Vec3 get_mPoint2() {
-        long addr = internal_native_get_mPoint2_addr(native_address);
-        if (addr == 0)
-            return Vec3.NULL;
-        if (Vec3_TEMP_GEN_3 == null)
-            Vec3_TEMP_GEN_3 = Vec3.native_new();
-        Vec3_TEMP_GEN_3.internal_reset(addr, false);
-        return Vec3_TEMP_GEN_3;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-SliderConstraintSettings* nativeObject = (SliderConstraintSettings*)this_addr;
-return (jlong)&nativeObject->mPoint2;
-*/
-    public static native long internal_native_get_mPoint2_addr(long this_addr);
 
     public void set_mPoint2(Vec3 mPoint2) {
-        internal_native_set_mPoint2(native_address, mPoint2.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-SliderConstraintSettings* nativeObject = (SliderConstraintSettings*)this_addr;
-nativeObject->mPoint2 = *((Vec3*)mPoint2_addr);
-*/
-    public static native void internal_native_set_mPoint2(long this_addr, long mPoint2_addr);
 
     public Vec3 get_mSliderAxis2() {
-        long addr = internal_native_get_mSliderAxis2_addr(native_address);
-        if (addr == 0)
-            return Vec3.NULL;
-        if (Vec3_TEMP_GEN_4 == null)
-            Vec3_TEMP_GEN_4 = Vec3.native_new();
-        Vec3_TEMP_GEN_4.internal_reset(addr, false);
-        return Vec3_TEMP_GEN_4;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-SliderConstraintSettings* nativeObject = (SliderConstraintSettings*)this_addr;
-return (jlong)&nativeObject->mSliderAxis2;
-*/
-    public static native long internal_native_get_mSliderAxis2_addr(long this_addr);
 
     public void set_mSliderAxis2(Vec3 mSliderAxis2) {
-        internal_native_set_mSliderAxis2(native_address, mSliderAxis2.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-SliderConstraintSettings* nativeObject = (SliderConstraintSettings*)this_addr;
-nativeObject->mSliderAxis2 = *((Vec3*)mSliderAxis2_addr);
-*/
-    public static native void internal_native_set_mSliderAxis2(long this_addr, long mSliderAxis2_addr);
 
     public Vec3 get_mNormalAxis2() {
-        long addr = internal_native_get_mNormalAxis2_addr(native_address);
-        if (addr == 0)
-            return Vec3.NULL;
-        if (Vec3_TEMP_GEN_5 == null)
-            Vec3_TEMP_GEN_5 = Vec3.native_new();
-        Vec3_TEMP_GEN_5.internal_reset(addr, false);
-        return Vec3_TEMP_GEN_5;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-SliderConstraintSettings* nativeObject = (SliderConstraintSettings*)this_addr;
-return (jlong)&nativeObject->mNormalAxis2;
-*/
-    public static native long internal_native_get_mNormalAxis2_addr(long this_addr);
 
     public void set_mNormalAxis2(Vec3 mNormalAxis2) {
-        internal_native_set_mNormalAxis2(native_address, mNormalAxis2.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-SliderConstraintSettings* nativeObject = (SliderConstraintSettings*)this_addr;
-nativeObject->mNormalAxis2 = *((Vec3*)mNormalAxis2_addr);
-*/
-    public static native void internal_native_set_mNormalAxis2(long this_addr, long mNormalAxis2_addr);
 
     public float get_mLimitsMin() {
-        return internal_native_get_mLimitsMin(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-SliderConstraintSettings* nativeObject = (SliderConstraintSettings*)this_addr;
-return nativeObject->mLimitsMin;
-*/
-    public static native float internal_native_get_mLimitsMin(long this_addr);
 
     public void set_mLimitsMin(float mLimitsMin) {
-        internal_native_set_mLimitsMin(native_address, mLimitsMin);
     }
-
-    /*[-JNI;-NATIVE]
-SliderConstraintSettings* nativeObject = (SliderConstraintSettings*)this_addr;
-nativeObject->mLimitsMin = mLimitsMin;
-*/
-    public static native void internal_native_set_mLimitsMin(long this_addr, float mLimitsMin);
 
     public float get_mLimitsMax() {
-        return internal_native_get_mLimitsMax(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-SliderConstraintSettings* nativeObject = (SliderConstraintSettings*)this_addr;
-return nativeObject->mLimitsMax;
-*/
-    public static native float internal_native_get_mLimitsMax(long this_addr);
 
     public void set_mLimitsMax(float mLimitsMax) {
-        internal_native_set_mLimitsMax(native_address, mLimitsMax);
     }
-
-    /*[-JNI;-NATIVE]
-SliderConstraintSettings* nativeObject = (SliderConstraintSettings*)this_addr;
-nativeObject->mLimitsMax = mLimitsMax;
-*/
-    public static native void internal_native_set_mLimitsMax(long this_addr, float mLimitsMax);
 
     public SpringSettings get_mLimitsSpringSettings() {
-        long addr = internal_native_get_mLimitsSpringSettings_addr(native_address);
-        if (addr == 0)
-            return SpringSettings.NULL;
-        if (SpringSettings_TEMP_GEN_0 == null)
-            SpringSettings_TEMP_GEN_0 = SpringSettings.native_new();
-        SpringSettings_TEMP_GEN_0.internal_reset(addr, false);
-        return SpringSettings_TEMP_GEN_0;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-SliderConstraintSettings* nativeObject = (SliderConstraintSettings*)this_addr;
-return (jlong)&nativeObject->mLimitsSpringSettings;
-*/
-    public static native long internal_native_get_mLimitsSpringSettings_addr(long this_addr);
 
     public void set_mLimitsSpringSettings(SpringSettings mLimitsSpringSettings) {
-        internal_native_set_mLimitsSpringSettings(native_address, mLimitsSpringSettings.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-SliderConstraintSettings* nativeObject = (SliderConstraintSettings*)this_addr;
-nativeObject->mLimitsSpringSettings = *((SpringSettings*)mLimitsSpringSettings_addr);
-*/
-    public static native void internal_native_set_mLimitsSpringSettings(long this_addr, long mLimitsSpringSettings_addr);
 
     public float get_mMaxFrictionForce() {
-        return internal_native_get_mMaxFrictionForce(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-SliderConstraintSettings* nativeObject = (SliderConstraintSettings*)this_addr;
-return nativeObject->mMaxFrictionForce;
-*/
-    public static native float internal_native_get_mMaxFrictionForce(long this_addr);
 
     public void set_mMaxFrictionForce(float mMaxFrictionForce) {
-        internal_native_set_mMaxFrictionForce(native_address, mMaxFrictionForce);
     }
-
-    /*[-JNI;-NATIVE]
-SliderConstraintSettings* nativeObject = (SliderConstraintSettings*)this_addr;
-nativeObject->mMaxFrictionForce = mMaxFrictionForce;
-*/
-    public static native void internal_native_set_mMaxFrictionForce(long this_addr, float mMaxFrictionForce);
 
     public MotorSettings get_mMotorSettings() {
-        long addr = internal_native_get_mMotorSettings_addr(native_address);
-        if (addr == 0)
-            return MotorSettings.NULL;
-        if (MotorSettings_TEMP_GEN_0 == null)
-            MotorSettings_TEMP_GEN_0 = MotorSettings.native_new();
-        MotorSettings_TEMP_GEN_0.internal_reset(addr, false);
-        return MotorSettings_TEMP_GEN_0;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-SliderConstraintSettings* nativeObject = (SliderConstraintSettings*)this_addr;
-return (jlong)&nativeObject->mMotorSettings;
-*/
-    public static native long internal_native_get_mMotorSettings_addr(long this_addr);
 
     public void set_mMotorSettings(MotorSettings mMotorSettings) {
-        internal_native_set_mMotorSettings(native_address, mMotorSettings.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-SliderConstraintSettings* nativeObject = (SliderConstraintSettings*)this_addr;
-nativeObject->mMotorSettings = *((MotorSettings*)mMotorSettings_addr);
-*/
-    public static native void internal_native_set_mMotorSettings(long this_addr, long mMotorSettings_addr);
 }

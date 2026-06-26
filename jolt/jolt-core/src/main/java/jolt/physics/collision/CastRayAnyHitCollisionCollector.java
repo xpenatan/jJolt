@@ -10,20 +10,11 @@ import jolt.physics.softbody.CastRayCollector;
 
 public class CastRayAnyHitCollisionCollector extends CastRayCollector {
 
-    private RayCastResult RayCastResult_TEMP_GEN_0;
-
     static public final CastRayAnyHitCollisionCollector NULL = CastRayAnyHitCollisionCollector.native_new();
 
     public CastRayAnyHitCollisionCollector() {
         super((byte) 1, (char) 1);
-        long addr = internal_native_create_addr();
-        internal_reset(addr, true);
     }
-
-    /*[-JNI;-NATIVE]
-return (jlong)new CastRayAnyHitCollisionCollector();
-*/
-    public static native long internal_native_create_addr();
 
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
@@ -40,49 +31,14 @@ return (jlong)new CastRayAnyHitCollisionCollector();
         return new CastRayAnyHitCollisionCollector((byte) 0, (char) 0);
     }
 
-    protected void deleteNative() {
-        internal_native_deleteNative(native_address);
-    }
-
-    /*[-JNI;-NATIVE]
-CastRayAnyHitCollisionCollector* nativeObject = (CastRayAnyHitCollisionCollector*)this_addr;
-delete nativeObject;
-*/
-    public static native void internal_native_deleteNative(long this_addr);
-
     public boolean HadHit() {
-        return internal_native_HadHit(native_address);
+        return false;
     }
-
-    /*[-JNI;-NATIVE]
-CastRayAnyHitCollisionCollector* nativeObject = (CastRayAnyHitCollisionCollector*)this_addr;
-return nativeObject->HadHit();
-*/
-    public static native boolean internal_native_HadHit(long this_addr);
 
     public RayCastResult get_mHit() {
-        long addr = internal_native_get_mHit_addr(native_address);
-        if (addr == 0)
-            return RayCastResult.NULL;
-        if (RayCastResult_TEMP_GEN_0 == null)
-            RayCastResult_TEMP_GEN_0 = RayCastResult.native_new();
-        RayCastResult_TEMP_GEN_0.internal_reset(addr, false);
-        return RayCastResult_TEMP_GEN_0;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-CastRayAnyHitCollisionCollector* nativeObject = (CastRayAnyHitCollisionCollector*)this_addr;
-return (jlong)&nativeObject->mHit;
-*/
-    public static native long internal_native_get_mHit_addr(long this_addr);
 
     public void set_mHit(RayCastResult mHit) {
-        internal_native_set_mHit(native_address, mHit.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-CastRayAnyHitCollisionCollector* nativeObject = (CastRayAnyHitCollisionCollector*)this_addr;
-nativeObject->mHit = *((RayCastResult*)mHit_addr);
-*/
-    public static native void internal_native_set_mHit(long this_addr, long mHit_addr);
 }

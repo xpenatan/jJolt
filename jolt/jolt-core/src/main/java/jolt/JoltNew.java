@@ -6,7 +6,7 @@
 
 package jolt;
 
-import com.github.xpenatan.jParser.idl.IDLBase;
+import com.github.xpenatan.jParser.api.NativeObject;
 import jolt.physics.PhysicsSystem;
 import jolt.core.Factory;
 import jolt.core.TempAllocatorImpl;
@@ -27,11 +27,7 @@ import jolt.physics.collision.PhysicsMaterialList;
 import jolt.math.VertexList;
 import jolt.geometry.IndexedTriangleList;
 
-public class JoltNew extends IDLBase {
-
-    static private JobSystemThreadPool JobSystemThreadPool_TEMP_STATIC_GEN_0;
-
-    static private MeshShapeSettings MeshShapeSettings_TEMP_STATIC_GEN_0;
+public class JoltNew extends NativeObject {
 
     static public final JoltNew NULL = JoltNew.native_new();
 
@@ -50,396 +46,114 @@ public class JoltNew extends IDLBase {
     }
 
     public static PhysicsSystem PhysicsSystem() {
-        long addr = internal_native_PhysicsSystem__0_addr();
-        if (addr == 0)
-            return PhysicsSystem.NULL;
-        PhysicsSystem PhysicsSystem_NEW = PhysicsSystem.native_new();
-        PhysicsSystem_NEW.internal_reset(addr, true);
-        return PhysicsSystem_NEW;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-return (jlong)JoltNew::New_PhysicsSystem();
-*/
-    public static native long internal_native_PhysicsSystem__0_addr();
 
     public static Factory Factory() {
-        long addr = internal_native_Factory__0_addr();
-        if (addr == 0)
-            return Factory.NULL;
-        Factory Factory_NEW = Factory.native_new();
-        Factory_NEW.internal_reset(addr, true);
-        return Factory_NEW;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-return (jlong)JoltNew::New_Factory();
-*/
-    public static native long internal_native_Factory__0_addr();
 
     public static TempAllocatorImpl TempAllocatorImpl(int inSize) {
-        long addr = internal_native_TempAllocatorImpl__0_addr(inSize);
-        if (addr == 0)
-            return TempAllocatorImpl.NULL;
-        TempAllocatorImpl TempAllocatorImpl_NEW = TempAllocatorImpl.native_new();
-        TempAllocatorImpl_NEW.internal_reset(addr, true);
-        return TempAllocatorImpl_NEW;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-return (jlong)JoltNew::New_TempAllocatorImpl(inSize);
-*/
-    public static native long internal_native_TempAllocatorImpl__0_addr(int inSize);
 
     public static JobSystemThreadPool JobSystemThreadPool(int inMaxJobs, int inMaxBarriers, int inNumThreads) {
-        long addr = internal_native_JobSystemThreadPool__0_addr(inMaxJobs, inMaxBarriers, inNumThreads);
-        if (addr == 0)
-            return JobSystemThreadPool.NULL;
-        JobSystemThreadPool JobSystemThreadPool_NEW = JobSystemThreadPool.native_new();
-        JobSystemThreadPool_NEW.internal_reset(addr, true);
-        return JobSystemThreadPool_NEW;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-return (jlong)JoltNew::New_JobSystemThreadPool(inMaxJobs, inMaxBarriers, inNumThreads);
-*/
-    public static native long internal_native_JobSystemThreadPool__0_addr(int inMaxJobs, int inMaxBarriers, int inNumThreads);
 
     public static JobSystemThreadPool JobSystemThreadPool(int inMaxJobs, int inMaxBarriers) {
-        long addr = internal_native_JobSystemThreadPool__0_addr(inMaxJobs, inMaxBarriers);
-        if (addr == 0)
-            return JobSystemThreadPool.NULL;
-        if (JobSystemThreadPool_TEMP_STATIC_GEN_0 == null)
-            JobSystemThreadPool_TEMP_STATIC_GEN_0 = JobSystemThreadPool.native_new();
-        JobSystemThreadPool_TEMP_STATIC_GEN_0.internal_reset(addr, false);
-        return JobSystemThreadPool_TEMP_STATIC_GEN_0;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-return (jlong)JoltNew::New_JobSystemThreadPool(inMaxJobs, inMaxBarriers);
-*/
-    public static native long internal_native_JobSystemThreadPool__0_addr(int inMaxJobs, int inMaxBarriers);
 
     public static Mat44 Mat44() {
-        long addr = internal_native_Mat44__0_addr();
-        if (addr == 0)
-            return Mat44.NULL;
-        Mat44 Mat44_NEW = Mat44.native_new();
-        Mat44_NEW.internal_reset(addr, true);
-        return Mat44_NEW;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-return (jlong)JoltNew::New_Mat44();
-*/
-    public static native long internal_native_Mat44__0_addr();
 
     public static Mat44 Mat44(Vec4 inC1, Vec4 inC2, Vec4 inC3, Vec4 inC4) {
-        long addr = internal_native_Mat44__1_addr(inC1.native_address, inC2.native_address, inC3.native_address, inC4.native_address);
-        if (addr == 0)
-            return Mat44.NULL;
-        Mat44 Mat44_NEW = Mat44.native_new();
-        Mat44_NEW.internal_reset(addr, true);
-        return Mat44_NEW;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-return (jlong)JoltNew::New_Mat44(*((Vec4* )inC1_addr), *((Vec4* )inC2_addr), *((Vec4* )inC3_addr), *((Vec4* )inC4_addr));
-*/
-    public static native long internal_native_Mat44__1_addr(long inC1_addr, long inC2_addr, long inC3_addr, long inC4_addr);
 
     public static Mat44 Mat44(Vec4 inC1, Vec4 inC2, Vec4 inC3, Vec3 inC4) {
-        long addr = internal_native_Mat44__2_addr(inC1.native_address, inC2.native_address, inC3.native_address, inC4.native_address);
-        if (addr == 0)
-            return Mat44.NULL;
-        Mat44 Mat44_NEW = Mat44.native_new();
-        Mat44_NEW.internal_reset(addr, true);
-        return Mat44_NEW;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-return (jlong)JoltNew::New_Mat44(*((Vec4* )inC1_addr), *((Vec4* )inC2_addr), *((Vec4* )inC3_addr), *((Vec3* )inC4_addr));
-*/
-    public static native long internal_native_Mat44__2_addr(long inC1_addr, long inC2_addr, long inC3_addr, long inC4_addr);
 
     public static Vec3 Vec3() {
-        long addr = internal_native_Vec3__0_addr();
-        if (addr == 0)
-            return Vec3.NULL;
-        Vec3 Vec3_NEW = Vec3.native_new();
-        Vec3_NEW.internal_reset(addr, true);
-        return Vec3_NEW;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-return (jlong)JoltNew::New_Vec3();
-*/
-    public static native long internal_native_Vec3__0_addr();
 
     public static Vec3 Vec3(float inX, float inY, float inZ) {
-        long addr = internal_native_Vec3__1_addr(inX, inY, inZ);
-        if (addr == 0)
-            return Vec3.NULL;
-        Vec3 Vec3_NEW = Vec3.native_new();
-        Vec3_NEW.internal_reset(addr, true);
-        return Vec3_NEW;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-return (jlong)JoltNew::New_Vec3((float)inX, (float)inY, (float)inZ);
-*/
-    public static native long internal_native_Vec3__1_addr(float inX, float inY, float inZ);
 
     public static Vec3 Vec3(Vec3 inRHS) {
-        long addr = internal_native_Vec3__2_addr(inRHS.native_address);
-        if (addr == 0)
-            return Vec3.NULL;
-        Vec3 Vec3_NEW = Vec3.native_new();
-        Vec3_NEW.internal_reset(addr, true);
-        return Vec3_NEW;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-return (jlong)JoltNew::New_Vec3(*((Vec3* )inRHS_addr));
-*/
-    public static native long internal_native_Vec3__2_addr(long inRHS_addr);
 
     public static Vec3 Vec3(Float3 inV) {
-        long addr = internal_native_Vec3__3_addr(inV.native_address);
-        if (addr == 0)
-            return Vec3.NULL;
-        Vec3 Vec3_NEW = Vec3.native_new();
-        Vec3_NEW.internal_reset(addr, true);
-        return Vec3_NEW;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-return (jlong)JoltNew::New_Vec3(*((Float3* )inV_addr));
-*/
-    public static native long internal_native_Vec3__3_addr(long inV_addr);
 
     public static Vec4 Vec4() {
-        long addr = internal_native_Vec4__0_addr();
-        if (addr == 0)
-            return Vec4.NULL;
-        Vec4 Vec4_NEW = Vec4.native_new();
-        Vec4_NEW.internal_reset(addr, true);
-        return Vec4_NEW;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-return (jlong)JoltNew::New_Vec4();
-*/
-    public static native long internal_native_Vec4__0_addr();
 
     public static Vec4 Vec4(float inX, float inY, float inZ, float inW) {
-        long addr = internal_native_Vec4__1_addr(inX, inY, inZ, inW);
-        if (addr == 0)
-            return Vec4.NULL;
-        Vec4 Vec4_NEW = Vec4.native_new();
-        Vec4_NEW.internal_reset(addr, true);
-        return Vec4_NEW;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-return (jlong)JoltNew::New_Vec4((float)inX, (float)inY, (float)inZ, (float)inW);
-*/
-    public static native long internal_native_Vec4__1_addr(float inX, float inY, float inZ, float inW);
 
     public static Vec4 Vec4(Vec4 inV) {
-        long addr = internal_native_Vec4__2_addr(inV.native_address);
-        if (addr == 0)
-            return Vec4.NULL;
-        Vec4 Vec4_NEW = Vec4.native_new();
-        Vec4_NEW.internal_reset(addr, true);
-        return Vec4_NEW;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-return (jlong)JoltNew::New_Vec4(*((Vec4* )inV_addr));
-*/
-    public static native long internal_native_Vec4__2_addr(long inV_addr);
 
     public static Vec4 Vec4(Vec3 inV, float inW) {
-        long addr = internal_native_Vec4__3_addr(inV.native_address, inW);
-        if (addr == 0)
-            return Vec4.NULL;
-        Vec4 Vec4_NEW = Vec4.native_new();
-        Vec4_NEW.internal_reset(addr, true);
-        return Vec4_NEW;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-return (jlong)JoltNew::New_Vec4(*((Vec3* )inV_addr), (float)inW);
-*/
-    public static native long internal_native_Vec4__3_addr(long inV_addr, float inW);
 
     public static Quat Quat() {
-        long addr = internal_native_Quat__0_addr();
-        if (addr == 0)
-            return Quat.NULL;
-        Quat Quat_NEW = Quat.native_new();
-        Quat_NEW.internal_reset(addr, true);
-        return Quat_NEW;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-return (jlong)JoltNew::New_Quat();
-*/
-    public static native long internal_native_Quat__0_addr();
 
     public static Quat Quat(float inX, float inY, float inZ, float inW) {
-        long addr = internal_native_Quat__1_addr(inX, inY, inZ, inW);
-        if (addr == 0)
-            return Quat.NULL;
-        Quat Quat_NEW = Quat.native_new();
-        Quat_NEW.internal_reset(addr, true);
-        return Quat_NEW;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-return (jlong)JoltNew::New_Quat((float)inX, (float)inY, (float)inZ, (float)inW);
-*/
-    public static native long internal_native_Quat__1_addr(float inX, float inY, float inZ, float inW);
 
     public static BodyCreationSettings BodyCreationSettings() {
-        long addr = internal_native_BodyCreationSettings__0_addr();
-        if (addr == 0)
-            return BodyCreationSettings.NULL;
-        BodyCreationSettings BodyCreationSettings_NEW = BodyCreationSettings.native_new();
-        BodyCreationSettings_NEW.internal_reset(addr, true);
-        return BodyCreationSettings_NEW;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-return (jlong)JoltNew::New_BodyCreationSettings();
-*/
-    public static native long internal_native_BodyCreationSettings__0_addr();
 
     public static BodyCreationSettings BodyCreationSettings(ShapeSettings inShape, Vec3 inPosition, Quat inRotation, EMotionType inMotionType, int inObjectLayer) {
-        long addr = internal_native_BodyCreationSettings__1_addr(inShape.native_address, inPosition.native_address, inRotation.native_address, inMotionType.getValue(), inObjectLayer);
-        if (addr == 0)
-            return BodyCreationSettings.NULL;
-        BodyCreationSettings BodyCreationSettings_NEW = BodyCreationSettings.native_new();
-        BodyCreationSettings_NEW.internal_reset(addr, true);
-        return BodyCreationSettings_NEW;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-return (jlong)JoltNew::New_BodyCreationSettings((ShapeSettings* )inShape_addr, *((Vec3* )inPosition_addr), *((Quat* )inRotation_addr), (::EMotionType)inMotionType, inObjectLayer);
-*/
-    public static native long internal_native_BodyCreationSettings__1_addr(long inShape_addr, long inPosition_addr, long inRotation_addr, int inMotionType, int inObjectLayer);
 
     public static BodyCreationSettings BodyCreationSettings(Shape inShape, Vec3 inPosition, Quat inRotation, EMotionType inMotionType, int inObjectLayer) {
-        long addr = internal_native_BodyCreationSettings__2_addr(inShape.native_address, inPosition.native_address, inRotation.native_address, inMotionType.getValue(), inObjectLayer);
-        if (addr == 0)
-            return BodyCreationSettings.NULL;
-        BodyCreationSettings BodyCreationSettings_NEW = BodyCreationSettings.native_new();
-        BodyCreationSettings_NEW.internal_reset(addr, true);
-        return BodyCreationSettings_NEW;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-return (jlong)JoltNew::New_BodyCreationSettings((Shape* )inShape_addr, *((Vec3* )inPosition_addr), *((Quat* )inRotation_addr), (::EMotionType)inMotionType, inObjectLayer);
-*/
-    public static native long internal_native_BodyCreationSettings__2_addr(long inShape_addr, long inPosition_addr, long inRotation_addr, int inMotionType, int inObjectLayer);
 
     public static RotatedTranslatedShapeSettings RotatedTranslatedShapeSettings() {
-        long addr = internal_native_RotatedTranslatedShapeSettings__0_addr();
-        if (addr == 0)
-            return RotatedTranslatedShapeSettings.NULL;
-        RotatedTranslatedShapeSettings RotatedTranslatedShapeSettings_NEW = RotatedTranslatedShapeSettings.native_new();
-        RotatedTranslatedShapeSettings_NEW.internal_reset(addr, true);
-        return RotatedTranslatedShapeSettings_NEW;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-return (jlong)JoltNew::New_RotatedTranslatedShapeSettings();
-*/
-    public static native long internal_native_RotatedTranslatedShapeSettings__0_addr();
 
     public static RotatedTranslatedShapeSettings RotatedTranslatedShapeSettings(Vec3 inPosition, Quat inRotation, ShapeSettings inShape) {
-        long addr = internal_native_RotatedTranslatedShapeSettings__1_addr(inPosition.native_address, inRotation.native_address, inShape.native_address);
-        if (addr == 0)
-            return RotatedTranslatedShapeSettings.NULL;
-        RotatedTranslatedShapeSettings RotatedTranslatedShapeSettings_NEW = RotatedTranslatedShapeSettings.native_new();
-        RotatedTranslatedShapeSettings_NEW.internal_reset(addr, true);
-        return RotatedTranslatedShapeSettings_NEW;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-return (jlong)JoltNew::New_RotatedTranslatedShapeSettings(*((Vec3* )inPosition_addr), *((Quat* )inRotation_addr), (ShapeSettings* )inShape_addr);
-*/
-    public static native long internal_native_RotatedTranslatedShapeSettings__1_addr(long inPosition_addr, long inRotation_addr, long inShape_addr);
 
     public static RotatedTranslatedShapeSettings RotatedTranslatedShapeSettings(Vec3 inPosition, Quat inRotation, Shape inShape) {
-        long addr = internal_native_RotatedTranslatedShapeSettings__2_addr(inPosition.native_address, inRotation.native_address, inShape.native_address);
-        if (addr == 0)
-            return RotatedTranslatedShapeSettings.NULL;
-        RotatedTranslatedShapeSettings RotatedTranslatedShapeSettings_NEW = RotatedTranslatedShapeSettings.native_new();
-        RotatedTranslatedShapeSettings_NEW.internal_reset(addr, true);
-        return RotatedTranslatedShapeSettings_NEW;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-return (jlong)JoltNew::New_RotatedTranslatedShapeSettings(*((Vec3* )inPosition_addr), *((Quat* )inRotation_addr), (Shape* )inShape_addr);
-*/
-    public static native long internal_native_RotatedTranslatedShapeSettings__2_addr(long inPosition_addr, long inRotation_addr, long inShape_addr);
 
     public static MeshShapeSettings MeshShapeSettings() {
-        long addr = internal_native_MeshShapeSettings__0_addr();
-        if (addr == 0)
-            return MeshShapeSettings.NULL;
-        MeshShapeSettings MeshShapeSettings_NEW = MeshShapeSettings.native_new();
-        MeshShapeSettings_NEW.internal_reset(addr, true);
-        return MeshShapeSettings_NEW;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-return (jlong)JoltNew::New_MeshShapeSettings();
-*/
-    public static native long internal_native_MeshShapeSettings__0_addr();
 
     public static MeshShapeSettings MeshShapeSettings(TriangleList inTriangleList, PhysicsMaterialList inMaterialList) {
-        long addr = internal_native_MeshShapeSettings__1_addr(inTriangleList.native_address, inMaterialList.native_address);
-        if (addr == 0)
-            return MeshShapeSettings.NULL;
-        MeshShapeSettings MeshShapeSettings_NEW = MeshShapeSettings.native_new();
-        MeshShapeSettings_NEW.internal_reset(addr, true);
-        return MeshShapeSettings_NEW;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-return (jlong)JoltNew::New_MeshShapeSettings(*((TriangleList* )inTriangleList_addr), *((PhysicsMaterialList* )inMaterialList_addr));
-*/
-    public static native long internal_native_MeshShapeSettings__1_addr(long inTriangleList_addr, long inMaterialList_addr);
 
     public static MeshShapeSettings MeshShapeSettings(TriangleList inTriangleList) {
-        long addr = internal_native_MeshShapeSettings__1_addr(inTriangleList.native_address);
-        if (addr == 0)
-            return MeshShapeSettings.NULL;
-        if (MeshShapeSettings_TEMP_STATIC_GEN_0 == null)
-            MeshShapeSettings_TEMP_STATIC_GEN_0 = MeshShapeSettings.native_new();
-        MeshShapeSettings_TEMP_STATIC_GEN_0.internal_reset(addr, false);
-        return MeshShapeSettings_TEMP_STATIC_GEN_0;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-return (jlong)JoltNew::New_MeshShapeSettings(*((TriangleList* )inTriangleList_addr));
-*/
-    public static native long internal_native_MeshShapeSettings__1_addr(long inTriangleList_addr);
 
     public static MeshShapeSettings MeshShapeSettings(VertexList inVertices, IndexedTriangleList inTriangles, PhysicsMaterialList inMaterialList) {
-        long addr = internal_native_MeshShapeSettings__2_addr(inVertices.native_address, inTriangles.native_address, inMaterialList.native_address);
-        if (addr == 0)
-            return MeshShapeSettings.NULL;
-        MeshShapeSettings MeshShapeSettings_NEW = MeshShapeSettings.native_new();
-        MeshShapeSettings_NEW.internal_reset(addr, true);
-        return MeshShapeSettings_NEW;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-return (jlong)JoltNew::New_MeshShapeSettings(*((VertexList* )inVertices_addr), *((IndexedTriangleList* )inTriangles_addr), *((PhysicsMaterialList* )inMaterialList_addr));
-*/
-    public static native long internal_native_MeshShapeSettings__2_addr(long inVertices_addr, long inTriangles_addr, long inMaterialList_addr);
 }

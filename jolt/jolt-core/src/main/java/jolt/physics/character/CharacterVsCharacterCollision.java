@@ -6,9 +6,9 @@
 
 package jolt.physics.character;
 
-import com.github.xpenatan.jParser.idl.IDLBase;
+import com.github.xpenatan.jParser.api.NativeObject;
 
-public class CharacterVsCharacterCollision extends IDLBase {
+public class CharacterVsCharacterCollision extends NativeObject {
 
     static public final CharacterVsCharacterCollision NULL = CharacterVsCharacterCollision.native_new();
 
@@ -25,14 +25,4 @@ public class CharacterVsCharacterCollision extends IDLBase {
     public static CharacterVsCharacterCollision native_new() {
         return new CharacterVsCharacterCollision((byte) 0, (char) 0);
     }
-
-    protected void deleteNative() {
-        internal_native_deleteNative(native_address);
-    }
-
-    /*[-JNI;-NATIVE]
-CharacterVsCharacterCollision* nativeObject = (CharacterVsCharacterCollision*)this_addr;
-delete nativeObject;
-*/
-    public static native void internal_native_deleteNative(long this_addr);
 }

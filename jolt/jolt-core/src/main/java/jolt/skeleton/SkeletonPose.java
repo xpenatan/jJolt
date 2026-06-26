@@ -6,34 +6,17 @@
 
 package jolt.skeleton;
 
-import com.github.xpenatan.jParser.idl.IDLBase;
+import com.github.xpenatan.jParser.api.NativeObject;
 import jolt.math.Vec3;
 import jolt.math.ArrayMat44;
 import jolt.math.Mat44;
 
-public class SkeletonPose extends IDLBase {
-
-    private Skeleton Skeleton_TEMP_GEN_0;
-
-    private Vec3 Vec3_TEMP_GEN_0;
-
-    private SkeletalAnimationJointState SkeletalAnimationJointState_TEMP_GEN_0;
-
-    private ArrayMat44 ArrayMat44_TEMP_GEN_0;
-
-    private Mat44 Mat44_TEMP_GEN_0;
+public class SkeletonPose extends NativeObject {
 
     static public final SkeletonPose NULL = SkeletonPose.native_new();
 
     public SkeletonPose() {
-        long addr = internal_native_create_addr();
-        internal_reset(addr, true);
     }
-
-    /*[-JNI;-NATIVE]
-return (jlong)new SkeletonPose();
-*/
-    public static native long internal_native_create_addr();
 
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
@@ -49,145 +32,39 @@ return (jlong)new SkeletonPose();
         return new SkeletonPose((byte) 0, (char) 0);
     }
 
-    protected void deleteNative() {
-        internal_native_deleteNative(native_address);
-    }
-
-    /*[-JNI;-NATIVE]
-SkeletonPose* nativeObject = (SkeletonPose*)this_addr;
-delete nativeObject;
-*/
-    public static native void internal_native_deleteNative(long this_addr);
-
     public void SetSkeleton(Skeleton inSkeleton) {
-        internal_native_SetSkeleton(native_address, inSkeleton.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-SkeletonPose* nativeObject = (SkeletonPose*)this_addr;
-nativeObject->SetSkeleton((Skeleton* )inSkeleton_addr);
-*/
-    public static native void internal_native_SetSkeleton(long this_addr, long inSkeleton_addr);
 
     public Skeleton GetSkeleton() {
-        long addr = internal_native_GetSkeleton_addr(native_address);
-        if (addr == 0)
-            return Skeleton.NULL;
-        if (Skeleton_TEMP_GEN_0 == null)
-            Skeleton_TEMP_GEN_0 = Skeleton.native_new();
-        Skeleton_TEMP_GEN_0.internal_reset(addr, false);
-        return Skeleton_TEMP_GEN_0;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-SkeletonPose* nativeObject = (SkeletonPose*)this_addr;
-const Skeleton* obj = nativeObject->GetSkeleton();
-return (jlong)obj;
-*/
-    public static native long internal_native_GetSkeleton_addr(long this_addr);
 
     public void SetRootOffset(Vec3 inOffset) {
-        internal_native_SetRootOffset(native_address, inOffset.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-SkeletonPose* nativeObject = (SkeletonPose*)this_addr;
-nativeObject->SetRootOffset(*((Vec3* )inOffset_addr));
-*/
-    public static native void internal_native_SetRootOffset(long this_addr, long inOffset_addr);
 
     public Vec3 GetRootOffset() {
-        long addr = internal_native_GetRootOffset_addr(native_address);
-        if (addr == 0)
-            return Vec3.NULL;
-        if (Vec3_TEMP_GEN_0 == null)
-            Vec3_TEMP_GEN_0 = Vec3.native_new();
-        Vec3_TEMP_GEN_0.internal_reset(addr, false);
-        return Vec3_TEMP_GEN_0;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-SkeletonPose* nativeObject = (SkeletonPose*)this_addr;
-static Vec3 copy_addr;
-copy_addr = nativeObject->GetRootOffset();
-return (jlong)&copy_addr;*/
-    public static native long internal_native_GetRootOffset_addr(long this_addr);
 
     public int GetJointCount() {
-        return internal_native_GetJointCount(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-SkeletonPose* nativeObject = (SkeletonPose*)this_addr;
-return nativeObject->GetJointCount();
-*/
-    public static native int internal_native_GetJointCount(long this_addr);
 
     public SkeletalAnimationJointState GetJoint(int inJoint) {
-        long addr = internal_native_GetJoint_addr(native_address, inJoint);
-        if (addr == 0)
-            return SkeletalAnimationJointState.NULL;
-        if (SkeletalAnimationJointState_TEMP_GEN_0 == null)
-            SkeletalAnimationJointState_TEMP_GEN_0 = SkeletalAnimationJointState.native_new();
-        SkeletalAnimationJointState_TEMP_GEN_0.internal_reset(addr, false);
-        return SkeletalAnimationJointState_TEMP_GEN_0;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-SkeletonPose* nativeObject = (SkeletonPose*)this_addr;
-return (jlong)&nativeObject->GetJoint((int)inJoint);
-*/
-    public static native long internal_native_GetJoint_addr(long this_addr, int inJoint);
 
     public ArrayMat44 GetJointMatrices() {
-        long addr = internal_native_GetJointMatrices_addr(native_address);
-        if (addr == 0)
-            return ArrayMat44.NULL;
-        if (ArrayMat44_TEMP_GEN_0 == null)
-            ArrayMat44_TEMP_GEN_0 = ArrayMat44.native_new();
-        ArrayMat44_TEMP_GEN_0.internal_reset(addr, false);
-        return ArrayMat44_TEMP_GEN_0;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-SkeletonPose* nativeObject = (SkeletonPose*)this_addr;
-return (jlong)&nativeObject->GetJointMatrices();
-*/
-    public static native long internal_native_GetJointMatrices_addr(long this_addr);
 
     public Mat44 GetJointMatrix(int inJoint) {
-        long addr = internal_native_GetJointMatrix_addr(native_address, inJoint);
-        if (addr == 0)
-            return Mat44.NULL;
-        if (Mat44_TEMP_GEN_0 == null)
-            Mat44_TEMP_GEN_0 = Mat44.native_new();
-        Mat44_TEMP_GEN_0.internal_reset(addr, false);
-        return Mat44_TEMP_GEN_0;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-SkeletonPose* nativeObject = (SkeletonPose*)this_addr;
-return (jlong)&nativeObject->GetJointMatrix((int)inJoint);
-*/
-    public static native long internal_native_GetJointMatrix_addr(long this_addr, int inJoint);
 
     public void CalculateJointMatrices() {
-        internal_native_CalculateJointMatrices(native_address);
     }
-
-    /*[-JNI;-NATIVE]
-SkeletonPose* nativeObject = (SkeletonPose*)this_addr;
-nativeObject->CalculateJointMatrices();
-*/
-    public static native void internal_native_CalculateJointMatrices(long this_addr);
 
     public void CalculateJointStates() {
-        internal_native_CalculateJointStates(native_address);
     }
-
-    /*[-JNI;-NATIVE]
-SkeletonPose* nativeObject = (SkeletonPose*)this_addr;
-nativeObject->CalculateJointStates();
-*/
-    public static native void internal_native_CalculateJointStates(long this_addr);
 }

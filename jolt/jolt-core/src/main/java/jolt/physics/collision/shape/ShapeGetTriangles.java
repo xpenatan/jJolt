@@ -6,29 +6,18 @@
 
 package jolt.physics.collision.shape;
 
-import com.github.xpenatan.jParser.idl.IDLBase;
+import com.github.xpenatan.jParser.api.NativeObject;
 import jolt.geometry.AABox;
 import jolt.math.Vec3;
 import jolt.math.Quat;
 import jolt.physics.collision.PhysicsMaterial;
 
-public class ShapeGetTriangles extends IDLBase {
-
-    private IDLBase IDLBase_TEMP_GEN_0;
-
-    private PhysicsMaterial PhysicsMaterial_TEMP_GEN_0;
+public class ShapeGetTriangles extends NativeObject {
 
     static public final ShapeGetTriangles NULL = ShapeGetTriangles.native_new();
 
     public ShapeGetTriangles(Shape inShape, AABox inBox, Vec3 inPositionCOM, Quat inRotation, Vec3 inScale) {
-        long addr = internal_native_create_Shape_AABox_Vec3_Quat_Vec3_addr(inShape.native_address, inBox.native_address, inPositionCOM.native_address, inRotation.native_address, inScale.native_address);
-        internal_reset(addr, true);
     }
-
-    /*[-JNI;-NATIVE]
-return (jlong)new ShapeGetTriangles((Shape* )inShape_addr, *((AABox* )inBox_addr), *((Vec3* )inPositionCOM_addr), *((Quat* )inRotation_addr), *((Vec3* )inScale_addr));
-*/
-    public static native long internal_native_create_Shape_AABox_Vec3_Quat_Vec3_addr(long inShape_addr, long inBox_addr, long inPositionCOM_addr, long inRotation_addr, long inScale_addr);
 
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
@@ -44,66 +33,19 @@ return (jlong)new ShapeGetTriangles((Shape* )inShape_addr, *((AABox* )inBox_addr
         return new ShapeGetTriangles((byte) 0, (char) 0);
     }
 
-    protected void deleteNative() {
-        internal_native_deleteNative(native_address);
-    }
-
-    /*[-JNI;-NATIVE]
-ShapeGetTriangles* nativeObject = (ShapeGetTriangles*)this_addr;
-delete nativeObject;
-*/
-    public static native void internal_native_deleteNative(long this_addr);
-
     public int GetNumTriangles() {
-        return internal_native_GetNumTriangles(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-ShapeGetTriangles* nativeObject = (ShapeGetTriangles*)this_addr;
-return nativeObject->GetNumTriangles();
-*/
-    public static native int internal_native_GetNumTriangles(long this_addr);
 
     public int GetVerticesSize() {
-        return internal_native_GetVerticesSize(native_address);
+        return 0;
     }
 
-    /*[-JNI;-NATIVE]
-ShapeGetTriangles* nativeObject = (ShapeGetTriangles*)this_addr;
-return nativeObject->GetVerticesSize();
-*/
-    public static native int internal_native_GetVerticesSize(long this_addr);
-
-    public IDLBase GetVerticesData() {
-        long addr = internal_native_GetVerticesData_addr(native_address);
-        if (addr == 0)
-            return IDLBase.NULL;
-        if (IDLBase_TEMP_GEN_0 == null)
-            IDLBase_TEMP_GEN_0 = IDLBase.native_new();
-        IDLBase_TEMP_GEN_0.internal_reset(addr, false);
-        return IDLBase_TEMP_GEN_0;
+    public NativeObject GetVerticesData() {
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-ShapeGetTriangles* nativeObject = (ShapeGetTriangles*)this_addr;
-return (jlong)nativeObject->GetVerticesData();
-*/
-    public static native long internal_native_GetVerticesData_addr(long this_addr);
 
     public PhysicsMaterial GetMaterial(int inTriangle) {
-        long addr = internal_native_GetMaterial_addr(native_address, inTriangle);
-        if (addr == 0)
-            return PhysicsMaterial.NULL;
-        if (PhysicsMaterial_TEMP_GEN_0 == null)
-            PhysicsMaterial_TEMP_GEN_0 = PhysicsMaterial.native_new();
-        PhysicsMaterial_TEMP_GEN_0.internal_reset(addr, false);
-        return PhysicsMaterial_TEMP_GEN_0;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-ShapeGetTriangles* nativeObject = (ShapeGetTriangles*)this_addr;
-const PhysicsMaterial* obj = nativeObject->GetMaterial((int)inTriangle);
-return (jlong)obj;
-*/
-    public static native long internal_native_GetMaterial_addr(long this_addr, int inTriangle);
 }

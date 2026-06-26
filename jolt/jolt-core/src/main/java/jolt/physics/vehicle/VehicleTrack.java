@@ -25,33 +25,10 @@ public class VehicleTrack extends VehicleTrackSettings {
         return new VehicleTrack((byte) 0, (char) 0);
     }
 
-    protected void deleteNative() {
-        internal_native_deleteNative(native_address);
-    }
-
-    /*[-JNI;-NATIVE]
-VehicleTrack* nativeObject = (VehicleTrack*)this_addr;
-delete nativeObject;
-*/
-    public static native void internal_native_deleteNative(long this_addr);
-
     public float get_mAngularVelocity() {
-        return internal_native_get_mAngularVelocity(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-VehicleTrack* nativeObject = (VehicleTrack*)this_addr;
-return nativeObject->mAngularVelocity;
-*/
-    public static native float internal_native_get_mAngularVelocity(long this_addr);
 
     public void set_mAngularVelocity(float mAngularVelocity) {
-        internal_native_set_mAngularVelocity(native_address, mAngularVelocity);
     }
-
-    /*[-JNI;-NATIVE]
-VehicleTrack* nativeObject = (VehicleTrack*)this_addr;
-nativeObject->mAngularVelocity = mAngularVelocity;
-*/
-    public static native void internal_native_set_mAngularVelocity(long this_addr, float mAngularVelocity);
 }

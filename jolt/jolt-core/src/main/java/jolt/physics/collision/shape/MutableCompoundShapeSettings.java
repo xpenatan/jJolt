@@ -12,14 +12,7 @@ public class MutableCompoundShapeSettings extends CompoundShapeSettings {
 
     public MutableCompoundShapeSettings() {
         super((byte) 1, (char) 1);
-        long addr = internal_native_create_addr();
-        internal_reset(addr, true);
     }
-
-    /*[-JNI;-NATIVE]
-return (jlong)new MutableCompoundShapeSettings();
-*/
-    public static native long internal_native_create_addr();
 
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
@@ -35,14 +28,4 @@ return (jlong)new MutableCompoundShapeSettings();
     public static MutableCompoundShapeSettings native_new() {
         return new MutableCompoundShapeSettings((byte) 0, (char) 0);
     }
-
-    protected void deleteNative() {
-        internal_native_deleteNative(native_address);
-    }
-
-    /*[-JNI;-NATIVE]
-MutableCompoundShapeSettings* nativeObject = (MutableCompoundShapeSettings*)this_addr;
-delete nativeObject;
-*/
-    public static native void internal_native_deleteNative(long this_addr);
 }

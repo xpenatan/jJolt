@@ -11,8 +11,6 @@ import jolt.math.TwoBodyConstraintSettings;
 
 public class RagdollPart extends BodyCreationSettings {
 
-    private TwoBodyConstraintSettings TwoBodyConstraintSettings_TEMP_GEN_0;
-
     static public final RagdollPart NULL = RagdollPart.native_new();
 
     /**
@@ -30,40 +28,10 @@ public class RagdollPart extends BodyCreationSettings {
         return new RagdollPart((byte) 0, (char) 0);
     }
 
-    protected void deleteNative() {
-        internal_native_deleteNative(native_address);
-    }
-
-    /*[-JNI;-NATIVE]
-RagdollPart* nativeObject = (RagdollPart*)this_addr;
-delete nativeObject;
-*/
-    public static native void internal_native_deleteNative(long this_addr);
-
     public TwoBodyConstraintSettings get_mToParent() {
-        long addr = internal_native_get_mToParent_addr(native_address);
-        if (addr == 0)
-            return TwoBodyConstraintSettings.NULL;
-        if (TwoBodyConstraintSettings_TEMP_GEN_0 == null)
-            TwoBodyConstraintSettings_TEMP_GEN_0 = TwoBodyConstraintSettings.native_new();
-        TwoBodyConstraintSettings_TEMP_GEN_0.internal_reset(addr, false);
-        return TwoBodyConstraintSettings_TEMP_GEN_0;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-RagdollPart* nativeObject = (RagdollPart*)this_addr;
-TwoBodyConstraintSettings* attr = nativeObject->mToParent;
-return (jlong)attr;
-*/
-    public static native long internal_native_get_mToParent_addr(long this_addr);
 
     public void set_mToParent(TwoBodyConstraintSettings mToParent) {
-        internal_native_set_mToParent(native_address, mToParent.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-RagdollPart* nativeObject = (RagdollPart*)this_addr;
-nativeObject->mToParent = (TwoBodyConstraintSettings*)mToParent_addr;
-*/
-    public static native void internal_native_set_mToParent(long this_addr, long mToParent_addr);
 }

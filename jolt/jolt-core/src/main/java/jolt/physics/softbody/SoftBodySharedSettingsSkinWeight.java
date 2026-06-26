@@ -6,9 +6,9 @@
 
 package jolt.physics.softbody;
 
-import com.github.xpenatan.jParser.idl.IDLBase;
+import com.github.xpenatan.jParser.api.NativeObject;
 
-public class SoftBodySharedSettingsSkinWeight extends IDLBase {
+public class SoftBodySharedSettingsSkinWeight extends NativeObject {
 
     static public final SoftBodySharedSettingsSkinWeight NULL = SoftBodySharedSettingsSkinWeight.native_new();
 
@@ -26,53 +26,17 @@ public class SoftBodySharedSettingsSkinWeight extends IDLBase {
         return new SoftBodySharedSettingsSkinWeight((byte) 0, (char) 0);
     }
 
-    protected void deleteNative() {
-        internal_native_deleteNative(native_address);
-    }
-
-    /*[-JNI;-NATIVE]
-SoftBodySharedSettingsSkinWeight* nativeObject = (SoftBodySharedSettingsSkinWeight*)this_addr;
-delete nativeObject;
-*/
-    public static native void internal_native_deleteNative(long this_addr);
-
     public int get_mInvBindIndex() {
-        return internal_native_get_mInvBindIndex(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-SoftBodySharedSettingsSkinWeight* nativeObject = (SoftBodySharedSettingsSkinWeight*)this_addr;
-return nativeObject->mInvBindIndex;
-*/
-    public static native int internal_native_get_mInvBindIndex(long this_addr);
 
     public void set_mInvBindIndex(int mInvBindIndex) {
-        internal_native_set_mInvBindIndex(native_address, mInvBindIndex);
     }
-
-    /*[-JNI;-NATIVE]
-SoftBodySharedSettingsSkinWeight* nativeObject = (SoftBodySharedSettingsSkinWeight*)this_addr;
-nativeObject->mInvBindIndex = mInvBindIndex;
-*/
-    public static native void internal_native_set_mInvBindIndex(long this_addr, int mInvBindIndex);
 
     public float get_mWeight() {
-        return internal_native_get_mWeight(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-SoftBodySharedSettingsSkinWeight* nativeObject = (SoftBodySharedSettingsSkinWeight*)this_addr;
-return nativeObject->mWeight;
-*/
-    public static native float internal_native_get_mWeight(long this_addr);
 
     public void set_mWeight(float mWeight) {
-        internal_native_set_mWeight(native_address, mWeight);
     }
-
-    /*[-JNI;-NATIVE]
-SoftBodySharedSettingsSkinWeight* nativeObject = (SoftBodySharedSettingsSkinWeight*)this_addr;
-nativeObject->mWeight = mWeight;
-*/
-    public static native void internal_native_set_mWeight(long this_addr, float mWeight);
 }

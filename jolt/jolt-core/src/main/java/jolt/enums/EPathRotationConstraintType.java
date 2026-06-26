@@ -6,9 +6,9 @@
 
 package jolt.enums;
 
-import com.github.xpenatan.jParser.idl.IDLEnum;
+import com.github.xpenatan.jParser.api.NativeEnum;
 
-public enum EPathRotationConstraintType implements IDLEnum<EPathRotationConstraintType> {
+public enum EPathRotationConstraintType implements NativeEnum<EPathRotationConstraintType> {
 
     CUSTOM(0),
     Free(EPathRotationConstraintType_Free_NATIVE()),
@@ -40,33 +40,15 @@ public enum EPathRotationConstraintType implements IDLEnum<EPathRotationConstrai
         return CUSTOM;
     }
 
-    /*[-JNI;-NATIVE]
-return (jlong)EPathRotationConstraintType_Free;
-*/
     private static native int EPathRotationConstraintType_Free_NATIVE();
 
-    /*[-JNI;-NATIVE]
-return (jlong)EPathRotationConstraintType_ConstrainAroundTangent;
-*/
     private static native int EPathRotationConstraintType_ConstrainAroundTangent_NATIVE();
 
-    /*[-JNI;-NATIVE]
-return (jlong)EPathRotationConstraintType_ConstrainAroundNormal;
-*/
     private static native int EPathRotationConstraintType_ConstrainAroundNormal_NATIVE();
 
-    /*[-JNI;-NATIVE]
-return (jlong)EPathRotationConstraintType_ConstrainAroundBinormal;
-*/
     private static native int EPathRotationConstraintType_ConstrainAroundBinormal_NATIVE();
 
-    /*[-JNI;-NATIVE]
-return (jlong)EPathRotationConstraintType_ConstrainToPath;
-*/
     private static native int EPathRotationConstraintType_ConstrainToPath_NATIVE();
 
-    /*[-JNI;-NATIVE]
-return (jlong)EPathRotationConstraintType_FullyConstrained;
-*/
     private static native int EPathRotationConstraintType_FullyConstrained_NATIVE();
 }

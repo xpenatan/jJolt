@@ -6,21 +6,14 @@
 
 package jolt.physics.character;
 
-import com.github.xpenatan.jParser.idl.IDLBase;
+import com.github.xpenatan.jParser.api.NativeObject;
 
-public class CharacterContactSettings extends IDLBase {
+public class CharacterContactSettings extends NativeObject {
 
     static public final CharacterContactSettings NULL = CharacterContactSettings.native_new();
 
     public CharacterContactSettings() {
-        long addr = internal_native_create_addr();
-        internal_reset(addr, true);
     }
-
-    /*[-JNI;-NATIVE]
-return (jlong)new CharacterContactSettings();
-*/
-    public static native long internal_native_create_addr();
 
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
@@ -36,53 +29,17 @@ return (jlong)new CharacterContactSettings();
         return new CharacterContactSettings((byte) 0, (char) 0);
     }
 
-    protected void deleteNative() {
-        internal_native_deleteNative(native_address);
-    }
-
-    /*[-JNI;-NATIVE]
-CharacterContactSettings* nativeObject = (CharacterContactSettings*)this_addr;
-delete nativeObject;
-*/
-    public static native void internal_native_deleteNative(long this_addr);
-
     public boolean get_mCanPushCharacter() {
-        return internal_native_get_mCanPushCharacter(native_address);
+        return false;
     }
-
-    /*[-JNI;-NATIVE]
-CharacterContactSettings* nativeObject = (CharacterContactSettings*)this_addr;
-return nativeObject->mCanPushCharacter;
-*/
-    public static native boolean internal_native_get_mCanPushCharacter(long this_addr);
 
     public void set_mCanPushCharacter(boolean mCanPushCharacter) {
-        internal_native_set_mCanPushCharacter(native_address, mCanPushCharacter);
     }
-
-    /*[-JNI;-NATIVE]
-CharacterContactSettings* nativeObject = (CharacterContactSettings*)this_addr;
-nativeObject->mCanPushCharacter = mCanPushCharacter;
-*/
-    public static native void internal_native_set_mCanPushCharacter(long this_addr, boolean mCanPushCharacter);
 
     public boolean get_mCanReceiveImpulses() {
-        return internal_native_get_mCanReceiveImpulses(native_address);
+        return false;
     }
-
-    /*[-JNI;-NATIVE]
-CharacterContactSettings* nativeObject = (CharacterContactSettings*)this_addr;
-return nativeObject->mCanReceiveImpulses;
-*/
-    public static native boolean internal_native_get_mCanReceiveImpulses(long this_addr);
 
     public void set_mCanReceiveImpulses(boolean mCanReceiveImpulses) {
-        internal_native_set_mCanReceiveImpulses(native_address, mCanReceiveImpulses);
     }
-
-    /*[-JNI;-NATIVE]
-CharacterContactSettings* nativeObject = (CharacterContactSettings*)this_addr;
-nativeObject->mCanReceiveImpulses = mCanReceiveImpulses;
-*/
-    public static native void internal_native_set_mCanReceiveImpulses(long this_addr, boolean mCanReceiveImpulses);
 }

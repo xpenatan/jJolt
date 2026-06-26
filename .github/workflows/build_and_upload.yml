@@ -23,21 +23,18 @@ jobs:
 
     steps:
       - name: Cancel Previous Runs
-        uses: styfle/cancel-workflow-action@0.12.1
+        uses: styfle/cancel-workflow-action@0.13.1
         with:
           access_token: ${{ github.token }}
 
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
-      - name: Set up JDK 17
-        uses: actions/setup-java@v4
+      - name: Set up JDK 25
+        uses: actions/setup-java@v5
         with:
           distribution: "corretto"
-          java-version: 17
-
-      - name: Set up MinGW
-        uses: msys2/setup-msys2@v2
+          java-version: 25
 
       - name: Set up Developer Command Prompt
         uses: TheMrMilchmann/setup-msvc-dev@v3
@@ -53,11 +50,14 @@ jobs:
       - name: Download sources
         run: ./gradlew :jolt:jolt-build:jolt_download_source
 
-      - name: Build project
-        run: ./gradlew :jolt:jolt-build:jolt_build_project_windows64
+      - name: Build JNI project
+        run: ./gradlew :jolt:jolt-build:jolt_build_project_windows64_jni
+
+      - name: Build FFM project
+        run: ./gradlew :jolt:jolt-build:jolt_build_project_windows64_ffm
 
       - name: Upload natives
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: windows-natives
           path: ./jolt/jolt-build/build/c++/libs/
@@ -68,22 +68,18 @@ jobs:
 
     steps:
       - name: Cancel Previous Runs
-        uses: styfle/cancel-workflow-action@0.12.1
+        uses: styfle/cancel-workflow-action@0.13.1
         with:
           access_token: ${{ github.token }}
 
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
-      - name: Set up JDK 17
-        uses: actions/setup-java@v4
+      - name: Set up JDK 25
+        uses: actions/setup-java@v5
         with:
           distribution: "corretto"
-          java-version: 17
-
-      - name: Set up MinGW
-        run: |
-          sudo apt install -y --force-yes mingw-w64 lib32z1
+          java-version: 25
 
       - name: Change wrapper permissions
         run: chmod +x ./gradlew
@@ -91,11 +87,14 @@ jobs:
       - name: Download sources
         run: ./gradlew :jolt:jolt-build:jolt_download_source
 
-      - name: Build project
-        run: ./gradlew :jolt:jolt-build:jolt_build_project_linux64
+      - name: Build JNI project
+        run: ./gradlew :jolt:jolt-build:jolt_build_project_linux64_jni
+
+      - name: Build FFM project
+        run: ./gradlew :jolt:jolt-build:jolt_build_project_linux64_ffm
 
       - name: Upload natives
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: linux-natives
           path: ./jolt/jolt-build/build/c++/libs/
@@ -106,18 +105,18 @@ jobs:
 
     steps:
       - name: Cancel Previous Runs
-        uses: styfle/cancel-workflow-action@0.12.1
+        uses: styfle/cancel-workflow-action@0.13.1
         with:
           access_token: ${{ github.token }}
 
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
-      - name: Set up JDK 17
-        uses: actions/setup-java@v4
+      - name: Set up JDK 25
+        uses: actions/setup-java@v5
         with:
           distribution: "corretto"
-          java-version: 17
+          java-version: 25
 
       - name: Change wrapper permissions
         run: chmod +x ./gradlew
@@ -125,11 +124,14 @@ jobs:
       - name: Download sources
         run: ./gradlew :jolt:jolt-build:jolt_download_source
 
-      - name: Build project
-        run: ./gradlew :jolt:jolt-build:jolt_build_project_mac64 :jolt:jolt-build:jolt_build_project_macArm
+      - name: Build JNI project
+        run: ./gradlew :jolt:jolt-build:jolt_build_project_mac64_jni :jolt:jolt-build:jolt_build_project_macArm_jni
+
+      - name: Build FFM project
+        run: ./gradlew :jolt:jolt-build:jolt_build_project_mac64_ffm :jolt:jolt-build:jolt_build_project_macArm_ffm
 
       - name: Upload natives
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: mac-natives
           path: ./jolt/jolt-build/build/c++/libs/
@@ -140,22 +142,18 @@ jobs:
 
     steps:
       - name: Cancel Previous Runs
-        uses: styfle/cancel-workflow-action@0.12.1
+        uses: styfle/cancel-workflow-action@0.13.1
         with:
           access_token: ${{ github.token }}
 
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
-      - name: Set up JDK 17
-        uses: actions/setup-java@v4
+      - name: Set up JDK 25
+        uses: actions/setup-java@v5
         with:
           distribution: "zulu"
-          java-version: 17
-
-      - name: Set up MinGW
-        run: |
-          sudo apt install -y --force-yes mingw-w64 lib32z1
+          java-version: 25
 
       - name: Install emscripten
         uses: mymindstorm/setup-emsdk@v14
@@ -168,11 +166,11 @@ jobs:
       - name: Download sources
         run: ./gradlew :jolt:jolt-build:jolt_download_source
 
-      - name: Build project
-        run: ./gradlew :jolt:jolt-build:jolt_build_project_teavm
+      - name: Build Web project
+        run: ./gradlew :jolt:jolt-build:jolt_build_project_web_wasm
 
       - name: Upload natives
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: teavm-natives
           path: ./jolt/jolt-build/build/c++/libs/
@@ -183,22 +181,18 @@ jobs:
 
     steps:
       - name: Cancel Previous Runs
-        uses: styfle/cancel-workflow-action@0.12.1
+        uses: styfle/cancel-workflow-action@0.13.1
         with:
           access_token: ${{ github.token }}
 
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
-      - name: Set up JDK 17
-        uses: actions/setup-java@v4
+      - name: Set up JDK 25
+        uses: actions/setup-java@v5
         with:
           distribution: "corretto"
-          java-version: 17
-
-      - name: Set up MinGW
-        run: |
-          sudo apt install -y --force-yes mingw-w64 lib32z1
+          java-version: 25
 
       - name: Install NDK
         id: setup-ndk
@@ -213,13 +207,13 @@ jobs:
       - name: Download sources
         run: ./gradlew :jolt:jolt-build:jolt_download_source
 
-      - name: Build project
-        run: ./gradlew :jolt:jolt-build:jolt_build_project_android
+      - name: Build JNI project
+        run: ./gradlew :jolt:jolt-build:jolt_build_project_android_jni
         env:
           NDK_HOME: ${{ steps.setup-ndk.outputs.ndk-path }}
 
       - name: Upload natives
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: android-natives
           path: ./jolt/jolt-build/build/c++/libs/
@@ -232,30 +226,27 @@ jobs:
 
     steps:
       - name: Cancel Previous Runs
-        uses: styfle/cancel-workflow-action@0.12.1
+        uses: styfle/cancel-workflow-action@0.13.1
         with:
           access_token: ${{ github.token }}
 
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
-      - name: Set up JDK 17
-        uses: actions/setup-java@v4
+      - name: Set up JDK 25
+        uses: actions/setup-java@v5
         with:
           distribution: "corretto"
-          java-version: 17
+          java-version: 25
 
       - name: Change wrapper permissions
         run: chmod +x ./gradlew
 
+      - name: Delete generated Classes
+        run: ./gradlew clean
+
       - name: Download sources
         run: ./gradlew :jolt:jolt-build:jolt_download_source
-
-      - name: Delete generated files
-        run: |
-          rm -rf jolt/jolt-core/src/main/java/*
-          rm -rf jolt/jolt-teavm/src/main/java/*
-          echo "Deleted generated files"
 
       - name: Generate Jolt classes
         run: ./gradlew :jolt:jolt-build:jolt_build_project
@@ -278,12 +269,12 @@ jobs:
 
     steps:
       - name: Cancel Previous Runs
-        uses: styfle/cancel-workflow-action@0.12.1
+        uses: styfle/cancel-workflow-action@0.13.1
         with:
           access_token: ${{ github.token }}
 
       - name: Checkout repository with latest changes
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           ref: ${{ github.ref }}
           fetch-depth: 0
@@ -300,45 +291,41 @@ jobs:
           property: version
           default: 0.0.1
 
-      - name: Set up JDK 17
-        uses: actions/setup-java@v4
+      - name: Set up JDK 25
+        uses: actions/setup-java@v5
         with:
           distribution: "corretto"
-          java-version: 17
-
-      - name: Set up MinGW
-        run: |
-          sudo apt install -y --force-yes mingw-w64 lib32z1
+          java-version: 25
 
       - name: Change wrapper permissions
         run: chmod +x ./gradlew
 
       - name: Download windows natives
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         with:
           name: windows-natives
           path: ./jolt/jolt-build/build/c++/libs/
 
       - name: Download linux natives
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         with:
           name: linux-natives
           path: ./jolt/jolt-build/build/c++/libs/
 
       - name: Download mac natives
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         with:
           name: mac-natives
           path: ./jolt/jolt-build/build/c++/libs/
 
       - name: Download android natives
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         with:
           name: android-natives
           path: ./jolt/jolt-build/build/c++/libs/
 
       - name: Download teavm natives
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         with:
           name: teavm-natives
           path: ./jolt/jolt-build/build/c++/libs/

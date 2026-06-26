@@ -10,8 +10,6 @@ import jolt.physics.collision.PhysicsMaterial;
 
 public class ConvexShapeSettings extends ShapeSettings {
 
-    private PhysicsMaterial PhysicsMaterial_TEMP_GEN_0;
-
     static public final ConvexShapeSettings NULL = ConvexShapeSettings.native_new();
 
     /**
@@ -30,49 +28,16 @@ public class ConvexShapeSettings extends ShapeSettings {
     }
 
     public PhysicsMaterial get_mMaterial() {
-        long addr = internal_native_get_mMaterial_addr(native_address);
-        if (addr == 0)
-            return PhysicsMaterial.NULL;
-        if (PhysicsMaterial_TEMP_GEN_0 == null)
-            PhysicsMaterial_TEMP_GEN_0 = PhysicsMaterial.native_new();
-        PhysicsMaterial_TEMP_GEN_0.internal_reset(addr, false);
-        return PhysicsMaterial_TEMP_GEN_0;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-ConvexShapeSettings* nativeObject = (ConvexShapeSettings*)this_addr;
-const PhysicsMaterial* attr = nativeObject->mMaterial;
-return (jlong)attr;
-*/
-    public static native long internal_native_get_mMaterial_addr(long this_addr);
 
     public void set_mMaterial(PhysicsMaterial mMaterial) {
-        internal_native_set_mMaterial(native_address, mMaterial.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-ConvexShapeSettings* nativeObject = (ConvexShapeSettings*)this_addr;
-nativeObject->mMaterial = (PhysicsMaterial*)mMaterial_addr;
-*/
-    public static native void internal_native_set_mMaterial(long this_addr, long mMaterial_addr);
 
     public float get_mDensity() {
-        return internal_native_get_mDensity(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-ConvexShapeSettings* nativeObject = (ConvexShapeSettings*)this_addr;
-return nativeObject->mDensity;
-*/
-    public static native float internal_native_get_mDensity(long this_addr);
 
     public void set_mDensity(float mDensity) {
-        internal_native_set_mDensity(native_address, mDensity);
     }
-
-    /*[-JNI;-NATIVE]
-ConvexShapeSettings* nativeObject = (ConvexShapeSettings*)this_addr;
-nativeObject->mDensity = mDensity;
-*/
-    public static native void internal_native_set_mDensity(long this_addr, float mDensity);
 }

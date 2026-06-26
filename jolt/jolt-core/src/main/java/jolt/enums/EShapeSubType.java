@@ -6,9 +6,9 @@
 
 package jolt.enums;
 
-import com.github.xpenatan.jParser.idl.IDLEnum;
+import com.github.xpenatan.jParser.api.NativeEnum;
 
-public enum EShapeSubType implements IDLEnum<EShapeSubType> {
+public enum EShapeSubType implements NativeEnum<EShapeSubType> {
 
     CUSTOM(0),
     Sphere(EShapeSubType_Sphere_NATIVE()),
@@ -50,83 +50,35 @@ public enum EShapeSubType implements IDLEnum<EShapeSubType> {
         return CUSTOM;
     }
 
-    /*[-JNI;-NATIVE]
-return (jlong)EShapeSubType_Sphere;
-*/
     private static native int EShapeSubType_Sphere_NATIVE();
 
-    /*[-JNI;-NATIVE]
-return (jlong)EShapeSubType_Box;
-*/
     private static native int EShapeSubType_Box_NATIVE();
 
-    /*[-JNI;-NATIVE]
-return (jlong)EShapeSubType_Capsule;
-*/
     private static native int EShapeSubType_Capsule_NATIVE();
 
-    /*[-JNI;-NATIVE]
-return (jlong)EShapeSubType_TaperedCapsule;
-*/
     private static native int EShapeSubType_TaperedCapsule_NATIVE();
 
-    /*[-JNI;-NATIVE]
-return (jlong)EShapeSubType_Cylinder;
-*/
     private static native int EShapeSubType_Cylinder_NATIVE();
 
-    /*[-JNI;-NATIVE]
-return (jlong)EShapeSubType_TaperedCylinder;
-*/
     private static native int EShapeSubType_TaperedCylinder_NATIVE();
 
-    /*[-JNI;-NATIVE]
-return (jlong)EShapeSubType_ConvexHull;
-*/
     private static native int EShapeSubType_ConvexHull_NATIVE();
 
-    /*[-JNI;-NATIVE]
-return (jlong)EShapeSubType_StaticCompound;
-*/
     private static native int EShapeSubType_StaticCompound_NATIVE();
 
-    /*[-JNI;-NATIVE]
-return (jlong)EShapeSubType_MutableCompound;
-*/
     private static native int EShapeSubType_MutableCompound_NATIVE();
 
-    /*[-JNI;-NATIVE]
-return (jlong)EShapeSubType_RotatedTranslated;
-*/
     private static native int EShapeSubType_RotatedTranslated_NATIVE();
 
-    /*[-JNI;-NATIVE]
-return (jlong)EShapeSubType_Scaled;
-*/
     private static native int EShapeSubType_Scaled_NATIVE();
 
-    /*[-JNI;-NATIVE]
-return (jlong)EShapeSubType_OffsetCenterOfMass;
-*/
     private static native int EShapeSubType_OffsetCenterOfMass_NATIVE();
 
-    /*[-JNI;-NATIVE]
-return (jlong)EShapeSubType_Mesh;
-*/
     private static native int EShapeSubType_Mesh_NATIVE();
 
-    /*[-JNI;-NATIVE]
-return (jlong)EShapeSubType_HeightField;
-*/
     private static native int EShapeSubType_HeightField_NATIVE();
 
-    /*[-JNI;-NATIVE]
-return (jlong)EShapeSubType_Plane;
-*/
     private static native int EShapeSubType_Plane_NATIVE();
 
-    /*[-JNI;-NATIVE]
-return (jlong)EShapeSubType_Empty;
-*/
     private static native int EShapeSubType_Empty_NATIVE();
 }

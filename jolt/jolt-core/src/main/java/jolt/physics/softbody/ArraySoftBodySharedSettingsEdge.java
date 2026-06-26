@@ -6,11 +6,9 @@
 
 package jolt.physics.softbody;
 
-import com.github.xpenatan.jParser.idl.IDLBase;
+import com.github.xpenatan.jParser.api.NativeObject;
 
-public class ArraySoftBodySharedSettingsEdge extends IDLBase {
-
-    private SoftBodySharedSettingsEdge SoftBodySharedSettingsEdge_TEMP_GEN_0;
+public class ArraySoftBodySharedSettingsEdge extends NativeObject {
 
     static public final ArraySoftBodySharedSettingsEdge NULL = ArraySoftBodySharedSettingsEdge.native_new();
 
@@ -28,89 +26,27 @@ public class ArraySoftBodySharedSettingsEdge extends IDLBase {
         return new ArraySoftBodySharedSettingsEdge((byte) 0, (char) 0);
     }
 
-    protected void deleteNative() {
-        internal_native_deleteNative(native_address);
-    }
-
-    /*[-JNI;-NATIVE]
-ArraySoftBodySharedSettingsEdge* nativeObject = (ArraySoftBodySharedSettingsEdge*)this_addr;
-delete nativeObject;
-*/
-    public static native void internal_native_deleteNative(long this_addr);
-
     public boolean empty() {
-        return internal_native_empty(native_address);
+        return false;
     }
-
-    /*[-JNI;-NATIVE]
-ArraySoftBodySharedSettingsEdge* nativeObject = (ArraySoftBodySharedSettingsEdge*)this_addr;
-return nativeObject->empty();
-*/
-    public static native boolean internal_native_empty(long this_addr);
 
     public int size() {
-        return internal_native_size(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-ArraySoftBodySharedSettingsEdge* nativeObject = (ArraySoftBodySharedSettingsEdge*)this_addr;
-return nativeObject->size();
-*/
-    public static native int internal_native_size(long this_addr);
 
     public SoftBodySharedSettingsEdge at(int inIndex) {
-        long addr = internal_native_at_addr(native_address, inIndex);
-        if (addr == 0)
-            return SoftBodySharedSettingsEdge.NULL;
-        if (SoftBodySharedSettingsEdge_TEMP_GEN_0 == null)
-            SoftBodySharedSettingsEdge_TEMP_GEN_0 = SoftBodySharedSettingsEdge.native_new();
-        SoftBodySharedSettingsEdge_TEMP_GEN_0.internal_reset(addr, false);
-        return SoftBodySharedSettingsEdge_TEMP_GEN_0;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-ArraySoftBodySharedSettingsEdge* nativeObject = (ArraySoftBodySharedSettingsEdge*)this_addr;
-return (jlong)&nativeObject->at((int)inIndex);
-*/
-    public static native long internal_native_at_addr(long this_addr, int inIndex);
 
     public void push_back(SoftBodySharedSettingsEdge inValue) {
-        internal_native_push_back(native_address, inValue.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-ArraySoftBodySharedSettingsEdge* nativeObject = (ArraySoftBodySharedSettingsEdge*)this_addr;
-nativeObject->push_back(*((SoftBodySharedSettingsEdge* )inValue_addr));
-*/
-    public static native void internal_native_push_back(long this_addr, long inValue_addr);
 
     public void reserve(int inSize) {
-        internal_native_reserve(native_address, inSize);
     }
-
-    /*[-JNI;-NATIVE]
-ArraySoftBodySharedSettingsEdge* nativeObject = (ArraySoftBodySharedSettingsEdge*)this_addr;
-nativeObject->reserve(inSize);
-*/
-    public static native void internal_native_reserve(long this_addr, int inSize);
 
     public void resize(int inSize) {
-        internal_native_resize(native_address, inSize);
     }
-
-    /*[-JNI;-NATIVE]
-ArraySoftBodySharedSettingsEdge* nativeObject = (ArraySoftBodySharedSettingsEdge*)this_addr;
-nativeObject->resize(inSize);
-*/
-    public static native void internal_native_resize(long this_addr, int inSize);
 
     public void clear() {
-        internal_native_clear(native_address);
     }
-
-    /*[-JNI;-NATIVE]
-ArraySoftBodySharedSettingsEdge* nativeObject = (ArraySoftBodySharedSettingsEdge*)this_addr;
-nativeObject->clear();
-*/
-    public static native void internal_native_clear(long this_addr);
 }

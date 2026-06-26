@@ -6,31 +6,17 @@
 
 package jolt.physics.body;
 
-import com.github.xpenatan.jParser.idl.IDLBase;
+import com.github.xpenatan.jParser.api.NativeObject;
 
-public class BodyID extends IDLBase {
+public class BodyID extends NativeObject {
 
     static public final BodyID NULL = BodyID.native_new();
 
     public BodyID() {
-        long addr = internal_native_create_addr();
-        internal_reset(addr, true);
     }
-
-    /*[-JNI;-NATIVE]
-return (jlong)new BodyID();
-*/
-    public static native long internal_native_create_addr();
 
     public BodyID(int inIndexAndSequenceNumber) {
-        long addr = internal_native_create_int_addr(inIndexAndSequenceNumber);
-        internal_reset(addr, true);
     }
-
-    /*[-JNI;-NATIVE]
-return (jlong)new BodyID(inIndexAndSequenceNumber);
-*/
-    public static native long internal_native_create_int_addr(int inIndexAndSequenceNumber);
 
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
@@ -46,33 +32,11 @@ return (jlong)new BodyID(inIndexAndSequenceNumber);
         return new BodyID((byte) 0, (char) 0);
     }
 
-    protected void deleteNative() {
-        internal_native_deleteNative(native_address);
-    }
-
-    /*[-JNI;-NATIVE]
-BodyID* nativeObject = (BodyID*)this_addr;
-delete nativeObject;
-*/
-    public static native void internal_native_deleteNative(long this_addr);
-
     public int GetIndex() {
-        return internal_native_GetIndex(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-BodyID* nativeObject = (BodyID*)this_addr;
-return nativeObject->GetIndex();
-*/
-    public static native int internal_native_GetIndex(long this_addr);
 
     public int GetIndexAndSequenceNumber() {
-        return internal_native_GetIndexAndSequenceNumber(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-BodyID* nativeObject = (BodyID*)this_addr;
-return nativeObject->GetIndexAndSequenceNumber();
-*/
-    public static native int internal_native_GetIndexAndSequenceNumber(long this_addr);
 }

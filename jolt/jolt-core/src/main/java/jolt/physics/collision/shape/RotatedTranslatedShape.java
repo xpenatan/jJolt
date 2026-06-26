@@ -11,10 +11,6 @@ import jolt.math.Vec3;
 
 public class RotatedTranslatedShape extends DecoratedShape {
 
-    private Quat Quat_TEMP_GEN_0;
-
-    private Vec3 Vec3_TEMP_GEN_0;
-
     static public final RotatedTranslatedShape NULL = RotatedTranslatedShape.native_new();
 
     /**
@@ -33,36 +29,10 @@ public class RotatedTranslatedShape extends DecoratedShape {
     }
 
     public Quat GetRotation() {
-        long addr = internal_native_GetRotation_addr(native_address);
-        if (addr == 0)
-            return Quat.NULL;
-        if (Quat_TEMP_GEN_0 == null)
-            Quat_TEMP_GEN_0 = Quat.native_new();
-        Quat_TEMP_GEN_0.internal_reset(addr, false);
-        return Quat_TEMP_GEN_0;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-RotatedTranslatedShape* nativeObject = (RotatedTranslatedShape*)this_addr;
-static Quat copy_addr;
-copy_addr = nativeObject->GetRotation();
-return (jlong)&copy_addr;*/
-    public static native long internal_native_GetRotation_addr(long this_addr);
 
     public Vec3 GetPosition() {
-        long addr = internal_native_GetPosition_addr(native_address);
-        if (addr == 0)
-            return Vec3.NULL;
-        if (Vec3_TEMP_GEN_0 == null)
-            Vec3_TEMP_GEN_0 = Vec3.native_new();
-        Vec3_TEMP_GEN_0.internal_reset(addr, false);
-        return Vec3_TEMP_GEN_0;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-RotatedTranslatedShape* nativeObject = (RotatedTranslatedShape*)this_addr;
-static Vec3 copy_addr;
-copy_addr = nativeObject->GetPosition();
-return (jlong)&copy_addr;*/
-    public static native long internal_native_GetPosition_addr(long this_addr);
 }

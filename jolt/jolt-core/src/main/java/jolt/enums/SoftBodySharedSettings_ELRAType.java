@@ -6,9 +6,9 @@
 
 package jolt.enums;
 
-import com.github.xpenatan.jParser.idl.IDLEnum;
+import com.github.xpenatan.jParser.api.NativeEnum;
 
-public enum SoftBodySharedSettings_ELRAType implements IDLEnum<SoftBodySharedSettings_ELRAType> {
+public enum SoftBodySharedSettings_ELRAType implements NativeEnum<SoftBodySharedSettings_ELRAType> {
 
     CUSTOM(0), None(SoftBodySharedSettings_ELRAType_None_NATIVE()), EuclideanDistance(SoftBodySharedSettings_ELRAType_EuclideanDistance_NATIVE()), GeodesicDistance(SoftBodySharedSettings_ELRAType_GeodesicDistance_NATIVE());
 
@@ -34,18 +34,9 @@ public enum SoftBodySharedSettings_ELRAType implements IDLEnum<SoftBodySharedSet
         return CUSTOM;
     }
 
-    /*[-JNI;-NATIVE]
-return (jlong)SoftBodySharedSettings_ELRAType_None;
-*/
     private static native int SoftBodySharedSettings_ELRAType_None_NATIVE();
 
-    /*[-JNI;-NATIVE]
-return (jlong)SoftBodySharedSettings_ELRAType_EuclideanDistance;
-*/
     private static native int SoftBodySharedSettings_ELRAType_EuclideanDistance_NATIVE();
 
-    /*[-JNI;-NATIVE]
-return (jlong)SoftBodySharedSettings_ELRAType_GeodesicDistance;
-*/
     private static native int SoftBodySharedSettings_ELRAType_GeodesicDistance_NATIVE();
 }

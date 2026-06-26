@@ -6,9 +6,9 @@
 
 package jolt.enums;
 
-import com.github.xpenatan.jParser.idl.IDLEnum;
+import com.github.xpenatan.jParser.api.NativeEnum;
 
-public enum ESoftBodyConstraintColor implements IDLEnum<ESoftBodyConstraintColor> {
+public enum ESoftBodyConstraintColor implements NativeEnum<ESoftBodyConstraintColor> {
 
     CUSTOM(0), ESoftBodyConstraintColor_ConstraintType(ESoftBodyConstraintColor_ConstraintType_NATIVE()), ESoftBodyConstraintColor_ConstraintGroup(ESoftBodyConstraintColor_ConstraintGroup_NATIVE()), ESoftBodyConstraintColor_ConstraintOrder(ESoftBodyConstraintColor_ConstraintOrder_NATIVE());
 
@@ -34,18 +34,9 @@ public enum ESoftBodyConstraintColor implements IDLEnum<ESoftBodyConstraintColor
         return CUSTOM;
     }
 
-    /*[-JNI;-NATIVE]
-return (jlong)ESoftBodyConstraintColor_ConstraintType;
-*/
     private static native int ESoftBodyConstraintColor_ConstraintType_NATIVE();
 
-    /*[-JNI;-NATIVE]
-return (jlong)ESoftBodyConstraintColor_ConstraintGroup;
-*/
     private static native int ESoftBodyConstraintColor_ConstraintGroup_NATIVE();
 
-    /*[-JNI;-NATIVE]
-return (jlong)ESoftBodyConstraintColor_ConstraintOrder;
-*/
     private static native int ESoftBodyConstraintColor_ConstraintOrder_NATIVE();
 }

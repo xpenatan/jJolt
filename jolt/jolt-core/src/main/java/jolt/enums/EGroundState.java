@@ -6,9 +6,9 @@
 
 package jolt.enums;
 
-import com.github.xpenatan.jParser.idl.IDLEnum;
+import com.github.xpenatan.jParser.api.NativeEnum;
 
-public enum EGroundState implements IDLEnum<EGroundState> {
+public enum EGroundState implements NativeEnum<EGroundState> {
 
     CUSTOM(0), OnGround(EGroundState_OnGround_NATIVE()), OnSteepGround(EGroundState_OnSteepGround_NATIVE()), NotSupported(EGroundState_NotSupported_NATIVE()), InAir(EGroundState_InAir_NATIVE());
 
@@ -34,23 +34,11 @@ public enum EGroundState implements IDLEnum<EGroundState> {
         return CUSTOM;
     }
 
-    /*[-JNI;-NATIVE]
-return (jlong)EGroundState_OnGround;
-*/
     private static native int EGroundState_OnGround_NATIVE();
 
-    /*[-JNI;-NATIVE]
-return (jlong)EGroundState_OnSteepGround;
-*/
     private static native int EGroundState_OnSteepGround_NATIVE();
 
-    /*[-JNI;-NATIVE]
-return (jlong)EGroundState_NotSupported;
-*/
     private static native int EGroundState_NotSupported_NATIVE();
 
-    /*[-JNI;-NATIVE]
-return (jlong)EGroundState_InAir;
-*/
     private static native int EGroundState_InAir_NATIVE();
 }

@@ -6,9 +6,9 @@
 
 package jolt.enums;
 
-import com.github.xpenatan.jParser.idl.IDLEnum;
+import com.github.xpenatan.jParser.api.NativeEnum;
 
-public enum EShapeColor implements IDLEnum<EShapeColor> {
+public enum EShapeColor implements NativeEnum<EShapeColor> {
 
     CUSTOM(0),
     EShapeColor_InstanceColor(EShapeColor_InstanceColor_NATIVE()),
@@ -40,33 +40,15 @@ public enum EShapeColor implements IDLEnum<EShapeColor> {
         return CUSTOM;
     }
 
-    /*[-JNI;-NATIVE]
-return (jlong)EShapeColor_InstanceColor;
-*/
     private static native int EShapeColor_InstanceColor_NATIVE();
 
-    /*[-JNI;-NATIVE]
-return (jlong)EShapeColor_ShapeTypeColor;
-*/
     private static native int EShapeColor_ShapeTypeColor_NATIVE();
 
-    /*[-JNI;-NATIVE]
-return (jlong)EShapeColor_MotionTypeColor;
-*/
     private static native int EShapeColor_MotionTypeColor_NATIVE();
 
-    /*[-JNI;-NATIVE]
-return (jlong)EShapeColor_SleepColor;
-*/
     private static native int EShapeColor_SleepColor_NATIVE();
 
-    /*[-JNI;-NATIVE]
-return (jlong)EShapeColor_IslandColor;
-*/
     private static native int EShapeColor_IslandColor_NATIVE();
 
-    /*[-JNI;-NATIVE]
-return (jlong)EShapeColor_MaterialColor;
-*/
     private static native int EShapeColor_MaterialColor_NATIVE();
 }

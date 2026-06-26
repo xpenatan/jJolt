@@ -6,9 +6,9 @@
 
 package jolt.core;
 
-import com.github.xpenatan.jParser.idl.IDLBase;
+import com.github.xpenatan.jParser.api.NativeObject;
 
-public class JobSystem extends IDLBase {
+public class JobSystem extends NativeObject {
 
     static public final JobSystem NULL = JobSystem.native_new();
 
@@ -25,14 +25,4 @@ public class JobSystem extends IDLBase {
     public static JobSystem native_new() {
         return new JobSystem((byte) 0, (char) 0);
     }
-
-    protected void deleteNative() {
-        internal_native_deleteNative(native_address);
-    }
-
-    /*[-JNI;-NATIVE]
-JobSystem* nativeObject = (JobSystem*)this_addr;
-delete nativeObject;
-*/
-    public static native void internal_native_deleteNative(long this_addr);
 }

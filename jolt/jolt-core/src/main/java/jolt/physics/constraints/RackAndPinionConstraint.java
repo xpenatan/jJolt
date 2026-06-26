@@ -26,22 +26,9 @@ public class RackAndPinionConstraint extends TwoBodyConstraint {
     }
 
     public void SetConstraints(Constraint inPinion, Constraint inRack) {
-        internal_native_SetConstraints(native_address, inPinion.native_address, inRack.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-RackAndPinionConstraint* nativeObject = (RackAndPinionConstraint*)this_addr;
-nativeObject->SetConstraints((Constraint* )inPinion_addr, (Constraint* )inRack_addr);
-*/
-    public static native void internal_native_SetConstraints(long this_addr, long inPinion_addr, long inRack_addr);
 
     public float GetTotalLambda() {
-        return internal_native_GetTotalLambda(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-RackAndPinionConstraint* nativeObject = (RackAndPinionConstraint*)this_addr;
-return nativeObject->GetTotalLambda();
-*/
-    public static native float internal_native_GetTotalLambda(long this_addr);
 }

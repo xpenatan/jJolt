@@ -6,9 +6,9 @@
 
 package jolt.physics.body;
 
-import com.github.xpenatan.jParser.idl.IDLBase;
+import com.github.xpenatan.jParser.api.NativeObject;
 
-public class BodyIDMemRef extends IDLBase {
+public class BodyIDMemRef extends NativeObject {
 
     static public final BodyIDMemRef NULL = BodyIDMemRef.native_new();
 
@@ -25,14 +25,4 @@ public class BodyIDMemRef extends IDLBase {
     public static BodyIDMemRef native_new() {
         return new BodyIDMemRef((byte) 0, (char) 0);
     }
-
-    protected void deleteNative() {
-        internal_native_deleteNative(native_address);
-    }
-
-    /*[-JNI;-NATIVE]
-BodyIDMemRef* nativeObject = (BodyIDMemRef*)this_addr;
-delete nativeObject;
-*/
-    public static native void internal_native_deleteNative(long this_addr);
 }

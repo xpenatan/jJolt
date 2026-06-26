@@ -6,12 +6,10 @@
 
 package jolt.physics.vehicle;
 
-import com.github.xpenatan.jParser.idl.IDLBase;
+import com.github.xpenatan.jParser.api.NativeObject;
 import jolt.math.ArrayUint;
 
-public class VehicleTrackSettings extends IDLBase {
-
-    private ArrayUint ArrayUint_TEMP_GEN_0;
+public class VehicleTrackSettings extends NativeObject {
 
     static public final VehicleTrackSettings NULL = VehicleTrackSettings.native_new();
 
@@ -29,139 +27,45 @@ public class VehicleTrackSettings extends IDLBase {
         return new VehicleTrackSettings((byte) 0, (char) 0);
     }
 
-    protected void deleteNative() {
-        internal_native_deleteNative(native_address);
-    }
-
-    /*[-JNI;-NATIVE]
-VehicleTrackSettings* nativeObject = (VehicleTrackSettings*)this_addr;
-delete nativeObject;
-*/
-    public static native void internal_native_deleteNative(long this_addr);
-
     public int get_mDrivenWheel() {
-        return internal_native_get_mDrivenWheel(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-VehicleTrackSettings* nativeObject = (VehicleTrackSettings*)this_addr;
-return nativeObject->mDrivenWheel;
-*/
-    public static native int internal_native_get_mDrivenWheel(long this_addr);
 
     public void set_mDrivenWheel(int mDrivenWheel) {
-        internal_native_set_mDrivenWheel(native_address, mDrivenWheel);
     }
-
-    /*[-JNI;-NATIVE]
-VehicleTrackSettings* nativeObject = (VehicleTrackSettings*)this_addr;
-nativeObject->mDrivenWheel = mDrivenWheel;
-*/
-    public static native void internal_native_set_mDrivenWheel(long this_addr, int mDrivenWheel);
 
     public ArrayUint get_mWheels() {
-        long addr = internal_native_get_mWheels_addr(native_address);
-        if (addr == 0)
-            return ArrayUint.NULL;
-        if (ArrayUint_TEMP_GEN_0 == null)
-            ArrayUint_TEMP_GEN_0 = ArrayUint.native_new();
-        ArrayUint_TEMP_GEN_0.internal_reset(addr, false);
-        return ArrayUint_TEMP_GEN_0;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-VehicleTrackSettings* nativeObject = (VehicleTrackSettings*)this_addr;
-return (jlong)&nativeObject->mWheels;
-*/
-    public static native long internal_native_get_mWheels_addr(long this_addr);
 
     public void set_mWheels(ArrayUint mWheels) {
-        internal_native_set_mWheels(native_address, mWheels.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-VehicleTrackSettings* nativeObject = (VehicleTrackSettings*)this_addr;
-nativeObject->mWheels = *((ArrayUint*)mWheels_addr);
-*/
-    public static native void internal_native_set_mWheels(long this_addr, long mWheels_addr);
 
     public float get_mInertia() {
-        return internal_native_get_mInertia(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-VehicleTrackSettings* nativeObject = (VehicleTrackSettings*)this_addr;
-return nativeObject->mInertia;
-*/
-    public static native float internal_native_get_mInertia(long this_addr);
 
     public void set_mInertia(float mInertia) {
-        internal_native_set_mInertia(native_address, mInertia);
     }
-
-    /*[-JNI;-NATIVE]
-VehicleTrackSettings* nativeObject = (VehicleTrackSettings*)this_addr;
-nativeObject->mInertia = mInertia;
-*/
-    public static native void internal_native_set_mInertia(long this_addr, float mInertia);
 
     public float get_mAngularDamping() {
-        return internal_native_get_mAngularDamping(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-VehicleTrackSettings* nativeObject = (VehicleTrackSettings*)this_addr;
-return nativeObject->mAngularDamping;
-*/
-    public static native float internal_native_get_mAngularDamping(long this_addr);
 
     public void set_mAngularDamping(float mAngularDamping) {
-        internal_native_set_mAngularDamping(native_address, mAngularDamping);
     }
-
-    /*[-JNI;-NATIVE]
-VehicleTrackSettings* nativeObject = (VehicleTrackSettings*)this_addr;
-nativeObject->mAngularDamping = mAngularDamping;
-*/
-    public static native void internal_native_set_mAngularDamping(long this_addr, float mAngularDamping);
 
     public float get_mMaxBrakeTorque() {
-        return internal_native_get_mMaxBrakeTorque(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-VehicleTrackSettings* nativeObject = (VehicleTrackSettings*)this_addr;
-return nativeObject->mMaxBrakeTorque;
-*/
-    public static native float internal_native_get_mMaxBrakeTorque(long this_addr);
 
     public void set_mMaxBrakeTorque(float mMaxBrakeTorque) {
-        internal_native_set_mMaxBrakeTorque(native_address, mMaxBrakeTorque);
     }
-
-    /*[-JNI;-NATIVE]
-VehicleTrackSettings* nativeObject = (VehicleTrackSettings*)this_addr;
-nativeObject->mMaxBrakeTorque = mMaxBrakeTorque;
-*/
-    public static native void internal_native_set_mMaxBrakeTorque(long this_addr, float mMaxBrakeTorque);
 
     public float get_mDifferentialRatio() {
-        return internal_native_get_mDifferentialRatio(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-VehicleTrackSettings* nativeObject = (VehicleTrackSettings*)this_addr;
-return nativeObject->mDifferentialRatio;
-*/
-    public static native float internal_native_get_mDifferentialRatio(long this_addr);
 
     public void set_mDifferentialRatio(float mDifferentialRatio) {
-        internal_native_set_mDifferentialRatio(native_address, mDifferentialRatio);
     }
-
-    /*[-JNI;-NATIVE]
-VehicleTrackSettings* nativeObject = (VehicleTrackSettings*)this_addr;
-nativeObject->mDifferentialRatio = mDifferentialRatio;
-*/
-    public static native void internal_native_set_mDifferentialRatio(long this_addr, float mDifferentialRatio);
 }

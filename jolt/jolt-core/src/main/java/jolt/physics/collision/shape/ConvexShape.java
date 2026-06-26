@@ -26,22 +26,9 @@ public class ConvexShape extends Shape {
     }
 
     public float GetDensity() {
-        return internal_native_GetDensity(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-ConvexShape* nativeObject = (ConvexShape*)this_addr;
-return nativeObject->GetDensity();
-*/
-    public static native float internal_native_GetDensity(long this_addr);
 
     public void SetDensity(float inDensity) {
-        internal_native_SetDensity(native_address, inDensity);
     }
-
-    /*[-JNI;-NATIVE]
-ConvexShape* nativeObject = (ConvexShape*)this_addr;
-nativeObject->SetDensity((float)inDensity);
-*/
-    public static native void internal_native_SetDensity(long this_addr, float inDensity);
 }

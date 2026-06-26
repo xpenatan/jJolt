@@ -6,14 +6,14 @@
 
 package jolt.renderer;
 
-import com.github.xpenatan.jParser.idl.IDLBase;
+import com.github.xpenatan.jParser.api.NativeObject;
 import jolt.physics.PhysicsSystem;
 import jolt.physics.body.BodyManagerDrawSettings;
 import jolt.math.Mat44;
 import jolt.core.Color;
 import jolt.enums.ECastShadow;
 import jolt.enums.EDrawMode;
-import com.github.xpenatan.jparser.idl.helper.IDLFloatArray;
+import com.github.xpenatan.jparser.runtime.helper.NativeFloatArray;
 import jolt.enums.ECullMode;
 import jolt.math.Vec3;
 
@@ -21,7 +21,7 @@ public class DebugRendererEm extends DebugRenderer {
 
     static private Mat44 Mat44_TEMP_STATIC_GEN_0;
 
-    static private IDLFloatArray IDLFloatArray_TEMP_STATIC_GEN_0;
+    static private NativeFloatArray NativeFloatArray_TEMP_STATIC_GEN_0;
 
     static private Color Color_TEMP_STATIC_GEN_0;
 
@@ -41,49 +41,15 @@ public class DebugRendererEm extends DebugRenderer {
 
     static private Vec3 Vec3_TEMP_STATIC_GEN_5;
 
-    static private IDLBase IDLBase_TEMP_STATIC_GEN_0;
+    static private NativeObject NativeObject_TEMP_STATIC_GEN_0;
 
     static private Color Color_TEMP_STATIC_GEN_3;
 
     static public final DebugRendererEm NULL = DebugRendererEm.native_new();
 
-    /*[-JNI;-NATIVE]
-	static jmethodID DebugRendererImplCustom_DrawMeshIJJJII_ID;
-	static jmethodID DebugRendererImplCustom_DrawLineJJJ_ID;
-	static jmethodID DebugRendererImplCustom_DrawTriangleJJJJI_ID;
-	static jmethodID DebugRendererImplCustom_DrawText3DJJIJF_ID;
-
-class DebugRendererImplCustom : public DebugRendererEm {
-private:
-	JNIEnv* env;
-	jobject obj;
-public:
-void setupCallback(JNIEnv* env, jobject obj) {
-	this->env = env;
-	this->obj = env->NewGlobalRef(obj);
-	static jclass jClassID = 0;
-	if(jClassID == 0) {
-		jClassID = (jclass)env->NewGlobalRef(env->GetObjectClass(obj));
-		DebugRendererImplCustom_DrawMeshIJJJII_ID = env->GetMethodID(jClassID, "internal_DrawMesh", "(IJJJII)V");
-		DebugRendererImplCustom_DrawLineJJJ_ID = env->GetMethodID(jClassID, "internal_DrawLine", "(JJJ)V");
-		DebugRendererImplCustom_DrawTriangleJJJJI_ID = env->GetMethodID(jClassID, "internal_DrawTriangle", "(JJJJI)V");
-		DebugRendererImplCustom_DrawText3DJJIJF_ID = env->GetMethodID(jClassID, "internal_DrawText3D", "(JJIJF)V");
-	}
-}
-virtual void DrawMesh(int id, const Mat44& inModelMatrix, const IDLFloatArray* vertices, const Color& inModelColor, ECullMode inCullMode, EDrawMode inDrawMode) {
-   env->CallVoidMethod(obj, DebugRendererImplCustom_DrawMeshIJJJII_ID, id, (jlong)&inModelMatrix, (jlong)vertices, (jlong)&inModelColor, inCullMode, inDrawMode);
-}
-virtual void DrawLine(const Vec3* inFrom, const Vec3* inTo, const Color* inColor) {
-   env->CallVoidMethod(obj, DebugRendererImplCustom_DrawLineJJJ_ID, (jlong)inFrom, (jlong)inTo, (jlong)inColor);
-}
-virtual void DrawTriangle(const Vec3* inV1, const Vec3* inV2, const Vec3* inV3, const Color* inColor, ECastShadow inCastShadow) {
-   env->CallVoidMethod(obj, DebugRendererImplCustom_DrawTriangleJJJJI_ID, (jlong)inV1, (jlong)inV2, (jlong)inV3, (jlong)inColor, inCastShadow);
-}
-virtual void DrawText3D(const Vec3* inPosition, const void* inString, unsigned int inStringLen, const Color* inColor, float inHeight) {
-   env->CallVoidMethod(obj, DebugRendererImplCustom_DrawText3DJJIJF_ID, (jlong)inPosition, inString, inStringLen, (jlong)inColor, inHeight);
-}
-};
-*/
+    /**
+     * Dummy constructor, used internally to creates objects without C++ pointer
+     */
     @Deprecated()
     protected DebugRendererEm(byte b, char c) {
         super((byte) 1, (char) 1);
@@ -96,65 +62,20 @@ virtual void DrawText3D(const Vec3* inPosition, const void* inString, unsigned i
         return new DebugRendererEm((byte) 0, (char) 0);
     }
 
-    protected void deleteNative() {
-        internal_native_deleteNative(native_address);
-    }
-
-    /*[-JNI;-NATIVE]
-DebugRendererImplCustom* nativeObject = (DebugRendererImplCustom*)this_addr;
-delete nativeObject;
-*/
-    public static native void internal_native_deleteNative(long this_addr);
-
     public void DrawBodies(PhysicsSystem system, BodyManagerDrawSettings inDrawSettings) {
-        internal_native_DrawBodies(native_address, system.native_address, inDrawSettings.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-DebugRendererEm* nativeObject = (DebugRendererEm*)this_addr;
-nativeObject->DrawBodies((PhysicsSystem* )system_addr, (BodyManagerDrawSettings* )inDrawSettings_addr);
-*/
-    public static native void internal_native_DrawBodies(long this_addr, long system_addr, long inDrawSettings_addr);
 
     public void DrawBodies(PhysicsSystem system) {
-        internal_native_DrawBodies(native_address, system.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-DebugRendererEm* nativeObject = (DebugRendererEm*)this_addr;
-nativeObject->DrawBodies((PhysicsSystem* )system_addr);
-*/
-    public static native void internal_native_DrawBodies(long this_addr, long system_addr);
 
     public void DrawCylinder(Mat44 inMatrix, float inHalfHeight, float inRadius, Color inColor, ECastShadow inCastShadow, EDrawMode inDrawMode) {
-        internal_native_DrawCylinder(native_address, inMatrix.native_address, inHalfHeight, inRadius, inColor.native_address, inCastShadow.getValue(), inDrawMode.getValue());
     }
-
-    /*[-JNI;-NATIVE]
-DebugRendererEm* nativeObject = (DebugRendererEm*)this_addr;
-nativeObject->DrawCylinder(*((Mat44* )inMatrix_addr), (float)inHalfHeight, (float)inRadius, *((Color* )inColor_addr), (::ECastShadow)inCastShadow, (::EDrawMode)inDrawMode);
-*/
-    public static native void internal_native_DrawCylinder(long this_addr, long inMatrix_addr, float inHalfHeight, float inRadius, long inColor_addr, int inCastShadow, int inDrawMode);
 
     public void DrawCylinder(Mat44 inMatrix, float inHalfHeight, float inRadius, Color inColor, ECastShadow inCastShadow) {
-        internal_native_DrawCylinder(native_address, inMatrix.native_address, inHalfHeight, inRadius, inColor.native_address, inCastShadow.getValue());
     }
-
-    /*[-JNI;-NATIVE]
-DebugRendererEm* nativeObject = (DebugRendererEm*)this_addr;
-nativeObject->DrawCylinder(*((Mat44* )inMatrix_addr), (float)inHalfHeight, (float)inRadius, *((Color* )inColor_addr), (::ECastShadow)inCastShadow);
-*/
-    public static native void internal_native_DrawCylinder(long this_addr, long inMatrix_addr, float inHalfHeight, float inRadius, long inColor_addr, int inCastShadow);
 
     public void DrawCylinder(Mat44 inMatrix, float inHalfHeight, float inRadius, Color inColor) {
-        internal_native_DrawCylinder(native_address, inMatrix.native_address, inHalfHeight, inRadius, inColor.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-DebugRendererEm* nativeObject = (DebugRendererEm*)this_addr;
-nativeObject->DrawCylinder(*((Mat44* )inMatrix_addr), (float)inHalfHeight, (float)inRadius, *((Color* )inColor_addr));
-*/
-    public static native void internal_native_DrawCylinder(long this_addr, long inMatrix_addr, float inHalfHeight, float inRadius, long inColor_addr);
 
     public DebugRendererEm() {
         super((byte) 1, (char) 1);
@@ -164,19 +85,18 @@ nativeObject->DrawCylinder(*((Mat44* )inMatrix_addr), (float)inHalfHeight, (floa
     }
 
     private void setupCallback() {
-        internal_native_setupCallback(native_address);
     }
 
-    protected void DrawMesh(int id, Mat44 inModelMatrix, IDLFloatArray vertices, Color inModelColor, ECullMode inCullMode, EDrawMode inDrawMode) {
+    protected void DrawMesh(int id, Mat44 inModelMatrix, NativeFloatArray vertices, Color inModelColor, ECullMode inCullMode, EDrawMode inDrawMode) {
     }
 
     private void internal_DrawMesh(int id, long inModelMatrix_addr, long vertices_addr, long inModelColor_addr, int inCullMode_addr, int inDrawMode_addr) {
         if (Mat44_TEMP_STATIC_GEN_0 == null)
             Mat44_TEMP_STATIC_GEN_0 = Mat44.native_new();
         Mat44_TEMP_STATIC_GEN_0.internal_reset(inModelMatrix_addr, false);
-        if (IDLFloatArray_TEMP_STATIC_GEN_0 == null)
-            IDLFloatArray_TEMP_STATIC_GEN_0 = IDLFloatArray.native_new();
-        IDLFloatArray_TEMP_STATIC_GEN_0.internal_reset(vertices_addr, false);
+        if (NativeFloatArray_TEMP_STATIC_GEN_0 == null)
+            NativeFloatArray_TEMP_STATIC_GEN_0 = NativeFloatArray.native_new();
+        NativeFloatArray_TEMP_STATIC_GEN_0.internal_reset(vertices_addr, false);
         if (Color_TEMP_STATIC_GEN_0 == null)
             Color_TEMP_STATIC_GEN_0 = Color.native_new();
         Color_TEMP_STATIC_GEN_0.internal_reset(inModelColor_addr, false);
@@ -198,7 +118,7 @@ nativeObject->DrawCylinder(*((Mat44* )inMatrix_addr), (float)inHalfHeight, (floa
                 break;
             }
         }
-        DrawMesh(id, Mat44_TEMP_STATIC_GEN_0, IDLFloatArray_TEMP_STATIC_GEN_0, Color_TEMP_STATIC_GEN_0, inCullMode_addr_enum, inDrawMode_addr_enum);
+        DrawMesh(id, Mat44_TEMP_STATIC_GEN_0, NativeFloatArray_TEMP_STATIC_GEN_0, Color_TEMP_STATIC_GEN_0, inCullMode_addr_enum, inDrawMode_addr_enum);
     }
 
     protected void DrawLine(Vec3 inFrom, Vec3 inTo, Color inColor) {
@@ -245,30 +165,21 @@ nativeObject->DrawCylinder(*((Mat44* )inMatrix_addr), (float)inHalfHeight, (floa
         DrawTriangle(Vec3_TEMP_STATIC_GEN_2, Vec3_TEMP_STATIC_GEN_3, Vec3_TEMP_STATIC_GEN_4, Color_TEMP_STATIC_GEN_2, inCastShadow_addr_enum);
     }
 
-    protected void DrawText3D(Vec3 inPosition, IDLBase inString, int inStringLen, Color inColor, float inHeight) {
+    protected void DrawText3D(Vec3 inPosition, NativeObject inString, int inStringLen, Color inColor, float inHeight) {
     }
 
     private void internal_DrawText3D(long inPosition_addr, long inString_addr, int inStringLen, long inColor_addr, float inHeight) {
         if (Vec3_TEMP_STATIC_GEN_5 == null)
             Vec3_TEMP_STATIC_GEN_5 = Vec3.native_new();
         Vec3_TEMP_STATIC_GEN_5.internal_reset(inPosition_addr, false);
-        if (IDLBase_TEMP_STATIC_GEN_0 == null)
-            IDLBase_TEMP_STATIC_GEN_0 = IDLBase.native_new();
-        IDLBase_TEMP_STATIC_GEN_0.internal_reset(inString_addr, false);
+        if (NativeObject_TEMP_STATIC_GEN_0 == null)
+            NativeObject_TEMP_STATIC_GEN_0 = NativeObject.native_new();
+        NativeObject_TEMP_STATIC_GEN_0.internal_reset(inString_addr, false);
         if (Color_TEMP_STATIC_GEN_3 == null)
             Color_TEMP_STATIC_GEN_3 = Color.native_new();
         Color_TEMP_STATIC_GEN_3.internal_reset(inColor_addr, false);
-        DrawText3D(Vec3_TEMP_STATIC_GEN_5, IDLBase_TEMP_STATIC_GEN_0, inStringLen, Color_TEMP_STATIC_GEN_3, inHeight);
+        DrawText3D(Vec3_TEMP_STATIC_GEN_5, NativeObject_TEMP_STATIC_GEN_0, inStringLen, Color_TEMP_STATIC_GEN_3, inHeight);
     }
 
-    /*[-JNI;-NATIVE]
-return (jlong)new DebugRendererImplCustom();
-*/
     public static native long internal_native_create_addr();
-
-    /*[-JNI;-NATIVE]
-DebugRendererImplCustom* nativeObject = (DebugRendererImplCustom*)this_addr;
-nativeObject->setupCallback(env, object);
-*/
-    public native void internal_native_setupCallback(long this_addr);
 }

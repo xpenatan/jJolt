@@ -6,9 +6,9 @@
 
 package jolt.enums;
 
-import com.github.xpenatan.jParser.idl.IDLEnum;
+import com.github.xpenatan.jParser.api.NativeEnum;
 
-public enum ESwingType implements IDLEnum<ESwingType> {
+public enum ESwingType implements NativeEnum<ESwingType> {
 
     CUSTOM(0), Cone(ESwingType_Cone_NATIVE()), Pyramid(ESwingType_Pyramid_NATIVE());
 
@@ -34,13 +34,7 @@ public enum ESwingType implements IDLEnum<ESwingType> {
         return CUSTOM;
     }
 
-    /*[-JNI;-NATIVE]
-return (jlong)ESwingType_Cone;
-*/
     private static native int ESwingType_Cone_NATIVE();
 
-    /*[-JNI;-NATIVE]
-return (jlong)ESwingType_Pyramid;
-*/
     private static native int ESwingType_Pyramid_NATIVE();
 }

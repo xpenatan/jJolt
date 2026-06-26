@@ -6,9 +6,9 @@
 
 package jolt.physics.softbody;
 
-import com.github.xpenatan.jParser.idl.IDLBase;
+import com.github.xpenatan.jParser.api.NativeObject;
 
-public class SoftBodyVertexTraits extends IDLBase {
+public class SoftBodyVertexTraits extends NativeObject {
 
     static public final SoftBodyVertexTraits NULL = SoftBodyVertexTraits.native_new();
 
@@ -26,40 +26,15 @@ public class SoftBodyVertexTraits extends IDLBase {
         return new SoftBodyVertexTraits((byte) 0, (char) 0);
     }
 
-    protected void deleteNative() {
-        internal_native_deleteNative(native_address);
-    }
-
-    /*[-JNI;-NATIVE]
-SoftBodyVertexTraits* nativeObject = (SoftBodyVertexTraits*)this_addr;
-delete nativeObject;
-*/
-    public static native void internal_native_deleteNative(long this_addr);
-
     public static int get_mPreviousPositionOffset() {
-        return internal_native_get_mPreviousPositionOffset();
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-return SoftBodyVertexTraits::mPreviousPositionOffset;
-*/
-    public static native int internal_native_get_mPreviousPositionOffset();
 
     public static int get_mPositionOffset() {
-        return internal_native_get_mPositionOffset();
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-return SoftBodyVertexTraits::mPositionOffset;
-*/
-    public static native int internal_native_get_mPositionOffset();
 
     public static int get_mVelocityOffset() {
-        return internal_native_get_mVelocityOffset();
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-return SoftBodyVertexTraits::mVelocityOffset;
-*/
-    public static native int internal_native_get_mVelocityOffset();
 }

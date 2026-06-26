@@ -6,9 +6,9 @@
 
 package jolt.enums;
 
-import com.github.xpenatan.jParser.idl.IDLEnum;
+import com.github.xpenatan.jParser.api.NativeEnum;
 
-public enum ECullMode implements IDLEnum<ECullMode> {
+public enum ECullMode implements NativeEnum<ECullMode> {
 
     CUSTOM(0), ECullMode_CullBackFace(ECullMode_CullBackFace_NATIVE()), ECullMode_CullFrontFace(ECullMode_CullFrontFace_NATIVE()), ECullMode_Off(ECullMode_Off_NATIVE());
 
@@ -34,18 +34,9 @@ public enum ECullMode implements IDLEnum<ECullMode> {
         return CUSTOM;
     }
 
-    /*[-JNI;-NATIVE]
-return (jlong)ECullMode_CullBackFace;
-*/
     private static native int ECullMode_CullBackFace_NATIVE();
 
-    /*[-JNI;-NATIVE]
-return (jlong)ECullMode_CullFrontFace;
-*/
     private static native int ECullMode_CullFrontFace_NATIVE();
 
-    /*[-JNI;-NATIVE]
-return (jlong)ECullMode_Off;
-*/
     private static native int ECullMode_Off_NATIVE();
 }

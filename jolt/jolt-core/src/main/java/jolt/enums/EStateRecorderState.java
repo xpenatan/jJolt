@@ -6,9 +6,9 @@
 
 package jolt.enums;
 
-import com.github.xpenatan.jParser.idl.IDLEnum;
+import com.github.xpenatan.jParser.api.NativeEnum;
 
-public enum EStateRecorderState implements IDLEnum<EStateRecorderState> {
+public enum EStateRecorderState implements NativeEnum<EStateRecorderState> {
 
     CUSTOM(0),
     None(EStateRecorderState_None_NATIVE()),
@@ -40,33 +40,15 @@ public enum EStateRecorderState implements IDLEnum<EStateRecorderState> {
         return CUSTOM;
     }
 
-    /*[-JNI;-NATIVE]
-return (jlong)EStateRecorderState_None;
-*/
     private static native int EStateRecorderState_None_NATIVE();
 
-    /*[-JNI;-NATIVE]
-return (jlong)EStateRecorderState_Global;
-*/
     private static native int EStateRecorderState_Global_NATIVE();
 
-    /*[-JNI;-NATIVE]
-return (jlong)EStateRecorderState_Bodies;
-*/
     private static native int EStateRecorderState_Bodies_NATIVE();
 
-    /*[-JNI;-NATIVE]
-return (jlong)EStateRecorderState_Contacts;
-*/
     private static native int EStateRecorderState_Contacts_NATIVE();
 
-    /*[-JNI;-NATIVE]
-return (jlong)EStateRecorderState_Constraints;
-*/
     private static native int EStateRecorderState_Constraints_NATIVE();
 
-    /*[-JNI;-NATIVE]
-return (jlong)EStateRecorderState_All;
-*/
     private static native int EStateRecorderState_All_NATIVE();
 }

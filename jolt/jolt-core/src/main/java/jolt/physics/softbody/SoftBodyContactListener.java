@@ -6,9 +6,9 @@
 
 package jolt.physics.softbody;
 
-import com.github.xpenatan.jParser.idl.IDLBase;
+import com.github.xpenatan.jParser.api.NativeObject;
 
-public class SoftBodyContactListener extends IDLBase {
+public class SoftBodyContactListener extends NativeObject {
 
     static public final SoftBodyContactListener NULL = SoftBodyContactListener.native_new();
 
@@ -25,14 +25,4 @@ public class SoftBodyContactListener extends IDLBase {
     public static SoftBodyContactListener native_new() {
         return new SoftBodyContactListener((byte) 0, (char) 0);
     }
-
-    protected void deleteNative() {
-        internal_native_deleteNative(native_address);
-    }
-
-    /*[-JNI;-NATIVE]
-SoftBodyContactListener* nativeObject = (SoftBodyContactListener*)this_addr;
-delete nativeObject;
-*/
-    public static native void internal_native_deleteNative(long this_addr);
 }

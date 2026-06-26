@@ -24,14 +24,4 @@ public class BodyLockInterfaceLocking extends BodyLockInterface {
     public static BodyLockInterfaceLocking native_new() {
         return new BodyLockInterfaceLocking((byte) 0, (char) 0);
     }
-
-    protected void deleteNative() {
-        internal_native_deleteNative(native_address);
-    }
-
-    /*[-JNI;-NATIVE]
-BodyLockInterfaceLocking* nativeObject = (BodyLockInterfaceLocking*)this_addr;
-delete nativeObject;
-*/
-    public static native void internal_native_deleteNative(long this_addr);
 }

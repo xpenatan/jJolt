@@ -6,9 +6,9 @@
 
 package jolt;
 
-import com.github.xpenatan.jParser.idl.IDLBase;
+import com.github.xpenatan.jParser.api.NativeObject;
 
-public class TireMaxImpulseCallbackResult extends IDLBase {
+public class TireMaxImpulseCallbackResult extends NativeObject {
 
     static public final TireMaxImpulseCallbackResult NULL = TireMaxImpulseCallbackResult.native_new();
 
@@ -26,53 +26,17 @@ public class TireMaxImpulseCallbackResult extends IDLBase {
         return new TireMaxImpulseCallbackResult((byte) 0, (char) 0);
     }
 
-    protected void deleteNative() {
-        internal_native_deleteNative(native_address);
-    }
-
-    /*[-JNI;-NATIVE]
-TireMaxImpulseCallbackResult* nativeObject = (TireMaxImpulseCallbackResult*)this_addr;
-delete nativeObject;
-*/
-    public static native void internal_native_deleteNative(long this_addr);
-
     public float get_mLongitudinalImpulse() {
-        return internal_native_get_mLongitudinalImpulse(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-TireMaxImpulseCallbackResult* nativeObject = (TireMaxImpulseCallbackResult*)this_addr;
-return nativeObject->mLongitudinalImpulse;
-*/
-    public static native float internal_native_get_mLongitudinalImpulse(long this_addr);
 
     public void set_mLongitudinalImpulse(float mLongitudinalImpulse) {
-        internal_native_set_mLongitudinalImpulse(native_address, mLongitudinalImpulse);
     }
-
-    /*[-JNI;-NATIVE]
-TireMaxImpulseCallbackResult* nativeObject = (TireMaxImpulseCallbackResult*)this_addr;
-nativeObject->mLongitudinalImpulse = mLongitudinalImpulse;
-*/
-    public static native void internal_native_set_mLongitudinalImpulse(long this_addr, float mLongitudinalImpulse);
 
     public float get_mLateralImpulse() {
-        return internal_native_get_mLateralImpulse(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-TireMaxImpulseCallbackResult* nativeObject = (TireMaxImpulseCallbackResult*)this_addr;
-return nativeObject->mLateralImpulse;
-*/
-    public static native float internal_native_get_mLateralImpulse(long this_addr);
 
     public void set_mLateralImpulse(float mLateralImpulse) {
-        internal_native_set_mLateralImpulse(native_address, mLateralImpulse);
     }
-
-    /*[-JNI;-NATIVE]
-TireMaxImpulseCallbackResult* nativeObject = (TireMaxImpulseCallbackResult*)this_addr;
-nativeObject->mLateralImpulse = mLateralImpulse;
-*/
-    public static native void internal_native_set_mLateralImpulse(long this_addr, float mLateralImpulse);
 }

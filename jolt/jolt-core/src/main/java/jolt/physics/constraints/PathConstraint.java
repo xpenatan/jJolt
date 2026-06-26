@@ -10,10 +10,6 @@ import jolt.enums.EMotorState;
 
 public class PathConstraint extends TwoBodyConstraint {
 
-    private PathConstraintPath PathConstraintPath_TEMP_GEN_0;
-
-    private MotorSettings MotorSettings_TEMP_GEN_0;
-
     static public final PathConstraint NULL = PathConstraint.native_new();
 
     /**
@@ -32,142 +28,45 @@ public class PathConstraint extends TwoBodyConstraint {
     }
 
     public void SetPath(PathConstraintPath inPath, float inPathFraction) {
-        internal_native_SetPath(native_address, inPath.native_address, inPathFraction);
     }
-
-    /*[-JNI;-NATIVE]
-PathConstraint* nativeObject = (PathConstraint*)this_addr;
-nativeObject->SetPath((PathConstraintPath* )inPath_addr, (float)inPathFraction);
-*/
-    public static native void internal_native_SetPath(long this_addr, long inPath_addr, float inPathFraction);
 
     public PathConstraintPath GetPath() {
-        long addr = internal_native_GetPath_addr(native_address);
-        if (addr == 0)
-            return PathConstraintPath.NULL;
-        if (PathConstraintPath_TEMP_GEN_0 == null)
-            PathConstraintPath_TEMP_GEN_0 = PathConstraintPath.native_new();
-        PathConstraintPath_TEMP_GEN_0.internal_reset(addr, false);
-        return PathConstraintPath_TEMP_GEN_0;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-PathConstraint* nativeObject = (PathConstraint*)this_addr;
-const PathConstraintPath* obj = nativeObject->GetPath();
-return (jlong)obj;
-*/
-    public static native long internal_native_GetPath_addr(long this_addr);
 
     public float GetPathFraction() {
-        return internal_native_GetPathFraction(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-PathConstraint* nativeObject = (PathConstraint*)this_addr;
-return nativeObject->GetPathFraction();
-*/
-    public static native float internal_native_GetPathFraction(long this_addr);
 
     public void SetMaxFrictionForce(float inFrictionForce) {
-        internal_native_SetMaxFrictionForce(native_address, inFrictionForce);
     }
-
-    /*[-JNI;-NATIVE]
-PathConstraint* nativeObject = (PathConstraint*)this_addr;
-nativeObject->SetMaxFrictionForce((float)inFrictionForce);
-*/
-    public static native void internal_native_SetMaxFrictionForce(long this_addr, float inFrictionForce);
 
     public float GetMaxFrictionForce() {
-        return internal_native_GetMaxFrictionForce(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-PathConstraint* nativeObject = (PathConstraint*)this_addr;
-return nativeObject->GetMaxFrictionForce();
-*/
-    public static native float internal_native_GetMaxFrictionForce(long this_addr);
 
     public MotorSettings GetPositionMotorSettings() {
-        long addr = internal_native_GetPositionMotorSettings_addr(native_address);
-        if (addr == 0)
-            return MotorSettings.NULL;
-        if (MotorSettings_TEMP_GEN_0 == null)
-            MotorSettings_TEMP_GEN_0 = MotorSettings.native_new();
-        MotorSettings_TEMP_GEN_0.internal_reset(addr, false);
-        return MotorSettings_TEMP_GEN_0;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-PathConstraint* nativeObject = (PathConstraint*)this_addr;
-return (jlong)&nativeObject->GetPositionMotorSettings();
-*/
-    public static native long internal_native_GetPositionMotorSettings_addr(long this_addr);
 
     public void SetPositionMotorState(EMotorState inState) {
-        internal_native_SetPositionMotorState(native_address, inState.getValue());
     }
-
-    /*[-JNI;-NATIVE]
-PathConstraint* nativeObject = (PathConstraint*)this_addr;
-nativeObject->SetPositionMotorState((::EMotorState)inState);
-*/
-    public static native void internal_native_SetPositionMotorState(long this_addr, int inState);
 
     public EMotorState GetPositionMotorState() {
-        int value = internal_native_GetPositionMotorState(native_address);
-        EMotorState[] values = EMotorState.values();
-        for (int i = 0; i < values.length; i++) {
-            EMotorState enumVal = values[i];
-            if (enumVal != EMotorState.CUSTOM && enumVal.getValue() == value)
-                return enumVal;
-        }
-        return EMotorState.CUSTOM.setValue(value);
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-PathConstraint* nativeObject = (PathConstraint*)this_addr;
-return (int)nativeObject->GetPositionMotorState();
-*/
-    public static native int internal_native_GetPositionMotorState(long this_addr);
 
     public void SetTargetVelocity(float inVelocity) {
-        internal_native_SetTargetVelocity(native_address, inVelocity);
     }
-
-    /*[-JNI;-NATIVE]
-PathConstraint* nativeObject = (PathConstraint*)this_addr;
-nativeObject->SetTargetVelocity((float)inVelocity);
-*/
-    public static native void internal_native_SetTargetVelocity(long this_addr, float inVelocity);
 
     public float GetTargetVelocity() {
-        return internal_native_GetTargetVelocity(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-PathConstraint* nativeObject = (PathConstraint*)this_addr;
-return nativeObject->GetTargetVelocity();
-*/
-    public static native float internal_native_GetTargetVelocity(long this_addr);
 
     public void SetTargetPathFraction(float inFraction) {
-        internal_native_SetTargetPathFraction(native_address, inFraction);
     }
-
-    /*[-JNI;-NATIVE]
-PathConstraint* nativeObject = (PathConstraint*)this_addr;
-nativeObject->SetTargetPathFraction((float)inFraction);
-*/
-    public static native void internal_native_SetTargetPathFraction(long this_addr, float inFraction);
 
     public float GetTargetPathFraction() {
-        return internal_native_GetTargetPathFraction(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-PathConstraint* nativeObject = (PathConstraint*)this_addr;
-return nativeObject->GetTargetPathFraction();
-*/
-    public static native float internal_native_GetTargetPathFraction(long this_addr);
 }

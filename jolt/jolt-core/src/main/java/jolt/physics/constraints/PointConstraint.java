@@ -10,12 +10,6 @@ import jolt.math.Vec3;
 
 public class PointConstraint extends TwoBodyConstraint {
 
-    private Vec3 Vec3_TEMP_GEN_0;
-
-    private Vec3 Vec3_TEMP_GEN_1;
-
-    private Vec3 Vec3_TEMP_GEN_2;
-
     static public final PointConstraint NULL = PointConstraint.native_new();
 
     /**
@@ -34,53 +28,14 @@ public class PointConstraint extends TwoBodyConstraint {
     }
 
     public Vec3 GetLocalSpacePoint1() {
-        long addr = internal_native_GetLocalSpacePoint1_addr(native_address);
-        if (addr == 0)
-            return Vec3.NULL;
-        if (Vec3_TEMP_GEN_0 == null)
-            Vec3_TEMP_GEN_0 = Vec3.native_new();
-        Vec3_TEMP_GEN_0.internal_reset(addr, false);
-        return Vec3_TEMP_GEN_0;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-PointConstraint* nativeObject = (PointConstraint*)this_addr;
-static Vec3 copy_addr;
-copy_addr = nativeObject->GetLocalSpacePoint1();
-return (jlong)&copy_addr;*/
-    public static native long internal_native_GetLocalSpacePoint1_addr(long this_addr);
 
     public Vec3 GetLocalSpacePoint2() {
-        long addr = internal_native_GetLocalSpacePoint2_addr(native_address);
-        if (addr == 0)
-            return Vec3.NULL;
-        if (Vec3_TEMP_GEN_1 == null)
-            Vec3_TEMP_GEN_1 = Vec3.native_new();
-        Vec3_TEMP_GEN_1.internal_reset(addr, false);
-        return Vec3_TEMP_GEN_1;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-PointConstraint* nativeObject = (PointConstraint*)this_addr;
-static Vec3 copy_addr;
-copy_addr = nativeObject->GetLocalSpacePoint2();
-return (jlong)&copy_addr;*/
-    public static native long internal_native_GetLocalSpacePoint2_addr(long this_addr);
 
     public Vec3 GetTotalLambdaPosition() {
-        long addr = internal_native_GetTotalLambdaPosition_addr(native_address);
-        if (addr == 0)
-            return Vec3.NULL;
-        if (Vec3_TEMP_GEN_2 == null)
-            Vec3_TEMP_GEN_2 = Vec3.native_new();
-        Vec3_TEMP_GEN_2.internal_reset(addr, false);
-        return Vec3_TEMP_GEN_2;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-PointConstraint* nativeObject = (PointConstraint*)this_addr;
-static Vec3 copy_addr;
-copy_addr = nativeObject->GetTotalLambdaPosition();
-return (jlong)&copy_addr;*/
-    public static native long internal_native_GetTotalLambdaPosition_addr(long this_addr);
 }

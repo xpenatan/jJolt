@@ -14,25 +14,11 @@ public class CapsuleShapeSettings extends ConvexShapeSettings {
 
     public CapsuleShapeSettings(float inHalfHeight, float inRadius, PhysicsMaterial inMaterial) {
         super((byte) 1, (char) 1);
-        long addr = internal_native_create_float_float_PhysicsMaterial_addr(inHalfHeight, inRadius, inMaterial.native_address);
-        internal_reset(addr, true);
     }
-
-    /*[-JNI;-NATIVE]
-return (jlong)new CapsuleShapeSettings((float)inHalfHeight, (float)inRadius, (PhysicsMaterial* )inMaterial_addr);
-*/
-    public static native long internal_native_create_float_float_PhysicsMaterial_addr(float inHalfHeight, float inRadius, long inMaterial_addr);
 
     public CapsuleShapeSettings(float inHalfHeight, float inRadius) {
         super((byte) 1, (char) 1);
-        long addr = internal_native_create_float_float_addr(inHalfHeight, inRadius);
-        internal_reset(addr, true);
     }
-
-    /*[-JNI;-NATIVE]
-return (jlong)new CapsuleShapeSettings((float)inHalfHeight, (float)inRadius);
-*/
-    public static native long internal_native_create_float_float_addr(float inHalfHeight, float inRadius);
 
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
@@ -49,53 +35,17 @@ return (jlong)new CapsuleShapeSettings((float)inHalfHeight, (float)inRadius);
         return new CapsuleShapeSettings((byte) 0, (char) 0);
     }
 
-    protected void deleteNative() {
-        internal_native_deleteNative(native_address);
-    }
-
-    /*[-JNI;-NATIVE]
-CapsuleShapeSettings* nativeObject = (CapsuleShapeSettings*)this_addr;
-delete nativeObject;
-*/
-    public static native void internal_native_deleteNative(long this_addr);
-
     public float get_mRadius() {
-        return internal_native_get_mRadius(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-CapsuleShapeSettings* nativeObject = (CapsuleShapeSettings*)this_addr;
-return nativeObject->mRadius;
-*/
-    public static native float internal_native_get_mRadius(long this_addr);
 
     public void set_mRadius(float mRadius) {
-        internal_native_set_mRadius(native_address, mRadius);
     }
-
-    /*[-JNI;-NATIVE]
-CapsuleShapeSettings* nativeObject = (CapsuleShapeSettings*)this_addr;
-nativeObject->mRadius = mRadius;
-*/
-    public static native void internal_native_set_mRadius(long this_addr, float mRadius);
 
     public float get_mHalfHeightOfCylinder() {
-        return internal_native_get_mHalfHeightOfCylinder(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-CapsuleShapeSettings* nativeObject = (CapsuleShapeSettings*)this_addr;
-return nativeObject->mHalfHeightOfCylinder;
-*/
-    public static native float internal_native_get_mHalfHeightOfCylinder(long this_addr);
 
     public void set_mHalfHeightOfCylinder(float mHalfHeightOfCylinder) {
-        internal_native_set_mHalfHeightOfCylinder(native_address, mHalfHeightOfCylinder);
     }
-
-    /*[-JNI;-NATIVE]
-CapsuleShapeSettings* nativeObject = (CapsuleShapeSettings*)this_addr;
-nativeObject->mHalfHeightOfCylinder = mHalfHeightOfCylinder;
-*/
-    public static native void internal_native_set_mHalfHeightOfCylinder(long this_addr, float mHalfHeightOfCylinder);
 }

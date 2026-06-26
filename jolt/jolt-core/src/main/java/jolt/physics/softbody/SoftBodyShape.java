@@ -29,22 +29,10 @@ public class SoftBodyShape extends Shape {
     }
 
     public int GetSubShapeIDBits() {
-        return internal_native_GetSubShapeIDBits(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-SoftBodyShape* nativeObject = (SoftBodyShape*)this_addr;
-return nativeObject->GetSubShapeIDBits();
-*/
-    public static native int internal_native_GetSubShapeIDBits(long this_addr);
 
     public int GetFaceIndex(SubShapeID inSubShapeID) {
-        return internal_native_GetFaceIndex(native_address, inSubShapeID.native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-SoftBodyShape* nativeObject = (SoftBodyShape*)this_addr;
-return nativeObject->GetFaceIndex(*((SubShapeID* )inSubShapeID_addr));
-*/
-    public static native int internal_native_GetFaceIndex(long this_addr, long inSubShapeID_addr);
 }

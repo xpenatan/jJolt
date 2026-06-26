@@ -6,21 +6,14 @@
 
 package jolt.physics.softbody;
 
-import com.github.xpenatan.jParser.idl.IDLBase;
+import com.github.xpenatan.jParser.api.NativeObject;
 
-public class SoftBodySharedSettingsFace extends IDLBase {
+public class SoftBodySharedSettingsFace extends NativeObject {
 
     static public final SoftBodySharedSettingsFace NULL = SoftBodySharedSettingsFace.native_new();
 
     public SoftBodySharedSettingsFace(int inVertex1, int inVertex2, int inVertex3, int inMaterialIndex) {
-        long addr = internal_native_create_int_int_int_int_addr(inVertex1, inVertex2, inVertex3, inMaterialIndex);
-        internal_reset(addr, true);
     }
-
-    /*[-JNI;-NATIVE]
-return (jlong)new SoftBodySharedSettingsFace(inVertex1, inVertex2, inVertex3, inMaterialIndex);
-*/
-    public static native long internal_native_create_int_int_int_int_addr(int inVertex1, int inVertex2, int inVertex3, int inMaterialIndex);
 
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
@@ -36,53 +29,17 @@ return (jlong)new SoftBodySharedSettingsFace(inVertex1, inVertex2, inVertex3, in
         return new SoftBodySharedSettingsFace((byte) 0, (char) 0);
     }
 
-    protected void deleteNative() {
-        internal_native_deleteNative(native_address);
-    }
-
-    /*[-JNI;-NATIVE]
-SoftBodySharedSettingsFace* nativeObject = (SoftBodySharedSettingsFace*)this_addr;
-delete nativeObject;
-*/
-    public static native void internal_native_deleteNative(long this_addr);
-
     public int get_mVertex(int index) {
-        return internal_native_get_mVertex(native_address, index);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-SoftBodySharedSettingsFace* nativeObject = (SoftBodySharedSettingsFace*)this_addr;
-return nativeObject->mVertex[index];
-*/
-    public static native int internal_native_get_mVertex(long this_addr, int index);
 
     public void set_mVertex(int index, int mVertex) {
-        internal_native_set_mVertex(native_address, index, mVertex);
     }
-
-    /*[-JNI;-NATIVE]
-SoftBodySharedSettingsFace* nativeObject = (SoftBodySharedSettingsFace*)this_addr;
-nativeObject->mVertex[index] = mVertex;
-*/
-    public static native void internal_native_set_mVertex(long this_addr, int index, int mVertex);
 
     public int get_mMaterialIndex() {
-        return internal_native_get_mMaterialIndex(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-SoftBodySharedSettingsFace* nativeObject = (SoftBodySharedSettingsFace*)this_addr;
-return nativeObject->mMaterialIndex;
-*/
-    public static native int internal_native_get_mMaterialIndex(long this_addr);
 
     public void set_mMaterialIndex(int mMaterialIndex) {
-        internal_native_set_mMaterialIndex(native_address, mMaterialIndex);
     }
-
-    /*[-JNI;-NATIVE]
-SoftBodySharedSettingsFace* nativeObject = (SoftBodySharedSettingsFace*)this_addr;
-nativeObject->mMaterialIndex = mMaterialIndex;
-*/
-    public static native void internal_native_set_mMaterialIndex(long this_addr, int mMaterialIndex);
 }

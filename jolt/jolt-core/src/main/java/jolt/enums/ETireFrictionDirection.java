@@ -6,9 +6,9 @@
 
 package jolt.enums;
 
-import com.github.xpenatan.jParser.idl.IDLEnum;
+import com.github.xpenatan.jParser.api.NativeEnum;
 
-public enum ETireFrictionDirection implements IDLEnum<ETireFrictionDirection> {
+public enum ETireFrictionDirection implements NativeEnum<ETireFrictionDirection> {
 
     CUSTOM(0), Longitudinal(ETireFrictionDirection_Longitudinal_NATIVE()), Lateral(ETireFrictionDirection_Lateral_NATIVE());
 
@@ -34,13 +34,7 @@ public enum ETireFrictionDirection implements IDLEnum<ETireFrictionDirection> {
         return CUSTOM;
     }
 
-    /*[-JNI;-NATIVE]
-return (jlong)ETireFrictionDirection_Longitudinal;
-*/
     private static native int ETireFrictionDirection_Longitudinal_NATIVE();
 
-    /*[-JNI;-NATIVE]
-return (jlong)ETireFrictionDirection_Lateral;
-*/
     private static native int ETireFrictionDirection_Lateral_NATIVE();
 }

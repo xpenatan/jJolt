@@ -6,97 +6,17 @@
 
 package jolt.math;
 
-import com.github.xpenatan.jParser.idl.IDLBase;
+import com.github.xpenatan.jParser.api.NativeObject;
 
-public class Vec3 extends IDLBase {
-
-    static private Vec3 Vec3_TEMP_STATIC_GEN_0;
-
-    static private Vec3 Vec3_TEMP_STATIC_GEN_1;
-
-    static private Vec3 Vec3_TEMP_STATIC_GEN_2;
-
-    static private Vec3 Vec3_TEMP_STATIC_GEN_3;
-
-    static private Vec3 Vec3_TEMP_STATIC_GEN_4;
-
-    static private Vec3 Vec3_TEMP_STATIC_GEN_5;
-
-    static private Vec3 Vec3_TEMP_STATIC_GEN_6;
-
-    static private Vec3 Vec3_TEMP_STATIC_GEN_7;
-
-    static private Vec3 Vec3_TEMP_STATIC_GEN_8;
-
-    static private Vec3 Vec3_TEMP_STATIC_GEN_9;
-
-    static private Vec3 Vec3_TEMP_STATIC_GEN_10;
-
-    static private Vec3 Vec3_TEMP_STATIC_GEN_11;
-
-    static private Vec3 Vec3_TEMP_STATIC_GEN_12;
-
-    static private Vec3 Vec3_TEMP_STATIC_GEN_13;
-
-    private Vec3 Vec3_TEMP_GEN_0;
-
-    private Vec3 Vec3_TEMP_GEN_1;
-
-    private Vec3 Vec3_TEMP_GEN_2;
-
-    private Vec3 Vec3_TEMP_GEN_3;
-
-    private Vec3 Vec3_TEMP_GEN_4;
-
-    private Vec3 Vec3_TEMP_GEN_5;
-
-    private Vec3 Vec3_TEMP_GEN_6;
-
-    private Vec4 Vec4_TEMP_GEN_0;
-
-    private Vec3 Vec3_TEMP_GEN_7;
-
-    private Vec3 Vec3_TEMP_GEN_8;
-
-    private Vec3 Vec3_TEMP_GEN_9;
-
-    private Vec3 Vec3_TEMP_GEN_10;
-
-    private Vec3 Vec3_TEMP_GEN_11;
-
-    private Vec3 Vec3_TEMP_GEN_12;
-
-    private Vec4 Vec4_TEMP_GEN_1;
-
-    private Vec4 Vec4_TEMP_GEN_2;
-
-    private Vec4 Vec4_TEMP_GEN_3;
-
-    private Vec3 Vec3_TEMP_GEN_13;
-
-    private Vec3 Vec3_TEMP_GEN_14;
+public class Vec3 extends NativeObject {
 
     static public final Vec3 NULL = Vec3.native_new();
 
     public Vec3() {
-        long addr = internal_native_create_addr();
-        internal_reset(addr, true);
     }
-
-    /*[-JNI;-NATIVE]
-return (jlong)new Vec3();
-*/
-    public static native long internal_native_create_addr();
 
     public Vec3(float inX, float inY, float inZ) {
-        long addr = internal_native_create_float_float_float_addr(inX, inY, inZ);
-        internal_reset(addr, true);
     }
-
-    /*[-JNI;-NATIVE]
-return (jlong)new Vec3((float)inX, (float)inY, (float)inZ);
-*/
-    public static native long internal_native_create_float_float_float_addr(float inX, float inY, float inZ);
 
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
@@ -112,852 +32,246 @@ return (jlong)new Vec3((float)inX, (float)inY, (float)inZ);
         return new Vec3((byte) 0, (char) 0);
     }
 
-    protected void deleteNative() {
-        internal_native_deleteNative(native_address);
-    }
-
-    /*[-JNI;-NATIVE]
-Vec3* nativeObject = (Vec3*)this_addr;
-delete nativeObject;
-*/
-    public static native void internal_native_deleteNative(long this_addr);
-
     public static Vec3 sZero() {
-        long addr = internal_native_sZero_addr();
-        if (addr == 0)
-            return Vec3.NULL;
-        if (Vec3_TEMP_STATIC_GEN_0 == null)
-            Vec3_TEMP_STATIC_GEN_0 = Vec3.native_new();
-        Vec3_TEMP_STATIC_GEN_0.internal_reset(addr, false);
-        return Vec3_TEMP_STATIC_GEN_0;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-static Vec3 copy_addr;
-copy_addr = Vec3::sZero();
-return (jlong)&copy_addr;*/
-    public static native long internal_native_sZero_addr();
 
     public static Vec3 sOne() {
-        long addr = internal_native_sOne_addr();
-        if (addr == 0)
-            return Vec3.NULL;
-        if (Vec3_TEMP_STATIC_GEN_1 == null)
-            Vec3_TEMP_STATIC_GEN_1 = Vec3.native_new();
-        Vec3_TEMP_STATIC_GEN_1.internal_reset(addr, false);
-        return Vec3_TEMP_STATIC_GEN_1;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-static Vec3 copy_addr;
-copy_addr = Vec3::sOne();
-return (jlong)&copy_addr;*/
-    public static native long internal_native_sOne_addr();
 
     public static Vec3 sAxisX() {
-        long addr = internal_native_sAxisX_addr();
-        if (addr == 0)
-            return Vec3.NULL;
-        if (Vec3_TEMP_STATIC_GEN_2 == null)
-            Vec3_TEMP_STATIC_GEN_2 = Vec3.native_new();
-        Vec3_TEMP_STATIC_GEN_2.internal_reset(addr, false);
-        return Vec3_TEMP_STATIC_GEN_2;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-static Vec3 copy_addr;
-copy_addr = Vec3::sAxisX();
-return (jlong)&copy_addr;*/
-    public static native long internal_native_sAxisX_addr();
 
     public static Vec3 sAxisY() {
-        long addr = internal_native_sAxisY_addr();
-        if (addr == 0)
-            return Vec3.NULL;
-        if (Vec3_TEMP_STATIC_GEN_3 == null)
-            Vec3_TEMP_STATIC_GEN_3 = Vec3.native_new();
-        Vec3_TEMP_STATIC_GEN_3.internal_reset(addr, false);
-        return Vec3_TEMP_STATIC_GEN_3;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-static Vec3 copy_addr;
-copy_addr = Vec3::sAxisY();
-return (jlong)&copy_addr;*/
-    public static native long internal_native_sAxisY_addr();
 
     public static Vec3 sAxisZ() {
-        long addr = internal_native_sAxisZ_addr();
-        if (addr == 0)
-            return Vec3.NULL;
-        if (Vec3_TEMP_STATIC_GEN_4 == null)
-            Vec3_TEMP_STATIC_GEN_4 = Vec3.native_new();
-        Vec3_TEMP_STATIC_GEN_4.internal_reset(addr, false);
-        return Vec3_TEMP_STATIC_GEN_4;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-static Vec3 copy_addr;
-copy_addr = Vec3::sAxisZ();
-return (jlong)&copy_addr;*/
-    public static native long internal_native_sAxisZ_addr();
 
     public static Vec3 sReplicate(float inValue) {
-        long addr = internal_native_sReplicate_addr(inValue);
-        if (addr == 0)
-            return Vec3.NULL;
-        if (Vec3_TEMP_STATIC_GEN_5 == null)
-            Vec3_TEMP_STATIC_GEN_5 = Vec3.native_new();
-        Vec3_TEMP_STATIC_GEN_5.internal_reset(addr, false);
-        return Vec3_TEMP_STATIC_GEN_5;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-static Vec3 copy_addr;
-copy_addr = Vec3::sReplicate((float)inValue);
-return (jlong)&copy_addr;*/
-    public static native long internal_native_sReplicate_addr(float inValue);
 
     public static Vec3 sMin(Vec3 inLHS, Vec3 inRHS) {
-        long addr = internal_native_sMin_addr(inLHS.native_address, inRHS.native_address);
-        if (addr == 0)
-            return Vec3.NULL;
-        if (Vec3_TEMP_STATIC_GEN_6 == null)
-            Vec3_TEMP_STATIC_GEN_6 = Vec3.native_new();
-        Vec3_TEMP_STATIC_GEN_6.internal_reset(addr, false);
-        return Vec3_TEMP_STATIC_GEN_6;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-static Vec3 copy_addr;
-copy_addr = Vec3::sMin(*((Vec3* )inLHS_addr), *((Vec3* )inRHS_addr));
-return (jlong)&copy_addr;*/
-    public static native long internal_native_sMin_addr(long inLHS_addr, long inRHS_addr);
 
     public static Vec3 sMax(Vec3 inLHS, Vec3 inRHS) {
-        long addr = internal_native_sMax_addr(inLHS.native_address, inRHS.native_address);
-        if (addr == 0)
-            return Vec3.NULL;
-        if (Vec3_TEMP_STATIC_GEN_7 == null)
-            Vec3_TEMP_STATIC_GEN_7 = Vec3.native_new();
-        Vec3_TEMP_STATIC_GEN_7.internal_reset(addr, false);
-        return Vec3_TEMP_STATIC_GEN_7;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-static Vec3 copy_addr;
-copy_addr = Vec3::sMax(*((Vec3* )inLHS_addr), *((Vec3* )inRHS_addr));
-return (jlong)&copy_addr;*/
-    public static native long internal_native_sMax_addr(long inLHS_addr, long inRHS_addr);
 
     public static Vec3 sClamp(Vec3 inValue, Vec3 inMin, Vec3 inMax) {
-        long addr = internal_native_sClamp_addr(inValue.native_address, inMin.native_address, inMax.native_address);
-        if (addr == 0)
-            return Vec3.NULL;
-        if (Vec3_TEMP_STATIC_GEN_8 == null)
-            Vec3_TEMP_STATIC_GEN_8 = Vec3.native_new();
-        Vec3_TEMP_STATIC_GEN_8.internal_reset(addr, false);
-        return Vec3_TEMP_STATIC_GEN_8;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-static Vec3 copy_addr;
-copy_addr = Vec3::sClamp(*((Vec3* )inValue_addr), *((Vec3* )inMin_addr), *((Vec3* )inMax_addr));
-return (jlong)&copy_addr;*/
-    public static native long internal_native_sClamp_addr(long inValue_addr, long inMin_addr, long inMax_addr);
 
     public static Vec3 sFusedMultiplyAdd(Vec3 inMul1, Vec3 inMul2, Vec3 inAdd) {
-        long addr = internal_native_sFusedMultiplyAdd_addr(inMul1.native_address, inMul2.native_address, inAdd.native_address);
-        if (addr == 0)
-            return Vec3.NULL;
-        if (Vec3_TEMP_STATIC_GEN_9 == null)
-            Vec3_TEMP_STATIC_GEN_9 = Vec3.native_new();
-        Vec3_TEMP_STATIC_GEN_9.internal_reset(addr, false);
-        return Vec3_TEMP_STATIC_GEN_9;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-static Vec3 copy_addr;
-copy_addr = Vec3::sFusedMultiplyAdd(*((Vec3* )inMul1_addr), *((Vec3* )inMul2_addr), *((Vec3* )inAdd_addr));
-return (jlong)&copy_addr;*/
-    public static native long internal_native_sFusedMultiplyAdd_addr(long inMul1_addr, long inMul2_addr, long inAdd_addr);
 
     public static Vec3 sOr(Vec3 inV1, Vec3 inV2) {
-        long addr = internal_native_sOr_addr(inV1.native_address, inV2.native_address);
-        if (addr == 0)
-            return Vec3.NULL;
-        if (Vec3_TEMP_STATIC_GEN_10 == null)
-            Vec3_TEMP_STATIC_GEN_10 = Vec3.native_new();
-        Vec3_TEMP_STATIC_GEN_10.internal_reset(addr, false);
-        return Vec3_TEMP_STATIC_GEN_10;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-static Vec3 copy_addr;
-copy_addr = Vec3::sOr(*((Vec3* )inV1_addr), *((Vec3* )inV2_addr));
-return (jlong)&copy_addr;*/
-    public static native long internal_native_sOr_addr(long inV1_addr, long inV2_addr);
 
     public static Vec3 sXor(Vec3 inV1, Vec3 inV2) {
-        long addr = internal_native_sXor_addr(inV1.native_address, inV2.native_address);
-        if (addr == 0)
-            return Vec3.NULL;
-        if (Vec3_TEMP_STATIC_GEN_11 == null)
-            Vec3_TEMP_STATIC_GEN_11 = Vec3.native_new();
-        Vec3_TEMP_STATIC_GEN_11.internal_reset(addr, false);
-        return Vec3_TEMP_STATIC_GEN_11;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-static Vec3 copy_addr;
-copy_addr = Vec3::sXor(*((Vec3* )inV1_addr), *((Vec3* )inV2_addr));
-return (jlong)&copy_addr;*/
-    public static native long internal_native_sXor_addr(long inV1_addr, long inV2_addr);
 
     public static Vec3 sAnd(Vec3 inV1, Vec3 inV2) {
-        long addr = internal_native_sAnd_addr(inV1.native_address, inV2.native_address);
-        if (addr == 0)
-            return Vec3.NULL;
-        if (Vec3_TEMP_STATIC_GEN_12 == null)
-            Vec3_TEMP_STATIC_GEN_12 = Vec3.native_new();
-        Vec3_TEMP_STATIC_GEN_12.internal_reset(addr, false);
-        return Vec3_TEMP_STATIC_GEN_12;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-static Vec3 copy_addr;
-copy_addr = Vec3::sAnd(*((Vec3* )inV1_addr), *((Vec3* )inV2_addr));
-return (jlong)&copy_addr;*/
-    public static native long internal_native_sAnd_addr(long inV1_addr, long inV2_addr);
 
     public static Vec3 sUnitSpherical(float inTheta, float inPhi) {
-        long addr = internal_native_sUnitSpherical_addr(inTheta, inPhi);
-        if (addr == 0)
-            return Vec3.NULL;
-        if (Vec3_TEMP_STATIC_GEN_13 == null)
-            Vec3_TEMP_STATIC_GEN_13 = Vec3.native_new();
-        Vec3_TEMP_STATIC_GEN_13.internal_reset(addr, false);
-        return Vec3_TEMP_STATIC_GEN_13;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-static Vec3 copy_addr;
-copy_addr = Vec3::sUnitSpherical((float)inTheta, (float)inPhi);
-return (jlong)&copy_addr;*/
-    public static native long internal_native_sUnitSpherical_addr(float inTheta, float inPhi);
 
     public float GetComponent(int inCoordinate) {
-        return internal_native_GetComponent(native_address, inCoordinate);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-Vec3* nativeObject = (Vec3*)this_addr;
-return ((*nativeObject)[inCoordinate]);*/
-    public static native float internal_native_GetComponent(long this_addr, int inCoordinate);
 
     public boolean Equals(Vec3 inV) {
-        return internal_native_Equals(native_address, inV.native_address);
+        return false;
     }
-
-    /*[-JNI;-NATIVE]
-Vec3* nativeObject = (Vec3*)this_addr;
-return ((*nativeObject == *((Vec3* )inV_addr)));*/
-    public static native boolean internal_native_Equals(long this_addr, long inV_addr);
 
     public boolean NotEquals(Vec3 inV) {
-        return internal_native_NotEquals(native_address, inV.native_address);
+        return false;
     }
-
-    /*[-JNI;-NATIVE]
-Vec3* nativeObject = (Vec3*)this_addr;
-return ((*nativeObject != *((Vec3* )inV_addr)));*/
-    public static native boolean internal_native_NotEquals(long this_addr, long inV_addr);
 
     public float LengthSq() {
-        return internal_native_LengthSq(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-Vec3* nativeObject = (Vec3*)this_addr;
-return nativeObject->LengthSq();
-*/
-    public static native float internal_native_LengthSq(long this_addr);
 
     public float Length() {
-        return internal_native_Length(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-Vec3* nativeObject = (Vec3*)this_addr;
-return nativeObject->Length();
-*/
-    public static native float internal_native_Length(long this_addr);
 
     public Vec3 Normalized() {
-        long addr = internal_native_Normalized_addr(native_address);
-        if (addr == 0)
-            return Vec3.NULL;
-        if (Vec3_TEMP_GEN_0 == null)
-            Vec3_TEMP_GEN_0 = Vec3.native_new();
-        Vec3_TEMP_GEN_0.internal_reset(addr, false);
-        return Vec3_TEMP_GEN_0;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-Vec3* nativeObject = (Vec3*)this_addr;
-static Vec3 copy_addr;
-copy_addr = nativeObject->Normalized();
-return (jlong)&copy_addr;*/
-    public static native long internal_native_Normalized_addr(long this_addr);
 
     public Vec3 NormalizedOr(Vec3 inZeroValue) {
-        long addr = internal_native_NormalizedOr_addr(native_address, inZeroValue.native_address);
-        if (addr == 0)
-            return Vec3.NULL;
-        if (Vec3_TEMP_GEN_1 == null)
-            Vec3_TEMP_GEN_1 = Vec3.native_new();
-        Vec3_TEMP_GEN_1.internal_reset(addr, false);
-        return Vec3_TEMP_GEN_1;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-Vec3* nativeObject = (Vec3*)this_addr;
-static Vec3 copy_addr;
-copy_addr = nativeObject->NormalizedOr(*((Vec3* )inZeroValue_addr));
-return (jlong)&copy_addr;*/
-    public static native long internal_native_NormalizedOr_addr(long this_addr, long inZeroValue_addr);
 
     public Vec3 GetNormalizedPerpendicular() {
-        long addr = internal_native_GetNormalizedPerpendicular_addr(native_address);
-        if (addr == 0)
-            return Vec3.NULL;
-        if (Vec3_TEMP_GEN_2 == null)
-            Vec3_TEMP_GEN_2 = Vec3.native_new();
-        Vec3_TEMP_GEN_2.internal_reset(addr, false);
-        return Vec3_TEMP_GEN_2;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-Vec3* nativeObject = (Vec3*)this_addr;
-static Vec3 copy_addr;
-copy_addr = nativeObject->GetNormalizedPerpendicular();
-return (jlong)&copy_addr;*/
-    public static native long internal_native_GetNormalizedPerpendicular_addr(long this_addr);
 
     public float GetX() {
-        return internal_native_GetX(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-Vec3* nativeObject = (Vec3*)this_addr;
-return nativeObject->GetX();
-*/
-    public static native float internal_native_GetX(long this_addr);
 
     public float GetY() {
-        return internal_native_GetY(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-Vec3* nativeObject = (Vec3*)this_addr;
-return nativeObject->GetY();
-*/
-    public static native float internal_native_GetY(long this_addr);
 
     public float GetZ() {
-        return internal_native_GetZ(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-Vec3* nativeObject = (Vec3*)this_addr;
-return nativeObject->GetZ();
-*/
-    public static native float internal_native_GetZ(long this_addr);
 
     public void SetX(float inX) {
-        internal_native_SetX(native_address, inX);
     }
-
-    /*[-JNI;-NATIVE]
-Vec3* nativeObject = (Vec3*)this_addr;
-nativeObject->SetX((float)inX);
-*/
-    public static native void internal_native_SetX(long this_addr, float inX);
 
     public void SetY(float inY) {
-        internal_native_SetY(native_address, inY);
     }
-
-    /*[-JNI;-NATIVE]
-Vec3* nativeObject = (Vec3*)this_addr;
-nativeObject->SetY((float)inY);
-*/
-    public static native void internal_native_SetY(long this_addr, float inY);
 
     public void SetZ(float inZ) {
-        internal_native_SetZ(native_address, inZ);
     }
-
-    /*[-JNI;-NATIVE]
-Vec3* nativeObject = (Vec3*)this_addr;
-nativeObject->SetZ((float)inZ);
-*/
-    public static native void internal_native_SetZ(long this_addr, float inZ);
 
     public void Set(float inX, float inY, float inZ) {
-        internal_native_Set(native_address, inX, inY, inZ);
     }
-
-    /*[-JNI;-NATIVE]
-Vec3* nativeObject = (Vec3*)this_addr;
-nativeObject->Set((float)inX, (float)inY, (float)inZ);
-*/
-    public static native void internal_native_Set(long this_addr, float inX, float inY, float inZ);
 
     public void SetComponent(int inCoordinate, float inValue) {
-        internal_native_SetComponent(native_address, inCoordinate, inValue);
     }
-
-    /*[-JNI;-NATIVE]
-Vec3* nativeObject = (Vec3*)this_addr;
-nativeObject->SetComponent(inCoordinate, (float)inValue);
-*/
-    public static native void internal_native_SetComponent(long this_addr, int inCoordinate, float inValue);
 
     public boolean IsNearZero(float inMaxDistSq) {
-        return internal_native_IsNearZero(native_address, inMaxDistSq);
+        return false;
     }
-
-    /*[-JNI;-NATIVE]
-Vec3* nativeObject = (Vec3*)this_addr;
-return nativeObject->IsNearZero((float)inMaxDistSq);
-*/
-    public static native boolean internal_native_IsNearZero(long this_addr, float inMaxDistSq);
 
     public boolean IsNearZero() {
-        return internal_native_IsNearZero(native_address);
+        return false;
     }
-
-    /*[-JNI;-NATIVE]
-Vec3* nativeObject = (Vec3*)this_addr;
-return nativeObject->IsNearZero();
-*/
-    public static native boolean internal_native_IsNearZero(long this_addr);
 
     public boolean IsClose(Vec3 inV, float inMaxDistSq) {
-        return internal_native_IsClose(native_address, inV.native_address, inMaxDistSq);
+        return false;
     }
-
-    /*[-JNI;-NATIVE]
-Vec3* nativeObject = (Vec3*)this_addr;
-return nativeObject->IsClose(*((Vec3* )inV_addr), (float)inMaxDistSq);
-*/
-    public static native boolean internal_native_IsClose(long this_addr, long inV_addr, float inMaxDistSq);
 
     public boolean IsClose(Vec3 inV) {
-        return internal_native_IsClose(native_address, inV.native_address);
+        return false;
     }
-
-    /*[-JNI;-NATIVE]
-Vec3* nativeObject = (Vec3*)this_addr;
-return nativeObject->IsClose(*((Vec3* )inV_addr));
-*/
-    public static native boolean internal_native_IsClose(long this_addr, long inV_addr);
 
     public boolean IsNormalized(float inTolerance) {
-        return internal_native_IsNormalized(native_address, inTolerance);
+        return false;
     }
-
-    /*[-JNI;-NATIVE]
-Vec3* nativeObject = (Vec3*)this_addr;
-return nativeObject->IsNormalized((float)inTolerance);
-*/
-    public static native boolean internal_native_IsNormalized(long this_addr, float inTolerance);
 
     public boolean IsNormalized() {
-        return internal_native_IsNormalized(native_address);
+        return false;
     }
-
-    /*[-JNI;-NATIVE]
-Vec3* nativeObject = (Vec3*)this_addr;
-return nativeObject->IsNormalized();
-*/
-    public static native boolean internal_native_IsNormalized(long this_addr);
 
     public int GetLowestComponentIndex() {
-        return internal_native_GetLowestComponentIndex(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-Vec3* nativeObject = (Vec3*)this_addr;
-return nativeObject->GetLowestComponentIndex();
-*/
-    public static native int internal_native_GetLowestComponentIndex(long this_addr);
 
     public int GetHighestComponentIndex() {
-        return internal_native_GetHighestComponentIndex(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-Vec3* nativeObject = (Vec3*)this_addr;
-return nativeObject->GetHighestComponentIndex();
-*/
-    public static native int internal_native_GetHighestComponentIndex(long this_addr);
 
     public Vec3 Abs() {
-        long addr = internal_native_Abs_addr(native_address);
-        if (addr == 0)
-            return Vec3.NULL;
-        if (Vec3_TEMP_GEN_3 == null)
-            Vec3_TEMP_GEN_3 = Vec3.native_new();
-        Vec3_TEMP_GEN_3.internal_reset(addr, false);
-        return Vec3_TEMP_GEN_3;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-Vec3* nativeObject = (Vec3*)this_addr;
-static Vec3 copy_addr;
-copy_addr = nativeObject->Abs();
-return (jlong)&copy_addr;*/
-    public static native long internal_native_Abs_addr(long this_addr);
 
     public Vec3 Reciprocal() {
-        long addr = internal_native_Reciprocal_addr(native_address);
-        if (addr == 0)
-            return Vec3.NULL;
-        if (Vec3_TEMP_GEN_4 == null)
-            Vec3_TEMP_GEN_4 = Vec3.native_new();
-        Vec3_TEMP_GEN_4.internal_reset(addr, false);
-        return Vec3_TEMP_GEN_4;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-Vec3* nativeObject = (Vec3*)this_addr;
-static Vec3 copy_addr;
-copy_addr = nativeObject->Reciprocal();
-return (jlong)&copy_addr;*/
-    public static native long internal_native_Reciprocal_addr(long this_addr);
 
     public Vec3 Cross(Vec3 inRHS) {
-        long addr = internal_native_Cross_addr(native_address, inRHS.native_address);
-        if (addr == 0)
-            return Vec3.NULL;
-        if (Vec3_TEMP_GEN_5 == null)
-            Vec3_TEMP_GEN_5 = Vec3.native_new();
-        Vec3_TEMP_GEN_5.internal_reset(addr, false);
-        return Vec3_TEMP_GEN_5;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-Vec3* nativeObject = (Vec3*)this_addr;
-static Vec3 copy_addr;
-copy_addr = nativeObject->Cross(*((Vec3* )inRHS_addr));
-return (jlong)&copy_addr;*/
-    public static native long internal_native_Cross_addr(long this_addr, long inRHS_addr);
 
     public float Dot(Vec3 inRHS) {
-        return internal_native_Dot(native_address, inRHS.native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-Vec3* nativeObject = (Vec3*)this_addr;
-return nativeObject->Dot(*((Vec3* )inRHS_addr));
-*/
-    public static native float internal_native_Dot(long this_addr, long inRHS_addr);
 
     public Vec3 DotV(Vec3 inRHS) {
-        long addr = internal_native_DotV_addr(native_address, inRHS.native_address);
-        if (addr == 0)
-            return Vec3.NULL;
-        if (Vec3_TEMP_GEN_6 == null)
-            Vec3_TEMP_GEN_6 = Vec3.native_new();
-        Vec3_TEMP_GEN_6.internal_reset(addr, false);
-        return Vec3_TEMP_GEN_6;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-Vec3* nativeObject = (Vec3*)this_addr;
-static Vec3 copy_addr;
-copy_addr = nativeObject->DotV(*((Vec3* )inRHS_addr));
-return (jlong)&copy_addr;*/
-    public static native long internal_native_DotV_addr(long this_addr, long inRHS_addr);
 
     public Vec4 DotV4(Vec3 inRHS) {
-        long addr = internal_native_DotV4_addr(native_address, inRHS.native_address);
-        if (addr == 0)
-            return Vec4.NULL;
-        if (Vec4_TEMP_GEN_0 == null)
-            Vec4_TEMP_GEN_0 = Vec4.native_new();
-        Vec4_TEMP_GEN_0.internal_reset(addr, false);
-        return Vec4_TEMP_GEN_0;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-Vec3* nativeObject = (Vec3*)this_addr;
-static Vec4 copy_addr;
-copy_addr = nativeObject->DotV4(*((Vec3* )inRHS_addr));
-return (jlong)&copy_addr;*/
-    public static native long internal_native_DotV4_addr(long this_addr, long inRHS_addr);
 
     public Vec3 Set(Vec3 other) {
-        internal_native_Set__0_addr(native_address, other.native_address);
-        return this;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-Vec3* nativeObject = (Vec3*)this_addr;
-return (jlong)&(*nativeObject = *((Vec3* )other_addr));
-*/
-    public static native long internal_native_Set__0_addr(long this_addr, long other_addr);
 
     public Vec3 Add(Vec3 inV) {
-        internal_native_Add_addr(native_address, inV.native_address);
-        return this;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-Vec3* nativeObject = (Vec3*)this_addr;
-return (jlong)&(*nativeObject += *((Vec3* )inV_addr));
-*/
-    public static native long internal_native_Add_addr(long this_addr, long inV_addr);
 
     public Vec3 Sub(Vec3 inV) {
-        internal_native_Sub_addr(native_address, inV.native_address);
-        return this;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-Vec3* nativeObject = (Vec3*)this_addr;
-return (jlong)&(*nativeObject -= *((Vec3* )inV_addr));
-*/
-    public static native long internal_native_Sub_addr(long this_addr, long inV_addr);
 
     public Vec3 Mul(float inV) {
-        internal_native_Mul_addr(native_address, inV);
-        return this;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-Vec3* nativeObject = (Vec3*)this_addr;
-return (jlong)&(*nativeObject *= (float)inV);
-*/
-    public static native long internal_native_Mul_addr(long this_addr, float inV);
 
     public Vec3 Div(float inV) {
-        internal_native_Div_addr(native_address, inV);
-        return this;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-Vec3* nativeObject = (Vec3*)this_addr;
-return (jlong)&(*nativeObject /= (float)inV);
-*/
-    public static native long internal_native_Div_addr(long this_addr, float inV);
 
     public Vec3 MulVec3(Vec3 inV) {
-        long addr = internal_native_MulVec3_addr(native_address, inV.native_address);
-        if (addr == 0)
-            return Vec3.NULL;
-        if (Vec3_TEMP_GEN_7 == null)
-            Vec3_TEMP_GEN_7 = Vec3.native_new();
-        Vec3_TEMP_GEN_7.internal_reset(addr, false);
-        return Vec3_TEMP_GEN_7;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-Vec3* nativeObject = (Vec3*)this_addr;
-static Vec3 copy_addr;
-copy_addr = (*nativeObject * *((Vec3* )inV_addr));
-return (jlong)&copy_addr;*/
-    public static native long internal_native_MulVec3_addr(long this_addr, long inV_addr);
 
     public Vec3 MulFloat(float inV) {
-        long addr = internal_native_MulFloat_addr(native_address, inV);
-        if (addr == 0)
-            return Vec3.NULL;
-        if (Vec3_TEMP_GEN_8 == null)
-            Vec3_TEMP_GEN_8 = Vec3.native_new();
-        Vec3_TEMP_GEN_8.internal_reset(addr, false);
-        return Vec3_TEMP_GEN_8;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-Vec3* nativeObject = (Vec3*)this_addr;
-static Vec3 copy_addr;
-copy_addr = (*nativeObject * (float)inV);
-return (jlong)&copy_addr;*/
-    public static native long internal_native_MulFloat_addr(long this_addr, float inV);
 
     public Vec3 DivVec3(Vec3 inV) {
-        long addr = internal_native_DivVec3_addr(native_address, inV.native_address);
-        if (addr == 0)
-            return Vec3.NULL;
-        if (Vec3_TEMP_GEN_9 == null)
-            Vec3_TEMP_GEN_9 = Vec3.native_new();
-        Vec3_TEMP_GEN_9.internal_reset(addr, false);
-        return Vec3_TEMP_GEN_9;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-Vec3* nativeObject = (Vec3*)this_addr;
-static Vec3 copy_addr;
-copy_addr = (*nativeObject / *((Vec3* )inV_addr));
-return (jlong)&copy_addr;*/
-    public static native long internal_native_DivVec3_addr(long this_addr, long inV_addr);
 
     public Vec3 DivFloat(float inV) {
-        long addr = internal_native_DivFloat_addr(native_address, inV);
-        if (addr == 0)
-            return Vec3.NULL;
-        if (Vec3_TEMP_GEN_10 == null)
-            Vec3_TEMP_GEN_10 = Vec3.native_new();
-        Vec3_TEMP_GEN_10.internal_reset(addr, false);
-        return Vec3_TEMP_GEN_10;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-Vec3* nativeObject = (Vec3*)this_addr;
-static Vec3 copy_addr;
-copy_addr = (*nativeObject / (float)inV);
-return (jlong)&copy_addr;*/
-    public static native long internal_native_DivFloat_addr(long this_addr, float inV);
 
     public Vec3 AddVec3(Vec3 inV) {
-        long addr = internal_native_AddVec3_addr(native_address, inV.native_address);
-        if (addr == 0)
-            return Vec3.NULL;
-        if (Vec3_TEMP_GEN_11 == null)
-            Vec3_TEMP_GEN_11 = Vec3.native_new();
-        Vec3_TEMP_GEN_11.internal_reset(addr, false);
-        return Vec3_TEMP_GEN_11;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-Vec3* nativeObject = (Vec3*)this_addr;
-static Vec3 copy_addr;
-copy_addr = (*nativeObject + *((Vec3* )inV_addr));
-return (jlong)&copy_addr;*/
-    public static native long internal_native_AddVec3_addr(long this_addr, long inV_addr);
 
     public Vec3 SubVec3(Vec3 inV) {
-        long addr = internal_native_SubVec3_addr(native_address, inV.native_address);
-        if (addr == 0)
-            return Vec3.NULL;
-        if (Vec3_TEMP_GEN_12 == null)
-            Vec3_TEMP_GEN_12 = Vec3.native_new();
-        Vec3_TEMP_GEN_12.internal_reset(addr, false);
-        return Vec3_TEMP_GEN_12;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-Vec3* nativeObject = (Vec3*)this_addr;
-static Vec3 copy_addr;
-copy_addr = (*nativeObject - *((Vec3* )inV_addr));
-return (jlong)&copy_addr;*/
-    public static native long internal_native_SubVec3_addr(long this_addr, long inV_addr);
 
     public Vec4 SplatX() {
-        long addr = internal_native_SplatX_addr(native_address);
-        if (addr == 0)
-            return Vec4.NULL;
-        if (Vec4_TEMP_GEN_1 == null)
-            Vec4_TEMP_GEN_1 = Vec4.native_new();
-        Vec4_TEMP_GEN_1.internal_reset(addr, false);
-        return Vec4_TEMP_GEN_1;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-Vec3* nativeObject = (Vec3*)this_addr;
-static Vec4 copy_addr;
-copy_addr = nativeObject->SplatX();
-return (jlong)&copy_addr;*/
-    public static native long internal_native_SplatX_addr(long this_addr);
 
     public Vec4 SplatY() {
-        long addr = internal_native_SplatY_addr(native_address);
-        if (addr == 0)
-            return Vec4.NULL;
-        if (Vec4_TEMP_GEN_2 == null)
-            Vec4_TEMP_GEN_2 = Vec4.native_new();
-        Vec4_TEMP_GEN_2.internal_reset(addr, false);
-        return Vec4_TEMP_GEN_2;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-Vec3* nativeObject = (Vec3*)this_addr;
-static Vec4 copy_addr;
-copy_addr = nativeObject->SplatY();
-return (jlong)&copy_addr;*/
-    public static native long internal_native_SplatY_addr(long this_addr);
 
     public Vec4 SplatZ() {
-        long addr = internal_native_SplatZ_addr(native_address);
-        if (addr == 0)
-            return Vec4.NULL;
-        if (Vec4_TEMP_GEN_3 == null)
-            Vec4_TEMP_GEN_3 = Vec4.native_new();
-        Vec4_TEMP_GEN_3.internal_reset(addr, false);
-        return Vec4_TEMP_GEN_3;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-Vec3* nativeObject = (Vec3*)this_addr;
-static Vec4 copy_addr;
-copy_addr = nativeObject->SplatZ();
-return (jlong)&copy_addr;*/
-    public static native long internal_native_SplatZ_addr(long this_addr);
 
     public float ReduceMin() {
-        return internal_native_ReduceMin(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-Vec3* nativeObject = (Vec3*)this_addr;
-return nativeObject->ReduceMin();
-*/
-    public static native float internal_native_ReduceMin(long this_addr);
 
     public float ReduceMax() {
-        return internal_native_ReduceMax(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-Vec3* nativeObject = (Vec3*)this_addr;
-return nativeObject->ReduceMax();
-*/
-    public static native float internal_native_ReduceMax(long this_addr);
 
     public Vec3 Sqrt() {
-        long addr = internal_native_Sqrt_addr(native_address);
-        if (addr == 0)
-            return Vec3.NULL;
-        if (Vec3_TEMP_GEN_13 == null)
-            Vec3_TEMP_GEN_13 = Vec3.native_new();
-        Vec3_TEMP_GEN_13.internal_reset(addr, false);
-        return Vec3_TEMP_GEN_13;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-Vec3* nativeObject = (Vec3*)this_addr;
-static Vec3 copy_addr;
-copy_addr = nativeObject->Sqrt();
-return (jlong)&copy_addr;*/
-    public static native long internal_native_Sqrt_addr(long this_addr);
 
     public Vec3 GetSign() {
-        long addr = internal_native_GetSign_addr(native_address);
-        if (addr == 0)
-            return Vec3.NULL;
-        if (Vec3_TEMP_GEN_14 == null)
-            Vec3_TEMP_GEN_14 = Vec3.native_new();
-        Vec3_TEMP_GEN_14.internal_reset(addr, false);
-        return Vec3_TEMP_GEN_14;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-Vec3* nativeObject = (Vec3*)this_addr;
-static Vec3 copy_addr;
-copy_addr = nativeObject->GetSign();
-return (jlong)&copy_addr;*/
-    public static native long internal_native_GetSign_addr(long this_addr);
 }

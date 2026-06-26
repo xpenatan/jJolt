@@ -6,11 +6,9 @@
 
 package jolt.renderer;
 
-import com.github.xpenatan.jParser.idl.IDLBase;
+import com.github.xpenatan.jParser.api.NativeObject;
 
-public class DebugRendererTriangle extends IDLBase {
-
-    private DebugRendererVertex DebugRendererVertex_TEMP_GEN_0;
+public class DebugRendererTriangle extends NativeObject {
 
     static public final DebugRendererTriangle NULL = DebugRendererTriangle.native_new();
 
@@ -28,39 +26,10 @@ public class DebugRendererTriangle extends IDLBase {
         return new DebugRendererTriangle((byte) 0, (char) 0);
     }
 
-    protected void deleteNative() {
-        internal_native_deleteNative(native_address);
-    }
-
-    /*[-JNI;-NATIVE]
-DebugRendererTriangle* nativeObject = (DebugRendererTriangle*)this_addr;
-delete nativeObject;
-*/
-    public static native void internal_native_deleteNative(long this_addr);
-
     public DebugRendererVertex get_mV(int index) {
-        long addr = internal_native_get_mV_addr(native_address, index);
-        if (addr == 0)
-            return DebugRendererVertex.NULL;
-        if (DebugRendererVertex_TEMP_GEN_0 == null)
-            DebugRendererVertex_TEMP_GEN_0 = DebugRendererVertex.native_new();
-        DebugRendererVertex_TEMP_GEN_0.internal_reset(addr, false);
-        return DebugRendererVertex_TEMP_GEN_0;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-DebugRendererTriangle* nativeObject = (DebugRendererTriangle*)this_addr;
-return (jlong)&nativeObject->mV[index];
-*/
-    public static native long internal_native_get_mV_addr(long this_addr, int index);
 
     public void set_mV(int index, DebugRendererVertex mV) {
-        internal_native_set_mV(native_address, index, mV.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-DebugRendererTriangle* nativeObject = (DebugRendererTriangle*)this_addr;
-nativeObject->mV[index] = *((DebugRendererVertex*)mV_addr);
-*/
-    public static native void internal_native_set_mV(long this_addr, int index, long mV_addr);
 }

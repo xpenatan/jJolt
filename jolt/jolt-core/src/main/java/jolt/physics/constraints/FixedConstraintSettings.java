@@ -12,30 +12,11 @@ import jolt.math.Vec3;
 
 public class FixedConstraintSettings extends TwoBodyConstraintSettings {
 
-    private Vec3 Vec3_TEMP_GEN_0;
-
-    private Vec3 Vec3_TEMP_GEN_1;
-
-    private Vec3 Vec3_TEMP_GEN_2;
-
-    private Vec3 Vec3_TEMP_GEN_3;
-
-    private Vec3 Vec3_TEMP_GEN_4;
-
-    private Vec3 Vec3_TEMP_GEN_5;
-
     static public final FixedConstraintSettings NULL = FixedConstraintSettings.native_new();
 
     public FixedConstraintSettings() {
         super((byte) 1, (char) 1);
-        long addr = internal_native_create_addr();
-        internal_reset(addr, true);
     }
-
-    /*[-JNI;-NATIVE]
-return (jlong)new FixedConstraintSettings();
-*/
-    public static native long internal_native_create_addr();
 
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
@@ -52,216 +33,59 @@ return (jlong)new FixedConstraintSettings();
         return new FixedConstraintSettings((byte) 0, (char) 0);
     }
 
-    protected void deleteNative() {
-        internal_native_deleteNative(native_address);
-    }
-
-    /*[-JNI;-NATIVE]
-FixedConstraintSettings* nativeObject = (FixedConstraintSettings*)this_addr;
-delete nativeObject;
-*/
-    public static native void internal_native_deleteNative(long this_addr);
-
     public EConstraintSpace get_mSpace() {
-        int value = internal_native_get_mSpace(native_address);
-        EConstraintSpace[] values = EConstraintSpace.values();
-        for (int i = 0; i < values.length; i++) {
-            EConstraintSpace enumVal = values[i];
-            if (enumVal != EConstraintSpace.CUSTOM && enumVal.getValue() == value)
-                return enumVal;
-        }
-        return EConstraintSpace.CUSTOM.setValue(value);
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-FixedConstraintSettings* nativeObject = (FixedConstraintSettings*)this_addr;
-return (jint)nativeObject->mSpace;
-*/
-    public static native int internal_native_get_mSpace(long this_addr);
 
     public void set_mSpace(EConstraintSpace mSpace) {
-        internal_native_set_mSpace(native_address, mSpace.getValue());
     }
-
-    /*[-JNI;-NATIVE]
-FixedConstraintSettings* nativeObject = (FixedConstraintSettings*)this_addr;
-nativeObject->mSpace = (::EConstraintSpace)mSpace;
-*/
-    public static native void internal_native_set_mSpace(long this_addr, int mSpace);
 
     public boolean get_mAutoDetectPoint() {
-        return internal_native_get_mAutoDetectPoint(native_address);
+        return false;
     }
-
-    /*[-JNI;-NATIVE]
-FixedConstraintSettings* nativeObject = (FixedConstraintSettings*)this_addr;
-return nativeObject->mAutoDetectPoint;
-*/
-    public static native boolean internal_native_get_mAutoDetectPoint(long this_addr);
 
     public void set_mAutoDetectPoint(boolean mAutoDetectPoint) {
-        internal_native_set_mAutoDetectPoint(native_address, mAutoDetectPoint);
     }
-
-    /*[-JNI;-NATIVE]
-FixedConstraintSettings* nativeObject = (FixedConstraintSettings*)this_addr;
-nativeObject->mAutoDetectPoint = mAutoDetectPoint;
-*/
-    public static native void internal_native_set_mAutoDetectPoint(long this_addr, boolean mAutoDetectPoint);
 
     public Vec3 get_mPoint1() {
-        long addr = internal_native_get_mPoint1_addr(native_address);
-        if (addr == 0)
-            return Vec3.NULL;
-        if (Vec3_TEMP_GEN_0 == null)
-            Vec3_TEMP_GEN_0 = Vec3.native_new();
-        Vec3_TEMP_GEN_0.internal_reset(addr, false);
-        return Vec3_TEMP_GEN_0;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-FixedConstraintSettings* nativeObject = (FixedConstraintSettings*)this_addr;
-return (jlong)&nativeObject->mPoint1;
-*/
-    public static native long internal_native_get_mPoint1_addr(long this_addr);
 
     public void set_mPoint1(Vec3 mPoint1) {
-        internal_native_set_mPoint1(native_address, mPoint1.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-FixedConstraintSettings* nativeObject = (FixedConstraintSettings*)this_addr;
-nativeObject->mPoint1 = *((Vec3*)mPoint1_addr);
-*/
-    public static native void internal_native_set_mPoint1(long this_addr, long mPoint1_addr);
 
     public Vec3 get_mAxisX1() {
-        long addr = internal_native_get_mAxisX1_addr(native_address);
-        if (addr == 0)
-            return Vec3.NULL;
-        if (Vec3_TEMP_GEN_1 == null)
-            Vec3_TEMP_GEN_1 = Vec3.native_new();
-        Vec3_TEMP_GEN_1.internal_reset(addr, false);
-        return Vec3_TEMP_GEN_1;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-FixedConstraintSettings* nativeObject = (FixedConstraintSettings*)this_addr;
-return (jlong)&nativeObject->mAxisX1;
-*/
-    public static native long internal_native_get_mAxisX1_addr(long this_addr);
 
     public void set_mAxisX1(Vec3 mAxisX1) {
-        internal_native_set_mAxisX1(native_address, mAxisX1.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-FixedConstraintSettings* nativeObject = (FixedConstraintSettings*)this_addr;
-nativeObject->mAxisX1 = *((Vec3*)mAxisX1_addr);
-*/
-    public static native void internal_native_set_mAxisX1(long this_addr, long mAxisX1_addr);
 
     public Vec3 get_mAxisY1() {
-        long addr = internal_native_get_mAxisY1_addr(native_address);
-        if (addr == 0)
-            return Vec3.NULL;
-        if (Vec3_TEMP_GEN_2 == null)
-            Vec3_TEMP_GEN_2 = Vec3.native_new();
-        Vec3_TEMP_GEN_2.internal_reset(addr, false);
-        return Vec3_TEMP_GEN_2;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-FixedConstraintSettings* nativeObject = (FixedConstraintSettings*)this_addr;
-return (jlong)&nativeObject->mAxisY1;
-*/
-    public static native long internal_native_get_mAxisY1_addr(long this_addr);
 
     public void set_mAxisY1(Vec3 mAxisY1) {
-        internal_native_set_mAxisY1(native_address, mAxisY1.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-FixedConstraintSettings* nativeObject = (FixedConstraintSettings*)this_addr;
-nativeObject->mAxisY1 = *((Vec3*)mAxisY1_addr);
-*/
-    public static native void internal_native_set_mAxisY1(long this_addr, long mAxisY1_addr);
 
     public Vec3 get_mPoint2() {
-        long addr = internal_native_get_mPoint2_addr(native_address);
-        if (addr == 0)
-            return Vec3.NULL;
-        if (Vec3_TEMP_GEN_3 == null)
-            Vec3_TEMP_GEN_3 = Vec3.native_new();
-        Vec3_TEMP_GEN_3.internal_reset(addr, false);
-        return Vec3_TEMP_GEN_3;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-FixedConstraintSettings* nativeObject = (FixedConstraintSettings*)this_addr;
-return (jlong)&nativeObject->mPoint2;
-*/
-    public static native long internal_native_get_mPoint2_addr(long this_addr);
 
     public void set_mPoint2(Vec3 mPoint2) {
-        internal_native_set_mPoint2(native_address, mPoint2.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-FixedConstraintSettings* nativeObject = (FixedConstraintSettings*)this_addr;
-nativeObject->mPoint2 = *((Vec3*)mPoint2_addr);
-*/
-    public static native void internal_native_set_mPoint2(long this_addr, long mPoint2_addr);
 
     public Vec3 get_mAxisX2() {
-        long addr = internal_native_get_mAxisX2_addr(native_address);
-        if (addr == 0)
-            return Vec3.NULL;
-        if (Vec3_TEMP_GEN_4 == null)
-            Vec3_TEMP_GEN_4 = Vec3.native_new();
-        Vec3_TEMP_GEN_4.internal_reset(addr, false);
-        return Vec3_TEMP_GEN_4;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-FixedConstraintSettings* nativeObject = (FixedConstraintSettings*)this_addr;
-return (jlong)&nativeObject->mAxisX2;
-*/
-    public static native long internal_native_get_mAxisX2_addr(long this_addr);
 
     public void set_mAxisX2(Vec3 mAxisX2) {
-        internal_native_set_mAxisX2(native_address, mAxisX2.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-FixedConstraintSettings* nativeObject = (FixedConstraintSettings*)this_addr;
-nativeObject->mAxisX2 = *((Vec3*)mAxisX2_addr);
-*/
-    public static native void internal_native_set_mAxisX2(long this_addr, long mAxisX2_addr);
 
     public Vec3 get_mAxisY2() {
-        long addr = internal_native_get_mAxisY2_addr(native_address);
-        if (addr == 0)
-            return Vec3.NULL;
-        if (Vec3_TEMP_GEN_5 == null)
-            Vec3_TEMP_GEN_5 = Vec3.native_new();
-        Vec3_TEMP_GEN_5.internal_reset(addr, false);
-        return Vec3_TEMP_GEN_5;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-FixedConstraintSettings* nativeObject = (FixedConstraintSettings*)this_addr;
-return (jlong)&nativeObject->mAxisY2;
-*/
-    public static native long internal_native_get_mAxisY2_addr(long this_addr);
 
     public void set_mAxisY2(Vec3 mAxisY2) {
-        internal_native_set_mAxisY2(native_address, mAxisY2.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-FixedConstraintSettings* nativeObject = (FixedConstraintSettings*)this_addr;
-nativeObject->mAxisY2 = *((Vec3*)mAxisY2_addr);
-*/
-    public static native void internal_native_set_mAxisY2(long this_addr, long mAxisY2_addr);
 }

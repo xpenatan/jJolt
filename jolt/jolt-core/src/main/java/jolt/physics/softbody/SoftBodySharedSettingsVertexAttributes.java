@@ -6,22 +6,15 @@
 
 package jolt.physics.softbody;
 
-import com.github.xpenatan.jParser.idl.IDLBase;
+import com.github.xpenatan.jParser.api.NativeObject;
 import jolt.enums.SoftBodySharedSettings_ELRAType;
 
-public class SoftBodySharedSettingsVertexAttributes extends IDLBase {
+public class SoftBodySharedSettingsVertexAttributes extends NativeObject {
 
     static public final SoftBodySharedSettingsVertexAttributes NULL = SoftBodySharedSettingsVertexAttributes.native_new();
 
     public SoftBodySharedSettingsVertexAttributes() {
-        long addr = internal_native_create_addr();
-        internal_reset(addr, true);
     }
-
-    /*[-JNI;-NATIVE]
-return (jlong)new SoftBodySharedSettingsVertexAttributes();
-*/
-    public static native long internal_native_create_addr();
 
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
@@ -37,120 +30,38 @@ return (jlong)new SoftBodySharedSettingsVertexAttributes();
         return new SoftBodySharedSettingsVertexAttributes((byte) 0, (char) 0);
     }
 
-    protected void deleteNative() {
-        internal_native_deleteNative(native_address);
-    }
-
-    /*[-JNI;-NATIVE]
-SoftBodySharedSettingsVertexAttributes* nativeObject = (SoftBodySharedSettingsVertexAttributes*)this_addr;
-delete nativeObject;
-*/
-    public static native void internal_native_deleteNative(long this_addr);
-
     public float get_mCompliance() {
-        return internal_native_get_mCompliance(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-SoftBodySharedSettingsVertexAttributes* nativeObject = (SoftBodySharedSettingsVertexAttributes*)this_addr;
-return nativeObject->mCompliance;
-*/
-    public static native float internal_native_get_mCompliance(long this_addr);
 
     public void set_mCompliance(float mCompliance) {
-        internal_native_set_mCompliance(native_address, mCompliance);
     }
-
-    /*[-JNI;-NATIVE]
-SoftBodySharedSettingsVertexAttributes* nativeObject = (SoftBodySharedSettingsVertexAttributes*)this_addr;
-nativeObject->mCompliance = mCompliance;
-*/
-    public static native void internal_native_set_mCompliance(long this_addr, float mCompliance);
 
     public float get_mShearCompliance() {
-        return internal_native_get_mShearCompliance(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-SoftBodySharedSettingsVertexAttributes* nativeObject = (SoftBodySharedSettingsVertexAttributes*)this_addr;
-return nativeObject->mShearCompliance;
-*/
-    public static native float internal_native_get_mShearCompliance(long this_addr);
 
     public void set_mShearCompliance(float mShearCompliance) {
-        internal_native_set_mShearCompliance(native_address, mShearCompliance);
     }
-
-    /*[-JNI;-NATIVE]
-SoftBodySharedSettingsVertexAttributes* nativeObject = (SoftBodySharedSettingsVertexAttributes*)this_addr;
-nativeObject->mShearCompliance = mShearCompliance;
-*/
-    public static native void internal_native_set_mShearCompliance(long this_addr, float mShearCompliance);
 
     public float get_mBendCompliance() {
-        return internal_native_get_mBendCompliance(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-SoftBodySharedSettingsVertexAttributes* nativeObject = (SoftBodySharedSettingsVertexAttributes*)this_addr;
-return nativeObject->mBendCompliance;
-*/
-    public static native float internal_native_get_mBendCompliance(long this_addr);
 
     public void set_mBendCompliance(float mBendCompliance) {
-        internal_native_set_mBendCompliance(native_address, mBendCompliance);
     }
-
-    /*[-JNI;-NATIVE]
-SoftBodySharedSettingsVertexAttributes* nativeObject = (SoftBodySharedSettingsVertexAttributes*)this_addr;
-nativeObject->mBendCompliance = mBendCompliance;
-*/
-    public static native void internal_native_set_mBendCompliance(long this_addr, float mBendCompliance);
 
     public SoftBodySharedSettings_ELRAType get_mLRAType() {
-        int value = internal_native_get_mLRAType(native_address);
-        SoftBodySharedSettings_ELRAType[] values = SoftBodySharedSettings_ELRAType.values();
-        for (int i = 0; i < values.length; i++) {
-            SoftBodySharedSettings_ELRAType enumVal = values[i];
-            if (enumVal != SoftBodySharedSettings_ELRAType.CUSTOM && enumVal.getValue() == value)
-                return enumVal;
-        }
-        return SoftBodySharedSettings_ELRAType.CUSTOM.setValue(value);
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-SoftBodySharedSettingsVertexAttributes* nativeObject = (SoftBodySharedSettingsVertexAttributes*)this_addr;
-return (jint)nativeObject->mLRAType;
-*/
-    public static native int internal_native_get_mLRAType(long this_addr);
 
     public void set_mLRAType(SoftBodySharedSettings_ELRAType mLRAType) {
-        internal_native_set_mLRAType(native_address, mLRAType.getValue());
     }
-
-    /*[-JNI;-NATIVE]
-SoftBodySharedSettingsVertexAttributes* nativeObject = (SoftBodySharedSettingsVertexAttributes*)this_addr;
-nativeObject->mLRAType = (::SoftBodySharedSettings_ELRAType)mLRAType;
-*/
-    public static native void internal_native_set_mLRAType(long this_addr, int mLRAType);
 
     public float get_mLRAMaxDistanceMultiplier() {
-        return internal_native_get_mLRAMaxDistanceMultiplier(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-SoftBodySharedSettingsVertexAttributes* nativeObject = (SoftBodySharedSettingsVertexAttributes*)this_addr;
-return nativeObject->mLRAMaxDistanceMultiplier;
-*/
-    public static native float internal_native_get_mLRAMaxDistanceMultiplier(long this_addr);
 
     public void set_mLRAMaxDistanceMultiplier(float mLRAMaxDistanceMultiplier) {
-        internal_native_set_mLRAMaxDistanceMultiplier(native_address, mLRAMaxDistanceMultiplier);
     }
-
-    /*[-JNI;-NATIVE]
-SoftBodySharedSettingsVertexAttributes* nativeObject = (SoftBodySharedSettingsVertexAttributes*)this_addr;
-nativeObject->mLRAMaxDistanceMultiplier = mLRAMaxDistanceMultiplier;
-*/
-    public static native void internal_native_set_mLRAMaxDistanceMultiplier(long this_addr, float mLRAMaxDistanceMultiplier);
 }

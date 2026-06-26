@@ -6,9 +6,9 @@
 
 package jolt.enums;
 
-import com.github.xpenatan.jParser.idl.IDLEnum;
+import com.github.xpenatan.jParser.api.NativeEnum;
 
-public enum SoftBodySharedSettings_EBendType implements IDLEnum<SoftBodySharedSettings_EBendType> {
+public enum SoftBodySharedSettings_EBendType implements NativeEnum<SoftBodySharedSettings_EBendType> {
 
     CUSTOM(0), None(SoftBodySharedSettings_EBendType_None_NATIVE()), Distance(SoftBodySharedSettings_EBendType_Distance_NATIVE()), Dihedral(SoftBodySharedSettings_EBendType_Dihedral_NATIVE());
 
@@ -34,18 +34,9 @@ public enum SoftBodySharedSettings_EBendType implements IDLEnum<SoftBodySharedSe
         return CUSTOM;
     }
 
-    /*[-JNI;-NATIVE]
-return (jlong)SoftBodySharedSettings_EBendType_None;
-*/
     private static native int SoftBodySharedSettings_EBendType_None_NATIVE();
 
-    /*[-JNI;-NATIVE]
-return (jlong)SoftBodySharedSettings_EBendType_Distance;
-*/
     private static native int SoftBodySharedSettings_EBendType_Distance_NATIVE();
 
-    /*[-JNI;-NATIVE]
-return (jlong)SoftBodySharedSettings_EBendType_Dihedral;
-*/
     private static native int SoftBodySharedSettings_EBendType_Dihedral_NATIVE();
 }

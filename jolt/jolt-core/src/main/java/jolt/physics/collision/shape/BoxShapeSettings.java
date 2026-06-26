@@ -11,42 +11,19 @@ import jolt.physics.collision.PhysicsMaterial;
 
 public class BoxShapeSettings extends ConvexShapeSettings {
 
-    private Vec3 Vec3_TEMP_GEN_0;
-
     static public final BoxShapeSettings NULL = BoxShapeSettings.native_new();
 
     public BoxShapeSettings(Vec3 inHalfExtent, float inConvexRadius, PhysicsMaterial inMaterial) {
         super((byte) 1, (char) 1);
-        long addr = internal_native_create_Vec3_float_PhysicsMaterial_addr(inHalfExtent.native_address, inConvexRadius, inMaterial.native_address);
-        internal_reset(addr, true);
     }
-
-    /*[-JNI;-NATIVE]
-return (jlong)new BoxShapeSettings(*((Vec3* )inHalfExtent_addr), (float)inConvexRadius, (PhysicsMaterial* )inMaterial_addr);
-*/
-    public static native long internal_native_create_Vec3_float_PhysicsMaterial_addr(long inHalfExtent_addr, float inConvexRadius, long inMaterial_addr);
 
     public BoxShapeSettings(Vec3 inHalfExtent, float inConvexRadius) {
         super((byte) 1, (char) 1);
-        long addr = internal_native_create_Vec3_float_addr(inHalfExtent.native_address, inConvexRadius);
-        internal_reset(addr, true);
     }
-
-    /*[-JNI;-NATIVE]
-return (jlong)new BoxShapeSettings(*((Vec3* )inHalfExtent_addr), (float)inConvexRadius);
-*/
-    public static native long internal_native_create_Vec3_float_addr(long inHalfExtent_addr, float inConvexRadius);
 
     public BoxShapeSettings(Vec3 inHalfExtent) {
         super((byte) 1, (char) 1);
-        long addr = internal_native_create_Vec3_addr(inHalfExtent.native_address);
-        internal_reset(addr, true);
     }
-
-    /*[-JNI;-NATIVE]
-return (jlong)new BoxShapeSettings(*((Vec3* )inHalfExtent_addr));
-*/
-    public static native long internal_native_create_Vec3_addr(long inHalfExtent_addr);
 
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
@@ -63,59 +40,17 @@ return (jlong)new BoxShapeSettings(*((Vec3* )inHalfExtent_addr));
         return new BoxShapeSettings((byte) 0, (char) 0);
     }
 
-    protected void deleteNative() {
-        internal_native_deleteNative(native_address);
-    }
-
-    /*[-JNI;-NATIVE]
-BoxShapeSettings* nativeObject = (BoxShapeSettings*)this_addr;
-delete nativeObject;
-*/
-    public static native void internal_native_deleteNative(long this_addr);
-
     public Vec3 get_mHalfExtent() {
-        long addr = internal_native_get_mHalfExtent_addr(native_address);
-        if (addr == 0)
-            return Vec3.NULL;
-        if (Vec3_TEMP_GEN_0 == null)
-            Vec3_TEMP_GEN_0 = Vec3.native_new();
-        Vec3_TEMP_GEN_0.internal_reset(addr, false);
-        return Vec3_TEMP_GEN_0;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-BoxShapeSettings* nativeObject = (BoxShapeSettings*)this_addr;
-return (jlong)&nativeObject->mHalfExtent;
-*/
-    public static native long internal_native_get_mHalfExtent_addr(long this_addr);
 
     public void set_mHalfExtent(Vec3 mHalfExtent) {
-        internal_native_set_mHalfExtent(native_address, mHalfExtent.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-BoxShapeSettings* nativeObject = (BoxShapeSettings*)this_addr;
-nativeObject->mHalfExtent = *((Vec3*)mHalfExtent_addr);
-*/
-    public static native void internal_native_set_mHalfExtent(long this_addr, long mHalfExtent_addr);
 
     public float get_mConvexRadius() {
-        return internal_native_get_mConvexRadius(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-BoxShapeSettings* nativeObject = (BoxShapeSettings*)this_addr;
-return nativeObject->mConvexRadius;
-*/
-    public static native float internal_native_get_mConvexRadius(long this_addr);
 
     public void set_mConvexRadius(float mConvexRadius) {
-        internal_native_set_mConvexRadius(native_address, mConvexRadius);
     }
-
-    /*[-JNI;-NATIVE]
-BoxShapeSettings* nativeObject = (BoxShapeSettings*)this_addr;
-nativeObject->mConvexRadius = mConvexRadius;
-*/
-    public static native void internal_native_set_mConvexRadius(long this_addr, float mConvexRadius);
 }

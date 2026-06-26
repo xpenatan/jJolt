@@ -6,9 +6,9 @@
 
 package jolt.enums;
 
-import com.github.xpenatan.jParser.idl.IDLEnum;
+import com.github.xpenatan.jParser.api.NativeEnum;
 
-public enum EMotorState implements IDLEnum<EMotorState> {
+public enum EMotorState implements NativeEnum<EMotorState> {
 
     CUSTOM(0), Off(EMotorState_Off_NATIVE()), Velocity(EMotorState_Velocity_NATIVE()), Position(EMotorState_Position_NATIVE());
 
@@ -34,18 +34,9 @@ public enum EMotorState implements IDLEnum<EMotorState> {
         return CUSTOM;
     }
 
-    /*[-JNI;-NATIVE]
-return (jlong)EMotorState_Off;
-*/
     private static native int EMotorState_Off_NATIVE();
 
-    /*[-JNI;-NATIVE]
-return (jlong)EMotorState_Velocity;
-*/
     private static native int EMotorState_Velocity_NATIVE();
 
-    /*[-JNI;-NATIVE]
-return (jlong)EMotorState_Position;
-*/
     private static native int EMotorState_Position_NATIVE();
 }

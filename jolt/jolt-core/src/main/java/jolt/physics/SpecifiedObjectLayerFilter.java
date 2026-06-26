@@ -14,14 +14,7 @@ public class SpecifiedObjectLayerFilter extends ObjectLayerFilter {
 
     public SpecifiedObjectLayerFilter(int inObjectLayer) {
         super((byte) 1, (char) 1);
-        long addr = internal_native_create_int_addr(inObjectLayer);
-        internal_reset(addr, true);
     }
-
-    /*[-JNI;-NATIVE]
-return (jlong)new SpecifiedObjectLayerFilter(inObjectLayer);
-*/
-    public static native long internal_native_create_int_addr(int inObjectLayer);
 
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
@@ -37,14 +30,4 @@ return (jlong)new SpecifiedObjectLayerFilter(inObjectLayer);
     public static SpecifiedObjectLayerFilter native_new() {
         return new SpecifiedObjectLayerFilter((byte) 0, (char) 0);
     }
-
-    protected void deleteNative() {
-        internal_native_deleteNative(native_address);
-    }
-
-    /*[-JNI;-NATIVE]
-SpecifiedObjectLayerFilter* nativeObject = (SpecifiedObjectLayerFilter*)this_addr;
-delete nativeObject;
-*/
-    public static native void internal_native_deleteNative(long this_addr);
 }

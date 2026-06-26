@@ -14,25 +14,11 @@ public class EmptyShape extends Shape {
 
     public EmptyShape(Vec3 inCenterOfMass) {
         super((byte) 1, (char) 1);
-        long addr = internal_native_create_Vec3_addr(inCenterOfMass.native_address);
-        internal_reset(addr, true);
     }
-
-    /*[-JNI;-NATIVE]
-return (jlong)new EmptyShape(*((Vec3* )inCenterOfMass_addr));
-*/
-    public static native long internal_native_create_Vec3_addr(long inCenterOfMass_addr);
 
     public EmptyShape() {
         super((byte) 1, (char) 1);
-        long addr = internal_native_create_addr();
-        internal_reset(addr, true);
     }
-
-    /*[-JNI;-NATIVE]
-return (jlong)new EmptyShape();
-*/
-    public static native long internal_native_create_addr();
 
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
@@ -48,14 +34,4 @@ return (jlong)new EmptyShape();
     public static EmptyShape native_new() {
         return new EmptyShape((byte) 0, (char) 0);
     }
-
-    protected void deleteNative() {
-        internal_native_deleteNative(native_address);
-    }
-
-    /*[-JNI;-NATIVE]
-EmptyShape* nativeObject = (EmptyShape*)this_addr;
-delete nativeObject;
-*/
-    public static native void internal_native_deleteNative(long this_addr);
 }

@@ -6,9 +6,9 @@
 
 package jolt.enums;
 
-import com.github.xpenatan.jParser.idl.IDLEnum;
+import com.github.xpenatan.jParser.api.NativeEnum;
 
-public enum EBodyType implements IDLEnum<EBodyType> {
+public enum EBodyType implements NativeEnum<EBodyType> {
 
     CUSTOM(0), RigidBody(EBodyType_RigidBody_NATIVE()), SoftBody(EBodyType_SoftBody_NATIVE());
 
@@ -34,13 +34,7 @@ public enum EBodyType implements IDLEnum<EBodyType> {
         return CUSTOM;
     }
 
-    /*[-JNI;-NATIVE]
-return (jlong)EBodyType_RigidBody;
-*/
     private static native int EBodyType_RigidBody_NATIVE();
 
-    /*[-JNI;-NATIVE]
-return (jlong)EBodyType_SoftBody;
-*/
     private static native int EBodyType_SoftBody_NATIVE();
 }

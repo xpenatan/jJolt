@@ -22,33 +22,9 @@ public class SoftBodyContactListenerEm extends SoftBodyContactListener {
 
     static public final SoftBodyContactListenerEm NULL = SoftBodyContactListenerEm.native_new();
 
-    /*[-JNI;-NATIVE]
-	static jmethodID SoftBodyContactListenerJS_OnSoftBodyContactValidateJJJ_ID;
-	static jmethodID SoftBodyContactListenerJS_OnSoftBodyContactAddedJJ_ID;
-
-class SoftBodyContactListenerJS : public SoftBodyContactListenerEm {
-private:
-	JNIEnv* env;
-	jobject obj;
-public:
-void setupCallback(JNIEnv* env, jobject obj) {
-	this->env = env;
-	this->obj = env->NewGlobalRef(obj);
-	static jclass jClassID = 0;
-	if(jClassID == 0) {
-		jClassID = (jclass)env->NewGlobalRef(env->GetObjectClass(obj));
-		SoftBodyContactListenerJS_OnSoftBodyContactValidateJJJ_ID = env->GetMethodID(jClassID, "internal_OnSoftBodyContactValidate", "(JJJ)I");
-		SoftBodyContactListenerJS_OnSoftBodyContactAddedJJ_ID = env->GetMethodID(jClassID, "internal_OnSoftBodyContactAdded", "(JJ)V");
-	}
-}
-virtual int OnSoftBodyContactValidate(const Body& inSoftBody, const Body& inOtherBody, SoftBodyContactSettings* ioSettings) {
-   return env->CallIntMethod(obj, SoftBodyContactListenerJS_OnSoftBodyContactValidateJJJ_ID, (jlong)&inSoftBody, (jlong)&inOtherBody, (jlong)ioSettings);
-}
-virtual void OnSoftBodyContactAdded(const Body& inSoftBody, const SoftBodyManifold& inManifold) {
-   env->CallVoidMethod(obj, SoftBodyContactListenerJS_OnSoftBodyContactAddedJJ_ID, (jlong)&inSoftBody, (jlong)&inManifold);
-}
-};
-*/
+    /**
+     * Dummy constructor, used internally to creates objects without C++ pointer
+     */
     @Deprecated()
     protected SoftBodyContactListenerEm(byte b, char c) {
         super((byte) 1, (char) 1);
@@ -61,16 +37,6 @@ virtual void OnSoftBodyContactAdded(const Body& inSoftBody, const SoftBodyManifo
         return new SoftBodyContactListenerEm((byte) 0, (char) 0);
     }
 
-    protected void deleteNative() {
-        internal_native_deleteNative(native_address);
-    }
-
-    /*[-JNI;-NATIVE]
-SoftBodyContactListenerJS* nativeObject = (SoftBodyContactListenerJS*)this_addr;
-delete nativeObject;
-*/
-    public static native void internal_native_deleteNative(long this_addr);
-
     public SoftBodyContactListenerEm() {
         super((byte) 1, (char) 1);
         long addr = internal_native_create_addr();
@@ -79,7 +45,6 @@ delete nativeObject;
     }
 
     private void setupCallback() {
-        internal_native_setupCallback(native_address);
     }
 
     protected int OnSoftBodyContactValidate(Body inSoftBody, Body inOtherBody, SoftBodyContactSettings ioSettings) {
@@ -112,14 +77,5 @@ delete nativeObject;
         OnSoftBodyContactAdded(Body_TEMP_STATIC_GEN_2, SoftBodyManifold_TEMP_STATIC_GEN_0);
     }
 
-    /*[-JNI;-NATIVE]
-return (jlong)new SoftBodyContactListenerJS();
-*/
     public static native long internal_native_create_addr();
-
-    /*[-JNI;-NATIVE]
-SoftBodyContactListenerJS* nativeObject = (SoftBodyContactListenerJS*)this_addr;
-nativeObject->setupCallback(env, object);
-*/
-    public native void internal_native_setupCallback(long this_addr);
 }

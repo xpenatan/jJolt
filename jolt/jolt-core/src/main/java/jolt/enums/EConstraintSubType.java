@@ -6,9 +6,9 @@
 
 package jolt.enums;
 
-import com.github.xpenatan.jParser.idl.IDLEnum;
+import com.github.xpenatan.jParser.api.NativeEnum;
 
-public enum EConstraintSubType implements IDLEnum<EConstraintSubType> {
+public enum EConstraintSubType implements NativeEnum<EConstraintSubType> {
 
     CUSTOM(0),
     Fixed(EConstraintSubType_Fixed_NATIVE()),
@@ -47,68 +47,29 @@ public enum EConstraintSubType implements IDLEnum<EConstraintSubType> {
         return CUSTOM;
     }
 
-    /*[-JNI;-NATIVE]
-return (jlong)EConstraintSubType_Fixed;
-*/
     private static native int EConstraintSubType_Fixed_NATIVE();
 
-    /*[-JNI;-NATIVE]
-return (jlong)EConstraintSubType_Point;
-*/
     private static native int EConstraintSubType_Point_NATIVE();
 
-    /*[-JNI;-NATIVE]
-return (jlong)EConstraintSubType_Hinge;
-*/
     private static native int EConstraintSubType_Hinge_NATIVE();
 
-    /*[-JNI;-NATIVE]
-return (jlong)EConstraintSubType_Slider;
-*/
     private static native int EConstraintSubType_Slider_NATIVE();
 
-    /*[-JNI;-NATIVE]
-return (jlong)EConstraintSubType_Distance;
-*/
     private static native int EConstraintSubType_Distance_NATIVE();
 
-    /*[-JNI;-NATIVE]
-return (jlong)EConstraintSubType_Cone;
-*/
     private static native int EConstraintSubType_Cone_NATIVE();
 
-    /*[-JNI;-NATIVE]
-return (jlong)EConstraintSubType_SwingTwist;
-*/
     private static native int EConstraintSubType_SwingTwist_NATIVE();
 
-    /*[-JNI;-NATIVE]
-return (jlong)EConstraintSubType_SixDOF;
-*/
     private static native int EConstraintSubType_SixDOF_NATIVE();
 
-    /*[-JNI;-NATIVE]
-return (jlong)EConstraintSubType_Path;
-*/
     private static native int EConstraintSubType_Path_NATIVE();
 
-    /*[-JNI;-NATIVE]
-return (jlong)EConstraintSubType_Vehicle;
-*/
     private static native int EConstraintSubType_Vehicle_NATIVE();
 
-    /*[-JNI;-NATIVE]
-return (jlong)EConstraintSubType_RackAndPinion;
-*/
     private static native int EConstraintSubType_RackAndPinion_NATIVE();
 
-    /*[-JNI;-NATIVE]
-return (jlong)EConstraintSubType_Gear;
-*/
     private static native int EConstraintSubType_Gear_NATIVE();
 
-    /*[-JNI;-NATIVE]
-return (jlong)EConstraintSubType_Pulley;
-*/
     private static native int EConstraintSubType_Pulley_NATIVE();
 }

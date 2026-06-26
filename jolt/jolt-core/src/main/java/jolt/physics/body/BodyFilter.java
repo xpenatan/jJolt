@@ -6,9 +6,9 @@
 
 package jolt.physics.body;
 
-import com.github.xpenatan.jParser.idl.IDLBase;
+import com.github.xpenatan.jParser.api.NativeObject;
 
-public class BodyFilter extends IDLBase {
+public class BodyFilter extends NativeObject {
 
     static private BodyID BodyID_TEMP_STATIC_GEN_0;
 
@@ -16,33 +16,9 @@ public class BodyFilter extends IDLBase {
 
     static public final BodyFilter NULL = BodyFilter.native_new();
 
-    /*[-JNI;-NATIVE]
-	static jmethodID BodyFilterImpl_ShouldCollideJ_ID;
-	static jmethodID BodyFilterImpl_ShouldCollideLockedJ_ID;
-
-class BodyFilterImpl : public BodyFilter {
-private:
-	JNIEnv* env;
-	jobject obj;
-public:
-void setupCallback(JNIEnv* env, jobject obj) {
-	this->env = env;
-	this->obj = env->NewGlobalRef(obj);
-	static jclass jClassID = 0;
-	if(jClassID == 0) {
-		jClassID = (jclass)env->NewGlobalRef(env->GetObjectClass(obj));
-		BodyFilterImpl_ShouldCollideJ_ID = env->GetMethodID(jClassID, "internal_ShouldCollide", "(J)Z");
-		BodyFilterImpl_ShouldCollideLockedJ_ID = env->GetMethodID(jClassID, "internal_ShouldCollideLocked", "(J)Z");
-	}
-}
-virtual bool ShouldCollide(const BodyID& inBodyID) const {
-   return env->CallBooleanMethod(obj, BodyFilterImpl_ShouldCollideJ_ID, (jlong)&inBodyID);
-}
-virtual bool ShouldCollideLocked(const Body& inBody) const {
-   return env->CallBooleanMethod(obj, BodyFilterImpl_ShouldCollideLockedJ_ID, (jlong)&inBody);
-}
-};
-*/
+    /**
+     * Dummy constructor, used internally to creates objects without C++ pointer
+     */
     @Deprecated()
     protected BodyFilter(byte b, char c) {
     }
@@ -54,16 +30,6 @@ virtual bool ShouldCollideLocked(const Body& inBody) const {
         return new BodyFilter((byte) 0, (char) 0);
     }
 
-    protected void deleteNative() {
-        internal_native_deleteNative(native_address);
-    }
-
-    /*[-JNI;-NATIVE]
-BodyFilterImpl* nativeObject = (BodyFilterImpl*)this_addr;
-delete nativeObject;
-*/
-    public static native void internal_native_deleteNative(long this_addr);
-
     public BodyFilter() {
         long addr = internal_native_create_addr();
         internal_reset(addr, true);
@@ -71,7 +37,6 @@ delete nativeObject;
     }
 
     private void setupCallback() {
-        internal_native_setupCallback(native_address);
     }
 
     protected boolean ShouldCollide(BodyID inBodyID) {
@@ -96,14 +61,5 @@ delete nativeObject;
         return ShouldCollideLocked(Body_TEMP_STATIC_GEN_0);
     }
 
-    /*[-JNI;-NATIVE]
-return (jlong)new BodyFilterImpl();
-*/
     public static native long internal_native_create_addr();
-
-    /*[-JNI;-NATIVE]
-BodyFilterImpl* nativeObject = (BodyFilterImpl*)this_addr;
-nativeObject->setupCallback(env, object);
-*/
-    public native void internal_native_setupCallback(long this_addr);
 }

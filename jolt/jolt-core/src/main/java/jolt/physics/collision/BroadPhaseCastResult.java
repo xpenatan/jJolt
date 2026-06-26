@@ -6,24 +6,15 @@
 
 package jolt.physics.collision;
 
-import com.github.xpenatan.jParser.idl.IDLBase;
+import com.github.xpenatan.jParser.api.NativeObject;
 import jolt.physics.body.BodyID;
 
-public class BroadPhaseCastResult extends IDLBase {
-
-    private BodyID BodyID_TEMP_GEN_0;
+public class BroadPhaseCastResult extends NativeObject {
 
     static public final BroadPhaseCastResult NULL = BroadPhaseCastResult.native_new();
 
     public BroadPhaseCastResult() {
-        long addr = internal_native_create_addr();
-        internal_reset(addr, true);
     }
-
-    /*[-JNI;-NATIVE]
-return (jlong)new BroadPhaseCastResult();
-*/
-    public static native long internal_native_create_addr();
 
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
@@ -39,69 +30,20 @@ return (jlong)new BroadPhaseCastResult();
         return new BroadPhaseCastResult((byte) 0, (char) 0);
     }
 
-    protected void deleteNative() {
-        internal_native_deleteNative(native_address);
-    }
-
-    /*[-JNI;-NATIVE]
-BroadPhaseCastResult* nativeObject = (BroadPhaseCastResult*)this_addr;
-delete nativeObject;
-*/
-    public static native void internal_native_deleteNative(long this_addr);
-
     public void Reset() {
-        internal_native_Reset(native_address);
     }
-
-    /*[-JNI;-NATIVE]
-BroadPhaseCastResult* nativeObject = (BroadPhaseCastResult*)this_addr;
-nativeObject->Reset();
-*/
-    public static native void internal_native_Reset(long this_addr);
 
     public BodyID get_mBodyID() {
-        long addr = internal_native_get_mBodyID_addr(native_address);
-        if (addr == 0)
-            return BodyID.NULL;
-        if (BodyID_TEMP_GEN_0 == null)
-            BodyID_TEMP_GEN_0 = BodyID.native_new();
-        BodyID_TEMP_GEN_0.internal_reset(addr, false);
-        return BodyID_TEMP_GEN_0;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-BroadPhaseCastResult* nativeObject = (BroadPhaseCastResult*)this_addr;
-return (jlong)&nativeObject->mBodyID;
-*/
-    public static native long internal_native_get_mBodyID_addr(long this_addr);
 
     public void set_mBodyID(BodyID mBodyID) {
-        internal_native_set_mBodyID(native_address, mBodyID.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-BroadPhaseCastResult* nativeObject = (BroadPhaseCastResult*)this_addr;
-nativeObject->mBodyID = *((BodyID*)mBodyID_addr);
-*/
-    public static native void internal_native_set_mBodyID(long this_addr, long mBodyID_addr);
 
     public float get_mFraction() {
-        return internal_native_get_mFraction(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-BroadPhaseCastResult* nativeObject = (BroadPhaseCastResult*)this_addr;
-return nativeObject->mFraction;
-*/
-    public static native float internal_native_get_mFraction(long this_addr);
 
     public void set_mFraction(float mFraction) {
-        internal_native_set_mFraction(native_address, mFraction);
     }
-
-    /*[-JNI;-NATIVE]
-BroadPhaseCastResult* nativeObject = (BroadPhaseCastResult*)this_addr;
-nativeObject->mFraction = mFraction;
-*/
-    public static native void internal_native_set_mFraction(long this_addr, float mFraction);
 }

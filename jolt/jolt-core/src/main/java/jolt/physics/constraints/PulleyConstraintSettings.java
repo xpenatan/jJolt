@@ -12,26 +12,11 @@ import jolt.math.Vec3;
 
 public class PulleyConstraintSettings extends TwoBodyConstraintSettings {
 
-    private Vec3 Vec3_TEMP_GEN_0;
-
-    private Vec3 Vec3_TEMP_GEN_1;
-
-    private Vec3 Vec3_TEMP_GEN_2;
-
-    private Vec3 Vec3_TEMP_GEN_3;
-
     static public final PulleyConstraintSettings NULL = PulleyConstraintSettings.native_new();
 
     public PulleyConstraintSettings() {
         super((byte) 1, (char) 1);
-        long addr = internal_native_create_addr();
-        internal_reset(addr, true);
     }
-
-    /*[-JNI;-NATIVE]
-return (jlong)new PulleyConstraintSettings();
-*/
-    public static native long internal_native_create_addr();
 
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
@@ -48,204 +33,59 @@ return (jlong)new PulleyConstraintSettings();
         return new PulleyConstraintSettings((byte) 0, (char) 0);
     }
 
-    protected void deleteNative() {
-        internal_native_deleteNative(native_address);
-    }
-
-    /*[-JNI;-NATIVE]
-PulleyConstraintSettings* nativeObject = (PulleyConstraintSettings*)this_addr;
-delete nativeObject;
-*/
-    public static native void internal_native_deleteNative(long this_addr);
-
     public EConstraintSpace get_mSpace() {
-        int value = internal_native_get_mSpace(native_address);
-        EConstraintSpace[] values = EConstraintSpace.values();
-        for (int i = 0; i < values.length; i++) {
-            EConstraintSpace enumVal = values[i];
-            if (enumVal != EConstraintSpace.CUSTOM && enumVal.getValue() == value)
-                return enumVal;
-        }
-        return EConstraintSpace.CUSTOM.setValue(value);
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-PulleyConstraintSettings* nativeObject = (PulleyConstraintSettings*)this_addr;
-return (jint)nativeObject->mSpace;
-*/
-    public static native int internal_native_get_mSpace(long this_addr);
 
     public void set_mSpace(EConstraintSpace mSpace) {
-        internal_native_set_mSpace(native_address, mSpace.getValue());
     }
-
-    /*[-JNI;-NATIVE]
-PulleyConstraintSettings* nativeObject = (PulleyConstraintSettings*)this_addr;
-nativeObject->mSpace = (::EConstraintSpace)mSpace;
-*/
-    public static native void internal_native_set_mSpace(long this_addr, int mSpace);
 
     public Vec3 get_mBodyPoint1() {
-        long addr = internal_native_get_mBodyPoint1_addr(native_address);
-        if (addr == 0)
-            return Vec3.NULL;
-        if (Vec3_TEMP_GEN_0 == null)
-            Vec3_TEMP_GEN_0 = Vec3.native_new();
-        Vec3_TEMP_GEN_0.internal_reset(addr, false);
-        return Vec3_TEMP_GEN_0;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-PulleyConstraintSettings* nativeObject = (PulleyConstraintSettings*)this_addr;
-return (jlong)&nativeObject->mBodyPoint1;
-*/
-    public static native long internal_native_get_mBodyPoint1_addr(long this_addr);
 
     public void set_mBodyPoint1(Vec3 mBodyPoint1) {
-        internal_native_set_mBodyPoint1(native_address, mBodyPoint1.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-PulleyConstraintSettings* nativeObject = (PulleyConstraintSettings*)this_addr;
-nativeObject->mBodyPoint1 = *((Vec3*)mBodyPoint1_addr);
-*/
-    public static native void internal_native_set_mBodyPoint1(long this_addr, long mBodyPoint1_addr);
 
     public Vec3 get_mFixedPoint1() {
-        long addr = internal_native_get_mFixedPoint1_addr(native_address);
-        if (addr == 0)
-            return Vec3.NULL;
-        if (Vec3_TEMP_GEN_1 == null)
-            Vec3_TEMP_GEN_1 = Vec3.native_new();
-        Vec3_TEMP_GEN_1.internal_reset(addr, false);
-        return Vec3_TEMP_GEN_1;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-PulleyConstraintSettings* nativeObject = (PulleyConstraintSettings*)this_addr;
-return (jlong)&nativeObject->mFixedPoint1;
-*/
-    public static native long internal_native_get_mFixedPoint1_addr(long this_addr);
 
     public void set_mFixedPoint1(Vec3 mFixedPoint1) {
-        internal_native_set_mFixedPoint1(native_address, mFixedPoint1.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-PulleyConstraintSettings* nativeObject = (PulleyConstraintSettings*)this_addr;
-nativeObject->mFixedPoint1 = *((Vec3*)mFixedPoint1_addr);
-*/
-    public static native void internal_native_set_mFixedPoint1(long this_addr, long mFixedPoint1_addr);
 
     public Vec3 get_mBodyPoint2() {
-        long addr = internal_native_get_mBodyPoint2_addr(native_address);
-        if (addr == 0)
-            return Vec3.NULL;
-        if (Vec3_TEMP_GEN_2 == null)
-            Vec3_TEMP_GEN_2 = Vec3.native_new();
-        Vec3_TEMP_GEN_2.internal_reset(addr, false);
-        return Vec3_TEMP_GEN_2;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-PulleyConstraintSettings* nativeObject = (PulleyConstraintSettings*)this_addr;
-return (jlong)&nativeObject->mBodyPoint2;
-*/
-    public static native long internal_native_get_mBodyPoint2_addr(long this_addr);
 
     public void set_mBodyPoint2(Vec3 mBodyPoint2) {
-        internal_native_set_mBodyPoint2(native_address, mBodyPoint2.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-PulleyConstraintSettings* nativeObject = (PulleyConstraintSettings*)this_addr;
-nativeObject->mBodyPoint2 = *((Vec3*)mBodyPoint2_addr);
-*/
-    public static native void internal_native_set_mBodyPoint2(long this_addr, long mBodyPoint2_addr);
 
     public Vec3 get_mFixedPoint2() {
-        long addr = internal_native_get_mFixedPoint2_addr(native_address);
-        if (addr == 0)
-            return Vec3.NULL;
-        if (Vec3_TEMP_GEN_3 == null)
-            Vec3_TEMP_GEN_3 = Vec3.native_new();
-        Vec3_TEMP_GEN_3.internal_reset(addr, false);
-        return Vec3_TEMP_GEN_3;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-PulleyConstraintSettings* nativeObject = (PulleyConstraintSettings*)this_addr;
-return (jlong)&nativeObject->mFixedPoint2;
-*/
-    public static native long internal_native_get_mFixedPoint2_addr(long this_addr);
 
     public void set_mFixedPoint2(Vec3 mFixedPoint2) {
-        internal_native_set_mFixedPoint2(native_address, mFixedPoint2.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-PulleyConstraintSettings* nativeObject = (PulleyConstraintSettings*)this_addr;
-nativeObject->mFixedPoint2 = *((Vec3*)mFixedPoint2_addr);
-*/
-    public static native void internal_native_set_mFixedPoint2(long this_addr, long mFixedPoint2_addr);
 
     public float get_mRatio() {
-        return internal_native_get_mRatio(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-PulleyConstraintSettings* nativeObject = (PulleyConstraintSettings*)this_addr;
-return nativeObject->mRatio;
-*/
-    public static native float internal_native_get_mRatio(long this_addr);
 
     public void set_mRatio(float mRatio) {
-        internal_native_set_mRatio(native_address, mRatio);
     }
-
-    /*[-JNI;-NATIVE]
-PulleyConstraintSettings* nativeObject = (PulleyConstraintSettings*)this_addr;
-nativeObject->mRatio = mRatio;
-*/
-    public static native void internal_native_set_mRatio(long this_addr, float mRatio);
 
     public float get_mMinLength() {
-        return internal_native_get_mMinLength(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-PulleyConstraintSettings* nativeObject = (PulleyConstraintSettings*)this_addr;
-return nativeObject->mMinLength;
-*/
-    public static native float internal_native_get_mMinLength(long this_addr);
 
     public void set_mMinLength(float mMinLength) {
-        internal_native_set_mMinLength(native_address, mMinLength);
     }
-
-    /*[-JNI;-NATIVE]
-PulleyConstraintSettings* nativeObject = (PulleyConstraintSettings*)this_addr;
-nativeObject->mMinLength = mMinLength;
-*/
-    public static native void internal_native_set_mMinLength(long this_addr, float mMinLength);
 
     public float get_mMaxLength() {
-        return internal_native_get_mMaxLength(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-PulleyConstraintSettings* nativeObject = (PulleyConstraintSettings*)this_addr;
-return nativeObject->mMaxLength;
-*/
-    public static native float internal_native_get_mMaxLength(long this_addr);
 
     public void set_mMaxLength(float mMaxLength) {
-        internal_native_set_mMaxLength(native_address, mMaxLength);
     }
-
-    /*[-JNI;-NATIVE]
-PulleyConstraintSettings* nativeObject = (PulleyConstraintSettings*)this_addr;
-nativeObject->mMaxLength = mMaxLength;
-*/
-    public static native void internal_native_set_mMaxLength(long this_addr, float mMaxLength);
 }

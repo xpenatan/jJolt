@@ -6,10 +6,10 @@
 
 package jolt;
 
-import com.github.xpenatan.jParser.idl.IDLBase;
+import com.github.xpenatan.jParser.api.NativeObject;
 import jolt.physics.PhysicsSystem;
 
-public class Jolt extends IDLBase {
+public class Jolt extends NativeObject {
 
     static public final Jolt NULL = Jolt.native_new();
 
@@ -28,38 +28,14 @@ public class Jolt extends IDLBase {
     }
 
     public static void Init() {
-        internal_native_Init();
     }
-
-    /*[-JNI;-NATIVE]
-Jolt::Init();
-*/
-    public static native void internal_native_Init();
 
     public static void RegisterTypes() {
-        internal_native_RegisterTypes();
     }
-
-    /*[-JNI;-NATIVE]
-Jolt::RegisterTypes();
-*/
-    public static native void internal_native_RegisterTypes();
 
     public static void UnregisterTypes() {
-        internal_native_UnregisterTypes();
     }
-
-    /*[-JNI;-NATIVE]
-Jolt::UnregisterTypes();
-*/
-    public static native void internal_native_UnregisterTypes();
 
     public static void ClearWorld(PhysicsSystem physicsSystem) {
-        internal_native_ClearWorld(physicsSystem.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-Jolt::ClearWorld(*((PhysicsSystem* )physicsSystem_addr));
-*/
-    public static native void internal_native_ClearWorld(long physicsSystem_addr);
 }

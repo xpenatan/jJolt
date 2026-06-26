@@ -6,21 +6,14 @@
 
 package jolt.physics.collision.shape;
 
-import com.github.xpenatan.jParser.idl.IDLBase;
+import com.github.xpenatan.jParser.api.NativeObject;
 
-public class SubShapeID extends IDLBase {
+public class SubShapeID extends NativeObject {
 
     static public final SubShapeID NULL = SubShapeID.native_new();
 
     public SubShapeID() {
-        long addr = internal_native_create_addr();
-        internal_reset(addr, true);
     }
-
-    /*[-JNI;-NATIVE]
-return (jlong)new SubShapeID();
-*/
-    public static native long internal_native_create_addr();
 
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
@@ -36,33 +29,10 @@ return (jlong)new SubShapeID();
         return new SubShapeID((byte) 0, (char) 0);
     }
 
-    protected void deleteNative() {
-        internal_native_deleteNative(native_address);
-    }
-
-    /*[-JNI;-NATIVE]
-SubShapeID* nativeObject = (SubShapeID*)this_addr;
-delete nativeObject;
-*/
-    public static native void internal_native_deleteNative(long this_addr);
-
     public int GetValue() {
-        return internal_native_GetValue(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-SubShapeID* nativeObject = (SubShapeID*)this_addr;
-return nativeObject->GetValue();
-*/
-    public static native int internal_native_GetValue(long this_addr);
 
     public void SetValue(int inValue) {
-        internal_native_SetValue(native_address, inValue);
     }
-
-    /*[-JNI;-NATIVE]
-SubShapeID* nativeObject = (SubShapeID*)this_addr;
-nativeObject->SetValue((int)inValue);
-*/
-    public static native void internal_native_SetValue(long this_addr, int inValue);
 }

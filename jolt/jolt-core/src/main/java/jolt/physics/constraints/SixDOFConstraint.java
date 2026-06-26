@@ -13,36 +13,6 @@ import jolt.enums.EMotorState;
 
 public class SixDOFConstraint extends TwoBodyConstraint {
 
-    private Vec3 Vec3_TEMP_GEN_0;
-
-    private Vec3 Vec3_TEMP_GEN_1;
-
-    private Vec3 Vec3_TEMP_GEN_2;
-
-    private Vec3 Vec3_TEMP_GEN_3;
-
-    private SpringSettings SpringSettings_TEMP_GEN_0;
-
-    private Quat Quat_TEMP_GEN_0;
-
-    private MotorSettings MotorSettings_TEMP_GEN_0;
-
-    private Vec3 Vec3_TEMP_GEN_4;
-
-    private Vec3 Vec3_TEMP_GEN_5;
-
-    private Vec3 Vec3_TEMP_GEN_6;
-
-    private Quat Quat_TEMP_GEN_1;
-
-    private Vec3 Vec3_TEMP_GEN_7;
-
-    private Vec3 Vec3_TEMP_GEN_8;
-
-    private Vec3 Vec3_TEMP_GEN_9;
-
-    private Vec3 Vec3_TEMP_GEN_10;
-
     static public final SixDOFConstraint NULL = SixDOFConstraint.native_new();
 
     /**
@@ -61,422 +31,116 @@ public class SixDOFConstraint extends TwoBodyConstraint {
     }
 
     public void SetTranslationLimits(Vec3 inLimitMin, Vec3 inLimitMax) {
-        internal_native_SetTranslationLimits(native_address, inLimitMin.native_address, inLimitMax.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-SixDOFConstraint* nativeObject = (SixDOFConstraint*)this_addr;
-nativeObject->SetTranslationLimits(*((Vec3* )inLimitMin_addr), *((Vec3* )inLimitMax_addr));
-*/
-    public static native void internal_native_SetTranslationLimits(long this_addr, long inLimitMin_addr, long inLimitMax_addr);
 
     public void SetRotationLimits(Vec3 inLimitMin, Vec3 inLimitMax) {
-        internal_native_SetRotationLimits(native_address, inLimitMin.native_address, inLimitMax.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-SixDOFConstraint* nativeObject = (SixDOFConstraint*)this_addr;
-nativeObject->SetRotationLimits(*((Vec3* )inLimitMin_addr), *((Vec3* )inLimitMax_addr));
-*/
-    public static native void internal_native_SetRotationLimits(long this_addr, long inLimitMin_addr, long inLimitMax_addr);
 
     public float GetLimitsMin(SixDOFConstraintSettings_EAxis inAxis) {
-        return internal_native_GetLimitsMin(native_address, inAxis.getValue());
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-SixDOFConstraint* nativeObject = (SixDOFConstraint*)this_addr;
-return nativeObject->GetLimitsMin((::SixDOFConstraintSettings_EAxis)inAxis);
-*/
-    public static native float internal_native_GetLimitsMin(long this_addr, int inAxis);
 
     public float GetLimitsMax(SixDOFConstraintSettings_EAxis inAxis) {
-        return internal_native_GetLimitsMax(native_address, inAxis.getValue());
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-SixDOFConstraint* nativeObject = (SixDOFConstraint*)this_addr;
-return nativeObject->GetLimitsMax((::SixDOFConstraintSettings_EAxis)inAxis);
-*/
-    public static native float internal_native_GetLimitsMax(long this_addr, int inAxis);
 
     public Vec3 GetTranslationLimitsMin() {
-        long addr = internal_native_GetTranslationLimitsMin_addr(native_address);
-        if (addr == 0)
-            return Vec3.NULL;
-        if (Vec3_TEMP_GEN_0 == null)
-            Vec3_TEMP_GEN_0 = Vec3.native_new();
-        Vec3_TEMP_GEN_0.internal_reset(addr, false);
-        return Vec3_TEMP_GEN_0;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-SixDOFConstraint* nativeObject = (SixDOFConstraint*)this_addr;
-static Vec3 copy_addr;
-copy_addr = nativeObject->GetTranslationLimitsMin();
-return (jlong)&copy_addr;*/
-    public static native long internal_native_GetTranslationLimitsMin_addr(long this_addr);
 
     public Vec3 GetTranslationLimitsMax() {
-        long addr = internal_native_GetTranslationLimitsMax_addr(native_address);
-        if (addr == 0)
-            return Vec3.NULL;
-        if (Vec3_TEMP_GEN_1 == null)
-            Vec3_TEMP_GEN_1 = Vec3.native_new();
-        Vec3_TEMP_GEN_1.internal_reset(addr, false);
-        return Vec3_TEMP_GEN_1;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-SixDOFConstraint* nativeObject = (SixDOFConstraint*)this_addr;
-static Vec3 copy_addr;
-copy_addr = nativeObject->GetTranslationLimitsMax();
-return (jlong)&copy_addr;*/
-    public static native long internal_native_GetTranslationLimitsMax_addr(long this_addr);
 
     public Vec3 GetRotationLimitsMin() {
-        long addr = internal_native_GetRotationLimitsMin_addr(native_address);
-        if (addr == 0)
-            return Vec3.NULL;
-        if (Vec3_TEMP_GEN_2 == null)
-            Vec3_TEMP_GEN_2 = Vec3.native_new();
-        Vec3_TEMP_GEN_2.internal_reset(addr, false);
-        return Vec3_TEMP_GEN_2;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-SixDOFConstraint* nativeObject = (SixDOFConstraint*)this_addr;
-static Vec3 copy_addr;
-copy_addr = nativeObject->GetRotationLimitsMin();
-return (jlong)&copy_addr;*/
-    public static native long internal_native_GetRotationLimitsMin_addr(long this_addr);
 
     public Vec3 GetRotationLimitsMax() {
-        long addr = internal_native_GetRotationLimitsMax_addr(native_address);
-        if (addr == 0)
-            return Vec3.NULL;
-        if (Vec3_TEMP_GEN_3 == null)
-            Vec3_TEMP_GEN_3 = Vec3.native_new();
-        Vec3_TEMP_GEN_3.internal_reset(addr, false);
-        return Vec3_TEMP_GEN_3;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-SixDOFConstraint* nativeObject = (SixDOFConstraint*)this_addr;
-static Vec3 copy_addr;
-copy_addr = nativeObject->GetRotationLimitsMax();
-return (jlong)&copy_addr;*/
-    public static native long internal_native_GetRotationLimitsMax_addr(long this_addr);
 
     public boolean IsFixedAxis(SixDOFConstraintSettings_EAxis inAxis) {
-        return internal_native_IsFixedAxis(native_address, inAxis.getValue());
+        return false;
     }
-
-    /*[-JNI;-NATIVE]
-SixDOFConstraint* nativeObject = (SixDOFConstraint*)this_addr;
-return nativeObject->IsFixedAxis((::SixDOFConstraintSettings_EAxis)inAxis);
-*/
-    public static native boolean internal_native_IsFixedAxis(long this_addr, int inAxis);
 
     public boolean IsFreeAxis(SixDOFConstraintSettings_EAxis inAxis) {
-        return internal_native_IsFreeAxis(native_address, inAxis.getValue());
+        return false;
     }
-
-    /*[-JNI;-NATIVE]
-SixDOFConstraint* nativeObject = (SixDOFConstraint*)this_addr;
-return nativeObject->IsFreeAxis((::SixDOFConstraintSettings_EAxis)inAxis);
-*/
-    public static native boolean internal_native_IsFreeAxis(long this_addr, int inAxis);
 
     public SpringSettings GetLimitsSpringSettings(SixDOFConstraintSettings_EAxis inAxis) {
-        long addr = internal_native_GetLimitsSpringSettings_addr(native_address, inAxis.getValue());
-        if (addr == 0)
-            return SpringSettings.NULL;
-        if (SpringSettings_TEMP_GEN_0 == null)
-            SpringSettings_TEMP_GEN_0 = SpringSettings.native_new();
-        SpringSettings_TEMP_GEN_0.internal_reset(addr, false);
-        return SpringSettings_TEMP_GEN_0;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-SixDOFConstraint* nativeObject = (SixDOFConstraint*)this_addr;
-return (jlong)&nativeObject->GetLimitsSpringSettings((::SixDOFConstraintSettings_EAxis)inAxis);
-*/
-    public static native long internal_native_GetLimitsSpringSettings_addr(long this_addr, int inAxis);
 
     public void SetLimitsSpringSettings(SixDOFConstraintSettings_EAxis inAxis, SpringSettings inLimitsSpringSettings) {
-        internal_native_SetLimitsSpringSettings(native_address, inAxis.getValue(), inLimitsSpringSettings.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-SixDOFConstraint* nativeObject = (SixDOFConstraint*)this_addr;
-nativeObject->SetLimitsSpringSettings((::SixDOFConstraintSettings_EAxis)inAxis, *((SpringSettings* )inLimitsSpringSettings_addr));
-*/
-    public static native void internal_native_SetLimitsSpringSettings(long this_addr, int inAxis, long inLimitsSpringSettings_addr);
 
     public void SetMaxFriction(SixDOFConstraintSettings_EAxis inAxis, float inFriction) {
-        internal_native_SetMaxFriction(native_address, inAxis.getValue(), inFriction);
     }
-
-    /*[-JNI;-NATIVE]
-SixDOFConstraint* nativeObject = (SixDOFConstraint*)this_addr;
-nativeObject->SetMaxFriction((::SixDOFConstraintSettings_EAxis)inAxis, (float)inFriction);
-*/
-    public static native void internal_native_SetMaxFriction(long this_addr, int inAxis, float inFriction);
 
     public float GetMaxFriction(SixDOFConstraintSettings_EAxis inAxis) {
-        return internal_native_GetMaxFriction(native_address, inAxis.getValue());
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-SixDOFConstraint* nativeObject = (SixDOFConstraint*)this_addr;
-return nativeObject->GetMaxFriction((::SixDOFConstraintSettings_EAxis)inAxis);
-*/
-    public static native float internal_native_GetMaxFriction(long this_addr, int inAxis);
 
     public Quat GetRotationInConstraintSpace() {
-        long addr = internal_native_GetRotationInConstraintSpace_addr(native_address);
-        if (addr == 0)
-            return Quat.NULL;
-        if (Quat_TEMP_GEN_0 == null)
-            Quat_TEMP_GEN_0 = Quat.native_new();
-        Quat_TEMP_GEN_0.internal_reset(addr, false);
-        return Quat_TEMP_GEN_0;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-SixDOFConstraint* nativeObject = (SixDOFConstraint*)this_addr;
-static Quat copy_addr;
-copy_addr = nativeObject->GetRotationInConstraintSpace();
-return (jlong)&copy_addr;*/
-    public static native long internal_native_GetRotationInConstraintSpace_addr(long this_addr);
 
     public MotorSettings GetMotorSettings(SixDOFConstraintSettings_EAxis inAxis) {
-        long addr = internal_native_GetMotorSettings_addr(native_address, inAxis.getValue());
-        if (addr == 0)
-            return MotorSettings.NULL;
-        if (MotorSettings_TEMP_GEN_0 == null)
-            MotorSettings_TEMP_GEN_0 = MotorSettings.native_new();
-        MotorSettings_TEMP_GEN_0.internal_reset(addr, false);
-        return MotorSettings_TEMP_GEN_0;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-SixDOFConstraint* nativeObject = (SixDOFConstraint*)this_addr;
-return (jlong)&nativeObject->GetMotorSettings((::SixDOFConstraintSettings_EAxis)inAxis);
-*/
-    public static native long internal_native_GetMotorSettings_addr(long this_addr, int inAxis);
 
     public void SetMotorState(SixDOFConstraintSettings_EAxis inAxis, EMotorState inState) {
-        internal_native_SetMotorState(native_address, inAxis.getValue(), inState.getValue());
     }
-
-    /*[-JNI;-NATIVE]
-SixDOFConstraint* nativeObject = (SixDOFConstraint*)this_addr;
-nativeObject->SetMotorState((::SixDOFConstraintSettings_EAxis)inAxis, (::EMotorState)inState);
-*/
-    public static native void internal_native_SetMotorState(long this_addr, int inAxis, int inState);
 
     public EMotorState GetMotorState(SixDOFConstraintSettings_EAxis inAxis) {
-        int value = internal_native_GetMotorState(native_address, inAxis.getValue());
-        EMotorState[] values = EMotorState.values();
-        for (int i = 0; i < values.length; i++) {
-            EMotorState enumVal = values[i];
-            if (enumVal != EMotorState.CUSTOM && enumVal.getValue() == value)
-                return enumVal;
-        }
-        return EMotorState.CUSTOM.setValue(value);
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-SixDOFConstraint* nativeObject = (SixDOFConstraint*)this_addr;
-return (int)nativeObject->GetMotorState((::SixDOFConstraintSettings_EAxis)inAxis);
-*/
-    public static native int internal_native_GetMotorState(long this_addr, int inAxis);
 
     public Vec3 GetTargetVelocityCS() {
-        long addr = internal_native_GetTargetVelocityCS_addr(native_address);
-        if (addr == 0)
-            return Vec3.NULL;
-        if (Vec3_TEMP_GEN_4 == null)
-            Vec3_TEMP_GEN_4 = Vec3.native_new();
-        Vec3_TEMP_GEN_4.internal_reset(addr, false);
-        return Vec3_TEMP_GEN_4;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-SixDOFConstraint* nativeObject = (SixDOFConstraint*)this_addr;
-static Vec3 copy_addr;
-copy_addr = nativeObject->GetTargetVelocityCS();
-return (jlong)&copy_addr;*/
-    public static native long internal_native_GetTargetVelocityCS_addr(long this_addr);
 
     public void SetTargetVelocityCS(Vec3 inVelocity) {
-        internal_native_SetTargetVelocityCS(native_address, inVelocity.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-SixDOFConstraint* nativeObject = (SixDOFConstraint*)this_addr;
-nativeObject->SetTargetVelocityCS(*((Vec3* )inVelocity_addr));
-*/
-    public static native void internal_native_SetTargetVelocityCS(long this_addr, long inVelocity_addr);
 
     public void SetTargetAngularVelocityCS(Vec3 inAngularVelocity) {
-        internal_native_SetTargetAngularVelocityCS(native_address, inAngularVelocity.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-SixDOFConstraint* nativeObject = (SixDOFConstraint*)this_addr;
-nativeObject->SetTargetAngularVelocityCS(*((Vec3* )inAngularVelocity_addr));
-*/
-    public static native void internal_native_SetTargetAngularVelocityCS(long this_addr, long inAngularVelocity_addr);
 
     public Vec3 GetTargetAngularVelocityCS() {
-        long addr = internal_native_GetTargetAngularVelocityCS_addr(native_address);
-        if (addr == 0)
-            return Vec3.NULL;
-        if (Vec3_TEMP_GEN_5 == null)
-            Vec3_TEMP_GEN_5 = Vec3.native_new();
-        Vec3_TEMP_GEN_5.internal_reset(addr, false);
-        return Vec3_TEMP_GEN_5;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-SixDOFConstraint* nativeObject = (SixDOFConstraint*)this_addr;
-static Vec3 copy_addr;
-copy_addr = nativeObject->GetTargetAngularVelocityCS();
-return (jlong)&copy_addr;*/
-    public static native long internal_native_GetTargetAngularVelocityCS_addr(long this_addr);
 
     public Vec3 GetTargetPositionCS() {
-        long addr = internal_native_GetTargetPositionCS_addr(native_address);
-        if (addr == 0)
-            return Vec3.NULL;
-        if (Vec3_TEMP_GEN_6 == null)
-            Vec3_TEMP_GEN_6 = Vec3.native_new();
-        Vec3_TEMP_GEN_6.internal_reset(addr, false);
-        return Vec3_TEMP_GEN_6;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-SixDOFConstraint* nativeObject = (SixDOFConstraint*)this_addr;
-static Vec3 copy_addr;
-copy_addr = nativeObject->GetTargetPositionCS();
-return (jlong)&copy_addr;*/
-    public static native long internal_native_GetTargetPositionCS_addr(long this_addr);
 
     public void SetTargetPositionCS(Vec3 inPosition) {
-        internal_native_SetTargetPositionCS(native_address, inPosition.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-SixDOFConstraint* nativeObject = (SixDOFConstraint*)this_addr;
-nativeObject->SetTargetPositionCS(*((Vec3* )inPosition_addr));
-*/
-    public static native void internal_native_SetTargetPositionCS(long this_addr, long inPosition_addr);
 
     public void SetTargetOrientationCS(Quat inOrientation) {
-        internal_native_SetTargetOrientationCS(native_address, inOrientation.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-SixDOFConstraint* nativeObject = (SixDOFConstraint*)this_addr;
-nativeObject->SetTargetOrientationCS(*((Quat* )inOrientation_addr));
-*/
-    public static native void internal_native_SetTargetOrientationCS(long this_addr, long inOrientation_addr);
 
     public Quat GetTargetOrientationCS() {
-        long addr = internal_native_GetTargetOrientationCS_addr(native_address);
-        if (addr == 0)
-            return Quat.NULL;
-        if (Quat_TEMP_GEN_1 == null)
-            Quat_TEMP_GEN_1 = Quat.native_new();
-        Quat_TEMP_GEN_1.internal_reset(addr, false);
-        return Quat_TEMP_GEN_1;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-SixDOFConstraint* nativeObject = (SixDOFConstraint*)this_addr;
-static Quat copy_addr;
-copy_addr = nativeObject->GetTargetOrientationCS();
-return (jlong)&copy_addr;*/
-    public static native long internal_native_GetTargetOrientationCS_addr(long this_addr);
 
     public void SetTargetOrientationBS(Quat inOrientation) {
-        internal_native_SetTargetOrientationBS(native_address, inOrientation.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-SixDOFConstraint* nativeObject = (SixDOFConstraint*)this_addr;
-nativeObject->SetTargetOrientationBS(*((Quat* )inOrientation_addr));
-*/
-    public static native void internal_native_SetTargetOrientationBS(long this_addr, long inOrientation_addr);
 
     public Vec3 GetTotalLambdaPosition() {
-        long addr = internal_native_GetTotalLambdaPosition_addr(native_address);
-        if (addr == 0)
-            return Vec3.NULL;
-        if (Vec3_TEMP_GEN_7 == null)
-            Vec3_TEMP_GEN_7 = Vec3.native_new();
-        Vec3_TEMP_GEN_7.internal_reset(addr, false);
-        return Vec3_TEMP_GEN_7;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-SixDOFConstraint* nativeObject = (SixDOFConstraint*)this_addr;
-static Vec3 copy_addr;
-copy_addr = nativeObject->GetTotalLambdaPosition();
-return (jlong)&copy_addr;*/
-    public static native long internal_native_GetTotalLambdaPosition_addr(long this_addr);
 
     public Vec3 GetTotalLambdaRotation() {
-        long addr = internal_native_GetTotalLambdaRotation_addr(native_address);
-        if (addr == 0)
-            return Vec3.NULL;
-        if (Vec3_TEMP_GEN_8 == null)
-            Vec3_TEMP_GEN_8 = Vec3.native_new();
-        Vec3_TEMP_GEN_8.internal_reset(addr, false);
-        return Vec3_TEMP_GEN_8;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-SixDOFConstraint* nativeObject = (SixDOFConstraint*)this_addr;
-static Vec3 copy_addr;
-copy_addr = nativeObject->GetTotalLambdaRotation();
-return (jlong)&copy_addr;*/
-    public static native long internal_native_GetTotalLambdaRotation_addr(long this_addr);
 
     public Vec3 GetTotalLambdaMotorTranslation() {
-        long addr = internal_native_GetTotalLambdaMotorTranslation_addr(native_address);
-        if (addr == 0)
-            return Vec3.NULL;
-        if (Vec3_TEMP_GEN_9 == null)
-            Vec3_TEMP_GEN_9 = Vec3.native_new();
-        Vec3_TEMP_GEN_9.internal_reset(addr, false);
-        return Vec3_TEMP_GEN_9;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-SixDOFConstraint* nativeObject = (SixDOFConstraint*)this_addr;
-static Vec3 copy_addr;
-copy_addr = nativeObject->GetTotalLambdaMotorTranslation();
-return (jlong)&copy_addr;*/
-    public static native long internal_native_GetTotalLambdaMotorTranslation_addr(long this_addr);
 
     public Vec3 GetTotalLambdaMotorRotation() {
-        long addr = internal_native_GetTotalLambdaMotorRotation_addr(native_address);
-        if (addr == 0)
-            return Vec3.NULL;
-        if (Vec3_TEMP_GEN_10 == null)
-            Vec3_TEMP_GEN_10 = Vec3.native_new();
-        Vec3_TEMP_GEN_10.internal_reset(addr, false);
-        return Vec3_TEMP_GEN_10;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-SixDOFConstraint* nativeObject = (SixDOFConstraint*)this_addr;
-static Vec3 copy_addr;
-copy_addr = nativeObject->GetTotalLambdaMotorRotation();
-return (jlong)&copy_addr;*/
-    public static native long internal_native_GetTotalLambdaMotorRotation_addr(long this_addr);
 }

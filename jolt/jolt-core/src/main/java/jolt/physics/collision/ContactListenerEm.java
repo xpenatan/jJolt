@@ -40,43 +40,9 @@ public class ContactListenerEm extends ContactListener {
 
     static public final ContactListenerEm NULL = ContactListenerEm.native_new();
 
-    /*[-JNI;-NATIVE]
-	static jmethodID ContactListenerJS_OnContactValidateJJJJ_ID;
-	static jmethodID ContactListenerJS_OnContactAddedJJJJ_ID;
-	static jmethodID ContactListenerJS_OnContactPersistedJJJJ_ID;
-	static jmethodID ContactListenerJS_OnContactRemovedJ_ID;
-
-class ContactListenerJS : public ContactListenerEm {
-private:
-	JNIEnv* env;
-	jobject obj;
-public:
-void setupCallback(JNIEnv* env, jobject obj) {
-	this->env = env;
-	this->obj = env->NewGlobalRef(obj);
-	static jclass jClassID = 0;
-	if(jClassID == 0) {
-		jClassID = (jclass)env->NewGlobalRef(env->GetObjectClass(obj));
-		ContactListenerJS_OnContactValidateJJJJ_ID = env->GetMethodID(jClassID, "internal_OnContactValidate", "(JJJJ)I");
-		ContactListenerJS_OnContactAddedJJJJ_ID = env->GetMethodID(jClassID, "internal_OnContactAdded", "(JJJJ)V");
-		ContactListenerJS_OnContactPersistedJJJJ_ID = env->GetMethodID(jClassID, "internal_OnContactPersisted", "(JJJJ)V");
-		ContactListenerJS_OnContactRemovedJ_ID = env->GetMethodID(jClassID, "internal_OnContactRemoved", "(J)V");
-	}
-}
-virtual int OnContactValidate(const Body& inBody1, const Body& inBody2, const Vec3* inBaseOffset, const CollideShapeResult& inCollisionResult) {
-   return env->CallIntMethod(obj, ContactListenerJS_OnContactValidateJJJJ_ID, (jlong)&inBody1, (jlong)&inBody2, (jlong)inBaseOffset, (jlong)&inCollisionResult);
-}
-virtual void OnContactAdded(const Body& inBody1, const Body& inBody2, const ContactManifold& inManifold, ContactSettings& ioSettings) {
-   env->CallVoidMethod(obj, ContactListenerJS_OnContactAddedJJJJ_ID, (jlong)&inBody1, (jlong)&inBody2, (jlong)&inManifold, (jlong)&ioSettings);
-}
-virtual void OnContactPersisted(const Body& inBody1, const Body& inBody2, const ContactManifold& inManifold, ContactSettings& ioSettings) {
-   env->CallVoidMethod(obj, ContactListenerJS_OnContactPersistedJJJJ_ID, (jlong)&inBody1, (jlong)&inBody2, (jlong)&inManifold, (jlong)&ioSettings);
-}
-virtual void OnContactRemoved(const SubShapeIDPair& inSubShapePair) {
-   env->CallVoidMethod(obj, ContactListenerJS_OnContactRemovedJ_ID, (jlong)&inSubShapePair);
-}
-};
-*/
+    /**
+     * Dummy constructor, used internally to creates objects without C++ pointer
+     */
     @Deprecated()
     protected ContactListenerEm(byte b, char c) {
         super((byte) 1, (char) 1);
@@ -89,16 +55,6 @@ virtual void OnContactRemoved(const SubShapeIDPair& inSubShapePair) {
         return new ContactListenerEm((byte) 0, (char) 0);
     }
 
-    protected void deleteNative() {
-        internal_native_deleteNative(native_address);
-    }
-
-    /*[-JNI;-NATIVE]
-ContactListenerJS* nativeObject = (ContactListenerJS*)this_addr;
-delete nativeObject;
-*/
-    public static native void internal_native_deleteNative(long this_addr);
-
     public ContactListenerEm() {
         super((byte) 1, (char) 1);
         long addr = internal_native_create_addr();
@@ -107,7 +63,6 @@ delete nativeObject;
     }
 
     private void setupCallback() {
-        internal_native_setupCallback(native_address);
     }
 
     protected int OnContactValidate(Body inBody1, Body inBody2, Vec3 inBaseOffset, CollideShapeResult inCollisionResult) {
@@ -178,14 +133,5 @@ delete nativeObject;
         OnContactRemoved(SubShapeIDPair_TEMP_STATIC_GEN_0);
     }
 
-    /*[-JNI;-NATIVE]
-return (jlong)new ContactListenerJS();
-*/
     public static native long internal_native_create_addr();
-
-    /*[-JNI;-NATIVE]
-ContactListenerJS* nativeObject = (ContactListenerJS*)this_addr;
-nativeObject->setupCallback(env, object);
-*/
-    public native void internal_native_setupCallback(long this_addr);
 }

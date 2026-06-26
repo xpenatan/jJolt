@@ -6,11 +6,9 @@
 
 package jolt.physics.vehicle;
 
-import com.github.xpenatan.jParser.idl.IDLBase;
+import com.github.xpenatan.jParser.api.NativeObject;
 
-public class VehicleController extends IDLBase {
-
-    private VehicleConstraint VehicleConstraint_TEMP_GEN_0;
+public class VehicleController extends NativeObject {
 
     static public final VehicleController NULL = VehicleController.native_new();
 
@@ -29,18 +27,6 @@ public class VehicleController extends IDLBase {
     }
 
     public VehicleConstraint GetConstraint() {
-        long addr = internal_native_GetConstraint_addr(native_address);
-        if (addr == 0)
-            return VehicleConstraint.NULL;
-        if (VehicleConstraint_TEMP_GEN_0 == null)
-            VehicleConstraint_TEMP_GEN_0 = VehicleConstraint.native_new();
-        VehicleConstraint_TEMP_GEN_0.internal_reset(addr, false);
-        return VehicleConstraint_TEMP_GEN_0;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-VehicleController* nativeObject = (VehicleController*)this_addr;
-return (jlong)&nativeObject->GetConstraint();
-*/
-    public static native long internal_native_GetConstraint_addr(long this_addr);
 }

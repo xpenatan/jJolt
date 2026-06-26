@@ -10,20 +10,11 @@ import jolt.math.Vec3;
 
 public class ScaledShapeSettings extends DecoratedShapeSettings {
 
-    private Vec3 Vec3_TEMP_GEN_0;
-
     static public final ScaledShapeSettings NULL = ScaledShapeSettings.native_new();
 
     public ScaledShapeSettings(ShapeSettings inShape, Vec3 inScale) {
         super((byte) 1, (char) 1);
-        long addr = internal_native_create_ShapeSettings_Vec3_addr(inShape.native_address, inScale.native_address);
-        internal_reset(addr, true);
     }
-
-    /*[-JNI;-NATIVE]
-return (jlong)new ScaledShapeSettings((ShapeSettings* )inShape_addr, *((Vec3* )inScale_addr));
-*/
-    public static native long internal_native_create_ShapeSettings_Vec3_addr(long inShape_addr, long inScale_addr);
 
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
@@ -40,39 +31,10 @@ return (jlong)new ScaledShapeSettings((ShapeSettings* )inShape_addr, *((Vec3* )i
         return new ScaledShapeSettings((byte) 0, (char) 0);
     }
 
-    protected void deleteNative() {
-        internal_native_deleteNative(native_address);
-    }
-
-    /*[-JNI;-NATIVE]
-ScaledShapeSettings* nativeObject = (ScaledShapeSettings*)this_addr;
-delete nativeObject;
-*/
-    public static native void internal_native_deleteNative(long this_addr);
-
     public Vec3 get_mScale() {
-        long addr = internal_native_get_mScale_addr(native_address);
-        if (addr == 0)
-            return Vec3.NULL;
-        if (Vec3_TEMP_GEN_0 == null)
-            Vec3_TEMP_GEN_0 = Vec3.native_new();
-        Vec3_TEMP_GEN_0.internal_reset(addr, false);
-        return Vec3_TEMP_GEN_0;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-ScaledShapeSettings* nativeObject = (ScaledShapeSettings*)this_addr;
-return (jlong)&nativeObject->mScale;
-*/
-    public static native long internal_native_get_mScale_addr(long this_addr);
 
     public void set_mScale(Vec3 mScale) {
-        internal_native_set_mScale(native_address, mScale.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-ScaledShapeSettings* nativeObject = (ScaledShapeSettings*)this_addr;
-nativeObject->mScale = *((Vec3*)mScale_addr);
-*/
-    public static native void internal_native_set_mScale(long this_addr, long mScale_addr);
 }

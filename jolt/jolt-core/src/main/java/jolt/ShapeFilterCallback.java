@@ -26,33 +26,9 @@ public class ShapeFilterCallback extends ShapeFilter {
 
     static public final ShapeFilterCallback NULL = ShapeFilterCallback.native_new();
 
-    /*[-JNI;-NATIVE]
-	static jmethodID ShapeFilterCallbackImpl_ShouldCollide_AnyJJ_ID;
-	static jmethodID ShapeFilterCallbackImpl_ShouldCollide_ShapeJJJJ_ID;
-
-class ShapeFilterCallbackImpl : public ShapeFilterCallback {
-private:
-	JNIEnv* env;
-	jobject obj;
-public:
-void setupCallback(JNIEnv* env, jobject obj) {
-	this->env = env;
-	this->obj = env->NewGlobalRef(obj);
-	static jclass jClassID = 0;
-	if(jClassID == 0) {
-		jClassID = (jclass)env->NewGlobalRef(env->GetObjectClass(obj));
-		ShapeFilterCallbackImpl_ShouldCollide_AnyJJ_ID = env->GetMethodID(jClassID, "internal_ShouldCollide_Any", "(JJ)Z");
-		ShapeFilterCallbackImpl_ShouldCollide_ShapeJJJJ_ID = env->GetMethodID(jClassID, "internal_ShouldCollide_Shape", "(JJJJ)Z");
-	}
-}
-virtual bool ShouldCollide_Any(const Shape* inShape2, const SubShapeID& inSubShapeIDOfShape2) const {
-   return env->CallBooleanMethod(obj, ShapeFilterCallbackImpl_ShouldCollide_AnyJJ_ID, (jlong)inShape2, (jlong)&inSubShapeIDOfShape2);
-}
-virtual bool ShouldCollide_Shape(const Shape* inShape1, const SubShapeID& inSubShapeIDOfShape1, const Shape* inShape2, const SubShapeID& inSubShapeIDOfShape2) const {
-   return env->CallBooleanMethod(obj, ShapeFilterCallbackImpl_ShouldCollide_ShapeJJJJ_ID, (jlong)inShape1, (jlong)&inSubShapeIDOfShape1, (jlong)inShape2, (jlong)&inSubShapeIDOfShape2);
-}
-};
-*/
+    /**
+     * Dummy constructor, used internally to creates objects without C++ pointer
+     */
     @Deprecated()
     protected ShapeFilterCallback(byte b, char c) {
         super((byte) 1, (char) 1);
@@ -65,16 +41,6 @@ virtual bool ShouldCollide_Shape(const Shape* inShape1, const SubShapeID& inSubS
         return new ShapeFilterCallback((byte) 0, (char) 0);
     }
 
-    protected void deleteNative() {
-        internal_native_deleteNative(native_address);
-    }
-
-    /*[-JNI;-NATIVE]
-ShapeFilterCallbackImpl* nativeObject = (ShapeFilterCallbackImpl*)this_addr;
-delete nativeObject;
-*/
-    public static native void internal_native_deleteNative(long this_addr);
-
     public ShapeFilterCallback() {
         super((byte) 1, (char) 1);
         long addr = internal_native_create_addr();
@@ -83,7 +49,6 @@ delete nativeObject;
     }
 
     private void setupCallback() {
-        internal_native_setupCallback(native_address);
     }
 
     protected boolean ShouldCollide_Any(Shape inShape2, SubShapeID inSubShapeIDOfShape2) {
@@ -120,14 +85,5 @@ delete nativeObject;
         return ShouldCollide_Shape(Shape_TEMP_STATIC_GEN_1, SubShapeID_TEMP_STATIC_GEN_1, Shape_TEMP_STATIC_GEN_2, SubShapeID_TEMP_STATIC_GEN_2);
     }
 
-    /*[-JNI;-NATIVE]
-return (jlong)new ShapeFilterCallbackImpl();
-*/
     public static native long internal_native_create_addr();
-
-    /*[-JNI;-NATIVE]
-ShapeFilterCallbackImpl* nativeObject = (ShapeFilterCallbackImpl*)this_addr;
-nativeObject->setupCallback(env, object);
-*/
-    public native void internal_native_setupCallback(long this_addr);
 }

@@ -6,21 +6,14 @@
 
 package jolt.physics.collision;
 
-import com.github.xpenatan.jParser.idl.IDLBase;
+import com.github.xpenatan.jParser.api.NativeObject;
 
-public class ShapeFilter extends IDLBase {
+public class ShapeFilter extends NativeObject {
 
     static public final ShapeFilter NULL = ShapeFilter.native_new();
 
     public ShapeFilter() {
-        long addr = internal_native_create_addr();
-        internal_reset(addr, true);
     }
-
-    /*[-JNI;-NATIVE]
-return (jlong)new ShapeFilter();
-*/
-    public static native long internal_native_create_addr();
 
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
@@ -35,14 +28,4 @@ return (jlong)new ShapeFilter();
     public static ShapeFilter native_new() {
         return new ShapeFilter((byte) 0, (char) 0);
     }
-
-    protected void deleteNative() {
-        internal_native_deleteNative(native_address);
-    }
-
-    /*[-JNI;-NATIVE]
-ShapeFilter* nativeObject = (ShapeFilter*)this_addr;
-delete nativeObject;
-*/
-    public static native void internal_native_deleteNative(long this_addr);
 }

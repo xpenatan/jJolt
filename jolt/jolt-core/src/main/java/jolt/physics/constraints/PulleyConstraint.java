@@ -26,42 +26,17 @@ public class PulleyConstraint extends TwoBodyConstraint {
     }
 
     public void SetLength(float inMinLength, float inMaxLength) {
-        internal_native_SetLength(native_address, inMinLength, inMaxLength);
     }
-
-    /*[-JNI;-NATIVE]
-PulleyConstraint* nativeObject = (PulleyConstraint*)this_addr;
-nativeObject->SetLength((float)inMinLength, (float)inMaxLength);
-*/
-    public static native void internal_native_SetLength(long this_addr, float inMinLength, float inMaxLength);
 
     public float GetMinLength() {
-        return internal_native_GetMinLength(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-PulleyConstraint* nativeObject = (PulleyConstraint*)this_addr;
-return nativeObject->GetMinLength();
-*/
-    public static native float internal_native_GetMinLength(long this_addr);
 
     public float GetMaxLength() {
-        return internal_native_GetMaxLength(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-PulleyConstraint* nativeObject = (PulleyConstraint*)this_addr;
-return nativeObject->GetMaxLength();
-*/
-    public static native float internal_native_GetMaxLength(long this_addr);
 
     public float GetCurrentLength() {
-        return internal_native_GetCurrentLength(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-PulleyConstraint* nativeObject = (PulleyConstraint*)this_addr;
-return nativeObject->GetCurrentLength();
-*/
-    public static native float internal_native_GetCurrentLength(long this_addr);
 }

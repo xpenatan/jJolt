@@ -14,7 +14,7 @@ buildscript {
     val kotlinVersion = "2.1.10"
 
     dependencies {
-        classpath("com.android.tools.build:gradle:8.5.1")
+        classpath("com.android.tools.build:gradle:8.12.0")
         classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion")
     }
 }
@@ -36,6 +36,11 @@ allprojects  {
     configurations.configureEach {
         // Check for updates every sync
         resolutionStrategy.cacheChangingModulesFor(0, "seconds")
+        resolutionStrategy.eachDependency {
+            if(requested.group == "com.github.xpenatan.jParser") {
+                useVersion(LibExt.jParserVersion)
+            }
+        }
     }
 }
 

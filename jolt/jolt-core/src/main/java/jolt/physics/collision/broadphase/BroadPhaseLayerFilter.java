@@ -6,21 +6,14 @@
 
 package jolt.physics.collision.broadphase;
 
-import com.github.xpenatan.jParser.idl.IDLBase;
+import com.github.xpenatan.jParser.api.NativeObject;
 
-public class BroadPhaseLayerFilter extends IDLBase {
+public class BroadPhaseLayerFilter extends NativeObject {
 
     static public final BroadPhaseLayerFilter NULL = BroadPhaseLayerFilter.native_new();
 
     public BroadPhaseLayerFilter() {
-        long addr = internal_native_create_addr();
-        internal_reset(addr, true);
     }
-
-    /*[-JNI;-NATIVE]
-return (jlong)new BroadPhaseLayerFilter();
-*/
-    public static native long internal_native_create_addr();
 
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
@@ -35,14 +28,4 @@ return (jlong)new BroadPhaseLayerFilter();
     public static BroadPhaseLayerFilter native_new() {
         return new BroadPhaseLayerFilter((byte) 0, (char) 0);
     }
-
-    protected void deleteNative() {
-        internal_native_deleteNative(native_address);
-    }
-
-    /*[-JNI;-NATIVE]
-BroadPhaseLayerFilter* nativeObject = (BroadPhaseLayerFilter*)this_addr;
-delete nativeObject;
-*/
-    public static native void internal_native_deleteNative(long this_addr);
 }

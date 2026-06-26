@@ -12,14 +12,7 @@ public class WheelSettingsTV extends WheelSettings {
 
     public WheelSettingsTV() {
         super((byte) 1, (char) 1);
-        long addr = internal_native_create_addr();
-        internal_reset(addr, true);
     }
-
-    /*[-JNI;-NATIVE]
-return (jlong)new WheelSettingsTV();
-*/
-    public static native long internal_native_create_addr();
 
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
@@ -36,53 +29,17 @@ return (jlong)new WheelSettingsTV();
         return new WheelSettingsTV((byte) 0, (char) 0);
     }
 
-    protected void deleteNative() {
-        internal_native_deleteNative(native_address);
-    }
-
-    /*[-JNI;-NATIVE]
-WheelSettingsTV* nativeObject = (WheelSettingsTV*)this_addr;
-delete nativeObject;
-*/
-    public static native void internal_native_deleteNative(long this_addr);
-
     public float get_mLongitudinalFriction() {
-        return internal_native_get_mLongitudinalFriction(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-WheelSettingsTV* nativeObject = (WheelSettingsTV*)this_addr;
-return nativeObject->mLongitudinalFriction;
-*/
-    public static native float internal_native_get_mLongitudinalFriction(long this_addr);
 
     public void set_mLongitudinalFriction(float mLongitudinalFriction) {
-        internal_native_set_mLongitudinalFriction(native_address, mLongitudinalFriction);
     }
-
-    /*[-JNI;-NATIVE]
-WheelSettingsTV* nativeObject = (WheelSettingsTV*)this_addr;
-nativeObject->mLongitudinalFriction = mLongitudinalFriction;
-*/
-    public static native void internal_native_set_mLongitudinalFriction(long this_addr, float mLongitudinalFriction);
 
     public float get_mLateralFriction() {
-        return internal_native_get_mLateralFriction(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-WheelSettingsTV* nativeObject = (WheelSettingsTV*)this_addr;
-return nativeObject->mLateralFriction;
-*/
-    public static native float internal_native_get_mLateralFriction(long this_addr);
 
     public void set_mLateralFriction(float mLateralFriction) {
-        internal_native_set_mLateralFriction(native_address, mLateralFriction);
     }
-
-    /*[-JNI;-NATIVE]
-WheelSettingsTV* nativeObject = (WheelSettingsTV*)this_addr;
-nativeObject->mLateralFriction = mLateralFriction;
-*/
-    public static native void internal_native_set_mLateralFriction(long this_addr, float mLateralFriction);
 }

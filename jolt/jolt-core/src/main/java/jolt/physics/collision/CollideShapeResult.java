@@ -6,40 +6,17 @@
 
 package jolt.physics.collision;
 
-import com.github.xpenatan.jParser.idl.IDLBase;
+import com.github.xpenatan.jParser.api.NativeObject;
 import jolt.math.Vec3;
 import jolt.physics.collision.shape.SubShapeID;
 import jolt.physics.body.BodyID;
 
-public class CollideShapeResult extends IDLBase {
-
-    private Vec3 Vec3_TEMP_GEN_0;
-
-    private Vec3 Vec3_TEMP_GEN_1;
-
-    private Vec3 Vec3_TEMP_GEN_2;
-
-    private SubShapeID SubShapeID_TEMP_GEN_0;
-
-    private SubShapeID SubShapeID_TEMP_GEN_1;
-
-    private BodyID BodyID_TEMP_GEN_0;
-
-    private CollideShapeResultFace CollideShapeResultFace_TEMP_GEN_0;
-
-    private CollideShapeResultFace CollideShapeResultFace_TEMP_GEN_1;
+public class CollideShapeResult extends NativeObject {
 
     static public final CollideShapeResult NULL = CollideShapeResult.native_new();
 
     public CollideShapeResult() {
-        long addr = internal_native_create_addr();
-        internal_reset(addr, true);
     }
-
-    /*[-JNI;-NATIVE]
-return (jlong)new CollideShapeResult();
-*/
-    public static native long internal_native_create_addr();
 
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
@@ -55,241 +32,66 @@ return (jlong)new CollideShapeResult();
         return new CollideShapeResult((byte) 0, (char) 0);
     }
 
-    protected void deleteNative() {
-        internal_native_deleteNative(native_address);
-    }
-
-    /*[-JNI;-NATIVE]
-CollideShapeResult* nativeObject = (CollideShapeResult*)this_addr;
-delete nativeObject;
-*/
-    public static native void internal_native_deleteNative(long this_addr);
-
     public Vec3 get_mContactPointOn1() {
-        long addr = internal_native_get_mContactPointOn1_addr(native_address);
-        if (addr == 0)
-            return Vec3.NULL;
-        if (Vec3_TEMP_GEN_0 == null)
-            Vec3_TEMP_GEN_0 = Vec3.native_new();
-        Vec3_TEMP_GEN_0.internal_reset(addr, false);
-        return Vec3_TEMP_GEN_0;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-CollideShapeResult* nativeObject = (CollideShapeResult*)this_addr;
-return (jlong)&nativeObject->mContactPointOn1;
-*/
-    public static native long internal_native_get_mContactPointOn1_addr(long this_addr);
 
     public void set_mContactPointOn1(Vec3 mContactPointOn1) {
-        internal_native_set_mContactPointOn1(native_address, mContactPointOn1.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-CollideShapeResult* nativeObject = (CollideShapeResult*)this_addr;
-nativeObject->mContactPointOn1 = *((Vec3*)mContactPointOn1_addr);
-*/
-    public static native void internal_native_set_mContactPointOn1(long this_addr, long mContactPointOn1_addr);
 
     public Vec3 get_mContactPointOn2() {
-        long addr = internal_native_get_mContactPointOn2_addr(native_address);
-        if (addr == 0)
-            return Vec3.NULL;
-        if (Vec3_TEMP_GEN_1 == null)
-            Vec3_TEMP_GEN_1 = Vec3.native_new();
-        Vec3_TEMP_GEN_1.internal_reset(addr, false);
-        return Vec3_TEMP_GEN_1;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-CollideShapeResult* nativeObject = (CollideShapeResult*)this_addr;
-return (jlong)&nativeObject->mContactPointOn2;
-*/
-    public static native long internal_native_get_mContactPointOn2_addr(long this_addr);
 
     public void set_mContactPointOn2(Vec3 mContactPointOn2) {
-        internal_native_set_mContactPointOn2(native_address, mContactPointOn2.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-CollideShapeResult* nativeObject = (CollideShapeResult*)this_addr;
-nativeObject->mContactPointOn2 = *((Vec3*)mContactPointOn2_addr);
-*/
-    public static native void internal_native_set_mContactPointOn2(long this_addr, long mContactPointOn2_addr);
 
     public Vec3 get_mPenetrationAxis() {
-        long addr = internal_native_get_mPenetrationAxis_addr(native_address);
-        if (addr == 0)
-            return Vec3.NULL;
-        if (Vec3_TEMP_GEN_2 == null)
-            Vec3_TEMP_GEN_2 = Vec3.native_new();
-        Vec3_TEMP_GEN_2.internal_reset(addr, false);
-        return Vec3_TEMP_GEN_2;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-CollideShapeResult* nativeObject = (CollideShapeResult*)this_addr;
-return (jlong)&nativeObject->mPenetrationAxis;
-*/
-    public static native long internal_native_get_mPenetrationAxis_addr(long this_addr);
 
     public void set_mPenetrationAxis(Vec3 mPenetrationAxis) {
-        internal_native_set_mPenetrationAxis(native_address, mPenetrationAxis.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-CollideShapeResult* nativeObject = (CollideShapeResult*)this_addr;
-nativeObject->mPenetrationAxis = *((Vec3*)mPenetrationAxis_addr);
-*/
-    public static native void internal_native_set_mPenetrationAxis(long this_addr, long mPenetrationAxis_addr);
 
     public float get_mPenetrationDepth() {
-        return internal_native_get_mPenetrationDepth(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-CollideShapeResult* nativeObject = (CollideShapeResult*)this_addr;
-return nativeObject->mPenetrationDepth;
-*/
-    public static native float internal_native_get_mPenetrationDepth(long this_addr);
 
     public void set_mPenetrationDepth(float mPenetrationDepth) {
-        internal_native_set_mPenetrationDepth(native_address, mPenetrationDepth);
     }
-
-    /*[-JNI;-NATIVE]
-CollideShapeResult* nativeObject = (CollideShapeResult*)this_addr;
-nativeObject->mPenetrationDepth = mPenetrationDepth;
-*/
-    public static native void internal_native_set_mPenetrationDepth(long this_addr, float mPenetrationDepth);
 
     public SubShapeID get_mSubShapeID1() {
-        long addr = internal_native_get_mSubShapeID1_addr(native_address);
-        if (addr == 0)
-            return SubShapeID.NULL;
-        if (SubShapeID_TEMP_GEN_0 == null)
-            SubShapeID_TEMP_GEN_0 = SubShapeID.native_new();
-        SubShapeID_TEMP_GEN_0.internal_reset(addr, false);
-        return SubShapeID_TEMP_GEN_0;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-CollideShapeResult* nativeObject = (CollideShapeResult*)this_addr;
-return (jlong)&nativeObject->mSubShapeID1;
-*/
-    public static native long internal_native_get_mSubShapeID1_addr(long this_addr);
 
     public void set_mSubShapeID1(SubShapeID mSubShapeID1) {
-        internal_native_set_mSubShapeID1(native_address, mSubShapeID1.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-CollideShapeResult* nativeObject = (CollideShapeResult*)this_addr;
-nativeObject->mSubShapeID1 = *((SubShapeID*)mSubShapeID1_addr);
-*/
-    public static native void internal_native_set_mSubShapeID1(long this_addr, long mSubShapeID1_addr);
 
     public SubShapeID get_mSubShapeID2() {
-        long addr = internal_native_get_mSubShapeID2_addr(native_address);
-        if (addr == 0)
-            return SubShapeID.NULL;
-        if (SubShapeID_TEMP_GEN_1 == null)
-            SubShapeID_TEMP_GEN_1 = SubShapeID.native_new();
-        SubShapeID_TEMP_GEN_1.internal_reset(addr, false);
-        return SubShapeID_TEMP_GEN_1;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-CollideShapeResult* nativeObject = (CollideShapeResult*)this_addr;
-return (jlong)&nativeObject->mSubShapeID2;
-*/
-    public static native long internal_native_get_mSubShapeID2_addr(long this_addr);
 
     public void set_mSubShapeID2(SubShapeID mSubShapeID2) {
-        internal_native_set_mSubShapeID2(native_address, mSubShapeID2.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-CollideShapeResult* nativeObject = (CollideShapeResult*)this_addr;
-nativeObject->mSubShapeID2 = *((SubShapeID*)mSubShapeID2_addr);
-*/
-    public static native void internal_native_set_mSubShapeID2(long this_addr, long mSubShapeID2_addr);
 
     public BodyID get_mBodyID2() {
-        long addr = internal_native_get_mBodyID2_addr(native_address);
-        if (addr == 0)
-            return BodyID.NULL;
-        if (BodyID_TEMP_GEN_0 == null)
-            BodyID_TEMP_GEN_0 = BodyID.native_new();
-        BodyID_TEMP_GEN_0.internal_reset(addr, false);
-        return BodyID_TEMP_GEN_0;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-CollideShapeResult* nativeObject = (CollideShapeResult*)this_addr;
-return (jlong)&nativeObject->mBodyID2;
-*/
-    public static native long internal_native_get_mBodyID2_addr(long this_addr);
 
     public void set_mBodyID2(BodyID mBodyID2) {
-        internal_native_set_mBodyID2(native_address, mBodyID2.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-CollideShapeResult* nativeObject = (CollideShapeResult*)this_addr;
-nativeObject->mBodyID2 = *((BodyID*)mBodyID2_addr);
-*/
-    public static native void internal_native_set_mBodyID2(long this_addr, long mBodyID2_addr);
 
     public CollideShapeResultFace get_mShape1Face() {
-        long addr = internal_native_get_mShape1Face_addr(native_address);
-        if (addr == 0)
-            return CollideShapeResultFace.NULL;
-        if (CollideShapeResultFace_TEMP_GEN_0 == null)
-            CollideShapeResultFace_TEMP_GEN_0 = CollideShapeResultFace.native_new();
-        CollideShapeResultFace_TEMP_GEN_0.internal_reset(addr, false);
-        return CollideShapeResultFace_TEMP_GEN_0;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-CollideShapeResult* nativeObject = (CollideShapeResult*)this_addr;
-return (jlong)&nativeObject->mShape1Face;
-*/
-    public static native long internal_native_get_mShape1Face_addr(long this_addr);
 
     public void set_mShape1Face(CollideShapeResultFace mShape1Face) {
-        internal_native_set_mShape1Face(native_address, mShape1Face.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-CollideShapeResult* nativeObject = (CollideShapeResult*)this_addr;
-nativeObject->mShape1Face = *((CollideShapeResultFace*)mShape1Face_addr);
-*/
-    public static native void internal_native_set_mShape1Face(long this_addr, long mShape1Face_addr);
 
     public CollideShapeResultFace get_mShape2Face() {
-        long addr = internal_native_get_mShape2Face_addr(native_address);
-        if (addr == 0)
-            return CollideShapeResultFace.NULL;
-        if (CollideShapeResultFace_TEMP_GEN_1 == null)
-            CollideShapeResultFace_TEMP_GEN_1 = CollideShapeResultFace.native_new();
-        CollideShapeResultFace_TEMP_GEN_1.internal_reset(addr, false);
-        return CollideShapeResultFace_TEMP_GEN_1;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-CollideShapeResult* nativeObject = (CollideShapeResult*)this_addr;
-return (jlong)&nativeObject->mShape2Face;
-*/
-    public static native long internal_native_get_mShape2Face_addr(long this_addr);
 
     public void set_mShape2Face(CollideShapeResultFace mShape2Face) {
-        internal_native_set_mShape2Face(native_address, mShape2Face.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-CollideShapeResult* nativeObject = (CollideShapeResult*)this_addr;
-nativeObject->mShape2Face = *((CollideShapeResultFace*)mShape2Face_addr);
-*/
-    public static native void internal_native_set_mShape2Face(long this_addr, long mShape2Face_addr);
 }

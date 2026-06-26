@@ -6,12 +6,12 @@
 
 package jolt.physics;
 
-import com.github.xpenatan.jParser.idl.IDLBase;
+import com.github.xpenatan.jParser.api.NativeObject;
 import jolt.physics.body.Body;
 import jolt.physics.constraints.Constraint;
 import jolt.physics.body.BodyID;
 
-public class StateRecorderFilter extends IDLBase {
+public class StateRecorderFilter extends NativeObject {
 
     static private Body Body_TEMP_STATIC_GEN_0;
 
@@ -27,43 +27,9 @@ public class StateRecorderFilter extends IDLBase {
 
     static public final StateRecorderFilter NULL = StateRecorderFilter.native_new();
 
-    /*[-JNI;-NATIVE]
-	static jmethodID StateRecorderFilterJS_ShouldSaveBodyJ_ID;
-	static jmethodID StateRecorderFilterJS_ShouldSaveConstraintJ_ID;
-	static jmethodID StateRecorderFilterJS_ShouldSaveContactJJ_ID;
-	static jmethodID StateRecorderFilterJS_ShouldRestoreContactJJ_ID;
-
-class StateRecorderFilterJS : public StateRecorderFilter {
-private:
-	JNIEnv* env;
-	jobject obj;
-public:
-void setupCallback(JNIEnv* env, jobject obj) {
-	this->env = env;
-	this->obj = env->NewGlobalRef(obj);
-	static jclass jClassID = 0;
-	if(jClassID == 0) {
-		jClassID = (jclass)env->NewGlobalRef(env->GetObjectClass(obj));
-		StateRecorderFilterJS_ShouldSaveBodyJ_ID = env->GetMethodID(jClassID, "internal_ShouldSaveBody", "(J)Z");
-		StateRecorderFilterJS_ShouldSaveConstraintJ_ID = env->GetMethodID(jClassID, "internal_ShouldSaveConstraint", "(J)Z");
-		StateRecorderFilterJS_ShouldSaveContactJJ_ID = env->GetMethodID(jClassID, "internal_ShouldSaveContact", "(JJ)Z");
-		StateRecorderFilterJS_ShouldRestoreContactJJ_ID = env->GetMethodID(jClassID, "internal_ShouldRestoreContact", "(JJ)Z");
-	}
-}
-virtual bool ShouldSaveBody(const Body& inBody) const {
-   return env->CallBooleanMethod(obj, StateRecorderFilterJS_ShouldSaveBodyJ_ID, (jlong)&inBody);
-}
-virtual bool ShouldSaveConstraint(const Constraint& inConstraint) const {
-   return env->CallBooleanMethod(obj, StateRecorderFilterJS_ShouldSaveConstraintJ_ID, (jlong)&inConstraint);
-}
-virtual bool ShouldSaveContact(const BodyID& inBody1, const BodyID& inBody2) const {
-   return env->CallBooleanMethod(obj, StateRecorderFilterJS_ShouldSaveContactJJ_ID, (jlong)&inBody1, (jlong)&inBody2);
-}
-virtual bool ShouldRestoreContact(const BodyID& inBody1, const BodyID& inBody2) const {
-   return env->CallBooleanMethod(obj, StateRecorderFilterJS_ShouldRestoreContactJJ_ID, (jlong)&inBody1, (jlong)&inBody2);
-}
-};
-*/
+    /**
+     * Dummy constructor, used internally to creates objects without C++ pointer
+     */
     @Deprecated()
     protected StateRecorderFilter(byte b, char c) {
     }
@@ -75,16 +41,6 @@ virtual bool ShouldRestoreContact(const BodyID& inBody1, const BodyID& inBody2) 
         return new StateRecorderFilter((byte) 0, (char) 0);
     }
 
-    protected void deleteNative() {
-        internal_native_deleteNative(native_address);
-    }
-
-    /*[-JNI;-NATIVE]
-StateRecorderFilterJS* nativeObject = (StateRecorderFilterJS*)this_addr;
-delete nativeObject;
-*/
-    public static native void internal_native_deleteNative(long this_addr);
-
     public StateRecorderFilter() {
         long addr = internal_native_create_addr();
         internal_reset(addr, true);
@@ -92,7 +48,6 @@ delete nativeObject;
     }
 
     private void setupCallback() {
-        internal_native_setupCallback(native_address);
     }
 
     protected boolean ShouldSaveBody(Body inBody) {
@@ -145,14 +100,5 @@ delete nativeObject;
         return ShouldRestoreContact(BodyID_TEMP_STATIC_GEN_2, BodyID_TEMP_STATIC_GEN_3);
     }
 
-    /*[-JNI;-NATIVE]
-return (jlong)new StateRecorderFilterJS();
-*/
     public static native long internal_native_create_addr();
-
-    /*[-JNI;-NATIVE]
-StateRecorderFilterJS* nativeObject = (StateRecorderFilterJS*)this_addr;
-nativeObject->setupCallback(env, object);
-*/
-    public native void internal_native_setupCallback(long this_addr);
 }

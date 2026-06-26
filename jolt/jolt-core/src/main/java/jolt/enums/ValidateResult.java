@@ -6,9 +6,9 @@
 
 package jolt.enums;
 
-import com.github.xpenatan.jParser.idl.IDLEnum;
+import com.github.xpenatan.jParser.api.NativeEnum;
 
-public enum ValidateResult implements IDLEnum<ValidateResult> {
+public enum ValidateResult implements NativeEnum<ValidateResult> {
 
     CUSTOM(0), AcceptAllContactsForThisBodyPair(ValidateResult_AcceptAllContactsForThisBodyPair_NATIVE()), AcceptContact(ValidateResult_AcceptContact_NATIVE()), RejectContact(ValidateResult_RejectContact_NATIVE()), RejectAllContactsForThisBodyPair(ValidateResult_RejectAllContactsForThisBodyPair_NATIVE());
 
@@ -34,23 +34,11 @@ public enum ValidateResult implements IDLEnum<ValidateResult> {
         return CUSTOM;
     }
 
-    /*[-JNI;-NATIVE]
-return (jlong)ValidateResult_AcceptAllContactsForThisBodyPair;
-*/
     private static native int ValidateResult_AcceptAllContactsForThisBodyPair_NATIVE();
 
-    /*[-JNI;-NATIVE]
-return (jlong)ValidateResult_AcceptContact;
-*/
     private static native int ValidateResult_AcceptContact_NATIVE();
 
-    /*[-JNI;-NATIVE]
-return (jlong)ValidateResult_RejectContact;
-*/
     private static native int ValidateResult_RejectContact_NATIVE();
 
-    /*[-JNI;-NATIVE]
-return (jlong)ValidateResult_RejectAllContactsForThisBodyPair;
-*/
     private static native int ValidateResult_RejectAllContactsForThisBodyPair_NATIVE();
 }

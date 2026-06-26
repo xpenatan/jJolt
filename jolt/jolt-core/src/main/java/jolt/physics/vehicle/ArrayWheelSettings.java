@@ -6,23 +6,14 @@
 
 package jolt.physics.vehicle;
 
-import com.github.xpenatan.jParser.idl.IDLBase;
+import com.github.xpenatan.jParser.api.NativeObject;
 
-public class ArrayWheelSettings extends IDLBase {
-
-    private WheelSettings WheelSettings_TEMP_GEN_0;
+public class ArrayWheelSettings extends NativeObject {
 
     static public final ArrayWheelSettings NULL = ArrayWheelSettings.native_new();
 
     public ArrayWheelSettings() {
-        long addr = internal_native_create_addr();
-        internal_reset(addr, true);
     }
-
-    /*[-JNI;-NATIVE]
-return (jlong)new ArrayWheelSettings();
-*/
-    public static native long internal_native_create_addr();
 
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
@@ -38,80 +29,24 @@ return (jlong)new ArrayWheelSettings();
         return new ArrayWheelSettings((byte) 0, (char) 0);
     }
 
-    protected void deleteNative() {
-        internal_native_deleteNative(native_address);
-    }
-
-    /*[-JNI;-NATIVE]
-ArrayWheelSettings* nativeObject = (ArrayWheelSettings*)this_addr;
-delete nativeObject;
-*/
-    public static native void internal_native_deleteNative(long this_addr);
-
     public boolean empty() {
-        return internal_native_empty(native_address);
+        return false;
     }
-
-    /*[-JNI;-NATIVE]
-ArrayWheelSettings* nativeObject = (ArrayWheelSettings*)this_addr;
-return nativeObject->empty();
-*/
-    public static native boolean internal_native_empty(long this_addr);
 
     public int size() {
-        return internal_native_size(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-ArrayWheelSettings* nativeObject = (ArrayWheelSettings*)this_addr;
-return nativeObject->size();
-*/
-    public static native int internal_native_size(long this_addr);
 
     public WheelSettings at(int inIndex) {
-        long addr = internal_native_at_addr(native_address, inIndex);
-        if (addr == 0)
-            return WheelSettings.NULL;
-        if (WheelSettings_TEMP_GEN_0 == null)
-            WheelSettings_TEMP_GEN_0 = WheelSettings.native_new();
-        WheelSettings_TEMP_GEN_0.internal_reset(addr, false);
-        return WheelSettings_TEMP_GEN_0;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-ArrayWheelSettings* nativeObject = (ArrayWheelSettings*)this_addr;
-WheelSettings* obj = nativeObject->at((int)inIndex);
-return (jlong)obj;
-*/
-    public static native long internal_native_at_addr(long this_addr, int inIndex);
 
     public void push_back(WheelSettings inValue) {
-        internal_native_push_back(native_address, inValue.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-ArrayWheelSettings* nativeObject = (ArrayWheelSettings*)this_addr;
-nativeObject->push_back((WheelSettings* )inValue_addr);
-*/
-    public static native void internal_native_push_back(long this_addr, long inValue_addr);
 
     public void resize(int inSize) {
-        internal_native_resize(native_address, inSize);
     }
-
-    /*[-JNI;-NATIVE]
-ArrayWheelSettings* nativeObject = (ArrayWheelSettings*)this_addr;
-nativeObject->resize(inSize);
-*/
-    public static native void internal_native_resize(long this_addr, int inSize);
 
     public void clear() {
-        internal_native_clear(native_address);
     }
-
-    /*[-JNI;-NATIVE]
-ArrayWheelSettings* nativeObject = (ArrayWheelSettings*)this_addr;
-nativeObject->clear();
-*/
-    public static native void internal_native_clear(long this_addr);
 }

@@ -10,20 +10,11 @@ import jolt.physics.collision.shape.SubShapeID;
 
 public class RayCastResult extends BroadPhaseCastResult {
 
-    private SubShapeID SubShapeID_TEMP_GEN_0;
-
     static public final RayCastResult NULL = RayCastResult.native_new();
 
     public RayCastResult() {
         super((byte) 1, (char) 1);
-        long addr = internal_native_create_addr();
-        internal_reset(addr, true);
     }
-
-    /*[-JNI;-NATIVE]
-return (jlong)new RayCastResult();
-*/
-    public static native long internal_native_create_addr();
 
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
@@ -40,39 +31,10 @@ return (jlong)new RayCastResult();
         return new RayCastResult((byte) 0, (char) 0);
     }
 
-    protected void deleteNative() {
-        internal_native_deleteNative(native_address);
-    }
-
-    /*[-JNI;-NATIVE]
-RayCastResult* nativeObject = (RayCastResult*)this_addr;
-delete nativeObject;
-*/
-    public static native void internal_native_deleteNative(long this_addr);
-
     public SubShapeID get_mSubShapeID2() {
-        long addr = internal_native_get_mSubShapeID2_addr(native_address);
-        if (addr == 0)
-            return SubShapeID.NULL;
-        if (SubShapeID_TEMP_GEN_0 == null)
-            SubShapeID_TEMP_GEN_0 = SubShapeID.native_new();
-        SubShapeID_TEMP_GEN_0.internal_reset(addr, false);
-        return SubShapeID_TEMP_GEN_0;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-RayCastResult* nativeObject = (RayCastResult*)this_addr;
-return (jlong)&nativeObject->mSubShapeID2;
-*/
-    public static native long internal_native_get_mSubShapeID2_addr(long this_addr);
 
     public void set_mSubShapeID2(SubShapeID mSubShapeID2) {
-        internal_native_set_mSubShapeID2(native_address, mSubShapeID2.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-RayCastResult* nativeObject = (RayCastResult*)this_addr;
-nativeObject->mSubShapeID2 = *((SubShapeID*)mSubShapeID2_addr);
-*/
-    public static native void internal_native_set_mSubShapeID2(long this_addr, long mSubShapeID2_addr);
 }

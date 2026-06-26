@@ -6,7 +6,7 @@
 
 package jolt.physics.character;
 
-import com.github.xpenatan.jParser.idl.IDLBase;
+import com.github.xpenatan.jParser.api.NativeObject;
 import jolt.physics.body.Body;
 import jolt.math.Vec3;
 import jolt.physics.body.BodyID;
@@ -14,7 +14,7 @@ import jolt.physics.collision.shape.SubShapeID;
 import jolt.RVec3;
 import jolt.physics.collision.PhysicsMaterial;
 
-public class CharacterContactListener extends IDLBase {
+public class CharacterContactListener extends NativeObject {
 
     static private CharacterVirtual CharacterVirtual_TEMP_STATIC_GEN_0;
 
@@ -134,78 +134,9 @@ public class CharacterContactListener extends IDLBase {
 
     static public final CharacterContactListener NULL = CharacterContactListener.native_new();
 
-    /*[-JNI;-NATIVE]
-	static jmethodID CharacterContactListenerImpl_OnAdjustBodyVelocity_customJJJJ_ID;
-	static jmethodID CharacterContactListenerImpl_OnContactValidate_customJJJ_ID;
-	static jmethodID CharacterContactListenerImpl_OnCharacterContactValidate_customJJJ_ID;
-	static jmethodID CharacterContactListenerImpl_OnContactAdded_customJJJJJJ_ID;
-	static jmethodID CharacterContactListenerImpl_OnContactPersisted_customJJJJJJ_ID;
-	static jmethodID CharacterContactListenerImpl_OnContactRemoved_customJJJ_ID;
-	static jmethodID CharacterContactListenerImpl_OnCharacterContactAdded_customJJJJJJ_ID;
-	static jmethodID CharacterContactListenerImpl_OnCharacterContactPersisted_customJJJJJJ_ID;
-	static jmethodID CharacterContactListenerImpl_OnCharacterContactRemoved_customJJJ_ID;
-	static jmethodID CharacterContactListenerImpl_OnContactSolve_customJJJJJJJJJ_ID;
-	static jmethodID CharacterContactListenerImpl_OnCharacterContactSolve_customJJJJJJJJJ_ID;
-
-class CharacterContactListenerImpl : public XJPH::CharacterContactListener {
-private:
-	JNIEnv* env;
-	jobject obj;
-public:
-void setupCallback(JNIEnv* env, jobject obj) {
-	this->env = env;
-	this->obj = env->NewGlobalRef(obj);
-	static jclass jClassID = 0;
-	if(jClassID == 0) {
-		jClassID = (jclass)env->NewGlobalRef(env->GetObjectClass(obj));
-		CharacterContactListenerImpl_OnAdjustBodyVelocity_customJJJJ_ID = env->GetMethodID(jClassID, "internal_OnAdjustBodyVelocity", "(JJJJ)V");
-		CharacterContactListenerImpl_OnContactValidate_customJJJ_ID = env->GetMethodID(jClassID, "internal_OnContactValidate", "(JJJ)Z");
-		CharacterContactListenerImpl_OnCharacterContactValidate_customJJJ_ID = env->GetMethodID(jClassID, "internal_OnCharacterContactValidate", "(JJJ)Z");
-		CharacterContactListenerImpl_OnContactAdded_customJJJJJJ_ID = env->GetMethodID(jClassID, "internal_OnContactAdded", "(JJJJJJ)V");
-		CharacterContactListenerImpl_OnContactPersisted_customJJJJJJ_ID = env->GetMethodID(jClassID, "internal_OnContactPersisted", "(JJJJJJ)V");
-		CharacterContactListenerImpl_OnContactRemoved_customJJJ_ID = env->GetMethodID(jClassID, "internal_OnContactRemoved", "(JJJ)V");
-		CharacterContactListenerImpl_OnCharacterContactAdded_customJJJJJJ_ID = env->GetMethodID(jClassID, "internal_OnCharacterContactAdded", "(JJJJJJ)V");
-		CharacterContactListenerImpl_OnCharacterContactPersisted_customJJJJJJ_ID = env->GetMethodID(jClassID, "internal_OnCharacterContactPersisted", "(JJJJJJ)V");
-		CharacterContactListenerImpl_OnCharacterContactRemoved_customJJJ_ID = env->GetMethodID(jClassID, "internal_OnCharacterContactRemoved", "(JJJ)V");
-		CharacterContactListenerImpl_OnContactSolve_customJJJJJJJJJ_ID = env->GetMethodID(jClassID, "internal_OnContactSolve", "(JJJJJJJJJ)V");
-		CharacterContactListenerImpl_OnCharacterContactSolve_customJJJJJJJJJ_ID = env->GetMethodID(jClassID, "internal_OnCharacterContactSolve", "(JJJJJJJJJ)V");
-	}
-}
-virtual void OnAdjustBodyVelocity_custom(const CharacterVirtual* inCharacter, const Body& inBody2, Vec3& ioLinearVelocity, Vec3& ioAngularVelocity) {
-   env->CallVoidMethod(obj, CharacterContactListenerImpl_OnAdjustBodyVelocity_customJJJJ_ID, (jlong)inCharacter, (jlong)&inBody2, (jlong)&ioLinearVelocity, (jlong)&ioAngularVelocity);
-}
-virtual bool OnContactValidate_custom(const CharacterVirtual* inCharacter, const BodyID& inBodyID2, const SubShapeID& inSubShapeID2) {
-   return env->CallBooleanMethod(obj, CharacterContactListenerImpl_OnContactValidate_customJJJ_ID, (jlong)inCharacter, (jlong)&inBodyID2, (jlong)&inSubShapeID2);
-}
-virtual bool OnCharacterContactValidate_custom(const CharacterVirtual* inCharacter, const CharacterVirtual* inOtherCharacter, const SubShapeID& inSubShapeID2) {
-   return env->CallBooleanMethod(obj, CharacterContactListenerImpl_OnCharacterContactValidate_customJJJ_ID, (jlong)inCharacter, (jlong)inOtherCharacter, (jlong)&inSubShapeID2);
-}
-virtual void OnContactAdded_custom(const CharacterVirtual* inCharacter, const BodyID& inBodyID2, const SubShapeID& inSubShapeID2, const RVec3& inContactPosition, const Vec3& inContactNormal, CharacterContactSettings& ioSettings) {
-   env->CallVoidMethod(obj, CharacterContactListenerImpl_OnContactAdded_customJJJJJJ_ID, (jlong)inCharacter, (jlong)&inBodyID2, (jlong)&inSubShapeID2, (jlong)&inContactPosition, (jlong)&inContactNormal, (jlong)&ioSettings);
-}
-virtual void OnContactPersisted_custom(const CharacterVirtual* inCharacter, const BodyID& inBodyID2, const SubShapeID& inSubShapeID2, const RVec3& inContactPosition, const Vec3& inContactNormal, CharacterContactSettings& ioSettings) {
-   env->CallVoidMethod(obj, CharacterContactListenerImpl_OnContactPersisted_customJJJJJJ_ID, (jlong)inCharacter, (jlong)&inBodyID2, (jlong)&inSubShapeID2, (jlong)&inContactPosition, (jlong)&inContactNormal, (jlong)&ioSettings);
-}
-virtual void OnContactRemoved_custom(const CharacterVirtual* inCharacter, const BodyID& inBodyID2, const SubShapeID& inSubShapeID2) {
-   env->CallVoidMethod(obj, CharacterContactListenerImpl_OnContactRemoved_customJJJ_ID, (jlong)inCharacter, (jlong)&inBodyID2, (jlong)&inSubShapeID2);
-}
-virtual void OnCharacterContactAdded_custom(const CharacterVirtual* inCharacter, const CharacterVirtual* inOtherCharacter, const SubShapeID& inSubShapeID2, const RVec3& inContactPosition, const Vec3& inContactNormal, CharacterContactSettings& ioSettings) {
-   env->CallVoidMethod(obj, CharacterContactListenerImpl_OnCharacterContactAdded_customJJJJJJ_ID, (jlong)inCharacter, (jlong)inOtherCharacter, (jlong)&inSubShapeID2, (jlong)&inContactPosition, (jlong)&inContactNormal, (jlong)&ioSettings);
-}
-virtual void OnCharacterContactPersisted_custom(const CharacterVirtual* inCharacter, const CharacterVirtual* inOtherCharacter, const SubShapeID& inSubShapeID2, const Vec3& inContactPosition, const Vec3& inContactNormal, CharacterContactSettings& ioSettings) {
-   env->CallVoidMethod(obj, CharacterContactListenerImpl_OnCharacterContactPersisted_customJJJJJJ_ID, (jlong)inCharacter, (jlong)inOtherCharacter, (jlong)&inSubShapeID2, (jlong)&inContactPosition, (jlong)&inContactNormal, (jlong)&ioSettings);
-}
-virtual void OnCharacterContactRemoved_custom(const CharacterVirtual* inCharacter, const CharacterID& inOtherCharacter, const SubShapeID& inSubShapeID2) {
-   env->CallVoidMethod(obj, CharacterContactListenerImpl_OnCharacterContactRemoved_customJJJ_ID, (jlong)inCharacter, (jlong)&inOtherCharacter, (jlong)&inSubShapeID2);
-}
-virtual void OnContactSolve_custom(const CharacterVirtual* inCharacter, const BodyID& inBodyID2, const SubShapeID& inSubShapeID2, const RVec3& inContactPosition, const Vec3& inContactNormal, const Vec3& inContactVelocity, const PhysicsMaterial* inContactMaterial, const Vec3& inCharacterVelocity, const Vec3& ioNewCharacterVelocity) {
-   env->CallVoidMethod(obj, CharacterContactListenerImpl_OnContactSolve_customJJJJJJJJJ_ID, (jlong)inCharacter, (jlong)&inBodyID2, (jlong)&inSubShapeID2, (jlong)&inContactPosition, (jlong)&inContactNormal, (jlong)&inContactVelocity, (jlong)inContactMaterial, (jlong)&inCharacterVelocity, (jlong)&ioNewCharacterVelocity);
-}
-virtual void OnCharacterContactSolve_custom(const CharacterVirtual* inCharacter, const CharacterVirtual* inOtherCharacter, const SubShapeID& inSubShapeID2, const RVec3& inContactPosition, const Vec3& inContactNormal, const Vec3& inContactVelocity, const PhysicsMaterial* inContactMaterial, const Vec3& inCharacterVelocity, const Vec3& ioNewCharacterVelocity) {
-   env->CallVoidMethod(obj, CharacterContactListenerImpl_OnCharacterContactSolve_customJJJJJJJJJ_ID, (jlong)inCharacter, (jlong)inOtherCharacter, (jlong)&inSubShapeID2, (jlong)&inContactPosition, (jlong)&inContactNormal, (jlong)&inContactVelocity, (jlong)inContactMaterial, (jlong)&inCharacterVelocity, (jlong)&ioNewCharacterVelocity);
-}
-};
-*/
+    /**
+     * Dummy constructor, used internally to creates objects without C++ pointer
+     */
     @Deprecated()
     protected CharacterContactListener(byte b, char c) {
     }
@@ -217,235 +148,82 @@ virtual void OnCharacterContactSolve_custom(const CharacterVirtual* inCharacter,
         return new CharacterContactListener((byte) 0, (char) 0);
     }
 
-    protected void deleteNative() {
-        internal_native_deleteNative(native_address);
-    }
-
-    /*[-JNI;-NATIVE]
-CharacterContactListenerImpl* nativeObject = (CharacterContactListenerImpl*)this_addr;
-delete nativeObject;
-*/
-    public static native void internal_native_deleteNative(long this_addr);
-
     public boolean get_OnAdjustBodyVelocity() {
-        return internal_native_get_OnAdjustBodyVelocity(native_address);
+        return false;
     }
-
-    /*[-JNI;-NATIVE]
-XJPH::CharacterContactListener* nativeObject = (XJPH::CharacterContactListener*)this_addr;
-return nativeObject->onAdjustBodyVelocity;
-*/
-    public static native boolean internal_native_get_OnAdjustBodyVelocity(long this_addr);
 
     public void set_OnAdjustBodyVelocity(boolean onAdjustBodyVelocity) {
-        internal_native_set_OnAdjustBodyVelocity(native_address, onAdjustBodyVelocity);
     }
-
-    /*[-JNI;-NATIVE]
-XJPH::CharacterContactListener* nativeObject = (XJPH::CharacterContactListener*)this_addr;
-nativeObject->onAdjustBodyVelocity = onAdjustBodyVelocity;
-*/
-    public static native void internal_native_set_OnAdjustBodyVelocity(long this_addr, boolean onAdjustBodyVelocity);
 
     public boolean get_OnContactValidate() {
-        return internal_native_get_OnContactValidate(native_address);
+        return false;
     }
-
-    /*[-JNI;-NATIVE]
-XJPH::CharacterContactListener* nativeObject = (XJPH::CharacterContactListener*)this_addr;
-return nativeObject->onContactValidate;
-*/
-    public static native boolean internal_native_get_OnContactValidate(long this_addr);
 
     public void set_OnContactValidate(boolean onContactValidate) {
-        internal_native_set_OnContactValidate(native_address, onContactValidate);
     }
-
-    /*[-JNI;-NATIVE]
-XJPH::CharacterContactListener* nativeObject = (XJPH::CharacterContactListener*)this_addr;
-nativeObject->onContactValidate = onContactValidate;
-*/
-    public static native void internal_native_set_OnContactValidate(long this_addr, boolean onContactValidate);
 
     public boolean get_OnCharacterContactValidate() {
-        return internal_native_get_OnCharacterContactValidate(native_address);
+        return false;
     }
-
-    /*[-JNI;-NATIVE]
-XJPH::CharacterContactListener* nativeObject = (XJPH::CharacterContactListener*)this_addr;
-return nativeObject->onCharacterContactValidate;
-*/
-    public static native boolean internal_native_get_OnCharacterContactValidate(long this_addr);
 
     public void set_OnCharacterContactValidate(boolean onCharacterContactValidate) {
-        internal_native_set_OnCharacterContactValidate(native_address, onCharacterContactValidate);
     }
-
-    /*[-JNI;-NATIVE]
-XJPH::CharacterContactListener* nativeObject = (XJPH::CharacterContactListener*)this_addr;
-nativeObject->onCharacterContactValidate = onCharacterContactValidate;
-*/
-    public static native void internal_native_set_OnCharacterContactValidate(long this_addr, boolean onCharacterContactValidate);
 
     public boolean get_OnContactAdded() {
-        return internal_native_get_OnContactAdded(native_address);
+        return false;
     }
-
-    /*[-JNI;-NATIVE]
-XJPH::CharacterContactListener* nativeObject = (XJPH::CharacterContactListener*)this_addr;
-return nativeObject->onContactAdded;
-*/
-    public static native boolean internal_native_get_OnContactAdded(long this_addr);
 
     public void set_OnContactAdded(boolean onContactAdded) {
-        internal_native_set_OnContactAdded(native_address, onContactAdded);
     }
-
-    /*[-JNI;-NATIVE]
-XJPH::CharacterContactListener* nativeObject = (XJPH::CharacterContactListener*)this_addr;
-nativeObject->onContactAdded = onContactAdded;
-*/
-    public static native void internal_native_set_OnContactAdded(long this_addr, boolean onContactAdded);
 
     public boolean get_OnContactPersisted() {
-        return internal_native_get_OnContactPersisted(native_address);
+        return false;
     }
-
-    /*[-JNI;-NATIVE]
-XJPH::CharacterContactListener* nativeObject = (XJPH::CharacterContactListener*)this_addr;
-return nativeObject->onContactPersisted;
-*/
-    public static native boolean internal_native_get_OnContactPersisted(long this_addr);
 
     public void set_OnContactPersisted(boolean onContactPersisted) {
-        internal_native_set_OnContactPersisted(native_address, onContactPersisted);
     }
-
-    /*[-JNI;-NATIVE]
-XJPH::CharacterContactListener* nativeObject = (XJPH::CharacterContactListener*)this_addr;
-nativeObject->onContactPersisted = onContactPersisted;
-*/
-    public static native void internal_native_set_OnContactPersisted(long this_addr, boolean onContactPersisted);
 
     public boolean get_OnContactRemoved() {
-        return internal_native_get_OnContactRemoved(native_address);
+        return false;
     }
-
-    /*[-JNI;-NATIVE]
-XJPH::CharacterContactListener* nativeObject = (XJPH::CharacterContactListener*)this_addr;
-return nativeObject->onContactRemoved;
-*/
-    public static native boolean internal_native_get_OnContactRemoved(long this_addr);
 
     public void set_OnContactRemoved(boolean onContactRemoved) {
-        internal_native_set_OnContactRemoved(native_address, onContactRemoved);
     }
-
-    /*[-JNI;-NATIVE]
-XJPH::CharacterContactListener* nativeObject = (XJPH::CharacterContactListener*)this_addr;
-nativeObject->onContactRemoved = onContactRemoved;
-*/
-    public static native void internal_native_set_OnContactRemoved(long this_addr, boolean onContactRemoved);
 
     public boolean get_OnCharacterContactAdded() {
-        return internal_native_get_OnCharacterContactAdded(native_address);
+        return false;
     }
-
-    /*[-JNI;-NATIVE]
-XJPH::CharacterContactListener* nativeObject = (XJPH::CharacterContactListener*)this_addr;
-return nativeObject->onCharacterContactAdded;
-*/
-    public static native boolean internal_native_get_OnCharacterContactAdded(long this_addr);
 
     public void set_OnCharacterContactAdded(boolean onCharacterContactAdded) {
-        internal_native_set_OnCharacterContactAdded(native_address, onCharacterContactAdded);
     }
-
-    /*[-JNI;-NATIVE]
-XJPH::CharacterContactListener* nativeObject = (XJPH::CharacterContactListener*)this_addr;
-nativeObject->onCharacterContactAdded = onCharacterContactAdded;
-*/
-    public static native void internal_native_set_OnCharacterContactAdded(long this_addr, boolean onCharacterContactAdded);
 
     public boolean get_OnCharacterContactPersisted() {
-        return internal_native_get_OnCharacterContactPersisted(native_address);
+        return false;
     }
-
-    /*[-JNI;-NATIVE]
-XJPH::CharacterContactListener* nativeObject = (XJPH::CharacterContactListener*)this_addr;
-return nativeObject->onCharacterContactPersisted;
-*/
-    public static native boolean internal_native_get_OnCharacterContactPersisted(long this_addr);
 
     public void set_OnCharacterContactPersisted(boolean onCharacterContactPersisted) {
-        internal_native_set_OnCharacterContactPersisted(native_address, onCharacterContactPersisted);
     }
-
-    /*[-JNI;-NATIVE]
-XJPH::CharacterContactListener* nativeObject = (XJPH::CharacterContactListener*)this_addr;
-nativeObject->onCharacterContactPersisted = onCharacterContactPersisted;
-*/
-    public static native void internal_native_set_OnCharacterContactPersisted(long this_addr, boolean onCharacterContactPersisted);
 
     public boolean get_OnCharacterContactRemoved() {
-        return internal_native_get_OnCharacterContactRemoved(native_address);
+        return false;
     }
-
-    /*[-JNI;-NATIVE]
-XJPH::CharacterContactListener* nativeObject = (XJPH::CharacterContactListener*)this_addr;
-return nativeObject->onCharacterContactRemoved;
-*/
-    public static native boolean internal_native_get_OnCharacterContactRemoved(long this_addr);
 
     public void set_OnCharacterContactRemoved(boolean onCharacterContactRemoved) {
-        internal_native_set_OnCharacterContactRemoved(native_address, onCharacterContactRemoved);
     }
-
-    /*[-JNI;-NATIVE]
-XJPH::CharacterContactListener* nativeObject = (XJPH::CharacterContactListener*)this_addr;
-nativeObject->onCharacterContactRemoved = onCharacterContactRemoved;
-*/
-    public static native void internal_native_set_OnCharacterContactRemoved(long this_addr, boolean onCharacterContactRemoved);
 
     public boolean get_OnContactSolve() {
-        return internal_native_get_OnContactSolve(native_address);
+        return false;
     }
-
-    /*[-JNI;-NATIVE]
-XJPH::CharacterContactListener* nativeObject = (XJPH::CharacterContactListener*)this_addr;
-return nativeObject->onContactSolve;
-*/
-    public static native boolean internal_native_get_OnContactSolve(long this_addr);
 
     public void set_OnContactSolve(boolean onContactSolve) {
-        internal_native_set_OnContactSolve(native_address, onContactSolve);
     }
-
-    /*[-JNI;-NATIVE]
-XJPH::CharacterContactListener* nativeObject = (XJPH::CharacterContactListener*)this_addr;
-nativeObject->onContactSolve = onContactSolve;
-*/
-    public static native void internal_native_set_OnContactSolve(long this_addr, boolean onContactSolve);
 
     public boolean get_OnCharacterContactSolve() {
-        return internal_native_get_OnCharacterContactSolve(native_address);
+        return false;
     }
-
-    /*[-JNI;-NATIVE]
-XJPH::CharacterContactListener* nativeObject = (XJPH::CharacterContactListener*)this_addr;
-return nativeObject->onCharacterContactSolve;
-*/
-    public static native boolean internal_native_get_OnCharacterContactSolve(long this_addr);
 
     public void set_OnCharacterContactSolve(boolean onCharacterContactSolve) {
-        internal_native_set_OnCharacterContactSolve(native_address, onCharacterContactSolve);
     }
-
-    /*[-JNI;-NATIVE]
-XJPH::CharacterContactListener* nativeObject = (XJPH::CharacterContactListener*)this_addr;
-nativeObject->onCharacterContactSolve = onCharacterContactSolve;
-*/
-    public static native void internal_native_set_OnCharacterContactSolve(long this_addr, boolean onCharacterContactSolve);
 
     public CharacterContactListener() {
         long addr = internal_native_create_addr();
@@ -454,7 +232,6 @@ nativeObject->onCharacterContactSolve = onCharacterContactSolve;
     }
 
     private void setupCallback() {
-        internal_native_setupCallback(native_address);
     }
 
     protected void OnAdjustBodyVelocity(CharacterVirtual inCharacter, Body inBody2, Vec3 ioLinearVelocity, Vec3 ioAngularVelocity) {
@@ -710,14 +487,5 @@ nativeObject->onCharacterContactSolve = onCharacterContactSolve;
         OnCharacterContactSolve(CharacterVirtual_TEMP_STATIC_GEN_13, CharacterVirtual_TEMP_STATIC_GEN_14, SubShapeID_TEMP_STATIC_GEN_9, RVec3_TEMP_STATIC_GEN_4, Vec3_TEMP_STATIC_GEN_11, Vec3_TEMP_STATIC_GEN_12, PhysicsMaterial_TEMP_STATIC_GEN_1, Vec3_TEMP_STATIC_GEN_13, Vec3_TEMP_STATIC_GEN_14);
     }
 
-    /*[-JNI;-NATIVE]
-return (jlong)new CharacterContactListenerImpl();
-*/
     public static native long internal_native_create_addr();
-
-    /*[-JNI;-NATIVE]
-CharacterContactListenerImpl* nativeObject = (CharacterContactListenerImpl*)this_addr;
-nativeObject->setupCallback(env, object);
-*/
-    public native void internal_native_setupCallback(long this_addr);
 }

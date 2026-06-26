@@ -12,25 +12,11 @@ public class VehicleCollisionTesterCastCylinder extends VehicleCollisionTester {
 
     public VehicleCollisionTesterCastCylinder(int inObjectLayer, float inConvexRadiusFraction) {
         super((byte) 1, (char) 1);
-        long addr = internal_native_create_int_float_addr(inObjectLayer, inConvexRadiusFraction);
-        internal_reset(addr, true);
     }
-
-    /*[-JNI;-NATIVE]
-return (jlong)new VehicleCollisionTesterCastCylinder(inObjectLayer, (float)inConvexRadiusFraction);
-*/
-    public static native long internal_native_create_int_float_addr(int inObjectLayer, float inConvexRadiusFraction);
 
     public VehicleCollisionTesterCastCylinder(int inObjectLayer) {
         super((byte) 1, (char) 1);
-        long addr = internal_native_create_int_addr(inObjectLayer);
-        internal_reset(addr, true);
     }
-
-    /*[-JNI;-NATIVE]
-return (jlong)new VehicleCollisionTesterCastCylinder(inObjectLayer);
-*/
-    public static native long internal_native_create_int_addr(int inObjectLayer);
 
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
@@ -46,14 +32,4 @@ return (jlong)new VehicleCollisionTesterCastCylinder(inObjectLayer);
     public static VehicleCollisionTesterCastCylinder native_new() {
         return new VehicleCollisionTesterCastCylinder((byte) 0, (char) 0);
     }
-
-    protected void deleteNative() {
-        internal_native_deleteNative(native_address);
-    }
-
-    /*[-JNI;-NATIVE]
-VehicleCollisionTesterCastCylinder* nativeObject = (VehicleCollisionTesterCastCylinder*)this_addr;
-delete nativeObject;
-*/
-    public static native void internal_native_deleteNative(long this_addr);
 }

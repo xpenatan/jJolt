@@ -8,24 +8,11 @@ package jolt.physics.vehicle;
 
 public class TrackedVehicleControllerSettings extends VehicleControllerSettings {
 
-    private VehicleEngineSettings VehicleEngineSettings_TEMP_GEN_0;
-
-    private VehicleTransmissionSettings VehicleTransmissionSettings_TEMP_GEN_0;
-
-    private VehicleTrackSettings VehicleTrackSettings_TEMP_GEN_0;
-
     static public final TrackedVehicleControllerSettings NULL = TrackedVehicleControllerSettings.native_new();
 
     public TrackedVehicleControllerSettings() {
         super((byte) 1, (char) 1);
-        long addr = internal_native_create_addr();
-        internal_reset(addr, true);
     }
-
-    /*[-JNI;-NATIVE]
-return (jlong)new TrackedVehicleControllerSettings();
-*/
-    public static native long internal_native_create_addr();
 
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
@@ -42,91 +29,24 @@ return (jlong)new TrackedVehicleControllerSettings();
         return new TrackedVehicleControllerSettings((byte) 0, (char) 0);
     }
 
-    protected void deleteNative() {
-        internal_native_deleteNative(native_address);
-    }
-
-    /*[-JNI;-NATIVE]
-TrackedVehicleControllerSettings* nativeObject = (TrackedVehicleControllerSettings*)this_addr;
-delete nativeObject;
-*/
-    public static native void internal_native_deleteNative(long this_addr);
-
     public VehicleEngineSettings get_mEngine() {
-        long addr = internal_native_get_mEngine_addr(native_address);
-        if (addr == 0)
-            return VehicleEngineSettings.NULL;
-        if (VehicleEngineSettings_TEMP_GEN_0 == null)
-            VehicleEngineSettings_TEMP_GEN_0 = VehicleEngineSettings.native_new();
-        VehicleEngineSettings_TEMP_GEN_0.internal_reset(addr, false);
-        return VehicleEngineSettings_TEMP_GEN_0;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-TrackedVehicleControllerSettings* nativeObject = (TrackedVehicleControllerSettings*)this_addr;
-return (jlong)&nativeObject->mEngine;
-*/
-    public static native long internal_native_get_mEngine_addr(long this_addr);
 
     public void set_mEngine(VehicleEngineSettings mEngine) {
-        internal_native_set_mEngine(native_address, mEngine.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-TrackedVehicleControllerSettings* nativeObject = (TrackedVehicleControllerSettings*)this_addr;
-nativeObject->mEngine = *((VehicleEngineSettings*)mEngine_addr);
-*/
-    public static native void internal_native_set_mEngine(long this_addr, long mEngine_addr);
 
     public VehicleTransmissionSettings get_mTransmission() {
-        long addr = internal_native_get_mTransmission_addr(native_address);
-        if (addr == 0)
-            return VehicleTransmissionSettings.NULL;
-        if (VehicleTransmissionSettings_TEMP_GEN_0 == null)
-            VehicleTransmissionSettings_TEMP_GEN_0 = VehicleTransmissionSettings.native_new();
-        VehicleTransmissionSettings_TEMP_GEN_0.internal_reset(addr, false);
-        return VehicleTransmissionSettings_TEMP_GEN_0;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-TrackedVehicleControllerSettings* nativeObject = (TrackedVehicleControllerSettings*)this_addr;
-return (jlong)&nativeObject->mTransmission;
-*/
-    public static native long internal_native_get_mTransmission_addr(long this_addr);
 
     public void set_mTransmission(VehicleTransmissionSettings mTransmission) {
-        internal_native_set_mTransmission(native_address, mTransmission.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-TrackedVehicleControllerSettings* nativeObject = (TrackedVehicleControllerSettings*)this_addr;
-nativeObject->mTransmission = *((VehicleTransmissionSettings*)mTransmission_addr);
-*/
-    public static native void internal_native_set_mTransmission(long this_addr, long mTransmission_addr);
 
     public VehicleTrackSettings get_mTracks(int index) {
-        long addr = internal_native_get_mTracks_addr(native_address, index);
-        if (addr == 0)
-            return VehicleTrackSettings.NULL;
-        if (VehicleTrackSettings_TEMP_GEN_0 == null)
-            VehicleTrackSettings_TEMP_GEN_0 = VehicleTrackSettings.native_new();
-        VehicleTrackSettings_TEMP_GEN_0.internal_reset(addr, false);
-        return VehicleTrackSettings_TEMP_GEN_0;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-TrackedVehicleControllerSettings* nativeObject = (TrackedVehicleControllerSettings*)this_addr;
-return (jlong)&nativeObject->mTracks[index];
-*/
-    public static native long internal_native_get_mTracks_addr(long this_addr, int index);
 
     public void set_mTracks(int index, VehicleTrackSettings mTracks) {
-        internal_native_set_mTracks(native_address, index, mTracks.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-TrackedVehicleControllerSettings* nativeObject = (TrackedVehicleControllerSettings*)this_addr;
-nativeObject->mTracks[index] = *((VehicleTrackSettings*)mTracks_addr);
-*/
-    public static native void internal_native_set_mTracks(long this_addr, int index, long mTracks_addr);
 }

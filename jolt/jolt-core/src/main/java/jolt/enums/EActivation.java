@@ -6,9 +6,9 @@
 
 package jolt.enums;
 
-import com.github.xpenatan.jParser.idl.IDLEnum;
+import com.github.xpenatan.jParser.api.NativeEnum;
 
-public enum EActivation implements IDLEnum<EActivation> {
+public enum EActivation implements NativeEnum<EActivation> {
 
     CUSTOM(0), Activate(EActivation_Activate_NATIVE()), DontActivate(EActivation_DontActivate_NATIVE());
 
@@ -34,13 +34,7 @@ public enum EActivation implements IDLEnum<EActivation> {
         return CUSTOM;
     }
 
-    /*[-JNI;-NATIVE]
-return (jlong)EActivation_Activate;
-*/
     private static native int EActivation_Activate_NATIVE();
 
-    /*[-JNI;-NATIVE]
-return (jlong)EActivation_DontActivate;
-*/
     private static native int EActivation_DontActivate_NATIVE();
 }

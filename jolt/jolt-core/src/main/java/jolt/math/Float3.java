@@ -6,21 +6,14 @@
 
 package jolt.math;
 
-import com.github.xpenatan.jParser.idl.IDLBase;
+import com.github.xpenatan.jParser.api.NativeObject;
 
-public class Float3 extends IDLBase {
+public class Float3 extends NativeObject {
 
     static public final Float3 NULL = Float3.native_new();
 
     public Float3(float inX, float inY, float inZ) {
-        long addr = internal_native_create_float_float_float_addr(inX, inY, inZ);
-        internal_reset(addr, true);
     }
-
-    /*[-JNI;-NATIVE]
-return (jlong)new Float3((float)inX, (float)inY, (float)inZ);
-*/
-    public static native long internal_native_create_float_float_float_addr(float inX, float inY, float inZ);
 
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
@@ -36,73 +29,24 @@ return (jlong)new Float3((float)inX, (float)inY, (float)inZ);
         return new Float3((byte) 0, (char) 0);
     }
 
-    protected void deleteNative() {
-        internal_native_deleteNative(native_address);
-    }
-
-    /*[-JNI;-NATIVE]
-Float3* nativeObject = (Float3*)this_addr;
-delete nativeObject;
-*/
-    public static native void internal_native_deleteNative(long this_addr);
-
     public float get_x() {
-        return internal_native_get_x(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-Float3* nativeObject = (Float3*)this_addr;
-return nativeObject->x;
-*/
-    public static native float internal_native_get_x(long this_addr);
 
     public void set_x(float x) {
-        internal_native_set_x(native_address, x);
     }
-
-    /*[-JNI;-NATIVE]
-Float3* nativeObject = (Float3*)this_addr;
-nativeObject->x = x;
-*/
-    public static native void internal_native_set_x(long this_addr, float x);
 
     public float get_y() {
-        return internal_native_get_y(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-Float3* nativeObject = (Float3*)this_addr;
-return nativeObject->y;
-*/
-    public static native float internal_native_get_y(long this_addr);
 
     public void set_y(float y) {
-        internal_native_set_y(native_address, y);
     }
-
-    /*[-JNI;-NATIVE]
-Float3* nativeObject = (Float3*)this_addr;
-nativeObject->y = y;
-*/
-    public static native void internal_native_set_y(long this_addr, float y);
 
     public float get_z() {
-        return internal_native_get_z(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-Float3* nativeObject = (Float3*)this_addr;
-return nativeObject->z;
-*/
-    public static native float internal_native_get_z(long this_addr);
 
     public void set_z(float z) {
-        internal_native_set_z(native_address, z);
     }
-
-    /*[-JNI;-NATIVE]
-Float3* nativeObject = (Float3*)this_addr;
-nativeObject->z = z;
-*/
-    public static native void internal_native_set_z(long this_addr, float z);
 }

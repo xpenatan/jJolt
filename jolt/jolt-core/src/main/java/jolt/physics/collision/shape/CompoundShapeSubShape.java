@@ -6,17 +6,11 @@
 
 package jolt.physics.collision.shape;
 
-import com.github.xpenatan.jParser.idl.IDLBase;
+import com.github.xpenatan.jParser.api.NativeObject;
 import jolt.math.Vec3;
 import jolt.math.Quat;
 
-public class CompoundShapeSubShape extends IDLBase {
-
-    private Vec3 Vec3_TEMP_GEN_0;
-
-    private Quat Quat_TEMP_GEN_0;
-
-    private Shape Shape_TEMP_GEN_0;
+public class CompoundShapeSubShape extends NativeObject {
 
     static public final CompoundShapeSubShape NULL = CompoundShapeSubShape.native_new();
 
@@ -34,94 +28,25 @@ public class CompoundShapeSubShape extends IDLBase {
         return new CompoundShapeSubShape((byte) 0, (char) 0);
     }
 
-    protected void deleteNative() {
-        internal_native_deleteNative(native_address);
-    }
-
-    /*[-JNI;-NATIVE]
-CompoundShapeSubShape* nativeObject = (CompoundShapeSubShape*)this_addr;
-delete nativeObject;
-*/
-    public static native void internal_native_deleteNative(long this_addr);
-
     public Vec3 GetPositionCOM() {
-        long addr = internal_native_GetPositionCOM_addr(native_address);
-        if (addr == 0)
-            return Vec3.NULL;
-        if (Vec3_TEMP_GEN_0 == null)
-            Vec3_TEMP_GEN_0 = Vec3.native_new();
-        Vec3_TEMP_GEN_0.internal_reset(addr, false);
-        return Vec3_TEMP_GEN_0;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-CompoundShapeSubShape* nativeObject = (CompoundShapeSubShape*)this_addr;
-static Vec3 copy_addr;
-copy_addr = nativeObject->GetPositionCOM();
-return (jlong)&copy_addr;*/
-    public static native long internal_native_GetPositionCOM_addr(long this_addr);
 
     public Quat GetRotation() {
-        long addr = internal_native_GetRotation_addr(native_address);
-        if (addr == 0)
-            return Quat.NULL;
-        if (Quat_TEMP_GEN_0 == null)
-            Quat_TEMP_GEN_0 = Quat.native_new();
-        Quat_TEMP_GEN_0.internal_reset(addr, false);
-        return Quat_TEMP_GEN_0;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-CompoundShapeSubShape* nativeObject = (CompoundShapeSubShape*)this_addr;
-static Quat copy_addr;
-copy_addr = nativeObject->GetRotation();
-return (jlong)&copy_addr;*/
-    public static native long internal_native_GetRotation_addr(long this_addr);
 
     public Shape get_mShape() {
-        long addr = internal_native_get_mShape_addr(native_address);
-        if (addr == 0)
-            return Shape.NULL;
-        if (Shape_TEMP_GEN_0 == null)
-            Shape_TEMP_GEN_0 = Shape.native_new();
-        Shape_TEMP_GEN_0.internal_reset(addr, false);
-        return Shape_TEMP_GEN_0;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-CompoundShapeSubShape* nativeObject = (CompoundShapeSubShape*)this_addr;
-const Shape* attr = nativeObject->mShape;
-return (jlong)attr;
-*/
-    public static native long internal_native_get_mShape_addr(long this_addr);
 
     public void set_mShape(Shape mShape) {
-        internal_native_set_mShape(native_address, mShape.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-CompoundShapeSubShape* nativeObject = (CompoundShapeSubShape*)this_addr;
-nativeObject->mShape = (Shape*)mShape_addr;
-*/
-    public static native void internal_native_set_mShape(long this_addr, long mShape_addr);
 
     public int get_mUserData() {
-        return internal_native_get_mUserData(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-CompoundShapeSubShape* nativeObject = (CompoundShapeSubShape*)this_addr;
-return nativeObject->mUserData;
-*/
-    public static native int internal_native_get_mUserData(long this_addr);
 
     public void set_mUserData(int mUserData) {
-        internal_native_set_mUserData(native_address, mUserData);
     }
-
-    /*[-JNI;-NATIVE]
-CompoundShapeSubShape* nativeObject = (CompoundShapeSubShape*)this_addr;
-nativeObject->mUserData = mUserData;
-*/
-    public static native void internal_native_set_mUserData(long this_addr, int mUserData);
 }

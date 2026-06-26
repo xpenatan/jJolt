@@ -6,21 +6,14 @@
 
 package jolt.physics.softbody;
 
-import com.github.xpenatan.jParser.idl.IDLBase;
+import com.github.xpenatan.jParser.api.NativeObject;
 
-public class SoftBodySharedSettingsVolume extends IDLBase {
+public class SoftBodySharedSettingsVolume extends NativeObject {
 
     static public final SoftBodySharedSettingsVolume NULL = SoftBodySharedSettingsVolume.native_new();
 
     public SoftBodySharedSettingsVolume(int inVertex1, int inVertex2, int inVertex3, int inVertex4, float inCompliance) {
-        long addr = internal_native_create_int_int_int_int_float_addr(inVertex1, inVertex2, inVertex3, inVertex4, inCompliance);
-        internal_reset(addr, true);
     }
-
-    /*[-JNI;-NATIVE]
-return (jlong)new SoftBodySharedSettingsVolume(inVertex1, inVertex2, inVertex3, inVertex4, (float)inCompliance);
-*/
-    public static native long internal_native_create_int_int_int_int_float_addr(int inVertex1, int inVertex2, int inVertex3, int inVertex4, float inCompliance);
 
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
@@ -36,73 +29,24 @@ return (jlong)new SoftBodySharedSettingsVolume(inVertex1, inVertex2, inVertex3, 
         return new SoftBodySharedSettingsVolume((byte) 0, (char) 0);
     }
 
-    protected void deleteNative() {
-        internal_native_deleteNative(native_address);
-    }
-
-    /*[-JNI;-NATIVE]
-SoftBodySharedSettingsVolume* nativeObject = (SoftBodySharedSettingsVolume*)this_addr;
-delete nativeObject;
-*/
-    public static native void internal_native_deleteNative(long this_addr);
-
     public int get_mVertex(int index) {
-        return internal_native_get_mVertex(native_address, index);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-SoftBodySharedSettingsVolume* nativeObject = (SoftBodySharedSettingsVolume*)this_addr;
-return nativeObject->mVertex[index];
-*/
-    public static native int internal_native_get_mVertex(long this_addr, int index);
 
     public void set_mVertex(int index, int mVertex) {
-        internal_native_set_mVertex(native_address, index, mVertex);
     }
-
-    /*[-JNI;-NATIVE]
-SoftBodySharedSettingsVolume* nativeObject = (SoftBodySharedSettingsVolume*)this_addr;
-nativeObject->mVertex[index] = mVertex;
-*/
-    public static native void internal_native_set_mVertex(long this_addr, int index, int mVertex);
 
     public float get_mSixRestVolume() {
-        return internal_native_get_mSixRestVolume(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-SoftBodySharedSettingsVolume* nativeObject = (SoftBodySharedSettingsVolume*)this_addr;
-return nativeObject->mSixRestVolume;
-*/
-    public static native float internal_native_get_mSixRestVolume(long this_addr);
 
     public void set_mSixRestVolume(float mSixRestVolume) {
-        internal_native_set_mSixRestVolume(native_address, mSixRestVolume);
     }
-
-    /*[-JNI;-NATIVE]
-SoftBodySharedSettingsVolume* nativeObject = (SoftBodySharedSettingsVolume*)this_addr;
-nativeObject->mSixRestVolume = mSixRestVolume;
-*/
-    public static native void internal_native_set_mSixRestVolume(long this_addr, float mSixRestVolume);
 
     public float get_mCompliance() {
-        return internal_native_get_mCompliance(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-SoftBodySharedSettingsVolume* nativeObject = (SoftBodySharedSettingsVolume*)this_addr;
-return nativeObject->mCompliance;
-*/
-    public static native float internal_native_get_mCompliance(long this_addr);
 
     public void set_mCompliance(float mCompliance) {
-        internal_native_set_mCompliance(native_address, mCompliance);
     }
-
-    /*[-JNI;-NATIVE]
-SoftBodySharedSettingsVolume* nativeObject = (SoftBodySharedSettingsVolume*)this_addr;
-nativeObject->mCompliance = mCompliance;
-*/
-    public static native void internal_native_set_mCompliance(long this_addr, float mCompliance);
 }

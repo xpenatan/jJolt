@@ -6,25 +6,14 @@
 
 package jolt.math;
 
-import com.github.xpenatan.jParser.idl.IDLBase;
+import com.github.xpenatan.jParser.api.NativeObject;
 
-public class ArrayVec3 extends IDLBase {
-
-    private Vec3 Vec3_TEMP_GEN_0;
-
-    private Vec3MemRef Vec3MemRef_TEMP_GEN_0;
+public class ArrayVec3 extends NativeObject {
 
     static public final ArrayVec3 NULL = ArrayVec3.native_new();
 
     public ArrayVec3() {
-        long addr = internal_native_create_addr();
-        internal_reset(addr, true);
     }
-
-    /*[-JNI;-NATIVE]
-return (jlong)new ArrayVec3();
-*/
-    public static native long internal_native_create_addr();
 
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
@@ -40,106 +29,31 @@ return (jlong)new ArrayVec3();
         return new ArrayVec3((byte) 0, (char) 0);
     }
 
-    protected void deleteNative() {
-        internal_native_deleteNative(native_address);
-    }
-
-    /*[-JNI;-NATIVE]
-ArrayVec3* nativeObject = (ArrayVec3*)this_addr;
-delete nativeObject;
-*/
-    public static native void internal_native_deleteNative(long this_addr);
-
     public boolean empty() {
-        return internal_native_empty(native_address);
+        return false;
     }
-
-    /*[-JNI;-NATIVE]
-ArrayVec3* nativeObject = (ArrayVec3*)this_addr;
-return nativeObject->empty();
-*/
-    public static native boolean internal_native_empty(long this_addr);
 
     public int size() {
-        return internal_native_size(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-ArrayVec3* nativeObject = (ArrayVec3*)this_addr;
-return nativeObject->size();
-*/
-    public static native int internal_native_size(long this_addr);
 
     public Vec3 at(int inIndex) {
-        long addr = internal_native_at_addr(native_address, inIndex);
-        if (addr == 0)
-            return Vec3.NULL;
-        if (Vec3_TEMP_GEN_0 == null)
-            Vec3_TEMP_GEN_0 = Vec3.native_new();
-        Vec3_TEMP_GEN_0.internal_reset(addr, false);
-        return Vec3_TEMP_GEN_0;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-ArrayVec3* nativeObject = (ArrayVec3*)this_addr;
-return (jlong)&nativeObject->at((int)inIndex);
-*/
-    public static native long internal_native_at_addr(long this_addr, int inIndex);
 
     public void push_back(Vec3 inValue) {
-        internal_native_push_back(native_address, inValue.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-ArrayVec3* nativeObject = (ArrayVec3*)this_addr;
-nativeObject->push_back(*((Vec3* )inValue_addr));
-*/
-    public static native void internal_native_push_back(long this_addr, long inValue_addr);
 
     public void reserve(int inSize) {
-        internal_native_reserve(native_address, inSize);
     }
-
-    /*[-JNI;-NATIVE]
-ArrayVec3* nativeObject = (ArrayVec3*)this_addr;
-nativeObject->reserve(inSize);
-*/
-    public static native void internal_native_reserve(long this_addr, int inSize);
 
     public void resize(int inSize) {
-        internal_native_resize(native_address, inSize);
     }
-
-    /*[-JNI;-NATIVE]
-ArrayVec3* nativeObject = (ArrayVec3*)this_addr;
-nativeObject->resize(inSize);
-*/
-    public static native void internal_native_resize(long this_addr, int inSize);
 
     public void clear() {
-        internal_native_clear(native_address);
     }
-
-    /*[-JNI;-NATIVE]
-ArrayVec3* nativeObject = (ArrayVec3*)this_addr;
-nativeObject->clear();
-*/
-    public static native void internal_native_clear(long this_addr);
 
     public Vec3MemRef data() {
-        long addr = internal_native_data_addr(native_address);
-        if (addr == 0)
-            return Vec3MemRef.NULL;
-        if (Vec3MemRef_TEMP_GEN_0 == null)
-            Vec3MemRef_TEMP_GEN_0 = Vec3MemRef.native_new();
-        Vec3MemRef_TEMP_GEN_0.internal_reset(addr, false);
-        return Vec3MemRef_TEMP_GEN_0;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-ArrayVec3* nativeObject = (ArrayVec3*)this_addr;
-Vec3MemRef* obj = nativeObject->data();
-return (jlong)obj;
-*/
-    public static native long internal_native_data_addr(long this_addr);
 }

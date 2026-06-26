@@ -6,33 +6,17 @@
 
 package jolt.physics.collision;
 
-import com.github.xpenatan.jParser.idl.IDLBase;
+import com.github.xpenatan.jParser.api.NativeObject;
 
-public class CollisionGroup extends IDLBase {
-
-    private GroupFilter GroupFilter_TEMP_GEN_0;
+public class CollisionGroup extends NativeObject {
 
     static public final CollisionGroup NULL = CollisionGroup.native_new();
 
     public CollisionGroup() {
-        long addr = internal_native_create_addr();
-        internal_reset(addr, true);
     }
-
-    /*[-JNI;-NATIVE]
-return (jlong)new CollisionGroup();
-*/
-    public static native long internal_native_create_addr();
 
     public CollisionGroup(GroupFilter inFilter, int inGroupID, int inSubGroupID) {
-        long addr = internal_native_create_GroupFilter_int_int_addr(inFilter.native_address, inGroupID, inSubGroupID);
-        internal_reset(addr, true);
     }
-
-    /*[-JNI;-NATIVE]
-return (jlong)new CollisionGroup((GroupFilter* )inFilter_addr, inGroupID, inSubGroupID);
-*/
-    public static native long internal_native_create_GroupFilter_int_int_addr(long inFilter_addr, int inGroupID, int inSubGroupID);
 
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
@@ -48,80 +32,24 @@ return (jlong)new CollisionGroup((GroupFilter* )inFilter_addr, inGroupID, inSubG
         return new CollisionGroup((byte) 0, (char) 0);
     }
 
-    protected void deleteNative() {
-        internal_native_deleteNative(native_address);
-    }
-
-    /*[-JNI;-NATIVE]
-CollisionGroup* nativeObject = (CollisionGroup*)this_addr;
-delete nativeObject;
-*/
-    public static native void internal_native_deleteNative(long this_addr);
-
     public void SetGroupFilter(GroupFilter inFilter) {
-        internal_native_SetGroupFilter(native_address, inFilter.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-CollisionGroup* nativeObject = (CollisionGroup*)this_addr;
-nativeObject->SetGroupFilter((GroupFilter* )inFilter_addr);
-*/
-    public static native void internal_native_SetGroupFilter(long this_addr, long inFilter_addr);
 
     public GroupFilter GetGroupFilter() {
-        long addr = internal_native_GetGroupFilter_addr(native_address);
-        if (addr == 0)
-            return GroupFilter.NULL;
-        if (GroupFilter_TEMP_GEN_0 == null)
-            GroupFilter_TEMP_GEN_0 = GroupFilter.native_new();
-        GroupFilter_TEMP_GEN_0.internal_reset(addr, false);
-        return GroupFilter_TEMP_GEN_0;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-CollisionGroup* nativeObject = (CollisionGroup*)this_addr;
-const GroupFilter* obj = nativeObject->GetGroupFilter();
-return (jlong)obj;
-*/
-    public static native long internal_native_GetGroupFilter_addr(long this_addr);
 
     public void SetGroupID(int inGroupID) {
-        internal_native_SetGroupID(native_address, inGroupID);
     }
-
-    /*[-JNI;-NATIVE]
-CollisionGroup* nativeObject = (CollisionGroup*)this_addr;
-nativeObject->SetGroupID(inGroupID);
-*/
-    public static native void internal_native_SetGroupID(long this_addr, int inGroupID);
 
     public int GetGroupID() {
-        return internal_native_GetGroupID(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-CollisionGroup* nativeObject = (CollisionGroup*)this_addr;
-return nativeObject->GetGroupID();
-*/
-    public static native int internal_native_GetGroupID(long this_addr);
 
     public void SetSubGroupID(int inSubGroupID) {
-        internal_native_SetSubGroupID(native_address, inSubGroupID);
     }
-
-    /*[-JNI;-NATIVE]
-CollisionGroup* nativeObject = (CollisionGroup*)this_addr;
-nativeObject->SetSubGroupID(inSubGroupID);
-*/
-    public static native void internal_native_SetSubGroupID(long this_addr, int inSubGroupID);
 
     public int GetSubGroupID() {
-        return internal_native_GetSubGroupID(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-CollisionGroup* nativeObject = (CollisionGroup*)this_addr;
-return nativeObject->GetSubGroupID();
-*/
-    public static native int internal_native_GetSubGroupID(long this_addr);
 }

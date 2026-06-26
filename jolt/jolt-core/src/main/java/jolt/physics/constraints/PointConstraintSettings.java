@@ -12,22 +12,11 @@ import jolt.math.Vec3;
 
 public class PointConstraintSettings extends TwoBodyConstraintSettings {
 
-    private Vec3 Vec3_TEMP_GEN_0;
-
-    private Vec3 Vec3_TEMP_GEN_1;
-
     static public final PointConstraintSettings NULL = PointConstraintSettings.native_new();
 
     public PointConstraintSettings() {
         super((byte) 1, (char) 1);
-        long addr = internal_native_create_addr();
-        internal_reset(addr, true);
     }
-
-    /*[-JNI;-NATIVE]
-return (jlong)new PointConstraintSettings();
-*/
-    public static native long internal_native_create_addr();
 
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
@@ -44,92 +33,24 @@ return (jlong)new PointConstraintSettings();
         return new PointConstraintSettings((byte) 0, (char) 0);
     }
 
-    protected void deleteNative() {
-        internal_native_deleteNative(native_address);
-    }
-
-    /*[-JNI;-NATIVE]
-PointConstraintSettings* nativeObject = (PointConstraintSettings*)this_addr;
-delete nativeObject;
-*/
-    public static native void internal_native_deleteNative(long this_addr);
-
     public EConstraintSpace get_mSpace() {
-        int value = internal_native_get_mSpace(native_address);
-        EConstraintSpace[] values = EConstraintSpace.values();
-        for (int i = 0; i < values.length; i++) {
-            EConstraintSpace enumVal = values[i];
-            if (enumVal != EConstraintSpace.CUSTOM && enumVal.getValue() == value)
-                return enumVal;
-        }
-        return EConstraintSpace.CUSTOM.setValue(value);
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-PointConstraintSettings* nativeObject = (PointConstraintSettings*)this_addr;
-return (jint)nativeObject->mSpace;
-*/
-    public static native int internal_native_get_mSpace(long this_addr);
 
     public void set_mSpace(EConstraintSpace mSpace) {
-        internal_native_set_mSpace(native_address, mSpace.getValue());
     }
-
-    /*[-JNI;-NATIVE]
-PointConstraintSettings* nativeObject = (PointConstraintSettings*)this_addr;
-nativeObject->mSpace = (::EConstraintSpace)mSpace;
-*/
-    public static native void internal_native_set_mSpace(long this_addr, int mSpace);
 
     public Vec3 get_mPoint1() {
-        long addr = internal_native_get_mPoint1_addr(native_address);
-        if (addr == 0)
-            return Vec3.NULL;
-        if (Vec3_TEMP_GEN_0 == null)
-            Vec3_TEMP_GEN_0 = Vec3.native_new();
-        Vec3_TEMP_GEN_0.internal_reset(addr, false);
-        return Vec3_TEMP_GEN_0;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-PointConstraintSettings* nativeObject = (PointConstraintSettings*)this_addr;
-return (jlong)&nativeObject->mPoint1;
-*/
-    public static native long internal_native_get_mPoint1_addr(long this_addr);
 
     public void set_mPoint1(Vec3 mPoint1) {
-        internal_native_set_mPoint1(native_address, mPoint1.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-PointConstraintSettings* nativeObject = (PointConstraintSettings*)this_addr;
-nativeObject->mPoint1 = *((Vec3*)mPoint1_addr);
-*/
-    public static native void internal_native_set_mPoint1(long this_addr, long mPoint1_addr);
 
     public Vec3 get_mPoint2() {
-        long addr = internal_native_get_mPoint2_addr(native_address);
-        if (addr == 0)
-            return Vec3.NULL;
-        if (Vec3_TEMP_GEN_1 == null)
-            Vec3_TEMP_GEN_1 = Vec3.native_new();
-        Vec3_TEMP_GEN_1.internal_reset(addr, false);
-        return Vec3_TEMP_GEN_1;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-PointConstraintSettings* nativeObject = (PointConstraintSettings*)this_addr;
-return (jlong)&nativeObject->mPoint2;
-*/
-    public static native long internal_native_get_mPoint2_addr(long this_addr);
 
     public void set_mPoint2(Vec3 mPoint2) {
-        internal_native_set_mPoint2(native_address, mPoint2.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-PointConstraintSettings* nativeObject = (PointConstraintSettings*)this_addr;
-nativeObject->mPoint2 = *((Vec3*)mPoint2_addr);
-*/
-    public static native void internal_native_set_mPoint2(long this_addr, long mPoint2_addr);
 }

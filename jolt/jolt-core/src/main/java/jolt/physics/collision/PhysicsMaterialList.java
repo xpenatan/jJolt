@@ -6,23 +6,14 @@
 
 package jolt.physics.collision;
 
-import com.github.xpenatan.jParser.idl.IDLBase;
+import com.github.xpenatan.jParser.api.NativeObject;
 
-public class PhysicsMaterialList extends IDLBase {
-
-    private PhysicsMaterial PhysicsMaterial_TEMP_GEN_0;
+public class PhysicsMaterialList extends NativeObject {
 
     static public final PhysicsMaterialList NULL = PhysicsMaterialList.native_new();
 
     public PhysicsMaterialList() {
-        long addr = internal_native_create_addr();
-        internal_reset(addr, true);
     }
-
-    /*[-JNI;-NATIVE]
-return (jlong)new PhysicsMaterialList();
-*/
-    public static native long internal_native_create_addr();
 
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
@@ -38,90 +29,27 @@ return (jlong)new PhysicsMaterialList();
         return new PhysicsMaterialList((byte) 0, (char) 0);
     }
 
-    protected void deleteNative() {
-        internal_native_deleteNative(native_address);
-    }
-
-    /*[-JNI;-NATIVE]
-PhysicsMaterialList* nativeObject = (PhysicsMaterialList*)this_addr;
-delete nativeObject;
-*/
-    public static native void internal_native_deleteNative(long this_addr);
-
     public boolean empty() {
-        return internal_native_empty(native_address);
+        return false;
     }
-
-    /*[-JNI;-NATIVE]
-PhysicsMaterialList* nativeObject = (PhysicsMaterialList*)this_addr;
-return nativeObject->empty();
-*/
-    public static native boolean internal_native_empty(long this_addr);
 
     public int size() {
-        return internal_native_size(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-PhysicsMaterialList* nativeObject = (PhysicsMaterialList*)this_addr;
-return nativeObject->size();
-*/
-    public static native int internal_native_size(long this_addr);
 
     public PhysicsMaterial at(int inIndex) {
-        long addr = internal_native_at_addr(native_address, inIndex);
-        if (addr == 0)
-            return PhysicsMaterial.NULL;
-        if (PhysicsMaterial_TEMP_GEN_0 == null)
-            PhysicsMaterial_TEMP_GEN_0 = PhysicsMaterial.native_new();
-        PhysicsMaterial_TEMP_GEN_0.internal_reset(addr, false);
-        return PhysicsMaterial_TEMP_GEN_0;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-PhysicsMaterialList* nativeObject = (PhysicsMaterialList*)this_addr;
-const PhysicsMaterial* obj = nativeObject->at((int)inIndex);
-return (jlong)obj;
-*/
-    public static native long internal_native_at_addr(long this_addr, int inIndex);
 
     public void push_back(PhysicsMaterial inMaterial) {
-        internal_native_push_back(native_address, inMaterial.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-PhysicsMaterialList* nativeObject = (PhysicsMaterialList*)this_addr;
-nativeObject->push_back((PhysicsMaterial* )inMaterial_addr);
-*/
-    public static native void internal_native_push_back(long this_addr, long inMaterial_addr);
 
     public void reserve(int inSize) {
-        internal_native_reserve(native_address, inSize);
     }
-
-    /*[-JNI;-NATIVE]
-PhysicsMaterialList* nativeObject = (PhysicsMaterialList*)this_addr;
-nativeObject->reserve(inSize);
-*/
-    public static native void internal_native_reserve(long this_addr, int inSize);
 
     public void resize(int inSize) {
-        internal_native_resize(native_address, inSize);
     }
-
-    /*[-JNI;-NATIVE]
-PhysicsMaterialList* nativeObject = (PhysicsMaterialList*)this_addr;
-nativeObject->resize(inSize);
-*/
-    public static native void internal_native_resize(long this_addr, int inSize);
 
     public void clear() {
-        internal_native_clear(native_address);
     }
-
-    /*[-JNI;-NATIVE]
-PhysicsMaterialList* nativeObject = (PhysicsMaterialList*)this_addr;
-nativeObject->clear();
-*/
-    public static native void internal_native_clear(long this_addr);
 }

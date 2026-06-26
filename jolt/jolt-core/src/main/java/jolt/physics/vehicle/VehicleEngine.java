@@ -25,63 +25,21 @@ public class VehicleEngine extends VehicleEngineSettings {
         return new VehicleEngine((byte) 0, (char) 0);
     }
 
-    protected void deleteNative() {
-        internal_native_deleteNative(native_address);
-    }
-
-    /*[-JNI;-NATIVE]
-VehicleEngine* nativeObject = (VehicleEngine*)this_addr;
-delete nativeObject;
-*/
-    public static native void internal_native_deleteNative(long this_addr);
-
     public void ClampRPM() {
-        internal_native_ClampRPM(native_address);
     }
-
-    /*[-JNI;-NATIVE]
-VehicleEngine* nativeObject = (VehicleEngine*)this_addr;
-nativeObject->ClampRPM();
-*/
-    public static native void internal_native_ClampRPM(long this_addr);
 
     public float GetCurrentRPM() {
-        return internal_native_GetCurrentRPM(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-VehicleEngine* nativeObject = (VehicleEngine*)this_addr;
-return nativeObject->GetCurrentRPM();
-*/
-    public static native float internal_native_GetCurrentRPM(long this_addr);
 
     public void SetCurrentRPM(float inRPM) {
-        internal_native_SetCurrentRPM(native_address, inRPM);
     }
-
-    /*[-JNI;-NATIVE]
-VehicleEngine* nativeObject = (VehicleEngine*)this_addr;
-nativeObject->SetCurrentRPM((float)inRPM);
-*/
-    public static native void internal_native_SetCurrentRPM(long this_addr, float inRPM);
 
     public float GetAngularVelocity() {
-        return internal_native_GetAngularVelocity(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-VehicleEngine* nativeObject = (VehicleEngine*)this_addr;
-return nativeObject->GetAngularVelocity();
-*/
-    public static native float internal_native_GetAngularVelocity(long this_addr);
 
     public float GetTorque(float inAcceleration) {
-        return internal_native_GetTorque(native_address, inAcceleration);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-VehicleEngine* nativeObject = (VehicleEngine*)this_addr;
-return nativeObject->GetTorque((float)inAcceleration);
-*/
-    public static native float internal_native_GetTorque(long this_addr, float inAcceleration);
 }

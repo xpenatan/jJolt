@@ -11,22 +11,11 @@ import jolt.math.Quat;
 
 public class RotatedTranslatedShapeSettings extends DecoratedShapeSettings {
 
-    private Vec3 Vec3_TEMP_GEN_0;
-
-    private Quat Quat_TEMP_GEN_0;
-
     static public final RotatedTranslatedShapeSettings NULL = RotatedTranslatedShapeSettings.native_new();
 
     public RotatedTranslatedShapeSettings(Vec3 inPosition, Quat inRotation, ShapeSettings inShape) {
         super((byte) 1, (char) 1);
-        long addr = internal_native_create_Vec3_Quat_ShapeSettings_addr(inPosition.native_address, inRotation.native_address, inShape.native_address);
-        internal_reset(addr, true);
     }
-
-    /*[-JNI;-NATIVE]
-return (jlong)new RotatedTranslatedShapeSettings(*((Vec3* )inPosition_addr), *((Quat* )inRotation_addr), (ShapeSettings* )inShape_addr);
-*/
-    public static native long internal_native_create_Vec3_Quat_ShapeSettings_addr(long inPosition_addr, long inRotation_addr, long inShape_addr);
 
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
@@ -43,65 +32,17 @@ return (jlong)new RotatedTranslatedShapeSettings(*((Vec3* )inPosition_addr), *((
         return new RotatedTranslatedShapeSettings((byte) 0, (char) 0);
     }
 
-    protected void deleteNative() {
-        internal_native_deleteNative(native_address);
-    }
-
-    /*[-JNI;-NATIVE]
-RotatedTranslatedShapeSettings* nativeObject = (RotatedTranslatedShapeSettings*)this_addr;
-delete nativeObject;
-*/
-    public static native void internal_native_deleteNative(long this_addr);
-
     public Vec3 get_mPosition() {
-        long addr = internal_native_get_mPosition_addr(native_address);
-        if (addr == 0)
-            return Vec3.NULL;
-        if (Vec3_TEMP_GEN_0 == null)
-            Vec3_TEMP_GEN_0 = Vec3.native_new();
-        Vec3_TEMP_GEN_0.internal_reset(addr, false);
-        return Vec3_TEMP_GEN_0;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-RotatedTranslatedShapeSettings* nativeObject = (RotatedTranslatedShapeSettings*)this_addr;
-return (jlong)&nativeObject->mPosition;
-*/
-    public static native long internal_native_get_mPosition_addr(long this_addr);
 
     public void set_mPosition(Vec3 mPosition) {
-        internal_native_set_mPosition(native_address, mPosition.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-RotatedTranslatedShapeSettings* nativeObject = (RotatedTranslatedShapeSettings*)this_addr;
-nativeObject->mPosition = *((Vec3*)mPosition_addr);
-*/
-    public static native void internal_native_set_mPosition(long this_addr, long mPosition_addr);
 
     public Quat get_mRotation() {
-        long addr = internal_native_get_mRotation_addr(native_address);
-        if (addr == 0)
-            return Quat.NULL;
-        if (Quat_TEMP_GEN_0 == null)
-            Quat_TEMP_GEN_0 = Quat.native_new();
-        Quat_TEMP_GEN_0.internal_reset(addr, false);
-        return Quat_TEMP_GEN_0;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-RotatedTranslatedShapeSettings* nativeObject = (RotatedTranslatedShapeSettings*)this_addr;
-return (jlong)&nativeObject->mRotation;
-*/
-    public static native long internal_native_get_mRotation_addr(long this_addr);
 
     public void set_mRotation(Quat mRotation) {
-        internal_native_set_mRotation(native_address, mRotation.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-RotatedTranslatedShapeSettings* nativeObject = (RotatedTranslatedShapeSettings*)this_addr;
-nativeObject->mRotation = *((Quat*)mRotation_addr);
-*/
-    public static native void internal_native_set_mRotation(long this_addr, long mRotation_addr);
 }

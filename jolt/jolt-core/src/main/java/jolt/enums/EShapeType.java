@@ -6,9 +6,9 @@
 
 package jolt.enums;
 
-import com.github.xpenatan.jParser.idl.IDLEnum;
+import com.github.xpenatan.jParser.api.NativeEnum;
 
-public enum EShapeType implements IDLEnum<EShapeType> {
+public enum EShapeType implements NativeEnum<EShapeType> {
 
     CUSTOM(0),
     Convex(EShapeType_Convex_NATIVE()),
@@ -41,38 +41,17 @@ public enum EShapeType implements IDLEnum<EShapeType> {
         return CUSTOM;
     }
 
-    /*[-JNI;-NATIVE]
-return (jlong)EShapeType_Convex;
-*/
     private static native int EShapeType_Convex_NATIVE();
 
-    /*[-JNI;-NATIVE]
-return (jlong)EShapeType_Compound;
-*/
     private static native int EShapeType_Compound_NATIVE();
 
-    /*[-JNI;-NATIVE]
-return (jlong)EShapeType_Decorated;
-*/
     private static native int EShapeType_Decorated_NATIVE();
 
-    /*[-JNI;-NATIVE]
-return (jlong)EShapeType_Mesh;
-*/
     private static native int EShapeType_Mesh_NATIVE();
 
-    /*[-JNI;-NATIVE]
-return (jlong)EShapeType_HeightField;
-*/
     private static native int EShapeType_HeightField_NATIVE();
 
-    /*[-JNI;-NATIVE]
-return (jlong)EShapeType_Plane;
-*/
     private static native int EShapeType_Plane_NATIVE();
 
-    /*[-JNI;-NATIVE]
-return (jlong)EShapeType_Empty;
-*/
     private static native int EShapeType_Empty_NATIVE();
 }

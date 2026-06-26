@@ -6,34 +6,17 @@
 
 package jolt.physics.collision;
 
-import com.github.xpenatan.jParser.idl.IDLBase;
+import com.github.xpenatan.jParser.api.NativeObject;
 import jolt.physics.collision.shape.Shape;
 import jolt.math.Vec3;
 import jolt.math.Mat44;
 
-public class RShapeCast extends IDLBase {
-
-    private Vec3 Vec3_TEMP_GEN_0;
-
-    private Shape Shape_TEMP_GEN_0;
-
-    private Vec3 Vec3_TEMP_GEN_1;
-
-    private Mat44 Mat44_TEMP_GEN_0;
-
-    private Vec3 Vec3_TEMP_GEN_2;
+public class RShapeCast extends NativeObject {
 
     static public final RShapeCast NULL = RShapeCast.native_new();
 
     public RShapeCast(Shape inShape, Vec3 inScale, Mat44 inCenterOfMassStart, Vec3 inDirection) {
-        long addr = internal_native_create_Shape_Vec3_Mat44_Vec3_addr(inShape.native_address, inScale.native_address, inCenterOfMassStart.native_address, inDirection.native_address);
-        internal_reset(addr, true);
     }
-
-    /*[-JNI;-NATIVE]
-return (jlong)new RShapeCast((Shape* )inShape_addr, *((Vec3* )inScale_addr), *((Mat44* )inCenterOfMassStart_addr), *((Vec3* )inDirection_addr));
-*/
-    public static native long internal_native_create_Shape_Vec3_Mat44_Vec3_addr(long inShape_addr, long inScale_addr, long inCenterOfMassStart_addr, long inDirection_addr);
 
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
@@ -49,95 +32,23 @@ return (jlong)new RShapeCast((Shape* )inShape_addr, *((Vec3* )inScale_addr), *((
         return new RShapeCast((byte) 0, (char) 0);
     }
 
-    protected void deleteNative() {
-        internal_native_deleteNative(native_address);
-    }
-
-    /*[-JNI;-NATIVE]
-RShapeCast* nativeObject = (RShapeCast*)this_addr;
-delete nativeObject;
-*/
-    public static native void internal_native_deleteNative(long this_addr);
-
     public Vec3 GetPointOnRay(float inFraction) {
-        long addr = internal_native_GetPointOnRay_addr(native_address, inFraction);
-        if (addr == 0)
-            return Vec3.NULL;
-        if (Vec3_TEMP_GEN_0 == null)
-            Vec3_TEMP_GEN_0 = Vec3.native_new();
-        Vec3_TEMP_GEN_0.internal_reset(addr, false);
-        return Vec3_TEMP_GEN_0;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-RShapeCast* nativeObject = (RShapeCast*)this_addr;
-static Vec3 copy_addr;
-copy_addr = nativeObject->GetPointOnRay((float)inFraction);
-return (jlong)&copy_addr;*/
-    public static native long internal_native_GetPointOnRay_addr(long this_addr, float inFraction);
 
     public Shape get_mShape() {
-        long addr = internal_native_get_mShape_addr(native_address);
-        if (addr == 0)
-            return Shape.NULL;
-        if (Shape_TEMP_GEN_0 == null)
-            Shape_TEMP_GEN_0 = Shape.native_new();
-        Shape_TEMP_GEN_0.internal_reset(addr, false);
-        return Shape_TEMP_GEN_0;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-RShapeCast* nativeObject = (RShapeCast*)this_addr;
-const Shape* attr = nativeObject->mShape;
-return (jlong)attr;
-*/
-    public static native long internal_native_get_mShape_addr(long this_addr);
 
     public Vec3 get_mScale() {
-        long addr = internal_native_get_mScale_addr(native_address);
-        if (addr == 0)
-            return Vec3.NULL;
-        if (Vec3_TEMP_GEN_1 == null)
-            Vec3_TEMP_GEN_1 = Vec3.native_new();
-        Vec3_TEMP_GEN_1.internal_reset(addr, false);
-        return Vec3_TEMP_GEN_1;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-RShapeCast* nativeObject = (RShapeCast*)this_addr;
-return (jlong)&nativeObject->mScale;
-*/
-    public static native long internal_native_get_mScale_addr(long this_addr);
 
     public Mat44 get_mCenterOfMassStart() {
-        long addr = internal_native_get_mCenterOfMassStart_addr(native_address);
-        if (addr == 0)
-            return Mat44.NULL;
-        if (Mat44_TEMP_GEN_0 == null)
-            Mat44_TEMP_GEN_0 = Mat44.native_new();
-        Mat44_TEMP_GEN_0.internal_reset(addr, false);
-        return Mat44_TEMP_GEN_0;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-RShapeCast* nativeObject = (RShapeCast*)this_addr;
-return (jlong)&nativeObject->mCenterOfMassStart;
-*/
-    public static native long internal_native_get_mCenterOfMassStart_addr(long this_addr);
 
     public Vec3 get_mDirection() {
-        long addr = internal_native_get_mDirection_addr(native_address);
-        if (addr == 0)
-            return Vec3.NULL;
-        if (Vec3_TEMP_GEN_2 == null)
-            Vec3_TEMP_GEN_2 = Vec3.native_new();
-        Vec3_TEMP_GEN_2.internal_reset(addr, false);
-        return Vec3_TEMP_GEN_2;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-RShapeCast* nativeObject = (RShapeCast*)this_addr;
-return (jlong)&nativeObject->mDirection;
-*/
-    public static native long internal_native_get_mDirection_addr(long this_addr);
 }

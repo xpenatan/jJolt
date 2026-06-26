@@ -6,9 +6,9 @@
 
 package jolt.physics.collision;
 
-import com.github.xpenatan.jParser.idl.IDLBase;
+import com.github.xpenatan.jParser.api.NativeObject;
 
-public class ContactListener extends IDLBase {
+public class ContactListener extends NativeObject {
 
     static public final ContactListener NULL = ContactListener.native_new();
 
@@ -25,14 +25,4 @@ public class ContactListener extends IDLBase {
     public static ContactListener native_new() {
         return new ContactListener((byte) 0, (char) 0);
     }
-
-    protected void deleteNative() {
-        internal_native_deleteNative(native_address);
-    }
-
-    /*[-JNI;-NATIVE]
-ContactListener* nativeObject = (ContactListener*)this_addr;
-delete nativeObject;
-*/
-    public static native void internal_native_deleteNative(long this_addr);
 }

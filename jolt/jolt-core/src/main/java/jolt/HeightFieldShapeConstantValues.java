@@ -6,9 +6,9 @@
 
 package jolt;
 
-import com.github.xpenatan.jParser.idl.IDLBase;
+import com.github.xpenatan.jParser.api.NativeObject;
 
-public class HeightFieldShapeConstantValues extends IDLBase {
+public class HeightFieldShapeConstantValues extends NativeObject {
 
     static public final HeightFieldShapeConstantValues NULL = HeightFieldShapeConstantValues.native_new();
 
@@ -26,22 +26,7 @@ public class HeightFieldShapeConstantValues extends IDLBase {
         return new HeightFieldShapeConstantValues((byte) 0, (char) 0);
     }
 
-    protected void deleteNative() {
-        internal_native_deleteNative(native_address);
-    }
-
-    /*[-JNI;-NATIVE]
-HeightFieldShapeConstantValues* nativeObject = (HeightFieldShapeConstantValues*)this_addr;
-delete nativeObject;
-*/
-    public static native void internal_native_deleteNative(long this_addr);
-
     public static float get_cNoCollisionValue() {
-        return internal_native_get_cNoCollisionValue();
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-return HeightFieldShapeConstantValues::cNoCollisionValue;
-*/
-    public static native float internal_native_get_cNoCollisionValue();
 }

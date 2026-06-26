@@ -6,9 +6,9 @@
 
 package jolt.enums;
 
-import com.github.xpenatan.jParser.idl.IDLEnum;
+import com.github.xpenatan.jParser.api.NativeEnum;
 
-public enum EConstraintType implements IDLEnum<EConstraintType> {
+public enum EConstraintType implements NativeEnum<EConstraintType> {
 
     CUSTOM(0), Constraint(EConstraintType_Constraint_NATIVE()), TwoBodyConstraint(EConstraintType_TwoBodyConstraint_NATIVE());
 
@@ -34,13 +34,7 @@ public enum EConstraintType implements IDLEnum<EConstraintType> {
         return CUSTOM;
     }
 
-    /*[-JNI;-NATIVE]
-return (jlong)EConstraintType_Constraint;
-*/
     private static native int EConstraintType_Constraint_NATIVE();
 
-    /*[-JNI;-NATIVE]
-return (jlong)EConstraintType_TwoBodyConstraint;
-*/
     private static native int EConstraintType_TwoBodyConstraint_NATIVE();
 }

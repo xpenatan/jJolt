@@ -29,42 +29,14 @@ public class CompoundShapeSettings extends ShapeSettings {
     }
 
     public void AddShape(Vec3 inPosition, Quat inRotation, ShapeSettings inShape, int inUserData) {
-        internal_native_AddShape__0(native_address, inPosition.native_address, inRotation.native_address, inShape.native_address, inUserData);
     }
-
-    /*[-JNI;-NATIVE]
-CompoundShapeSettings* nativeObject = (CompoundShapeSettings*)this_addr;
-nativeObject->AddShape(*((Vec3* )inPosition_addr), *((Quat* )inRotation_addr), (ShapeSettings* )inShape_addr, inUserData);
-*/
-    public static native void internal_native_AddShape__0(long this_addr, long inPosition_addr, long inRotation_addr, long inShape_addr, int inUserData);
 
     public void AddShape(Vec3 inPosition, Quat inRotation, ShapeSettings inShape) {
-        internal_native_AddShape__0(native_address, inPosition.native_address, inRotation.native_address, inShape.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-CompoundShapeSettings* nativeObject = (CompoundShapeSettings*)this_addr;
-nativeObject->AddShape(*((Vec3* )inPosition_addr), *((Quat* )inRotation_addr), (ShapeSettings* )inShape_addr);
-*/
-    public static native void internal_native_AddShape__0(long this_addr, long inPosition_addr, long inRotation_addr, long inShape_addr);
 
     public void AddShape(Vec3 inPosition, Quat inRotation, Shape inShape, int inUserData) {
-        internal_native_AddShape__1(native_address, inPosition.native_address, inRotation.native_address, inShape.native_address, inUserData);
     }
-
-    /*[-JNI;-NATIVE]
-CompoundShapeSettings* nativeObject = (CompoundShapeSettings*)this_addr;
-nativeObject->AddShape(*((Vec3* )inPosition_addr), *((Quat* )inRotation_addr), (Shape* )inShape_addr, inUserData);
-*/
-    public static native void internal_native_AddShape__1(long this_addr, long inPosition_addr, long inRotation_addr, long inShape_addr, int inUserData);
 
     public void AddShape(Vec3 inPosition, Quat inRotation, Shape inShape) {
-        internal_native_AddShape__1(native_address, inPosition.native_address, inRotation.native_address, inShape.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-CompoundShapeSettings* nativeObject = (CompoundShapeSettings*)this_addr;
-nativeObject->AddShape(*((Vec3* )inPosition_addr), *((Quat* )inRotation_addr), (Shape* )inShape_addr);
-*/
-    public static native void internal_native_AddShape__1(long this_addr, long inPosition_addr, long inRotation_addr, long inShape_addr);
 }

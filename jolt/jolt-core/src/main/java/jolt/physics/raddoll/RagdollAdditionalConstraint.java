@@ -6,12 +6,10 @@
 
 package jolt.physics.raddoll;
 
-import com.github.xpenatan.jParser.idl.IDLBase;
+import com.github.xpenatan.jParser.api.NativeObject;
 import jolt.math.TwoBodyConstraintSettings;
 
-public class RagdollAdditionalConstraint extends IDLBase {
-
-    private TwoBodyConstraintSettings TwoBodyConstraintSettings_TEMP_GEN_0;
+public class RagdollAdditionalConstraint extends NativeObject {
 
     static public final RagdollAdditionalConstraint NULL = RagdollAdditionalConstraint.native_new();
 
@@ -29,60 +27,17 @@ public class RagdollAdditionalConstraint extends IDLBase {
         return new RagdollAdditionalConstraint((byte) 0, (char) 0);
     }
 
-    protected void deleteNative() {
-        internal_native_deleteNative(native_address);
-    }
-
-    /*[-JNI;-NATIVE]
-RagdollAdditionalConstraint* nativeObject = (RagdollAdditionalConstraint*)this_addr;
-delete nativeObject;
-*/
-    public static native void internal_native_deleteNative(long this_addr);
-
     public int get_mBodyIdx(int index) {
-        return internal_native_get_mBodyIdx(native_address, index);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-RagdollAdditionalConstraint* nativeObject = (RagdollAdditionalConstraint*)this_addr;
-return nativeObject->mBodyIdx[index];
-*/
-    public static native int internal_native_get_mBodyIdx(long this_addr, int index);
 
     public void set_mBodyIdx(int index, int mBodyIdx) {
-        internal_native_set_mBodyIdx(native_address, index, mBodyIdx);
     }
-
-    /*[-JNI;-NATIVE]
-RagdollAdditionalConstraint* nativeObject = (RagdollAdditionalConstraint*)this_addr;
-nativeObject->mBodyIdx[index] = mBodyIdx;
-*/
-    public static native void internal_native_set_mBodyIdx(long this_addr, int index, int mBodyIdx);
 
     public TwoBodyConstraintSettings get_mConstraint() {
-        long addr = internal_native_get_mConstraint_addr(native_address);
-        if (addr == 0)
-            return TwoBodyConstraintSettings.NULL;
-        if (TwoBodyConstraintSettings_TEMP_GEN_0 == null)
-            TwoBodyConstraintSettings_TEMP_GEN_0 = TwoBodyConstraintSettings.native_new();
-        TwoBodyConstraintSettings_TEMP_GEN_0.internal_reset(addr, false);
-        return TwoBodyConstraintSettings_TEMP_GEN_0;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-RagdollAdditionalConstraint* nativeObject = (RagdollAdditionalConstraint*)this_addr;
-TwoBodyConstraintSettings* attr = nativeObject->mConstraint;
-return (jlong)attr;
-*/
-    public static native long internal_native_get_mConstraint_addr(long this_addr);
 
     public void set_mConstraint(TwoBodyConstraintSettings mConstraint) {
-        internal_native_set_mConstraint(native_address, mConstraint.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-RagdollAdditionalConstraint* nativeObject = (RagdollAdditionalConstraint*)this_addr;
-nativeObject->mConstraint = (TwoBodyConstraintSettings*)mConstraint_addr;
-*/
-    public static native void internal_native_set_mConstraint(long this_addr, long mConstraint_addr);
 }

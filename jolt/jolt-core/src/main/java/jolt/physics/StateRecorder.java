@@ -6,9 +6,9 @@
 
 package jolt.physics;
 
-import com.github.xpenatan.jParser.idl.IDLBase;
+import com.github.xpenatan.jParser.api.NativeObject;
 
-public class StateRecorder extends IDLBase {
+public class StateRecorder extends NativeObject {
 
     static public final StateRecorder NULL = StateRecorder.native_new();
 
@@ -26,33 +26,10 @@ public class StateRecorder extends IDLBase {
         return new StateRecorder((byte) 0, (char) 0);
     }
 
-    protected void deleteNative() {
-        internal_native_deleteNative(native_address);
-    }
-
-    /*[-JNI;-NATIVE]
-StateRecorder* nativeObject = (StateRecorder*)this_addr;
-delete nativeObject;
-*/
-    public static native void internal_native_deleteNative(long this_addr);
-
     public void SetValidating(boolean inValidating) {
-        internal_native_SetValidating(native_address, inValidating);
     }
-
-    /*[-JNI;-NATIVE]
-StateRecorder* nativeObject = (StateRecorder*)this_addr;
-nativeObject->SetValidating(inValidating);
-*/
-    public static native void internal_native_SetValidating(long this_addr, boolean inValidating);
 
     public boolean IsValidating() {
-        return internal_native_IsValidating(native_address);
+        return false;
     }
-
-    /*[-JNI;-NATIVE]
-StateRecorder* nativeObject = (StateRecorder*)this_addr;
-return nativeObject->IsValidating();
-*/
-    public static native boolean internal_native_IsValidating(long this_addr);
 }

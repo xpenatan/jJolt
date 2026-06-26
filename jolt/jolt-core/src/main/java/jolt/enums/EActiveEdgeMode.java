@@ -6,9 +6,9 @@
 
 package jolt.enums;
 
-import com.github.xpenatan.jParser.idl.IDLEnum;
+import com.github.xpenatan.jParser.api.NativeEnum;
 
-public enum EActiveEdgeMode implements IDLEnum<EActiveEdgeMode> {
+public enum EActiveEdgeMode implements NativeEnum<EActiveEdgeMode> {
 
     CUSTOM(0), CollideOnlyWithActive(EActiveEdgeMode_CollideOnlyWithActive_NATIVE()), CollideWithAll(EActiveEdgeMode_CollideWithAll_NATIVE());
 
@@ -34,13 +34,7 @@ public enum EActiveEdgeMode implements IDLEnum<EActiveEdgeMode> {
         return CUSTOM;
     }
 
-    /*[-JNI;-NATIVE]
-return (jlong)EActiveEdgeMode_CollideOnlyWithActive;
-*/
     private static native int EActiveEdgeMode_CollideOnlyWithActive_NATIVE();
 
-    /*[-JNI;-NATIVE]
-return (jlong)EActiveEdgeMode_CollideWithAll;
-*/
     private static native int EActiveEdgeMode_CollideWithAll_NATIVE();
 }

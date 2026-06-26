@@ -6,7 +6,7 @@
 
 package jolt.physics.collision;
 
-import com.github.xpenatan.jParser.idl.IDLBase;
+import com.github.xpenatan.jParser.api.NativeObject;
 import jolt.RRayCast;
 import jolt.physics.softbody.CastRayCollector;
 import jolt.math.Vec3;
@@ -23,43 +23,12 @@ import jolt.physics.collision.shape.SubShapeID;
 import jolt.math.Float3;
 import jolt.physics.body.BodyID;
 
-public class TransformedShape extends IDLBase {
-
-    private Vec3 Vec3_TEMP_GEN_0;
-
-    private Mat44 Mat44_TEMP_GEN_0;
-
-    private Mat44 Mat44_TEMP_GEN_1;
-
-    private Mat44 Mat44_TEMP_GEN_2;
-
-    private AABox AABox_TEMP_GEN_0;
-
-    private Vec3 Vec3_TEMP_GEN_1;
-
-    private PhysicsMaterial PhysicsMaterial_TEMP_GEN_0;
-
-    private Vec3 Vec3_TEMP_GEN_2;
-
-    private Quat Quat_TEMP_GEN_0;
-
-    private Shape Shape_TEMP_GEN_0;
-
-    private Float3 Float3_TEMP_GEN_0;
-
-    private BodyID BodyID_TEMP_GEN_0;
+public class TransformedShape extends NativeObject {
 
     static public final TransformedShape NULL = TransformedShape.native_new();
 
     public TransformedShape() {
-        long addr = internal_native_create_addr();
-        internal_reset(addr, true);
     }
-
-    /*[-JNI;-NATIVE]
-return (jlong)new TransformedShape();
-*/
-    public static native long internal_native_create_addr();
 
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
@@ -75,353 +44,93 @@ return (jlong)new TransformedShape();
         return new TransformedShape((byte) 0, (char) 0);
     }
 
-    protected void deleteNative() {
-        internal_native_deleteNative(native_address);
-    }
-
-    /*[-JNI;-NATIVE]
-TransformedShape* nativeObject = (TransformedShape*)this_addr;
-delete nativeObject;
-*/
-    public static native void internal_native_deleteNative(long this_addr);
-
     public void CastRay(RRayCast inRay, RayCastResult ioHit) {
-        internal_native_CastRay(native_address, inRay.native_address, ioHit.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-TransformedShape* nativeObject = (TransformedShape*)this_addr;
-nativeObject->CastRay(*((RRayCast* )inRay_addr), *((RayCastResult* )ioHit_addr));
-*/
-    public static native void internal_native_CastRay(long this_addr, long inRay_addr, long ioHit_addr);
 
     public void CastRay(RRayCast inRay, RayCastSettings inRayCastSettings, CastRayCollector ioCollector, ShapeFilter inShapeFilter) {
-        internal_native_CastRay(native_address, inRay.native_address, inRayCastSettings.native_address, ioCollector.native_address, inShapeFilter.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-TransformedShape* nativeObject = (TransformedShape*)this_addr;
-nativeObject->CastRay(*((RRayCast* )inRay_addr), *((RayCastSettings* )inRayCastSettings_addr), *((CastRayCollector* )ioCollector_addr), *((ShapeFilter* )inShapeFilter_addr));
-*/
-    public static native void internal_native_CastRay(long this_addr, long inRay_addr, long inRayCastSettings_addr, long ioCollector_addr, long inShapeFilter_addr);
 
     public void CollidePoint(Vec3 inPoint, CollidePointCollector ioCollector, ShapeFilter inShapeFilter) {
-        internal_native_CollidePoint(native_address, inPoint.native_address, ioCollector.native_address, inShapeFilter.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-TransformedShape* nativeObject = (TransformedShape*)this_addr;
-nativeObject->CollidePoint(*((Vec3* )inPoint_addr), *((CollidePointCollector* )ioCollector_addr), *((ShapeFilter* )inShapeFilter_addr));
-*/
-    public static native void internal_native_CollidePoint(long this_addr, long inPoint_addr, long ioCollector_addr, long inShapeFilter_addr);
 
     public void CollideShape(Shape inShape, Vec3 inShapeScale, Mat44 inCenterOfMassTransform, CollideShapeSettings inCollideShapeSettings, Vec3 inBaseOffset, CollideShapeCollector ioCollector, ShapeFilter inShapeFilter) {
-        internal_native_CollideShape(native_address, inShape.native_address, inShapeScale.native_address, inCenterOfMassTransform.native_address, inCollideShapeSettings.native_address, inBaseOffset.native_address, ioCollector.native_address, inShapeFilter.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-TransformedShape* nativeObject = (TransformedShape*)this_addr;
-nativeObject->CollideShape((Shape* )inShape_addr, *((Vec3* )inShapeScale_addr), *((Mat44* )inCenterOfMassTransform_addr), *((CollideShapeSettings* )inCollideShapeSettings_addr), *((Vec3* )inBaseOffset_addr), *((CollideShapeCollector* )ioCollector_addr), *((ShapeFilter* )inShapeFilter_addr));
-*/
-    public static native void internal_native_CollideShape(long this_addr, long inShape_addr, long inShapeScale_addr, long inCenterOfMassTransform_addr, long inCollideShapeSettings_addr, long inBaseOffset_addr, long ioCollector_addr, long inShapeFilter_addr);
 
     public void CastShape(RShapeCast inShapeCast, ShapeCastSettings inShapeCastSettings, Vec3 inBaseOffset, CastShapeCollector ioCollector, ShapeFilter inShapeFilter) {
-        internal_native_CastShape(native_address, inShapeCast.native_address, inShapeCastSettings.native_address, inBaseOffset.native_address, ioCollector.native_address, inShapeFilter.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-TransformedShape* nativeObject = (TransformedShape*)this_addr;
-nativeObject->CastShape(*((RShapeCast* )inShapeCast_addr), *((ShapeCastSettings* )inShapeCastSettings_addr), *((Vec3* )inBaseOffset_addr), *((CastShapeCollector* )ioCollector_addr), *((ShapeFilter* )inShapeFilter_addr));
-*/
-    public static native void internal_native_CastShape(long this_addr, long inShapeCast_addr, long inShapeCastSettings_addr, long inBaseOffset_addr, long ioCollector_addr, long inShapeFilter_addr);
 
     public void CollectTransformedShapes(AABox inBox, TransformedShapeCollector ioCollector, ShapeFilter inShapeFilter) {
-        internal_native_CollectTransformedShapes(native_address, inBox.native_address, ioCollector.native_address, inShapeFilter.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-TransformedShape* nativeObject = (TransformedShape*)this_addr;
-nativeObject->CollectTransformedShapes(*((AABox* )inBox_addr), *((TransformedShapeCollector* )ioCollector_addr), *((ShapeFilter* )inShapeFilter_addr));
-*/
-    public static native void internal_native_CollectTransformedShapes(long this_addr, long inBox_addr, long ioCollector_addr, long inShapeFilter_addr);
 
     public Vec3 GetShapeScale() {
-        long addr = internal_native_GetShapeScale_addr(native_address);
-        if (addr == 0)
-            return Vec3.NULL;
-        if (Vec3_TEMP_GEN_0 == null)
-            Vec3_TEMP_GEN_0 = Vec3.native_new();
-        Vec3_TEMP_GEN_0.internal_reset(addr, false);
-        return Vec3_TEMP_GEN_0;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-TransformedShape* nativeObject = (TransformedShape*)this_addr;
-static Vec3 copy_addr;
-copy_addr = nativeObject->GetShapeScale();
-return (jlong)&copy_addr;*/
-    public static native long internal_native_GetShapeScale_addr(long this_addr);
 
     public void SetShapeScale(Vec3 inScale) {
-        internal_native_SetShapeScale(native_address, inScale.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-TransformedShape* nativeObject = (TransformedShape*)this_addr;
-nativeObject->SetShapeScale(*((Vec3* )inScale_addr));
-*/
-    public static native void internal_native_SetShapeScale(long this_addr, long inScale_addr);
 
     public Mat44 GetCenterOfMassTransform() {
-        long addr = internal_native_GetCenterOfMassTransform_addr(native_address);
-        if (addr == 0)
-            return Mat44.NULL;
-        if (Mat44_TEMP_GEN_0 == null)
-            Mat44_TEMP_GEN_0 = Mat44.native_new();
-        Mat44_TEMP_GEN_0.internal_reset(addr, false);
-        return Mat44_TEMP_GEN_0;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-TransformedShape* nativeObject = (TransformedShape*)this_addr;
-static Mat44 copy_addr;
-copy_addr = nativeObject->GetCenterOfMassTransform();
-return (jlong)&copy_addr;*/
-    public static native long internal_native_GetCenterOfMassTransform_addr(long this_addr);
 
     public Mat44 GetInverseCenterOfMassTransform() {
-        long addr = internal_native_GetInverseCenterOfMassTransform_addr(native_address);
-        if (addr == 0)
-            return Mat44.NULL;
-        if (Mat44_TEMP_GEN_1 == null)
-            Mat44_TEMP_GEN_1 = Mat44.native_new();
-        Mat44_TEMP_GEN_1.internal_reset(addr, false);
-        return Mat44_TEMP_GEN_1;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-TransformedShape* nativeObject = (TransformedShape*)this_addr;
-static Mat44 copy_addr;
-copy_addr = nativeObject->GetInverseCenterOfMassTransform();
-return (jlong)&copy_addr;*/
-    public static native long internal_native_GetInverseCenterOfMassTransform_addr(long this_addr);
 
     public void SetWorldTransform(Vec3 inPosition, Quat inRotation, Vec3 inScale) {
-        internal_native_SetWorldTransform(native_address, inPosition.native_address, inRotation.native_address, inScale.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-TransformedShape* nativeObject = (TransformedShape*)this_addr;
-nativeObject->SetWorldTransform(*((Vec3* )inPosition_addr), *((Quat* )inRotation_addr), *((Vec3* )inScale_addr));
-*/
-    public static native void internal_native_SetWorldTransform(long this_addr, long inPosition_addr, long inRotation_addr, long inScale_addr);
 
     public void SetWorldTransform(Mat44 inTransform) {
-        internal_native_SetWorldTransform(native_address, inTransform.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-TransformedShape* nativeObject = (TransformedShape*)this_addr;
-nativeObject->SetWorldTransform(*((Mat44* )inTransform_addr));
-*/
-    public static native void internal_native_SetWorldTransform(long this_addr, long inTransform_addr);
 
     public Mat44 GetWorldTransform() {
-        long addr = internal_native_GetWorldTransform_addr(native_address);
-        if (addr == 0)
-            return Mat44.NULL;
-        if (Mat44_TEMP_GEN_2 == null)
-            Mat44_TEMP_GEN_2 = Mat44.native_new();
-        Mat44_TEMP_GEN_2.internal_reset(addr, false);
-        return Mat44_TEMP_GEN_2;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-TransformedShape* nativeObject = (TransformedShape*)this_addr;
-static Mat44 copy_addr;
-copy_addr = nativeObject->GetWorldTransform();
-return (jlong)&copy_addr;*/
-    public static native long internal_native_GetWorldTransform_addr(long this_addr);
 
     public AABox GetWorldSpaceBounds() {
-        long addr = internal_native_GetWorldSpaceBounds_addr(native_address);
-        if (addr == 0)
-            return AABox.NULL;
-        if (AABox_TEMP_GEN_0 == null)
-            AABox_TEMP_GEN_0 = AABox.native_new();
-        AABox_TEMP_GEN_0.internal_reset(addr, false);
-        return AABox_TEMP_GEN_0;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-TransformedShape* nativeObject = (TransformedShape*)this_addr;
-static AABox copy_addr;
-copy_addr = nativeObject->GetWorldSpaceBounds();
-return (jlong)&copy_addr;*/
-    public static native long internal_native_GetWorldSpaceBounds_addr(long this_addr);
 
     public Vec3 GetWorldSpaceSurfaceNormal(SubShapeID inSubShapeID, Vec3 inPosition) {
-        long addr = internal_native_GetWorldSpaceSurfaceNormal_addr(native_address, inSubShapeID.native_address, inPosition.native_address);
-        if (addr == 0)
-            return Vec3.NULL;
-        if (Vec3_TEMP_GEN_1 == null)
-            Vec3_TEMP_GEN_1 = Vec3.native_new();
-        Vec3_TEMP_GEN_1.internal_reset(addr, false);
-        return Vec3_TEMP_GEN_1;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-TransformedShape* nativeObject = (TransformedShape*)this_addr;
-static Vec3 copy_addr;
-copy_addr = nativeObject->GetWorldSpaceSurfaceNormal(*((SubShapeID* )inSubShapeID_addr), *((Vec3* )inPosition_addr));
-return (jlong)&copy_addr;*/
-    public static native long internal_native_GetWorldSpaceSurfaceNormal_addr(long this_addr, long inSubShapeID_addr, long inPosition_addr);
 
     public PhysicsMaterial GetMaterial(SubShapeID inSubShapeID) {
-        long addr = internal_native_GetMaterial_addr(native_address, inSubShapeID.native_address);
-        if (addr == 0)
-            return PhysicsMaterial.NULL;
-        if (PhysicsMaterial_TEMP_GEN_0 == null)
-            PhysicsMaterial_TEMP_GEN_0 = PhysicsMaterial.native_new();
-        PhysicsMaterial_TEMP_GEN_0.internal_reset(addr, false);
-        return PhysicsMaterial_TEMP_GEN_0;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-TransformedShape* nativeObject = (TransformedShape*)this_addr;
-const PhysicsMaterial* obj = nativeObject->GetMaterial(*((SubShapeID* )inSubShapeID_addr));
-return (jlong)obj;
-*/
-    public static native long internal_native_GetMaterial_addr(long this_addr, long inSubShapeID_addr);
 
     public Vec3 get_mShapePositionCOM() {
-        long addr = internal_native_get_mShapePositionCOM_addr(native_address);
-        if (addr == 0)
-            return Vec3.NULL;
-        if (Vec3_TEMP_GEN_2 == null)
-            Vec3_TEMP_GEN_2 = Vec3.native_new();
-        Vec3_TEMP_GEN_2.internal_reset(addr, false);
-        return Vec3_TEMP_GEN_2;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-TransformedShape* nativeObject = (TransformedShape*)this_addr;
-return (jlong)&nativeObject->mShapePositionCOM;
-*/
-    public static native long internal_native_get_mShapePositionCOM_addr(long this_addr);
 
     public void set_mShapePositionCOM(Vec3 mShapePositionCOM) {
-        internal_native_set_mShapePositionCOM(native_address, mShapePositionCOM.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-TransformedShape* nativeObject = (TransformedShape*)this_addr;
-nativeObject->mShapePositionCOM = *((Vec3*)mShapePositionCOM_addr);
-*/
-    public static native void internal_native_set_mShapePositionCOM(long this_addr, long mShapePositionCOM_addr);
 
     public Quat get_mShapeRotation() {
-        long addr = internal_native_get_mShapeRotation_addr(native_address);
-        if (addr == 0)
-            return Quat.NULL;
-        if (Quat_TEMP_GEN_0 == null)
-            Quat_TEMP_GEN_0 = Quat.native_new();
-        Quat_TEMP_GEN_0.internal_reset(addr, false);
-        return Quat_TEMP_GEN_0;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-TransformedShape* nativeObject = (TransformedShape*)this_addr;
-return (jlong)&nativeObject->mShapeRotation;
-*/
-    public static native long internal_native_get_mShapeRotation_addr(long this_addr);
 
     public void set_mShapeRotation(Quat mShapeRotation) {
-        internal_native_set_mShapeRotation(native_address, mShapeRotation.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-TransformedShape* nativeObject = (TransformedShape*)this_addr;
-nativeObject->mShapeRotation = *((Quat*)mShapeRotation_addr);
-*/
-    public static native void internal_native_set_mShapeRotation(long this_addr, long mShapeRotation_addr);
 
     public Shape get_mShape() {
-        long addr = internal_native_get_mShape_addr(native_address);
-        if (addr == 0)
-            return Shape.NULL;
-        if (Shape_TEMP_GEN_0 == null)
-            Shape_TEMP_GEN_0 = Shape.native_new();
-        Shape_TEMP_GEN_0.internal_reset(addr, false);
-        return Shape_TEMP_GEN_0;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-TransformedShape* nativeObject = (TransformedShape*)this_addr;
-const Shape* attr = nativeObject->mShape;
-return (jlong)attr;
-*/
-    public static native long internal_native_get_mShape_addr(long this_addr);
 
     public void set_mShape(Shape mShape) {
-        internal_native_set_mShape(native_address, mShape.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-TransformedShape* nativeObject = (TransformedShape*)this_addr;
-nativeObject->mShape = (Shape*)mShape_addr;
-*/
-    public static native void internal_native_set_mShape(long this_addr, long mShape_addr);
 
     public Float3 get_mShapeScale() {
-        long addr = internal_native_get_mShapeScale_addr(native_address);
-        if (addr == 0)
-            return Float3.NULL;
-        if (Float3_TEMP_GEN_0 == null)
-            Float3_TEMP_GEN_0 = Float3.native_new();
-        Float3_TEMP_GEN_0.internal_reset(addr, false);
-        return Float3_TEMP_GEN_0;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-TransformedShape* nativeObject = (TransformedShape*)this_addr;
-return (jlong)&nativeObject->mShapeScale;
-*/
-    public static native long internal_native_get_mShapeScale_addr(long this_addr);
 
     public void set_mShapeScale(Float3 mShapeScale) {
-        internal_native_set_mShapeScale(native_address, mShapeScale.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-TransformedShape* nativeObject = (TransformedShape*)this_addr;
-nativeObject->mShapeScale = *((Float3*)mShapeScale_addr);
-*/
-    public static native void internal_native_set_mShapeScale(long this_addr, long mShapeScale_addr);
 
     public BodyID get_mBodyID() {
-        long addr = internal_native_get_mBodyID_addr(native_address);
-        if (addr == 0)
-            return BodyID.NULL;
-        if (BodyID_TEMP_GEN_0 == null)
-            BodyID_TEMP_GEN_0 = BodyID.native_new();
-        BodyID_TEMP_GEN_0.internal_reset(addr, false);
-        return BodyID_TEMP_GEN_0;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-TransformedShape* nativeObject = (TransformedShape*)this_addr;
-return (jlong)&nativeObject->mBodyID;
-*/
-    public static native long internal_native_get_mBodyID_addr(long this_addr);
 
     public void set_mBodyID(BodyID mBodyID) {
-        internal_native_set_mBodyID(native_address, mBodyID.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-TransformedShape* nativeObject = (TransformedShape*)this_addr;
-nativeObject->mBodyID = *((BodyID*)mBodyID_addr);
-*/
-    public static native void internal_native_set_mBodyID(long this_addr, long mBodyID_addr);
 }

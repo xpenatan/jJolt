@@ -6,9 +6,9 @@
 
 package jolt.enums;
 
-import com.github.xpenatan.jParser.idl.IDLEnum;
+import com.github.xpenatan.jParser.api.NativeEnum;
 
-public enum SoftBodyValidateResult implements IDLEnum<SoftBodyValidateResult> {
+public enum SoftBodyValidateResult implements NativeEnum<SoftBodyValidateResult> {
 
     CUSTOM(0), AcceptContact(SoftBodyValidateResult_AcceptContact_NATIVE()), RejectContact(SoftBodyValidateResult_RejectContact_NATIVE());
 
@@ -34,13 +34,7 @@ public enum SoftBodyValidateResult implements IDLEnum<SoftBodyValidateResult> {
         return CUSTOM;
     }
 
-    /*[-JNI;-NATIVE]
-return (jlong)SoftBodyValidateResult_AcceptContact;
-*/
     private static native int SoftBodyValidateResult_AcceptContact_NATIVE();
 
-    /*[-JNI;-NATIVE]
-return (jlong)SoftBodyValidateResult_RejectContact;
-*/
     private static native int SoftBodyValidateResult_RejectContact_NATIVE();
 }

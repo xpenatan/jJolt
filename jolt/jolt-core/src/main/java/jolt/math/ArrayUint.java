@@ -6,11 +6,9 @@
 
 package jolt.math;
 
-import com.github.xpenatan.jParser.idl.IDLBase;
+import com.github.xpenatan.jParser.api.NativeObject;
 
-public class ArrayUint extends IDLBase {
-
-    private UintMemRef UintMemRef_TEMP_GEN_0;
+public class ArrayUint extends NativeObject {
 
     static public final ArrayUint NULL = ArrayUint.native_new();
 
@@ -28,100 +26,31 @@ public class ArrayUint extends IDLBase {
         return new ArrayUint((byte) 0, (char) 0);
     }
 
-    protected void deleteNative() {
-        internal_native_deleteNative(native_address);
-    }
-
-    /*[-JNI;-NATIVE]
-ArrayUint* nativeObject = (ArrayUint*)this_addr;
-delete nativeObject;
-*/
-    public static native void internal_native_deleteNative(long this_addr);
-
     public boolean empty() {
-        return internal_native_empty(native_address);
+        return false;
     }
-
-    /*[-JNI;-NATIVE]
-ArrayUint* nativeObject = (ArrayUint*)this_addr;
-return nativeObject->empty();
-*/
-    public static native boolean internal_native_empty(long this_addr);
 
     public int size() {
-        return internal_native_size(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-ArrayUint* nativeObject = (ArrayUint*)this_addr;
-return nativeObject->size();
-*/
-    public static native int internal_native_size(long this_addr);
 
     public int at(int inIndex) {
-        return internal_native_at(native_address, inIndex);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-ArrayUint* nativeObject = (ArrayUint*)this_addr;
-return nativeObject->at((int)inIndex);
-*/
-    public static native int internal_native_at(long this_addr, int inIndex);
 
     public void push_back(int inValue) {
-        internal_native_push_back(native_address, inValue);
     }
-
-    /*[-JNI;-NATIVE]
-ArrayUint* nativeObject = (ArrayUint*)this_addr;
-nativeObject->push_back(inValue);
-*/
-    public static native void internal_native_push_back(long this_addr, int inValue);
 
     public void reserve(int inSize) {
-        internal_native_reserve(native_address, inSize);
     }
-
-    /*[-JNI;-NATIVE]
-ArrayUint* nativeObject = (ArrayUint*)this_addr;
-nativeObject->reserve(inSize);
-*/
-    public static native void internal_native_reserve(long this_addr, int inSize);
 
     public void resize(int inSize) {
-        internal_native_resize(native_address, inSize);
     }
-
-    /*[-JNI;-NATIVE]
-ArrayUint* nativeObject = (ArrayUint*)this_addr;
-nativeObject->resize(inSize);
-*/
-    public static native void internal_native_resize(long this_addr, int inSize);
 
     public void clear() {
-        internal_native_clear(native_address);
     }
-
-    /*[-JNI;-NATIVE]
-ArrayUint* nativeObject = (ArrayUint*)this_addr;
-nativeObject->clear();
-*/
-    public static native void internal_native_clear(long this_addr);
 
     public UintMemRef data() {
-        long addr = internal_native_data_addr(native_address);
-        if (addr == 0)
-            return UintMemRef.NULL;
-        if (UintMemRef_TEMP_GEN_0 == null)
-            UintMemRef_TEMP_GEN_0 = UintMemRef.native_new();
-        UintMemRef_TEMP_GEN_0.internal_reset(addr, false);
-        return UintMemRef_TEMP_GEN_0;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-ArrayUint* nativeObject = (ArrayUint*)this_addr;
-UintMemRef* obj = nativeObject->data();
-return (jlong)obj;
-*/
-    public static native long internal_native_data_addr(long this_addr);
 }

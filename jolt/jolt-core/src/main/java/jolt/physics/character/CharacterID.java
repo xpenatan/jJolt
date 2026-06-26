@@ -6,23 +6,14 @@
 
 package jolt.physics.character;
 
-import com.github.xpenatan.jParser.idl.IDLBase;
+import com.github.xpenatan.jParser.api.NativeObject;
 
-public class CharacterID extends IDLBase {
-
-    static private CharacterID CharacterID_TEMP_STATIC_GEN_0;
+public class CharacterID extends NativeObject {
 
     static public final CharacterID NULL = CharacterID.native_new();
 
     public CharacterID() {
-        long addr = internal_native_create_addr();
-        internal_reset(addr, true);
     }
-
-    /*[-JNI;-NATIVE]
-return (jlong)new CharacterID();
-*/
-    public static native long internal_native_create_addr();
 
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
@@ -38,58 +29,18 @@ return (jlong)new CharacterID();
         return new CharacterID((byte) 0, (char) 0);
     }
 
-    protected void deleteNative() {
-        internal_native_deleteNative(native_address);
-    }
-
-    /*[-JNI;-NATIVE]
-CharacterID* nativeObject = (CharacterID*)this_addr;
-delete nativeObject;
-*/
-    public static native void internal_native_deleteNative(long this_addr);
-
     public int GetValue() {
-        return internal_native_GetValue(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-CharacterID* nativeObject = (CharacterID*)this_addr;
-return nativeObject->GetValue();
-*/
-    public static native int internal_native_GetValue(long this_addr);
 
     public boolean IsInvalid() {
-        return internal_native_IsInvalid(native_address);
+        return false;
     }
-
-    /*[-JNI;-NATIVE]
-CharacterID* nativeObject = (CharacterID*)this_addr;
-return nativeObject->IsInvalid();
-*/
-    public static native boolean internal_native_IsInvalid(long this_addr);
 
     public static CharacterID sNextCharacterID() {
-        long addr = internal_native_sNextCharacterID_addr();
-        if (addr == 0)
-            return CharacterID.NULL;
-        if (CharacterID_TEMP_STATIC_GEN_0 == null)
-            CharacterID_TEMP_STATIC_GEN_0 = CharacterID.native_new();
-        CharacterID_TEMP_STATIC_GEN_0.internal_reset(addr, false);
-        return CharacterID_TEMP_STATIC_GEN_0;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-static CharacterID copy_addr;
-copy_addr = CharacterID::sNextCharacterID();
-return (jlong)&copy_addr;*/
-    public static native long internal_native_sNextCharacterID_addr();
 
     public static void sSetNextCharacterID(int inNextValue) {
-        internal_native_sSetNextCharacterID(inNextValue);
     }
-
-    /*[-JNI;-NATIVE]
-CharacterID::sSetNextCharacterID(inNextValue);
-*/
-    public static native void internal_native_sSetNextCharacterID(int inNextValue);
 }

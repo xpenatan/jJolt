@@ -14,8 +14,6 @@ import jolt.physics.collision.PhysicsMaterialList;
 
 public class HeightFieldShape extends Shape {
 
-    private Vec3 Vec3_TEMP_GEN_0;
-
     static public final HeightFieldShape NULL = HeightFieldShape.native_new();
 
     /**
@@ -34,119 +32,42 @@ public class HeightFieldShape extends Shape {
     }
 
     public int GetSampleCount() {
-        return internal_native_GetSampleCount(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-HeightFieldShape* nativeObject = (HeightFieldShape*)this_addr;
-return nativeObject->GetSampleCount();
-*/
-    public static native int internal_native_GetSampleCount(long this_addr);
 
     public int GetBlockSize() {
-        return internal_native_GetBlockSize(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-HeightFieldShape* nativeObject = (HeightFieldShape*)this_addr;
-return nativeObject->GetBlockSize();
-*/
-    public static native int internal_native_GetBlockSize(long this_addr);
 
     public Vec3 GetPosition(int inX, int inY) {
-        long addr = internal_native_GetPosition_addr(native_address, inX, inY);
-        if (addr == 0)
-            return Vec3.NULL;
-        if (Vec3_TEMP_GEN_0 == null)
-            Vec3_TEMP_GEN_0 = Vec3.native_new();
-        Vec3_TEMP_GEN_0.internal_reset(addr, false);
-        return Vec3_TEMP_GEN_0;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-HeightFieldShape* nativeObject = (HeightFieldShape*)this_addr;
-static Vec3 copy_addr;
-copy_addr = nativeObject->GetPosition((int)inX, (int)inY);
-return (jlong)&copy_addr;*/
-    public static native long internal_native_GetPosition_addr(long this_addr, int inX, int inY);
 
     public boolean IsNoCollision(int inX, int inY) {
-        return internal_native_IsNoCollision(native_address, inX, inY);
+        return false;
     }
-
-    /*[-JNI;-NATIVE]
-HeightFieldShape* nativeObject = (HeightFieldShape*)this_addr;
-return nativeObject->IsNoCollision((int)inX, (int)inY);
-*/
-    public static native boolean internal_native_IsNoCollision(long this_addr, int inX, int inY);
 
     public float GetMinHeightValue() {
-        return internal_native_GetMinHeightValue(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-HeightFieldShape* nativeObject = (HeightFieldShape*)this_addr;
-return nativeObject->GetMinHeightValue();
-*/
-    public static native float internal_native_GetMinHeightValue(long this_addr);
 
     public float GetMaxHeightValue() {
-        return internal_native_GetMaxHeightValue(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-HeightFieldShape* nativeObject = (HeightFieldShape*)this_addr;
-return nativeObject->GetMaxHeightValue();
-*/
-    public static native float internal_native_GetMaxHeightValue(long this_addr);
 
     public void GetHeights(int inX, int inY, int inSizeX, int inSizeY, FloatMemRef outHeights, int inHeightsStride) {
-        internal_native_GetHeights(native_address, inX, inY, inSizeX, inSizeY, outHeights.native_address, inHeightsStride);
     }
-
-    /*[-JNI;-NATIVE]
-HeightFieldShape* nativeObject = (HeightFieldShape*)this_addr;
-nativeObject->GetHeights((int)inX, (int)inY, (int)inSizeX, (int)inSizeY, (FloatMemRef* )outHeights_addr, (int)inHeightsStride);
-*/
-    public static native void internal_native_GetHeights(long this_addr, int inX, int inY, int inSizeX, int inSizeY, long outHeights_addr, int inHeightsStride);
 
     public void SetHeights(int inX, int inY, int inSizeX, int inSizeY, FloatMemRef inHeights, int inHeightsStride, TempAllocator inAllocator, float inActiveEdgeCosThresholdAngle) {
-        internal_native_SetHeights(native_address, inX, inY, inSizeX, inSizeY, inHeights.native_address, inHeightsStride, inAllocator.native_address, inActiveEdgeCosThresholdAngle);
     }
-
-    /*[-JNI;-NATIVE]
-HeightFieldShape* nativeObject = (HeightFieldShape*)this_addr;
-nativeObject->SetHeights((int)inX, (int)inY, (int)inSizeX, (int)inSizeY, (FloatMemRef* )inHeights_addr, (int)inHeightsStride, *((TempAllocator* )inAllocator_addr), (float)inActiveEdgeCosThresholdAngle);
-*/
-    public static native void internal_native_SetHeights(long this_addr, int inX, int inY, int inSizeX, int inSizeY, long inHeights_addr, int inHeightsStride, long inAllocator_addr, float inActiveEdgeCosThresholdAngle);
 
     public void SetHeights(int inX, int inY, int inSizeX, int inSizeY, FloatMemRef inHeights, int inHeightsStride, TempAllocator inAllocator) {
-        internal_native_SetHeights(native_address, inX, inY, inSizeX, inSizeY, inHeights.native_address, inHeightsStride, inAllocator.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-HeightFieldShape* nativeObject = (HeightFieldShape*)this_addr;
-nativeObject->SetHeights((int)inX, (int)inY, (int)inSizeX, (int)inSizeY, (FloatMemRef* )inHeights_addr, (int)inHeightsStride, *((TempAllocator* )inAllocator_addr));
-*/
-    public static native void internal_native_SetHeights(long this_addr, int inX, int inY, int inSizeX, int inSizeY, long inHeights_addr, int inHeightsStride, long inAllocator_addr);
 
     public void GetMaterials(int inX, int inY, int inSizeX, int inSizeY, Uint8MemRef outMaterials, int inMaterialsStride) {
-        internal_native_GetMaterials(native_address, inX, inY, inSizeX, inSizeY, outMaterials.native_address, inMaterialsStride);
     }
-
-    /*[-JNI;-NATIVE]
-HeightFieldShape* nativeObject = (HeightFieldShape*)this_addr;
-nativeObject->GetMaterials((int)inX, (int)inY, (int)inSizeX, (int)inSizeY, (Uint8MemRef* )outMaterials_addr, (int)inMaterialsStride);
-*/
-    public static native void internal_native_GetMaterials(long this_addr, int inX, int inY, int inSizeX, int inSizeY, long outMaterials_addr, int inMaterialsStride);
 
     public boolean SetMaterials(int inX, int inY, int inSizeX, int inSizeY, Uint8MemRef inMaterials, int inMaterialsStride, PhysicsMaterialList inMaterialList, TempAllocator inAllocator) {
-        return internal_native_SetMaterials(native_address, inX, inY, inSizeX, inSizeY, inMaterials.native_address, inMaterialsStride, inMaterialList.native_address, inAllocator.native_address);
+        return false;
     }
-
-    /*[-JNI;-NATIVE]
-HeightFieldShape* nativeObject = (HeightFieldShape*)this_addr;
-return nativeObject->SetMaterials((int)inX, (int)inY, (int)inSizeX, (int)inSizeY, (Uint8MemRef* )inMaterials_addr, (int)inMaterialsStride, (PhysicsMaterialList* )inMaterialList_addr, *((TempAllocator* )inAllocator_addr));
-*/
-    public static native boolean internal_native_SetMaterials(long this_addr, int inX, int inY, int inSizeX, int inSizeY, long inMaterials_addr, int inMaterialsStride, long inMaterialList_addr, long inAllocator_addr);
 }

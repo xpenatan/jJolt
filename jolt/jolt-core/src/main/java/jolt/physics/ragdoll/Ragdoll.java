@@ -6,7 +6,7 @@
 
 package jolt.physics.ragdoll;
 
-import com.github.xpenatan.jParser.idl.IDLBase;
+import com.github.xpenatan.jParser.api.NativeObject;
 import jolt.physics.PhysicsSystem;
 import jolt.enums.EActivation;
 import jolt.skeleton.SkeletonPose;
@@ -18,31 +18,12 @@ import jolt.geometry.AABox;
 import jolt.physics.constraints.TwoBodyConstraint;
 import jolt.physics.raddoll.RagdollSettings;
 
-public class Ragdoll extends IDLBase {
-
-    private BodyID BodyID_TEMP_GEN_0;
-
-    private BodyIDVector BodyIDVector_TEMP_GEN_0;
-
-    private AABox AABox_TEMP_GEN_0;
-
-    private AABox AABox_TEMP_GEN_1;
-
-    private TwoBodyConstraint TwoBodyConstraint_TEMP_GEN_0;
-
-    private RagdollSettings RagdollSettings_TEMP_GEN_0;
+public class Ragdoll extends NativeObject {
 
     static public final Ragdoll NULL = Ragdoll.native_new();
 
     public Ragdoll(PhysicsSystem inSystem) {
-        long addr = internal_native_create_PhysicsSystem_addr(inSystem.native_address);
-        internal_reset(addr, true);
     }
-
-    /*[-JNI;-NATIVE]
-return (jlong)new Ragdoll((PhysicsSystem* )inSystem_addr);
-*/
-    public static native long internal_native_create_PhysicsSystem_addr(long inSystem_addr);
 
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
@@ -58,414 +39,121 @@ return (jlong)new Ragdoll((PhysicsSystem* )inSystem_addr);
         return new Ragdoll((byte) 0, (char) 0);
     }
 
-    protected void deleteNative() {
-        internal_native_deleteNative(native_address);
-    }
-
-    /*[-JNI;-NATIVE]
-Ragdoll* nativeObject = (Ragdoll*)this_addr;
-delete nativeObject;
-*/
-    public static native void internal_native_deleteNative(long this_addr);
-
     public void AddToPhysicsSystem(EActivation inActivationMode, boolean inLockBodies) {
-        internal_native_AddToPhysicsSystem(native_address, inActivationMode.getValue(), inLockBodies);
     }
-
-    /*[-JNI;-NATIVE]
-Ragdoll* nativeObject = (Ragdoll*)this_addr;
-nativeObject->AddToPhysicsSystem((::EActivation)inActivationMode, inLockBodies);
-*/
-    public static native void internal_native_AddToPhysicsSystem(long this_addr, int inActivationMode, boolean inLockBodies);
 
     public void AddToPhysicsSystem(EActivation inActivationMode) {
-        internal_native_AddToPhysicsSystem(native_address, inActivationMode.getValue());
     }
-
-    /*[-JNI;-NATIVE]
-Ragdoll* nativeObject = (Ragdoll*)this_addr;
-nativeObject->AddToPhysicsSystem((::EActivation)inActivationMode);
-*/
-    public static native void internal_native_AddToPhysicsSystem(long this_addr, int inActivationMode);
 
     public void RemoveFromPhysicsSystem(boolean inLockBodies) {
-        internal_native_RemoveFromPhysicsSystem(native_address, inLockBodies);
     }
-
-    /*[-JNI;-NATIVE]
-Ragdoll* nativeObject = (Ragdoll*)this_addr;
-nativeObject->RemoveFromPhysicsSystem(inLockBodies);
-*/
-    public static native void internal_native_RemoveFromPhysicsSystem(long this_addr, boolean inLockBodies);
 
     public void RemoveFromPhysicsSystem() {
-        internal_native_RemoveFromPhysicsSystem(native_address);
     }
-
-    /*[-JNI;-NATIVE]
-Ragdoll* nativeObject = (Ragdoll*)this_addr;
-nativeObject->RemoveFromPhysicsSystem();
-*/
-    public static native void internal_native_RemoveFromPhysicsSystem(long this_addr);
 
     public void Activate(boolean inLockBodies) {
-        internal_native_Activate(native_address, inLockBodies);
     }
-
-    /*[-JNI;-NATIVE]
-Ragdoll* nativeObject = (Ragdoll*)this_addr;
-nativeObject->Activate(inLockBodies);
-*/
-    public static native void internal_native_Activate(long this_addr, boolean inLockBodies);
 
     public void Activate() {
-        internal_native_Activate(native_address);
     }
-
-    /*[-JNI;-NATIVE]
-Ragdoll* nativeObject = (Ragdoll*)this_addr;
-nativeObject->Activate();
-*/
-    public static native void internal_native_Activate(long this_addr);
 
     public boolean IsActive(boolean inLockBodies) {
-        return internal_native_IsActive(native_address, inLockBodies);
+        return false;
     }
-
-    /*[-JNI;-NATIVE]
-Ragdoll* nativeObject = (Ragdoll*)this_addr;
-return nativeObject->IsActive(inLockBodies);
-*/
-    public static native boolean internal_native_IsActive(long this_addr, boolean inLockBodies);
 
     public boolean IsActive() {
-        return internal_native_IsActive(native_address);
+        return false;
     }
-
-    /*[-JNI;-NATIVE]
-Ragdoll* nativeObject = (Ragdoll*)this_addr;
-return nativeObject->IsActive();
-*/
-    public static native boolean internal_native_IsActive(long this_addr);
 
     public void SetGroupID(int inGroupID, boolean inLockBodies) {
-        internal_native_SetGroupID(native_address, inGroupID, inLockBodies);
     }
-
-    /*[-JNI;-NATIVE]
-Ragdoll* nativeObject = (Ragdoll*)this_addr;
-nativeObject->SetGroupID((int)inGroupID, inLockBodies);
-*/
-    public static native void internal_native_SetGroupID(long this_addr, int inGroupID, boolean inLockBodies);
 
     public void SetGroupID(int inGroupID) {
-        internal_native_SetGroupID(native_address, inGroupID);
     }
-
-    /*[-JNI;-NATIVE]
-Ragdoll* nativeObject = (Ragdoll*)this_addr;
-nativeObject->SetGroupID((int)inGroupID);
-*/
-    public static native void internal_native_SetGroupID(long this_addr, int inGroupID);
 
     public void SetPose(SkeletonPose inPose, boolean inLockBodies) {
-        internal_native_SetPose(native_address, inPose.native_address, inLockBodies);
     }
-
-    /*[-JNI;-NATIVE]
-Ragdoll* nativeObject = (Ragdoll*)this_addr;
-nativeObject->SetPose(*((SkeletonPose* )inPose_addr), inLockBodies);
-*/
-    public static native void internal_native_SetPose(long this_addr, long inPose_addr, boolean inLockBodies);
 
     public void SetPose(SkeletonPose inPose) {
-        internal_native_SetPose(native_address, inPose.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-Ragdoll* nativeObject = (Ragdoll*)this_addr;
-nativeObject->SetPose(*((SkeletonPose* )inPose_addr));
-*/
-    public static native void internal_native_SetPose(long this_addr, long inPose_addr);
 
     public void GetPose(SkeletonPose outPose, boolean inLockBodies) {
-        internal_native_GetPose(native_address, outPose.native_address, inLockBodies);
     }
-
-    /*[-JNI;-NATIVE]
-Ragdoll* nativeObject = (Ragdoll*)this_addr;
-nativeObject->GetPose(*((SkeletonPose* )outPose_addr), inLockBodies);
-*/
-    public static native void internal_native_GetPose(long this_addr, long outPose_addr, boolean inLockBodies);
 
     public void GetPose(SkeletonPose outPose) {
-        internal_native_GetPose(native_address, outPose.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-Ragdoll* nativeObject = (Ragdoll*)this_addr;
-nativeObject->GetPose(*((SkeletonPose* )outPose_addr));
-*/
-    public static native void internal_native_GetPose(long this_addr, long outPose_addr);
 
     public void ResetWarmStart() {
-        internal_native_ResetWarmStart(native_address);
     }
-
-    /*[-JNI;-NATIVE]
-Ragdoll* nativeObject = (Ragdoll*)this_addr;
-nativeObject->ResetWarmStart();
-*/
-    public static native void internal_native_ResetWarmStart(long this_addr);
 
     public void DriveToPoseUsingKinematics(SkeletonPose inPose, float inDeltaTime, boolean inLockBodies) {
-        internal_native_DriveToPoseUsingKinematics(native_address, inPose.native_address, inDeltaTime, inLockBodies);
     }
-
-    /*[-JNI;-NATIVE]
-Ragdoll* nativeObject = (Ragdoll*)this_addr;
-nativeObject->DriveToPoseUsingKinematics(*((SkeletonPose* )inPose_addr), (float)inDeltaTime, inLockBodies);
-*/
-    public static native void internal_native_DriveToPoseUsingKinematics(long this_addr, long inPose_addr, float inDeltaTime, boolean inLockBodies);
 
     public void DriveToPoseUsingKinematics(SkeletonPose inPose, float inDeltaTime) {
-        internal_native_DriveToPoseUsingKinematics(native_address, inPose.native_address, inDeltaTime);
     }
-
-    /*[-JNI;-NATIVE]
-Ragdoll* nativeObject = (Ragdoll*)this_addr;
-nativeObject->DriveToPoseUsingKinematics(*((SkeletonPose* )inPose_addr), (float)inDeltaTime);
-*/
-    public static native void internal_native_DriveToPoseUsingKinematics(long this_addr, long inPose_addr, float inDeltaTime);
 
     public void DriveToPoseUsingMotors(SkeletonPose inPose) {
-        internal_native_DriveToPoseUsingMotors(native_address, inPose.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-Ragdoll* nativeObject = (Ragdoll*)this_addr;
-nativeObject->DriveToPoseUsingMotors(*((SkeletonPose* )inPose_addr));
-*/
-    public static native void internal_native_DriveToPoseUsingMotors(long this_addr, long inPose_addr);
 
     public void SetLinearAndAngularVelocity(Vec3 inLinearVelocity, Vec3 inAngularVelocity, boolean inLockBodies) {
-        internal_native_SetLinearAndAngularVelocity(native_address, inLinearVelocity.native_address, inAngularVelocity.native_address, inLockBodies);
     }
-
-    /*[-JNI;-NATIVE]
-Ragdoll* nativeObject = (Ragdoll*)this_addr;
-nativeObject->SetLinearAndAngularVelocity(*((Vec3* )inLinearVelocity_addr), *((Vec3* )inAngularVelocity_addr), inLockBodies);
-*/
-    public static native void internal_native_SetLinearAndAngularVelocity(long this_addr, long inLinearVelocity_addr, long inAngularVelocity_addr, boolean inLockBodies);
 
     public void SetLinearAndAngularVelocity(Vec3 inLinearVelocity, Vec3 inAngularVelocity) {
-        internal_native_SetLinearAndAngularVelocity(native_address, inLinearVelocity.native_address, inAngularVelocity.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-Ragdoll* nativeObject = (Ragdoll*)this_addr;
-nativeObject->SetLinearAndAngularVelocity(*((Vec3* )inLinearVelocity_addr), *((Vec3* )inAngularVelocity_addr));
-*/
-    public static native void internal_native_SetLinearAndAngularVelocity(long this_addr, long inLinearVelocity_addr, long inAngularVelocity_addr);
 
     public void SetLinearVelocity(Vec3 inLinearVelocity, boolean inLockBodies) {
-        internal_native_SetLinearVelocity(native_address, inLinearVelocity.native_address, inLockBodies);
     }
-
-    /*[-JNI;-NATIVE]
-Ragdoll* nativeObject = (Ragdoll*)this_addr;
-nativeObject->SetLinearVelocity(*((Vec3* )inLinearVelocity_addr), inLockBodies);
-*/
-    public static native void internal_native_SetLinearVelocity(long this_addr, long inLinearVelocity_addr, boolean inLockBodies);
 
     public void SetLinearVelocity(Vec3 inLinearVelocity) {
-        internal_native_SetLinearVelocity(native_address, inLinearVelocity.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-Ragdoll* nativeObject = (Ragdoll*)this_addr;
-nativeObject->SetLinearVelocity(*((Vec3* )inLinearVelocity_addr));
-*/
-    public static native void internal_native_SetLinearVelocity(long this_addr, long inLinearVelocity_addr);
 
     public void AddLinearVelocity(Vec3 inLinearVelocity, boolean inLockBodies) {
-        internal_native_AddLinearVelocity(native_address, inLinearVelocity.native_address, inLockBodies);
     }
-
-    /*[-JNI;-NATIVE]
-Ragdoll* nativeObject = (Ragdoll*)this_addr;
-nativeObject->AddLinearVelocity(*((Vec3* )inLinearVelocity_addr), inLockBodies);
-*/
-    public static native void internal_native_AddLinearVelocity(long this_addr, long inLinearVelocity_addr, boolean inLockBodies);
 
     public void AddLinearVelocity(Vec3 inLinearVelocity) {
-        internal_native_AddLinearVelocity(native_address, inLinearVelocity.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-Ragdoll* nativeObject = (Ragdoll*)this_addr;
-nativeObject->AddLinearVelocity(*((Vec3* )inLinearVelocity_addr));
-*/
-    public static native void internal_native_AddLinearVelocity(long this_addr, long inLinearVelocity_addr);
 
     public void AddImpulse(Vec3 inImpulse, boolean inLockBodies) {
-        internal_native_AddImpulse(native_address, inImpulse.native_address, inLockBodies);
     }
-
-    /*[-JNI;-NATIVE]
-Ragdoll* nativeObject = (Ragdoll*)this_addr;
-nativeObject->AddImpulse(*((Vec3* )inImpulse_addr), inLockBodies);
-*/
-    public static native void internal_native_AddImpulse(long this_addr, long inImpulse_addr, boolean inLockBodies);
 
     public void AddImpulse(Vec3 inImpulse) {
-        internal_native_AddImpulse(native_address, inImpulse.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-Ragdoll* nativeObject = (Ragdoll*)this_addr;
-nativeObject->AddImpulse(*((Vec3* )inImpulse_addr));
-*/
-    public static native void internal_native_AddImpulse(long this_addr, long inImpulse_addr);
 
     public void GetRootTransform(Vec3 outPosition, Quat outRotation, boolean inLockBodies) {
-        internal_native_GetRootTransform(native_address, outPosition.native_address, outRotation.native_address, inLockBodies);
     }
-
-    /*[-JNI;-NATIVE]
-Ragdoll* nativeObject = (Ragdoll*)this_addr;
-nativeObject->GetRootTransform(*((Vec3* )outPosition_addr), *((Quat* )outRotation_addr), inLockBodies);
-*/
-    public static native void internal_native_GetRootTransform(long this_addr, long outPosition_addr, long outRotation_addr, boolean inLockBodies);
 
     public void GetRootTransform(Vec3 outPosition, Quat outRotation) {
-        internal_native_GetRootTransform(native_address, outPosition.native_address, outRotation.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-Ragdoll* nativeObject = (Ragdoll*)this_addr;
-nativeObject->GetRootTransform(*((Vec3* )outPosition_addr), *((Quat* )outRotation_addr));
-*/
-    public static native void internal_native_GetRootTransform(long this_addr, long outPosition_addr, long outRotation_addr);
 
     public int GetBodyCount() {
-        return internal_native_GetBodyCount(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-Ragdoll* nativeObject = (Ragdoll*)this_addr;
-return nativeObject->GetBodyCount();
-*/
-    public static native int internal_native_GetBodyCount(long this_addr);
 
     public BodyID GetBodyID(int inBodyIndex) {
-        long addr = internal_native_GetBodyID_addr(native_address, inBodyIndex);
-        if (addr == 0)
-            return BodyID.NULL;
-        if (BodyID_TEMP_GEN_0 == null)
-            BodyID_TEMP_GEN_0 = BodyID.native_new();
-        BodyID_TEMP_GEN_0.internal_reset(addr, false);
-        return BodyID_TEMP_GEN_0;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-Ragdoll* nativeObject = (Ragdoll*)this_addr;
-static BodyID copy_addr;
-copy_addr = nativeObject->GetBodyID((int)inBodyIndex);
-return (jlong)&copy_addr;*/
-    public static native long internal_native_GetBodyID_addr(long this_addr, int inBodyIndex);
 
     public BodyIDVector GetBodyIDs() {
-        long addr = internal_native_GetBodyIDs_addr(native_address);
-        if (addr == 0)
-            return BodyIDVector.NULL;
-        if (BodyIDVector_TEMP_GEN_0 == null)
-            BodyIDVector_TEMP_GEN_0 = BodyIDVector.native_new();
-        BodyIDVector_TEMP_GEN_0.internal_reset(addr, false);
-        return BodyIDVector_TEMP_GEN_0;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-Ragdoll* nativeObject = (Ragdoll*)this_addr;
-return (jlong)&nativeObject->GetBodyIDs();
-*/
-    public static native long internal_native_GetBodyIDs_addr(long this_addr);
 
     public int GetConstraintCount() {
-        return internal_native_GetConstraintCount(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-Ragdoll* nativeObject = (Ragdoll*)this_addr;
-return nativeObject->GetConstraintCount();
-*/
-    public static native int internal_native_GetConstraintCount(long this_addr);
 
     public AABox GetWorldSpaceBounds(boolean inLockBodies) {
-        long addr = internal_native_GetWorldSpaceBounds_addr(native_address, inLockBodies);
-        if (addr == 0)
-            return AABox.NULL;
-        if (AABox_TEMP_GEN_0 == null)
-            AABox_TEMP_GEN_0 = AABox.native_new();
-        AABox_TEMP_GEN_0.internal_reset(addr, false);
-        return AABox_TEMP_GEN_0;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-Ragdoll* nativeObject = (Ragdoll*)this_addr;
-static AABox copy_addr;
-copy_addr = nativeObject->GetWorldSpaceBounds(inLockBodies);
-return (jlong)&copy_addr;*/
-    public static native long internal_native_GetWorldSpaceBounds_addr(long this_addr, boolean inLockBodies);
 
     public AABox GetWorldSpaceBounds() {
-        long addr = internal_native_GetWorldSpaceBounds_addr(native_address);
-        if (addr == 0)
-            return AABox.NULL;
-        if (AABox_TEMP_GEN_1 == null)
-            AABox_TEMP_GEN_1 = AABox.native_new();
-        AABox_TEMP_GEN_1.internal_reset(addr, false);
-        return AABox_TEMP_GEN_1;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-Ragdoll* nativeObject = (Ragdoll*)this_addr;
-static AABox copy_addr;
-copy_addr = nativeObject->GetWorldSpaceBounds();
-return (jlong)&copy_addr;*/
-    public static native long internal_native_GetWorldSpaceBounds_addr(long this_addr);
 
     public TwoBodyConstraint GetConstraint(int inConstraintIndex) {
-        long addr = internal_native_GetConstraint_addr(native_address, inConstraintIndex);
-        if (addr == 0)
-            return TwoBodyConstraint.NULL;
-        if (TwoBodyConstraint_TEMP_GEN_0 == null)
-            TwoBodyConstraint_TEMP_GEN_0 = TwoBodyConstraint.native_new();
-        TwoBodyConstraint_TEMP_GEN_0.internal_reset(addr, false);
-        return TwoBodyConstraint_TEMP_GEN_0;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-Ragdoll* nativeObject = (Ragdoll*)this_addr;
-const TwoBodyConstraint* obj = nativeObject->GetConstraint((int)inConstraintIndex);
-return (jlong)obj;
-*/
-    public static native long internal_native_GetConstraint_addr(long this_addr, int inConstraintIndex);
 
     public RagdollSettings GetRagdollSettings() {
-        long addr = internal_native_GetRagdollSettings_addr(native_address);
-        if (addr == 0)
-            return RagdollSettings.NULL;
-        if (RagdollSettings_TEMP_GEN_0 == null)
-            RagdollSettings_TEMP_GEN_0 = RagdollSettings.native_new();
-        RagdollSettings_TEMP_GEN_0.internal_reset(addr, false);
-        return RagdollSettings_TEMP_GEN_0;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-Ragdoll* nativeObject = (Ragdoll*)this_addr;
-const RagdollSettings* obj = nativeObject->GetRagdollSettings();
-return (jlong)obj;
-*/
-    public static native long internal_native_GetRagdollSettings_addr(long this_addr);
 }

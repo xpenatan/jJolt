@@ -8,20 +8,11 @@ package jolt.physics.vehicle;
 
 public class WheelWV extends Wheel {
 
-    private WheelSettingsWV WheelSettingsWV_TEMP_GEN_0;
-
     static public final WheelWV NULL = WheelWV.native_new();
 
     public WheelWV(WheelSettingsWV inWheel) {
         super((byte) 1, (char) 1);
-        long addr = internal_native_create_WheelSettingsWV_addr(inWheel.native_address);
-        internal_reset(addr, true);
     }
-
-    /*[-JNI;-NATIVE]
-return (jlong)new WheelWV(*((WheelSettingsWV* )inWheel_addr));
-*/
-    public static native long internal_native_create_WheelSettingsWV_addr(long inWheel_addr);
 
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
@@ -38,130 +29,42 @@ return (jlong)new WheelWV(*((WheelSettingsWV* )inWheel_addr));
         return new WheelWV((byte) 0, (char) 0);
     }
 
-    protected void deleteNative() {
-        internal_native_deleteNative(native_address);
-    }
-
-    /*[-JNI;-NATIVE]
-WheelWV* nativeObject = (WheelWV*)this_addr;
-delete nativeObject;
-*/
-    public static native void internal_native_deleteNative(long this_addr);
-
     public WheelSettingsWV GetSettings() {
-        long addr = internal_native_GetSettings_addr(native_address);
-        if (addr == 0)
-            return WheelSettingsWV.NULL;
-        if (WheelSettingsWV_TEMP_GEN_0 == null)
-            WheelSettingsWV_TEMP_GEN_0 = WheelSettingsWV.native_new();
-        WheelSettingsWV_TEMP_GEN_0.internal_reset(addr, false);
-        return WheelSettingsWV_TEMP_GEN_0;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-WheelWV* nativeObject = (WheelWV*)this_addr;
-const WheelSettingsWV* obj = nativeObject->GetSettings();
-return (jlong)obj;
-*/
-    public static native long internal_native_GetSettings_addr(long this_addr);
 
     public float get_mLongitudinalSlip() {
-        return internal_native_get_mLongitudinalSlip(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-WheelWV* nativeObject = (WheelWV*)this_addr;
-return nativeObject->mLongitudinalSlip;
-*/
-    public static native float internal_native_get_mLongitudinalSlip(long this_addr);
 
     public void set_mLongitudinalSlip(float mLongitudinalSlip) {
-        internal_native_set_mLongitudinalSlip(native_address, mLongitudinalSlip);
     }
-
-    /*[-JNI;-NATIVE]
-WheelWV* nativeObject = (WheelWV*)this_addr;
-nativeObject->mLongitudinalSlip = mLongitudinalSlip;
-*/
-    public static native void internal_native_set_mLongitudinalSlip(long this_addr, float mLongitudinalSlip);
 
     public float get_mLateralSlip() {
-        return internal_native_get_mLateralSlip(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-WheelWV* nativeObject = (WheelWV*)this_addr;
-return nativeObject->mLateralSlip;
-*/
-    public static native float internal_native_get_mLateralSlip(long this_addr);
 
     public void set_mLateralSlip(float mLateralSlip) {
-        internal_native_set_mLateralSlip(native_address, mLateralSlip);
     }
-
-    /*[-JNI;-NATIVE]
-WheelWV* nativeObject = (WheelWV*)this_addr;
-nativeObject->mLateralSlip = mLateralSlip;
-*/
-    public static native void internal_native_set_mLateralSlip(long this_addr, float mLateralSlip);
 
     public float get_mCombinedLongitudinalFriction() {
-        return internal_native_get_mCombinedLongitudinalFriction(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-WheelWV* nativeObject = (WheelWV*)this_addr;
-return nativeObject->mCombinedLongitudinalFriction;
-*/
-    public static native float internal_native_get_mCombinedLongitudinalFriction(long this_addr);
 
     public void set_mCombinedLongitudinalFriction(float mCombinedLongitudinalFriction) {
-        internal_native_set_mCombinedLongitudinalFriction(native_address, mCombinedLongitudinalFriction);
     }
-
-    /*[-JNI;-NATIVE]
-WheelWV* nativeObject = (WheelWV*)this_addr;
-nativeObject->mCombinedLongitudinalFriction = mCombinedLongitudinalFriction;
-*/
-    public static native void internal_native_set_mCombinedLongitudinalFriction(long this_addr, float mCombinedLongitudinalFriction);
 
     public float get_mCombinedLateralFriction() {
-        return internal_native_get_mCombinedLateralFriction(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-WheelWV* nativeObject = (WheelWV*)this_addr;
-return nativeObject->mCombinedLateralFriction;
-*/
-    public static native float internal_native_get_mCombinedLateralFriction(long this_addr);
 
     public void set_mCombinedLateralFriction(float mCombinedLateralFriction) {
-        internal_native_set_mCombinedLateralFriction(native_address, mCombinedLateralFriction);
     }
-
-    /*[-JNI;-NATIVE]
-WheelWV* nativeObject = (WheelWV*)this_addr;
-nativeObject->mCombinedLateralFriction = mCombinedLateralFriction;
-*/
-    public static native void internal_native_set_mCombinedLateralFriction(long this_addr, float mCombinedLateralFriction);
 
     public float get_mBrakeImpulse() {
-        return internal_native_get_mBrakeImpulse(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-WheelWV* nativeObject = (WheelWV*)this_addr;
-return nativeObject->mBrakeImpulse;
-*/
-    public static native float internal_native_get_mBrakeImpulse(long this_addr);
 
     public void set_mBrakeImpulse(float mBrakeImpulse) {
-        internal_native_set_mBrakeImpulse(native_address, mBrakeImpulse);
     }
-
-    /*[-JNI;-NATIVE]
-WheelWV* nativeObject = (WheelWV*)this_addr;
-nativeObject->mBrakeImpulse = mBrakeImpulse;
-*/
-    public static native void internal_native_set_mBrakeImpulse(long this_addr, float mBrakeImpulse);
 }

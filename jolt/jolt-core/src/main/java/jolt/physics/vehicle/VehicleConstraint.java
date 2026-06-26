@@ -13,40 +13,11 @@ import jolt.math.Mat44;
 
 public class VehicleConstraint extends Constraint {
 
-    private Vec3 Vec3_TEMP_GEN_0;
-
-    private Vec3 Vec3_TEMP_GEN_1;
-
-    private Vec3 Vec3_TEMP_GEN_2;
-
-    private Vec3 Vec3_TEMP_GEN_3;
-
-    private Body Body_TEMP_GEN_0;
-
-    private VehicleController VehicleController_TEMP_GEN_0;
-
-    private Wheels Wheels_TEMP_GEN_0;
-
-    private Wheel Wheel_TEMP_GEN_0;
-
-    private Mat44 Mat44_TEMP_GEN_0;
-
-    private Mat44 Mat44_TEMP_GEN_1;
-
-    private ArrayVehicleAntiRollBar ArrayVehicleAntiRollBar_TEMP_GEN_0;
-
     static public final VehicleConstraint NULL = VehicleConstraint.native_new();
 
     public VehicleConstraint(Body inVehicleBody, VehicleConstraintSettings inSettings) {
         super((byte) 1, (char) 1);
-        long addr = internal_native_create_Body_VehicleConstraintSettings_addr(inVehicleBody.native_address, inSettings.native_address);
-        internal_reset(addr, true);
     }
-
-    /*[-JNI;-NATIVE]
-return (jlong)new VehicleConstraint(*((Body* )inVehicleBody_addr), *((VehicleConstraintSettings* )inSettings_addr));
-*/
-    public static native long internal_native_create_Body_VehicleConstraintSettings_addr(long inVehicleBody_addr, long inSettings_addr);
 
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
@@ -63,288 +34,77 @@ return (jlong)new VehicleConstraint(*((Body* )inVehicleBody_addr), *((VehicleCon
         return new VehicleConstraint((byte) 0, (char) 0);
     }
 
-    protected void deleteNative() {
-        internal_native_deleteNative(native_address);
-    }
-
-    /*[-JNI;-NATIVE]
-VehicleConstraint* nativeObject = (VehicleConstraint*)this_addr;
-delete nativeObject;
-*/
-    public static native void internal_native_deleteNative(long this_addr);
-
     public void SetMaxPitchRollAngle(float inMaxPitchRollAngle) {
-        internal_native_SetMaxPitchRollAngle(native_address, inMaxPitchRollAngle);
     }
-
-    /*[-JNI;-NATIVE]
-VehicleConstraint* nativeObject = (VehicleConstraint*)this_addr;
-nativeObject->SetMaxPitchRollAngle((float)inMaxPitchRollAngle);
-*/
-    public static native void internal_native_SetMaxPitchRollAngle(long this_addr, float inMaxPitchRollAngle);
 
     public void SetVehicleCollisionTester(VehicleCollisionTester inTester) {
-        internal_native_SetVehicleCollisionTester(native_address, inTester.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-VehicleConstraint* nativeObject = (VehicleConstraint*)this_addr;
-nativeObject->SetVehicleCollisionTester((VehicleCollisionTester* )inTester_addr);
-*/
-    public static native void internal_native_SetVehicleCollisionTester(long this_addr, long inTester_addr);
 
     public void OverrideGravity(Vec3 inGravity) {
-        internal_native_OverrideGravity(native_address, inGravity.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-VehicleConstraint* nativeObject = (VehicleConstraint*)this_addr;
-nativeObject->OverrideGravity(*((Vec3* )inGravity_addr));
-*/
-    public static native void internal_native_OverrideGravity(long this_addr, long inGravity_addr);
 
     public boolean IsGravityOverridden() {
-        return internal_native_IsGravityOverridden(native_address);
+        return false;
     }
-
-    /*[-JNI;-NATIVE]
-VehicleConstraint* nativeObject = (VehicleConstraint*)this_addr;
-return nativeObject->IsGravityOverridden();
-*/
-    public static native boolean internal_native_IsGravityOverridden(long this_addr);
 
     public Vec3 GetGravityOverride() {
-        long addr = internal_native_GetGravityOverride_addr(native_address);
-        if (addr == 0)
-            return Vec3.NULL;
-        if (Vec3_TEMP_GEN_0 == null)
-            Vec3_TEMP_GEN_0 = Vec3.native_new();
-        Vec3_TEMP_GEN_0.internal_reset(addr, false);
-        return Vec3_TEMP_GEN_0;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-VehicleConstraint* nativeObject = (VehicleConstraint*)this_addr;
-static Vec3 copy_addr;
-copy_addr = nativeObject->GetGravityOverride();
-return (jlong)&copy_addr;*/
-    public static native long internal_native_GetGravityOverride_addr(long this_addr);
 
     public void ResetGravityOverride() {
-        internal_native_ResetGravityOverride(native_address);
     }
-
-    /*[-JNI;-NATIVE]
-VehicleConstraint* nativeObject = (VehicleConstraint*)this_addr;
-nativeObject->ResetGravityOverride();
-*/
-    public static native void internal_native_ResetGravityOverride(long this_addr);
 
     public Vec3 GetLocalUp() {
-        long addr = internal_native_GetLocalUp_addr(native_address);
-        if (addr == 0)
-            return Vec3.NULL;
-        if (Vec3_TEMP_GEN_1 == null)
-            Vec3_TEMP_GEN_1 = Vec3.native_new();
-        Vec3_TEMP_GEN_1.internal_reset(addr, false);
-        return Vec3_TEMP_GEN_1;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-VehicleConstraint* nativeObject = (VehicleConstraint*)this_addr;
-static Vec3 copy_addr;
-copy_addr = nativeObject->GetLocalUp();
-return (jlong)&copy_addr;*/
-    public static native long internal_native_GetLocalUp_addr(long this_addr);
 
     public Vec3 GetLocalForward() {
-        long addr = internal_native_GetLocalForward_addr(native_address);
-        if (addr == 0)
-            return Vec3.NULL;
-        if (Vec3_TEMP_GEN_2 == null)
-            Vec3_TEMP_GEN_2 = Vec3.native_new();
-        Vec3_TEMP_GEN_2.internal_reset(addr, false);
-        return Vec3_TEMP_GEN_2;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-VehicleConstraint* nativeObject = (VehicleConstraint*)this_addr;
-static Vec3 copy_addr;
-copy_addr = nativeObject->GetLocalForward();
-return (jlong)&copy_addr;*/
-    public static native long internal_native_GetLocalForward_addr(long this_addr);
 
     public Vec3 GetWorldUp() {
-        long addr = internal_native_GetWorldUp_addr(native_address);
-        if (addr == 0)
-            return Vec3.NULL;
-        if (Vec3_TEMP_GEN_3 == null)
-            Vec3_TEMP_GEN_3 = Vec3.native_new();
-        Vec3_TEMP_GEN_3.internal_reset(addr, false);
-        return Vec3_TEMP_GEN_3;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-VehicleConstraint* nativeObject = (VehicleConstraint*)this_addr;
-static Vec3 copy_addr;
-copy_addr = nativeObject->GetWorldUp();
-return (jlong)&copy_addr;*/
-    public static native long internal_native_GetWorldUp_addr(long this_addr);
 
     public Body GetVehicleBody() {
-        long addr = internal_native_GetVehicleBody_addr(native_address);
-        if (addr == 0)
-            return Body.NULL;
-        if (Body_TEMP_GEN_0 == null)
-            Body_TEMP_GEN_0 = Body.native_new();
-        Body_TEMP_GEN_0.internal_reset(addr, false);
-        return Body_TEMP_GEN_0;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-VehicleConstraint* nativeObject = (VehicleConstraint*)this_addr;
-Body* obj = nativeObject->GetVehicleBody();
-return (jlong)obj;
-*/
-    public static native long internal_native_GetVehicleBody_addr(long this_addr);
 
     public VehicleController GetController() {
-        long addr = internal_native_GetController_addr(native_address);
-        if (addr == 0)
-            return VehicleController.NULL;
-        if (VehicleController_TEMP_GEN_0 == null)
-            VehicleController_TEMP_GEN_0 = VehicleController.native_new();
-        VehicleController_TEMP_GEN_0.internal_reset(addr, false);
-        return VehicleController_TEMP_GEN_0;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-VehicleConstraint* nativeObject = (VehicleConstraint*)this_addr;
-VehicleController* obj = nativeObject->GetController();
-return (jlong)obj;
-*/
-    public static native long internal_native_GetController_addr(long this_addr);
 
     public Wheels GetWheels() {
-        long addr = internal_native_GetWheels_addr(native_address);
-        if (addr == 0)
-            return Wheels.NULL;
-        if (Wheels_TEMP_GEN_0 == null)
-            Wheels_TEMP_GEN_0 = Wheels.native_new();
-        Wheels_TEMP_GEN_0.internal_reset(addr, false);
-        return Wheels_TEMP_GEN_0;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-VehicleConstraint* nativeObject = (VehicleConstraint*)this_addr;
-return (jlong)&nativeObject->GetWheels();
-*/
-    public static native long internal_native_GetWheels_addr(long this_addr);
 
     public Wheel GetWheel(int inIdx) {
-        long addr = internal_native_GetWheel_addr(native_address, inIdx);
-        if (addr == 0)
-            return Wheel.NULL;
-        if (Wheel_TEMP_GEN_0 == null)
-            Wheel_TEMP_GEN_0 = Wheel.native_new();
-        Wheel_TEMP_GEN_0.internal_reset(addr, false);
-        return Wheel_TEMP_GEN_0;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-VehicleConstraint* nativeObject = (VehicleConstraint*)this_addr;
-const Wheel* obj = nativeObject->GetWheel(inIdx);
-return (jlong)obj;
-*/
-    public static native long internal_native_GetWheel_addr(long this_addr, int inIdx);
 
     public Mat44 GetWheelLocalTransform(int inWheelIndex, Vec3 inWheelRight, Vec3 inWheelUp) {
-        long addr = internal_native_GetWheelLocalTransform_addr(native_address, inWheelIndex, inWheelRight.native_address, inWheelUp.native_address);
-        if (addr == 0)
-            return Mat44.NULL;
-        if (Mat44_TEMP_GEN_0 == null)
-            Mat44_TEMP_GEN_0 = Mat44.native_new();
-        Mat44_TEMP_GEN_0.internal_reset(addr, false);
-        return Mat44_TEMP_GEN_0;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-VehicleConstraint* nativeObject = (VehicleConstraint*)this_addr;
-static Mat44 copy_addr;
-copy_addr = nativeObject->GetWheelLocalTransform(inWheelIndex, *((Vec3* )inWheelRight_addr), *((Vec3* )inWheelUp_addr));
-return (jlong)&copy_addr;*/
-    public static native long internal_native_GetWheelLocalTransform_addr(long this_addr, int inWheelIndex, long inWheelRight_addr, long inWheelUp_addr);
 
     public Mat44 GetWheelWorldTransform(int inWheelIndex, Vec3 inWheelRight, Vec3 inWheelUp) {
-        long addr = internal_native_GetWheelWorldTransform_addr(native_address, inWheelIndex, inWheelRight.native_address, inWheelUp.native_address);
-        if (addr == 0)
-            return Mat44.NULL;
-        if (Mat44_TEMP_GEN_1 == null)
-            Mat44_TEMP_GEN_1 = Mat44.native_new();
-        Mat44_TEMP_GEN_1.internal_reset(addr, false);
-        return Mat44_TEMP_GEN_1;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-VehicleConstraint* nativeObject = (VehicleConstraint*)this_addr;
-static Mat44 copy_addr;
-copy_addr = nativeObject->GetWheelWorldTransform(inWheelIndex, *((Vec3* )inWheelRight_addr), *((Vec3* )inWheelUp_addr));
-return (jlong)&copy_addr;*/
-    public static native long internal_native_GetWheelWorldTransform_addr(long this_addr, int inWheelIndex, long inWheelRight_addr, long inWheelUp_addr);
 
     public ArrayVehicleAntiRollBar GetAntiRollBars() {
-        long addr = internal_native_GetAntiRollBars_addr(native_address);
-        if (addr == 0)
-            return ArrayVehicleAntiRollBar.NULL;
-        if (ArrayVehicleAntiRollBar_TEMP_GEN_0 == null)
-            ArrayVehicleAntiRollBar_TEMP_GEN_0 = ArrayVehicleAntiRollBar.native_new();
-        ArrayVehicleAntiRollBar_TEMP_GEN_0.internal_reset(addr, false);
-        return ArrayVehicleAntiRollBar_TEMP_GEN_0;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-VehicleConstraint* nativeObject = (VehicleConstraint*)this_addr;
-return (jlong)&nativeObject->GetAntiRollBars();
-*/
-    public static native long internal_native_GetAntiRollBars_addr(long this_addr);
 
     public void SetNumStepsBetweenCollisionTestActive(int inSteps) {
-        internal_native_SetNumStepsBetweenCollisionTestActive(native_address, inSteps);
     }
-
-    /*[-JNI;-NATIVE]
-VehicleConstraint* nativeObject = (VehicleConstraint*)this_addr;
-nativeObject->SetNumStepsBetweenCollisionTestActive(inSteps);
-*/
-    public static native void internal_native_SetNumStepsBetweenCollisionTestActive(long this_addr, int inSteps);
 
     public int GetNumStepsBetweenCollisionTestActive() {
-        return internal_native_GetNumStepsBetweenCollisionTestActive(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-VehicleConstraint* nativeObject = (VehicleConstraint*)this_addr;
-return nativeObject->GetNumStepsBetweenCollisionTestActive();
-*/
-    public static native int internal_native_GetNumStepsBetweenCollisionTestActive(long this_addr);
 
     public void SetNumStepsBetweenCollisionTestInactive(int inSteps) {
-        internal_native_SetNumStepsBetweenCollisionTestInactive(native_address, inSteps);
     }
-
-    /*[-JNI;-NATIVE]
-VehicleConstraint* nativeObject = (VehicleConstraint*)this_addr;
-nativeObject->SetNumStepsBetweenCollisionTestInactive(inSteps);
-*/
-    public static native void internal_native_SetNumStepsBetweenCollisionTestInactive(long this_addr, int inSteps);
 
     public int GetNumStepsBetweenCollisionTestInactive() {
-        return internal_native_GetNumStepsBetweenCollisionTestInactive(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-VehicleConstraint* nativeObject = (VehicleConstraint*)this_addr;
-return nativeObject->GetNumStepsBetweenCollisionTestInactive();
-*/
-    public static native int internal_native_GetNumStepsBetweenCollisionTestInactive(long this_addr);
 }

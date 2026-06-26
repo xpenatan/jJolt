@@ -234,7 +234,7 @@ DebugRendererEm implements DebugRenderer;
 [JSImplementation = "DebugRendererEm"]
 interface DebugRendererImplCustom : DebugRendererEm {
     void DebugRendererImplCustom();
-    void DrawMesh(long id, [Const, Ref] Mat44 inModelMatrix, [Const] IDLFloatArray vertices, [Const, Ref] Color inModelColor, ECullMode inCullMode, EDrawMode inDrawMode);
+    void DrawMesh(long id, [Const, Ref] Mat44 inModelMatrix, [Const] NativeFloatArray vertices, [Const, Ref] Color inModelColor, ECullMode inCullMode, EDrawMode inDrawMode);
     void DrawLine([Const] Vec3 inFrom, [Const] Vec3 inTo, [Const] Color inColor);
     void DrawTriangle([Const] Vec3 inV1, [Const] Vec3 inV2, [Const]  Vec3 inV3, [Const] Color inColor, ECastShadow inCastShadow);
     void DrawText3D([Const] Vec3 inPosition, [Const] any inString, unsigned long inStringLen, [Const] Color inColor, float inHeight);
@@ -386,7 +386,7 @@ SkeletalAnimationKeyframe implements SkeletalAnimationJointState;
 interface SkeletalAnimationAnimatedJoint { //[-SUB_PACKAGE=skeleton]
     void SkeletalAnimationAnimatedJoint();
 
-    [Value] attribute IDLString mJointName;
+    [Value] attribute NativeString mJointName;
     [Value] attribute ArraySkeletonKeyframe mKeyframes;
 };
 
@@ -587,7 +587,7 @@ interface IDLArrayBodyID { //[-SUB_PACKAGE=physics.body]
     BodyID getValue(long index);
     void setValue(long index, BodyID value);
 };
-IDLArrayBodyID implements IDLArray;
+IDLArrayBodyID implements NativeArray;
 
 interface ArrayVec3 { //[-SUB_PACKAGE=math]
     void ArrayVec3();
@@ -1641,7 +1641,7 @@ interface IndexedTriangleList { //[-SUB_PACKAGE=geometry]
 interface ShapeResult { //[-SUB_PACKAGE=physics.collision.shape]
     boolean IsValid();
     boolean HasError();
-    [Const, Ref] IDLString GetError();
+    [Const, Ref] NativeString GetError();
     Shape Get();
     void Clear();
 };
@@ -3889,7 +3889,7 @@ MotorcycleController implements WheeledVehicleController;
 
 interface Skeleton {
     void Skeleton();
-    long AddJoint([Const, Ref] IDLString inName, long inParentIndex);
+    long AddJoint([Const, Ref] NativeString inName, long inParentIndex);
     long GetJointCount();
     boolean AreJointsCorrectlyOrdered();
     void CalculateParentJointIndices();

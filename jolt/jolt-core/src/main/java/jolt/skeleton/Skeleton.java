@@ -6,22 +6,15 @@
 
 package jolt.skeleton;
 
-import com.github.xpenatan.jParser.idl.IDLBase;
-import com.github.xpenatan.jparser.idl.helper.IDLString;
+import com.github.xpenatan.jParser.api.NativeObject;
+import com.github.xpenatan.jparser.runtime.helper.NativeString;
 
-public class Skeleton extends IDLBase {
+public class Skeleton extends NativeObject {
 
     static public final Skeleton NULL = Skeleton.native_new();
 
     public Skeleton() {
-        long addr = internal_native_create_addr();
-        internal_reset(addr, true);
     }
-
-    /*[-JNI;-NATIVE]
-return (jlong)new Skeleton();
-*/
-    public static native long internal_native_create_addr();
 
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
@@ -37,53 +30,18 @@ return (jlong)new Skeleton();
         return new Skeleton((byte) 0, (char) 0);
     }
 
-    protected void deleteNative() {
-        internal_native_deleteNative(native_address);
+    public int AddJoint(NativeString inName, int inParentIndex) {
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-Skeleton* nativeObject = (Skeleton*)this_addr;
-delete nativeObject;
-*/
-    public static native void internal_native_deleteNative(long this_addr);
-
-    public int AddJoint(IDLString inName, int inParentIndex) {
-        return internal_native_AddJoint(native_address, inName.native_address, inParentIndex);
-    }
-
-    /*[-JNI;-NATIVE]
-Skeleton* nativeObject = (Skeleton*)this_addr;
-return nativeObject->AddJoint(*((IDLString* )inName_addr), (int)inParentIndex);
-*/
-    public static native int internal_native_AddJoint(long this_addr, long inName_addr, int inParentIndex);
 
     public int GetJointCount() {
-        return internal_native_GetJointCount(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-Skeleton* nativeObject = (Skeleton*)this_addr;
-return nativeObject->GetJointCount();
-*/
-    public static native int internal_native_GetJointCount(long this_addr);
 
     public boolean AreJointsCorrectlyOrdered() {
-        return internal_native_AreJointsCorrectlyOrdered(native_address);
+        return false;
     }
-
-    /*[-JNI;-NATIVE]
-Skeleton* nativeObject = (Skeleton*)this_addr;
-return nativeObject->AreJointsCorrectlyOrdered();
-*/
-    public static native boolean internal_native_AreJointsCorrectlyOrdered(long this_addr);
 
     public void CalculateParentJointIndices() {
-        internal_native_CalculateParentJointIndices(native_address);
     }
-
-    /*[-JNI;-NATIVE]
-Skeleton* nativeObject = (Skeleton*)this_addr;
-nativeObject->CalculateParentJointIndices();
-*/
-    public static native void internal_native_CalculateParentJointIndices(long this_addr);
 }

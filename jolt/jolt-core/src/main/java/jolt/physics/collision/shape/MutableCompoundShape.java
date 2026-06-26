@@ -31,62 +31,21 @@ public class MutableCompoundShape extends CompoundShape {
     }
 
     public int AddShape(Vec3 inPosition, Quat inRotation, Shape inShape, int inUserData) {
-        return internal_native_AddShape(native_address, inPosition.native_address, inRotation.native_address, inShape.native_address, inUserData);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-MutableCompoundShape* nativeObject = (MutableCompoundShape*)this_addr;
-return nativeObject->AddShape(*((Vec3* )inPosition_addr), *((Quat* )inRotation_addr), (Shape* )inShape_addr, inUserData);
-*/
-    public static native int internal_native_AddShape(long this_addr, long inPosition_addr, long inRotation_addr, long inShape_addr, int inUserData);
 
     public void RemoveShape(int inIndex) {
-        internal_native_RemoveShape(native_address, inIndex);
     }
-
-    /*[-JNI;-NATIVE]
-MutableCompoundShape* nativeObject = (MutableCompoundShape*)this_addr;
-nativeObject->RemoveShape(inIndex);
-*/
-    public static native void internal_native_RemoveShape(long this_addr, int inIndex);
 
     public void ModifyShape(int inIndex, Vec3 inPosition, Quat inRotation) {
-        internal_native_ModifyShape(native_address, inIndex, inPosition.native_address, inRotation.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-MutableCompoundShape* nativeObject = (MutableCompoundShape*)this_addr;
-nativeObject->ModifyShape(inIndex, *((Vec3* )inPosition_addr), *((Quat* )inRotation_addr));
-*/
-    public static native void internal_native_ModifyShape(long this_addr, int inIndex, long inPosition_addr, long inRotation_addr);
 
     public void ModifyShape(int inIndex, Vec3 inPosition, Quat inRotation, Shape inShape) {
-        internal_native_ModifyShape(native_address, inIndex, inPosition.native_address, inRotation.native_address, inShape.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-MutableCompoundShape* nativeObject = (MutableCompoundShape*)this_addr;
-nativeObject->ModifyShape(inIndex, *((Vec3* )inPosition_addr), *((Quat* )inRotation_addr), (Shape* )inShape_addr);
-*/
-    public static native void internal_native_ModifyShape(long this_addr, int inIndex, long inPosition_addr, long inRotation_addr, long inShape_addr);
 
     public void ModifyShapes(int inStartIndex, int inNumber, Vec3MemRef inPositions, QuatMemRef inRotations) {
-        internal_native_ModifyShapes(native_address, inStartIndex, inNumber, inPositions.native_address, inRotations.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-MutableCompoundShape* nativeObject = (MutableCompoundShape*)this_addr;
-nativeObject->ModifyShapes(inStartIndex, inNumber, (Vec3MemRef* )inPositions_addr, (QuatMemRef* )inRotations_addr);
-*/
-    public static native void internal_native_ModifyShapes(long this_addr, int inStartIndex, int inNumber, long inPositions_addr, long inRotations_addr);
 
     public void AdjustCenterOfMass() {
-        internal_native_AdjustCenterOfMass(native_address);
     }
-
-    /*[-JNI;-NATIVE]
-MutableCompoundShape* nativeObject = (MutableCompoundShape*)this_addr;
-nativeObject->AdjustCenterOfMass();
-*/
-    public static native void internal_native_AdjustCenterOfMass(long this_addr);
 }

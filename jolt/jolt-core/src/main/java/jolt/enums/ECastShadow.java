@@ -6,9 +6,9 @@
 
 package jolt.enums;
 
-import com.github.xpenatan.jParser.idl.IDLEnum;
+import com.github.xpenatan.jParser.api.NativeEnum;
 
-public enum ECastShadow implements IDLEnum<ECastShadow> {
+public enum ECastShadow implements NativeEnum<ECastShadow> {
 
     CUSTOM(0), ECastShadow_On(ECastShadow_On_NATIVE()), ECastShadow_Off(ECastShadow_Off_NATIVE());
 
@@ -34,13 +34,7 @@ public enum ECastShadow implements IDLEnum<ECastShadow> {
         return CUSTOM;
     }
 
-    /*[-JNI;-NATIVE]
-return (jlong)ECastShadow_On;
-*/
     private static native int ECastShadow_On_NATIVE();
 
-    /*[-JNI;-NATIVE]
-return (jlong)ECastShadow_Off;
-*/
     private static native int ECastShadow_Off_NATIVE();
 }

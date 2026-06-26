@@ -6,9 +6,9 @@
 
 package jolt.physics;
 
-import com.github.xpenatan.jParser.idl.IDLBase;
+import com.github.xpenatan.jParser.api.NativeObject;
 
-public class PhysicsStepListenerContext extends IDLBase {
+public class PhysicsStepListenerContext extends NativeObject {
 
     static public final PhysicsStepListenerContext NULL = PhysicsStepListenerContext.native_new();
 
@@ -26,73 +26,24 @@ public class PhysicsStepListenerContext extends IDLBase {
         return new PhysicsStepListenerContext((byte) 0, (char) 0);
     }
 
-    protected void deleteNative() {
-        internal_native_deleteNative(native_address);
-    }
-
-    /*[-JNI;-NATIVE]
-PhysicsStepListenerContext* nativeObject = (PhysicsStepListenerContext*)this_addr;
-delete nativeObject;
-*/
-    public static native void internal_native_deleteNative(long this_addr);
-
     public float get_mDeltaTime() {
-        return internal_native_get_mDeltaTime(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-PhysicsStepListenerContext* nativeObject = (PhysicsStepListenerContext*)this_addr;
-return nativeObject->mDeltaTime;
-*/
-    public static native float internal_native_get_mDeltaTime(long this_addr);
 
     public void set_mDeltaTime(float mDeltaTime) {
-        internal_native_set_mDeltaTime(native_address, mDeltaTime);
     }
-
-    /*[-JNI;-NATIVE]
-PhysicsStepListenerContext* nativeObject = (PhysicsStepListenerContext*)this_addr;
-nativeObject->mDeltaTime = mDeltaTime;
-*/
-    public static native void internal_native_set_mDeltaTime(long this_addr, float mDeltaTime);
 
     public boolean get_mIsFirstStep() {
-        return internal_native_get_mIsFirstStep(native_address);
+        return false;
     }
-
-    /*[-JNI;-NATIVE]
-PhysicsStepListenerContext* nativeObject = (PhysicsStepListenerContext*)this_addr;
-return nativeObject->mIsFirstStep;
-*/
-    public static native boolean internal_native_get_mIsFirstStep(long this_addr);
 
     public void set_mIsFirstStep(boolean mIsFirstStep) {
-        internal_native_set_mIsFirstStep(native_address, mIsFirstStep);
     }
-
-    /*[-JNI;-NATIVE]
-PhysicsStepListenerContext* nativeObject = (PhysicsStepListenerContext*)this_addr;
-nativeObject->mIsFirstStep = mIsFirstStep;
-*/
-    public static native void internal_native_set_mIsFirstStep(long this_addr, boolean mIsFirstStep);
 
     public boolean get_mIsLastStep() {
-        return internal_native_get_mIsLastStep(native_address);
+        return false;
     }
-
-    /*[-JNI;-NATIVE]
-PhysicsStepListenerContext* nativeObject = (PhysicsStepListenerContext*)this_addr;
-return nativeObject->mIsLastStep;
-*/
-    public static native boolean internal_native_get_mIsLastStep(long this_addr);
 
     public void set_mIsLastStep(boolean mIsLastStep) {
-        internal_native_set_mIsLastStep(native_address, mIsLastStep);
     }
-
-    /*[-JNI;-NATIVE]
-PhysicsStepListenerContext* nativeObject = (PhysicsStepListenerContext*)this_addr;
-nativeObject->mIsLastStep = mIsLastStep;
-*/
-    public static native void internal_native_set_mIsLastStep(long this_addr, boolean mIsLastStep);
 }

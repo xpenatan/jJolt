@@ -8,8 +8,6 @@ package jolt.physics.collision.shape;
 
 public class CompoundShape extends Shape {
 
-    private CompoundShapeSubShape CompoundShapeSubShape_TEMP_GEN_0;
-
     static public final CompoundShape NULL = CompoundShape.native_new();
 
     /**
@@ -28,28 +26,10 @@ public class CompoundShape extends Shape {
     }
 
     public int GetNumSubShapes() {
-        return internal_native_GetNumSubShapes(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-CompoundShape* nativeObject = (CompoundShape*)this_addr;
-return nativeObject->GetNumSubShapes();
-*/
-    public static native int internal_native_GetNumSubShapes(long this_addr);
 
     public CompoundShapeSubShape GetSubShape(int inIdx) {
-        long addr = internal_native_GetSubShape_addr(native_address, inIdx);
-        if (addr == 0)
-            return CompoundShapeSubShape.NULL;
-        if (CompoundShapeSubShape_TEMP_GEN_0 == null)
-            CompoundShapeSubShape_TEMP_GEN_0 = CompoundShapeSubShape.native_new();
-        CompoundShapeSubShape_TEMP_GEN_0.internal_reset(addr, false);
-        return CompoundShapeSubShape_TEMP_GEN_0;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-CompoundShape* nativeObject = (CompoundShape*)this_addr;
-return (jlong)&nativeObject->GetSubShape((int)inIdx);
-*/
-    public static native long internal_native_GetSubShape_addr(long this_addr, int inIdx);
 }

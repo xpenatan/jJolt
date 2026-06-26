@@ -24,14 +24,4 @@ public class JobSystemWithBarrier extends JobSystem {
     public static JobSystemWithBarrier native_new() {
         return new JobSystemWithBarrier((byte) 0, (char) 0);
     }
-
-    protected void deleteNative() {
-        internal_native_deleteNative(native_address);
-    }
-
-    /*[-JNI;-NATIVE]
-JobSystemWithBarrier* nativeObject = (JobSystemWithBarrier*)this_addr;
-delete nativeObject;
-*/
-    public static native void internal_native_deleteNative(long this_addr);
 }

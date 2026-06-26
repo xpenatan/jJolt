@@ -12,14 +12,7 @@ public class MotorcycleControllerSettings extends WheeledVehicleControllerSettin
 
     public MotorcycleControllerSettings() {
         super((byte) 1, (char) 1);
-        long addr = internal_native_create_addr();
-        internal_reset(addr, true);
     }
-
-    /*[-JNI;-NATIVE]
-return (jlong)new MotorcycleControllerSettings();
-*/
-    public static native long internal_native_create_addr();
 
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
@@ -36,133 +29,45 @@ return (jlong)new MotorcycleControllerSettings();
         return new MotorcycleControllerSettings((byte) 0, (char) 0);
     }
 
-    protected void deleteNative() {
-        internal_native_deleteNative(native_address);
-    }
-
-    /*[-JNI;-NATIVE]
-MotorcycleControllerSettings* nativeObject = (MotorcycleControllerSettings*)this_addr;
-delete nativeObject;
-*/
-    public static native void internal_native_deleteNative(long this_addr);
-
     public float get_mMaxLeanAngle() {
-        return internal_native_get_mMaxLeanAngle(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-MotorcycleControllerSettings* nativeObject = (MotorcycleControllerSettings*)this_addr;
-return nativeObject->mMaxLeanAngle;
-*/
-    public static native float internal_native_get_mMaxLeanAngle(long this_addr);
 
     public void set_mMaxLeanAngle(float mMaxLeanAngle) {
-        internal_native_set_mMaxLeanAngle(native_address, mMaxLeanAngle);
     }
-
-    /*[-JNI;-NATIVE]
-MotorcycleControllerSettings* nativeObject = (MotorcycleControllerSettings*)this_addr;
-nativeObject->mMaxLeanAngle = mMaxLeanAngle;
-*/
-    public static native void internal_native_set_mMaxLeanAngle(long this_addr, float mMaxLeanAngle);
 
     public float get_mLeanSpringConstant() {
-        return internal_native_get_mLeanSpringConstant(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-MotorcycleControllerSettings* nativeObject = (MotorcycleControllerSettings*)this_addr;
-return nativeObject->mLeanSpringConstant;
-*/
-    public static native float internal_native_get_mLeanSpringConstant(long this_addr);
 
     public void set_mLeanSpringConstant(float mLeanSpringConstant) {
-        internal_native_set_mLeanSpringConstant(native_address, mLeanSpringConstant);
     }
-
-    /*[-JNI;-NATIVE]
-MotorcycleControllerSettings* nativeObject = (MotorcycleControllerSettings*)this_addr;
-nativeObject->mLeanSpringConstant = mLeanSpringConstant;
-*/
-    public static native void internal_native_set_mLeanSpringConstant(long this_addr, float mLeanSpringConstant);
 
     public float get_mLeanSpringDamping() {
-        return internal_native_get_mLeanSpringDamping(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-MotorcycleControllerSettings* nativeObject = (MotorcycleControllerSettings*)this_addr;
-return nativeObject->mLeanSpringDamping;
-*/
-    public static native float internal_native_get_mLeanSpringDamping(long this_addr);
 
     public void set_mLeanSpringDamping(float mLeanSpringDamping) {
-        internal_native_set_mLeanSpringDamping(native_address, mLeanSpringDamping);
     }
-
-    /*[-JNI;-NATIVE]
-MotorcycleControllerSettings* nativeObject = (MotorcycleControllerSettings*)this_addr;
-nativeObject->mLeanSpringDamping = mLeanSpringDamping;
-*/
-    public static native void internal_native_set_mLeanSpringDamping(long this_addr, float mLeanSpringDamping);
 
     public float get_mLeanSpringIntegrationCoefficient() {
-        return internal_native_get_mLeanSpringIntegrationCoefficient(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-MotorcycleControllerSettings* nativeObject = (MotorcycleControllerSettings*)this_addr;
-return nativeObject->mLeanSpringIntegrationCoefficient;
-*/
-    public static native float internal_native_get_mLeanSpringIntegrationCoefficient(long this_addr);
 
     public void set_mLeanSpringIntegrationCoefficient(float mLeanSpringIntegrationCoefficient) {
-        internal_native_set_mLeanSpringIntegrationCoefficient(native_address, mLeanSpringIntegrationCoefficient);
     }
-
-    /*[-JNI;-NATIVE]
-MotorcycleControllerSettings* nativeObject = (MotorcycleControllerSettings*)this_addr;
-nativeObject->mLeanSpringIntegrationCoefficient = mLeanSpringIntegrationCoefficient;
-*/
-    public static native void internal_native_set_mLeanSpringIntegrationCoefficient(long this_addr, float mLeanSpringIntegrationCoefficient);
 
     public float get_mLeanSpringIntegrationCoefficientDecay() {
-        return internal_native_get_mLeanSpringIntegrationCoefficientDecay(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-MotorcycleControllerSettings* nativeObject = (MotorcycleControllerSettings*)this_addr;
-return nativeObject->mLeanSpringIntegrationCoefficientDecay;
-*/
-    public static native float internal_native_get_mLeanSpringIntegrationCoefficientDecay(long this_addr);
 
     public void set_mLeanSpringIntegrationCoefficientDecay(float mLeanSpringIntegrationCoefficientDecay) {
-        internal_native_set_mLeanSpringIntegrationCoefficientDecay(native_address, mLeanSpringIntegrationCoefficientDecay);
     }
-
-    /*[-JNI;-NATIVE]
-MotorcycleControllerSettings* nativeObject = (MotorcycleControllerSettings*)this_addr;
-nativeObject->mLeanSpringIntegrationCoefficientDecay = mLeanSpringIntegrationCoefficientDecay;
-*/
-    public static native void internal_native_set_mLeanSpringIntegrationCoefficientDecay(long this_addr, float mLeanSpringIntegrationCoefficientDecay);
 
     public float get_mLeanSmoothingFactor() {
-        return internal_native_get_mLeanSmoothingFactor(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-MotorcycleControllerSettings* nativeObject = (MotorcycleControllerSettings*)this_addr;
-return nativeObject->mLeanSmoothingFactor;
-*/
-    public static native float internal_native_get_mLeanSmoothingFactor(long this_addr);
 
     public void set_mLeanSmoothingFactor(float mLeanSmoothingFactor) {
-        internal_native_set_mLeanSmoothingFactor(native_address, mLeanSmoothingFactor);
     }
-
-    /*[-JNI;-NATIVE]
-MotorcycleControllerSettings* nativeObject = (MotorcycleControllerSettings*)this_addr;
-nativeObject->mLeanSmoothingFactor = mLeanSmoothingFactor;
-*/
-    public static native void internal_native_set_mLeanSmoothingFactor(long this_addr, float mLeanSmoothingFactor);
 }

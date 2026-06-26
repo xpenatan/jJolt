@@ -6,9 +6,9 @@
 
 package jolt.core;
 
-import com.github.xpenatan.jParser.idl.IDLBase;
+import com.github.xpenatan.jParser.api.NativeObject;
 
-public class TempAllocator extends IDLBase {
+public class TempAllocator extends NativeObject {
 
     static public final TempAllocator NULL = TempAllocator.native_new();
 
@@ -25,14 +25,4 @@ public class TempAllocator extends IDLBase {
     public static TempAllocator native_new() {
         return new TempAllocator((byte) 0, (char) 0);
     }
-
-    protected void deleteNative() {
-        internal_native_deleteNative(native_address);
-    }
-
-    /*[-JNI;-NATIVE]
-TempAllocator* nativeObject = (TempAllocator*)this_addr;
-delete nativeObject;
-*/
-    public static native void internal_native_deleteNative(long this_addr);
 }

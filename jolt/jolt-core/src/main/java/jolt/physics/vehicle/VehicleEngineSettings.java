@@ -6,12 +6,10 @@
 
 package jolt.physics.vehicle;
 
-import com.github.xpenatan.jParser.idl.IDLBase;
+import com.github.xpenatan.jParser.api.NativeObject;
 import jolt.core.LinearCurve;
 
-public class VehicleEngineSettings extends IDLBase {
-
-    private LinearCurve LinearCurve_TEMP_GEN_0;
+public class VehicleEngineSettings extends NativeObject {
 
     static public final VehicleEngineSettings NULL = VehicleEngineSettings.native_new();
 
@@ -29,139 +27,45 @@ public class VehicleEngineSettings extends IDLBase {
         return new VehicleEngineSettings((byte) 0, (char) 0);
     }
 
-    protected void deleteNative() {
-        internal_native_deleteNative(native_address);
-    }
-
-    /*[-JNI;-NATIVE]
-VehicleEngineSettings* nativeObject = (VehicleEngineSettings*)this_addr;
-delete nativeObject;
-*/
-    public static native void internal_native_deleteNative(long this_addr);
-
     public float get_mMaxTorque() {
-        return internal_native_get_mMaxTorque(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-VehicleEngineSettings* nativeObject = (VehicleEngineSettings*)this_addr;
-return nativeObject->mMaxTorque;
-*/
-    public static native float internal_native_get_mMaxTorque(long this_addr);
 
     public void set_mMaxTorque(float mMaxTorque) {
-        internal_native_set_mMaxTorque(native_address, mMaxTorque);
     }
-
-    /*[-JNI;-NATIVE]
-VehicleEngineSettings* nativeObject = (VehicleEngineSettings*)this_addr;
-nativeObject->mMaxTorque = mMaxTorque;
-*/
-    public static native void internal_native_set_mMaxTorque(long this_addr, float mMaxTorque);
 
     public float get_mMinRPM() {
-        return internal_native_get_mMinRPM(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-VehicleEngineSettings* nativeObject = (VehicleEngineSettings*)this_addr;
-return nativeObject->mMinRPM;
-*/
-    public static native float internal_native_get_mMinRPM(long this_addr);
 
     public void set_mMinRPM(float mMinRPM) {
-        internal_native_set_mMinRPM(native_address, mMinRPM);
     }
-
-    /*[-JNI;-NATIVE]
-VehicleEngineSettings* nativeObject = (VehicleEngineSettings*)this_addr;
-nativeObject->mMinRPM = mMinRPM;
-*/
-    public static native void internal_native_set_mMinRPM(long this_addr, float mMinRPM);
 
     public float get_mMaxRPM() {
-        return internal_native_get_mMaxRPM(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-VehicleEngineSettings* nativeObject = (VehicleEngineSettings*)this_addr;
-return nativeObject->mMaxRPM;
-*/
-    public static native float internal_native_get_mMaxRPM(long this_addr);
 
     public void set_mMaxRPM(float mMaxRPM) {
-        internal_native_set_mMaxRPM(native_address, mMaxRPM);
     }
-
-    /*[-JNI;-NATIVE]
-VehicleEngineSettings* nativeObject = (VehicleEngineSettings*)this_addr;
-nativeObject->mMaxRPM = mMaxRPM;
-*/
-    public static native void internal_native_set_mMaxRPM(long this_addr, float mMaxRPM);
 
     public LinearCurve get_mNormalizedTorque() {
-        long addr = internal_native_get_mNormalizedTorque_addr(native_address);
-        if (addr == 0)
-            return LinearCurve.NULL;
-        if (LinearCurve_TEMP_GEN_0 == null)
-            LinearCurve_TEMP_GEN_0 = LinearCurve.native_new();
-        LinearCurve_TEMP_GEN_0.internal_reset(addr, false);
-        return LinearCurve_TEMP_GEN_0;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-VehicleEngineSettings* nativeObject = (VehicleEngineSettings*)this_addr;
-return (jlong)&nativeObject->mNormalizedTorque;
-*/
-    public static native long internal_native_get_mNormalizedTorque_addr(long this_addr);
 
     public void set_mNormalizedTorque(LinearCurve mNormalizedTorque) {
-        internal_native_set_mNormalizedTorque(native_address, mNormalizedTorque.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-VehicleEngineSettings* nativeObject = (VehicleEngineSettings*)this_addr;
-nativeObject->mNormalizedTorque = *((LinearCurve*)mNormalizedTorque_addr);
-*/
-    public static native void internal_native_set_mNormalizedTorque(long this_addr, long mNormalizedTorque_addr);
 
     public float get_mInertia() {
-        return internal_native_get_mInertia(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-VehicleEngineSettings* nativeObject = (VehicleEngineSettings*)this_addr;
-return nativeObject->mInertia;
-*/
-    public static native float internal_native_get_mInertia(long this_addr);
 
     public void set_mInertia(float mInertia) {
-        internal_native_set_mInertia(native_address, mInertia);
     }
-
-    /*[-JNI;-NATIVE]
-VehicleEngineSettings* nativeObject = (VehicleEngineSettings*)this_addr;
-nativeObject->mInertia = mInertia;
-*/
-    public static native void internal_native_set_mInertia(long this_addr, float mInertia);
 
     public float get_mAngularDamping() {
-        return internal_native_get_mAngularDamping(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-VehicleEngineSettings* nativeObject = (VehicleEngineSettings*)this_addr;
-return nativeObject->mAngularDamping;
-*/
-    public static native float internal_native_get_mAngularDamping(long this_addr);
 
     public void set_mAngularDamping(float mAngularDamping) {
-        internal_native_set_mAngularDamping(native_address, mAngularDamping);
     }
-
-    /*[-JNI;-NATIVE]
-VehicleEngineSettings* nativeObject = (VehicleEngineSettings*)this_addr;
-nativeObject->mAngularDamping = mAngularDamping;
-*/
-    public static native void internal_native_set_mAngularDamping(long this_addr, float mAngularDamping);
 }

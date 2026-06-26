@@ -6,74 +6,18 @@
 
 package jolt;
 
-import com.github.xpenatan.jParser.idl.IDLBase;
+import com.github.xpenatan.jParser.api.NativeObject;
 import jolt.math.Vec3;
 
-public class RVec3 extends IDLBase {
-
-    static private RVec3 RVec3_TEMP_STATIC_GEN_0;
-
-    static private RVec3 RVec3_TEMP_STATIC_GEN_1;
-
-    static private RVec3 RVec3_TEMP_STATIC_GEN_2;
-
-    static private RVec3 RVec3_TEMP_STATIC_GEN_3;
-
-    static private RVec3 RVec3_TEMP_STATIC_GEN_4;
-
-    static private RVec3 RVec3_TEMP_STATIC_GEN_5;
-
-    static private RVec3 RVec3_TEMP_STATIC_GEN_6;
-
-    static private RVec3 RVec3_TEMP_STATIC_GEN_7;
-
-    static private RVec3 RVec3_TEMP_STATIC_GEN_8;
-
-    private RVec3 RVec3_TEMP_GEN_0;
-
-    private RVec3 RVec3_TEMP_GEN_1;
-
-    private RVec3 RVec3_TEMP_GEN_2;
-
-    private RVec3 RVec3_TEMP_GEN_3;
-
-    private RVec3 RVec3_TEMP_GEN_4;
-
-    private RVec3 RVec3_TEMP_GEN_5;
-
-    private RVec3 RVec3_TEMP_GEN_6;
-
-    private RVec3 RVec3_TEMP_GEN_7;
-
-    private RVec3 RVec3_TEMP_GEN_8;
-
-    private RVec3 RVec3_TEMP_GEN_9;
-
-    private RVec3 RVec3_TEMP_GEN_10;
-
-    private RVec3 RVec3_TEMP_GEN_11;
+public class RVec3 extends NativeObject {
 
     static public final RVec3 NULL = RVec3.native_new();
 
     public RVec3() {
-        long addr = internal_native_create_addr();
-        internal_reset(addr, true);
     }
-
-    /*[-JNI;-NATIVE]
-return (jlong)new RVec3();
-*/
-    public static native long internal_native_create_addr();
 
     public RVec3(float inX, float inY, float inZ) {
-        long addr = internal_native_create_float_float_float_addr(inX, inY, inZ);
-        internal_reset(addr, true);
     }
-
-    /*[-JNI;-NATIVE]
-return (jlong)new RVec3((float)inX, (float)inY, (float)inZ);
-*/
-    public static native long internal_native_create_float_float_float_addr(float inX, float inY, float inZ);
 
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
@@ -89,602 +33,178 @@ return (jlong)new RVec3((float)inX, (float)inY, (float)inZ);
         return new RVec3((byte) 0, (char) 0);
     }
 
-    protected void deleteNative() {
-        internal_native_deleteNative(native_address);
-    }
-
-    /*[-JNI;-NATIVE]
-RVec3* nativeObject = (RVec3*)this_addr;
-delete nativeObject;
-*/
-    public static native void internal_native_deleteNative(long this_addr);
-
     public static RVec3 sZero() {
-        long addr = internal_native_sZero_addr();
-        if (addr == 0)
-            return RVec3.NULL;
-        if (RVec3_TEMP_STATIC_GEN_0 == null)
-            RVec3_TEMP_STATIC_GEN_0 = RVec3.native_new();
-        RVec3_TEMP_STATIC_GEN_0.internal_reset(addr, false);
-        return RVec3_TEMP_STATIC_GEN_0;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-static RVec3 copy_addr;
-copy_addr = RVec3::sZero();
-return (jlong)&copy_addr;*/
-    public static native long internal_native_sZero_addr();
 
     public static RVec3 sOne() {
-        long addr = internal_native_sOne_addr();
-        if (addr == 0)
-            return RVec3.NULL;
-        if (RVec3_TEMP_STATIC_GEN_1 == null)
-            RVec3_TEMP_STATIC_GEN_1 = RVec3.native_new();
-        RVec3_TEMP_STATIC_GEN_1.internal_reset(addr, false);
-        return RVec3_TEMP_STATIC_GEN_1;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-static RVec3 copy_addr;
-copy_addr = RVec3::sOne();
-return (jlong)&copy_addr;*/
-    public static native long internal_native_sOne_addr();
 
     public static RVec3 sAxisX() {
-        long addr = internal_native_sAxisX_addr();
-        if (addr == 0)
-            return RVec3.NULL;
-        if (RVec3_TEMP_STATIC_GEN_2 == null)
-            RVec3_TEMP_STATIC_GEN_2 = RVec3.native_new();
-        RVec3_TEMP_STATIC_GEN_2.internal_reset(addr, false);
-        return RVec3_TEMP_STATIC_GEN_2;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-static RVec3 copy_addr;
-copy_addr = RVec3::sAxisX();
-return (jlong)&copy_addr;*/
-    public static native long internal_native_sAxisX_addr();
 
     public static RVec3 sAxisY() {
-        long addr = internal_native_sAxisY_addr();
-        if (addr == 0)
-            return RVec3.NULL;
-        if (RVec3_TEMP_STATIC_GEN_3 == null)
-            RVec3_TEMP_STATIC_GEN_3 = RVec3.native_new();
-        RVec3_TEMP_STATIC_GEN_3.internal_reset(addr, false);
-        return RVec3_TEMP_STATIC_GEN_3;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-static RVec3 copy_addr;
-copy_addr = RVec3::sAxisY();
-return (jlong)&copy_addr;*/
-    public static native long internal_native_sAxisY_addr();
 
     public static RVec3 sAxisZ() {
-        long addr = internal_native_sAxisZ_addr();
-        if (addr == 0)
-            return RVec3.NULL;
-        if (RVec3_TEMP_STATIC_GEN_4 == null)
-            RVec3_TEMP_STATIC_GEN_4 = RVec3.native_new();
-        RVec3_TEMP_STATIC_GEN_4.internal_reset(addr, false);
-        return RVec3_TEMP_STATIC_GEN_4;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-static RVec3 copy_addr;
-copy_addr = RVec3::sAxisZ();
-return (jlong)&copy_addr;*/
-    public static native long internal_native_sAxisZ_addr();
 
     public static RVec3 sReplicate(float inValue) {
-        long addr = internal_native_sReplicate_addr(inValue);
-        if (addr == 0)
-            return RVec3.NULL;
-        if (RVec3_TEMP_STATIC_GEN_5 == null)
-            RVec3_TEMP_STATIC_GEN_5 = RVec3.native_new();
-        RVec3_TEMP_STATIC_GEN_5.internal_reset(addr, false);
-        return RVec3_TEMP_STATIC_GEN_5;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-static RVec3 copy_addr;
-copy_addr = RVec3::sReplicate((float)inValue);
-return (jlong)&copy_addr;*/
-    public static native long internal_native_sReplicate_addr(float inValue);
 
     public static RVec3 sMin(RVec3 inLHS, RVec3 inRHS) {
-        long addr = internal_native_sMin_addr(inLHS.native_address, inRHS.native_address);
-        if (addr == 0)
-            return RVec3.NULL;
-        if (RVec3_TEMP_STATIC_GEN_6 == null)
-            RVec3_TEMP_STATIC_GEN_6 = RVec3.native_new();
-        RVec3_TEMP_STATIC_GEN_6.internal_reset(addr, false);
-        return RVec3_TEMP_STATIC_GEN_6;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-static RVec3 copy_addr;
-copy_addr = RVec3::sMin(*((RVec3* )inLHS_addr), *((RVec3* )inRHS_addr));
-return (jlong)&copy_addr;*/
-    public static native long internal_native_sMin_addr(long inLHS_addr, long inRHS_addr);
 
     public static RVec3 sMax(RVec3 inLHS, RVec3 inRHS) {
-        long addr = internal_native_sMax_addr(inLHS.native_address, inRHS.native_address);
-        if (addr == 0)
-            return RVec3.NULL;
-        if (RVec3_TEMP_STATIC_GEN_7 == null)
-            RVec3_TEMP_STATIC_GEN_7 = RVec3.native_new();
-        RVec3_TEMP_STATIC_GEN_7.internal_reset(addr, false);
-        return RVec3_TEMP_STATIC_GEN_7;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-static RVec3 copy_addr;
-copy_addr = RVec3::sMax(*((RVec3* )inLHS_addr), *((RVec3* )inRHS_addr));
-return (jlong)&copy_addr;*/
-    public static native long internal_native_sMax_addr(long inLHS_addr, long inRHS_addr);
 
     public static RVec3 sClamp(RVec3 inValue, RVec3 inMin, RVec3 inMax) {
-        long addr = internal_native_sClamp_addr(inValue.native_address, inMin.native_address, inMax.native_address);
-        if (addr == 0)
-            return RVec3.NULL;
-        if (RVec3_TEMP_STATIC_GEN_8 == null)
-            RVec3_TEMP_STATIC_GEN_8 = RVec3.native_new();
-        RVec3_TEMP_STATIC_GEN_8.internal_reset(addr, false);
-        return RVec3_TEMP_STATIC_GEN_8;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-static RVec3 copy_addr;
-copy_addr = RVec3::sClamp(*((RVec3* )inValue_addr), *((RVec3* )inMin_addr), *((RVec3* )inMax_addr));
-return (jlong)&copy_addr;*/
-    public static native long internal_native_sClamp_addr(long inValue_addr, long inMin_addr, long inMax_addr);
 
     public float GetComponent(int inCoordinate) {
-        return internal_native_GetComponent(native_address, inCoordinate);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-RVec3* nativeObject = (RVec3*)this_addr;
-return ((*nativeObject)[inCoordinate]);*/
-    public static native float internal_native_GetComponent(long this_addr, int inCoordinate);
 
     public boolean Equals(RVec3 inV) {
-        return internal_native_Equals(native_address, inV.native_address);
+        return false;
     }
-
-    /*[-JNI;-NATIVE]
-RVec3* nativeObject = (RVec3*)this_addr;
-return ((*nativeObject == *((RVec3* )inV_addr)));*/
-    public static native boolean internal_native_Equals(long this_addr, long inV_addr);
 
     public boolean NotEquals(RVec3 inV) {
-        return internal_native_NotEquals(native_address, inV.native_address);
+        return false;
     }
-
-    /*[-JNI;-NATIVE]
-RVec3* nativeObject = (RVec3*)this_addr;
-return ((*nativeObject != *((RVec3* )inV_addr)));*/
-    public static native boolean internal_native_NotEquals(long this_addr, long inV_addr);
 
     public float LengthSq() {
-        return internal_native_LengthSq(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-RVec3* nativeObject = (RVec3*)this_addr;
-return nativeObject->LengthSq();
-*/
-    public static native float internal_native_LengthSq(long this_addr);
 
     public float Length() {
-        return internal_native_Length(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-RVec3* nativeObject = (RVec3*)this_addr;
-return nativeObject->Length();
-*/
-    public static native float internal_native_Length(long this_addr);
 
     public RVec3 Normalized() {
-        long addr = internal_native_Normalized_addr(native_address);
-        if (addr == 0)
-            return RVec3.NULL;
-        if (RVec3_TEMP_GEN_0 == null)
-            RVec3_TEMP_GEN_0 = RVec3.native_new();
-        RVec3_TEMP_GEN_0.internal_reset(addr, false);
-        return RVec3_TEMP_GEN_0;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-RVec3* nativeObject = (RVec3*)this_addr;
-static RVec3 copy_addr;
-copy_addr = nativeObject->Normalized();
-return (jlong)&copy_addr;*/
-    public static native long internal_native_Normalized_addr(long this_addr);
 
     public float GetX() {
-        return internal_native_GetX(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-RVec3* nativeObject = (RVec3*)this_addr;
-return nativeObject->GetX();
-*/
-    public static native float internal_native_GetX(long this_addr);
 
     public float GetY() {
-        return internal_native_GetY(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-RVec3* nativeObject = (RVec3*)this_addr;
-return nativeObject->GetY();
-*/
-    public static native float internal_native_GetY(long this_addr);
 
     public float GetZ() {
-        return internal_native_GetZ(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-RVec3* nativeObject = (RVec3*)this_addr;
-return nativeObject->GetZ();
-*/
-    public static native float internal_native_GetZ(long this_addr);
 
     public void SetX(float inX) {
-        internal_native_SetX(native_address, inX);
     }
-
-    /*[-JNI;-NATIVE]
-RVec3* nativeObject = (RVec3*)this_addr;
-nativeObject->SetX((float)inX);
-*/
-    public static native void internal_native_SetX(long this_addr, float inX);
 
     public void SetY(float inY) {
-        internal_native_SetY(native_address, inY);
     }
-
-    /*[-JNI;-NATIVE]
-RVec3* nativeObject = (RVec3*)this_addr;
-nativeObject->SetY((float)inY);
-*/
-    public static native void internal_native_SetY(long this_addr, float inY);
 
     public void SetZ(float inZ) {
-        internal_native_SetZ(native_address, inZ);
     }
-
-    /*[-JNI;-NATIVE]
-RVec3* nativeObject = (RVec3*)this_addr;
-nativeObject->SetZ((float)inZ);
-*/
-    public static native void internal_native_SetZ(long this_addr, float inZ);
 
     public void Set(float inX, float inY, float inZ) {
-        internal_native_Set(native_address, inX, inY, inZ);
     }
-
-    /*[-JNI;-NATIVE]
-RVec3* nativeObject = (RVec3*)this_addr;
-nativeObject->Set((float)inX, (float)inY, (float)inZ);
-*/
-    public static native void internal_native_Set(long this_addr, float inX, float inY, float inZ);
 
     public void SetComponent(int inCoordinate, float inValue) {
-        internal_native_SetComponent(native_address, inCoordinate, inValue);
     }
-
-    /*[-JNI;-NATIVE]
-RVec3* nativeObject = (RVec3*)this_addr;
-nativeObject->SetComponent(inCoordinate, (float)inValue);
-*/
-    public static native void internal_native_SetComponent(long this_addr, int inCoordinate, float inValue);
 
     public boolean IsNearZero(float inMaxDistSq) {
-        return internal_native_IsNearZero(native_address, inMaxDistSq);
+        return false;
     }
-
-    /*[-JNI;-NATIVE]
-RVec3* nativeObject = (RVec3*)this_addr;
-return nativeObject->IsNearZero((float)inMaxDistSq);
-*/
-    public static native boolean internal_native_IsNearZero(long this_addr, float inMaxDistSq);
 
     public boolean IsNearZero() {
-        return internal_native_IsNearZero(native_address);
+        return false;
     }
-
-    /*[-JNI;-NATIVE]
-RVec3* nativeObject = (RVec3*)this_addr;
-return nativeObject->IsNearZero();
-*/
-    public static native boolean internal_native_IsNearZero(long this_addr);
 
     public boolean IsClose(RVec3 inV, float inMaxDistSq) {
-        return internal_native_IsClose(native_address, inV.native_address, inMaxDistSq);
+        return false;
     }
-
-    /*[-JNI;-NATIVE]
-RVec3* nativeObject = (RVec3*)this_addr;
-return nativeObject->IsClose(*((RVec3* )inV_addr), (float)inMaxDistSq);
-*/
-    public static native boolean internal_native_IsClose(long this_addr, long inV_addr, float inMaxDistSq);
 
     public boolean IsClose(RVec3 inV) {
-        return internal_native_IsClose(native_address, inV.native_address);
+        return false;
     }
-
-    /*[-JNI;-NATIVE]
-RVec3* nativeObject = (RVec3*)this_addr;
-return nativeObject->IsClose(*((RVec3* )inV_addr));
-*/
-    public static native boolean internal_native_IsClose(long this_addr, long inV_addr);
 
     public boolean IsNormalized(float inTolerance) {
-        return internal_native_IsNormalized(native_address, inTolerance);
+        return false;
     }
-
-    /*[-JNI;-NATIVE]
-RVec3* nativeObject = (RVec3*)this_addr;
-return nativeObject->IsNormalized((float)inTolerance);
-*/
-    public static native boolean internal_native_IsNormalized(long this_addr, float inTolerance);
 
     public boolean IsNormalized() {
-        return internal_native_IsNormalized(native_address);
+        return false;
     }
-
-    /*[-JNI;-NATIVE]
-RVec3* nativeObject = (RVec3*)this_addr;
-return nativeObject->IsNormalized();
-*/
-    public static native boolean internal_native_IsNormalized(long this_addr);
 
     public RVec3 Abs() {
-        long addr = internal_native_Abs_addr(native_address);
-        if (addr == 0)
-            return RVec3.NULL;
-        if (RVec3_TEMP_GEN_1 == null)
-            RVec3_TEMP_GEN_1 = RVec3.native_new();
-        RVec3_TEMP_GEN_1.internal_reset(addr, false);
-        return RVec3_TEMP_GEN_1;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-RVec3* nativeObject = (RVec3*)this_addr;
-static RVec3 copy_addr;
-copy_addr = nativeObject->Abs();
-return (jlong)&copy_addr;*/
-    public static native long internal_native_Abs_addr(long this_addr);
 
     public RVec3 Reciprocal() {
-        long addr = internal_native_Reciprocal_addr(native_address);
-        if (addr == 0)
-            return RVec3.NULL;
-        if (RVec3_TEMP_GEN_2 == null)
-            RVec3_TEMP_GEN_2 = RVec3.native_new();
-        RVec3_TEMP_GEN_2.internal_reset(addr, false);
-        return RVec3_TEMP_GEN_2;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-RVec3* nativeObject = (RVec3*)this_addr;
-static RVec3 copy_addr;
-copy_addr = nativeObject->Reciprocal();
-return (jlong)&copy_addr;*/
-    public static native long internal_native_Reciprocal_addr(long this_addr);
 
     public RVec3 Cross(RVec3 inRHS) {
-        long addr = internal_native_Cross_addr(native_address, inRHS.native_address);
-        if (addr == 0)
-            return RVec3.NULL;
-        if (RVec3_TEMP_GEN_3 == null)
-            RVec3_TEMP_GEN_3 = RVec3.native_new();
-        RVec3_TEMP_GEN_3.internal_reset(addr, false);
-        return RVec3_TEMP_GEN_3;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-RVec3* nativeObject = (RVec3*)this_addr;
-static RVec3 copy_addr;
-copy_addr = nativeObject->Cross(*((RVec3* )inRHS_addr));
-return (jlong)&copy_addr;*/
-    public static native long internal_native_Cross_addr(long this_addr, long inRHS_addr);
 
     public float Dot(RVec3 inRHS) {
-        return internal_native_Dot(native_address, inRHS.native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-RVec3* nativeObject = (RVec3*)this_addr;
-return nativeObject->Dot(*((RVec3* )inRHS_addr));
-*/
-    public static native float internal_native_Dot(long this_addr, long inRHS_addr);
 
     public RVec3 Add(Vec3 inV) {
-        internal_native_Add_addr(native_address, inV.native_address);
-        return this;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-RVec3* nativeObject = (RVec3*)this_addr;
-return (jlong)&(*nativeObject += *((Vec3* )inV_addr));
-*/
-    public static native long internal_native_Add_addr(long this_addr, long inV_addr);
 
     public RVec3 Sub(Vec3 inV) {
-        internal_native_Sub_addr(native_address, inV.native_address);
-        return this;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-RVec3* nativeObject = (RVec3*)this_addr;
-return (jlong)&(*nativeObject -= *((Vec3* )inV_addr));
-*/
-    public static native long internal_native_Sub_addr(long this_addr, long inV_addr);
 
     public RVec3 Mul(float inV) {
-        internal_native_Mul_addr(native_address, inV);
-        return this;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-RVec3* nativeObject = (RVec3*)this_addr;
-return (jlong)&(*nativeObject *= (float)inV);
-*/
-    public static native long internal_native_Mul_addr(long this_addr, float inV);
 
     public RVec3 Div(float inV) {
-        internal_native_Div_addr(native_address, inV);
-        return this;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-RVec3* nativeObject = (RVec3*)this_addr;
-return (jlong)&(*nativeObject /= (float)inV);
-*/
-    public static native long internal_native_Div_addr(long this_addr, float inV);
 
     public RVec3 MulRVec3(RVec3 inV) {
-        long addr = internal_native_MulRVec3_addr(native_address, inV.native_address);
-        if (addr == 0)
-            return RVec3.NULL;
-        if (RVec3_TEMP_GEN_4 == null)
-            RVec3_TEMP_GEN_4 = RVec3.native_new();
-        RVec3_TEMP_GEN_4.internal_reset(addr, false);
-        return RVec3_TEMP_GEN_4;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-RVec3* nativeObject = (RVec3*)this_addr;
-static RVec3 copy_addr;
-copy_addr = (*nativeObject * *((RVec3* )inV_addr));
-return (jlong)&copy_addr;*/
-    public static native long internal_native_MulRVec3_addr(long this_addr, long inV_addr);
 
     public RVec3 MulFloat(float inV) {
-        long addr = internal_native_MulFloat_addr(native_address, inV);
-        if (addr == 0)
-            return RVec3.NULL;
-        if (RVec3_TEMP_GEN_5 == null)
-            RVec3_TEMP_GEN_5 = RVec3.native_new();
-        RVec3_TEMP_GEN_5.internal_reset(addr, false);
-        return RVec3_TEMP_GEN_5;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-RVec3* nativeObject = (RVec3*)this_addr;
-static RVec3 copy_addr;
-copy_addr = (*nativeObject * (float)inV);
-return (jlong)&copy_addr;*/
-    public static native long internal_native_MulFloat_addr(long this_addr, float inV);
 
     public RVec3 DivRVec3(RVec3 inV) {
-        long addr = internal_native_DivRVec3_addr(native_address, inV.native_address);
-        if (addr == 0)
-            return RVec3.NULL;
-        if (RVec3_TEMP_GEN_6 == null)
-            RVec3_TEMP_GEN_6 = RVec3.native_new();
-        RVec3_TEMP_GEN_6.internal_reset(addr, false);
-        return RVec3_TEMP_GEN_6;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-RVec3* nativeObject = (RVec3*)this_addr;
-static RVec3 copy_addr;
-copy_addr = (*nativeObject / *((RVec3* )inV_addr));
-return (jlong)&copy_addr;*/
-    public static native long internal_native_DivRVec3_addr(long this_addr, long inV_addr);
 
     public RVec3 DivFloat(float inV) {
-        long addr = internal_native_DivFloat_addr(native_address, inV);
-        if (addr == 0)
-            return RVec3.NULL;
-        if (RVec3_TEMP_GEN_7 == null)
-            RVec3_TEMP_GEN_7 = RVec3.native_new();
-        RVec3_TEMP_GEN_7.internal_reset(addr, false);
-        return RVec3_TEMP_GEN_7;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-RVec3* nativeObject = (RVec3*)this_addr;
-static RVec3 copy_addr;
-copy_addr = (*nativeObject / (float)inV);
-return (jlong)&copy_addr;*/
-    public static native long internal_native_DivFloat_addr(long this_addr, float inV);
 
     public RVec3 AddRVec3(RVec3 inV) {
-        long addr = internal_native_AddRVec3_addr(native_address, inV.native_address);
-        if (addr == 0)
-            return RVec3.NULL;
-        if (RVec3_TEMP_GEN_8 == null)
-            RVec3_TEMP_GEN_8 = RVec3.native_new();
-        RVec3_TEMP_GEN_8.internal_reset(addr, false);
-        return RVec3_TEMP_GEN_8;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-RVec3* nativeObject = (RVec3*)this_addr;
-static RVec3 copy_addr;
-copy_addr = (*nativeObject + *((RVec3* )inV_addr));
-return (jlong)&copy_addr;*/
-    public static native long internal_native_AddRVec3_addr(long this_addr, long inV_addr);
 
     public RVec3 SubRVec3(RVec3 inV) {
-        long addr = internal_native_SubRVec3_addr(native_address, inV.native_address);
-        if (addr == 0)
-            return RVec3.NULL;
-        if (RVec3_TEMP_GEN_9 == null)
-            RVec3_TEMP_GEN_9 = RVec3.native_new();
-        RVec3_TEMP_GEN_9.internal_reset(addr, false);
-        return RVec3_TEMP_GEN_9;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-RVec3* nativeObject = (RVec3*)this_addr;
-static RVec3 copy_addr;
-copy_addr = (*nativeObject - *((RVec3* )inV_addr));
-return (jlong)&copy_addr;*/
-    public static native long internal_native_SubRVec3_addr(long this_addr, long inV_addr);
 
     public RVec3 Sqrt() {
-        long addr = internal_native_Sqrt_addr(native_address);
-        if (addr == 0)
-            return RVec3.NULL;
-        if (RVec3_TEMP_GEN_10 == null)
-            RVec3_TEMP_GEN_10 = RVec3.native_new();
-        RVec3_TEMP_GEN_10.internal_reset(addr, false);
-        return RVec3_TEMP_GEN_10;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-RVec3* nativeObject = (RVec3*)this_addr;
-static RVec3 copy_addr;
-copy_addr = nativeObject->Sqrt();
-return (jlong)&copy_addr;*/
-    public static native long internal_native_Sqrt_addr(long this_addr);
 
     public RVec3 GetSign() {
-        long addr = internal_native_GetSign_addr(native_address);
-        if (addr == 0)
-            return RVec3.NULL;
-        if (RVec3_TEMP_GEN_11 == null)
-            RVec3_TEMP_GEN_11 = RVec3.native_new();
-        RVec3_TEMP_GEN_11.internal_reset(addr, false);
-        return RVec3_TEMP_GEN_11;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-RVec3* nativeObject = (RVec3*)this_addr;
-static RVec3 copy_addr;
-copy_addr = nativeObject->GetSign();
-return (jlong)&copy_addr;*/
-    public static native long internal_native_GetSign_addr(long this_addr);
 }

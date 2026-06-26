@@ -6,22 +6,15 @@
 
 package jolt.physics.collision;
 
-import com.github.xpenatan.jParser.idl.IDLBase;
+import com.github.xpenatan.jParser.api.NativeObject;
 import jolt.enums.EBackFaceMode;
 
-public class RayCastSettings extends IDLBase {
+public class RayCastSettings extends NativeObject {
 
     static public final RayCastSettings NULL = RayCastSettings.native_new();
 
     public RayCastSettings() {
-        long addr = internal_native_create_addr();
-        internal_reset(addr, true);
     }
-
-    /*[-JNI;-NATIVE]
-return (jlong)new RayCastSettings();
-*/
-    public static native long internal_native_create_addr();
 
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
@@ -37,87 +30,24 @@ return (jlong)new RayCastSettings();
         return new RayCastSettings((byte) 0, (char) 0);
     }
 
-    protected void deleteNative() {
-        internal_native_deleteNative(native_address);
-    }
-
-    /*[-JNI;-NATIVE]
-RayCastSettings* nativeObject = (RayCastSettings*)this_addr;
-delete nativeObject;
-*/
-    public static native void internal_native_deleteNative(long this_addr);
-
     public EBackFaceMode get_mBackFaceModeTriangles() {
-        int value = internal_native_get_mBackFaceModeTriangles(native_address);
-        EBackFaceMode[] values = EBackFaceMode.values();
-        for (int i = 0; i < values.length; i++) {
-            EBackFaceMode enumVal = values[i];
-            if (enumVal != EBackFaceMode.CUSTOM && enumVal.getValue() == value)
-                return enumVal;
-        }
-        return EBackFaceMode.CUSTOM.setValue(value);
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-RayCastSettings* nativeObject = (RayCastSettings*)this_addr;
-return (jint)nativeObject->mBackFaceModeTriangles;
-*/
-    public static native int internal_native_get_mBackFaceModeTriangles(long this_addr);
 
     public void set_mBackFaceModeTriangles(EBackFaceMode mBackFaceModeTriangles) {
-        internal_native_set_mBackFaceModeTriangles(native_address, mBackFaceModeTriangles.getValue());
     }
-
-    /*[-JNI;-NATIVE]
-RayCastSettings* nativeObject = (RayCastSettings*)this_addr;
-nativeObject->mBackFaceModeTriangles = (::EBackFaceMode)mBackFaceModeTriangles;
-*/
-    public static native void internal_native_set_mBackFaceModeTriangles(long this_addr, int mBackFaceModeTriangles);
 
     public EBackFaceMode get_mBackFaceModeConvex() {
-        int value = internal_native_get_mBackFaceModeConvex(native_address);
-        EBackFaceMode[] values = EBackFaceMode.values();
-        for (int i = 0; i < values.length; i++) {
-            EBackFaceMode enumVal = values[i];
-            if (enumVal != EBackFaceMode.CUSTOM && enumVal.getValue() == value)
-                return enumVal;
-        }
-        return EBackFaceMode.CUSTOM.setValue(value);
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-RayCastSettings* nativeObject = (RayCastSettings*)this_addr;
-return (jint)nativeObject->mBackFaceModeConvex;
-*/
-    public static native int internal_native_get_mBackFaceModeConvex(long this_addr);
 
     public void set_mBackFaceModeConvex(EBackFaceMode mBackFaceModeConvex) {
-        internal_native_set_mBackFaceModeConvex(native_address, mBackFaceModeConvex.getValue());
     }
-
-    /*[-JNI;-NATIVE]
-RayCastSettings* nativeObject = (RayCastSettings*)this_addr;
-nativeObject->mBackFaceModeConvex = (::EBackFaceMode)mBackFaceModeConvex;
-*/
-    public static native void internal_native_set_mBackFaceModeConvex(long this_addr, int mBackFaceModeConvex);
 
     public boolean get_mTreatConvexAsSolid() {
-        return internal_native_get_mTreatConvexAsSolid(native_address);
+        return false;
     }
-
-    /*[-JNI;-NATIVE]
-RayCastSettings* nativeObject = (RayCastSettings*)this_addr;
-return nativeObject->mTreatConvexAsSolid;
-*/
-    public static native boolean internal_native_get_mTreatConvexAsSolid(long this_addr);
 
     public void set_mTreatConvexAsSolid(boolean mTreatConvexAsSolid) {
-        internal_native_set_mTreatConvexAsSolid(native_address, mTreatConvexAsSolid);
     }
-
-    /*[-JNI;-NATIVE]
-RayCastSettings* nativeObject = (RayCastSettings*)this_addr;
-nativeObject->mTreatConvexAsSolid = mTreatConvexAsSolid;
-*/
-    public static native void internal_native_set_mTreatConvexAsSolid(long this_addr, boolean mTreatConvexAsSolid);
 }

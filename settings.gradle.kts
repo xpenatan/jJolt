@@ -1,53 +1,87 @@
+pluginManagement {
+    val localLibfdxPluginDir = file("../libfdx/libfdx/tools/gradle-plugin")
+    if(localLibfdxPluginDir.isDirectory) {
+        includeBuild(localLibfdxPluginDir)
+    }
+
+    repositories {
+        google()
+        mavenCentral()
+        maven {
+            url = uri("https://central.sonatype.com/repository/maven-snapshots/")
+        }
+        gradlePluginPortal()
+        maven {
+            url = uri("http://teavm.org/maven/repository/")
+            isAllowInsecureProtocol = true
+        }
+    }
+
+    plugins {
+        id("io.github.libfdx") version "-SNAPSHOT"
+    }
+}
+
 // Core
 include(":jolt:jolt-build")
 include(":jolt:jolt-base")
 include(":jolt:jolt-core")
-include(":jolt:jolt-desktop")
-include(":jolt:jolt-teavm")
+include(":jolt:jolt-jni")
+include(":jolt:jolt-ffm")
+include(":jolt:jolt-web")
 include(":jolt:jolt-android")
 
-// Extension
-include(":extensions:gdx:gdx-utils")
-include(":extensions:gdx:gdx-gl")
-include(":extensions:gdx:gdx-wgpu")
-
 // Examples
-include(":examples:graphics:gdx-shared")
-include(":examples:graphics:gdx-gl")
-include(":examples:graphics:gdx-wgpu")
 include(":examples:samples:core")
 include(":examples:samples:desktop")
-include(":examples:samples:desktop-wgpu")
-include(":examples:samples:teavm")
-include(":examples:samples:teavm-wgpu")
+include(":examples:samples:web")
 include(":examples:samples:android")
 
-//includeBuild("E:\\Dev\\Projects\\java\\gdx-webgpu") {
-//    dependencySubstitution {
-//        substitute(module("io.github.monstroussoftware.gdx-webgpu:gdx-webgpu")).using(project(":gdx-webgpu"))
-//        substitute(module("io.github.monstroussoftware.gdx-webgpu:backend-desktop")).using(project(":backends:backend-desktop"))
-//        substitute(module("io.github.monstroussoftware.gdx-webgpu:backend-teavm")).using(project(":backends:backend-teavm"))
+//val localLibfdxDir = file("../libfdx")
+//if(localLibfdxDir.isDirectory) {
+//    includeBuild(localLibfdxDir) {
+//        dependencySubstitution {
+//            substitute(module("io.github.libfdx:application")).using(project(":libfdx:runtime:application"))
+//            substitute(module("io.github.libfdx:display")).using(project(":libfdx:runtime:display"))
+//            substitute(module("io.github.libfdx:graphics")).using(project(":libfdx:graphics:api"))
+//            substitute(module("io.github.libfdx:g3d")).using(project(":libfdx:graphics:g3d"))
+//            substitute(module("io.github.libfdx:asset_manager")).using(project(":libfdx:assets:manager"))
+//            substitute(module("io.github.libfdx:backend_desktop")).using(project(":libfdx:backends:desktop"))
+//            substitute(module("io.github.libfdx:backend_web")).using(project(":libfdx:backends:web"))
+//            substitute(module("io.github.libfdx:backend_android")).using(project(":libfdx:backends:android"))
+//            substitute(module("io.github.libfdx:gl_desktop")).using(project(":libfdx:extensions:graphics:gl:platform:desktop"))
+//            substitute(module("io.github.libfdx:gl_web")).using(project(":libfdx:extensions:graphics:gl:platform:web"))
+//            substitute(module("io.github.libfdx:vulkan_desktop")).using(project(":libfdx:extensions:graphics:vulkan:platform:desktop"))
+//            substitute(module("io.github.libfdx:vulkan_android_jni")).using(project(":libfdx:extensions:graphics:vulkan:platform:android_jni"))
+//            substitute(module("io.github.libfdx:wgpu_core")).using(project(":libfdx:extensions:graphics:wgpu:core"))
+//            substitute(module("io.github.libfdx:wgpu_desktop_jni")).using(project(":libfdx:extensions:graphics:wgpu:platform:desktop_jni"))
+//            substitute(module("io.github.libfdx:wgpu_desktop_ffm")).using(project(":libfdx:extensions:graphics:wgpu:platform:desktop_ffm"))
+//            substitute(module("io.github.libfdx:wgpu_android_jni")).using(project(":libfdx:extensions:graphics:wgpu:platform:android_jni"))
+//            substitute(module("io.github.libfdx:wgpu_web")).using(project(":libfdx:extensions:graphics:wgpu:platform:web"))
+//        }
 //    }
 //}
+//includeBuild("E:\\Dev\\Projects\\java\\libfdx\\libfdx\\tools\\gradle-plugin")
 
-//includeBuild("E:\\Dev\\Projects\\java\\gdx-teavm") {
-//    dependencySubstitution {
-//        substitute(module("com.github.xpenatan.gdx-teavm:backend-web")).using(project(":backends:backend-web"))
-//    }
-//}
-//
 //includeBuild("E:\\Dev\\Projects\\java\\jParser") {
 //    dependencySubstitution {
-//        substitute(module("com.github.xpenatan.jParser:jParser-base")).using(project(":jParser:jParser-base"))
-//        substitute(module("com.github.xpenatan.jParser:jParser-build")).using(project(":jParser:jParser-build"))
-//        substitute(module("com.github.xpenatan.jParser:jParser-build-tool")).using(project(":jParser:jParser-build-tool"))
-//        substitute(module("com.github.xpenatan.jParser:jParser-core")).using(project(":jParser:jParser-core"))
-//        substitute(module("com.github.xpenatan.jParser:jParser-cpp")).using(project(":jParser:jParser-cpp"))
-//        substitute(module("com.github.xpenatan.jParser:jParser-idl")).using(project(":jParser:jParser-idl"))
-//        substitute(module("com.github.xpenatan.jParser:jParser-teavm")).using(project(":jParser:jParser-teavm"))
-//        substitute(module("com.github.xpenatan.jParser:idl-core")).using(project(":idl:idl-core"))
-//        substitute(module("com.github.xpenatan.jParser:idl-teavm")).using(project(":idl:idl-teavm"))
-//        substitute(module("com.github.xpenatan.jParser:loader-core")).using(project(":loader:loader-core"))
-//        substitute(module("com.github.xpenatan.jParser:loader-teavm")).using(project(":loader:loader-teavm"))
+//        substitute(module("com.github.xpenatan.jParser:gen-build")).using(project(":jParser:gen:gen-build"))
+//        substitute(module("com.github.xpenatan.jParser:gen-build-tool")).using(project(":jParser:gen:gen-build-tool"))
+//        substitute(module("com.github.xpenatan.jParser:gen-core")).using(project(":jParser:gen:gen-core"))
+//        substitute(module("com.github.xpenatan.jParser:gen-jni")).using(project(":jParser:gen:gen-jni"))
+//        substitute(module("com.github.xpenatan.jParser:gen-ffm")).using(project(":jParser:gen:gen-ffm"))
+//        substitute(module("com.github.xpenatan.jParser:gen-idl")).using(project(":jParser:gen:gen-idl"))
+//        substitute(module("com.github.xpenatan.jParser:gen-web")).using(project(":jParser:gen:gen-web"))
+//        substitute(module("com.github.xpenatan.jParser:api-core")).using(project(":jParser:api:api-core"))
+//        substitute(module("com.github.xpenatan.jParser:api-web")).using(project(":jParser:api:api-web"))
+//        substitute(module("com.github.xpenatan.jParser:runtime-base")).using(project(":jParser:runtime:runtime-base"))
+//        substitute(module("com.github.xpenatan.jParser:runtime-core")).using(project(":jParser:runtime:runtime-core"))
+//        substitute(module("com.github.xpenatan.jParser:runtime-web")).using(project(":jParser:runtime:runtime-web"))
+//        substitute(module("com.github.xpenatan.jParser:runtime-web_wasm")).using(project(":jParser:runtime:runtime-web_wasm"))
+//        substitute(module("com.github.xpenatan.jParser:runtime-jni")).using(project(":jParser:runtime:runtime-jni"))
+//        substitute(module("com.github.xpenatan.jParser:runtime-ffm")).using(project(":jParser:runtime:runtime-ffm"))
+//        substitute(module("com.github.xpenatan.jParser:runtime-android")).using(project(":jParser:runtime:runtime-android"))
+//        substitute(module("com.github.xpenatan.jParser:loader-core")).using(project(":jParser:loader:loader-core"))
+//        substitute(module("com.github.xpenatan.jParser:loader-web")).using(project(":jParser:loader:loader-web"))
 //    }
 //}

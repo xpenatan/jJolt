@@ -6,9 +6,9 @@
 
 package jolt.enums;
 
-import com.github.xpenatan.jParser.idl.IDLEnum;
+import com.github.xpenatan.jParser.api.NativeEnum;
 
-public enum EDrawMode implements IDLEnum<EDrawMode> {
+public enum EDrawMode implements NativeEnum<EDrawMode> {
 
     CUSTOM(0), EDrawMode_Solid(EDrawMode_Solid_NATIVE()), EDrawMode_Wireframe(EDrawMode_Wireframe_NATIVE());
 
@@ -34,13 +34,7 @@ public enum EDrawMode implements IDLEnum<EDrawMode> {
         return CUSTOM;
     }
 
-    /*[-JNI;-NATIVE]
-return (jlong)EDrawMode_Solid;
-*/
     private static native int EDrawMode_Solid_NATIVE();
 
-    /*[-JNI;-NATIVE]
-return (jlong)EDrawMode_Wireframe;
-*/
     private static native int EDrawMode_Wireframe_NATIVE();
 }

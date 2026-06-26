@@ -6,9 +6,9 @@
 
 package jolt.physics.vehicle;
 
-import com.github.xpenatan.jParser.idl.IDLBase;
+import com.github.xpenatan.jParser.api.NativeObject;
 
-public class VehicleCollisionTester extends IDLBase {
+public class VehicleCollisionTester extends NativeObject {
 
     static public final VehicleCollisionTester NULL = VehicleCollisionTester.native_new();
 
@@ -27,32 +27,12 @@ public class VehicleCollisionTester extends IDLBase {
     }
 
     public int GetRefCount() {
-        return internal_native_GetRefCount(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-VehicleCollisionTester* nativeObject = (VehicleCollisionTester*)this_addr;
-return nativeObject->GetRefCount();
-*/
-    public static native int internal_native_GetRefCount(long this_addr);
 
     public void AddRef() {
-        internal_native_AddRef(native_address);
     }
-
-    /*[-JNI;-NATIVE]
-VehicleCollisionTester* nativeObject = (VehicleCollisionTester*)this_addr;
-nativeObject->AddRef();
-*/
-    public static native void internal_native_AddRef(long this_addr);
 
     public void Release() {
-        internal_native_Release(native_address);
     }
-
-    /*[-JNI;-NATIVE]
-VehicleCollisionTester* nativeObject = (VehicleCollisionTester*)this_addr;
-nativeObject->Release();
-*/
-    public static native void internal_native_Release(long this_addr);
 }

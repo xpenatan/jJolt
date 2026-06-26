@@ -6,14 +6,10 @@
 
 package jolt.physics.collision.shape;
 
-import com.github.xpenatan.jParser.idl.IDLBase;
-import com.github.xpenatan.jparser.idl.helper.IDLString;
+import com.github.xpenatan.jParser.api.NativeObject;
+import com.github.xpenatan.jparser.runtime.helper.NativeString;
 
-public class ShapeResult extends IDLBase {
-
-    private IDLString IDLString_TEMP_GEN_0;
-
-    private Shape Shape_TEMP_GEN_0;
+public class ShapeResult extends NativeObject {
 
     static public final ShapeResult NULL = ShapeResult.native_new();
 
@@ -31,76 +27,22 @@ public class ShapeResult extends IDLBase {
         return new ShapeResult((byte) 0, (char) 0);
     }
 
-    protected void deleteNative() {
-        internal_native_deleteNative(native_address);
-    }
-
-    /*[-JNI;-NATIVE]
-Shape::ShapeResult* nativeObject = (Shape::ShapeResult*)this_addr;
-delete nativeObject;
-*/
-    public static native void internal_native_deleteNative(long this_addr);
-
     public boolean IsValid() {
-        return internal_native_IsValid(native_address);
+        return false;
     }
-
-    /*[-JNI;-NATIVE]
-Shape::ShapeResult* nativeObject = (Shape::ShapeResult*)this_addr;
-return nativeObject->IsValid();
-*/
-    public static native boolean internal_native_IsValid(long this_addr);
 
     public boolean HasError() {
-        return internal_native_HasError(native_address);
+        return false;
     }
 
-    /*[-JNI;-NATIVE]
-Shape::ShapeResult* nativeObject = (Shape::ShapeResult*)this_addr;
-return nativeObject->HasError();
-*/
-    public static native boolean internal_native_HasError(long this_addr);
-
-    public IDLString GetError() {
-        long addr = internal_native_GetError_addr(native_address);
-        if (addr == 0)
-            return IDLString.NULL;
-        if (IDLString_TEMP_GEN_0 == null)
-            IDLString_TEMP_GEN_0 = IDLString.native_new();
-        IDLString_TEMP_GEN_0.internal_reset(addr, false);
-        return IDLString_TEMP_GEN_0;
+    public NativeString GetError() {
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-Shape::ShapeResult* nativeObject = (Shape::ShapeResult*)this_addr;
-return (jlong)&nativeObject->GetError();
-*/
-    public static native long internal_native_GetError_addr(long this_addr);
 
     public Shape Get() {
-        long addr = internal_native_Get_addr(native_address);
-        if (addr == 0)
-            return Shape.NULL;
-        if (Shape_TEMP_GEN_0 == null)
-            Shape_TEMP_GEN_0 = Shape.native_new();
-        Shape_TEMP_GEN_0.internal_reset(addr, false);
-        return Shape_TEMP_GEN_0;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-Shape::ShapeResult* nativeObject = (Shape::ShapeResult*)this_addr;
-Shape* obj = nativeObject->Get();
-return (jlong)obj;
-*/
-    public static native long internal_native_Get_addr(long this_addr);
 
     public void Clear() {
-        internal_native_Clear(native_address);
     }
-
-    /*[-JNI;-NATIVE]
-Shape::ShapeResult* nativeObject = (Shape::ShapeResult*)this_addr;
-nativeObject->Clear();
-*/
-    public static native void internal_native_Clear(long this_addr);
 }

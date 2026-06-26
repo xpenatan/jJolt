@@ -6,75 +6,17 @@
 
 package jolt.math;
 
-import com.github.xpenatan.jParser.idl.IDLBase;
+import com.github.xpenatan.jParser.api.NativeObject;
 
-public class Quat extends IDLBase {
-
-    static private Quat Quat_TEMP_STATIC_GEN_0;
-
-    static private Quat Quat_TEMP_STATIC_GEN_1;
-
-    static private Quat Quat_TEMP_STATIC_GEN_2;
-
-    static private Quat Quat_TEMP_STATIC_GEN_3;
-
-    private Quat Quat_TEMP_GEN_0;
-
-    private Vec3 Vec3_TEMP_GEN_0;
-
-    private Quat Quat_TEMP_GEN_1;
-
-    private Quat Quat_TEMP_GEN_2;
-
-    static private Quat Quat_TEMP_STATIC_GEN_4;
-
-    private Vec3 Vec3_TEMP_GEN_1;
-
-    private Vec3 Vec3_TEMP_GEN_2;
-
-    private Vec3 Vec3_TEMP_GEN_3;
-
-    private Vec3 Vec3_TEMP_GEN_4;
-
-    private Vec3 Vec3_TEMP_GEN_5;
-
-    private Vec3 Vec3_TEMP_GEN_6;
-
-    private Quat Quat_TEMP_GEN_3;
-
-    private Quat Quat_TEMP_GEN_4;
-
-    private Quat Quat_TEMP_GEN_5;
-
-    private Quat Quat_TEMP_GEN_6;
-
-    private Quat Quat_TEMP_GEN_7;
-
-    private Quat Quat_TEMP_GEN_8;
-
-    private Quat Quat_TEMP_GEN_9;
+public class Quat extends NativeObject {
 
     static public final Quat NULL = Quat.native_new();
 
     public Quat() {
-        long addr = internal_native_create_addr();
-        internal_reset(addr, true);
     }
-
-    /*[-JNI;-NATIVE]
-return (jlong)new Quat();
-*/
-    public static native long internal_native_create_addr();
 
     public Quat(float inX, float inY, float inZ, float inW) {
-        long addr = internal_native_create_float_float_float_float_addr(inX, inY, inZ, inW);
-        internal_reset(addr, true);
     }
-
-    /*[-JNI;-NATIVE]
-return (jlong)new Quat((float)inX, (float)inY, (float)inZ, (float)inW);
-*/
-    public static native long internal_native_create_float_float_float_float_addr(float inX, float inY, float inZ, float inW);
 
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
@@ -90,591 +32,169 @@ return (jlong)new Quat((float)inX, (float)inY, (float)inZ, (float)inW);
         return new Quat((byte) 0, (char) 0);
     }
 
-    protected void deleteNative() {
-        internal_native_deleteNative(native_address);
-    }
-
-    /*[-JNI;-NATIVE]
-Quat* nativeObject = (Quat*)this_addr;
-delete nativeObject;
-*/
-    public static native void internal_native_deleteNative(long this_addr);
-
     public static Quat sZero() {
-        long addr = internal_native_sZero_addr();
-        if (addr == 0)
-            return Quat.NULL;
-        if (Quat_TEMP_STATIC_GEN_0 == null)
-            Quat_TEMP_STATIC_GEN_0 = Quat.native_new();
-        Quat_TEMP_STATIC_GEN_0.internal_reset(addr, false);
-        return Quat_TEMP_STATIC_GEN_0;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-static Quat copy_addr;
-copy_addr = Quat::sZero();
-return (jlong)&copy_addr;*/
-    public static native long internal_native_sZero_addr();
 
     public static Quat sIdentity() {
-        long addr = internal_native_sIdentity_addr();
-        if (addr == 0)
-            return Quat.NULL;
-        if (Quat_TEMP_STATIC_GEN_1 == null)
-            Quat_TEMP_STATIC_GEN_1 = Quat.native_new();
-        Quat_TEMP_STATIC_GEN_1.internal_reset(addr, false);
-        return Quat_TEMP_STATIC_GEN_1;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-static Quat copy_addr;
-copy_addr = Quat::sIdentity();
-return (jlong)&copy_addr;*/
-    public static native long internal_native_sIdentity_addr();
 
     public static Quat sRotation(Vec3 inRotation, float inAngle) {
-        long addr = internal_native_sRotation_addr(inRotation.native_address, inAngle);
-        if (addr == 0)
-            return Quat.NULL;
-        if (Quat_TEMP_STATIC_GEN_2 == null)
-            Quat_TEMP_STATIC_GEN_2 = Quat.native_new();
-        Quat_TEMP_STATIC_GEN_2.internal_reset(addr, false);
-        return Quat_TEMP_STATIC_GEN_2;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-static Quat copy_addr;
-copy_addr = Quat::sRotation(*((Vec3* )inRotation_addr), (float)inAngle);
-return (jlong)&copy_addr;*/
-    public static native long internal_native_sRotation_addr(long inRotation_addr, float inAngle);
 
     public static Quat sFromTo(Vec3 inFrom, Vec3 inTo) {
-        long addr = internal_native_sFromTo_addr(inFrom.native_address, inTo.native_address);
-        if (addr == 0)
-            return Quat.NULL;
-        if (Quat_TEMP_STATIC_GEN_3 == null)
-            Quat_TEMP_STATIC_GEN_3 = Quat.native_new();
-        Quat_TEMP_STATIC_GEN_3.internal_reset(addr, false);
-        return Quat_TEMP_STATIC_GEN_3;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-static Quat copy_addr;
-copy_addr = Quat::sFromTo(*((Vec3* )inFrom_addr), *((Vec3* )inTo_addr));
-return (jlong)&copy_addr;*/
-    public static native long internal_native_sFromTo_addr(long inFrom_addr, long inTo_addr);
 
     public boolean Equals(Quat inQ) {
-        return internal_native_Equals(native_address, inQ.native_address);
+        return false;
     }
-
-    /*[-JNI;-NATIVE]
-Quat* nativeObject = (Quat*)this_addr;
-return ((*nativeObject == *((Quat* )inQ_addr)));*/
-    public static native boolean internal_native_Equals(long this_addr, long inQ_addr);
 
     public boolean NotEquals(Quat inQ) {
-        return internal_native_NotEquals(native_address, inQ.native_address);
+        return false;
     }
-
-    /*[-JNI;-NATIVE]
-Quat* nativeObject = (Quat*)this_addr;
-return ((*nativeObject != *((Quat* )inQ_addr)));*/
-    public static native boolean internal_native_NotEquals(long this_addr, long inQ_addr);
 
     public Quat Set(Quat other) {
-        internal_native_Set__0_addr(native_address, other.native_address);
-        return this;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-Quat* nativeObject = (Quat*)this_addr;
-return (jlong)&(*nativeObject = *((Quat* )other_addr));
-*/
-    public static native long internal_native_Set__0_addr(long this_addr, long other_addr);
 
     public Quat MulQuat(Quat inQ) {
-        long addr = internal_native_MulQuat_addr(native_address, inQ.native_address);
-        if (addr == 0)
-            return Quat.NULL;
-        if (Quat_TEMP_GEN_0 == null)
-            Quat_TEMP_GEN_0 = Quat.native_new();
-        Quat_TEMP_GEN_0.internal_reset(addr, false);
-        return Quat_TEMP_GEN_0;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-Quat* nativeObject = (Quat*)this_addr;
-static Quat copy_addr;
-copy_addr = (*nativeObject * *((Quat* )inQ_addr));
-return (jlong)&copy_addr;*/
-    public static native long internal_native_MulQuat_addr(long this_addr, long inQ_addr);
 
     public Vec3 MulVec3(Vec3 inV) {
-        long addr = internal_native_MulVec3_addr(native_address, inV.native_address);
-        if (addr == 0)
-            return Vec3.NULL;
-        if (Vec3_TEMP_GEN_0 == null)
-            Vec3_TEMP_GEN_0 = Vec3.native_new();
-        Vec3_TEMP_GEN_0.internal_reset(addr, false);
-        return Vec3_TEMP_GEN_0;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-Quat* nativeObject = (Quat*)this_addr;
-static Vec3 copy_addr;
-copy_addr = (*nativeObject * *((Vec3* )inV_addr));
-return (jlong)&copy_addr;*/
-    public static native long internal_native_MulVec3_addr(long this_addr, long inV_addr);
 
     public Quat MulFloat(float inV) {
-        long addr = internal_native_MulFloat_addr(native_address, inV);
-        if (addr == 0)
-            return Quat.NULL;
-        if (Quat_TEMP_GEN_1 == null)
-            Quat_TEMP_GEN_1 = Quat.native_new();
-        Quat_TEMP_GEN_1.internal_reset(addr, false);
-        return Quat_TEMP_GEN_1;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-Quat* nativeObject = (Quat*)this_addr;
-static Quat copy_addr;
-copy_addr = (*nativeObject * (float)inV);
-return (jlong)&copy_addr;*/
-    public static native long internal_native_MulFloat_addr(long this_addr, float inV);
 
     public boolean IsClose(Quat inQ, float inMaxDistSq) {
-        return internal_native_IsClose(native_address, inQ.native_address, inMaxDistSq);
+        return false;
     }
-
-    /*[-JNI;-NATIVE]
-Quat* nativeObject = (Quat*)this_addr;
-return nativeObject->IsClose(*((Quat* )inQ_addr), (float)inMaxDistSq);
-*/
-    public static native boolean internal_native_IsClose(long this_addr, long inQ_addr, float inMaxDistSq);
 
     public boolean IsClose(Quat inQ) {
-        return internal_native_IsClose(native_address, inQ.native_address);
+        return false;
     }
-
-    /*[-JNI;-NATIVE]
-Quat* nativeObject = (Quat*)this_addr;
-return nativeObject->IsClose(*((Quat* )inQ_addr));
-*/
-    public static native boolean internal_native_IsClose(long this_addr, long inQ_addr);
 
     public boolean IsNormalized(float inTolerance) {
-        return internal_native_IsNormalized(native_address, inTolerance);
+        return false;
     }
-
-    /*[-JNI;-NATIVE]
-Quat* nativeObject = (Quat*)this_addr;
-return nativeObject->IsNormalized((float)inTolerance);
-*/
-    public static native boolean internal_native_IsNormalized(long this_addr, float inTolerance);
 
     public boolean IsNormalized() {
-        return internal_native_IsNormalized(native_address);
+        return false;
     }
-
-    /*[-JNI;-NATIVE]
-Quat* nativeObject = (Quat*)this_addr;
-return nativeObject->IsNormalized();
-*/
-    public static native boolean internal_native_IsNormalized(long this_addr);
 
     public float Length() {
-        return internal_native_Length(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-Quat* nativeObject = (Quat*)this_addr;
-return nativeObject->Length();
-*/
-    public static native float internal_native_Length(long this_addr);
 
     public float LengthSq() {
-        return internal_native_LengthSq(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-Quat* nativeObject = (Quat*)this_addr;
-return nativeObject->LengthSq();
-*/
-    public static native float internal_native_LengthSq(long this_addr);
 
     public Quat Normalized() {
-        long addr = internal_native_Normalized_addr(native_address);
-        if (addr == 0)
-            return Quat.NULL;
-        if (Quat_TEMP_GEN_2 == null)
-            Quat_TEMP_GEN_2 = Quat.native_new();
-        Quat_TEMP_GEN_2.internal_reset(addr, false);
-        return Quat_TEMP_GEN_2;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-Quat* nativeObject = (Quat*)this_addr;
-static Quat copy_addr;
-copy_addr = nativeObject->Normalized();
-return (jlong)&copy_addr;*/
-    public static native long internal_native_Normalized_addr(long this_addr);
 
     public static Quat sEulerAngles(Vec3 inInput) {
-        long addr = internal_native_sEulerAngles_addr(inInput.native_address);
-        if (addr == 0)
-            return Quat.NULL;
-        if (Quat_TEMP_STATIC_GEN_4 == null)
-            Quat_TEMP_STATIC_GEN_4 = Quat.native_new();
-        Quat_TEMP_STATIC_GEN_4.internal_reset(addr, false);
-        return Quat_TEMP_STATIC_GEN_4;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-static Quat copy_addr;
-copy_addr = Quat::sEulerAngles(*((Vec3* )inInput_addr));
-return (jlong)&copy_addr;*/
-    public static native long internal_native_sEulerAngles_addr(long inInput_addr);
 
     public Vec3 GetEulerAngles() {
-        long addr = internal_native_GetEulerAngles_addr(native_address);
-        if (addr == 0)
-            return Vec3.NULL;
-        if (Vec3_TEMP_GEN_1 == null)
-            Vec3_TEMP_GEN_1 = Vec3.native_new();
-        Vec3_TEMP_GEN_1.internal_reset(addr, false);
-        return Vec3_TEMP_GEN_1;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-Quat* nativeObject = (Quat*)this_addr;
-static Vec3 copy_addr;
-copy_addr = nativeObject->GetEulerAngles();
-return (jlong)&copy_addr;*/
-    public static native long internal_native_GetEulerAngles_addr(long this_addr);
 
     public float GetX() {
-        return internal_native_GetX(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-Quat* nativeObject = (Quat*)this_addr;
-return nativeObject->GetX();
-*/
-    public static native float internal_native_GetX(long this_addr);
 
     public float GetY() {
-        return internal_native_GetY(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-Quat* nativeObject = (Quat*)this_addr;
-return nativeObject->GetY();
-*/
-    public static native float internal_native_GetY(long this_addr);
 
     public float GetZ() {
-        return internal_native_GetZ(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-Quat* nativeObject = (Quat*)this_addr;
-return nativeObject->GetZ();
-*/
-    public static native float internal_native_GetZ(long this_addr);
 
     public float GetW() {
-        return internal_native_GetW(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-Quat* nativeObject = (Quat*)this_addr;
-return nativeObject->GetW();
-*/
-    public static native float internal_native_GetW(long this_addr);
 
     public Vec3 GetXYZ() {
-        long addr = internal_native_GetXYZ_addr(native_address);
-        if (addr == 0)
-            return Vec3.NULL;
-        if (Vec3_TEMP_GEN_2 == null)
-            Vec3_TEMP_GEN_2 = Vec3.native_new();
-        Vec3_TEMP_GEN_2.internal_reset(addr, false);
-        return Vec3_TEMP_GEN_2;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-Quat* nativeObject = (Quat*)this_addr;
-static Vec3 copy_addr;
-copy_addr = nativeObject->GetXYZ();
-return (jlong)&copy_addr;*/
-    public static native long internal_native_GetXYZ_addr(long this_addr);
 
     public void SetX(float inX) {
-        internal_native_SetX(native_address, inX);
     }
-
-    /*[-JNI;-NATIVE]
-Quat* nativeObject = (Quat*)this_addr;
-nativeObject->SetX((float)inX);
-*/
-    public static native void internal_native_SetX(long this_addr, float inX);
 
     public void SetY(float inY) {
-        internal_native_SetY(native_address, inY);
     }
-
-    /*[-JNI;-NATIVE]
-Quat* nativeObject = (Quat*)this_addr;
-nativeObject->SetY((float)inY);
-*/
-    public static native void internal_native_SetY(long this_addr, float inY);
 
     public void SetZ(float inZ) {
-        internal_native_SetZ(native_address, inZ);
     }
-
-    /*[-JNI;-NATIVE]
-Quat* nativeObject = (Quat*)this_addr;
-nativeObject->SetZ((float)inZ);
-*/
-    public static native void internal_native_SetZ(long this_addr, float inZ);
 
     public void SetW(float inW) {
-        internal_native_SetW(native_address, inW);
     }
-
-    /*[-JNI;-NATIVE]
-Quat* nativeObject = (Quat*)this_addr;
-nativeObject->SetW((float)inW);
-*/
-    public static native void internal_native_SetW(long this_addr, float inW);
 
     public void Set(float inX, float inY, float inZ, float inW) {
-        internal_native_Set(native_address, inX, inY, inZ, inW);
     }
-
-    /*[-JNI;-NATIVE]
-Quat* nativeObject = (Quat*)this_addr;
-nativeObject->Set((float)inX, (float)inY, (float)inZ, (float)inW);
-*/
-    public static native void internal_native_Set(long this_addr, float inX, float inY, float inZ, float inW);
 
     public Vec3 InverseRotate(Vec3 inV) {
-        long addr = internal_native_InverseRotate_addr(native_address, inV.native_address);
-        if (addr == 0)
-            return Vec3.NULL;
-        if (Vec3_TEMP_GEN_3 == null)
-            Vec3_TEMP_GEN_3 = Vec3.native_new();
-        Vec3_TEMP_GEN_3.internal_reset(addr, false);
-        return Vec3_TEMP_GEN_3;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-Quat* nativeObject = (Quat*)this_addr;
-static Vec3 copy_addr;
-copy_addr = nativeObject->InverseRotate(*((Vec3* )inV_addr));
-return (jlong)&copy_addr;*/
-    public static native long internal_native_InverseRotate_addr(long this_addr, long inV_addr);
 
     public Vec3 RotateAxisX() {
-        long addr = internal_native_RotateAxisX_addr(native_address);
-        if (addr == 0)
-            return Vec3.NULL;
-        if (Vec3_TEMP_GEN_4 == null)
-            Vec3_TEMP_GEN_4 = Vec3.native_new();
-        Vec3_TEMP_GEN_4.internal_reset(addr, false);
-        return Vec3_TEMP_GEN_4;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-Quat* nativeObject = (Quat*)this_addr;
-static Vec3 copy_addr;
-copy_addr = nativeObject->RotateAxisX();
-return (jlong)&copy_addr;*/
-    public static native long internal_native_RotateAxisX_addr(long this_addr);
 
     public Vec3 RotateAxisY() {
-        long addr = internal_native_RotateAxisY_addr(native_address);
-        if (addr == 0)
-            return Vec3.NULL;
-        if (Vec3_TEMP_GEN_5 == null)
-            Vec3_TEMP_GEN_5 = Vec3.native_new();
-        Vec3_TEMP_GEN_5.internal_reset(addr, false);
-        return Vec3_TEMP_GEN_5;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-Quat* nativeObject = (Quat*)this_addr;
-static Vec3 copy_addr;
-copy_addr = nativeObject->RotateAxisY();
-return (jlong)&copy_addr;*/
-    public static native long internal_native_RotateAxisY_addr(long this_addr);
 
     public Vec3 RotateAxisZ() {
-        long addr = internal_native_RotateAxisZ_addr(native_address);
-        if (addr == 0)
-            return Vec3.NULL;
-        if (Vec3_TEMP_GEN_6 == null)
-            Vec3_TEMP_GEN_6 = Vec3.native_new();
-        Vec3_TEMP_GEN_6.internal_reset(addr, false);
-        return Vec3_TEMP_GEN_6;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-Quat* nativeObject = (Quat*)this_addr;
-static Vec3 copy_addr;
-copy_addr = nativeObject->RotateAxisZ();
-return (jlong)&copy_addr;*/
-    public static native long internal_native_RotateAxisZ_addr(long this_addr);
 
     public float Dot(Quat inQ) {
-        return internal_native_Dot(native_address, inQ.native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-Quat* nativeObject = (Quat*)this_addr;
-return nativeObject->Dot(*((Quat* )inQ_addr));
-*/
-    public static native float internal_native_Dot(long this_addr, long inQ_addr);
 
     public Quat Conjugated() {
-        long addr = internal_native_Conjugated_addr(native_address);
-        if (addr == 0)
-            return Quat.NULL;
-        if (Quat_TEMP_GEN_3 == null)
-            Quat_TEMP_GEN_3 = Quat.native_new();
-        Quat_TEMP_GEN_3.internal_reset(addr, false);
-        return Quat_TEMP_GEN_3;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-Quat* nativeObject = (Quat*)this_addr;
-static Quat copy_addr;
-copy_addr = nativeObject->Conjugated();
-return (jlong)&copy_addr;*/
-    public static native long internal_native_Conjugated_addr(long this_addr);
 
     public Quat Inversed() {
-        long addr = internal_native_Inversed_addr(native_address);
-        if (addr == 0)
-            return Quat.NULL;
-        if (Quat_TEMP_GEN_4 == null)
-            Quat_TEMP_GEN_4 = Quat.native_new();
-        Quat_TEMP_GEN_4.internal_reset(addr, false);
-        return Quat_TEMP_GEN_4;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-Quat* nativeObject = (Quat*)this_addr;
-static Quat copy_addr;
-copy_addr = nativeObject->Inversed();
-return (jlong)&copy_addr;*/
-    public static native long internal_native_Inversed_addr(long this_addr);
 
     public Quat EnsureWPositive() {
-        long addr = internal_native_EnsureWPositive_addr(native_address);
-        if (addr == 0)
-            return Quat.NULL;
-        if (Quat_TEMP_GEN_5 == null)
-            Quat_TEMP_GEN_5 = Quat.native_new();
-        Quat_TEMP_GEN_5.internal_reset(addr, false);
-        return Quat_TEMP_GEN_5;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-Quat* nativeObject = (Quat*)this_addr;
-static Quat copy_addr;
-copy_addr = nativeObject->EnsureWPositive();
-return (jlong)&copy_addr;*/
-    public static native long internal_native_EnsureWPositive_addr(long this_addr);
 
     public Quat GetPerpendicular() {
-        long addr = internal_native_GetPerpendicular_addr(native_address);
-        if (addr == 0)
-            return Quat.NULL;
-        if (Quat_TEMP_GEN_6 == null)
-            Quat_TEMP_GEN_6 = Quat.native_new();
-        Quat_TEMP_GEN_6.internal_reset(addr, false);
-        return Quat_TEMP_GEN_6;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-Quat* nativeObject = (Quat*)this_addr;
-static Quat copy_addr;
-copy_addr = nativeObject->GetPerpendicular();
-return (jlong)&copy_addr;*/
-    public static native long internal_native_GetPerpendicular_addr(long this_addr);
 
     public float GetRotationAngle(Vec3 inAxis) {
-        return internal_native_GetRotationAngle(native_address, inAxis.native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-Quat* nativeObject = (Quat*)this_addr;
-return nativeObject->GetRotationAngle(*((Vec3* )inAxis_addr));
-*/
-    public static native float internal_native_GetRotationAngle(long this_addr, long inAxis_addr);
 
     public Quat GetTwist(Vec3 inAxis) {
-        long addr = internal_native_GetTwist_addr(native_address, inAxis.native_address);
-        if (addr == 0)
-            return Quat.NULL;
-        if (Quat_TEMP_GEN_7 == null)
-            Quat_TEMP_GEN_7 = Quat.native_new();
-        Quat_TEMP_GEN_7.internal_reset(addr, false);
-        return Quat_TEMP_GEN_7;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-Quat* nativeObject = (Quat*)this_addr;
-static Quat copy_addr;
-copy_addr = nativeObject->GetTwist(*((Vec3* )inAxis_addr));
-return (jlong)&copy_addr;*/
-    public static native long internal_native_GetTwist_addr(long this_addr, long inAxis_addr);
 
     public void GetSwingTwist(Quat outSwing, Quat outTwist) {
-        internal_native_GetSwingTwist(native_address, outSwing.native_address, outTwist.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-Quat* nativeObject = (Quat*)this_addr;
-nativeObject->GetSwingTwist(*((Quat* )outSwing_addr), *((Quat* )outTwist_addr));
-*/
-    public static native void internal_native_GetSwingTwist(long this_addr, long outSwing_addr, long outTwist_addr);
 
     public Quat LERP(Quat inDestination, float inFraction) {
-        long addr = internal_native_LERP_addr(native_address, inDestination.native_address, inFraction);
-        if (addr == 0)
-            return Quat.NULL;
-        if (Quat_TEMP_GEN_8 == null)
-            Quat_TEMP_GEN_8 = Quat.native_new();
-        Quat_TEMP_GEN_8.internal_reset(addr, false);
-        return Quat_TEMP_GEN_8;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-Quat* nativeObject = (Quat*)this_addr;
-static Quat copy_addr;
-copy_addr = nativeObject->LERP(*((Quat* )inDestination_addr), (float)inFraction);
-return (jlong)&copy_addr;*/
-    public static native long internal_native_LERP_addr(long this_addr, long inDestination_addr, float inFraction);
 
     public Quat SLERP(Quat inDestination, float inFraction) {
-        long addr = internal_native_SLERP_addr(native_address, inDestination.native_address, inFraction);
-        if (addr == 0)
-            return Quat.NULL;
-        if (Quat_TEMP_GEN_9 == null)
-            Quat_TEMP_GEN_9 = Quat.native_new();
-        Quat_TEMP_GEN_9.internal_reset(addr, false);
-        return Quat_TEMP_GEN_9;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-Quat* nativeObject = (Quat*)this_addr;
-static Quat copy_addr;
-copy_addr = nativeObject->SLERP(*((Quat* )inDestination_addr), (float)inFraction);
-return (jlong)&copy_addr;*/
-    public static native long internal_native_SLERP_addr(long this_addr, long inDestination_addr, float inFraction);
 }

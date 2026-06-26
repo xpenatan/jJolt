@@ -20,44 +20,11 @@ import jolt.physics.softbody.CollideShapeCollector;
 
 public class Character extends CharacterBase {
 
-    private Vec3 Vec3_TEMP_GEN_0;
-
-    private Vec3 Vec3_TEMP_GEN_1;
-
-    private BodyID BodyID_TEMP_GEN_0;
-
-    private RVec3 RVec3_TEMP_GEN_0;
-
-    private RVec3 RVec3_TEMP_GEN_1;
-
-    private Quat Quat_TEMP_GEN_0;
-
-    private Quat Quat_TEMP_GEN_1;
-
-    private RVec3 RVec3_TEMP_GEN_2;
-
-    private RVec3 RVec3_TEMP_GEN_3;
-
-    private RMat44 RMat44_TEMP_GEN_0;
-
-    private RMat44 RMat44_TEMP_GEN_1;
-
-    private TransformedShape TransformedShape_TEMP_GEN_0;
-
-    private TransformedShape TransformedShape_TEMP_GEN_1;
-
     static public final Character NULL = Character.native_new();
 
     public Character(CharacterSettings inSettings, RVec3 inPosition, Quat inRotation, long inUserData, PhysicsSystem inSystem) {
         super((byte) 1, (char) 1);
-        long addr = internal_native_create_CharacterSettings_RVec3_Quat_long_PhysicsSystem_addr(inSettings.native_address, inPosition.native_address, inRotation.native_address, inUserData, inSystem.native_address);
-        internal_reset(addr, true);
     }
-
-    /*[-JNI;-NATIVE]
-return (jlong)new Character((CharacterSettings* )inSettings_addr, *((RVec3* )inPosition_addr), *((Quat* )inRotation_addr), inUserData, (PhysicsSystem* )inSystem_addr);
-*/
-    public static native long internal_native_create_CharacterSettings_RVec3_Quat_long_PhysicsSystem_addr(long inSettings_addr, long inPosition_addr, long inRotation_addr, long inUserData, long inSystem_addr);
 
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
@@ -74,574 +41,160 @@ return (jlong)new Character((CharacterSettings* )inSettings_addr, *((RVec3* )inP
         return new Character((byte) 0, (char) 0);
     }
 
-    protected void deleteNative() {
-        internal_native_deleteNative(native_address);
-    }
-
-    /*[-JNI;-NATIVE]
-Character* nativeObject = (Character*)this_addr;
-delete nativeObject;
-*/
-    public static native void internal_native_deleteNative(long this_addr);
-
     public void AddToPhysicsSystem(EActivation inActivationMode, boolean inLockBodies) {
-        internal_native_AddToPhysicsSystem(native_address, inActivationMode.getValue(), inLockBodies);
     }
-
-    /*[-JNI;-NATIVE]
-Character* nativeObject = (Character*)this_addr;
-nativeObject->AddToPhysicsSystem((::EActivation)inActivationMode, inLockBodies);
-*/
-    public static native void internal_native_AddToPhysicsSystem(long this_addr, int inActivationMode, boolean inLockBodies);
 
     public void AddToPhysicsSystem(EActivation inActivationMode) {
-        internal_native_AddToPhysicsSystem(native_address, inActivationMode.getValue());
     }
-
-    /*[-JNI;-NATIVE]
-Character* nativeObject = (Character*)this_addr;
-nativeObject->AddToPhysicsSystem((::EActivation)inActivationMode);
-*/
-    public static native void internal_native_AddToPhysicsSystem(long this_addr, int inActivationMode);
 
     public void AddToPhysicsSystem() {
-        internal_native_AddToPhysicsSystem(native_address);
     }
-
-    /*[-JNI;-NATIVE]
-Character* nativeObject = (Character*)this_addr;
-nativeObject->AddToPhysicsSystem();
-*/
-    public static native void internal_native_AddToPhysicsSystem(long this_addr);
 
     public void RemoveFromPhysicsSystem(boolean inLockBodies) {
-        internal_native_RemoveFromPhysicsSystem(native_address, inLockBodies);
     }
-
-    /*[-JNI;-NATIVE]
-Character* nativeObject = (Character*)this_addr;
-nativeObject->RemoveFromPhysicsSystem(inLockBodies);
-*/
-    public static native void internal_native_RemoveFromPhysicsSystem(long this_addr, boolean inLockBodies);
 
     public void RemoveFromPhysicsSystem() {
-        internal_native_RemoveFromPhysicsSystem(native_address);
     }
-
-    /*[-JNI;-NATIVE]
-Character* nativeObject = (Character*)this_addr;
-nativeObject->RemoveFromPhysicsSystem();
-*/
-    public static native void internal_native_RemoveFromPhysicsSystem(long this_addr);
 
     public void Activate(boolean inLockBodies) {
-        internal_native_Activate(native_address, inLockBodies);
     }
-
-    /*[-JNI;-NATIVE]
-Character* nativeObject = (Character*)this_addr;
-nativeObject->Activate(inLockBodies);
-*/
-    public static native void internal_native_Activate(long this_addr, boolean inLockBodies);
 
     public void Activate() {
-        internal_native_Activate(native_address);
     }
-
-    /*[-JNI;-NATIVE]
-Character* nativeObject = (Character*)this_addr;
-nativeObject->Activate();
-*/
-    public static native void internal_native_Activate(long this_addr);
 
     public void PostSimulation(float inMaxSeparationDistance, boolean inLockBodies) {
-        internal_native_PostSimulation(native_address, inMaxSeparationDistance, inLockBodies);
     }
-
-    /*[-JNI;-NATIVE]
-Character* nativeObject = (Character*)this_addr;
-nativeObject->PostSimulation((float)inMaxSeparationDistance, inLockBodies);
-*/
-    public static native void internal_native_PostSimulation(long this_addr, float inMaxSeparationDistance, boolean inLockBodies);
 
     public void PostSimulation(float inMaxSeparationDistance) {
-        internal_native_PostSimulation(native_address, inMaxSeparationDistance);
     }
-
-    /*[-JNI;-NATIVE]
-Character* nativeObject = (Character*)this_addr;
-nativeObject->PostSimulation((float)inMaxSeparationDistance);
-*/
-    public static native void internal_native_PostSimulation(long this_addr, float inMaxSeparationDistance);
 
     public void SetLinearAndAngularVelocity(Vec3 inLinearVelocity, Vec3 inAngularVelocity, boolean inLockBodies) {
-        internal_native_SetLinearAndAngularVelocity(native_address, inLinearVelocity.native_address, inAngularVelocity.native_address, inLockBodies);
     }
-
-    /*[-JNI;-NATIVE]
-Character* nativeObject = (Character*)this_addr;
-nativeObject->SetLinearAndAngularVelocity(*((Vec3* )inLinearVelocity_addr), *((Vec3* )inAngularVelocity_addr), inLockBodies);
-*/
-    public static native void internal_native_SetLinearAndAngularVelocity(long this_addr, long inLinearVelocity_addr, long inAngularVelocity_addr, boolean inLockBodies);
 
     public void SetLinearAndAngularVelocity(Vec3 inLinearVelocity, Vec3 inAngularVelocity) {
-        internal_native_SetLinearAndAngularVelocity(native_address, inLinearVelocity.native_address, inAngularVelocity.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-Character* nativeObject = (Character*)this_addr;
-nativeObject->SetLinearAndAngularVelocity(*((Vec3* )inLinearVelocity_addr), *((Vec3* )inAngularVelocity_addr));
-*/
-    public static native void internal_native_SetLinearAndAngularVelocity(long this_addr, long inLinearVelocity_addr, long inAngularVelocity_addr);
 
     public Vec3 GetLinearVelocity(boolean inLockBodies) {
-        long addr = internal_native_GetLinearVelocity_addr(native_address, inLockBodies);
-        if (addr == 0)
-            return Vec3.NULL;
-        if (Vec3_TEMP_GEN_0 == null)
-            Vec3_TEMP_GEN_0 = Vec3.native_new();
-        Vec3_TEMP_GEN_0.internal_reset(addr, false);
-        return Vec3_TEMP_GEN_0;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-Character* nativeObject = (Character*)this_addr;
-static Vec3 copy_addr;
-copy_addr = nativeObject->GetLinearVelocity(inLockBodies);
-return (jlong)&copy_addr;*/
-    public static native long internal_native_GetLinearVelocity_addr(long this_addr, boolean inLockBodies);
 
     public Vec3 GetLinearVelocity() {
-        long addr = internal_native_GetLinearVelocity_addr(native_address);
-        if (addr == 0)
-            return Vec3.NULL;
-        if (Vec3_TEMP_GEN_1 == null)
-            Vec3_TEMP_GEN_1 = Vec3.native_new();
-        Vec3_TEMP_GEN_1.internal_reset(addr, false);
-        return Vec3_TEMP_GEN_1;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-Character* nativeObject = (Character*)this_addr;
-static Vec3 copy_addr;
-copy_addr = nativeObject->GetLinearVelocity();
-return (jlong)&copy_addr;*/
-    public static native long internal_native_GetLinearVelocity_addr(long this_addr);
 
     public void SetLinearVelocity(Vec3 inLinearVelocity, boolean inLockBodies) {
-        internal_native_SetLinearVelocity(native_address, inLinearVelocity.native_address, inLockBodies);
     }
-
-    /*[-JNI;-NATIVE]
-Character* nativeObject = (Character*)this_addr;
-nativeObject->SetLinearVelocity(*((Vec3* )inLinearVelocity_addr), inLockBodies);
-*/
-    public static native void internal_native_SetLinearVelocity(long this_addr, long inLinearVelocity_addr, boolean inLockBodies);
 
     public void SetLinearVelocity(Vec3 inLinearVelocity) {
-        internal_native_SetLinearVelocity(native_address, inLinearVelocity.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-Character* nativeObject = (Character*)this_addr;
-nativeObject->SetLinearVelocity(*((Vec3* )inLinearVelocity_addr));
-*/
-    public static native void internal_native_SetLinearVelocity(long this_addr, long inLinearVelocity_addr);
 
     public void AddLinearVelocity(Vec3 inLinearVelocity, boolean inLockBodies) {
-        internal_native_AddLinearVelocity(native_address, inLinearVelocity.native_address, inLockBodies);
     }
-
-    /*[-JNI;-NATIVE]
-Character* nativeObject = (Character*)this_addr;
-nativeObject->AddLinearVelocity(*((Vec3* )inLinearVelocity_addr), inLockBodies);
-*/
-    public static native void internal_native_AddLinearVelocity(long this_addr, long inLinearVelocity_addr, boolean inLockBodies);
 
     public void AddLinearVelocity(Vec3 inLinearVelocity) {
-        internal_native_AddLinearVelocity(native_address, inLinearVelocity.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-Character* nativeObject = (Character*)this_addr;
-nativeObject->AddLinearVelocity(*((Vec3* )inLinearVelocity_addr));
-*/
-    public static native void internal_native_AddLinearVelocity(long this_addr, long inLinearVelocity_addr);
 
     public void AddImpulse(Vec3 inImpulse, boolean inLockBodies) {
-        internal_native_AddImpulse(native_address, inImpulse.native_address, inLockBodies);
     }
-
-    /*[-JNI;-NATIVE]
-Character* nativeObject = (Character*)this_addr;
-nativeObject->AddImpulse(*((Vec3* )inImpulse_addr), inLockBodies);
-*/
-    public static native void internal_native_AddImpulse(long this_addr, long inImpulse_addr, boolean inLockBodies);
 
     public BodyID GetBodyID() {
-        long addr = internal_native_GetBodyID_addr(native_address);
-        if (addr == 0)
-            return BodyID.NULL;
-        if (BodyID_TEMP_GEN_0 == null)
-            BodyID_TEMP_GEN_0 = BodyID.native_new();
-        BodyID_TEMP_GEN_0.internal_reset(addr, false);
-        return BodyID_TEMP_GEN_0;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-Character* nativeObject = (Character*)this_addr;
-static BodyID copy_addr;
-copy_addr = nativeObject->GetBodyID();
-return (jlong)&copy_addr;*/
-    public static native long internal_native_GetBodyID_addr(long this_addr);
 
     public void GetPositionAndRotation(RVec3 outPosition, Quat outRotation, boolean inLockBodies) {
-        internal_native_GetPositionAndRotation(native_address, outPosition.native_address, outRotation.native_address, inLockBodies);
     }
-
-    /*[-JNI;-NATIVE]
-Character* nativeObject = (Character*)this_addr;
-nativeObject->GetPositionAndRotation(*((RVec3* )outPosition_addr), *((Quat* )outRotation_addr), inLockBodies);
-*/
-    public static native void internal_native_GetPositionAndRotation(long this_addr, long outPosition_addr, long outRotation_addr, boolean inLockBodies);
 
     public void GetPositionAndRotation(RVec3 outPosition, Quat outRotation) {
-        internal_native_GetPositionAndRotation(native_address, outPosition.native_address, outRotation.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-Character* nativeObject = (Character*)this_addr;
-nativeObject->GetPositionAndRotation(*((RVec3* )outPosition_addr), *((Quat* )outRotation_addr));
-*/
-    public static native void internal_native_GetPositionAndRotation(long this_addr, long outPosition_addr, long outRotation_addr);
 
     public void SetPositionAndRotation(RVec3 inPosition, Quat inRotation, EActivation inActivationMode, boolean inLockBodies) {
-        internal_native_SetPositionAndRotation(native_address, inPosition.native_address, inRotation.native_address, inActivationMode.getValue(), inLockBodies);
     }
-
-    /*[-JNI;-NATIVE]
-Character* nativeObject = (Character*)this_addr;
-nativeObject->SetPositionAndRotation(*((RVec3* )inPosition_addr), *((Quat* )inRotation_addr), (::EActivation)inActivationMode, inLockBodies);
-*/
-    public static native void internal_native_SetPositionAndRotation(long this_addr, long inPosition_addr, long inRotation_addr, int inActivationMode, boolean inLockBodies);
 
     public void SetPositionAndRotation(RVec3 inPosition, Quat inRotation, EActivation inActivationMode) {
-        internal_native_SetPositionAndRotation(native_address, inPosition.native_address, inRotation.native_address, inActivationMode.getValue());
     }
-
-    /*[-JNI;-NATIVE]
-Character* nativeObject = (Character*)this_addr;
-nativeObject->SetPositionAndRotation(*((RVec3* )inPosition_addr), *((Quat* )inRotation_addr), (::EActivation)inActivationMode);
-*/
-    public static native void internal_native_SetPositionAndRotation(long this_addr, long inPosition_addr, long inRotation_addr, int inActivationMode);
 
     public void SetPositionAndRotation(RVec3 inPosition, Quat inRotation) {
-        internal_native_SetPositionAndRotation(native_address, inPosition.native_address, inRotation.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-Character* nativeObject = (Character*)this_addr;
-nativeObject->SetPositionAndRotation(*((RVec3* )inPosition_addr), *((Quat* )inRotation_addr));
-*/
-    public static native void internal_native_SetPositionAndRotation(long this_addr, long inPosition_addr, long inRotation_addr);
 
     public RVec3 GetPosition(boolean inLockBodies) {
-        long addr = internal_native_GetPosition_addr(native_address, inLockBodies);
-        if (addr == 0)
-            return RVec3.NULL;
-        if (RVec3_TEMP_GEN_0 == null)
-            RVec3_TEMP_GEN_0 = RVec3.native_new();
-        RVec3_TEMP_GEN_0.internal_reset(addr, false);
-        return RVec3_TEMP_GEN_0;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-Character* nativeObject = (Character*)this_addr;
-static RVec3 copy_addr;
-copy_addr = nativeObject->GetPosition(inLockBodies);
-return (jlong)&copy_addr;*/
-    public static native long internal_native_GetPosition_addr(long this_addr, boolean inLockBodies);
 
     public RVec3 GetPosition() {
-        long addr = internal_native_GetPosition_addr(native_address);
-        if (addr == 0)
-            return RVec3.NULL;
-        if (RVec3_TEMP_GEN_1 == null)
-            RVec3_TEMP_GEN_1 = RVec3.native_new();
-        RVec3_TEMP_GEN_1.internal_reset(addr, false);
-        return RVec3_TEMP_GEN_1;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-Character* nativeObject = (Character*)this_addr;
-static RVec3 copy_addr;
-copy_addr = nativeObject->GetPosition();
-return (jlong)&copy_addr;*/
-    public static native long internal_native_GetPosition_addr(long this_addr);
 
     public void SetPosition(RVec3 inPosition, EActivation inActivationMode, boolean inLockBodies) {
-        internal_native_SetPosition(native_address, inPosition.native_address, inActivationMode.getValue(), inLockBodies);
     }
-
-    /*[-JNI;-NATIVE]
-Character* nativeObject = (Character*)this_addr;
-nativeObject->SetPosition(*((RVec3* )inPosition_addr), (::EActivation)inActivationMode, inLockBodies);
-*/
-    public static native void internal_native_SetPosition(long this_addr, long inPosition_addr, int inActivationMode, boolean inLockBodies);
 
     public void SetPosition(RVec3 inPosition, EActivation inActivationMode) {
-        internal_native_SetPosition(native_address, inPosition.native_address, inActivationMode.getValue());
     }
-
-    /*[-JNI;-NATIVE]
-Character* nativeObject = (Character*)this_addr;
-nativeObject->SetPosition(*((RVec3* )inPosition_addr), (::EActivation)inActivationMode);
-*/
-    public static native void internal_native_SetPosition(long this_addr, long inPosition_addr, int inActivationMode);
 
     public void SetPosition(RVec3 inPosition) {
-        internal_native_SetPosition(native_address, inPosition.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-Character* nativeObject = (Character*)this_addr;
-nativeObject->SetPosition(*((RVec3* )inPosition_addr));
-*/
-    public static native void internal_native_SetPosition(long this_addr, long inPosition_addr);
 
     public Quat GetRotation(boolean inLockBodies) {
-        long addr = internal_native_GetRotation_addr(native_address, inLockBodies);
-        if (addr == 0)
-            return Quat.NULL;
-        if (Quat_TEMP_GEN_0 == null)
-            Quat_TEMP_GEN_0 = Quat.native_new();
-        Quat_TEMP_GEN_0.internal_reset(addr, false);
-        return Quat_TEMP_GEN_0;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-Character* nativeObject = (Character*)this_addr;
-static Quat copy_addr;
-copy_addr = nativeObject->GetRotation(inLockBodies);
-return (jlong)&copy_addr;*/
-    public static native long internal_native_GetRotation_addr(long this_addr, boolean inLockBodies);
 
     public Quat GetRotation() {
-        long addr = internal_native_GetRotation_addr(native_address);
-        if (addr == 0)
-            return Quat.NULL;
-        if (Quat_TEMP_GEN_1 == null)
-            Quat_TEMP_GEN_1 = Quat.native_new();
-        Quat_TEMP_GEN_1.internal_reset(addr, false);
-        return Quat_TEMP_GEN_1;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-Character* nativeObject = (Character*)this_addr;
-static Quat copy_addr;
-copy_addr = nativeObject->GetRotation();
-return (jlong)&copy_addr;*/
-    public static native long internal_native_GetRotation_addr(long this_addr);
 
     public void SetRotation(Quat inRotation, EActivation inActivationMode, boolean inLockBodies) {
-        internal_native_SetRotation(native_address, inRotation.native_address, inActivationMode.getValue(), inLockBodies);
     }
-
-    /*[-JNI;-NATIVE]
-Character* nativeObject = (Character*)this_addr;
-nativeObject->SetRotation(*((Quat* )inRotation_addr), (::EActivation)inActivationMode, inLockBodies);
-*/
-    public static native void internal_native_SetRotation(long this_addr, long inRotation_addr, int inActivationMode, boolean inLockBodies);
 
     public void SetRotation(Quat inRotation, EActivation inActivationMode) {
-        internal_native_SetRotation(native_address, inRotation.native_address, inActivationMode.getValue());
     }
-
-    /*[-JNI;-NATIVE]
-Character* nativeObject = (Character*)this_addr;
-nativeObject->SetRotation(*((Quat* )inRotation_addr), (::EActivation)inActivationMode);
-*/
-    public static native void internal_native_SetRotation(long this_addr, long inRotation_addr, int inActivationMode);
 
     public void SetRotation(Quat inRotation) {
-        internal_native_SetRotation(native_address, inRotation.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-Character* nativeObject = (Character*)this_addr;
-nativeObject->SetRotation(*((Quat* )inRotation_addr));
-*/
-    public static native void internal_native_SetRotation(long this_addr, long inRotation_addr);
 
     public RVec3 GetCenterOfMassPosition(boolean inLockBodies) {
-        long addr = internal_native_GetCenterOfMassPosition_addr(native_address, inLockBodies);
-        if (addr == 0)
-            return RVec3.NULL;
-        if (RVec3_TEMP_GEN_2 == null)
-            RVec3_TEMP_GEN_2 = RVec3.native_new();
-        RVec3_TEMP_GEN_2.internal_reset(addr, false);
-        return RVec3_TEMP_GEN_2;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-Character* nativeObject = (Character*)this_addr;
-static RVec3 copy_addr;
-copy_addr = nativeObject->GetCenterOfMassPosition(inLockBodies);
-return (jlong)&copy_addr;*/
-    public static native long internal_native_GetCenterOfMassPosition_addr(long this_addr, boolean inLockBodies);
 
     public RVec3 GetCenterOfMassPosition() {
-        long addr = internal_native_GetCenterOfMassPosition_addr(native_address);
-        if (addr == 0)
-            return RVec3.NULL;
-        if (RVec3_TEMP_GEN_3 == null)
-            RVec3_TEMP_GEN_3 = RVec3.native_new();
-        RVec3_TEMP_GEN_3.internal_reset(addr, false);
-        return RVec3_TEMP_GEN_3;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-Character* nativeObject = (Character*)this_addr;
-static RVec3 copy_addr;
-copy_addr = nativeObject->GetCenterOfMassPosition();
-return (jlong)&copy_addr;*/
-    public static native long internal_native_GetCenterOfMassPosition_addr(long this_addr);
 
     public RMat44 GetWorldTransform(boolean inLockBodies) {
-        long addr = internal_native_GetWorldTransform_addr(native_address, inLockBodies);
-        if (addr == 0)
-            return RMat44.NULL;
-        if (RMat44_TEMP_GEN_0 == null)
-            RMat44_TEMP_GEN_0 = RMat44.native_new();
-        RMat44_TEMP_GEN_0.internal_reset(addr, false);
-        return RMat44_TEMP_GEN_0;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-Character* nativeObject = (Character*)this_addr;
-static RMat44 copy_addr;
-copy_addr = nativeObject->GetWorldTransform(inLockBodies);
-return (jlong)&copy_addr;*/
-    public static native long internal_native_GetWorldTransform_addr(long this_addr, boolean inLockBodies);
 
     public RMat44 GetWorldTransform() {
-        long addr = internal_native_GetWorldTransform_addr(native_address);
-        if (addr == 0)
-            return RMat44.NULL;
-        if (RMat44_TEMP_GEN_1 == null)
-            RMat44_TEMP_GEN_1 = RMat44.native_new();
-        RMat44_TEMP_GEN_1.internal_reset(addr, false);
-        return RMat44_TEMP_GEN_1;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-Character* nativeObject = (Character*)this_addr;
-static RMat44 copy_addr;
-copy_addr = nativeObject->GetWorldTransform();
-return (jlong)&copy_addr;*/
-    public static native long internal_native_GetWorldTransform_addr(long this_addr);
 
     public int GetLayer() {
-        return internal_native_GetLayer(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-Character* nativeObject = (Character*)this_addr;
-return nativeObject->GetLayer();
-*/
-    public static native int internal_native_GetLayer(long this_addr);
 
     public void SetLayer(int inLayer, boolean inLockBodies) {
-        internal_native_SetLayer(native_address, inLayer, inLockBodies);
     }
-
-    /*[-JNI;-NATIVE]
-Character* nativeObject = (Character*)this_addr;
-nativeObject->SetLayer(inLayer, inLockBodies);
-*/
-    public static native void internal_native_SetLayer(long this_addr, int inLayer, boolean inLockBodies);
 
     public void SetLayer(int inLayer) {
-        internal_native_SetLayer(native_address, inLayer);
     }
-
-    /*[-JNI;-NATIVE]
-Character* nativeObject = (Character*)this_addr;
-nativeObject->SetLayer(inLayer);
-*/
-    public static native void internal_native_SetLayer(long this_addr, int inLayer);
 
     public boolean SetShape(Shape inShape, float inMaxPenetrationDepth, boolean inLockBodies) {
-        return internal_native_SetShape(native_address, inShape.native_address, inMaxPenetrationDepth, inLockBodies);
+        return false;
     }
-
-    /*[-JNI;-NATIVE]
-Character* nativeObject = (Character*)this_addr;
-return nativeObject->SetShape((Shape* )inShape_addr, (float)inMaxPenetrationDepth, inLockBodies);
-*/
-    public static native boolean internal_native_SetShape(long this_addr, long inShape_addr, float inMaxPenetrationDepth, boolean inLockBodies);
 
     public boolean SetShape(Shape inShape, float inMaxPenetrationDepth) {
-        return internal_native_SetShape(native_address, inShape.native_address, inMaxPenetrationDepth);
+        return false;
     }
-
-    /*[-JNI;-NATIVE]
-Character* nativeObject = (Character*)this_addr;
-return nativeObject->SetShape((Shape* )inShape_addr, (float)inMaxPenetrationDepth);
-*/
-    public static native boolean internal_native_SetShape(long this_addr, long inShape_addr, float inMaxPenetrationDepth);
 
     public TransformedShape GetTransformedShape(boolean inLockBodies) {
-        long addr = internal_native_GetTransformedShape_addr(native_address, inLockBodies);
-        if (addr == 0)
-            return TransformedShape.NULL;
-        if (TransformedShape_TEMP_GEN_0 == null)
-            TransformedShape_TEMP_GEN_0 = TransformedShape.native_new();
-        TransformedShape_TEMP_GEN_0.internal_reset(addr, false);
-        return TransformedShape_TEMP_GEN_0;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-Character* nativeObject = (Character*)this_addr;
-static TransformedShape copy_addr;
-copy_addr = nativeObject->GetTransformedShape(inLockBodies);
-return (jlong)&copy_addr;*/
-    public static native long internal_native_GetTransformedShape_addr(long this_addr, boolean inLockBodies);
 
     public TransformedShape GetTransformedShape() {
-        long addr = internal_native_GetTransformedShape_addr(native_address);
-        if (addr == 0)
-            return TransformedShape.NULL;
-        if (TransformedShape_TEMP_GEN_1 == null)
-            TransformedShape_TEMP_GEN_1 = TransformedShape.native_new();
-        TransformedShape_TEMP_GEN_1.internal_reset(addr, false);
-        return TransformedShape_TEMP_GEN_1;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-Character* nativeObject = (Character*)this_addr;
-static TransformedShape copy_addr;
-copy_addr = nativeObject->GetTransformedShape();
-return (jlong)&copy_addr;*/
-    public static native long internal_native_GetTransformedShape_addr(long this_addr);
 
     public void CheckCollision(RVec3 inPosition, Quat inRotation, Vec3 inMovementDirection, float inMaxSeparationDistance, Shape inShape, RVec3 inBaseOffset, CollideShapeCollector ioCollector, boolean inLockBodies) {
-        internal_native_CheckCollision(native_address, inPosition.native_address, inRotation.native_address, inMovementDirection.native_address, inMaxSeparationDistance, inShape.native_address, inBaseOffset.native_address, ioCollector.native_address, inLockBodies);
     }
-
-    /*[-JNI;-NATIVE]
-Character* nativeObject = (Character*)this_addr;
-nativeObject->CheckCollision(*((RVec3* )inPosition_addr), *((Quat* )inRotation_addr), *((Vec3* )inMovementDirection_addr), (float)inMaxSeparationDistance, (Shape* )inShape_addr, *((RVec3* )inBaseOffset_addr), *((CollideShapeCollector* )ioCollector_addr), inLockBodies);
-*/
-    public static native void internal_native_CheckCollision(long this_addr, long inPosition_addr, long inRotation_addr, long inMovementDirection_addr, float inMaxSeparationDistance, long inShape_addr, long inBaseOffset_addr, long ioCollector_addr, boolean inLockBodies);
 
     public void CheckCollision(RVec3 inPosition, Quat inRotation, Vec3 inMovementDirection, float inMaxSeparationDistance, Shape inShape, RVec3 inBaseOffset, CollideShapeCollector ioCollector) {
-        internal_native_CheckCollision(native_address, inPosition.native_address, inRotation.native_address, inMovementDirection.native_address, inMaxSeparationDistance, inShape.native_address, inBaseOffset.native_address, ioCollector.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-Character* nativeObject = (Character*)this_addr;
-nativeObject->CheckCollision(*((RVec3* )inPosition_addr), *((Quat* )inRotation_addr), *((Vec3* )inMovementDirection_addr), (float)inMaxSeparationDistance, (Shape* )inShape_addr, *((RVec3* )inBaseOffset_addr), *((CollideShapeCollector* )ioCollector_addr));
-*/
-    public static native void internal_native_CheckCollision(long this_addr, long inPosition_addr, long inRotation_addr, long inMovementDirection_addr, float inMaxSeparationDistance, long inShape_addr, long inBaseOffset_addr, long ioCollector_addr);
 }

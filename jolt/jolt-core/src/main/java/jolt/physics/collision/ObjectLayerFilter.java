@@ -6,34 +6,15 @@
 
 package jolt.physics.collision;
 
-import com.github.xpenatan.jParser.idl.IDLBase;
+import com.github.xpenatan.jParser.api.NativeObject;
 
-public class ObjectLayerFilter extends IDLBase {
+public class ObjectLayerFilter extends NativeObject {
 
     static public final ObjectLayerFilter NULL = ObjectLayerFilter.native_new();
 
-    /*[-JNI;-NATIVE]
-	static jmethodID ObjectLayerFilterJS_ShouldCollideI_ID;
-
-class ObjectLayerFilterJS : public ObjectLayerFilter {
-private:
-	JNIEnv* env;
-	jobject obj;
-public:
-void setupCallback(JNIEnv* env, jobject obj) {
-	this->env = env;
-	this->obj = env->NewGlobalRef(obj);
-	static jclass jClassID = 0;
-	if(jClassID == 0) {
-		jClassID = (jclass)env->NewGlobalRef(env->GetObjectClass(obj));
-		ObjectLayerFilterJS_ShouldCollideI_ID = env->GetMethodID(jClassID, "internal_ShouldCollide", "(I)Z");
-	}
-}
-virtual bool ShouldCollide(unsigned int inLayer) const {
-   return env->CallBooleanMethod(obj, ObjectLayerFilterJS_ShouldCollideI_ID, inLayer);
-}
-};
-*/
+    /**
+     * Dummy constructor, used internally to creates objects without C++ pointer
+     */
     @Deprecated()
     protected ObjectLayerFilter(byte b, char c) {
     }
@@ -45,16 +26,6 @@ virtual bool ShouldCollide(unsigned int inLayer) const {
         return new ObjectLayerFilter((byte) 0, (char) 0);
     }
 
-    protected void deleteNative() {
-        internal_native_deleteNative(native_address);
-    }
-
-    /*[-JNI;-NATIVE]
-ObjectLayerFilterJS* nativeObject = (ObjectLayerFilterJS*)this_addr;
-delete nativeObject;
-*/
-    public static native void internal_native_deleteNative(long this_addr);
-
     public ObjectLayerFilter() {
         long addr = internal_native_create_addr();
         internal_reset(addr, true);
@@ -62,7 +33,6 @@ delete nativeObject;
     }
 
     private void setupCallback() {
-        internal_native_setupCallback(native_address);
     }
 
     protected boolean ShouldCollide(int inLayer) {
@@ -73,14 +43,5 @@ delete nativeObject;
         return ShouldCollide(inLayer);
     }
 
-    /*[-JNI;-NATIVE]
-return (jlong)new ObjectLayerFilterJS();
-*/
     public static native long internal_native_create_addr();
-
-    /*[-JNI;-NATIVE]
-ObjectLayerFilterJS* nativeObject = (ObjectLayerFilterJS*)this_addr;
-nativeObject->setupCallback(env, object);
-*/
-    public native void internal_native_setupCallback(long this_addr);
 }

@@ -6,9 +6,9 @@
 
 package jolt.math;
 
-import com.github.xpenatan.jParser.idl.IDLBase;
+import com.github.xpenatan.jParser.api.NativeObject;
 
-public class Mat44MemRef extends IDLBase {
+public class Mat44MemRef extends NativeObject {
 
     static public final Mat44MemRef NULL = Mat44MemRef.native_new();
 
@@ -25,14 +25,4 @@ public class Mat44MemRef extends IDLBase {
     public static Mat44MemRef native_new() {
         return new Mat44MemRef((byte) 0, (char) 0);
     }
-
-    protected void deleteNative() {
-        internal_native_deleteNative(native_address);
-    }
-
-    /*[-JNI;-NATIVE]
-Mat44MemRef* nativeObject = (Mat44MemRef*)this_addr;
-delete nativeObject;
-*/
-    public static native void internal_native_deleteNative(long this_addr);
 }

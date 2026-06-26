@@ -14,14 +14,7 @@ public class OffsetCenterOfMassShape extends DecoratedShape {
 
     public OffsetCenterOfMassShape(Shape inShape, Vec3 inOffset) {
         super((byte) 1, (char) 1);
-        long addr = internal_native_create_Shape_Vec3_addr(inShape.native_address, inOffset.native_address);
-        internal_reset(addr, true);
     }
-
-    /*[-JNI;-NATIVE]
-return (jlong)new OffsetCenterOfMassShape((Shape* )inShape_addr, *((Vec3* )inOffset_addr));
-*/
-    public static native long internal_native_create_Shape_Vec3_addr(long inShape_addr, long inOffset_addr);
 
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
@@ -37,14 +30,4 @@ return (jlong)new OffsetCenterOfMassShape((Shape* )inShape_addr, *((Vec3* )inOff
     public static OffsetCenterOfMassShape native_new() {
         return new OffsetCenterOfMassShape((byte) 0, (char) 0);
     }
-
-    protected void deleteNative() {
-        internal_native_deleteNative(native_address);
-    }
-
-    /*[-JNI;-NATIVE]
-OffsetCenterOfMassShape* nativeObject = (OffsetCenterOfMassShape*)this_addr;
-delete nativeObject;
-*/
-    public static native void internal_native_deleteNative(long this_addr);
 }

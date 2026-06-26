@@ -6,14 +6,12 @@
 
 package jolt.physics.collision;
 
-import com.github.xpenatan.jParser.idl.IDLBase;
+import com.github.xpenatan.jParser.api.NativeObject;
 import jolt.enums.EActiveEdgeMode;
 import jolt.enums.ECollectFacesMode;
 import jolt.math.Vec3;
 
-public class CollideSettingsBase extends IDLBase {
-
-    private Vec3 Vec3_TEMP_GEN_0;
+public class CollideSettingsBase extends NativeObject {
 
     static public final CollideSettingsBase NULL = CollideSettingsBase.native_new();
 
@@ -31,133 +29,38 @@ public class CollideSettingsBase extends IDLBase {
         return new CollideSettingsBase((byte) 0, (char) 0);
     }
 
-    protected void deleteNative() {
-        internal_native_deleteNative(native_address);
-    }
-
-    /*[-JNI;-NATIVE]
-CollideSettingsBase* nativeObject = (CollideSettingsBase*)this_addr;
-delete nativeObject;
-*/
-    public static native void internal_native_deleteNative(long this_addr);
-
     public EActiveEdgeMode get_mActiveEdgeMode() {
-        int value = internal_native_get_mActiveEdgeMode(native_address);
-        EActiveEdgeMode[] values = EActiveEdgeMode.values();
-        for (int i = 0; i < values.length; i++) {
-            EActiveEdgeMode enumVal = values[i];
-            if (enumVal != EActiveEdgeMode.CUSTOM && enumVal.getValue() == value)
-                return enumVal;
-        }
-        return EActiveEdgeMode.CUSTOM.setValue(value);
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-CollideSettingsBase* nativeObject = (CollideSettingsBase*)this_addr;
-return (jint)nativeObject->mActiveEdgeMode;
-*/
-    public static native int internal_native_get_mActiveEdgeMode(long this_addr);
 
     public void set_mActiveEdgeMode(EActiveEdgeMode mActiveEdgeMode) {
-        internal_native_set_mActiveEdgeMode(native_address, mActiveEdgeMode.getValue());
     }
-
-    /*[-JNI;-NATIVE]
-CollideSettingsBase* nativeObject = (CollideSettingsBase*)this_addr;
-nativeObject->mActiveEdgeMode = (::EActiveEdgeMode)mActiveEdgeMode;
-*/
-    public static native void internal_native_set_mActiveEdgeMode(long this_addr, int mActiveEdgeMode);
 
     public ECollectFacesMode get_mCollectFacesMode() {
-        int value = internal_native_get_mCollectFacesMode(native_address);
-        ECollectFacesMode[] values = ECollectFacesMode.values();
-        for (int i = 0; i < values.length; i++) {
-            ECollectFacesMode enumVal = values[i];
-            if (enumVal != ECollectFacesMode.CUSTOM && enumVal.getValue() == value)
-                return enumVal;
-        }
-        return ECollectFacesMode.CUSTOM.setValue(value);
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-CollideSettingsBase* nativeObject = (CollideSettingsBase*)this_addr;
-return (jint)nativeObject->mCollectFacesMode;
-*/
-    public static native int internal_native_get_mCollectFacesMode(long this_addr);
 
     public void set_mCollectFacesMode(ECollectFacesMode mCollectFacesMode) {
-        internal_native_set_mCollectFacesMode(native_address, mCollectFacesMode.getValue());
     }
-
-    /*[-JNI;-NATIVE]
-CollideSettingsBase* nativeObject = (CollideSettingsBase*)this_addr;
-nativeObject->mCollectFacesMode = (::ECollectFacesMode)mCollectFacesMode;
-*/
-    public static native void internal_native_set_mCollectFacesMode(long this_addr, int mCollectFacesMode);
 
     public float get_mCollisionTolerance() {
-        return internal_native_get_mCollisionTolerance(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-CollideSettingsBase* nativeObject = (CollideSettingsBase*)this_addr;
-return nativeObject->mCollisionTolerance;
-*/
-    public static native float internal_native_get_mCollisionTolerance(long this_addr);
 
     public void set_mCollisionTolerance(float mCollisionTolerance) {
-        internal_native_set_mCollisionTolerance(native_address, mCollisionTolerance);
     }
-
-    /*[-JNI;-NATIVE]
-CollideSettingsBase* nativeObject = (CollideSettingsBase*)this_addr;
-nativeObject->mCollisionTolerance = mCollisionTolerance;
-*/
-    public static native void internal_native_set_mCollisionTolerance(long this_addr, float mCollisionTolerance);
 
     public float get_mPenetrationTolerance() {
-        return internal_native_get_mPenetrationTolerance(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-CollideSettingsBase* nativeObject = (CollideSettingsBase*)this_addr;
-return nativeObject->mPenetrationTolerance;
-*/
-    public static native float internal_native_get_mPenetrationTolerance(long this_addr);
 
     public void set_mPenetrationTolerance(float mPenetrationTolerance) {
-        internal_native_set_mPenetrationTolerance(native_address, mPenetrationTolerance);
     }
-
-    /*[-JNI;-NATIVE]
-CollideSettingsBase* nativeObject = (CollideSettingsBase*)this_addr;
-nativeObject->mPenetrationTolerance = mPenetrationTolerance;
-*/
-    public static native void internal_native_set_mPenetrationTolerance(long this_addr, float mPenetrationTolerance);
 
     public Vec3 get_mActiveEdgeMovementDirection() {
-        long addr = internal_native_get_mActiveEdgeMovementDirection_addr(native_address);
-        if (addr == 0)
-            return Vec3.NULL;
-        if (Vec3_TEMP_GEN_0 == null)
-            Vec3_TEMP_GEN_0 = Vec3.native_new();
-        Vec3_TEMP_GEN_0.internal_reset(addr, false);
-        return Vec3_TEMP_GEN_0;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-CollideSettingsBase* nativeObject = (CollideSettingsBase*)this_addr;
-return (jlong)&nativeObject->mActiveEdgeMovementDirection;
-*/
-    public static native long internal_native_get_mActiveEdgeMovementDirection_addr(long this_addr);
 
     public void set_mActiveEdgeMovementDirection(Vec3 mActiveEdgeMovementDirection) {
-        internal_native_set_mActiveEdgeMovementDirection(native_address, mActiveEdgeMovementDirection.native_address);
     }
-
-    /*[-JNI;-NATIVE]
-CollideSettingsBase* nativeObject = (CollideSettingsBase*)this_addr;
-nativeObject->mActiveEdgeMovementDirection = *((Vec3*)mActiveEdgeMovementDirection_addr);
-*/
-    public static native void internal_native_set_mActiveEdgeMovementDirection(long this_addr, long mActiveEdgeMovementDirection_addr);
 }

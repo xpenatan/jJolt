@@ -6,56 +6,15 @@
 
 package jolt.core;
 
-import com.github.xpenatan.jParser.idl.IDLBase;
+import com.github.xpenatan.jParser.api.NativeObject;
 import jolt.math.Vec4;
 
-public class Color extends IDLBase {
-
-    private Color Color_TEMP_GEN_0;
-
-    private Vec4 Vec4_TEMP_GEN_0;
-
-    static private Color Color_TEMP_STATIC_GEN_0;
-
-    static private Color Color_TEMP_STATIC_GEN_1;
-
-    static private Color Color_TEMP_STATIC_GEN_2;
-
-    static private Color Color_TEMP_STATIC_GEN_3;
-
-    static private Color Color_TEMP_STATIC_GEN_4;
-
-    static private Color Color_TEMP_STATIC_GEN_5;
-
-    static private Color Color_TEMP_STATIC_GEN_6;
-
-    static private Color Color_TEMP_STATIC_GEN_7;
-
-    static private Color Color_TEMP_STATIC_GEN_8;
-
-    static private Color Color_TEMP_STATIC_GEN_9;
-
-    static private Color Color_TEMP_STATIC_GEN_10;
-
-    static private Color Color_TEMP_STATIC_GEN_11;
-
-    static private Color Color_TEMP_STATIC_GEN_12;
-
-    static private Color Color_TEMP_STATIC_GEN_13;
-
-    static private Color Color_TEMP_STATIC_GEN_14;
+public class Color extends NativeObject {
 
     static public final Color NULL = Color.native_new();
 
     public Color() {
-        long addr = internal_native_create_addr();
-        internal_reset(addr, true);
     }
-
-    /*[-JNI;-NATIVE]
-return (jlong)new Color();
-*/
-    public static native long internal_native_create_addr();
 
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
@@ -71,292 +30,78 @@ return (jlong)new Color();
         return new Color((byte) 0, (char) 0);
     }
 
-    protected void deleteNative() {
-        internal_native_deleteNative(native_address);
-    }
-
-    /*[-JNI;-NATIVE]
-Color* nativeObject = (Color*)this_addr;
-delete nativeObject;
-*/
-    public static native void internal_native_deleteNative(long this_addr);
-
     public Color MulColor(Color other) {
-        long addr = internal_native_MulColor_addr(native_address, other.native_address);
-        if (addr == 0)
-            return Color.NULL;
-        if (Color_TEMP_GEN_0 == null)
-            Color_TEMP_GEN_0 = Color.native_new();
-        Color_TEMP_GEN_0.internal_reset(addr, false);
-        return Color_TEMP_GEN_0;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-Color* nativeObject = (Color*)this_addr;
-static Color copy_addr;
-copy_addr = (*nativeObject * *((Color* )other_addr));
-return (jlong)&copy_addr;*/
-    public static native long internal_native_MulColor_addr(long this_addr, long other_addr);
 
     public Vec4 ToVec4() {
-        long addr = internal_native_ToVec4_addr(native_address);
-        if (addr == 0)
-            return Vec4.NULL;
-        if (Vec4_TEMP_GEN_0 == null)
-            Vec4_TEMP_GEN_0 = Vec4.native_new();
-        Vec4_TEMP_GEN_0.internal_reset(addr, false);
-        return Vec4_TEMP_GEN_0;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-Color* nativeObject = (Color*)this_addr;
-static Vec4 copy_addr;
-copy_addr = nativeObject->ToVec4();
-return (jlong)&copy_addr;*/
-    public static native long internal_native_ToVec4_addr(long this_addr);
 
     public int get_mU32() {
-        return internal_native_get_mU32(native_address);
+        return 0;
     }
-
-    /*[-JNI;-NATIVE]
-Color* nativeObject = (Color*)this_addr;
-return nativeObject->mU32;
-*/
-    public static native int internal_native_get_mU32(long this_addr);
 
     public void set_mU32(int mU32) {
-        internal_native_set_mU32(native_address, mU32);
     }
-
-    /*[-JNI;-NATIVE]
-Color* nativeObject = (Color*)this_addr;
-nativeObject->mU32 = mU32;
-*/
-    public static native void internal_native_set_mU32(long this_addr, int mU32);
 
     public static Color get_sBlack() {
-        long addr = internal_native_get_sBlack_addr();
-        if (addr == 0)
-            return Color.NULL;
-        if (Color_TEMP_STATIC_GEN_0 == null)
-            Color_TEMP_STATIC_GEN_0 = Color.native_new();
-        Color_TEMP_STATIC_GEN_0.internal_reset(addr, false);
-        return Color_TEMP_STATIC_GEN_0;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-return (jlong)&Color::sBlack;
-*/
-    public static native long internal_native_get_sBlack_addr();
 
     public static Color get_sDarkRed() {
-        long addr = internal_native_get_sDarkRed_addr();
-        if (addr == 0)
-            return Color.NULL;
-        if (Color_TEMP_STATIC_GEN_1 == null)
-            Color_TEMP_STATIC_GEN_1 = Color.native_new();
-        Color_TEMP_STATIC_GEN_1.internal_reset(addr, false);
-        return Color_TEMP_STATIC_GEN_1;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-return (jlong)&Color::sDarkRed;
-*/
-    public static native long internal_native_get_sDarkRed_addr();
 
     public static Color get_sRed() {
-        long addr = internal_native_get_sRed_addr();
-        if (addr == 0)
-            return Color.NULL;
-        if (Color_TEMP_STATIC_GEN_2 == null)
-            Color_TEMP_STATIC_GEN_2 = Color.native_new();
-        Color_TEMP_STATIC_GEN_2.internal_reset(addr, false);
-        return Color_TEMP_STATIC_GEN_2;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-return (jlong)&Color::sRed;
-*/
-    public static native long internal_native_get_sRed_addr();
 
     public static Color get_sDarkGreen() {
-        long addr = internal_native_get_sDarkGreen_addr();
-        if (addr == 0)
-            return Color.NULL;
-        if (Color_TEMP_STATIC_GEN_3 == null)
-            Color_TEMP_STATIC_GEN_3 = Color.native_new();
-        Color_TEMP_STATIC_GEN_3.internal_reset(addr, false);
-        return Color_TEMP_STATIC_GEN_3;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-return (jlong)&Color::sDarkGreen;
-*/
-    public static native long internal_native_get_sDarkGreen_addr();
 
     public static Color get_sGreen() {
-        long addr = internal_native_get_sGreen_addr();
-        if (addr == 0)
-            return Color.NULL;
-        if (Color_TEMP_STATIC_GEN_4 == null)
-            Color_TEMP_STATIC_GEN_4 = Color.native_new();
-        Color_TEMP_STATIC_GEN_4.internal_reset(addr, false);
-        return Color_TEMP_STATIC_GEN_4;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-return (jlong)&Color::sGreen;
-*/
-    public static native long internal_native_get_sGreen_addr();
 
     public static Color get_sDarkBlue() {
-        long addr = internal_native_get_sDarkBlue_addr();
-        if (addr == 0)
-            return Color.NULL;
-        if (Color_TEMP_STATIC_GEN_5 == null)
-            Color_TEMP_STATIC_GEN_5 = Color.native_new();
-        Color_TEMP_STATIC_GEN_5.internal_reset(addr, false);
-        return Color_TEMP_STATIC_GEN_5;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-return (jlong)&Color::sDarkBlue;
-*/
-    public static native long internal_native_get_sDarkBlue_addr();
 
     public static Color get_sBlue() {
-        long addr = internal_native_get_sBlue_addr();
-        if (addr == 0)
-            return Color.NULL;
-        if (Color_TEMP_STATIC_GEN_6 == null)
-            Color_TEMP_STATIC_GEN_6 = Color.native_new();
-        Color_TEMP_STATIC_GEN_6.internal_reset(addr, false);
-        return Color_TEMP_STATIC_GEN_6;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-return (jlong)&Color::sBlue;
-*/
-    public static native long internal_native_get_sBlue_addr();
 
     public static Color get_sYellow() {
-        long addr = internal_native_get_sYellow_addr();
-        if (addr == 0)
-            return Color.NULL;
-        if (Color_TEMP_STATIC_GEN_7 == null)
-            Color_TEMP_STATIC_GEN_7 = Color.native_new();
-        Color_TEMP_STATIC_GEN_7.internal_reset(addr, false);
-        return Color_TEMP_STATIC_GEN_7;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-return (jlong)&Color::sYellow;
-*/
-    public static native long internal_native_get_sYellow_addr();
 
     public static Color get_sPurple() {
-        long addr = internal_native_get_sPurple_addr();
-        if (addr == 0)
-            return Color.NULL;
-        if (Color_TEMP_STATIC_GEN_8 == null)
-            Color_TEMP_STATIC_GEN_8 = Color.native_new();
-        Color_TEMP_STATIC_GEN_8.internal_reset(addr, false);
-        return Color_TEMP_STATIC_GEN_8;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-return (jlong)&Color::sPurple;
-*/
-    public static native long internal_native_get_sPurple_addr();
 
     public static Color get_sCyan() {
-        long addr = internal_native_get_sCyan_addr();
-        if (addr == 0)
-            return Color.NULL;
-        if (Color_TEMP_STATIC_GEN_9 == null)
-            Color_TEMP_STATIC_GEN_9 = Color.native_new();
-        Color_TEMP_STATIC_GEN_9.internal_reset(addr, false);
-        return Color_TEMP_STATIC_GEN_9;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-return (jlong)&Color::sCyan;
-*/
-    public static native long internal_native_get_sCyan_addr();
 
     public static Color get_sOrange() {
-        long addr = internal_native_get_sOrange_addr();
-        if (addr == 0)
-            return Color.NULL;
-        if (Color_TEMP_STATIC_GEN_10 == null)
-            Color_TEMP_STATIC_GEN_10 = Color.native_new();
-        Color_TEMP_STATIC_GEN_10.internal_reset(addr, false);
-        return Color_TEMP_STATIC_GEN_10;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-return (jlong)&Color::sOrange;
-*/
-    public static native long internal_native_get_sOrange_addr();
 
     public static Color get_sDarkOrange() {
-        long addr = internal_native_get_sDarkOrange_addr();
-        if (addr == 0)
-            return Color.NULL;
-        if (Color_TEMP_STATIC_GEN_11 == null)
-            Color_TEMP_STATIC_GEN_11 = Color.native_new();
-        Color_TEMP_STATIC_GEN_11.internal_reset(addr, false);
-        return Color_TEMP_STATIC_GEN_11;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-return (jlong)&Color::sDarkOrange;
-*/
-    public static native long internal_native_get_sDarkOrange_addr();
 
     public static Color get_sGrey() {
-        long addr = internal_native_get_sGrey_addr();
-        if (addr == 0)
-            return Color.NULL;
-        if (Color_TEMP_STATIC_GEN_12 == null)
-            Color_TEMP_STATIC_GEN_12 = Color.native_new();
-        Color_TEMP_STATIC_GEN_12.internal_reset(addr, false);
-        return Color_TEMP_STATIC_GEN_12;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-return (jlong)&Color::sGrey;
-*/
-    public static native long internal_native_get_sGrey_addr();
 
     public static Color get_sLightGrey() {
-        long addr = internal_native_get_sLightGrey_addr();
-        if (addr == 0)
-            return Color.NULL;
-        if (Color_TEMP_STATIC_GEN_13 == null)
-            Color_TEMP_STATIC_GEN_13 = Color.native_new();
-        Color_TEMP_STATIC_GEN_13.internal_reset(addr, false);
-        return Color_TEMP_STATIC_GEN_13;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-return (jlong)&Color::sLightGrey;
-*/
-    public static native long internal_native_get_sLightGrey_addr();
 
     public static Color get_sWhite() {
-        long addr = internal_native_get_sWhite_addr();
-        if (addr == 0)
-            return Color.NULL;
-        if (Color_TEMP_STATIC_GEN_14 == null)
-            Color_TEMP_STATIC_GEN_14 = Color.native_new();
-        Color_TEMP_STATIC_GEN_14.internal_reset(addr, false);
-        return Color_TEMP_STATIC_GEN_14;
+        return null;
     }
-
-    /*[-JNI;-NATIVE]
-return (jlong)&Color::sWhite;
-*/
-    public static native long internal_native_get_sWhite_addr();
 }
