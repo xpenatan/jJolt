@@ -3,11 +3,17 @@ import java.nio.file.Paths
 import java.net.URLEncoder
 
 var libProjects = mutableSetOf(
-    project(":jolt:jolt-core"),
-    project(":jolt:jolt-jni"),
-    project(":jolt:jolt-ffm"),
-    project(":jolt:jolt-web"),
-    project(":jolt:jolt-android")
+    project(":jolt:core"),
+    project(":jolt:shared:jni"),
+    project(":jolt:shared:c"),
+    project(":jolt:desktop:jni"),
+    project(":jolt:desktop:ffm"),
+    project(":jolt:desktop:c"),
+    project(":jolt:web:wasm"),
+    project(":jolt:android:jni"),
+    project(":extensions:gdx:gl"),
+    project(":extensions:gdx:wgpu"),
+    project(":extensions:fdx")
 )
 
 LibExt.isRelease = gradle.startParameter.taskNames.any { it == "publishRelease" }
@@ -44,7 +50,7 @@ configure(libProjects) {
                 pom {
                     name.set(LibExt.libName)
                     description.set("Jolt Physics Java Bindings")
-                    url.set("https://github.com/xpenatan/xJolt")
+                    url.set("https://github.com/xpenatan/jJolt")
                     developers {
                         developer {
                             id.set("Xpe")
@@ -52,9 +58,9 @@ configure(libProjects) {
                         }
                     }
                     scm {
-                        connection.set("scm:git@github.com:xpenatan/xJolt.git")
-                        developerConnection.set("scm:git@github.com:xpenatan/xJolt.git")
-                        url.set("http://https://github.com/xpenatan/xJolt")
+                        connection.set("scm:git@github.com:xpenatan/jJolt.git")
+                        developerConnection.set("scm:git@github.com:xpenatan/jJolt.git")
+                        url.set("https://github.com/xpenatan/jJolt")
                     }
                     licenses {
                         license {

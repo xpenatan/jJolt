@@ -17,66 +17,40 @@ pluginManagement {
     }
 }
 
+rootProject.name = "jJolt"
+
 // Core
-include(":jolt:jolt-build")
-include(":jolt:jolt-base")
-include(":jolt:jolt-core")
-include(":jolt:jolt-jni")
-include(":jolt:jolt-ffm")
-include(":jolt:jolt-web")
-include(":jolt:jolt-android")
+include(":jolt:builder")
+include(":jolt:download")
+include(":jolt:base")
+include(":jolt:core")
+include(":jolt:shared:jni")
+include(":jolt:shared:c")
+include(":jolt:desktop:jni")
+include(":jolt:desktop:ffm")
+include(":jolt:desktop:c")
+include(":jolt:web:wasm")
+include(":jolt:android:jni")
+
+// Extensions
+include(":extensions:gdx:gl")
+include(":extensions:gdx:wgpu")
+include(":extensions:fdx")
 
 // Examples
-include(":examples:samples:core")
-include(":examples:samples:desktop")
-include(":examples:samples:web")
-include(":examples:samples:android")
+include(":samples:gdx:shared")
+include(":samples:gdx:gl:core")
+include(":samples:gdx:wgpu:core")
 
-//val localLibfdxDir = file("../libfdx")
-//if(localLibfdxDir.isDirectory) {
-//    includeBuild(localLibfdxDir) {
-//        dependencySubstitution {
-//            substitute(module("io.github.libfdx:application")).using(project(":libfdx:runtime:application"))
-//            substitute(module("io.github.libfdx:display")).using(project(":libfdx:runtime:display"))
-//            substitute(module("io.github.libfdx:graphics")).using(project(":libfdx:graphics:api"))
-//            substitute(module("io.github.libfdx:g3d")).using(project(":libfdx:graphics:g3d"))
-//            substitute(module("io.github.libfdx:asset_manager")).using(project(":libfdx:assets:manager"))
-//            substitute(module("io.github.libfdx:backend_desktop")).using(project(":libfdx:backends:desktop"))
-//            substitute(module("io.github.libfdx:backend_web")).using(project(":libfdx:backends:web"))
-//            substitute(module("io.github.libfdx:backend_android")).using(project(":libfdx:backends:android"))
-//            substitute(module("io.github.libfdx:gl_desktop")).using(project(":libfdx:extensions:graphics:gl:platform:desktop"))
-//            substitute(module("io.github.libfdx:gl_web")).using(project(":libfdx:extensions:graphics:gl:platform:web"))
-//            substitute(module("io.github.libfdx:vulkan_desktop")).using(project(":libfdx:extensions:graphics:vulkan:platform:desktop"))
-//            substitute(module("io.github.libfdx:vulkan_android_jni")).using(project(":libfdx:extensions:graphics:vulkan:platform:android_jni"))
-//            substitute(module("io.github.libfdx:wgpu_core")).using(project(":libfdx:extensions:graphics:wgpu:core"))
-//            substitute(module("io.github.libfdx:wgpu_desktop_jni")).using(project(":libfdx:extensions:graphics:wgpu:platform:desktop_jni"))
-//            substitute(module("io.github.libfdx:wgpu_desktop_ffm")).using(project(":libfdx:extensions:graphics:wgpu:platform:desktop_ffm"))
-//            substitute(module("io.github.libfdx:wgpu_android_jni")).using(project(":libfdx:extensions:graphics:wgpu:platform:android_jni"))
-//            substitute(module("io.github.libfdx:wgpu_web")).using(project(":libfdx:extensions:graphics:wgpu:platform:web"))
-//        }
-//    }
-//}
-//includeBuild("E:\\Dev\\Projects\\java\\libfdx\\libfdx\\tools\\gradle-plugin")
+include(":samples:shared")
+include(":samples:gdx:gl:platforms:desktop-jni")
+include(":samples:gdx:wgpu:platforms:desktop-jni")
+include(":samples:gdx:gl:platforms:desktop-c")
+include(":samples:gdx:gl:platforms:web")
+include(":samples:gdx:wgpu:platforms:web")
+include(":samples:gdx:gl:platforms:android")
 
-//includeBuild("E:\\Dev\\Projects\\java\\jParser") {
-//    dependencySubstitution {
-//        substitute(module("com.github.xpenatan.jParser:gen-build")).using(project(":jParser:gen:gen-build"))
-//        substitute(module("com.github.xpenatan.jParser:gen-build-tool")).using(project(":jParser:gen:gen-build-tool"))
-//        substitute(module("com.github.xpenatan.jParser:gen-core")).using(project(":jParser:gen:gen-core"))
-//        substitute(module("com.github.xpenatan.jParser:gen-jni")).using(project(":jParser:gen:gen-jni"))
-//        substitute(module("com.github.xpenatan.jParser:gen-ffm")).using(project(":jParser:gen:gen-ffm"))
-//        substitute(module("com.github.xpenatan.jParser:gen-idl")).using(project(":jParser:gen:gen-idl"))
-//        substitute(module("com.github.xpenatan.jParser:gen-web")).using(project(":jParser:gen:gen-web"))
-//        substitute(module("com.github.xpenatan.jParser:api-core")).using(project(":jParser:api:api-core"))
-//        substitute(module("com.github.xpenatan.jParser:api-web")).using(project(":jParser:api:api-web"))
-//        substitute(module("com.github.xpenatan.jParser:runtime-base")).using(project(":jParser:runtime:runtime-base"))
-//        substitute(module("com.github.xpenatan.jParser:runtime-core")).using(project(":jParser:runtime:runtime-core"))
-//        substitute(module("com.github.xpenatan.jParser:runtime-web")).using(project(":jParser:runtime:runtime-web"))
-//        substitute(module("com.github.xpenatan.jParser:runtime-web_wasm")).using(project(":jParser:runtime:runtime-web_wasm"))
-//        substitute(module("com.github.xpenatan.jParser:runtime-jni")).using(project(":jParser:runtime:runtime-jni"))
-//        substitute(module("com.github.xpenatan.jParser:runtime-ffm")).using(project(":jParser:runtime:runtime-ffm"))
-//        substitute(module("com.github.xpenatan.jParser:runtime-android")).using(project(":jParser:runtime:runtime-android"))
-//        substitute(module("com.github.xpenatan.jParser:loader-core")).using(project(":jParser:loader:loader-core"))
-//        substitute(module("com.github.xpenatan.jParser:loader-web")).using(project(":jParser:loader:loader-web"))
-//    }
-//}
+include(":samples:fdx:core")
+include(":samples:fdx:platforms:desktop-jni")
+include(":samples:fdx:platforms:web")
+include(":samples:fdx:platforms:android")

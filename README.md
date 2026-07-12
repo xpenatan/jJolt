@@ -1,36 +1,36 @@
-# xJolt
+# jJolt
 
-![Build](https://github.com/xpenatan/xJolt/actions/workflows/snapshot.yml/badge.svg)
+![Build](https://github.com/xpenatan/jJolt/actions/workflows/snapshot.yml/badge.svg)
 
-[![Maven Central Version](https://img.shields.io/maven-central/v/com.github.xpenatan.xJolt/jolt-core)](https://central.sonatype.com/namespace/com.github.xpenatan.xJolt)
-[![Static Badge](https://img.shields.io/badge/snapshot---SNAPSHOT-red)](https://central.sonatype.com/service/rest/repository/browse/maven-snapshots/com/github/xpenatan/xJolt/)
+[![Maven Central Version](https://img.shields.io/maven-central/v/com.github.xpenatan.jJolt/core)](https://central.sonatype.com/namespace/com.github.xpenatan.jJolt)
+[![Static Badge](https://img.shields.io/badge/snapshot---SNAPSHOT-red)](https://central.sonatype.com/service/rest/repository/browse/maven-snapshots/com/github/xpenatan/jJolt/)
 
-xJolt is a Java binding for the C++ library [Jolt Physics](https://github.com/jrouwe/JoltPhysics), utilizing JNI/FFM for desktop, JNI for Android, and Emscripten for web platforms. It provides a one-to-one correspondence with the C++ code, meaning it mirrors the exact same class and method names. Its samples and rendering integrations target libfdx.
+jJolt is a Java binding for the C++ library [Jolt Physics](https://github.com/jrouwe/JoltPhysics), utilizing JNI/FFM for desktop, JNI for Android, and Emscripten for web platforms. It provides a one-to-one correspondence with the C++ code, meaning it mirrors the exact same class and method names. Its samples and rendering integrations target libfdx.
 
 The binding leverages [jParser](https://github.com/xpenatan/jParser), a custom C/C++ build tool and WebIDL Java code generator, which automatically generates 99% of all classes. Only a small number of essential classes are coded manually, making updates to new Jolt Physics versions quick and efficient.
 
 ![image](https://github.com/user-attachments/assets/98ab1f09-6b00-4665-8082-40179f3fbf74)
 
+## Web/TeaVM Examples
 
-## Web/TeaVM Examples:
-* [Jolt-Samples-GL](https://xpenatan.github.io/xJolt/snapshot/gl/samples/)
-* [Jolt-Samples-WGPU](https://xpenatan.github.io/xJolt/snapshot/wgpu/samples/)
+* [Jolt-Samples-GL](https://xpenatan.github.io/jJolt/snapshot/gl/samples/)
+* [Jolt-Samples-WGPU](https://xpenatan.github.io/jJolt/snapshot/wgpu/samples/)
 
-
-### Platform status:
+## Platform Status
 
 | Emscripten | Windows | Linux | Mac | Android | iOS |
 |:----------:|:-------:|:-----:|:---:|:-------:|:---:|
-|     ✅      | ✅ | ✅ |  ✅  | ✅ | ❌ |
+| Yes | Yes | Yes | Yes | Yes | No |
 
-* ✅: Have a working build.
-* ❌: Build not ready.
+* Yes: Have a working build.
+* No: Build not ready.
 
 ## Setup
-```groovy
-// Use -SNAPSHOT" or any released git-tag version
 
-// Add repository to Root gradle
+```groovy
+// Use -SNAPSHOT or any released git-tag version.
+
+// Add repository to root Gradle.
 repositories {
     mavenLocal()
     mavenCentral()
@@ -38,14 +38,14 @@ repositories {
 }
 
 // Core module
-implementation("com.github.xpenatan.xJolt:jolt-core:-SNAPSHOT")
+implementation("com.github.xpenatan.jJolt:core:-SNAPSHOT")
 implementation("io.github.libfdx:application:-SNAPSHOT")
 implementation("io.github.libfdx:g3d:-SNAPSHOT")
 
 // Desktop module
 dependencies {
-   implementation("com.github.xpenatan.xJolt:jolt-jni:-SNAPSHOT")
-   implementation("com.github.xpenatan.xJolt:jolt-ffm:-SNAPSHOT")
+   implementation("com.github.xpenatan.jJolt:desktop-jni:-SNAPSHOT")
+   implementation("com.github.xpenatan.jJolt:desktop-ffm:-SNAPSHOT")
    implementation("io.github.libfdx:backend_desktop:-SNAPSHOT")
    implementation("io.github.libfdx:gl_desktop:-SNAPSHOT")
    implementation("io.github.libfdx:vulkan_desktop:-SNAPSHOT")
@@ -55,7 +55,7 @@ dependencies {
 
 // TeaVM module
 dependencies {
-   implementation("com.github.xpenatan.xJolt:jolt-web:-SNAPSHOT")
+   implementation("com.github.xpenatan.jJolt:web-wasm:-SNAPSHOT")
    implementation("io.github.libfdx:backend_web:-SNAPSHOT")
    implementation("io.github.libfdx:gl_web:-SNAPSHOT")
    implementation("io.github.libfdx:wgpu_web:-SNAPSHOT")
@@ -63,7 +63,7 @@ dependencies {
 
 // Android module
 dependencies {
-   implementation("com.github.xpenatan.xJolt:jolt-android:-SNAPSHOT")
+   implementation("com.github.xpenatan.jJolt:android-jni:-SNAPSHOT")
    implementation("io.github.libfdx:backend_android:-SNAPSHOT")
    implementation("io.github.libfdx:wgpu_android_jni:-SNAPSHOT")
    implementation("io.github.libfdx:vulkan_android_jni:-SNAPSHOT")
@@ -71,45 +71,45 @@ dependencies {
 ```
 
 ## Notes
+
 * In most classes, new instances are created using `JoltNew.[TYPE]` instead of standard Java constructors. This approach is necessary due to limitations in constructor overloading within WebIDL when targeting Emscripten.
 * Methods that return an object typically return a temporary object. You should not retain a reference to it, as calling the method again with another instance will overwrite the previously returned object.
-* Classes are not disposed automatically; the dispose method must be called when they are no longer in use. However, classes in a WebIDL file marked with "NoDelete" do not require disposal.
+* Classes are not disposed automatically; the dispose method must be called when they are no longer in use. However, classes in a WebIDL file marked with `NoDelete` do not require disposal.
 
 ## Source Build Prerequisites
 
 - Java 17 or later
 - Gradle
-- Android NDK ¹
-- [Mingw64](https://github.com/niXman/mingw-builds-binaries/releases) or [Visual Studio C++](https://visualstudio.microsoft.com/vs/community/) ¹
-- [Emscripten](https://emscripten.org/) ¹
+- Android NDK (only needed for Android native artifacts)
+- [Mingw64](https://github.com/niXman/mingw-builds-binaries/releases) or [Visual Studio C++](https://visualstudio.microsoft.com/vs/community/) (only needed for desktop native artifacts)
+- [Emscripten](https://emscripten.org/) (only needed for WebAssembly native artifacts)
 
-¹: Only need if you want to build from source.
+To try the samples with your build, change `LibExt.useRepoLibs` to `false` in `buildSrc/src/main/kotlin/LibExt.kt`. This will allow you to use the local jJolt source code instead of the remote repository.
 
-To try the samples with your build, change `LibExt.exampleUseRepoLibs` to false in `Dependencies.kt`. This will allow you to use the local Jolt source code instead of the remote repository.
+## How To Run The Samples
 
-## How to run the samples
-- Clone the repository
-- Desktop OpenGL/JNI: `./gradlew :examples:samples:desktop:jolt_sample_desktop_gl_jni_run`
-- Desktop WGPU/JNI: `./gradlew :examples:samples:desktop:jolt_sample_desktop_wgpu_jni_run`
-- Desktop WGPU/FFM: `./gradlew :examples:samples:desktop:jolt_sample_desktop_wgpu_ffm_run`
-- Desktop Vulkan/JNI: `./gradlew :examples:samples:desktop:jolt_sample_desktop_vulkan_jni_run`
-- Desktop Vulkan/FFM: `./gradlew :examples:samples:desktop:jolt_sample_desktop_vulkan_ffm_run`
-- WebGL JS/Wasm: `./gradlew :examples:samples:web:jolt_sample_webgl_js_build :examples:samples:web:jolt_sample_webgl_wasm_build`
-- WebGPU JS/Wasm: `./gradlew :examples:samples:web:jolt_sample_webgpu_js_build :examples:samples:web:jolt_sample_webgpu_wasm_build`
-- Android GLES/WGPU/Vulkan: `./gradlew :examples:samples:android:jolt_sample_android_gles_build :examples:samples:android:jolt_sample_android_wgpu_jni_build :examples:samples:android:jolt_sample_android_vulkan_build`
+- Desktop OpenGL/JNI: `./gradlew :samples:gdx:gl:platforms:desktop-jni:jolt_sample_desktop_gl_jni_run`
+- Desktop WGPU/JNI: `./gradlew :samples:gdx:gl:platforms:desktop-jni:jolt_sample_desktop_wgpu_jni_run`
+- Desktop WGPU/FFM: `./gradlew :samples:gdx:gl:platforms:desktop-jni:jolt_sample_desktop_wgpu_ffm_run`
+- Desktop Vulkan/JNI: `./gradlew :samples:gdx:gl:platforms:desktop-jni:jolt_sample_desktop_vulkan_jni_run`
+- Desktop Vulkan/FFM: `./gradlew :samples:gdx:gl:platforms:desktop-jni:jolt_sample_desktop_vulkan_ffm_run`
+- WebGL JS/Wasm: `./gradlew :samples:fdx:platforms:web:jolt_sample_webgl_js_build :samples:fdx:platforms:web:jolt_sample_webgl_wasm_build`
+- WebGPU JS/Wasm: `./gradlew :samples:fdx:platforms:web:jolt_sample_webgpu_js_build :samples:fdx:platforms:web:jolt_sample_webgpu_wasm_build`
+- Android GLES/WGPU/Vulkan: `./gradlew :samples:gdx:gl:platforms:android:jolt_sample_android_gles_build :samples:gdx:gl:platforms:android:jolt_sample_android_wgpu_jni_build :samples:gdx:gl:platforms:android:jolt_sample_android_vulkan_build`
 
+## How To Build From Source
 
-## How to build from source
+```bash
+./gradlew :jolt:builder:jolt_download_source
 
-```
-./gradlew :jolt:jolt-build:jolt_download_source
+# Generate binding sources for JNI, FFM, and web.
+./gradlew :jolt:builder:jolt_build_project
 
-### Build all targets if your machine can handle:
-./gradlew :jolt:jolt-build:jolt_build_project_all
-
-### Or a single platform target:
-./gradlew :jolt:jolt-build:jolt_build_project_windows64
-./gradlew :jolt:jolt-build:jolt_build_project_linux64
-./gradlew :jolt:jolt-build:jolt_build_project_mac64 :jolt:jolt-build:build_project_macArm
-./gradlew :jolt:jolt-build:jolt_build_project_teavm
+# Generate and build native platform targets.
+./gradlew :jolt:builder:jolt_build_project_windows64_jni :jolt:builder:jolt_build_project_windows64_ffm
+./gradlew :jolt:builder:jolt_build_project_linux64_jni :jolt:builder:jolt_build_project_linux64_ffm
+./gradlew :jolt:builder:jolt_build_project_mac64_jni :jolt:builder:jolt_build_project_mac64_ffm
+./gradlew :jolt:builder:jolt_build_project_macArm_jni :jolt:builder:jolt_build_project_macArm_ffm
+./gradlew :jolt:builder:jolt_build_project_android_jni
+./gradlew :jolt:builder:jolt_build_project_web_wasm
 ```
