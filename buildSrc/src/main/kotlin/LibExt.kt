@@ -18,7 +18,7 @@ object LibExt {
 
     // Library dependencies
     const val joltVersion = "5.3.0"
-    const val jParserVersion = "-SNAPSHOT"
+    const val jParserVersion = "1.2.3"
     const val fdxGroup = "io.github.libfdx"
     const val fdxVersion = "-SNAPSHOT"
     const val gdxVersion = "1.14.2"
