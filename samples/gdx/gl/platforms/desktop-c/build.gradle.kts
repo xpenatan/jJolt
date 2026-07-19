@@ -14,7 +14,7 @@ val teaVMBuilderMainClass = "jolt.example.samples.app.desktopc.JoltGdxTeaVMBuild
 val glfwBuildRoot = layout.buildDirectory.dir("dist/glfw")
 val joltDesktopCJar = project(joltRuntimeProject).tasks.named<Jar>("jar").flatMap { it.archiveFile }
 val teavmCNativeRuntimeClasspath = files(joltDesktopCJar)
-val joltWindowsTeaVMCBuildTask = ":jolt:builder:jolt_build_project_windows64_teavm_c"
+val joltWindowsTeaVMCBuildTask = ":jolt:builder:jParser_build_windows64_teavm_c"
 
 val joltRuntimeClasspath by configurations.creating {
     isCanBeConsumed = false
@@ -55,11 +55,11 @@ fun currentHostJoltCBuildTask(): String? {
     val osName = System.getProperty("os.name").lowercase()
     val osArch = System.getProperty("os.arch").lowercase()
     return when {
-        osName.contains("windows") -> ":jolt:builder:jolt_build_project_windows64_teavm_c"
-        osName.contains("linux") -> ":jolt:builder:jolt_build_project_linux64_teavm_c"
+        osName.contains("windows") -> ":jolt:builder:jParser_build_windows64_teavm_c"
+        osName.contains("linux") -> ":jolt:builder:jParser_build_linux64_teavm_c"
         osName.contains("mac") && (osArch.contains("aarch64") || osArch.contains("arm64")) ->
-            ":jolt:builder:jolt_build_project_macArm_teavm_c"
-        osName.contains("mac") -> ":jolt:builder:jolt_build_project_mac64_teavm_c"
+            ":jolt:builder:jParser_build_macArm_teavm_c"
+        osName.contains("mac") -> ":jolt:builder:jParser_build_mac64_teavm_c"
         else -> null
     }
 }

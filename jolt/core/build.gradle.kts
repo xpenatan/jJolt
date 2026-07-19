@@ -18,7 +18,7 @@ tasks.named("clean") {
 }
 
 tasks.named("compileJava") {
-    dependsOn(":jolt:builder:jolt_build_project")
+    dependsOn(":jolt:builder:jParser_generate")
 }
 
 java {

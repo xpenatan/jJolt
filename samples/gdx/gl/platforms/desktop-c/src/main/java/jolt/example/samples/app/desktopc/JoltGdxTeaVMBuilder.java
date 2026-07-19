@@ -46,7 +46,7 @@ public final class JoltGdxTeaVMBuilder {
                 backend.cmakeDefinition(JPARSER_JOLT_TEAVMC_LIBRARY, cmakePath(library)));
 
         new TeaBuilder(backend)
-                .addAssets(new AssetFileHandle("../../../assets"))
+                .addAssets(new AssetFileHandle("../../../../assets"))
                 .setOutputName("jjolt-gdx")
                 .setObfuscated(false)
                 .setOptimizationLevel(TeaVMOptimizationLevel.SIMPLE)

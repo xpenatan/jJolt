@@ -3,9 +3,7 @@ package jolt.example.samples.app.tests.playground.box;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Cubemap;
-import com.badlogic.gdx.graphics.Mesh;
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.VertexAttribute;
 import com.badlogic.gdx.graphics.VertexAttributes;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
@@ -21,20 +19,15 @@ import com.badlogic.gdx.math.Matrix4;
 import com.badlogic.gdx.math.Quaternion;
 import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.utils.Array;
-import com.badlogic.gdx.utils.BufferUtils;
 //import imgui.ImGui;
 //import imgui.idl.helper.IDLBool;
 //import imgui.idl.helper.IDLFloat;
 //import imgui.idl.helper.IDLInt;
-import java.nio.Buffer;
-import java.nio.FloatBuffer;
 import jolt.JoltNew;
 import jolt.enums.EActivation;
 import jolt.enums.EMotionType;
 import jolt.example.samples.app.jolt.Layers;
 import jolt.example.samples.app.tests.Test;
-import jolt.example.samples.app.tests.playground.box.shader.MyPBRDepthShaderProvider;
-import jolt.example.samples.app.tests.playground.box.shader.MyPBRShaderProvider;
 import jolt.gdx.JoltGdx;
 import jolt.math.Mat44;
 import jolt.math.Quat;
@@ -71,10 +64,7 @@ public class BoxSpawnTest extends Test {
     private Quaternion tempQuaternion;
     private Matrix4 tempRotationMatrix;
     private Model cubeModel;
-    private Model cubeModelInstanced;
-    private ModelInstance hardwareCubeModelInstance;
     private Matrix4 instanceTransform = new Matrix4();
-    private FloatBuffer offsets;
 
     private SceneManager sceneManager;
     private Cubemap diffuseCubemap;
@@ -88,7 +78,6 @@ public class BoxSpawnTest extends Test {
     private float boxRestitution = 0.8f;
     private boolean randomRotation = false;
     private boolean renderModels = true;
-    private boolean hardwareModelInstance = false;
 
     public void initialize() {
         mDebugRenderer.setEnable(false);
@@ -97,7 +86,7 @@ public class BoxSpawnTest extends Test {
         tempQuaternion = new Quaternion();
         tempRotationMatrix = new Matrix4();
 
-        sceneManager = new SceneManager( new MyPBRShaderProvider(), new MyPBRDepthShaderProvider() );
+        sceneManager = new SceneManager();
         DirectionalLightEx light = new DirectionalLightEx();
         light.direction.set(-0.9f, -1, -1);
         light.direction.nor();
@@ -127,7 +116,6 @@ public class BoxSpawnTest extends Test {
 
         createModels();
         resetBoxes();
-        setupHardwareInstance();
         updateModels();
     }
 
@@ -141,7 +129,6 @@ public class BoxSpawnTest extends Test {
             long timeout = resetDelaySeconds * 1000L;
             if(timeNow - time > timeout) {
                 resetBoxes();
-                setupHardwareInstance();
                 time = System.currentTimeMillis();
             }
         }
@@ -155,7 +142,6 @@ public class BoxSpawnTest extends Test {
                 FloatAttribute.createShininess(4f));
         ModelBuilder builder = new ModelBuilder();
         cubeModel = builder.createBox(1, 1, 1, material, VertexAttributes.Usage.Position | VertexAttributes.Usage.Normal | VertexAttributes.Usage.TextureCoordinates);
-        cubeModelInstanced = builder.createBox(1, 1, 1, material, VertexAttributes.Usage.Position | VertexAttributes.Usage.Normal | VertexAttributes.Usage.TextureCoordinates);
 
         float groundWidth = 60f;
         float groundHeight = 0.3f;
@@ -168,32 +154,6 @@ public class BoxSpawnTest extends Test {
         int attributes = VertexAttributes.Usage.Position | VertexAttributes.Usage.Normal | VertexAttributes.Usage.TextureCoordinates | VertexAttributes.Usage.ColorUnpacked;
         Model groundBox = builder.createBox(groundWidth, groundHeight, groundDepth, groundMaterial, attributes);
         groundData = createBox(new ModelInstance(groundBox), -2, -1, 0, -2, 0, 0, 0, 0, groundWidth, groundHeight, groundDepth, 0, 0, 1);
-    }
-
-    private void setupHardwareInstance() {
-        if(!hardwareModelInstance) {
-            return;
-        }
-        int instanceCount = cubes.size;
-        hardwareCubeModelInstance = new ModelInstance(cubeModelInstanced);
-        for(int i = 0; i < hardwareCubeModelInstance.nodes.first().parts.size; i++) {
-            Mesh mesh = hardwareCubeModelInstance.nodes.first().parts.get(i).meshPart.mesh;
-            mesh.enableInstancedRendering(true, instanceCount,
-                    new VertexAttribute(VertexAttributes.Usage.Generic, 4, "i_worldTrans", 0),
-                    new VertexAttribute(VertexAttributes.Usage.Generic, 4, "i_worldTrans", 1),
-                    new VertexAttribute(VertexAttributes.Usage.Generic, 4, "i_worldTrans", 2),
-                    new VertexAttribute(VertexAttributes.Usage.Generic, 4, "i_worldTrans", 3) );
-
-            offsets = BufferUtils.newFloatBuffer(instanceCount * 16);
-            for(int j = 0; j < instanceCount; j++) {
-                float angle = 0;
-                instanceTransform.setToRotationRad(Vector3.Y, angle);
-                instanceTransform.setTranslation(0, 0, 0);
-                offsets.put(instanceTransform.tra().getValues());
-            }
-            ((Buffer)offsets).position(0);
-            mesh.setInstanceData(offsets);
-        }
     }
 
     @Override
@@ -209,22 +169,13 @@ public class BoxSpawnTest extends Test {
 
     private void updateModels() {
         for(int i = 0; i < cubes.size; i++) {
-            int targetIndex = i * 16;
             CubeData cubeData = cubes.get(i);
             Body body = cubeData.body;
             Mat44 mat44 = body.GetWorldTransform();
             instanceTransform.idt();
             JoltGdx.convert(mat44, instanceTransform);
 
-            if(cubeData.modelInstance != null) {
-                cubeData.modelInstance.transform.set(instanceTransform);
-            }
-            else {
-                offsets.position(targetIndex);
-                offsets.put(instanceTransform.tra().getValues());
-                Mesh mesh = hardwareCubeModelInstance.nodes.first().parts.first().meshPart.mesh;
-                mesh.updateInstanceData(targetIndex, instanceTransform.getValues());
-            }
+            cubeData.modelInstance.transform.set(instanceTransform);
         }
     }
 
@@ -240,9 +191,6 @@ public class BoxSpawnTest extends Test {
             }
         }
         renderableProviders.add(groundData.modelInstance);
-        if(hardwareCubeModelInstance != null) {
-            renderableProviders.add(hardwareCubeModelInstance);
-        }
         sceneManager.setCamera(camera);
         sceneManager.update(Gdx.graphics.getDeltaTime());
         sceneManager.render();
@@ -250,14 +198,6 @@ public class BoxSpawnTest extends Test {
     }
 
     private void resetBoxes() {
-        if(hardwareCubeModelInstance != null) {
-            for(int i = 0; i < hardwareCubeModelInstance.nodes.first().parts.size; i++) {
-                Mesh mesh = hardwareCubeModelInstance.nodes.first().parts.get(i).meshPart.mesh;
-                mesh.disableInstancedRendering();
-            }
-        }
-
-        hardwareCubeModelInstance = null;
         BodyInterface bodyInterface = mPhysicsSystem.GetBodyInterface();
         for(CubeData cubeData : cubes) {
             Body body = cubeData.body;
@@ -296,10 +236,7 @@ public class BoxSpawnTest extends Test {
                         float r = 1f;
                         float g = 1f;
                         float b = 1f;
-                        ModelInstance instance = null;
-                        if(!hardwareModelInstance) {
-                            instance = new ModelInstance(cubeModel);
-                        }
+                        ModelInstance instance = new ModelInstance(cubeModel);
 
                         CubeData box = createBox(instance, cubeCount, 0.4f, x, y, z, axisX, axisY, axisZ, 1, 1, 1, r, g, b);
                         cubes.add(box);
@@ -364,7 +301,6 @@ public class BoxSpawnTest extends Test {
         checkerBoardTexture.dispose();
         boxTexture.dispose();
         cubeModel.dispose();
-        cubeModelInstanced.dispose();
         tempVec3.dispose();
         tempQuat.dispose();
 
@@ -378,10 +314,6 @@ public class BoxSpawnTest extends Test {
 
     @Override
     public void renderUI(Batch batch, BitmapFont font) {
-//        IDLBool.TMP_1.set(hardwareModelInstance);
-//        if(ImGui.Checkbox("Hardware Model Instance", IDLBool.TMP_1)) {
-//            hardwareModelInstance = IDLBool.TMP_1.getValue();
-//        }
 //        IDLBool.TMP_1.set(renderModels);
 //        if(ImGui.Checkbox("Render Models", IDLBool.TMP_1)) {
 //            renderModels = IDLBool.TMP_1.getValue();

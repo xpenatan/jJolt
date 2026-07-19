@@ -6,7 +6,6 @@
 
 package gen.web.jolt.physics.character;
 
-import gen.web.com.github.xpenatan.jParser.api.NativeObject;
 import gen.web.jolt.math.Vec3;
 import gen.web.jolt.math.Quat;
 import gen.web.jolt.physics.PhysicsSystem;
@@ -19,6 +18,7 @@ import gen.web.jolt.physics.collision.ShapeFilter;
 import gen.web.jolt.core.TempAllocator;
 import gen.web.jolt.physics.collision.shape.Shape;
 import gen.web.jolt.physics.collision.TransformedShape;
+import gen.web.com.github.xpenatan.jParser.api.NativeObject;
 
 public class CharacterVirtual extends CharacterBase {
 

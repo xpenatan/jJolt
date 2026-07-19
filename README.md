@@ -100,16 +100,16 @@ To try the samples with your build, change `LibExt.useRepoLibs` to `false` in `b
 ## How To Build From Source
 
 ```bash
-./gradlew :jolt:builder:jolt_download_source
+./gradlew :jolt:download:jolt_download_source
 
 # Generate binding sources for JNI, FFM, and web.
-./gradlew :jolt:builder:jolt_build_project
+./gradlew :jolt:builder:jParser_generate
 
 # Generate and build native platform targets.
-./gradlew :jolt:builder:jolt_build_project_windows64_jni :jolt:builder:jolt_build_project_windows64_ffm
-./gradlew :jolt:builder:jolt_build_project_linux64_jni :jolt:builder:jolt_build_project_linux64_ffm
-./gradlew :jolt:builder:jolt_build_project_mac64_jni :jolt:builder:jolt_build_project_mac64_ffm
-./gradlew :jolt:builder:jolt_build_project_macArm_jni :jolt:builder:jolt_build_project_macArm_ffm
-./gradlew :jolt:builder:jolt_build_project_android_jni
-./gradlew :jolt:builder:jolt_build_project_web_wasm
+./gradlew :jolt:builder:jParser_build_windows64_jni :jolt:builder:jParser_build_windows64_ffm :jolt:builder:jParser_build_windows64_teavm_c
+./gradlew :jolt:builder:jParser_build_linux64_jni :jolt:builder:jParser_build_linux64_ffm :jolt:builder:jParser_build_linux64_teavm_c
+./gradlew :jolt:builder:jParser_build_mac64_jni :jolt:builder:jParser_build_mac64_ffm :jolt:builder:jParser_build_mac64_teavm_c
+./gradlew :jolt:builder:jParser_build_macArm_jni :jolt:builder:jParser_build_macArm_ffm :jolt:builder:jParser_build_macArm_teavm_c
+./gradlew :jolt:builder:jParser_build_android_jni
+./gradlew :jolt:builder:jParser_build_web_wasm
 ```

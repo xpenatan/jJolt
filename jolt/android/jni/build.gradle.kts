@@ -84,5 +84,5 @@ tasks.named("clean") {
 }
 
 tasks.matching { it.name.endsWith("JavaWithJavac") || it.name == "preBuild" }.configureEach {
-    dependsOn(":jolt:builder:jolt_build_project")
+    dependsOn(":jolt:builder:jParser_generate")
 }

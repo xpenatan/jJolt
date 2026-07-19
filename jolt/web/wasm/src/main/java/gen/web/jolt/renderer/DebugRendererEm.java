@@ -7,7 +7,6 @@
 package gen.web.jolt.renderer;
 
 import gen.web.com.github.xpenatan.jparser.runtime.helper.NativeFloatArray;
-import gen.web.com.github.xpenatan.jParser.api.NativeObject;
 import gen.web.jolt.physics.PhysicsSystem;
 import gen.web.jolt.physics.body.BodyManagerDrawSettings;
 import gen.web.jolt.math.Mat44;
@@ -16,6 +15,7 @@ import gen.web.jolt.enums.ECastShadow;
 import gen.web.jolt.enums.EDrawMode;
 import gen.web.jolt.enums.ECullMode;
 import gen.web.jolt.math.Vec3;
+import gen.web.com.github.xpenatan.jParser.api.NativeObject;
 
 public class DebugRendererEm extends DebugRenderer {
 

@@ -72,7 +72,7 @@ dependencies {
 }
 
 val sampleMainClass = "jolt.example.samples.app.desktop.JoltDesktopLauncher"
-val assetsDir = file("../../assets")
+val assetsDir = rootProject.file("samples/assets")
 
 fun JavaExec.configureSampleRun(
     descriptionText: String,

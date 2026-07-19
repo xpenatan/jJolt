@@ -26,7 +26,7 @@ dependencies {
 }
 
 libfdx {
-    assets(rootProject.file("samples/fdx/assets"))
+    assets(rootProject.file("samples/assets"))
     js {
         mainClass.set("jolt.example.samples.app.web.JoltWebJsLauncher")
         htmlTitle.set("jJolt libfdx - WebGL JS")

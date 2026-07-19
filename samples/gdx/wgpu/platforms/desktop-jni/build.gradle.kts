@@ -28,7 +28,7 @@ java {
 }
 
 val mainClassName = "jolt.example.samples.app.Main"
-val assetsDir = file("../../../assets")
+val assetsDir = rootProject.file("samples/assets")
 
 tasks.register<JavaExec>("jolt_samples_run_desktop_wgpu") {
     group = "jolt_examples_desktop"

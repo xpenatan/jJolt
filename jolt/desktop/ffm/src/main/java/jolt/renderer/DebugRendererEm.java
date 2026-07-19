@@ -7,7 +7,6 @@
 package jolt.renderer;
 
 import com.github.xpenatan.jparser.runtime.helper.NativeFloatArray;
-import com.github.xpenatan.jParser.api.NativeObject;
 import jolt.physics.PhysicsSystem;
 import jolt.physics.body.BodyManagerDrawSettings;
 import jolt.math.Mat44;
@@ -23,6 +22,7 @@ import java.lang.foreign.SymbolLookup;
 import java.lang.foreign.Arena;
 import java.lang.foreign.MemorySegment;
 import java.lang.invoke.MethodHandle;
+import com.github.xpenatan.jParser.api.NativeObject;
 
 public class DebugRendererEm extends DebugRenderer {
 

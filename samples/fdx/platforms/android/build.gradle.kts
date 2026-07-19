@@ -20,7 +20,7 @@ android {
 
     sourceSets {
         named("main") {
-            assets.srcDirs(project.file("../../assets"))
+            assets.srcDirs(rootProject.file("samples/assets"))
         }
     }
 

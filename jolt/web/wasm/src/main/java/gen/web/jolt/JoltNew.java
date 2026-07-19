@@ -29,10 +29,6 @@ import gen.web.jolt.geometry.IndexedTriangleList;
 
 public class JoltNew extends NativeObject {
 
-    static private JobSystemThreadPool JobSystemThreadPool_TEMP_STATIC_GEN_0;
-
-    static private MeshShapeSettings MeshShapeSettings_TEMP_STATIC_GEN_0;
-
     static public final JoltNew NULL = JoltNew.native_new();
 
     /**
@@ -101,10 +97,9 @@ public class JoltNew extends NativeObject {
         int addr = internal_native_JobSystemThreadPool__0_addr(inMaxJobs, inMaxBarriers);
         if (addr == 0)
             return JobSystemThreadPool.NULL;
-        if (JobSystemThreadPool_TEMP_STATIC_GEN_0 == null)
-            JobSystemThreadPool_TEMP_STATIC_GEN_0 = JobSystemThreadPool.native_new();
-        JobSystemThreadPool_TEMP_STATIC_GEN_0.internal_reset(addr, false);
-        return JobSystemThreadPool_TEMP_STATIC_GEN_0;
+        JobSystemThreadPool JobSystemThreadPool_NEW = JobSystemThreadPool.native_new();
+        JobSystemThreadPool_NEW.internal_reset(addr, true);
+        return JobSystemThreadPool_NEW;
     }
 
     @org.teavm.jso.JSBody(params = {"inMaxJobs", "inMaxBarriers"}, script = "var returnedJSObj = jolt.JoltNew.prototype.JobSystemThreadPool__0(inMaxJobs, inMaxBarriers);if(!returnedJSObj.hasOwnProperty('ptr')) return 0; return jolt.getPointer(returnedJSObj);")
@@ -366,10 +361,9 @@ public class JoltNew extends NativeObject {
         int addr = internal_native_MeshShapeSettings__1_addr(inTriangleList.native_address);
         if (addr == 0)
             return MeshShapeSettings.NULL;
-        if (MeshShapeSettings_TEMP_STATIC_GEN_0 == null)
-            MeshShapeSettings_TEMP_STATIC_GEN_0 = MeshShapeSettings.native_new();
-        MeshShapeSettings_TEMP_STATIC_GEN_0.internal_reset(addr, false);
-        return MeshShapeSettings_TEMP_STATIC_GEN_0;
+        MeshShapeSettings MeshShapeSettings_NEW = MeshShapeSettings.native_new();
+        MeshShapeSettings_NEW.internal_reset(addr, true);
+        return MeshShapeSettings_NEW;
     }
 
     @org.teavm.jso.JSBody(params = {"inTriangleList_addr"}, script = "var returnedJSObj = jolt.JoltNew.prototype.MeshShapeSettings__1(inTriangleList_addr);if(!returnedJSObj.hasOwnProperty('ptr')) return 0; return jolt.getPointer(returnedJSObj);")

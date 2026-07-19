@@ -6,7 +6,6 @@
 
 package jolt.physics.character;
 
-import com.github.xpenatan.jParser.api.NativeObject;
 import jolt.math.Vec3;
 import jolt.math.Quat;
 import jolt.physics.PhysicsSystem;
@@ -26,6 +25,7 @@ import java.lang.foreign.SymbolLookup;
 import java.lang.foreign.Arena;
 import java.lang.foreign.MemorySegment;
 import java.lang.invoke.MethodHandle;
+import com.github.xpenatan.jParser.api.NativeObject;
 
 public class CharacterVirtual extends CharacterBase {
 

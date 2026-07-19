@@ -12,7 +12,7 @@ import org.teavm.vm.TeaVMOptimizationLevel;
 public class Build {
 
     public static void main(String[] args) {
-        AssetFileHandle assetsPath = new AssetFileHandle("../../../assets");
+        AssetFileHandle assetsPath = new AssetFileHandle("../../../../assets");
         File outputDir = new File("build/dist");
         boolean built = false;
         try {

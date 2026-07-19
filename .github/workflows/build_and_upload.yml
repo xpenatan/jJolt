@@ -48,19 +48,23 @@ jobs:
           value: $env:PATH;C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Auxiliary\Build
 
       - name: Download sources
-        run: ./gradlew :jolt:jolt-build:jolt_download_source
+        run: ./gradlew :jolt:download:jolt_download_source
 
       - name: Build JNI project
-        run: ./gradlew :jolt:jolt-build:jolt_build_project_windows64_jni
+        run: ./gradlew :jolt:builder:jParser_build_windows64_jni
 
       - name: Build FFM project
-        run: ./gradlew :jolt:jolt-build:jolt_build_project_windows64_ffm
+        run: ./gradlew :jolt:builder:jParser_build_windows64_ffm
+
+      - name: Build TeaVM C project
+        run: ./gradlew :jolt:builder:jParser_build_windows64_teavm_c
 
       - name: Upload natives
         uses: actions/upload-artifact@v7
         with:
           name: windows-natives
-          path: ./jolt/jolt-build/build/c++/libs/
+          path: ./jolt/builder/build/c++/libs/
+          if-no-files-found: error
 
   build_linux:
     name: Build Linux
@@ -85,19 +89,23 @@ jobs:
         run: chmod +x ./gradlew
 
       - name: Download sources
-        run: ./gradlew :jolt:jolt-build:jolt_download_source
+        run: ./gradlew :jolt:download:jolt_download_source
 
       - name: Build JNI project
-        run: ./gradlew :jolt:jolt-build:jolt_build_project_linux64_jni
+        run: ./gradlew :jolt:builder:jParser_build_linux64_jni
 
       - name: Build FFM project
-        run: ./gradlew :jolt:jolt-build:jolt_build_project_linux64_ffm
+        run: ./gradlew :jolt:builder:jParser_build_linux64_ffm
+
+      - name: Build TeaVM C project
+        run: ./gradlew :jolt:builder:jParser_build_linux64_teavm_c
 
       - name: Upload natives
         uses: actions/upload-artifact@v7
         with:
           name: linux-natives
-          path: ./jolt/jolt-build/build/c++/libs/
+          path: ./jolt/builder/build/c++/libs/
+          if-no-files-found: error
 
   build_mac:
     name: Build Mac
@@ -122,19 +130,23 @@ jobs:
         run: chmod +x ./gradlew
 
       - name: Download sources
-        run: ./gradlew :jolt:jolt-build:jolt_download_source
+        run: ./gradlew :jolt:download:jolt_download_source
 
       - name: Build JNI project
-        run: ./gradlew :jolt:jolt-build:jolt_build_project_mac64_jni :jolt:jolt-build:jolt_build_project_macArm_jni
+        run: ./gradlew :jolt:builder:jParser_build_mac64_jni :jolt:builder:jParser_build_macArm_jni
 
       - name: Build FFM project
-        run: ./gradlew :jolt:jolt-build:jolt_build_project_mac64_ffm :jolt:jolt-build:jolt_build_project_macArm_ffm
+        run: ./gradlew :jolt:builder:jParser_build_mac64_ffm :jolt:builder:jParser_build_macArm_ffm
+
+      - name: Build TeaVM C project
+        run: ./gradlew :jolt:builder:jParser_build_mac64_teavm_c :jolt:builder:jParser_build_macArm_teavm_c
 
       - name: Upload natives
         uses: actions/upload-artifact@v7
         with:
           name: mac-natives
-          path: ./jolt/jolt-build/build/c++/libs/
+          path: ./jolt/builder/build/c++/libs/
+          if-no-files-found: error
 
   build_teavm:
     name: Build TeaVM
@@ -164,16 +176,17 @@ jobs:
         run: chmod +x ./gradlew
 
       - name: Download sources
-        run: ./gradlew :jolt:jolt-build:jolt_download_source
+        run: ./gradlew :jolt:download:jolt_download_source
 
       - name: Build Web project
-        run: ./gradlew :jolt:jolt-build:jolt_build_project_web_wasm
+        run: ./gradlew :jolt:builder:jParser_build_web_wasm
 
       - name: Upload natives
         uses: actions/upload-artifact@v7
         with:
           name: teavm-natives
-          path: ./jolt/jolt-build/build/c++/libs/
+          path: ./jolt/builder/build/c++/libs/
+          if-no-files-found: error
 
   build_android:
     name: Build Android
@@ -200,23 +213,25 @@ jobs:
         with:
           ndk-version: r27d
           add-to-path: false
+          link-to-sdk: true
 
       - name: Change wrapper permissions
         run: chmod +x ./gradlew
 
       - name: Download sources
-        run: ./gradlew :jolt:jolt-build:jolt_download_source
+        run: ./gradlew :jolt:download:jolt_download_source
 
       - name: Build JNI project
-        run: ./gradlew :jolt:jolt-build:jolt_build_project_android_jni
+        run: ./gradlew :jolt:builder:jParser_build_android_jni
         env:
-          NDK_HOME: ${{ steps.setup-ndk.outputs.ndk-path }}
+          ANDROID_NDK_HOME: ${{ steps.setup-ndk.outputs.ndk-path }}
 
       - name: Upload natives
         uses: actions/upload-artifact@v7
         with:
           name: android-natives
-          path: ./jolt/jolt-build/build/c++/libs/
+          path: ./jolt/builder/build/c++/libs/
+          if-no-files-found: error
 
   commit_generated_code:
     name: Commit Generated code
@@ -246,10 +261,10 @@ jobs:
         run: ./gradlew clean
 
       - name: Download sources
-        run: ./gradlew :jolt:jolt-build:jolt_download_source
+        run: ./gradlew :jolt:download:jolt_download_source
 
       - name: Generate Jolt classes
-        run: ./gradlew :jolt:jolt-build:jolt_build_project
+        run: ./gradlew :jolt:builder:jParser_generate
 
       - name: Configure Git
         run: |
@@ -259,7 +274,7 @@ jobs:
       - name: Commit generated code
         run: |
           git add .
-          git commit -m "Commit generated code from :jolt:jolt-build:jolt_build_project" || echo "No changes to commit"
+          git commit -m "Commit generated code from :jolt:builder:jParser_generate" || echo "No changes to commit"
           git push origin HEAD
 
   upload_natives:
@@ -304,37 +319,37 @@ jobs:
         uses: actions/download-artifact@v8
         with:
           name: windows-natives
-          path: ./jolt/jolt-build/build/c++/libs/
+          path: ./jolt/builder/build/c++/libs/
 
       - name: Download linux natives
         uses: actions/download-artifact@v8
         with:
           name: linux-natives
-          path: ./jolt/jolt-build/build/c++/libs/
+          path: ./jolt/builder/build/c++/libs/
 
       - name: Download mac natives
         uses: actions/download-artifact@v8
         with:
           name: mac-natives
-          path: ./jolt/jolt-build/build/c++/libs/
+          path: ./jolt/builder/build/c++/libs/
 
       - name: Download android natives
         uses: actions/download-artifact@v8
         with:
           name: android-natives
-          path: ./jolt/jolt-build/build/c++/libs/
+          path: ./jolt/builder/build/c++/libs/
 
       - name: Download teavm natives
         uses: actions/download-artifact@v8
         with:
           name: teavm-natives
-          path: ./jolt/jolt-build/build/c++/libs/
+          path: ./jolt/builder/build/c++/libs/
 
       - name: Download sources
-        run: ./gradlew :jolt:jolt-build:jolt_download_source
+        run: ./gradlew :jolt:download:jolt_download_source
 
       - name: Build project
-        run: ./gradlew :jolt:jolt-build:jolt_build_project
+        run: ./gradlew :jolt:builder:jParser_generate
 
       - name: Upload Release to repository
         uses: nick-fields/retry@v3

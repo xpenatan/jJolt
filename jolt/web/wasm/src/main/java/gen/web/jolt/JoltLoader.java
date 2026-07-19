@@ -8,7 +8,7 @@ package gen.web.jolt;
 
 import com.github.xpenatan.jParser.loader.JParserLibraryLoader;
 import com.github.xpenatan.jParser.loader.JParserLibraryLoaderListener;
-import gen.web.com.github.xpenatan.jparser.runtime.RuntimeLoader;
+import com.github.xpenatan.jparser.runtime.RuntimeLoader;
 
 /**
  * @author xpenatan
