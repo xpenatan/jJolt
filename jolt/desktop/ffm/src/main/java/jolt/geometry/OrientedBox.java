@@ -77,6 +77,54 @@ public class OrientedBox extends NativeObject {
         }
     }
 
+    public boolean OverlapsAABox(AABox inBox, float inEpsilon) {
+        return internal_native_OverlapsAABox(native_address, inBox.native_address, inEpsilon);
+    }
+
+    public static boolean internal_native_OverlapsAABox(long this_addr, long inBox_addr, float inEpsilon) {
+        try {
+            return (boolean) FFMHandles.internal_native_OverlapsAABox__JJF.invokeExact(this_addr, inBox_addr, inEpsilon);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public boolean OverlapsAABox(AABox inBox) {
+        return internal_native_OverlapsAABox(native_address, inBox.native_address);
+    }
+
+    public static boolean internal_native_OverlapsAABox(long this_addr, long inBox_addr) {
+        try {
+            return (boolean) FFMHandles.internal_native_OverlapsAABox__JJ.invokeExact(this_addr, inBox_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public boolean OverlapsOrientedBox(OrientedBox inBox, float inEpsilon) {
+        return internal_native_OverlapsOrientedBox(native_address, inBox.native_address, inEpsilon);
+    }
+
+    public static boolean internal_native_OverlapsOrientedBox(long this_addr, long inBox_addr, float inEpsilon) {
+        try {
+            return (boolean) FFMHandles.internal_native_OverlapsOrientedBox__JJF.invokeExact(this_addr, inBox_addr, inEpsilon);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public boolean OverlapsOrientedBox(OrientedBox inBox) {
+        return internal_native_OverlapsOrientedBox(native_address, inBox.native_address);
+    }
+
+    public static boolean internal_native_OverlapsOrientedBox(long this_addr, long inBox_addr) {
+        try {
+            return (boolean) FFMHandles.internal_native_OverlapsOrientedBox__JJ.invokeExact(this_addr, inBox_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
     public Mat44 get_mOrientation() {
         long addr = internal_native_get_mOrientation_addr(native_address);
         if (addr == 0)
@@ -139,18 +187,26 @@ public class OrientedBox extends NativeObject {
 
     private static final class FFMHandles {
 
-        static final java.lang.invoke.MethodHandle internal_native_create_addr__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_geometry_orientedbox_create_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG));
+        static final java.lang.invoke.MethodHandle internal_native_create_addr__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_geometry_orientedbox_create_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG));
 
-        static final java.lang.invoke.MethodHandle internal_native_create_Mat44_Vec3_addr__JJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_geometry_orientedbox_create_mat44_vec3_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+        static final java.lang.invoke.MethodHandle internal_native_create_Mat44_Vec3_addr__JJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_geometry_orientedbox_create_mat44_vec3_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
 
         static final java.lang.invoke.MethodHandle internal_native_deleteNative__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_geometry_orientedbox_deletenative", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG));
 
-        static final java.lang.invoke.MethodHandle internal_native_get_mOrientation_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_geometry_orientedbox_get_morientation_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+        static final java.lang.invoke.MethodHandle internal_native_OverlapsAABox__JJF = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_geometry_orientedbox_overlapsaabox_l_l_f", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_FLOAT));
 
-        static final java.lang.invoke.MethodHandle internal_native_set_mOrientation__JJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_geometry_orientedbox_set_morientation", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+        static final java.lang.invoke.MethodHandle internal_native_OverlapsAABox__JJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_geometry_orientedbox_overlapsaabox_l_l", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
 
-        static final java.lang.invoke.MethodHandle internal_native_get_mHalfExtents_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_geometry_orientedbox_get_mhalfextents_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+        static final java.lang.invoke.MethodHandle internal_native_OverlapsOrientedBox__JJF = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_geometry_orientedbox_overlapsorientedbox_l_l_f", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_FLOAT));
 
-        static final java.lang.invoke.MethodHandle internal_native_set_mHalfExtents__JJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_geometry_orientedbox_set_mhalfextents", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+        static final java.lang.invoke.MethodHandle internal_native_OverlapsOrientedBox__JJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_geometry_orientedbox_overlapsorientedbox_l_l", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_get_mOrientation_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_geometry_orientedbox_get_morientation_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_set_mOrientation__JJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_geometry_orientedbox_set_morientation", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_get_mHalfExtents_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_geometry_orientedbox_get_mhalfextents_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_set_mHalfExtents__JJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_geometry_orientedbox_set_mhalfextents", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
     }
 }

@@ -30,6 +30,13 @@ public class MutableCompoundShape extends CompoundShape {
         return new MutableCompoundShape((byte) 0, (char) 0);
     }
 
+    public int AddShape(Vec3 inPosition, Quat inRotation, Shape inShape, int inUserData, int inIndex) {
+        return internal_native_AddShape(native_address, inPosition.native_address, inRotation.native_address, inShape.native_address, inUserData, inIndex);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "inPosition_addr", "inRotation_addr", "inShape_addr", "inUserData", "inIndex"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.MutableCompoundShape);var returnedJSObj = jsObj.AddShape(inPosition_addr, inRotation_addr, inShape_addr, inUserData, inIndex);return returnedJSObj;")
+    public static native int internal_native_AddShape(int this_addr, int inPosition_addr, int inRotation_addr, int inShape_addr, int inUserData, int inIndex);
+
     public int AddShape(Vec3 inPosition, Quat inRotation, Shape inShape, int inUserData) {
         return internal_native_AddShape(native_address, inPosition.native_address, inRotation.native_address, inShape.native_address, inUserData);
     }

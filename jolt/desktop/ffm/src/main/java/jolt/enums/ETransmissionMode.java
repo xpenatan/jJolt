@@ -59,8 +59,8 @@ public enum ETransmissionMode implements NativeEnum<ETransmissionMode> {
 
     private static final class FFMHandles {
 
-        static final java.lang.invoke.MethodHandle ETransmissionMode_Auto_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_enums_etransmissionmode_etransmissionmode_auto_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
+        static final java.lang.invoke.MethodHandle ETransmissionMode_Auto_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_enums_etransmissionmode_etransmissionmode_auto_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
 
-        static final java.lang.invoke.MethodHandle ETransmissionMode_Manual_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_enums_etransmissionmode_etransmissionmode_manual_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
+        static final java.lang.invoke.MethodHandle ETransmissionMode_Manual_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_enums_etransmissionmode_etransmissionmode_manual_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
     }
 }

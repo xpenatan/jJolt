@@ -12,6 +12,9 @@ public class ArraySoftBodySharedSettingsFace extends NativeObject {
 
     static public final ArraySoftBodySharedSettingsFace NULL = ArraySoftBodySharedSettingsFace.native_new();
 
+    public ArraySoftBodySharedSettingsFace() {
+    }
+
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
      */

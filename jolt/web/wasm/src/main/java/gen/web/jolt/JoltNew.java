@@ -45,6 +45,7 @@ public class JoltNew extends NativeObject {
         return new JoltNew((byte) 0, (char) 0);
     }
 
+    @Deprecated
     public static PhysicsSystem PhysicsSystem() {
         int addr = internal_native_PhysicsSystem__0_addr();
         if (addr == 0)
@@ -57,6 +58,7 @@ public class JoltNew extends NativeObject {
     @org.teavm.jso.JSBody(script = "var returnedJSObj = jolt.JoltNew.prototype.PhysicsSystem__0();if(!returnedJSObj.hasOwnProperty('ptr')) return 0; return jolt.getPointer(returnedJSObj);")
     public static native int internal_native_PhysicsSystem__0_addr();
 
+    @Deprecated
     public static Factory Factory() {
         int addr = internal_native_Factory__0_addr();
         if (addr == 0)
@@ -69,6 +71,7 @@ public class JoltNew extends NativeObject {
     @org.teavm.jso.JSBody(script = "var returnedJSObj = jolt.JoltNew.prototype.Factory__0();if(!returnedJSObj.hasOwnProperty('ptr')) return 0; return jolt.getPointer(returnedJSObj);")
     public static native int internal_native_Factory__0_addr();
 
+    @Deprecated
     public static TempAllocatorImpl TempAllocatorImpl(int inSize) {
         int addr = internal_native_TempAllocatorImpl__0_addr(inSize);
         if (addr == 0)
@@ -81,6 +84,7 @@ public class JoltNew extends NativeObject {
     @org.teavm.jso.JSBody(params = {"inSize"}, script = "var returnedJSObj = jolt.JoltNew.prototype.TempAllocatorImpl__0(inSize);if(!returnedJSObj.hasOwnProperty('ptr')) return 0; return jolt.getPointer(returnedJSObj);")
     public static native int internal_native_TempAllocatorImpl__0_addr(int inSize);
 
+    @Deprecated
     public static JobSystemThreadPool JobSystemThreadPool(int inMaxJobs, int inMaxBarriers, int inNumThreads) {
         int addr = internal_native_JobSystemThreadPool__0_addr(inMaxJobs, inMaxBarriers, inNumThreads);
         if (addr == 0)
@@ -93,6 +97,7 @@ public class JoltNew extends NativeObject {
     @org.teavm.jso.JSBody(params = {"inMaxJobs", "inMaxBarriers", "inNumThreads"}, script = "var returnedJSObj = jolt.JoltNew.prototype.JobSystemThreadPool__0(inMaxJobs, inMaxBarriers, inNumThreads);if(!returnedJSObj.hasOwnProperty('ptr')) return 0; return jolt.getPointer(returnedJSObj);")
     public static native int internal_native_JobSystemThreadPool__0_addr(int inMaxJobs, int inMaxBarriers, int inNumThreads);
 
+    @Deprecated
     public static JobSystemThreadPool JobSystemThreadPool(int inMaxJobs, int inMaxBarriers) {
         int addr = internal_native_JobSystemThreadPool__0_addr(inMaxJobs, inMaxBarriers);
         if (addr == 0)

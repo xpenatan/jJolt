@@ -59,8 +59,8 @@ public enum EDrawMode implements NativeEnum<EDrawMode> {
 
     private static final class FFMHandles {
 
-        static final java.lang.invoke.MethodHandle EDrawMode_Solid_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_enums_edrawmode_edrawmode_solid_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
+        static final java.lang.invoke.MethodHandle EDrawMode_Solid_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_enums_edrawmode_edrawmode_solid_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
 
-        static final java.lang.invoke.MethodHandle EDrawMode_Wireframe_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_enums_edrawmode_edrawmode_wireframe_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
+        static final java.lang.invoke.MethodHandle EDrawMode_Wireframe_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_enums_edrawmode_edrawmode_wireframe_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
     }
 }

@@ -423,56 +423,56 @@ public class HingeConstraintSettings extends TwoBodyConstraintSettings {
 
     private static final class FFMHandles {
 
-        static final java.lang.invoke.MethodHandle internal_native_create_addr__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_physics_constraints_hingeconstraintsettings_create_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG));
+        static final java.lang.invoke.MethodHandle internal_native_create_addr__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_constraints_hingeconstraintsettings_create_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG));
 
         static final java.lang.invoke.MethodHandle internal_native_deleteNative__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_constraints_hingeconstraintsettings_deletenative", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG));
 
-        static final java.lang.invoke.MethodHandle internal_native_get_mSpace__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_physics_constraints_hingeconstraintsettings_get_mspace", FunctionDescriptor.of(ValueLayout.JAVA_INT, ValueLayout.JAVA_LONG));
+        static final java.lang.invoke.MethodHandle internal_native_get_mSpace__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_constraints_hingeconstraintsettings_get_mspace", FunctionDescriptor.of(ValueLayout.JAVA_INT, ValueLayout.JAVA_LONG));
 
-        static final java.lang.invoke.MethodHandle internal_native_set_mSpace__JI = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_physics_constraints_hingeconstraintsettings_set_mspace", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT));
+        static final java.lang.invoke.MethodHandle internal_native_set_mSpace__JI = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_constraints_hingeconstraintsettings_set_mspace", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT));
 
-        static final java.lang.invoke.MethodHandle internal_native_get_mPoint1_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_physics_constraints_hingeconstraintsettings_get_mpoint1_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+        static final java.lang.invoke.MethodHandle internal_native_get_mPoint1_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_constraints_hingeconstraintsettings_get_mpoint1_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
 
-        static final java.lang.invoke.MethodHandle internal_native_set_mPoint1__JJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_physics_constraints_hingeconstraintsettings_set_mpoint1", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+        static final java.lang.invoke.MethodHandle internal_native_set_mPoint1__JJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_constraints_hingeconstraintsettings_set_mpoint1", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
 
-        static final java.lang.invoke.MethodHandle internal_native_get_mHingeAxis1_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_physics_constraints_hingeconstraintsettings_get_mhingeaxis1_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+        static final java.lang.invoke.MethodHandle internal_native_get_mHingeAxis1_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_constraints_hingeconstraintsettings_get_mhingeaxis1_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
 
-        static final java.lang.invoke.MethodHandle internal_native_set_mHingeAxis1__JJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_physics_constraints_hingeconstraintsettings_set_mhingeaxis1", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+        static final java.lang.invoke.MethodHandle internal_native_set_mHingeAxis1__JJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_constraints_hingeconstraintsettings_set_mhingeaxis1", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
 
-        static final java.lang.invoke.MethodHandle internal_native_get_mNormalAxis1_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_physics_constraints_hingeconstraintsettings_get_mnormalaxis1_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+        static final java.lang.invoke.MethodHandle internal_native_get_mNormalAxis1_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_constraints_hingeconstraintsettings_get_mnormalaxis1_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
 
-        static final java.lang.invoke.MethodHandle internal_native_set_mNormalAxis1__JJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_physics_constraints_hingeconstraintsettings_set_mnormalaxis1", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+        static final java.lang.invoke.MethodHandle internal_native_set_mNormalAxis1__JJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_constraints_hingeconstraintsettings_set_mnormalaxis1", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
 
-        static final java.lang.invoke.MethodHandle internal_native_get_mPoint2_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_physics_constraints_hingeconstraintsettings_get_mpoint2_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+        static final java.lang.invoke.MethodHandle internal_native_get_mPoint2_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_constraints_hingeconstraintsettings_get_mpoint2_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
 
-        static final java.lang.invoke.MethodHandle internal_native_set_mPoint2__JJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_physics_constraints_hingeconstraintsettings_set_mpoint2", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+        static final java.lang.invoke.MethodHandle internal_native_set_mPoint2__JJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_constraints_hingeconstraintsettings_set_mpoint2", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
 
-        static final java.lang.invoke.MethodHandle internal_native_get_mHingeAxis2_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_physics_constraints_hingeconstraintsettings_get_mhingeaxis2_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+        static final java.lang.invoke.MethodHandle internal_native_get_mHingeAxis2_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_constraints_hingeconstraintsettings_get_mhingeaxis2_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
 
-        static final java.lang.invoke.MethodHandle internal_native_set_mHingeAxis2__JJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_physics_constraints_hingeconstraintsettings_set_mhingeaxis2", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+        static final java.lang.invoke.MethodHandle internal_native_set_mHingeAxis2__JJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_constraints_hingeconstraintsettings_set_mhingeaxis2", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
 
-        static final java.lang.invoke.MethodHandle internal_native_get_mNormalAxis2_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_physics_constraints_hingeconstraintsettings_get_mnormalaxis2_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+        static final java.lang.invoke.MethodHandle internal_native_get_mNormalAxis2_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_constraints_hingeconstraintsettings_get_mnormalaxis2_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
 
-        static final java.lang.invoke.MethodHandle internal_native_set_mNormalAxis2__JJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_physics_constraints_hingeconstraintsettings_set_mnormalaxis2", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+        static final java.lang.invoke.MethodHandle internal_native_set_mNormalAxis2__JJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_constraints_hingeconstraintsettings_set_mnormalaxis2", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
 
-        static final java.lang.invoke.MethodHandle internal_native_get_mLimitsMin__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_physics_constraints_hingeconstraintsettings_get_mlimitsmin", FunctionDescriptor.of(ValueLayout.JAVA_FLOAT, ValueLayout.JAVA_LONG));
+        static final java.lang.invoke.MethodHandle internal_native_get_mLimitsMin__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_constraints_hingeconstraintsettings_get_mlimitsmin", FunctionDescriptor.of(ValueLayout.JAVA_FLOAT, ValueLayout.JAVA_LONG));
 
-        static final java.lang.invoke.MethodHandle internal_native_set_mLimitsMin__JF = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_physics_constraints_hingeconstraintsettings_set_mlimitsmin", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_FLOAT));
+        static final java.lang.invoke.MethodHandle internal_native_set_mLimitsMin__JF = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_constraints_hingeconstraintsettings_set_mlimitsmin", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_FLOAT));
 
-        static final java.lang.invoke.MethodHandle internal_native_get_mLimitsMax__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_physics_constraints_hingeconstraintsettings_get_mlimitsmax", FunctionDescriptor.of(ValueLayout.JAVA_FLOAT, ValueLayout.JAVA_LONG));
+        static final java.lang.invoke.MethodHandle internal_native_get_mLimitsMax__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_constraints_hingeconstraintsettings_get_mlimitsmax", FunctionDescriptor.of(ValueLayout.JAVA_FLOAT, ValueLayout.JAVA_LONG));
 
-        static final java.lang.invoke.MethodHandle internal_native_set_mLimitsMax__JF = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_physics_constraints_hingeconstraintsettings_set_mlimitsmax", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_FLOAT));
+        static final java.lang.invoke.MethodHandle internal_native_set_mLimitsMax__JF = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_constraints_hingeconstraintsettings_set_mlimitsmax", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_FLOAT));
 
-        static final java.lang.invoke.MethodHandle internal_native_get_mLimitsSpringSettings_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_physics_constraints_hingeconstraintsettings_get_mlimitsspringsettings_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+        static final java.lang.invoke.MethodHandle internal_native_get_mLimitsSpringSettings_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_constraints_hingeconstraintsettings_get_mlimitsspringsettings_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
 
-        static final java.lang.invoke.MethodHandle internal_native_set_mLimitsSpringSettings__JJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_physics_constraints_hingeconstraintsettings_set_mlimitsspringsettings", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+        static final java.lang.invoke.MethodHandle internal_native_set_mLimitsSpringSettings__JJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_constraints_hingeconstraintsettings_set_mlimitsspringsettings", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
 
-        static final java.lang.invoke.MethodHandle internal_native_get_mMaxFrictionTorque__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_physics_constraints_hingeconstraintsettings_get_mmaxfrictiontorque", FunctionDescriptor.of(ValueLayout.JAVA_FLOAT, ValueLayout.JAVA_LONG));
+        static final java.lang.invoke.MethodHandle internal_native_get_mMaxFrictionTorque__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_constraints_hingeconstraintsettings_get_mmaxfrictiontorque", FunctionDescriptor.of(ValueLayout.JAVA_FLOAT, ValueLayout.JAVA_LONG));
 
-        static final java.lang.invoke.MethodHandle internal_native_set_mMaxFrictionTorque__JF = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_physics_constraints_hingeconstraintsettings_set_mmaxfrictiontorque", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_FLOAT));
+        static final java.lang.invoke.MethodHandle internal_native_set_mMaxFrictionTorque__JF = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_constraints_hingeconstraintsettings_set_mmaxfrictiontorque", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_FLOAT));
 
-        static final java.lang.invoke.MethodHandle internal_native_get_mMotorSettings_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_physics_constraints_hingeconstraintsettings_get_mmotorsettings_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+        static final java.lang.invoke.MethodHandle internal_native_get_mMotorSettings_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_constraints_hingeconstraintsettings_get_mmotorsettings_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
 
-        static final java.lang.invoke.MethodHandle internal_native_set_mMotorSettings__JJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_physics_constraints_hingeconstraintsettings_set_mmotorsettings", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+        static final java.lang.invoke.MethodHandle internal_native_set_mMotorSettings__JJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_constraints_hingeconstraintsettings_set_mmotorsettings", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
     }
 }

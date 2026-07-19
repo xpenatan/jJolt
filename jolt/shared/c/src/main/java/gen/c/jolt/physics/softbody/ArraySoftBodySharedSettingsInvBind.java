@@ -14,6 +14,14 @@ public class ArraySoftBodySharedSettingsInvBind extends NativeObject {
 
     static public final ArraySoftBodySharedSettingsInvBind NULL = ArraySoftBodySharedSettingsInvBind.native_new();
 
+    public ArraySoftBodySharedSettingsInvBind() {
+        long addr = internal_native_create_addr();
+        internal_reset(addr, true);
+    }
+
+    @org.teavm.interop.Import(name = "jolt_physics_softbody_arraysoftbodysharedsettingsinvbind_create_addr")
+    public static native long internal_native_create_addr();
+
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
      */

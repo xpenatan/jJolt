@@ -55,6 +55,34 @@ public class OrientedBox extends NativeObject {
     @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.OrientedBox);jolt.destroy(jsObj);")
     public static native void internal_native_deleteNative(int this_addr);
 
+    public boolean OverlapsAABox(AABox inBox, float inEpsilon) {
+        return internal_native_OverlapsAABox(native_address, inBox.native_address, inEpsilon);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "inBox_addr", "inEpsilon"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.OrientedBox);var returnedJSObj = jsObj.OverlapsAABox(inBox_addr, inEpsilon);return returnedJSObj;")
+    public static native boolean internal_native_OverlapsAABox(int this_addr, int inBox_addr, float inEpsilon);
+
+    public boolean OverlapsAABox(AABox inBox) {
+        return internal_native_OverlapsAABox(native_address, inBox.native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "inBox_addr"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.OrientedBox);var returnedJSObj = jsObj.OverlapsAABox(inBox_addr);return returnedJSObj;")
+    public static native boolean internal_native_OverlapsAABox(int this_addr, int inBox_addr);
+
+    public boolean OverlapsOrientedBox(OrientedBox inBox, float inEpsilon) {
+        return internal_native_OverlapsOrientedBox(native_address, inBox.native_address, inEpsilon);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "inBox_addr", "inEpsilon"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.OrientedBox);var returnedJSObj = jsObj.OverlapsOrientedBox(inBox_addr, inEpsilon);return returnedJSObj;")
+    public static native boolean internal_native_OverlapsOrientedBox(int this_addr, int inBox_addr, float inEpsilon);
+
+    public boolean OverlapsOrientedBox(OrientedBox inBox) {
+        return internal_native_OverlapsOrientedBox(native_address, inBox.native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "inBox_addr"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.OrientedBox);var returnedJSObj = jsObj.OverlapsOrientedBox(inBox_addr);return returnedJSObj;")
+    public static native boolean internal_native_OverlapsOrientedBox(int this_addr, int inBox_addr);
+
     public Mat44 get_mOrientation() {
         int addr = internal_native_get_mOrientation_addr(native_address);
         if (addr == 0)

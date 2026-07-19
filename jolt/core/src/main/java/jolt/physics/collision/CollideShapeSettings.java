@@ -44,4 +44,11 @@ public class CollideShapeSettings extends CollideSettingsBase {
 
     public void set_mBackFaceMode(EBackFaceMode mBackFaceMode) {
     }
+
+    public float get_mInternalEdgeRemovalVertexToleranceSq() {
+        return 0;
+    }
+
+    public void set_mInternalEdgeRemovalVertexToleranceSq(float mInternalEdgeRemovalVertexToleranceSq) {
+    }
 }

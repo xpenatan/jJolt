@@ -54,10 +54,23 @@ public class RagdollSettings extends NativeObject {
     public void DisableParentChildCollisions() {
     }
 
+    public void CalculateConstraintPriorities(int inBasePriority) {
+    }
+
+    public void CalculateConstraintPriorities() {
+    }
+
     public void CalculateBodyIndexToConstraintIndex() {
     }
 
     public void CalculateConstraintIndexToBodyIdxPair() {
+    }
+
+    public Skeleton get_mSkeleton() {
+        return null;
+    }
+
+    public void set_mSkeleton(Skeleton mSkeleton) {
     }
 
     public ArrayRagdollPart get_mParts() {

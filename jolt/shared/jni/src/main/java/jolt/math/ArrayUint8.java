@@ -14,6 +14,15 @@ public class ArrayUint8 extends NativeObject {
 
     static public final ArrayUint8 NULL = ArrayUint8.native_new();
 
+    public ArrayUint8() {
+        long addr = internal_native_create_addr();
+        internal_reset(addr, true);
+    }
+
+    public static long internal_native_create_addr() {
+        return jolt.math.natives.JNI_ArrayUint8.internal_native_create_addr();
+    }
+
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
      */
@@ -50,6 +59,22 @@ public class ArrayUint8 extends NativeObject {
 
     public static int internal_native_size(long this_addr) {
         return jolt.math.natives.JNI_ArrayUint8.internal_native_size(this_addr);
+    }
+
+    public byte at(int inIndex) {
+        return internal_native_at(native_address, inIndex);
+    }
+
+    public static byte internal_native_at(long this_addr, int inIndex) {
+        return jolt.math.natives.JNI_ArrayUint8.internal_native_at(this_addr, inIndex);
+    }
+
+    public void push_back(byte inValue) {
+        internal_native_push_back(native_address, inValue);
+    }
+
+    public static void internal_native_push_back(long this_addr, byte inValue) {
+        jolt.math.natives.JNI_ArrayUint8.internal_native_push_back(this_addr, inValue);
     }
 
     public void reserve(int inSize) {

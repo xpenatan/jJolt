@@ -8,6 +8,8 @@ package jolt;
 
 import com.github.xpenatan.jParser.api.NativeObject;
 import jolt.physics.PhysicsSystem;
+import jolt.physics.character.CharacterVirtual;
+import jolt.physics.character.CharacterContactListener;
 import java.lang.foreign.FunctionDescriptor;
 import java.lang.foreign.ValueLayout;
 import java.lang.foreign.Linker;
@@ -17,6 +19,8 @@ import java.lang.foreign.MemorySegment;
 import java.lang.invoke.MethodHandle;
 
 public class Jolt extends NativeObject {
+
+    static private CharacterContactListener CharacterContactListener_TEMP_STATIC_GEN_0;
 
     static public final Jolt NULL = Jolt.native_new();
 
@@ -34,6 +38,7 @@ public class Jolt extends NativeObject {
         return new Jolt((byte) 0, (char) 0);
     }
 
+    @Deprecated
     public static void Init() {
         internal_native_Init();
     }
@@ -46,6 +51,7 @@ public class Jolt extends NativeObject {
         }
     }
 
+    @Deprecated
     public static void RegisterTypes() {
         internal_native_RegisterTypes();
     }
@@ -58,6 +64,7 @@ public class Jolt extends NativeObject {
         }
     }
 
+    @Deprecated
     public static void UnregisterTypes() {
         internal_native_UnregisterTypes();
     }
@@ -82,6 +89,24 @@ public class Jolt extends NativeObject {
         }
     }
 
+    public static CharacterContactListener GetCharacterContactListener(CharacterVirtual inCharacter) {
+        long addr = internal_native_GetCharacterContactListener_addr(inCharacter.native_address);
+        if (addr == 0)
+            return CharacterContactListener.NULL;
+        if (CharacterContactListener_TEMP_STATIC_GEN_0 == null)
+            CharacterContactListener_TEMP_STATIC_GEN_0 = CharacterContactListener.native_new();
+        CharacterContactListener_TEMP_STATIC_GEN_0.internal_reset(addr, false);
+        return CharacterContactListener_TEMP_STATIC_GEN_0;
+    }
+
+    public static long internal_native_GetCharacterContactListener_addr(long inCharacter_addr) {
+        try {
+            return (long) FFMHandles.internal_native_GetCharacterContactListener_addr__J.invokeExact(inCharacter_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
     private static final class FFMHandles {
 
         static final java.lang.invoke.MethodHandle internal_native_Init__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_jolt_init", FunctionDescriptor.ofVoid());
@@ -91,5 +116,7 @@ public class Jolt extends NativeObject {
         static final java.lang.invoke.MethodHandle internal_native_UnregisterTypes__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_jolt_unregistertypes", FunctionDescriptor.ofVoid());
 
         static final java.lang.invoke.MethodHandle internal_native_ClearWorld__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_jolt_clearworld", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_GetCharacterContactListener_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_jolt_getcharactercontactlistener_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
     }
 }

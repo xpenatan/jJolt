@@ -265,7 +265,7 @@ public class WheeledVehicleController extends VehicleController {
 
     private static final class FFMHandles {
 
-        static final java.lang.invoke.MethodHandle internal_native_create_WheeledVehicleControllerSettings_VehicleConstraint_addr__JJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_physics_vehicle_wheeledvehiclecontroller_create_wheeledvehiclecontrollersettings_vehicleconstraint_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+        static final java.lang.invoke.MethodHandle internal_native_create_WheeledVehicleControllerSettings_VehicleConstraint_addr__JJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_vehicle_wheeledvehiclecontroller_create_wheeledvehiclecontrollersettings_vehicleconstraint_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
 
         static final java.lang.invoke.MethodHandle internal_native_deleteNative__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_vehicle_wheeledvehiclecontroller_deletenative", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG));
 
@@ -287,11 +287,11 @@ public class WheeledVehicleController extends VehicleController {
 
         static final java.lang.invoke.MethodHandle internal_native_GetHandBrakeInput__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_vehicle_wheeledvehiclecontroller_gethandbrakeinput", FunctionDescriptor.of(ValueLayout.JAVA_FLOAT, ValueLayout.JAVA_LONG));
 
-        static final java.lang.invoke.MethodHandle internal_native_GetEngine_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_physics_vehicle_wheeledvehiclecontroller_getengine_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+        static final java.lang.invoke.MethodHandle internal_native_GetEngine_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_vehicle_wheeledvehiclecontroller_getengine_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
 
-        static final java.lang.invoke.MethodHandle internal_native_GetTransmission_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_physics_vehicle_wheeledvehiclecontroller_gettransmission_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+        static final java.lang.invoke.MethodHandle internal_native_GetTransmission_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_vehicle_wheeledvehiclecontroller_gettransmission_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
 
-        static final java.lang.invoke.MethodHandle internal_native_GetDifferentials_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_physics_vehicle_wheeledvehiclecontroller_getdifferentials_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+        static final java.lang.invoke.MethodHandle internal_native_GetDifferentials_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_vehicle_wheeledvehiclecontroller_getdifferentials_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
 
         static final java.lang.invoke.MethodHandle internal_native_GetDifferentialLimitedSlipRatio__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_vehicle_wheeledvehiclecontroller_getdifferentiallimitedslipratio", FunctionDescriptor.of(ValueLayout.JAVA_FLOAT, ValueLayout.JAVA_LONG));
 

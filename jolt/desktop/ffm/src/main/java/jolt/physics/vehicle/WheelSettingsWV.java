@@ -246,36 +246,36 @@ public class WheelSettingsWV extends WheelSettings {
 
     private static final class FFMHandles {
 
-        static final java.lang.invoke.MethodHandle internal_native_create_addr__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_physics_vehicle_wheelsettingswv_create_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG));
+        static final java.lang.invoke.MethodHandle internal_native_create_addr__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_vehicle_wheelsettingswv_create_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG));
 
         static final java.lang.invoke.MethodHandle internal_native_deleteNative__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_vehicle_wheelsettingswv_deletenative", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG));
 
-        static final java.lang.invoke.MethodHandle internal_native_get_mInertia__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_physics_vehicle_wheelsettingswv_get_minertia", FunctionDescriptor.of(ValueLayout.JAVA_FLOAT, ValueLayout.JAVA_LONG));
+        static final java.lang.invoke.MethodHandle internal_native_get_mInertia__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_vehicle_wheelsettingswv_get_minertia", FunctionDescriptor.of(ValueLayout.JAVA_FLOAT, ValueLayout.JAVA_LONG));
 
-        static final java.lang.invoke.MethodHandle internal_native_set_mInertia__JF = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_physics_vehicle_wheelsettingswv_set_minertia", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_FLOAT));
+        static final java.lang.invoke.MethodHandle internal_native_set_mInertia__JF = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_vehicle_wheelsettingswv_set_minertia", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_FLOAT));
 
-        static final java.lang.invoke.MethodHandle internal_native_get_mAngularDamping__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_physics_vehicle_wheelsettingswv_get_mangulardamping", FunctionDescriptor.of(ValueLayout.JAVA_FLOAT, ValueLayout.JAVA_LONG));
+        static final java.lang.invoke.MethodHandle internal_native_get_mAngularDamping__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_vehicle_wheelsettingswv_get_mangulardamping", FunctionDescriptor.of(ValueLayout.JAVA_FLOAT, ValueLayout.JAVA_LONG));
 
-        static final java.lang.invoke.MethodHandle internal_native_set_mAngularDamping__JF = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_physics_vehicle_wheelsettingswv_set_mangulardamping", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_FLOAT));
+        static final java.lang.invoke.MethodHandle internal_native_set_mAngularDamping__JF = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_vehicle_wheelsettingswv_set_mangulardamping", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_FLOAT));
 
-        static final java.lang.invoke.MethodHandle internal_native_get_mMaxSteerAngle__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_physics_vehicle_wheelsettingswv_get_mmaxsteerangle", FunctionDescriptor.of(ValueLayout.JAVA_FLOAT, ValueLayout.JAVA_LONG));
+        static final java.lang.invoke.MethodHandle internal_native_get_mMaxSteerAngle__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_vehicle_wheelsettingswv_get_mmaxsteerangle", FunctionDescriptor.of(ValueLayout.JAVA_FLOAT, ValueLayout.JAVA_LONG));
 
-        static final java.lang.invoke.MethodHandle internal_native_set_mMaxSteerAngle__JF = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_physics_vehicle_wheelsettingswv_set_mmaxsteerangle", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_FLOAT));
+        static final java.lang.invoke.MethodHandle internal_native_set_mMaxSteerAngle__JF = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_vehicle_wheelsettingswv_set_mmaxsteerangle", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_FLOAT));
 
-        static final java.lang.invoke.MethodHandle internal_native_get_mLongitudinalFriction_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_physics_vehicle_wheelsettingswv_get_mlongitudinalfriction_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+        static final java.lang.invoke.MethodHandle internal_native_get_mLongitudinalFriction_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_vehicle_wheelsettingswv_get_mlongitudinalfriction_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
 
-        static final java.lang.invoke.MethodHandle internal_native_set_mLongitudinalFriction__JJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_physics_vehicle_wheelsettingswv_set_mlongitudinalfriction", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+        static final java.lang.invoke.MethodHandle internal_native_set_mLongitudinalFriction__JJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_vehicle_wheelsettingswv_set_mlongitudinalfriction", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
 
-        static final java.lang.invoke.MethodHandle internal_native_get_mLateralFriction_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_physics_vehicle_wheelsettingswv_get_mlateralfriction_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+        static final java.lang.invoke.MethodHandle internal_native_get_mLateralFriction_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_vehicle_wheelsettingswv_get_mlateralfriction_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
 
-        static final java.lang.invoke.MethodHandle internal_native_set_mLateralFriction__JJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_physics_vehicle_wheelsettingswv_set_mlateralfriction", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+        static final java.lang.invoke.MethodHandle internal_native_set_mLateralFriction__JJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_vehicle_wheelsettingswv_set_mlateralfriction", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
 
-        static final java.lang.invoke.MethodHandle internal_native_get_mMaxBrakeTorque__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_physics_vehicle_wheelsettingswv_get_mmaxbraketorque", FunctionDescriptor.of(ValueLayout.JAVA_FLOAT, ValueLayout.JAVA_LONG));
+        static final java.lang.invoke.MethodHandle internal_native_get_mMaxBrakeTorque__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_vehicle_wheelsettingswv_get_mmaxbraketorque", FunctionDescriptor.of(ValueLayout.JAVA_FLOAT, ValueLayout.JAVA_LONG));
 
-        static final java.lang.invoke.MethodHandle internal_native_set_mMaxBrakeTorque__JF = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_physics_vehicle_wheelsettingswv_set_mmaxbraketorque", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_FLOAT));
+        static final java.lang.invoke.MethodHandle internal_native_set_mMaxBrakeTorque__JF = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_vehicle_wheelsettingswv_set_mmaxbraketorque", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_FLOAT));
 
-        static final java.lang.invoke.MethodHandle internal_native_get_mMaxHandBrakeTorque__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_physics_vehicle_wheelsettingswv_get_mmaxhandbraketorque", FunctionDescriptor.of(ValueLayout.JAVA_FLOAT, ValueLayout.JAVA_LONG));
+        static final java.lang.invoke.MethodHandle internal_native_get_mMaxHandBrakeTorque__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_vehicle_wheelsettingswv_get_mmaxhandbraketorque", FunctionDescriptor.of(ValueLayout.JAVA_FLOAT, ValueLayout.JAVA_LONG));
 
-        static final java.lang.invoke.MethodHandle internal_native_set_mMaxHandBrakeTorque__JF = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_physics_vehicle_wheelsettingswv_set_mmaxhandbraketorque", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_FLOAT));
+        static final java.lang.invoke.MethodHandle internal_native_set_mMaxHandBrakeTorque__JF = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_vehicle_wheelsettingswv_set_mmaxhandbraketorque", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_FLOAT));
     }
 }

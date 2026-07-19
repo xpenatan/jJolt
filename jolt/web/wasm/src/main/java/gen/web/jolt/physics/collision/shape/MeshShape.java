@@ -24,4 +24,11 @@ public class MeshShape extends Shape {
     public static MeshShape native_new() {
         return new MeshShape((byte) 0, (char) 0);
     }
+
+    public int GetTriangleUserData(SubShapeID inSubShapeID) {
+        return internal_native_GetTriangleUserData(native_address, inSubShapeID.native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "inSubShapeID_addr"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.MeshShape);var returnedJSObj = jsObj.GetTriangleUserData(inSubShapeID_addr);return returnedJSObj;")
+    public static native int internal_native_GetTriangleUserData(int this_addr, int inSubShapeID_addr);
 }

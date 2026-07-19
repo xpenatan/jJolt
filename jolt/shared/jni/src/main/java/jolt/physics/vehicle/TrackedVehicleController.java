@@ -12,6 +12,8 @@ public class TrackedVehicleController extends VehicleController {
 
     private VehicleTransmission VehicleTransmission_TEMP_GEN_0;
 
+    private ArrayVehicleTrack ArrayVehicleTrack_TEMP_GEN_0;
+
     static public final TrackedVehicleController NULL = TrackedVehicleController.native_new();
 
     public TrackedVehicleController(TrackedVehicleControllerSettings inSettings, VehicleConstraint inConstraint) {
@@ -145,5 +147,19 @@ public class TrackedVehicleController extends VehicleController {
 
     public static long internal_native_GetTransmission_addr(long this_addr) {
         return jolt.physics.vehicle.natives.JNI_TrackedVehicleController.internal_native_GetTransmission_addr(this_addr);
+    }
+
+    public ArrayVehicleTrack GetTracks() {
+        long addr = internal_native_GetTracks_addr(native_address);
+        if (addr == 0)
+            return ArrayVehicleTrack.NULL;
+        if (ArrayVehicleTrack_TEMP_GEN_0 == null)
+            ArrayVehicleTrack_TEMP_GEN_0 = ArrayVehicleTrack.native_new();
+        ArrayVehicleTrack_TEMP_GEN_0.internal_reset(addr, false);
+        return ArrayVehicleTrack_TEMP_GEN_0;
+    }
+
+    public static long internal_native_GetTracks_addr(long this_addr) {
+        return jolt.physics.vehicle.natives.JNI_TrackedVehicleController.internal_native_GetTracks_addr(this_addr);
     }
 }

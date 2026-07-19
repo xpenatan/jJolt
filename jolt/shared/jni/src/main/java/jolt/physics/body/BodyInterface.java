@@ -766,6 +766,38 @@ public class BodyInterface extends NativeObject {
         return jolt.physics.body.natives.JNI_BodyInterface.internal_native_GetGravityFactor(this_addr, inBodyID_addr);
     }
 
+    public void SetMaxLinearVelocity(BodyID inBodyID, float inLinearVelocity) {
+        internal_native_SetMaxLinearVelocity(native_address, inBodyID.native_address, inLinearVelocity);
+    }
+
+    public static void internal_native_SetMaxLinearVelocity(long this_addr, long inBodyID_addr, float inLinearVelocity) {
+        jolt.physics.body.natives.JNI_BodyInterface.internal_native_SetMaxLinearVelocity(this_addr, inBodyID_addr, inLinearVelocity);
+    }
+
+    public float GetMaxLinearVelocity(BodyID inBodyID) {
+        return internal_native_GetMaxLinearVelocity(native_address, inBodyID.native_address);
+    }
+
+    public static float internal_native_GetMaxLinearVelocity(long this_addr, long inBodyID_addr) {
+        return jolt.physics.body.natives.JNI_BodyInterface.internal_native_GetMaxLinearVelocity(this_addr, inBodyID_addr);
+    }
+
+    public void SetMaxAngularVelocity(BodyID inBodyID, float inAngularVelocity) {
+        internal_native_SetMaxAngularVelocity(native_address, inBodyID.native_address, inAngularVelocity);
+    }
+
+    public static void internal_native_SetMaxAngularVelocity(long this_addr, long inBodyID_addr, float inAngularVelocity) {
+        jolt.physics.body.natives.JNI_BodyInterface.internal_native_SetMaxAngularVelocity(this_addr, inBodyID_addr, inAngularVelocity);
+    }
+
+    public float GetMaxAngularVelocity(BodyID inBodyID) {
+        return internal_native_GetMaxAngularVelocity(native_address, inBodyID.native_address);
+    }
+
+    public static float internal_native_GetMaxAngularVelocity(long this_addr, long inBodyID_addr) {
+        return jolt.physics.body.natives.JNI_BodyInterface.internal_native_GetMaxAngularVelocity(this_addr, inBodyID_addr);
+    }
+
     public void SetUseManifoldReduction(BodyID inBodyID, boolean inUseReduction) {
         internal_native_SetUseManifoldReduction(native_address, inBodyID.native_address, inUseReduction);
     }
@@ -780,6 +812,22 @@ public class BodyInterface extends NativeObject {
 
     public static boolean internal_native_GetUseManifoldReduction(long this_addr, long inBodyID_addr) {
         return jolt.physics.body.natives.JNI_BodyInterface.internal_native_GetUseManifoldReduction(this_addr, inBodyID_addr);
+    }
+
+    public void SetIsSensor(BodyID inBodyID, boolean inIsSensor) {
+        internal_native_SetIsSensor(native_address, inBodyID.native_address, inIsSensor);
+    }
+
+    public static void internal_native_SetIsSensor(long this_addr, long inBodyID_addr, boolean inIsSensor) {
+        jolt.physics.body.natives.JNI_BodyInterface.internal_native_SetIsSensor(this_addr, inBodyID_addr, inIsSensor);
+    }
+
+    public boolean IsSensor(BodyID inBodyID) {
+        return internal_native_IsSensor(native_address, inBodyID.native_address);
+    }
+
+    public static boolean internal_native_IsSensor(long this_addr, long inBodyID_addr) {
+        return jolt.physics.body.natives.JNI_BodyInterface.internal_native_IsSensor(this_addr, inBodyID_addr);
     }
 
     public void SetCollisionGroup(BodyID inBodyID, CollisionGroup inCollisionGroup) {
@@ -882,19 +930,19 @@ public class BodyInterface extends NativeObject {
         return jolt.physics.body.natives.JNI_BodyInterface.internal_native_GetTransformedShape_addr(this_addr, inBodyID_addr);
     }
 
-    public long GetUserData(BodyID inBodyID) {
+    public int GetUserData(BodyID inBodyID) {
         return internal_native_GetUserData(native_address, inBodyID.native_address);
     }
 
-    public static long internal_native_GetUserData(long this_addr, long inBodyID_addr) {
+    public static int internal_native_GetUserData(long this_addr, long inBodyID_addr) {
         return jolt.physics.body.natives.JNI_BodyInterface.internal_native_GetUserData(this_addr, inBodyID_addr);
     }
 
-    public void SetUserData(BodyID inBodyID, long inUserData) {
+    public void SetUserData(BodyID inBodyID, int inUserData) {
         internal_native_SetUserData(native_address, inBodyID.native_address, inUserData);
     }
 
-    public static void internal_native_SetUserData(long this_addr, long inBodyID_addr, long inUserData) {
+    public static void internal_native_SetUserData(long this_addr, long inBodyID_addr, int inUserData) {
         jolt.physics.body.natives.JNI_BodyInterface.internal_native_SetUserData(this_addr, inBodyID_addr, inUserData);
     }
 

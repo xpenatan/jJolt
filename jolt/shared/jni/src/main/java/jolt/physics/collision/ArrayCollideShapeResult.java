@@ -14,6 +14,15 @@ public class ArrayCollideShapeResult extends NativeObject {
 
     static public final ArrayCollideShapeResult NULL = ArrayCollideShapeResult.native_new();
 
+    public ArrayCollideShapeResult() {
+        long addr = internal_native_create_addr();
+        internal_reset(addr, true);
+    }
+
+    public static long internal_native_create_addr() {
+        return jolt.physics.collision.natives.JNI_ArrayCollideShapeResult.internal_native_create_addr();
+    }
+
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
      */

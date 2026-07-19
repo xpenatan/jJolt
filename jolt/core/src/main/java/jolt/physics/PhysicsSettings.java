@@ -127,6 +127,13 @@ public class PhysicsSettings extends NativeObject {
     public void set_mContactPointPreserveLambdaMaxDistSq(float mContactPointPreserveLambdaMaxDistSq) {
     }
 
+    public float get_mInternalEdgeRemovalVertexToleranceSq() {
+        return 0;
+    }
+
+    public void set_mInternalEdgeRemovalVertexToleranceSq(float mInternalEdgeRemovalVertexToleranceSq) {
+    }
+
     public int get_mNumVelocitySteps() {
         return 0;
     }

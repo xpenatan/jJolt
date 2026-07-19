@@ -16,6 +16,14 @@ public class ArrayBodyPtr extends NativeObject {
 
     static public final ArrayBodyPtr NULL = ArrayBodyPtr.native_new();
 
+    public ArrayBodyPtr() {
+        int addr = internal_native_create_addr();
+        internal_reset(addr, true);
+    }
+
+    @org.teavm.jso.JSBody(script = "var jsObj = new jolt.ArrayBodyPtr();return jolt.getPointer(jsObj);")
+    public static native int internal_native_create_addr();
+
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
      */

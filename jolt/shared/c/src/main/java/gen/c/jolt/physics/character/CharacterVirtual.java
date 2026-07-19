@@ -19,6 +19,7 @@ import gen.c.jolt.core.TempAllocator;
 import gen.c.jolt.physics.collision.shape.Shape;
 import gen.c.jolt.physics.collision.TransformedShape;
 import com.github.xpenatan.jParser.api.NativeObject;
+import gen.c.jolt.Jolt;
 
 public class CharacterVirtual extends CharacterBase {
 
@@ -108,8 +109,8 @@ public class CharacterVirtual extends CharacterBase {
     @org.teavm.interop.Import(name = "jolt_physics_character_charactervirtual_setcharactervscharactercollision")
     public static native void internal_native_SetCharacterVsCharacterCollision(long this_addr, long inCharacterVsCharacterCollision_addr);
 
-    public NativeObject GetListener() {
-        long addr = internal_native_GetListener_addr(native_address);
+    public NativeObject GetListenerNative() {
+        long addr = internal_native_GetListenerNative_addr(native_address);
         if (addr == 0)
             return NativeObject.NULL;
         if (NativeObject_TEMP_GEN_0 == null)
@@ -118,8 +119,8 @@ public class CharacterVirtual extends CharacterBase {
         return NativeObject_TEMP_GEN_0;
     }
 
-    @org.teavm.interop.Import(name = "jolt_physics_character_charactervirtual_getlistener_addr")
-    public static native long internal_native_GetListener_addr(long this_addr);
+    @org.teavm.interop.Import(name = "jolt_physics_character_charactervirtual_getlistenernative_addr")
+    public static native long internal_native_GetListenerNative_addr(long this_addr);
 
     public Vec3 GetLinearVelocity() {
         long addr = internal_native_GetLinearVelocity_addr(native_address);
@@ -324,19 +325,19 @@ public class CharacterVirtual extends CharacterBase {
     @org.teavm.interop.Import(name = "jolt_physics_character_charactervirtual_setshapeoffset")
     public static native void internal_native_SetShapeOffset(long this_addr, long inShapeOffset_addr);
 
-    public long GetUserData() {
+    public int GetUserData() {
         return internal_native_GetUserData(native_address);
     }
 
     @org.teavm.interop.Import(name = "jolt_physics_character_charactervirtual_getuserdata")
-    public static native long internal_native_GetUserData(long this_addr);
+    public static native int internal_native_GetUserData(long this_addr);
 
-    public void SetUserData(long inUserData) {
+    public void SetUserData(int inUserData) {
         internal_native_SetUserData(native_address, inUserData);
     }
 
     @org.teavm.interop.Import(name = "jolt_physics_character_charactervirtual_setuserdata")
-    public static native void internal_native_SetUserData(long this_addr, long inUserData);
+    public static native void internal_native_SetUserData(long this_addr, int inUserData);
 
     public BodyID GetInnerBodyID() {
         long addr = internal_native_GetInnerBodyID_addr(native_address);
@@ -487,4 +488,8 @@ public class CharacterVirtual extends CharacterBase {
 
     @org.teavm.interop.Import(name = "jolt_physics_character_charactervirtual_getactivecontacts_addr")
     public static native long internal_native_GetActiveContacts_addr(long this_addr);
+
+    public CharacterContactListener GetListener() {
+        return Jolt.GetCharacterContactListener(this);
+    }
 }

@@ -8,14 +8,18 @@ package jolt.physics.character;
 
 import com.github.xpenatan.jParser.api.NativeObject;
 import jolt.math.Vec3;
+import jolt.geometry.Plane;
 import jolt.physics.collision.shape.Shape;
 import jolt.enums.EGroundState;
 import jolt.physics.collision.PhysicsMaterial;
 import jolt.physics.body.BodyID;
+import jolt.physics.StateRecorder;
 
 public class CharacterBase extends NativeObject {
 
     private Vec3 Vec3_TEMP_GEN_0;
+
+    private Plane Plane_TEMP_GEN_0;
 
     private Shape Shape_TEMP_GEN_0;
 
@@ -105,6 +109,28 @@ public class CharacterBase extends NativeObject {
 
     public static long internal_native_GetUp_addr(long this_addr) {
         return jolt.physics.character.natives.JNI_CharacterBase.internal_native_GetUp_addr(this_addr);
+    }
+
+    public void SetSupportingVolume(Plane inVolume) {
+        internal_native_SetSupportingVolume(native_address, inVolume.native_address);
+    }
+
+    public static void internal_native_SetSupportingVolume(long this_addr, long inVolume_addr) {
+        jolt.physics.character.natives.JNI_CharacterBase.internal_native_SetSupportingVolume(this_addr, inVolume_addr);
+    }
+
+    public Plane GetSupportingVolume() {
+        long addr = internal_native_GetSupportingVolume_addr(native_address);
+        if (addr == 0)
+            return Plane.NULL;
+        if (Plane_TEMP_GEN_0 == null)
+            Plane_TEMP_GEN_0 = Plane.native_new();
+        Plane_TEMP_GEN_0.internal_reset(addr, false);
+        return Plane_TEMP_GEN_0;
+    }
+
+    public static long internal_native_GetSupportingVolume_addr(long this_addr) {
+        return jolt.physics.character.natives.JNI_CharacterBase.internal_native_GetSupportingVolume_addr(this_addr);
     }
 
     public Shape GetShape() {
@@ -220,5 +246,21 @@ public class CharacterBase extends NativeObject {
 
     public static long internal_native_GetGroundBodyID_addr(long this_addr) {
         return jolt.physics.character.natives.JNI_CharacterBase.internal_native_GetGroundBodyID_addr(this_addr);
+    }
+
+    public void SaveState(StateRecorder inStream) {
+        internal_native_SaveState(native_address, inStream.native_address);
+    }
+
+    public static void internal_native_SaveState(long this_addr, long inStream_addr) {
+        jolt.physics.character.natives.JNI_CharacterBase.internal_native_SaveState(this_addr, inStream_addr);
+    }
+
+    public void RestoreState(StateRecorder inStream) {
+        internal_native_RestoreState(native_address, inStream.native_address);
+    }
+
+    public static void internal_native_RestoreState(long this_addr, long inStream_addr) {
+        jolt.physics.character.natives.JNI_CharacterBase.internal_native_RestoreState(this_addr, inStream_addr);
     }
 }

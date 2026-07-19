@@ -14,6 +14,14 @@ public class ArrayUint8 extends NativeObject {
 
     static public final ArrayUint8 NULL = ArrayUint8.native_new();
 
+    public ArrayUint8() {
+        int addr = internal_native_create_addr();
+        internal_reset(addr, true);
+    }
+
+    @org.teavm.jso.JSBody(script = "var jsObj = new jolt.ArrayUint8();return jolt.getPointer(jsObj);")
+    public static native int internal_native_create_addr();
+
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
      */
@@ -48,6 +56,20 @@ public class ArrayUint8 extends NativeObject {
 
     @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.ArrayUint8);var returnedJSObj = jsObj.size();return returnedJSObj;")
     public static native int internal_native_size(int this_addr);
+
+    public byte at(int inIndex) {
+        return internal_native_at(native_address, inIndex);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "inIndex"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.ArrayUint8);var returnedJSObj = jsObj.at(inIndex);return returnedJSObj;")
+    public static native byte internal_native_at(int this_addr, int inIndex);
+
+    public void push_back(byte inValue) {
+        internal_native_push_back(native_address, inValue);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "inValue"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.ArrayUint8);jsObj.push_back(inValue);")
+    public static native void internal_native_push_back(int this_addr, byte inValue);
 
     public void reserve(int inSize) {
         internal_native_reserve(native_address, inSize);

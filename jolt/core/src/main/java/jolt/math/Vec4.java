@@ -15,6 +15,12 @@ public class Vec4 extends NativeObject {
     public Vec4() {
     }
 
+    public Vec4(Vec4 inV) {
+    }
+
+    public Vec4(Vec3 inV, float inW) {
+    }
+
     public Vec4(float inX, float inY, float inZ, float inW) {
     }
 
@@ -49,6 +55,10 @@ public class Vec4 extends NativeObject {
     }
 
     public static Vec4 sMax(Vec4 inLHS, Vec4 inRHS) {
+        return null;
+    }
+
+    public static Vec4 sClamp(Vec4 inValue, Vec4 inMin, Vec4 inMax) {
         return null;
     }
 
@@ -111,12 +121,28 @@ public class Vec4 extends NativeObject {
         return false;
     }
 
+    public boolean IsNearZero(float inMaxDistSq) {
+        return false;
+    }
+
+    public boolean IsNearZero() {
+        return false;
+    }
+
     public boolean IsNormalized(float inTolerance) {
         return false;
     }
 
     public boolean IsNormalized() {
         return false;
+    }
+
+    public int GetLowestComponentIndex() {
+        return 0;
+    }
+
+    public int GetHighestComponentIndex() {
+        return 0;
     }
 
     public Vec4 Set(Vec4 other) {

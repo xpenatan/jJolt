@@ -14,6 +14,14 @@ public class ArraySoftBodySharedSettingsEdge extends NativeObject {
 
     static public final ArraySoftBodySharedSettingsEdge NULL = ArraySoftBodySharedSettingsEdge.native_new();
 
+    public ArraySoftBodySharedSettingsEdge() {
+        int addr = internal_native_create_addr();
+        internal_reset(addr, true);
+    }
+
+    @org.teavm.jso.JSBody(script = "var jsObj = new jolt.ArraySoftBodySharedSettingsEdge();return jolt.getPointer(jsObj);")
+    public static native int internal_native_create_addr();
+
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
      */

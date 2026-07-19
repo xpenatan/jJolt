@@ -10,6 +10,10 @@ import jolt.physics.body.*;
 
 final public class JNI_BodyCreationSettings {
 
+    public static native long internal_native_create_addr();
+
+    public static native long internal_native_create_Shape_Vec3_Quat_EMotionType_int_addr(long inShape_addr, long inPosition_addr, long inRotation_addr, int inMotionType, int inObjectLayer);
+
     public static native void internal_native_deleteNative(long this_addr);
 
     public static native long internal_native_GetShapeSettings_addr(long this_addr);
@@ -42,9 +46,9 @@ final public class JNI_BodyCreationSettings {
 
     public static native void internal_native_set_mAngularVelocity(long this_addr, long mAngularVelocity_addr);
 
-    public static native long internal_native_get_mUserData(long this_addr);
+    public static native int internal_native_get_mUserData(long this_addr);
 
-    public static native void internal_native_set_mUserData(long this_addr, long mUserData);
+    public static native void internal_native_set_mUserData(long this_addr, int mUserData);
 
     public static native int internal_native_get_mObjectLayer(long this_addr);
 

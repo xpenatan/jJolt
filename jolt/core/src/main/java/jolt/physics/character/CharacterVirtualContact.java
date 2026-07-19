@@ -119,11 +119,11 @@ public class CharacterVirtualContact extends NativeObject {
     public void set_mCharacterB(CharacterVirtual mCharacterB) {
     }
 
-    public long get_mUserData() {
+    public int get_mUserData() {
         return 0;
     }
 
-    public void set_mUserData(long mUserData) {
+    public void set_mUserData(int mUserData) {
     }
 
     public PhysicsMaterial get_mMaterial() {
@@ -152,5 +152,12 @@ public class CharacterVirtualContact extends NativeObject {
     }
 
     public void set_mCanPushCharacter(boolean mCanPushCharacter) {
+    }
+
+    public boolean get_mIsBackFacingContact() {
+        return false;
+    }
+
+    public void set_mIsBackFacingContact(boolean mIsBackFacingContact) {
     }
 }

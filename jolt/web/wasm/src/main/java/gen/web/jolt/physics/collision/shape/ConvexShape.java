@@ -6,6 +6,8 @@
 
 package gen.web.jolt.physics.collision.shape;
 
+import gen.web.jolt.physics.collision.PhysicsMaterial;
+
 public class ConvexShape extends Shape {
 
     static public final ConvexShape NULL = ConvexShape.native_new();
@@ -38,4 +40,11 @@ public class ConvexShape extends Shape {
 
     @org.teavm.jso.JSBody(params = {"this_addr", "inDensity"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.ConvexShape);jsObj.SetDensity(inDensity);")
     public static native void internal_native_SetDensity(int this_addr, float inDensity);
+
+    public void SetMaterial(PhysicsMaterial inMaterial) {
+        internal_native_SetMaterial(native_address, inMaterial.native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "inMaterial_addr"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.ConvexShape);jsObj.SetMaterial(inMaterial_addr);")
+    public static native void internal_native_SetMaterial(int this_addr, int inMaterial_addr);
 }

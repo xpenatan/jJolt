@@ -67,10 +67,10 @@ public enum SoftBodySharedSettings_ELRAType implements NativeEnum<SoftBodyShared
 
     private static final class FFMHandles {
 
-        static final java.lang.invoke.MethodHandle SoftBodySharedSettings_ELRAType_None_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_enums_softbodysharedsettings_elratype_softbodysharedsettings_elratype_none_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
+        static final java.lang.invoke.MethodHandle SoftBodySharedSettings_ELRAType_None_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_enums_softbodysharedsettings_elratype_softbodysharedsettings_elratype_none_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
 
-        static final java.lang.invoke.MethodHandle SoftBodySharedSettings_ELRAType_EuclideanDistance_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_enums_softbodysharedsettings_elratype_softbodysharedsettings_elratype_euclideandistance_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
+        static final java.lang.invoke.MethodHandle SoftBodySharedSettings_ELRAType_EuclideanDistance_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_enums_softbodysharedsettings_elratype_softbodysharedsettings_elratype_euclideandistance_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
 
-        static final java.lang.invoke.MethodHandle SoftBodySharedSettings_ELRAType_GeodesicDistance_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_enums_softbodysharedsettings_elratype_softbodysharedsettings_elratype_geodesicdistance_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
+        static final java.lang.invoke.MethodHandle SoftBodySharedSettings_ELRAType_GeodesicDistance_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_enums_softbodysharedsettings_elratype_softbodysharedsettings_elratype_geodesicdistance_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
     }
 }

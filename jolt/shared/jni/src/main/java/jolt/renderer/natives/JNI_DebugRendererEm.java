@@ -12,9 +12,23 @@ final public class JNI_DebugRendererEm {
 
     public static native void internal_native_deleteNative(long this_addr);
 
+    public static native void internal_native_Initialize(long this_addr);
+
     public static native void internal_native_DrawBodies(long this_addr, long system_addr, long inDrawSettings_addr);
 
     public static native void internal_native_DrawBodies(long this_addr, long system_addr);
+
+    public static native void internal_native_DrawConstraints(long this_addr, long system_addr);
+
+    public static native void internal_native_DrawConstraintLimits(long this_addr, long system_addr);
+
+    public static native void internal_native_DrawConstraintReferenceFrame(long this_addr, long system_addr);
+
+    public static native void internal_native_DrawShape(long this_addr, long inShape_addr, long inModelMatrix_addr, long inScale_addr, long inColor_addr, boolean inDrawWireFrame);
+
+    public static native void internal_native_DrawBody(long this_addr, long inBody_addr, long inColor_addr, boolean inDrawWireFrame);
+
+    public static native void internal_native_DrawConstraint(long this_addr, long inConstraint_addr);
 
     public static native void internal_native_DrawCylinder(long this_addr, long inMatrix_addr, float inHalfHeight, float inRadius, long inColor_addr, int inCastShadow, int inDrawMode);
 

@@ -24,4 +24,25 @@ public class TaperedCapsuleShape extends ConvexShape {
     public static TaperedCapsuleShape native_new() {
         return new TaperedCapsuleShape((byte) 0, (char) 0);
     }
+
+    public float GetHalfHeight() {
+        return internal_native_GetHalfHeight(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "jolt_physics_collision_shape_taperedcapsuleshape_gethalfheight")
+    public static native float internal_native_GetHalfHeight(long this_addr);
+
+    public float GetTopRadius() {
+        return internal_native_GetTopRadius(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "jolt_physics_collision_shape_taperedcapsuleshape_gettopradius")
+    public static native float internal_native_GetTopRadius(long this_addr);
+
+    public float GetBottomRadius() {
+        return internal_native_GetBottomRadius(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "jolt_physics_collision_shape_taperedcapsuleshape_getbottomradius")
+    public static native float internal_native_GetBottomRadius(long this_addr);
 }

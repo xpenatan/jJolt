@@ -6,6 +6,14 @@
 
 package jolt.physics.collision.shape;
 
+import java.lang.foreign.FunctionDescriptor;
+import java.lang.foreign.ValueLayout;
+import java.lang.foreign.Linker;
+import java.lang.foreign.SymbolLookup;
+import java.lang.foreign.Arena;
+import java.lang.foreign.MemorySegment;
+import java.lang.invoke.MethodHandle;
+
 public class MeshShape extends Shape {
 
     static public final MeshShape NULL = MeshShape.native_new();
@@ -23,5 +31,22 @@ public class MeshShape extends Shape {
      */
     public static MeshShape native_new() {
         return new MeshShape((byte) 0, (char) 0);
+    }
+
+    public int GetTriangleUserData(SubShapeID inSubShapeID) {
+        return internal_native_GetTriangleUserData(native_address, inSubShapeID.native_address);
+    }
+
+    public static int internal_native_GetTriangleUserData(long this_addr, long inSubShapeID_addr) {
+        try {
+            return (int) FFMHandles.internal_native_GetTriangleUserData__JJ.invokeExact(this_addr, inSubShapeID_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    private static final class FFMHandles {
+
+        static final java.lang.invoke.MethodHandle internal_native_GetTriangleUserData__JJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_collision_shape_meshshape_gettriangleuserdata", FunctionDescriptor.of(ValueLayout.JAVA_INT, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
     }
 }

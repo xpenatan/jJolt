@@ -33,6 +33,9 @@ public class CollideShapeCollector extends NativeObject {
         return new CollideShapeCollector((byte) 0, (char) 0);
     }
 
+    public void ResetNative() {
+    }
+
     public void SetContext(TransformedShape inContext) {
     }
 

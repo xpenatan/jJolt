@@ -158,24 +158,24 @@ public class IndexedTriangle extends NativeObject {
 
     private static final class FFMHandles {
 
-        static final java.lang.invoke.MethodHandle internal_native_create_addr__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_geometry_indexedtriangle_create_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG));
+        static final java.lang.invoke.MethodHandle internal_native_create_addr__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_geometry_indexedtriangle_create_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG));
 
-        static final java.lang.invoke.MethodHandle internal_native_create_int_int_int_int_int_addr__IIIII = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_geometry_indexedtriangle_create_int_int_int_int_int_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT, ValueLayout.JAVA_INT, ValueLayout.JAVA_INT, ValueLayout.JAVA_INT, ValueLayout.JAVA_INT));
+        static final java.lang.invoke.MethodHandle internal_native_create_int_int_int_int_int_addr__IIIII = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_geometry_indexedtriangle_create_int_int_int_int_int_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT, ValueLayout.JAVA_INT, ValueLayout.JAVA_INT, ValueLayout.JAVA_INT, ValueLayout.JAVA_INT));
 
-        static final java.lang.invoke.MethodHandle internal_native_create_int_int_int_int_addr__IIII = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_geometry_indexedtriangle_create_int_int_int_int_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT, ValueLayout.JAVA_INT, ValueLayout.JAVA_INT, ValueLayout.JAVA_INT));
+        static final java.lang.invoke.MethodHandle internal_native_create_int_int_int_int_addr__IIII = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_geometry_indexedtriangle_create_int_int_int_int_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT, ValueLayout.JAVA_INT, ValueLayout.JAVA_INT, ValueLayout.JAVA_INT));
 
         static final java.lang.invoke.MethodHandle internal_native_deleteNative__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_geometry_indexedtriangle_deletenative", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG));
 
-        static final java.lang.invoke.MethodHandle internal_native_get_mIdx__JI = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_geometry_indexedtriangle_get_midx", FunctionDescriptor.of(ValueLayout.JAVA_INT, ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT));
+        static final java.lang.invoke.MethodHandle internal_native_get_mIdx__JI = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_geometry_indexedtriangle_get_midx", FunctionDescriptor.of(ValueLayout.JAVA_INT, ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT));
 
-        static final java.lang.invoke.MethodHandle internal_native_set_mIdx__JII = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_geometry_indexedtriangle_set_midx", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT, ValueLayout.JAVA_INT));
+        static final java.lang.invoke.MethodHandle internal_native_set_mIdx__JII = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_geometry_indexedtriangle_set_midx", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT, ValueLayout.JAVA_INT));
 
-        static final java.lang.invoke.MethodHandle internal_native_get_mMaterialIndex__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_geometry_indexedtriangle_get_mmaterialindex", FunctionDescriptor.of(ValueLayout.JAVA_INT, ValueLayout.JAVA_LONG));
+        static final java.lang.invoke.MethodHandle internal_native_get_mMaterialIndex__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_geometry_indexedtriangle_get_mmaterialindex", FunctionDescriptor.of(ValueLayout.JAVA_INT, ValueLayout.JAVA_LONG));
 
-        static final java.lang.invoke.MethodHandle internal_native_set_mMaterialIndex__JI = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_geometry_indexedtriangle_set_mmaterialindex", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT));
+        static final java.lang.invoke.MethodHandle internal_native_set_mMaterialIndex__JI = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_geometry_indexedtriangle_set_mmaterialindex", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT));
 
-        static final java.lang.invoke.MethodHandle internal_native_get_mUserData__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_geometry_indexedtriangle_get_muserdata", FunctionDescriptor.of(ValueLayout.JAVA_INT, ValueLayout.JAVA_LONG));
+        static final java.lang.invoke.MethodHandle internal_native_get_mUserData__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_geometry_indexedtriangle_get_muserdata", FunctionDescriptor.of(ValueLayout.JAVA_INT, ValueLayout.JAVA_LONG));
 
-        static final java.lang.invoke.MethodHandle internal_native_set_mUserData__JI = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_geometry_indexedtriangle_set_muserdata", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT));
+        static final java.lang.invoke.MethodHandle internal_native_set_mUserData__JI = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_geometry_indexedtriangle_set_muserdata", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT));
     }
 }

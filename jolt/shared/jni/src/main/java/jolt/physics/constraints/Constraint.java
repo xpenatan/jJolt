@@ -9,6 +9,7 @@ package jolt.physics.constraints;
 import com.github.xpenatan.jParser.api.NativeObject;
 import jolt.enums.EConstraintType;
 import jolt.enums.EConstraintSubType;
+import jolt.physics.StateRecorder;
 
 public class Constraint extends NativeObject {
 
@@ -154,19 +155,19 @@ public class Constraint extends NativeObject {
         return jolt.physics.constraints.natives.JNI_Constraint.internal_native_IsActive(this_addr);
     }
 
-    public long GetUserData() {
+    public int GetUserData() {
         return internal_native_GetUserData(native_address);
     }
 
-    public static long internal_native_GetUserData(long this_addr) {
+    public static int internal_native_GetUserData(long this_addr) {
         return jolt.physics.constraints.natives.JNI_Constraint.internal_native_GetUserData(this_addr);
     }
 
-    public void SetUserData(long inUserData) {
+    public void SetUserData(int inUserData) {
         internal_native_SetUserData(native_address, inUserData);
     }
 
-    public static void internal_native_SetUserData(long this_addr, long inUserData) {
+    public static void internal_native_SetUserData(long this_addr, int inUserData) {
         jolt.physics.constraints.natives.JNI_Constraint.internal_native_SetUserData(this_addr, inUserData);
     }
 
@@ -176,5 +177,21 @@ public class Constraint extends NativeObject {
 
     public static void internal_native_ResetWarmStart(long this_addr) {
         jolt.physics.constraints.natives.JNI_Constraint.internal_native_ResetWarmStart(this_addr);
+    }
+
+    public void SaveState(StateRecorder inStream) {
+        internal_native_SaveState(native_address, inStream.native_address);
+    }
+
+    public static void internal_native_SaveState(long this_addr, long inStream_addr) {
+        jolt.physics.constraints.natives.JNI_Constraint.internal_native_SaveState(this_addr, inStream_addr);
+    }
+
+    public void RestoreState(StateRecorder inStream) {
+        internal_native_RestoreState(native_address, inStream.native_address);
+    }
+
+    public static void internal_native_RestoreState(long this_addr, long inStream_addr) {
+        jolt.physics.constraints.natives.JNI_Constraint.internal_native_RestoreState(this_addr, inStream_addr);
     }
 }

@@ -9,6 +9,7 @@ package jolt.physics.constraints;
 import com.github.xpenatan.jParser.api.NativeObject;
 import jolt.enums.EConstraintType;
 import jolt.enums.EConstraintSubType;
+import jolt.physics.StateRecorder;
 
 public class Constraint extends NativeObject {
 
@@ -78,13 +79,19 @@ public class Constraint extends NativeObject {
         return false;
     }
 
-    public long GetUserData() {
+    public int GetUserData() {
         return 0;
     }
 
-    public void SetUserData(long inUserData) {
+    public void SetUserData(int inUserData) {
     }
 
     public void ResetWarmStart() {
+    }
+
+    public void SaveState(StateRecorder inStream) {
+    }
+
+    public void RestoreState(StateRecorder inStream) {
     }
 }

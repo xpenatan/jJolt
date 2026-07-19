@@ -30,6 +30,9 @@ public class RayCastBodyCollector extends NativeObject {
         return new RayCastBodyCollector((byte) 0, (char) 0);
     }
 
+    public void ResetNative() {
+    }
+
     public void SetContext(TransformedShape inContext) {
     }
 

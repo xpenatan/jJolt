@@ -14,6 +14,15 @@ public class ArrayCharacterVirtualContact extends NativeObject {
 
     static public final ArrayCharacterVirtualContact NULL = ArrayCharacterVirtualContact.native_new();
 
+    public ArrayCharacterVirtualContact() {
+        long addr = internal_native_create_addr();
+        internal_reset(addr, true);
+    }
+
+    public static long internal_native_create_addr() {
+        return jolt.physics.character.natives.JNI_ArrayCharacterVirtualContact.internal_native_create_addr();
+    }
+
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
      */

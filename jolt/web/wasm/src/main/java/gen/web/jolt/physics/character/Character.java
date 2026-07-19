@@ -48,14 +48,14 @@ public class Character extends CharacterBase {
 
     static public final Character NULL = Character.native_new();
 
-    public Character(CharacterSettings inSettings, RVec3 inPosition, Quat inRotation, long inUserData, PhysicsSystem inSystem) {
+    public Character(CharacterSettings inSettings, RVec3 inPosition, Quat inRotation, int inUserData, PhysicsSystem inSystem) {
         super((byte) 1, (char) 1);
-        int addr = internal_native_create_CharacterSettings_RVec3_Quat_long_PhysicsSystem_addr(inSettings.native_address, inPosition.native_address, inRotation.native_address, inUserData, inSystem.native_address);
+        int addr = internal_native_create_CharacterSettings_RVec3_Quat_int_PhysicsSystem_addr(inSettings.native_address, inPosition.native_address, inRotation.native_address, inUserData, inSystem.native_address);
         internal_reset(addr, true);
     }
 
     @org.teavm.jso.JSBody(params = {"inSettings_addr", "inPosition_addr", "inRotation_addr", "inUserData", "inSystem_addr"}, script = "var jsObj = new jolt.Character(inSettings_addr, inPosition_addr, inRotation_addr, inUserData, inSystem_addr);return jolt.getPointer(jsObj);")
-    public static native int internal_native_create_CharacterSettings_RVec3_Quat_long_PhysicsSystem_addr(int inSettings_addr, int inPosition_addr, int inRotation_addr, long inUserData, int inSystem_addr);
+    public static native int internal_native_create_CharacterSettings_RVec3_Quat_int_PhysicsSystem_addr(int inSettings_addr, int inPosition_addr, int inRotation_addr, int inUserData, int inSystem_addr);
 
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer

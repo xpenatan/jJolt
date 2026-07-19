@@ -285,12 +285,24 @@ public class Ragdoll extends NativeObject {
     }
 
     public void DriveToPoseUsingMotors(SkeletonPose inPose) {
-        internal_native_DriveToPoseUsingMotors(native_address, inPose.native_address);
+        internal_native_DriveToPoseUsingMotors__0(native_address, inPose.native_address);
     }
 
-    public static void internal_native_DriveToPoseUsingMotors(long this_addr, long inPose_addr) {
+    public static void internal_native_DriveToPoseUsingMotors__0(long this_addr, long inPose_addr) {
         try {
-            FFMHandles.internal_native_DriveToPoseUsingMotors__JJ.invokeExact(this_addr, inPose_addr);
+            FFMHandles.internal_native_DriveToPoseUsingMotors__0__JJ.invokeExact(this_addr, inPose_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void DriveToPoseUsingMotors(SkeletonPose inPrevPose, SkeletonPose inPose, float inDeltaTime) {
+        internal_native_DriveToPoseUsingMotors__1(native_address, inPrevPose.native_address, inPose.native_address, inDeltaTime);
+    }
+
+    public static void internal_native_DriveToPoseUsingMotors__1(long this_addr, long inPrevPose_addr, long inPose_addr, float inDeltaTime) {
+        try {
+            FFMHandles.internal_native_DriveToPoseUsingMotors__1__JJJF.invokeExact(this_addr, inPrevPose_addr, inPose_addr, inDeltaTime);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -550,7 +562,7 @@ public class Ragdoll extends NativeObject {
 
     private static final class FFMHandles {
 
-        static final java.lang.invoke.MethodHandle internal_native_create_PhysicsSystem_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_physics_ragdoll_ragdoll_create_physicssystem_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+        static final java.lang.invoke.MethodHandle internal_native_create_PhysicsSystem_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_ragdoll_ragdoll_create_physicssystem_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
 
         static final java.lang.invoke.MethodHandle internal_native_deleteNative__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_ragdoll_ragdoll_deletenative", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG));
 
@@ -588,7 +600,9 @@ public class Ragdoll extends NativeObject {
 
         static final java.lang.invoke.MethodHandle internal_native_DriveToPoseUsingKinematics__JJF = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_ragdoll_ragdoll_drivetoposeusingkinematics_l_l_f", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_FLOAT));
 
-        static final java.lang.invoke.MethodHandle internal_native_DriveToPoseUsingMotors__JJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_ragdoll_ragdoll_drivetoposeusingmotors", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+        static final java.lang.invoke.MethodHandle internal_native_DriveToPoseUsingMotors__0__JJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_ragdoll_ragdoll_drivetoposeusingmotors__0", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_DriveToPoseUsingMotors__1__JJJF = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_ragdoll_ragdoll_drivetoposeusingmotors__1", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_FLOAT));
 
         static final java.lang.invoke.MethodHandle internal_native_SetLinearAndAngularVelocity__JJJZ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_ragdoll_ragdoll_setlinearandangularvelocity_l_l_l_z", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_BOOLEAN));
 
@@ -612,18 +626,18 @@ public class Ragdoll extends NativeObject {
 
         static final java.lang.invoke.MethodHandle internal_native_GetBodyCount__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_ragdoll_ragdoll_getbodycount", FunctionDescriptor.of(ValueLayout.JAVA_INT, ValueLayout.JAVA_LONG));
 
-        static final java.lang.invoke.MethodHandle internal_native_GetBodyID_addr__JI = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_physics_ragdoll_ragdoll_getbodyid_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT));
+        static final java.lang.invoke.MethodHandle internal_native_GetBodyID_addr__JI = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_ragdoll_ragdoll_getbodyid_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT));
 
-        static final java.lang.invoke.MethodHandle internal_native_GetBodyIDs_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_physics_ragdoll_ragdoll_getbodyids_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+        static final java.lang.invoke.MethodHandle internal_native_GetBodyIDs_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_ragdoll_ragdoll_getbodyids_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
 
         static final java.lang.invoke.MethodHandle internal_native_GetConstraintCount__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_ragdoll_ragdoll_getconstraintcount", FunctionDescriptor.of(ValueLayout.JAVA_INT, ValueLayout.JAVA_LONG));
 
-        static final java.lang.invoke.MethodHandle internal_native_GetWorldSpaceBounds_addr__JZ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_physics_ragdoll_ragdoll_getworldspacebounds_addr_l_z", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_BOOLEAN));
+        static final java.lang.invoke.MethodHandle internal_native_GetWorldSpaceBounds_addr__JZ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_ragdoll_ragdoll_getworldspacebounds_addr_l_z", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_BOOLEAN));
 
-        static final java.lang.invoke.MethodHandle internal_native_GetWorldSpaceBounds_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_physics_ragdoll_ragdoll_getworldspacebounds_addr_l", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+        static final java.lang.invoke.MethodHandle internal_native_GetWorldSpaceBounds_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_ragdoll_ragdoll_getworldspacebounds_addr_l", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
 
-        static final java.lang.invoke.MethodHandle internal_native_GetConstraint_addr__JI = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_physics_ragdoll_ragdoll_getconstraint_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT));
+        static final java.lang.invoke.MethodHandle internal_native_GetConstraint_addr__JI = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_ragdoll_ragdoll_getconstraint_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT));
 
-        static final java.lang.invoke.MethodHandle internal_native_GetRagdollSettings_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_physics_ragdoll_ragdoll_getragdollsettings_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+        static final java.lang.invoke.MethodHandle internal_native_GetRagdollSettings_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_ragdoll_ragdoll_getragdollsettings_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
     }
 }

@@ -30,6 +30,10 @@ public class MutableCompoundShape extends CompoundShape {
         return new MutableCompoundShape((byte) 0, (char) 0);
     }
 
+    public int AddShape(Vec3 inPosition, Quat inRotation, Shape inShape, int inUserData, int inIndex) {
+        return 0;
+    }
+
     public int AddShape(Vec3 inPosition, Quat inRotation, Shape inShape, int inUserData) {
         return 0;
     }

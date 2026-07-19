@@ -59,8 +59,8 @@ public enum EActivation implements NativeEnum<EActivation> {
 
     private static final class FFMHandles {
 
-        static final java.lang.invoke.MethodHandle EActivation_Activate_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_enums_eactivation_eactivation_activate_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
+        static final java.lang.invoke.MethodHandle EActivation_Activate_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_enums_eactivation_eactivation_activate_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
 
-        static final java.lang.invoke.MethodHandle EActivation_DontActivate_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_enums_eactivation_eactivation_dontactivate_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
+        static final java.lang.invoke.MethodHandle EActivation_DontActivate_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_enums_eactivation_eactivation_dontactivate_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
     }
 }

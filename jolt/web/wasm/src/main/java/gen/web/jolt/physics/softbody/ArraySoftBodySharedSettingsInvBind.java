@@ -14,6 +14,14 @@ public class ArraySoftBodySharedSettingsInvBind extends NativeObject {
 
     static public final ArraySoftBodySharedSettingsInvBind NULL = ArraySoftBodySharedSettingsInvBind.native_new();
 
+    public ArraySoftBodySharedSettingsInvBind() {
+        int addr = internal_native_create_addr();
+        internal_reset(addr, true);
+    }
+
+    @org.teavm.jso.JSBody(script = "var jsObj = new jolt.ArraySoftBodySharedSettingsInvBind();return jolt.getPointer(jsObj);")
+    public static native int internal_native_create_addr();
+
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
      */

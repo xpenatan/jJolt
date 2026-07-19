@@ -303,6 +303,13 @@ public class MotionProperties extends NativeObject {
     @org.teavm.jso.JSBody(params = {"this_addr", "inInvI_addr", "inRotation_addr"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.MotionProperties);jsObj.SetInverseInertia(inInvI_addr, inRotation_addr);")
     public static native void internal_native_SetInverseInertia(int this_addr, int inInvI_addr, int inRotation_addr);
 
+    public void ScaleToMass(float inMass) {
+        internal_native_ScaleToMass(native_address, inMass);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "inMass"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.MotionProperties);jsObj.ScaleToMass(inMass);")
+    public static native void internal_native_ScaleToMass(int this_addr, float inMass);
+
     public Mat44 GetLocalSpaceInverseInertia() {
         int addr = internal_native_GetLocalSpaceInverseInertia_addr(native_address);
         if (addr == 0)

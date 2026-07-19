@@ -10,11 +10,17 @@ import jolt.math.*;
 
 final public class JNI_ArrayUint8 {
 
+    public static native long internal_native_create_addr();
+
     public static native void internal_native_deleteNative(long this_addr);
 
     public static native boolean internal_native_empty(long this_addr);
 
     public static native int internal_native_size(long this_addr);
+
+    public static native byte internal_native_at(long this_addr, int inIndex);
+
+    public static native void internal_native_push_back(long this_addr, byte inValue);
 
     public static native void internal_native_reserve(long this_addr, int inSize);
 

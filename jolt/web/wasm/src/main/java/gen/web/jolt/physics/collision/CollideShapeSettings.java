@@ -77,4 +77,18 @@ public class CollideShapeSettings extends CollideSettingsBase {
 
     @org.teavm.jso.JSBody(params = {"this_addr", "mBackFaceMode"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.CollideShapeSettings);jsObj.set_mBackFaceMode(mBackFaceMode);")
     public static native void internal_native_set_mBackFaceMode(int this_addr, int mBackFaceMode);
+
+    public float get_mInternalEdgeRemovalVertexToleranceSq() {
+        return internal_native_get_mInternalEdgeRemovalVertexToleranceSq(native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.CollideShapeSettings);return jsObj.get_mInternalEdgeRemovalVertexToleranceSq();")
+    public static native float internal_native_get_mInternalEdgeRemovalVertexToleranceSq(int this_addr);
+
+    public void set_mInternalEdgeRemovalVertexToleranceSq(float mInternalEdgeRemovalVertexToleranceSq) {
+        internal_native_set_mInternalEdgeRemovalVertexToleranceSq(native_address, mInternalEdgeRemovalVertexToleranceSq);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "mInternalEdgeRemovalVertexToleranceSq"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.CollideShapeSettings);jsObj.set_mInternalEdgeRemovalVertexToleranceSq(mInternalEdgeRemovalVertexToleranceSq);")
+    public static native void internal_native_set_mInternalEdgeRemovalVertexToleranceSq(int this_addr, float mInternalEdgeRemovalVertexToleranceSq);
 }

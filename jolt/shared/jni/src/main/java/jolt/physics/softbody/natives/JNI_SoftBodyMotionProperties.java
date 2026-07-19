@@ -18,6 +18,10 @@ final public class JNI_SoftBodyMotionProperties {
 
     public static native long internal_native_GetVertex_addr(long this_addr, int inIndex);
 
+    public static native long internal_native_GetRodRotation_addr(long this_addr, int inIndex);
+
+    public static native long internal_native_GetRodAngularVelocity_addr(long this_addr, int inIndex);
+
     public static native long internal_native_GetMaterials_addr(long this_addr);
 
     public static native long internal_native_GetFaces_addr(long this_addr);
@@ -43,6 +47,10 @@ final public class JNI_SoftBodyMotionProperties {
     public static native float internal_native_GetSkinnedMaxDistanceMultiplier(long this_addr);
 
     public static native void internal_native_SetSkinnedMaxDistanceMultiplier(long this_addr, float inSkinnedMaxDistanceMultiplier);
+
+    public static native float internal_native_GetVertexRadius(long this_addr);
+
+    public static native void internal_native_SetVertexRadius(long this_addr, float inVertexRadius);
 
     public static native long internal_native_GetLocalBounds_addr(long this_addr);
 

@@ -12,6 +12,9 @@ public class ArraySoftBodyVertex extends NativeObject {
 
     static public final ArraySoftBodyVertex NULL = ArraySoftBodyVertex.native_new();
 
+    public ArraySoftBodyVertex() {
+    }
+
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
      */

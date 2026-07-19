@@ -85,10 +85,10 @@ public class SoftBodyVertexTraits extends NativeObject {
 
         static final java.lang.invoke.MethodHandle internal_native_deleteNative__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_softbody_softbodyvertextraits_deletenative", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG));
 
-        static final java.lang.invoke.MethodHandle internal_native_get_mPreviousPositionOffset__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_physics_softbody_softbodyvertextraits_get_mpreviouspositionoffset", FunctionDescriptor.of(ValueLayout.JAVA_INT));
+        static final java.lang.invoke.MethodHandle internal_native_get_mPreviousPositionOffset__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_softbody_softbodyvertextraits_get_mpreviouspositionoffset", FunctionDescriptor.of(ValueLayout.JAVA_INT));
 
-        static final java.lang.invoke.MethodHandle internal_native_get_mPositionOffset__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_physics_softbody_softbodyvertextraits_get_mpositionoffset", FunctionDescriptor.of(ValueLayout.JAVA_INT));
+        static final java.lang.invoke.MethodHandle internal_native_get_mPositionOffset__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_softbody_softbodyvertextraits_get_mpositionoffset", FunctionDescriptor.of(ValueLayout.JAVA_INT));
 
-        static final java.lang.invoke.MethodHandle internal_native_get_mVelocityOffset__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_physics_softbody_softbodyvertextraits_get_mvelocityoffset", FunctionDescriptor.of(ValueLayout.JAVA_INT));
+        static final java.lang.invoke.MethodHandle internal_native_get_mVelocityOffset__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_softbody_softbodyvertextraits_get_mvelocityoffset", FunctionDescriptor.of(ValueLayout.JAVA_INT));
     }
 }

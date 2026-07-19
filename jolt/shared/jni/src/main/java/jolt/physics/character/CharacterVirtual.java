@@ -19,6 +19,7 @@ import jolt.core.TempAllocator;
 import jolt.physics.collision.shape.Shape;
 import jolt.physics.collision.TransformedShape;
 import com.github.xpenatan.jParser.api.NativeObject;
+import jolt.Jolt;
 
 public class CharacterVirtual extends CharacterBase {
 
@@ -113,8 +114,8 @@ public class CharacterVirtual extends CharacterBase {
         jolt.physics.character.natives.JNI_CharacterVirtual.internal_native_SetCharacterVsCharacterCollision(this_addr, inCharacterVsCharacterCollision_addr);
     }
 
-    public NativeObject GetListener() {
-        long addr = internal_native_GetListener_addr(native_address);
+    public NativeObject GetListenerNative() {
+        long addr = internal_native_GetListenerNative_addr(native_address);
         if (addr == 0)
             return NativeObject.NULL;
         if (NativeObject_TEMP_GEN_0 == null)
@@ -123,8 +124,8 @@ public class CharacterVirtual extends CharacterBase {
         return NativeObject_TEMP_GEN_0;
     }
 
-    public static long internal_native_GetListener_addr(long this_addr) {
-        return jolt.physics.character.natives.JNI_CharacterVirtual.internal_native_GetListener_addr(this_addr);
+    public static long internal_native_GetListenerNative_addr(long this_addr) {
+        return jolt.physics.character.natives.JNI_CharacterVirtual.internal_native_GetListenerNative_addr(this_addr);
     }
 
     public Vec3 GetLinearVelocity() {
@@ -353,19 +354,19 @@ public class CharacterVirtual extends CharacterBase {
         jolt.physics.character.natives.JNI_CharacterVirtual.internal_native_SetShapeOffset(this_addr, inShapeOffset_addr);
     }
 
-    public long GetUserData() {
+    public int GetUserData() {
         return internal_native_GetUserData(native_address);
     }
 
-    public static long internal_native_GetUserData(long this_addr) {
+    public static int internal_native_GetUserData(long this_addr) {
         return jolt.physics.character.natives.JNI_CharacterVirtual.internal_native_GetUserData(this_addr);
     }
 
-    public void SetUserData(long inUserData) {
+    public void SetUserData(int inUserData) {
         internal_native_SetUserData(native_address, inUserData);
     }
 
-    public static void internal_native_SetUserData(long this_addr, long inUserData) {
+    public static void internal_native_SetUserData(long this_addr, int inUserData) {
         jolt.physics.character.natives.JNI_CharacterVirtual.internal_native_SetUserData(this_addr, inUserData);
     }
 
@@ -535,5 +536,9 @@ public class CharacterVirtual extends CharacterBase {
 
     public static long internal_native_GetActiveContacts_addr(long this_addr) {
         return jolt.physics.character.natives.JNI_CharacterVirtual.internal_native_GetActiveContacts_addr(this_addr);
+    }
+
+    public CharacterContactListener GetListener() {
+        return Jolt.GetCharacterContactListener(this);
     }
 }

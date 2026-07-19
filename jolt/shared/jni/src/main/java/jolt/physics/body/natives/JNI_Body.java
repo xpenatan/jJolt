@@ -130,15 +130,23 @@ final public class JNI_Body {
 
     public static native long internal_native_GetBodyCreationSettings_addr(long this_addr);
 
+    public static native void internal_native_ApplyBodyCreationSettings(long this_addr, long inBodyCreationSettings_addr, long inBPLInterface_addr);
+
     public static native long internal_native_GetSoftBodyCreationSettings_addr(long this_addr);
+
+    public static native void internal_native_ApplySoftBodyCreationSettings(long this_addr, long inSoftBodyCreationSettings_addr, long inBPLInterface_addr);
 
     public static native long internal_native_GetMotionProperties_addr(long this_addr);
 
     public static native long internal_native_GetWorldSpaceSurfaceNormal_addr(long this_addr, long inSubShapeID_addr, long inPosition_addr);
 
-    public static native long internal_native_GetUserData(long this_addr);
+    public static native int internal_native_GetUserData(long this_addr);
 
-    public static native void internal_native_SetUserData(long this_addr, long inUserData);
+    public static native void internal_native_SetUserData(long this_addr, int inUserData);
 
     public static native void internal_native_SetCollisionGroup(long this_addr, long inGroup_addr);
+
+    public static native void internal_native_SaveState(long this_addr, long inStream_addr);
+
+    public static native void internal_native_RestoreState(long this_addr, long inStream_addr);
 }

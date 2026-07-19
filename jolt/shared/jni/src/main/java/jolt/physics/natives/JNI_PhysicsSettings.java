@@ -70,6 +70,10 @@ final public class JNI_PhysicsSettings {
 
     public static native void internal_native_set_mContactPointPreserveLambdaMaxDistSq(long this_addr, float mContactPointPreserveLambdaMaxDistSq);
 
+    public static native float internal_native_get_mInternalEdgeRemovalVertexToleranceSq(long this_addr);
+
+    public static native void internal_native_set_mInternalEdgeRemovalVertexToleranceSq(long this_addr, float mInternalEdgeRemovalVertexToleranceSq);
+
     public static native int internal_native_get_mNumVelocitySteps(long this_addr);
 
     public static native void internal_native_set_mNumVelocitySteps(long this_addr, int mNumVelocitySteps);

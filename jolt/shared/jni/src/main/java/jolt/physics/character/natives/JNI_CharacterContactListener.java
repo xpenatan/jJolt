@@ -20,17 +20,33 @@ final public class JNI_CharacterContactListener {
 
     public static native void internal_native_set_OnContactValidate(long this_addr, boolean onContactValidate);
 
+    public static native boolean internal_native_get_OnContactValidateFull(long this_addr);
+
+    public static native void internal_native_set_OnContactValidateFull(long this_addr, boolean onContactValidateFull);
+
     public static native boolean internal_native_get_OnCharacterContactValidate(long this_addr);
 
     public static native void internal_native_set_OnCharacterContactValidate(long this_addr, boolean onCharacterContactValidate);
+
+    public static native boolean internal_native_get_OnCharacterContactValidateFull(long this_addr);
+
+    public static native void internal_native_set_OnCharacterContactValidateFull(long this_addr, boolean onCharacterContactValidateFull);
 
     public static native boolean internal_native_get_OnContactAdded(long this_addr);
 
     public static native void internal_native_set_OnContactAdded(long this_addr, boolean onContactAdded);
 
+    public static native boolean internal_native_get_OnContactAddedFull(long this_addr);
+
+    public static native void internal_native_set_OnContactAddedFull(long this_addr, boolean onContactAddedFull);
+
     public static native boolean internal_native_get_OnContactPersisted(long this_addr);
 
     public static native void internal_native_set_OnContactPersisted(long this_addr, boolean onContactPersisted);
+
+    public static native boolean internal_native_get_OnContactPersistedFull(long this_addr);
+
+    public static native void internal_native_set_OnContactPersistedFull(long this_addr, boolean onContactPersistedFull);
 
     public static native boolean internal_native_get_OnContactRemoved(long this_addr);
 
@@ -40,9 +56,17 @@ final public class JNI_CharacterContactListener {
 
     public static native void internal_native_set_OnCharacterContactAdded(long this_addr, boolean onCharacterContactAdded);
 
+    public static native boolean internal_native_get_OnCharacterContactAddedFull(long this_addr);
+
+    public static native void internal_native_set_OnCharacterContactAddedFull(long this_addr, boolean onCharacterContactAddedFull);
+
     public static native boolean internal_native_get_OnCharacterContactPersisted(long this_addr);
 
     public static native void internal_native_set_OnCharacterContactPersisted(long this_addr, boolean onCharacterContactPersisted);
+
+    public static native boolean internal_native_get_OnCharacterContactPersistedFull(long this_addr);
+
+    public static native void internal_native_set_OnCharacterContactPersistedFull(long this_addr, boolean onCharacterContactPersistedFull);
 
     public static native boolean internal_native_get_OnCharacterContactRemoved(long this_addr);
 

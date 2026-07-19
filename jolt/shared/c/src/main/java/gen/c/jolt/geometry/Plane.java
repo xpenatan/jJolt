@@ -22,6 +22,10 @@ public class Plane extends NativeObject {
 
     private Plane Plane_TEMP_GEN_3;
 
+    private Plane Plane_TEMP_GEN_4;
+
+    private Vec3 Vec3_TEMP_GEN_1;
+
     static public final Plane NULL = Plane.native_new();
 
     public Plane(Vec3 inNormal, float inConstant) {
@@ -126,8 +130,8 @@ public class Plane extends NativeObject {
     @org.teavm.interop.Import(name = "jolt_geometry_plane_offset_addr")
     public static native long internal_native_Offset_addr(long this_addr, float inDistance);
 
-    public Plane GetTransformed(Mat44 inTransform) {
-        long addr = internal_native_GetTransformed_addr(native_address, inTransform.native_address);
+    public Plane Scaled(Vec3 inScale) {
+        long addr = internal_native_Scaled_addr(native_address, inScale.native_address);
         if (addr == 0)
             return Plane.NULL;
         if (Plane_TEMP_GEN_3 == null)
@@ -136,8 +140,34 @@ public class Plane extends NativeObject {
         return Plane_TEMP_GEN_3;
     }
 
+    @org.teavm.interop.Import(name = "jolt_geometry_plane_scaled_addr")
+    public static native long internal_native_Scaled_addr(long this_addr, long inScale_addr);
+
+    public Plane GetTransformed(Mat44 inTransform) {
+        long addr = internal_native_GetTransformed_addr(native_address, inTransform.native_address);
+        if (addr == 0)
+            return Plane.NULL;
+        if (Plane_TEMP_GEN_4 == null)
+            Plane_TEMP_GEN_4 = Plane.native_new();
+        Plane_TEMP_GEN_4.internal_reset(addr, false);
+        return Plane_TEMP_GEN_4;
+    }
+
     @org.teavm.interop.Import(name = "jolt_geometry_plane_gettransformed_addr")
     public static native long internal_native_GetTransformed_addr(long this_addr, long inTransform_addr);
+
+    public Vec3 ProjectPointOnPlane(Vec3 inPoint) {
+        long addr = internal_native_ProjectPointOnPlane_addr(native_address, inPoint.native_address);
+        if (addr == 0)
+            return Vec3.NULL;
+        if (Vec3_TEMP_GEN_1 == null)
+            Vec3_TEMP_GEN_1 = Vec3.native_new();
+        Vec3_TEMP_GEN_1.internal_reset(addr, false);
+        return Vec3_TEMP_GEN_1;
+    }
+
+    @org.teavm.interop.Import(name = "jolt_geometry_plane_projectpointonplane_addr")
+    public static native long internal_native_ProjectPointOnPlane_addr(long this_addr, long inPoint_addr);
 
     public float SignedDistance(Vec3 inPoint) {
         return internal_native_SignedDistance(native_address, inPoint.native_address);

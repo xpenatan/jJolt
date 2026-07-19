@@ -6,6 +6,14 @@
 
 package jolt.physics.collision.shape;
 
+import java.lang.foreign.FunctionDescriptor;
+import java.lang.foreign.ValueLayout;
+import java.lang.foreign.Linker;
+import java.lang.foreign.SymbolLookup;
+import java.lang.foreign.Arena;
+import java.lang.foreign.MemorySegment;
+import java.lang.invoke.MethodHandle;
+
 public class TaperedCapsuleShape extends ConvexShape {
 
     static public final TaperedCapsuleShape NULL = TaperedCapsuleShape.native_new();
@@ -23,5 +31,50 @@ public class TaperedCapsuleShape extends ConvexShape {
      */
     public static TaperedCapsuleShape native_new() {
         return new TaperedCapsuleShape((byte) 0, (char) 0);
+    }
+
+    public float GetHalfHeight() {
+        return internal_native_GetHalfHeight(native_address);
+    }
+
+    public static float internal_native_GetHalfHeight(long this_addr) {
+        try {
+            return (float) FFMHandles.internal_native_GetHalfHeight__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public float GetTopRadius() {
+        return internal_native_GetTopRadius(native_address);
+    }
+
+    public static float internal_native_GetTopRadius(long this_addr) {
+        try {
+            return (float) FFMHandles.internal_native_GetTopRadius__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public float GetBottomRadius() {
+        return internal_native_GetBottomRadius(native_address);
+    }
+
+    public static float internal_native_GetBottomRadius(long this_addr) {
+        try {
+            return (float) FFMHandles.internal_native_GetBottomRadius__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    private static final class FFMHandles {
+
+        static final java.lang.invoke.MethodHandle internal_native_GetHalfHeight__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_collision_shape_taperedcapsuleshape_gethalfheight", FunctionDescriptor.of(ValueLayout.JAVA_FLOAT, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_GetTopRadius__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_collision_shape_taperedcapsuleshape_gettopradius", FunctionDescriptor.of(ValueLayout.JAVA_FLOAT, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_GetBottomRadius__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_collision_shape_taperedcapsuleshape_getbottomradius", FunctionDescriptor.of(ValueLayout.JAVA_FLOAT, ValueLayout.JAVA_LONG));
     }
 }

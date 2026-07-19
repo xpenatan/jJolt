@@ -190,6 +190,18 @@ public class NarrowPhaseQuery extends NativeObject {
         }
     }
 
+    public void CollideShapeWithInternalEdgeRemoval(Shape inShape, Vec3 inShapeScale, Mat44 inCenterOfMassTransform, CollideShapeSettings inCollideShapeSettings, Vec3 inBaseOffset, CollideShapeCollector ioCollector, BroadPhaseLayerFilter inBroadPhaseLayerFilter, ObjectLayerFilter inObjectLayerFilter, BodyFilter inBodyFilter, ShapeFilter inShapeFilter) {
+        internal_native_CollideShapeWithInternalEdgeRemoval(native_address, inShape.native_address, inShapeScale.native_address, inCenterOfMassTransform.native_address, inCollideShapeSettings.native_address, inBaseOffset.native_address, ioCollector.native_address, inBroadPhaseLayerFilter.native_address, inObjectLayerFilter.native_address, inBodyFilter.native_address, inShapeFilter.native_address);
+    }
+
+    public static void internal_native_CollideShapeWithInternalEdgeRemoval(long this_addr, long inShape_addr, long inShapeScale_addr, long inCenterOfMassTransform_addr, long inCollideShapeSettings_addr, long inBaseOffset_addr, long ioCollector_addr, long inBroadPhaseLayerFilter_addr, long inObjectLayerFilter_addr, long inBodyFilter_addr, long inShapeFilter_addr) {
+        try {
+            FFMHandles.internal_native_CollideShapeWithInternalEdgeRemoval__JJJJJJJJJJJ.invokeExact(this_addr, inShape_addr, inShapeScale_addr, inCenterOfMassTransform_addr, inCollideShapeSettings_addr, inBaseOffset_addr, ioCollector_addr, inBroadPhaseLayerFilter_addr, inObjectLayerFilter_addr, inBodyFilter_addr, inShapeFilter_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
     public void CastShape(RShapeCast inShapeCast, ShapeCastSettings inShapeCastSettings, Vec3 inBaseOffset, CastShapeCollector ioCollector, BroadPhaseLayerFilter inBroadPhaseLayerFilter, ObjectLayerFilter inObjectLayerFilter, BodyFilter inBodyFilter, ShapeFilter inShapeFilter) {
         internal_native_CastShape(native_address, inShapeCast.native_address, inShapeCastSettings.native_address, inBaseOffset.native_address, ioCollector.native_address, inBroadPhaseLayerFilter.native_address, inObjectLayerFilter.native_address, inBodyFilter.native_address, inShapeFilter.native_address);
     }
@@ -239,6 +251,8 @@ public class NarrowPhaseQuery extends NativeObject {
         static final java.lang.invoke.MethodHandle internal_native_CollidePoint__JJJJJJJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_collision_narrowphasequery_collidepoint", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
 
         static final java.lang.invoke.MethodHandle internal_native_CollideShape__JJJJJJJJJJJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_collision_narrowphasequery_collideshape", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_CollideShapeWithInternalEdgeRemoval__JJJJJJJJJJJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_collision_narrowphasequery_collideshapewithinternaledgeremoval", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
 
         static final java.lang.invoke.MethodHandle internal_native_CastShape__JJJJJJJJJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_collision_narrowphasequery_castshape", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
 

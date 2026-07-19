@@ -12,6 +12,9 @@ public class ArrayVehicleDifferentialSettings extends NativeObject {
 
     static public final ArrayVehicleDifferentialSettings NULL = ArrayVehicleDifferentialSettings.native_new();
 
+    public ArrayVehicleDifferentialSettings() {
+    }
+
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
      */

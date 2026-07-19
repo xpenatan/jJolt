@@ -48,7 +48,9 @@ final public class JNI_Ragdoll {
 
     public static native void internal_native_DriveToPoseUsingKinematics(long this_addr, long inPose_addr, float inDeltaTime);
 
-    public static native void internal_native_DriveToPoseUsingMotors(long this_addr, long inPose_addr);
+    public static native void internal_native_DriveToPoseUsingMotors__0(long this_addr, long inPose_addr);
+
+    public static native void internal_native_DriveToPoseUsingMotors__1(long this_addr, long inPrevPose_addr, long inPose_addr, float inDeltaTime);
 
     public static native void internal_native_SetLinearAndAngularVelocity(long this_addr, long inLinearVelocity_addr, long inAngularVelocity_addr, boolean inLockBodies);
 

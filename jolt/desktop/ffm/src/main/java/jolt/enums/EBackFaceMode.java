@@ -59,8 +59,8 @@ public enum EBackFaceMode implements NativeEnum<EBackFaceMode> {
 
     private static final class FFMHandles {
 
-        static final java.lang.invoke.MethodHandle EBackFaceMode_IgnoreBackFaces_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_enums_ebackfacemode_ebackfacemode_ignorebackfaces_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
+        static final java.lang.invoke.MethodHandle EBackFaceMode_IgnoreBackFaces_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_enums_ebackfacemode_ebackfacemode_ignorebackfaces_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
 
-        static final java.lang.invoke.MethodHandle EBackFaceMode_CollideWithBackFaces_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_enums_ebackfacemode_ebackfacemode_collidewithbackfaces_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
+        static final java.lang.invoke.MethodHandle EBackFaceMode_CollideWithBackFaces_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_enums_ebackfacemode_ebackfacemode_collidewithbackfaces_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
     }
 }

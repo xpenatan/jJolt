@@ -102,25 +102,25 @@ public class ShapeSettings extends RefTargetShapeSettings {
         }
     }
 
-    public long get_mUserData() {
+    public int get_mUserData() {
         return internal_native_get_mUserData(native_address);
     }
 
-    public static long internal_native_get_mUserData(long this_addr) {
+    public static int internal_native_get_mUserData(long this_addr) {
         try {
-            return (long) FFMHandles.internal_native_get_mUserData__J.invokeExact(this_addr);
+            return (int) FFMHandles.internal_native_get_mUserData__J.invokeExact(this_addr);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
     }
 
-    public void set_mUserData(long mUserData) {
+    public void set_mUserData(int mUserData) {
         internal_native_set_mUserData(native_address, mUserData);
     }
 
-    public static void internal_native_set_mUserData(long this_addr, long mUserData) {
+    public static void internal_native_set_mUserData(long this_addr, int mUserData) {
         try {
-            FFMHandles.internal_native_set_mUserData__JJ.invokeExact(this_addr, mUserData);
+            FFMHandles.internal_native_set_mUserData__JI.invokeExact(this_addr, mUserData);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -134,12 +134,12 @@ public class ShapeSettings extends RefTargetShapeSettings {
 
         static final java.lang.invoke.MethodHandle internal_native_Release__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_collision_shape_shapesettings_release", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG));
 
-        static final java.lang.invoke.MethodHandle internal_native_Create_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_physics_collision_shape_shapesettings_create_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+        static final java.lang.invoke.MethodHandle internal_native_Create_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_collision_shape_shapesettings_create_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
 
         static final java.lang.invoke.MethodHandle internal_native_ClearCachedResult__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_collision_shape_shapesettings_clearcachedresult", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG));
 
-        static final java.lang.invoke.MethodHandle internal_native_get_mUserData__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_physics_collision_shape_shapesettings_get_muserdata", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+        static final java.lang.invoke.MethodHandle internal_native_get_mUserData__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_collision_shape_shapesettings_get_muserdata", FunctionDescriptor.of(ValueLayout.JAVA_INT, ValueLayout.JAVA_LONG));
 
-        static final java.lang.invoke.MethodHandle internal_native_set_mUserData__JJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_physics_collision_shape_shapesettings_set_muserdata", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+        static final java.lang.invoke.MethodHandle internal_native_set_mUserData__JI = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_collision_shape_shapesettings_set_muserdata", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT));
     }
 }

@@ -21,6 +21,19 @@ public class ArraySoftBodyVertex extends NativeObject {
 
     static public final ArraySoftBodyVertex NULL = ArraySoftBodyVertex.native_new();
 
+    public ArraySoftBodyVertex() {
+        long addr = internal_native_create_addr();
+        internal_reset(addr, true);
+    }
+
+    public static long internal_native_create_addr() {
+        try {
+            return (long) FFMHandles.internal_native_create_addr__.invokeExact();
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
      */
@@ -139,13 +152,15 @@ public class ArraySoftBodyVertex extends NativeObject {
 
     private static final class FFMHandles {
 
+        static final java.lang.invoke.MethodHandle internal_native_create_addr__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_softbody_arraysoftbodyvertex_create_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG));
+
         static final java.lang.invoke.MethodHandle internal_native_deleteNative__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_softbody_arraysoftbodyvertex_deletenative", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG));
 
         static final java.lang.invoke.MethodHandle internal_native_empty__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_softbody_arraysoftbodyvertex_empty", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.JAVA_LONG));
 
         static final java.lang.invoke.MethodHandle internal_native_size__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_softbody_arraysoftbodyvertex_size", FunctionDescriptor.of(ValueLayout.JAVA_INT, ValueLayout.JAVA_LONG));
 
-        static final java.lang.invoke.MethodHandle internal_native_at_addr__JI = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_physics_softbody_arraysoftbodyvertex_at_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT));
+        static final java.lang.invoke.MethodHandle internal_native_at_addr__JI = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_softbody_arraysoftbodyvertex_at_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT));
 
         static final java.lang.invoke.MethodHandle internal_native_push_back__JJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_softbody_arraysoftbodyvertex_push_back", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
 

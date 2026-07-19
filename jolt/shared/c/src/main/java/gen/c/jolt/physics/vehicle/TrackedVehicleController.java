@@ -12,6 +12,8 @@ public class TrackedVehicleController extends VehicleController {
 
     private VehicleTransmission VehicleTransmission_TEMP_GEN_0;
 
+    private ArrayVehicleTrack ArrayVehicleTrack_TEMP_GEN_0;
+
     static public final TrackedVehicleController NULL = TrackedVehicleController.native_new();
 
     public TrackedVehicleController(TrackedVehicleControllerSettings inSettings, VehicleConstraint inConstraint) {
@@ -133,4 +135,17 @@ public class TrackedVehicleController extends VehicleController {
 
     @org.teavm.interop.Import(name = "jolt_physics_vehicle_trackedvehiclecontroller_gettransmission_addr")
     public static native long internal_native_GetTransmission_addr(long this_addr);
+
+    public ArrayVehicleTrack GetTracks() {
+        long addr = internal_native_GetTracks_addr(native_address);
+        if (addr == 0)
+            return ArrayVehicleTrack.NULL;
+        if (ArrayVehicleTrack_TEMP_GEN_0 == null)
+            ArrayVehicleTrack_TEMP_GEN_0 = ArrayVehicleTrack.native_new();
+        ArrayVehicleTrack_TEMP_GEN_0.internal_reset(addr, false);
+        return ArrayVehicleTrack_TEMP_GEN_0;
+    }
+
+    @org.teavm.interop.Import(name = "jolt_physics_vehicle_trackedvehiclecontroller_gettracks_addr")
+    public static native long internal_native_GetTracks_addr(long this_addr);
 }

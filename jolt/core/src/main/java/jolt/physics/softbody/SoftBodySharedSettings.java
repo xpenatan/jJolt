@@ -56,6 +56,9 @@ public class SoftBodySharedSettings extends NativeObject {
     public void CalculateEdgeLengths() {
     }
 
+    public void CalculateRodProperties() {
+    }
+
     public void CalculateLRALengths() {
     }
 
@@ -131,17 +134,24 @@ public class SoftBodySharedSettings extends NativeObject {
     public void set_mLRAConstraints(ArraySoftBodySharedSettingsLRA mLRAConstraints) {
     }
 
+    public ArraySoftBodySharedSettingsRodStretchShear get_mRodStretchShearConstraints() {
+        return null;
+    }
+
+    public void set_mRodStretchShearConstraints(ArraySoftBodySharedSettingsRodStretchShear mRodStretchShearConstraints) {
+    }
+
+    public ArraySoftBodySharedSettingsRodBendTwist get_mRodBendTwistConstraints() {
+        return null;
+    }
+
+    public void set_mRodBendTwistConstraints(ArraySoftBodySharedSettingsRodBendTwist mRodBendTwistConstraints) {
+    }
+
     public PhysicsMaterialList get_mMaterials() {
         return null;
     }
 
     public void set_mMaterials(PhysicsMaterialList mMaterials) {
-    }
-
-    public float get_mVertexRadius() {
-        return 0;
-    }
-
-    public void set_mVertexRadius(float mVertexRadius) {
     }
 }

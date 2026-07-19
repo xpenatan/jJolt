@@ -82,4 +82,20 @@ public class SkeletalAnimation extends NativeObject {
     public static long internal_native_GetAnimatedJoints_addr(long this_addr) {
         return jolt.skeleton.natives.JNI_SkeletalAnimation.internal_native_GetAnimatedJoints_addr(this_addr);
     }
+
+    public boolean IsLooping() {
+        return internal_native_IsLooping(native_address);
+    }
+
+    public static boolean internal_native_IsLooping(long this_addr) {
+        return jolt.skeleton.natives.JNI_SkeletalAnimation.internal_native_IsLooping(this_addr);
+    }
+
+    public void SetIsLooping(boolean inIsLooping) {
+        internal_native_SetIsLooping(native_address, inIsLooping);
+    }
+
+    public static void internal_native_SetIsLooping(long this_addr, boolean inIsLooping) {
+        jolt.skeleton.natives.JNI_SkeletalAnimation.internal_native_SetIsLooping(this_addr, inIsLooping);
+    }
 }

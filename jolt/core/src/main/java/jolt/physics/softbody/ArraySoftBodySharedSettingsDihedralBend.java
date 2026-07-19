@@ -12,6 +12,9 @@ public class ArraySoftBodySharedSettingsDihedralBend extends NativeObject {
 
     static public final ArraySoftBodySharedSettingsDihedralBend NULL = ArraySoftBodySharedSettingsDihedralBend.native_new();
 
+    public ArraySoftBodySharedSettingsDihedralBend() {
+    }
+
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
      */

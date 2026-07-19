@@ -14,6 +14,14 @@ public class ArrayFloat extends NativeObject {
 
     static public final ArrayFloat NULL = ArrayFloat.native_new();
 
+    public ArrayFloat() {
+        int addr = internal_native_create_addr();
+        internal_reset(addr, true);
+    }
+
+    @org.teavm.jso.JSBody(script = "var jsObj = new jolt.ArrayFloat();return jolt.getPointer(jsObj);")
+    public static native int internal_native_create_addr();
+
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
      */

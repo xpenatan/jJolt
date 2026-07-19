@@ -33,6 +33,9 @@ public class CastRayCollector extends NativeObject {
         return new CastRayCollector((byte) 0, (char) 0);
     }
 
+    public void ResetNative() {
+    }
+
     public void SetContext(TransformedShape inContext) {
     }
 

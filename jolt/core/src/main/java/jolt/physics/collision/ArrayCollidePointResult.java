@@ -12,6 +12,9 @@ public class ArrayCollidePointResult extends NativeObject {
 
     static public final ArrayCollidePointResult NULL = ArrayCollidePointResult.native_new();
 
+    public ArrayCollidePointResult() {
+    }
+
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
      */

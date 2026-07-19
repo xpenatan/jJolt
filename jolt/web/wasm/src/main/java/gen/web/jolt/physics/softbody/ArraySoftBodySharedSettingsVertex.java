@@ -14,6 +14,14 @@ public class ArraySoftBodySharedSettingsVertex extends NativeObject {
 
     static public final ArraySoftBodySharedSettingsVertex NULL = ArraySoftBodySharedSettingsVertex.native_new();
 
+    public ArraySoftBodySharedSettingsVertex() {
+        int addr = internal_native_create_addr();
+        internal_reset(addr, true);
+    }
+
+    @org.teavm.jso.JSBody(script = "var jsObj = new jolt.ArraySoftBodySharedSettingsVertex();return jolt.getPointer(jsObj);")
+    public static native int internal_native_create_addr();
+
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
      */

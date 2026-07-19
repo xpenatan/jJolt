@@ -26,6 +26,10 @@ public class ObjectLayerPairFilter extends NativeObject {
         return new ObjectLayerPairFilter((byte) 0, (char) 0);
     }
 
+    public boolean ShouldCollideNative(int inLayer1, int inLayer2) {
+        return false;
+    }
+
     public ObjectLayerPairFilter() {
         long addr = internal_native_create_addr();
         internal_reset(addr, true);

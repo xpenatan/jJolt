@@ -51,16 +51,23 @@ public class BuildTeaVMC {
 
         System.out.println("Generating jJolt TeaVM C sample");
         generateTeaVMC(generatedDir);
-        patchGeneratedUCharHeader(generatedDir);
-        patchGeneratedMSVCTimeFunctions(generatedDir);
+        if(isWindows()) {
+            patchGeneratedUCharHeader(generatedDir);
+            patchGeneratedMSVCTimeFunctions(generatedDir);
+        }
 
         System.out.println("Extracting TeaVM C external_cpp resources");
         extractExternalCppResources(resourcesDir.toPath());
         verifyRequiredResource(resourcesDir, "external_cpp/cmake/post_target/jparser_00_teavmc_loader.cmake");
         verifyRequiredResource(resourcesDir, "external_cpp/cmake/post_target/jparser_runtime_teavm_c.cmake");
         verifyRequiredResource(resourcesDir, "external_cpp/cmake/post_target/jparser_jolt_teavm_c.cmake");
-        verifyRequiredResource(resourcesDir, "external_cpp/jparser/runtime/native/windows_x64/runtime64_.lib");
-        verifyRequiredResource(resourcesDir, "external_cpp/jparser/jolt/native/windows_x64/jolt64_.lib");
+        String hostClassifier = hostClassifier();
+        String staticExtension = isWindows()? ".lib" : ".a";
+        String libraryPrefix = isWindows()? "" : "lib";
+        verifyRequiredResource(resourcesDir, "external_cpp/jparser/runtime/native/" + hostClassifier + "/"
+                + libraryPrefix + "runtime64_" + staticExtension);
+        verifyRequiredResource(resourcesDir, "external_cpp/jparser/jolt/native/" + hostClassifier + "/"
+                + libraryPrefix + "jolt64_" + staticExtension);
 
         writeCMakeProject(cmakeDir, generatedDir, resourcesDir);
         configureCMake(cmakeDir, nativeBuildDir, new File(buildRoot, "cmake-configure.log"));
@@ -209,7 +216,9 @@ public class BuildTeaVMC {
 
     private static void configureCMake(File cmakeDir, File nativeBuildDir, File logFile) throws IOException, InterruptedException {
         List<List<String>> attempts = new ArrayList<>();
-        attempts.add(Arrays.asList("cmake", "-S", cmakeDir.getAbsolutePath(), "-B", nativeBuildDir.getAbsolutePath(), "-A", "x64", "-DCMAKE_BUILD_TYPE=Release"));
+        if(isWindows()) {
+            attempts.add(Arrays.asList("cmake", "-S", cmakeDir.getAbsolutePath(), "-B", nativeBuildDir.getAbsolutePath(), "-A", "x64", "-DCMAKE_BUILD_TYPE=Release"));
+        }
         attempts.add(Arrays.asList("cmake", "-S", cmakeDir.getAbsolutePath(), "-B", nativeBuildDir.getAbsolutePath(), "-DCMAKE_BUILD_TYPE=Release"));
 
         IOException lastIo = null;
@@ -321,6 +330,21 @@ public class BuildTeaVMC {
 
     private static boolean isWindows() {
         return System.getProperty("os.name").toLowerCase().contains("win");
+    }
+
+    private static String hostClassifier() {
+        String osName = System.getProperty("os.name").toLowerCase();
+        String osArch = System.getProperty("os.arch").toLowerCase();
+        if(osName.contains("win")) {
+            return "windows_x64";
+        }
+        if(osName.contains("linux")) {
+            return "linux_x64";
+        }
+        if(osName.contains("mac")) {
+            return osArch.contains("aarch64") || osArch.contains("arm64")? "mac_arm64" : "mac_x64";
+        }
+        throw new IllegalStateException("Unsupported TeaVM C host: " + osName + "/" + osArch);
     }
 
     private static String renderProblems(List<Problem> problems) {

@@ -26,9 +26,17 @@ final public class JNI_RagdollSettings {
 
     public static native void internal_native_DisableParentChildCollisions(long this_addr);
 
+    public static native void internal_native_CalculateConstraintPriorities(long this_addr, int inBasePriority);
+
+    public static native void internal_native_CalculateConstraintPriorities(long this_addr);
+
     public static native void internal_native_CalculateBodyIndexToConstraintIndex(long this_addr);
 
     public static native void internal_native_CalculateConstraintIndexToBodyIdxPair(long this_addr);
+
+    public static native long internal_native_get_mSkeleton_addr(long this_addr);
+
+    public static native void internal_native_set_mSkeleton(long this_addr, long mSkeleton_addr);
 
     public static native long internal_native_get_mParts_addr(long this_addr);
 

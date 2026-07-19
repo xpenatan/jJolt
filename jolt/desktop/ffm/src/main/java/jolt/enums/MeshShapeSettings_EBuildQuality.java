@@ -59,8 +59,8 @@ public enum MeshShapeSettings_EBuildQuality implements NativeEnum<MeshShapeSetti
 
     private static final class FFMHandles {
 
-        static final java.lang.invoke.MethodHandle MeshShapeSettings_EBuildQuality_FavorRuntimePerformance_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_enums_meshshapesettings_ebuildquality_meshshapesettings_ebuildquality_favorruntimeperformance_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
+        static final java.lang.invoke.MethodHandle MeshShapeSettings_EBuildQuality_FavorRuntimePerformance_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_enums_meshshapesettings_ebuildquality_meshshapesettings_ebuildquality_favorruntimeperformance_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
 
-        static final java.lang.invoke.MethodHandle MeshShapeSettings_EBuildQuality_FavorBuildSpeed_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_enums_meshshapesettings_ebuildquality_meshshapesettings_ebuildquality_favorbuildspeed_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
+        static final java.lang.invoke.MethodHandle MeshShapeSettings_EBuildQuality_FavorBuildSpeed_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_enums_meshshapesettings_ebuildquality_meshshapesettings_ebuildquality_favorbuildspeed_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
     }
 }

@@ -12,6 +12,9 @@ public class ArrayVehicleAntiRollBar extends NativeObject {
 
     static public final ArrayVehicleAntiRollBar NULL = ArrayVehicleAntiRollBar.native_new();
 
+    public ArrayVehicleAntiRollBar() {
+    }
+
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
      */

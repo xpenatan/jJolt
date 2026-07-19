@@ -8,10 +8,12 @@ package jolt.physics.character;
 
 import com.github.xpenatan.jParser.api.NativeObject;
 import jolt.math.Vec3;
+import jolt.geometry.Plane;
 import jolt.physics.collision.shape.Shape;
 import jolt.enums.EGroundState;
 import jolt.physics.collision.PhysicsMaterial;
 import jolt.physics.body.BodyID;
+import jolt.physics.StateRecorder;
 import java.lang.foreign.FunctionDescriptor;
 import java.lang.foreign.ValueLayout;
 import java.lang.foreign.Linker;
@@ -23,6 +25,8 @@ import java.lang.invoke.MethodHandle;
 public class CharacterBase extends NativeObject {
 
     private Vec3 Vec3_TEMP_GEN_0;
+
+    private Plane Plane_TEMP_GEN_0;
 
     private Shape Shape_TEMP_GEN_0;
 
@@ -137,6 +141,36 @@ public class CharacterBase extends NativeObject {
     public static long internal_native_GetUp_addr(long this_addr) {
         try {
             return (long) FFMHandles.internal_native_GetUp_addr__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void SetSupportingVolume(Plane inVolume) {
+        internal_native_SetSupportingVolume(native_address, inVolume.native_address);
+    }
+
+    public static void internal_native_SetSupportingVolume(long this_addr, long inVolume_addr) {
+        try {
+            FFMHandles.internal_native_SetSupportingVolume__JJ.invokeExact(this_addr, inVolume_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public Plane GetSupportingVolume() {
+        long addr = internal_native_GetSupportingVolume_addr(native_address);
+        if (addr == 0)
+            return Plane.NULL;
+        if (Plane_TEMP_GEN_0 == null)
+            Plane_TEMP_GEN_0 = Plane.native_new();
+        Plane_TEMP_GEN_0.internal_reset(addr, false);
+        return Plane_TEMP_GEN_0;
+    }
+
+    public static long internal_native_GetSupportingVolume_addr(long this_addr) {
+        try {
+            return (long) FFMHandles.internal_native_GetSupportingVolume_addr__J.invokeExact(this_addr);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -293,6 +327,30 @@ public class CharacterBase extends NativeObject {
         }
     }
 
+    public void SaveState(StateRecorder inStream) {
+        internal_native_SaveState(native_address, inStream.native_address);
+    }
+
+    public static void internal_native_SaveState(long this_addr, long inStream_addr) {
+        try {
+            FFMHandles.internal_native_SaveState__JJ.invokeExact(this_addr, inStream_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void RestoreState(StateRecorder inStream) {
+        internal_native_RestoreState(native_address, inStream.native_address);
+    }
+
+    public static void internal_native_RestoreState(long this_addr, long inStream_addr) {
+        try {
+            FFMHandles.internal_native_RestoreState__JJ.invokeExact(this_addr, inStream_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
     private static final class FFMHandles {
 
         static final java.lang.invoke.MethodHandle internal_native_GetRefCount__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_character_characterbase_getrefcount", FunctionDescriptor.of(ValueLayout.JAVA_INT, ValueLayout.JAVA_LONG));
@@ -307,9 +365,13 @@ public class CharacterBase extends NativeObject {
 
         static final java.lang.invoke.MethodHandle internal_native_SetUp__JJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_character_characterbase_setup", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
 
-        static final java.lang.invoke.MethodHandle internal_native_GetUp_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_physics_character_characterbase_getup_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+        static final java.lang.invoke.MethodHandle internal_native_GetUp_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_character_characterbase_getup_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
 
-        static final java.lang.invoke.MethodHandle internal_native_GetShape_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_physics_character_characterbase_getshape_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+        static final java.lang.invoke.MethodHandle internal_native_SetSupportingVolume__JJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_character_characterbase_setsupportingvolume", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_GetSupportingVolume_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_character_characterbase_getsupportingvolume_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_GetShape_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_character_characterbase_getshape_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
 
         static final java.lang.invoke.MethodHandle internal_native_GetGroundState__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_character_characterbase_getgroundstate", FunctionDescriptor.of(ValueLayout.JAVA_INT, ValueLayout.JAVA_LONG));
 
@@ -317,14 +379,18 @@ public class CharacterBase extends NativeObject {
 
         static final java.lang.invoke.MethodHandle internal_native_IsSupported__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_character_characterbase_issupported", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.JAVA_LONG));
 
-        static final java.lang.invoke.MethodHandle internal_native_GetGroundPosition_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_physics_character_characterbase_getgroundposition_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+        static final java.lang.invoke.MethodHandle internal_native_GetGroundPosition_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_character_characterbase_getgroundposition_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
 
-        static final java.lang.invoke.MethodHandle internal_native_GetGroundNormal_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_physics_character_characterbase_getgroundnormal_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+        static final java.lang.invoke.MethodHandle internal_native_GetGroundNormal_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_character_characterbase_getgroundnormal_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
 
-        static final java.lang.invoke.MethodHandle internal_native_GetGroundVelocity_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_physics_character_characterbase_getgroundvelocity_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+        static final java.lang.invoke.MethodHandle internal_native_GetGroundVelocity_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_character_characterbase_getgroundvelocity_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
 
-        static final java.lang.invoke.MethodHandle internal_native_GetGroundMaterial_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_physics_character_characterbase_getgroundmaterial_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+        static final java.lang.invoke.MethodHandle internal_native_GetGroundMaterial_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_character_characterbase_getgroundmaterial_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
 
-        static final java.lang.invoke.MethodHandle internal_native_GetGroundBodyID_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_physics_character_characterbase_getgroundbodyid_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+        static final java.lang.invoke.MethodHandle internal_native_GetGroundBodyID_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_character_characterbase_getgroundbodyid_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_SaveState__JJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_character_characterbase_savestate", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_RestoreState__JJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_character_characterbase_restorestate", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
     }
 }

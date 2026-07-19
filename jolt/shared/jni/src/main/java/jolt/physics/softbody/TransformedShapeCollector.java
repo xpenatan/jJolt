@@ -39,6 +39,14 @@ public class TransformedShapeCollector extends NativeObject {
         jolt.physics.softbody.natives.JNI_TransformedShapeCollector.internal_native_deleteNative(this_addr);
     }
 
+    public void ResetNative() {
+        internal_native_ResetNative(native_address);
+    }
+
+    public static void internal_native_ResetNative(long this_addr) {
+        jolt.physics.softbody.natives.JNI_TransformedShapeCollector.internal_native_ResetNative(this_addr);
+    }
+
     public void SetContext(TransformedShape inContext) {
         internal_native_SetContext(native_address, inContext.native_address);
     }

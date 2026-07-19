@@ -7,18 +7,52 @@
 package gen.c.jolt.physics.collision;
 
 import com.github.xpenatan.jParser.api.NativeObject;
+import gen.c.jolt.physics.body.Body;
+import gen.c.jolt.physics.collision.shape.Shape;
+import gen.c.jolt.physics.collision.shape.SubShapeID;
 
 public class SimShapeFilter extends NativeObject {
 
-    static public final SimShapeFilter NULL = SimShapeFilter.native_new();
+    static private Body Body_TEMP_STATIC_GEN_0;
 
-    public SimShapeFilter() {
-        long addr = internal_native_create_addr();
-        internal_reset(addr, true);
+    static private Shape Shape_TEMP_STATIC_GEN_0;
+
+    static private SubShapeID SubShapeID_TEMP_STATIC_GEN_0;
+
+    static private Body Body_TEMP_STATIC_GEN_1;
+
+    static private Shape Shape_TEMP_STATIC_GEN_1;
+
+    static private SubShapeID SubShapeID_TEMP_STATIC_GEN_1;
+
+    private static final java.util.ArrayList<SimShapeFilter> TEAVMC_CALLBACKS = new java.util.ArrayList<>();
+
+    private int teavmcCallbackId = -1;
+
+    private int teavmcRegisterCallback() {
+        if (teavmcCallbackId < 0) {
+            teavmcCallbackId = TEAVMC_CALLBACKS.size();
+            TEAVMC_CALLBACKS.add(this);
+        } else {
+            TEAVMC_CALLBACKS.set(teavmcCallbackId, this);
+        }
+        return teavmcCallbackId;
     }
 
-    @org.teavm.interop.Import(name = "jolt_physics_collision_simshapefilter_create_addr")
-    public static native long internal_native_create_addr();
+    private static abstract class TEAVMC_ShouldCollide_Function extends org.teavm.interop.Function {
+
+        public abstract boolean call(int callbackId, long inBody1_addr, long inShape1_addr, long inSubShapeIDOfShape1_addr, long inBody2_addr, long inShape2_addr, long inSubShapeIDOfShape2_addr);
+    }
+
+    @org.teavm.interop.Export(name = "teavmc_SimShapeFilter_ShouldCollide")
+    private static boolean teavmc_SimShapeFilter_ShouldCollide(int callbackId, long inBody1_addr, long inShape1_addr, long inSubShapeIDOfShape1_addr, long inBody2_addr, long inShape2_addr, long inSubShapeIDOfShape2_addr) {
+        return TEAVMC_CALLBACKS.get(callbackId).internal_ShouldCollide(inBody1_addr, inShape1_addr, inSubShapeIDOfShape1_addr, inBody2_addr, inShape2_addr, inSubShapeIDOfShape2_addr);
+    }
+
+    @org.teavm.interop.Import(name = "teavmc_SimShapeFilter_setupCallback")
+    private static native void setupCallback(long this_addr, int callbackId, TEAVMC_ShouldCollide_Function ShouldCollide_fp);
+
+    static public final SimShapeFilter NULL = SimShapeFilter.native_new();
 
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
@@ -40,4 +74,44 @@ public class SimShapeFilter extends NativeObject {
 
     @org.teavm.interop.Import(name = "jolt_physics_collision_simshapefilter_deletenative")
     public static native void internal_native_deleteNative(long this_addr);
+
+    public SimShapeFilter() {
+        long addr = internal_native_create_addr();
+        internal_reset(addr, true);
+        setupCallback();
+    }
+
+    private void setupCallback() {
+        int callbackId = teavmcRegisterCallback();
+        setupCallback(native_address, callbackId, org.teavm.interop.Function.get(TEAVMC_ShouldCollide_Function.class, SimShapeFilter.class, "teavmc_SimShapeFilter_ShouldCollide"));
+    }
+
+    protected boolean ShouldCollide(Body inBody1, Shape inShape1, SubShapeID inSubShapeIDOfShape1, Body inBody2, Shape inShape2, SubShapeID inSubShapeIDOfShape2) {
+        return false;
+    }
+
+    private boolean internal_ShouldCollide(long inBody1_addr, long inShape1_addr, long inSubShapeIDOfShape1_addr, long inBody2_addr, long inShape2_addr, long inSubShapeIDOfShape2_addr) {
+        if (Body_TEMP_STATIC_GEN_0 == null)
+            Body_TEMP_STATIC_GEN_0 = Body.native_new();
+        Body_TEMP_STATIC_GEN_0.internal_reset(inBody1_addr, false);
+        if (Shape_TEMP_STATIC_GEN_0 == null)
+            Shape_TEMP_STATIC_GEN_0 = Shape.native_new();
+        Shape_TEMP_STATIC_GEN_0.internal_reset(inShape1_addr, false);
+        if (SubShapeID_TEMP_STATIC_GEN_0 == null)
+            SubShapeID_TEMP_STATIC_GEN_0 = SubShapeID.native_new();
+        SubShapeID_TEMP_STATIC_GEN_0.internal_reset(inSubShapeIDOfShape1_addr, false);
+        if (Body_TEMP_STATIC_GEN_1 == null)
+            Body_TEMP_STATIC_GEN_1 = Body.native_new();
+        Body_TEMP_STATIC_GEN_1.internal_reset(inBody2_addr, false);
+        if (Shape_TEMP_STATIC_GEN_1 == null)
+            Shape_TEMP_STATIC_GEN_1 = Shape.native_new();
+        Shape_TEMP_STATIC_GEN_1.internal_reset(inShape2_addr, false);
+        if (SubShapeID_TEMP_STATIC_GEN_1 == null)
+            SubShapeID_TEMP_STATIC_GEN_1 = SubShapeID.native_new();
+        SubShapeID_TEMP_STATIC_GEN_1.internal_reset(inSubShapeIDOfShape2_addr, false);
+        return ShouldCollide(Body_TEMP_STATIC_GEN_0, Shape_TEMP_STATIC_GEN_0, SubShapeID_TEMP_STATIC_GEN_0, Body_TEMP_STATIC_GEN_1, Shape_TEMP_STATIC_GEN_1, SubShapeID_TEMP_STATIC_GEN_1);
+    }
+
+    @org.teavm.interop.Import(name = "jolt_physics_collision_simshapefilter_create_addr")
+    public static native long internal_native_create_addr();
 }

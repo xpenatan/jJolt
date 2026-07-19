@@ -10,12 +10,11 @@ import com.github.xpenatan.jParser.api.NativeObject;
 
 public class BodyActivationListener extends NativeObject {
 
-    static private BodyID BodyID_TEMP_STATIC_GEN_0;
-
-    static private BodyID BodyID_TEMP_STATIC_GEN_1;
-
     static public final BodyActivationListener NULL = BodyActivationListener.native_new();
 
+    /**
+     * Dummy constructor, used internally to creates objects without C++ pointer
+     */
     @Deprecated()
     protected BodyActivationListener(byte b, char c) {
     }
@@ -34,40 +33,4 @@ public class BodyActivationListener extends NativeObject {
     public static void internal_native_deleteNative(long this_addr) {
         jolt.physics.body.natives.JNI_BodyActivationListener.internal_native_deleteNative(this_addr);
     }
-
-    public BodyActivationListener() {
-        long addr = internal_native_create_addr();
-        internal_reset(addr, true);
-        setupCallback();
-    }
-
-    private void setupCallback() {
-        internal_native_setupCallback(native_address);
-    }
-
-    protected void OnBodyActivated(BodyID inBodyID, long inBodyUserData) {
-    }
-
-    private void internal_OnBodyActivated(long inBodyID_addr, long inBodyUserData) {
-        if (BodyID_TEMP_STATIC_GEN_0 == null)
-            BodyID_TEMP_STATIC_GEN_0 = BodyID.native_new();
-        BodyID_TEMP_STATIC_GEN_0.internal_reset(inBodyID_addr, false);
-        OnBodyActivated(BodyID_TEMP_STATIC_GEN_0, inBodyUserData);
-    }
-
-    protected void OnBodyDeactivated(BodyID inBodyID, long inBodyUserData) {
-    }
-
-    private void internal_OnBodyDeactivated(long inBodyID_addr, long inBodyUserData) {
-        if (BodyID_TEMP_STATIC_GEN_1 == null)
-            BodyID_TEMP_STATIC_GEN_1 = BodyID.native_new();
-        BodyID_TEMP_STATIC_GEN_1.internal_reset(inBodyID_addr, false);
-        OnBodyDeactivated(BodyID_TEMP_STATIC_GEN_1, inBodyUserData);
-    }
-
-    public static long internal_native_create_addr() {
-        return jolt.physics.body.natives.JNI_BodyActivationListener.internal_native_create_addr();
-    }
-
-    public native void internal_native_setupCallback(long this_addr);
 }

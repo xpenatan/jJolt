@@ -14,6 +14,15 @@ public class ArraySoftBodySharedSettingsLRA extends NativeObject {
 
     static public final ArraySoftBodySharedSettingsLRA NULL = ArraySoftBodySharedSettingsLRA.native_new();
 
+    public ArraySoftBodySharedSettingsLRA() {
+        long addr = internal_native_create_addr();
+        internal_reset(addr, true);
+    }
+
+    public static long internal_native_create_addr() {
+        return jolt.physics.softbody.natives.JNI_ArraySoftBodySharedSettingsLRA.internal_native_create_addr();
+    }
+
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
      */

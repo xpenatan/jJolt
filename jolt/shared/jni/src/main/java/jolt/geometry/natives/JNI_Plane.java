@@ -28,7 +28,11 @@ final public class JNI_Plane {
 
     public static native long internal_native_Offset_addr(long this_addr, float inDistance);
 
+    public static native long internal_native_Scaled_addr(long this_addr, long inScale_addr);
+
     public static native long internal_native_GetTransformed_addr(long this_addr, long inTransform_addr);
+
+    public static native long internal_native_ProjectPointOnPlane_addr(long this_addr, long inPoint_addr);
 
     public static native float internal_native_SignedDistance(long this_addr, long inPoint_addr);
 }

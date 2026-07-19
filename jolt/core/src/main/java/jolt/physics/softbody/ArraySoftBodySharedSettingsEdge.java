@@ -12,6 +12,9 @@ public class ArraySoftBodySharedSettingsEdge extends NativeObject {
 
     static public final ArraySoftBodySharedSettingsEdge NULL = ArraySoftBodySharedSettingsEdge.native_new();
 
+    public ArraySoftBodySharedSettingsEdge() {
+    }
+
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
      */

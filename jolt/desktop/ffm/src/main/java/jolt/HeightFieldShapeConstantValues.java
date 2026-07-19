@@ -61,6 +61,6 @@ public class HeightFieldShapeConstantValues extends NativeObject {
 
         static final java.lang.invoke.MethodHandle internal_native_deleteNative__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_heightfieldshapeconstantvalues_deletenative", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG));
 
-        static final java.lang.invoke.MethodHandle internal_native_get_cNoCollisionValue__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_heightfieldshapeconstantvalues_get_cnocollisionvalue", FunctionDescriptor.of(ValueLayout.JAVA_FLOAT));
+        static final java.lang.invoke.MethodHandle internal_native_get_cNoCollisionValue__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_heightfieldshapeconstantvalues_get_cnocollisionvalue", FunctionDescriptor.of(ValueLayout.JAVA_FLOAT));
     }
 }

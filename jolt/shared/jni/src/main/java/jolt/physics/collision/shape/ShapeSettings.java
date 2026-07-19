@@ -75,19 +75,19 @@ public class ShapeSettings extends RefTargetShapeSettings {
         jolt.physics.collision.shape.natives.JNI_ShapeSettings.internal_native_ClearCachedResult(this_addr);
     }
 
-    public long get_mUserData() {
+    public int get_mUserData() {
         return internal_native_get_mUserData(native_address);
     }
 
-    public static long internal_native_get_mUserData(long this_addr) {
+    public static int internal_native_get_mUserData(long this_addr) {
         return jolt.physics.collision.shape.natives.JNI_ShapeSettings.internal_native_get_mUserData(this_addr);
     }
 
-    public void set_mUserData(long mUserData) {
+    public void set_mUserData(int mUserData) {
         internal_native_set_mUserData(native_address, mUserData);
     }
 
-    public static void internal_native_set_mUserData(long this_addr, long mUserData) {
+    public static void internal_native_set_mUserData(long this_addr, int mUserData) {
         jolt.physics.collision.shape.natives.JNI_ShapeSettings.internal_native_set_mUserData(this_addr, mUserData);
     }
 }

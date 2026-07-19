@@ -16,7 +16,11 @@ final public class JNI_VehicleConstraint {
 
     public static native void internal_native_SetMaxPitchRollAngle(long this_addr, float inMaxPitchRollAngle);
 
+    public static native float internal_native_GetMaxPitchRollAngle(long this_addr);
+
     public static native void internal_native_SetVehicleCollisionTester(long this_addr, long inTester_addr);
+
+    public static native long internal_native_GetVehicleCollisionTester_addr(long this_addr);
 
     public static native void internal_native_OverrideGravity(long this_addr, long inGravity_addr);
 

@@ -14,6 +14,10 @@ final public class JNI_Float3 {
 
     public static native void internal_native_deleteNative(long this_addr);
 
+    public static native boolean internal_native_Equals(long this_addr, long inV_addr);
+
+    public static native boolean internal_native_NotEquals(long this_addr, long inV_addr);
+
     public static native float internal_native_get_x(long this_addr);
 
     public static native void internal_native_set_x(long this_addr, float x);

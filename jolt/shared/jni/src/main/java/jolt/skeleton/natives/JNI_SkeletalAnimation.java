@@ -21,4 +21,8 @@ final public class JNI_SkeletalAnimation {
     public static native void internal_native_Sample(long this_addr, float inTime, long ioPose_addr);
 
     public static native long internal_native_GetAnimatedJoints_addr(long this_addr);
+
+    public static native boolean internal_native_IsLooping(long this_addr);
+
+    public static native void internal_native_SetIsLooping(long this_addr, boolean inIsLooping);
 }

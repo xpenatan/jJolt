@@ -237,6 +237,20 @@ public class PhysicsSettings extends NativeObject {
     @org.teavm.jso.JSBody(params = {"this_addr", "mContactPointPreserveLambdaMaxDistSq"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.PhysicsSettings);jsObj.set_mContactPointPreserveLambdaMaxDistSq(mContactPointPreserveLambdaMaxDistSq);")
     public static native void internal_native_set_mContactPointPreserveLambdaMaxDistSq(int this_addr, float mContactPointPreserveLambdaMaxDistSq);
 
+    public float get_mInternalEdgeRemovalVertexToleranceSq() {
+        return internal_native_get_mInternalEdgeRemovalVertexToleranceSq(native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.PhysicsSettings);return jsObj.get_mInternalEdgeRemovalVertexToleranceSq();")
+    public static native float internal_native_get_mInternalEdgeRemovalVertexToleranceSq(int this_addr);
+
+    public void set_mInternalEdgeRemovalVertexToleranceSq(float mInternalEdgeRemovalVertexToleranceSq) {
+        internal_native_set_mInternalEdgeRemovalVertexToleranceSq(native_address, mInternalEdgeRemovalVertexToleranceSq);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "mInternalEdgeRemovalVertexToleranceSq"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.PhysicsSettings);jsObj.set_mInternalEdgeRemovalVertexToleranceSq(mInternalEdgeRemovalVertexToleranceSq);")
+    public static native void internal_native_set_mInternalEdgeRemovalVertexToleranceSq(int this_addr, float mInternalEdgeRemovalVertexToleranceSq);
+
     public int get_mNumVelocitySteps() {
         return internal_native_get_mNumVelocitySteps(native_address);
     }

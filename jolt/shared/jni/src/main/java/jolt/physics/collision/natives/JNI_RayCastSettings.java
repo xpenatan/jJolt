@@ -14,6 +14,8 @@ final public class JNI_RayCastSettings {
 
     public static native void internal_native_deleteNative(long this_addr);
 
+    public static native void internal_native_SetBackFaceMode(long this_addr, int inBackFaceMode);
+
     public static native int internal_native_get_mBackFaceModeTriangles(long this_addr);
 
     public static native void internal_native_set_mBackFaceModeTriangles(long this_addr, int mBackFaceModeTriangles);

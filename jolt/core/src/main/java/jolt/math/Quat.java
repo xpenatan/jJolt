@@ -44,6 +44,10 @@ public class Quat extends NativeObject {
         return null;
     }
 
+    public Vec3 GetAngularVelocity(float inDeltaTime) {
+        return null;
+    }
+
     public static Quat sFromTo(Vec3 inFrom, Vec3 inTo) {
         return null;
     }
@@ -141,6 +145,10 @@ public class Quat extends NativeObject {
     }
 
     public void Set(float inX, float inY, float inZ, float inW) {
+    }
+
+    public static Quat sMultiplyImaginary(Vec3 inLHS, Quat inRHS) {
+        return null;
     }
 
     public Vec3 InverseRotate(Vec3 inV) {

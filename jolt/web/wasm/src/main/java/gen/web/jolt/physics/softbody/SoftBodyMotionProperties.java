@@ -7,6 +7,8 @@
 package gen.web.jolt.physics.softbody;
 
 import gen.web.jolt.physics.body.MotionProperties;
+import gen.web.jolt.math.Quat;
+import gen.web.jolt.math.Vec3;
 import gen.web.jolt.physics.collision.PhysicsMaterialList;
 import gen.web.jolt.geometry.AABox;
 import gen.web.jolt.physics.body.Body;
@@ -22,6 +24,10 @@ public class SoftBodyMotionProperties extends MotionProperties {
     private ArraySoftBodyVertex ArraySoftBodyVertex_TEMP_GEN_0;
 
     private SoftBodyVertex SoftBodyVertex_TEMP_GEN_0;
+
+    private Quat Quat_TEMP_GEN_0;
+
+    private Vec3 Vec3_TEMP_GEN_0;
 
     private PhysicsMaterialList PhysicsMaterialList_TEMP_GEN_0;
 
@@ -93,6 +99,32 @@ public class SoftBodyMotionProperties extends MotionProperties {
 
     @org.teavm.jso.JSBody(params = {"this_addr", "inIndex"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.SoftBodyMotionProperties);var returnedJSObj = jsObj.GetVertex(inIndex);if(!returnedJSObj.hasOwnProperty('ptr')) return 0; return jolt.getPointer(returnedJSObj);")
     public static native int internal_native_GetVertex_addr(int this_addr, int inIndex);
+
+    public Quat GetRodRotation(int inIndex) {
+        int addr = internal_native_GetRodRotation_addr(native_address, inIndex);
+        if (addr == 0)
+            return Quat.NULL;
+        if (Quat_TEMP_GEN_0 == null)
+            Quat_TEMP_GEN_0 = Quat.native_new();
+        Quat_TEMP_GEN_0.internal_reset(addr, false);
+        return Quat_TEMP_GEN_0;
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "inIndex"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.SoftBodyMotionProperties);var returnedJSObj = jsObj.GetRodRotation(inIndex);if(!returnedJSObj.hasOwnProperty('ptr')) return 0; return jolt.getPointer(returnedJSObj);")
+    public static native int internal_native_GetRodRotation_addr(int this_addr, int inIndex);
+
+    public Vec3 GetRodAngularVelocity(int inIndex) {
+        int addr = internal_native_GetRodAngularVelocity_addr(native_address, inIndex);
+        if (addr == 0)
+            return Vec3.NULL;
+        if (Vec3_TEMP_GEN_0 == null)
+            Vec3_TEMP_GEN_0 = Vec3.native_new();
+        Vec3_TEMP_GEN_0.internal_reset(addr, false);
+        return Vec3_TEMP_GEN_0;
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "inIndex"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.SoftBodyMotionProperties);var returnedJSObj = jsObj.GetRodAngularVelocity(inIndex);if(!returnedJSObj.hasOwnProperty('ptr')) return 0; return jolt.getPointer(returnedJSObj);")
+    public static native int internal_native_GetRodAngularVelocity_addr(int this_addr, int inIndex);
 
     public PhysicsMaterialList GetMaterials() {
         int addr = internal_native_GetMaterials_addr(native_address);
@@ -202,6 +234,20 @@ public class SoftBodyMotionProperties extends MotionProperties {
 
     @org.teavm.jso.JSBody(params = {"this_addr", "inSkinnedMaxDistanceMultiplier"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.SoftBodyMotionProperties);jsObj.SetSkinnedMaxDistanceMultiplier(inSkinnedMaxDistanceMultiplier);")
     public static native void internal_native_SetSkinnedMaxDistanceMultiplier(int this_addr, float inSkinnedMaxDistanceMultiplier);
+
+    public float GetVertexRadius() {
+        return internal_native_GetVertexRadius(native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.SoftBodyMotionProperties);var returnedJSObj = jsObj.GetVertexRadius();return returnedJSObj;")
+    public static native float internal_native_GetVertexRadius(int this_addr);
+
+    public void SetVertexRadius(float inVertexRadius) {
+        internal_native_SetVertexRadius(native_address, inVertexRadius);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "inVertexRadius"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.SoftBodyMotionProperties);jsObj.SetVertexRadius(inVertexRadius);")
+    public static native void internal_native_SetVertexRadius(int this_addr, float inVertexRadius);
 
     public AABox GetLocalBounds() {
         int addr = internal_native_GetLocalBounds_addr(native_address);

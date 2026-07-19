@@ -10,6 +10,18 @@ import jolt.physics.constraints.*;
 
 final public class JNI_HingeConstraint {
 
+    public static native long internal_native_GetLocalSpacePoint1_addr(long this_addr);
+
+    public static native long internal_native_GetLocalSpacePoint2_addr(long this_addr);
+
+    public static native long internal_native_GetLocalSpaceHingeAxis1_addr(long this_addr);
+
+    public static native long internal_native_GetLocalSpaceHingeAxis2_addr(long this_addr);
+
+    public static native long internal_native_GetLocalSpaceNormalAxis1_addr(long this_addr);
+
+    public static native long internal_native_GetLocalSpaceNormalAxis2_addr(long this_addr);
+
     public static native float internal_native_GetCurrentAngle(long this_addr);
 
     public static native void internal_native_SetMaxFrictionTorque(long this_addr, float inFrictionTorque);
@@ -29,6 +41,8 @@ final public class JNI_HingeConstraint {
     public static native void internal_native_SetTargetAngle(long this_addr, float inAngle);
 
     public static native float internal_native_GetTargetAngle(long this_addr);
+
+    public static native void internal_native_SetTargetOrientationBS(long this_addr, long inOrientation_addr);
 
     public static native void internal_native_SetLimits(long this_addr, float inLimitsMin, float inLimitsMax);
 

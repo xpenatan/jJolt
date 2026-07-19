@@ -14,6 +14,15 @@ public class ArrayVehicleAntiRollBar extends NativeObject {
 
     static public final ArrayVehicleAntiRollBar NULL = ArrayVehicleAntiRollBar.native_new();
 
+    public ArrayVehicleAntiRollBar() {
+        long addr = internal_native_create_addr();
+        internal_reset(addr, true);
+    }
+
+    public static long internal_native_create_addr() {
+        return jolt.physics.vehicle.natives.JNI_ArrayVehicleAntiRollBar.internal_native_create_addr();
+    }
+
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
      */

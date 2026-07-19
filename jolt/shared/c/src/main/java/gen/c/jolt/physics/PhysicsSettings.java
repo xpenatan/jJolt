@@ -237,6 +237,20 @@ public class PhysicsSettings extends NativeObject {
     @org.teavm.interop.Import(name = "jolt_physics_physicssettings_set_mcontactpointpreservelambdamaxdistsq")
     public static native void internal_native_set_mContactPointPreserveLambdaMaxDistSq(long this_addr, float mContactPointPreserveLambdaMaxDistSq);
 
+    public float get_mInternalEdgeRemovalVertexToleranceSq() {
+        return internal_native_get_mInternalEdgeRemovalVertexToleranceSq(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "jolt_physics_physicssettings_get_minternaledgeremovalvertextolerancesq")
+    public static native float internal_native_get_mInternalEdgeRemovalVertexToleranceSq(long this_addr);
+
+    public void set_mInternalEdgeRemovalVertexToleranceSq(float mInternalEdgeRemovalVertexToleranceSq) {
+        internal_native_set_mInternalEdgeRemovalVertexToleranceSq(native_address, mInternalEdgeRemovalVertexToleranceSq);
+    }
+
+    @org.teavm.interop.Import(name = "jolt_physics_physicssettings_set_minternaledgeremovalvertextolerancesq")
+    public static native void internal_native_set_mInternalEdgeRemovalVertexToleranceSq(long this_addr, float mInternalEdgeRemovalVertexToleranceSq);
+
     public int get_mNumVelocitySteps() {
         return internal_native_get_mNumVelocitySteps(native_address);
     }

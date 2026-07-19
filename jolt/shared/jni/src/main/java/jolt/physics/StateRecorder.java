@@ -49,4 +49,20 @@ public class StateRecorder extends NativeObject {
     public static boolean internal_native_IsValidating(long this_addr) {
         return jolt.physics.natives.JNI_StateRecorder.internal_native_IsValidating(this_addr);
     }
+
+    public void SetIsLastPart(boolean inIsLastPart) {
+        internal_native_SetIsLastPart(native_address, inIsLastPart);
+    }
+
+    public static void internal_native_SetIsLastPart(long this_addr, boolean inIsLastPart) {
+        jolt.physics.natives.JNI_StateRecorder.internal_native_SetIsLastPart(this_addr, inIsLastPart);
+    }
+
+    public boolean IsLastPart() {
+        return internal_native_IsLastPart(native_address);
+    }
+
+    public static boolean internal_native_IsLastPart(long this_addr) {
+        return jolt.physics.natives.JNI_StateRecorder.internal_native_IsLastPart(this_addr);
+    }
 }

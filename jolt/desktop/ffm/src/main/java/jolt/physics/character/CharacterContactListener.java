@@ -39,11 +39,19 @@ public class CharacterContactListener extends NativeObject {
 
     static private CharacterVirtual CharacterVirtual_TEMP_STATIC_GEN_2;
 
+    static private CharacterVirtualContact CharacterVirtualContact_TEMP_STATIC_GEN_0;
+
     static private CharacterVirtual CharacterVirtual_TEMP_STATIC_GEN_3;
+
+    static private CharacterVirtual CharacterVirtual_TEMP_STATIC_GEN_4;
 
     static private SubShapeID SubShapeID_TEMP_STATIC_GEN_1;
 
-    static private CharacterVirtual CharacterVirtual_TEMP_STATIC_GEN_4;
+    static private CharacterVirtual CharacterVirtual_TEMP_STATIC_GEN_5;
+
+    static private CharacterVirtualContact CharacterVirtualContact_TEMP_STATIC_GEN_1;
+
+    static private CharacterVirtual CharacterVirtual_TEMP_STATIC_GEN_6;
 
     static private BodyID BodyID_TEMP_STATIC_GEN_1;
 
@@ -55,7 +63,13 @@ public class CharacterContactListener extends NativeObject {
 
     static private CharacterContactSettings CharacterContactSettings_TEMP_STATIC_GEN_0;
 
-    static private CharacterVirtual CharacterVirtual_TEMP_STATIC_GEN_5;
+    static private CharacterVirtual CharacterVirtual_TEMP_STATIC_GEN_7;
+
+    static private CharacterVirtualContact CharacterVirtualContact_TEMP_STATIC_GEN_2;
+
+    static private CharacterContactSettings CharacterContactSettings_TEMP_STATIC_GEN_1;
+
+    static private CharacterVirtual CharacterVirtual_TEMP_STATIC_GEN_8;
 
     static private BodyID BodyID_TEMP_STATIC_GEN_2;
 
@@ -65,17 +79,23 @@ public class CharacterContactListener extends NativeObject {
 
     static private Vec3 Vec3_TEMP_STATIC_GEN_3;
 
-    static private CharacterContactSettings CharacterContactSettings_TEMP_STATIC_GEN_1;
+    static private CharacterContactSettings CharacterContactSettings_TEMP_STATIC_GEN_2;
 
-    static private CharacterVirtual CharacterVirtual_TEMP_STATIC_GEN_6;
+    static private CharacterVirtual CharacterVirtual_TEMP_STATIC_GEN_9;
+
+    static private CharacterVirtualContact CharacterVirtualContact_TEMP_STATIC_GEN_3;
+
+    static private CharacterContactSettings CharacterContactSettings_TEMP_STATIC_GEN_3;
+
+    static private CharacterVirtual CharacterVirtual_TEMP_STATIC_GEN_10;
 
     static private BodyID BodyID_TEMP_STATIC_GEN_3;
 
     static private SubShapeID SubShapeID_TEMP_STATIC_GEN_4;
 
-    static private CharacterVirtual CharacterVirtual_TEMP_STATIC_GEN_7;
+    static private CharacterVirtual CharacterVirtual_TEMP_STATIC_GEN_11;
 
-    static private CharacterVirtual CharacterVirtual_TEMP_STATIC_GEN_8;
+    static private CharacterVirtual CharacterVirtual_TEMP_STATIC_GEN_12;
 
     static private SubShapeID SubShapeID_TEMP_STATIC_GEN_5;
 
@@ -83,11 +103,17 @@ public class CharacterContactListener extends NativeObject {
 
     static private Vec3 Vec3_TEMP_STATIC_GEN_4;
 
-    static private CharacterContactSettings CharacterContactSettings_TEMP_STATIC_GEN_2;
+    static private CharacterContactSettings CharacterContactSettings_TEMP_STATIC_GEN_4;
 
-    static private CharacterVirtual CharacterVirtual_TEMP_STATIC_GEN_9;
+    static private CharacterVirtual CharacterVirtual_TEMP_STATIC_GEN_13;
 
-    static private CharacterVirtual CharacterVirtual_TEMP_STATIC_GEN_10;
+    static private CharacterVirtualContact CharacterVirtualContact_TEMP_STATIC_GEN_4;
+
+    static private CharacterContactSettings CharacterContactSettings_TEMP_STATIC_GEN_5;
+
+    static private CharacterVirtual CharacterVirtual_TEMP_STATIC_GEN_14;
+
+    static private CharacterVirtual CharacterVirtual_TEMP_STATIC_GEN_15;
 
     static private SubShapeID SubShapeID_TEMP_STATIC_GEN_6;
 
@@ -95,15 +121,21 @@ public class CharacterContactListener extends NativeObject {
 
     static private Vec3 Vec3_TEMP_STATIC_GEN_6;
 
-    static private CharacterContactSettings CharacterContactSettings_TEMP_STATIC_GEN_3;
+    static private CharacterContactSettings CharacterContactSettings_TEMP_STATIC_GEN_6;
 
-    static private CharacterVirtual CharacterVirtual_TEMP_STATIC_GEN_11;
+    static private CharacterVirtual CharacterVirtual_TEMP_STATIC_GEN_16;
+
+    static private CharacterVirtualContact CharacterVirtualContact_TEMP_STATIC_GEN_5;
+
+    static private CharacterContactSettings CharacterContactSettings_TEMP_STATIC_GEN_7;
+
+    static private CharacterVirtual CharacterVirtual_TEMP_STATIC_GEN_17;
 
     static private CharacterID CharacterID_TEMP_STATIC_GEN_0;
 
     static private SubShapeID SubShapeID_TEMP_STATIC_GEN_7;
 
-    static private CharacterVirtual CharacterVirtual_TEMP_STATIC_GEN_12;
+    static private CharacterVirtual CharacterVirtual_TEMP_STATIC_GEN_18;
 
     static private BodyID BodyID_TEMP_STATIC_GEN_4;
 
@@ -121,9 +153,9 @@ public class CharacterContactListener extends NativeObject {
 
     static private Vec3 Vec3_TEMP_STATIC_GEN_10;
 
-    static private CharacterVirtual CharacterVirtual_TEMP_STATIC_GEN_13;
+    static private CharacterVirtual CharacterVirtual_TEMP_STATIC_GEN_19;
 
-    static private CharacterVirtual CharacterVirtual_TEMP_STATIC_GEN_14;
+    static private CharacterVirtual CharacterVirtual_TEMP_STATIC_GEN_20;
 
     static private SubShapeID SubShapeID_TEMP_STATIC_GEN_9;
 
@@ -151,17 +183,33 @@ public class CharacterContactListener extends NativeObject {
 
     private static final java.lang.foreign.FunctionDescriptor callbackDescriptor_OnContactValidate_custom = java.lang.foreign.FunctionDescriptor.of(java.lang.foreign.ValueLayout.JAVA_BOOLEAN, java.lang.foreign.ValueLayout.JAVA_LONG, java.lang.foreign.ValueLayout.JAVA_LONG, java.lang.foreign.ValueLayout.JAVA_LONG);
 
+    private static final java.lang.invoke.MethodType callbackMethodType_OnContactValidateFull_custom = java.lang.invoke.MethodType.methodType(boolean.class, long.class, long.class);
+
+    private static final java.lang.foreign.FunctionDescriptor callbackDescriptor_OnContactValidateFull_custom = java.lang.foreign.FunctionDescriptor.of(java.lang.foreign.ValueLayout.JAVA_BOOLEAN, java.lang.foreign.ValueLayout.JAVA_LONG, java.lang.foreign.ValueLayout.JAVA_LONG);
+
     private static final java.lang.invoke.MethodType callbackMethodType_OnCharacterContactValidate_custom = java.lang.invoke.MethodType.methodType(boolean.class, long.class, long.class, long.class);
 
     private static final java.lang.foreign.FunctionDescriptor callbackDescriptor_OnCharacterContactValidate_custom = java.lang.foreign.FunctionDescriptor.of(java.lang.foreign.ValueLayout.JAVA_BOOLEAN, java.lang.foreign.ValueLayout.JAVA_LONG, java.lang.foreign.ValueLayout.JAVA_LONG, java.lang.foreign.ValueLayout.JAVA_LONG);
+
+    private static final java.lang.invoke.MethodType callbackMethodType_OnCharacterContactValidateFull_custom = java.lang.invoke.MethodType.methodType(boolean.class, long.class, long.class);
+
+    private static final java.lang.foreign.FunctionDescriptor callbackDescriptor_OnCharacterContactValidateFull_custom = java.lang.foreign.FunctionDescriptor.of(java.lang.foreign.ValueLayout.JAVA_BOOLEAN, java.lang.foreign.ValueLayout.JAVA_LONG, java.lang.foreign.ValueLayout.JAVA_LONG);
 
     private static final java.lang.invoke.MethodType callbackMethodType_OnContactAdded_custom = java.lang.invoke.MethodType.methodType(void.class, long.class, long.class, long.class, long.class, long.class, long.class);
 
     private static final java.lang.foreign.FunctionDescriptor callbackDescriptor_OnContactAdded_custom = java.lang.foreign.FunctionDescriptor.ofVoid(java.lang.foreign.ValueLayout.JAVA_LONG, java.lang.foreign.ValueLayout.JAVA_LONG, java.lang.foreign.ValueLayout.JAVA_LONG, java.lang.foreign.ValueLayout.JAVA_LONG, java.lang.foreign.ValueLayout.JAVA_LONG, java.lang.foreign.ValueLayout.JAVA_LONG);
 
+    private static final java.lang.invoke.MethodType callbackMethodType_OnContactAddedFull_custom = java.lang.invoke.MethodType.methodType(void.class, long.class, long.class, long.class);
+
+    private static final java.lang.foreign.FunctionDescriptor callbackDescriptor_OnContactAddedFull_custom = java.lang.foreign.FunctionDescriptor.ofVoid(java.lang.foreign.ValueLayout.JAVA_LONG, java.lang.foreign.ValueLayout.JAVA_LONG, java.lang.foreign.ValueLayout.JAVA_LONG);
+
     private static final java.lang.invoke.MethodType callbackMethodType_OnContactPersisted_custom = java.lang.invoke.MethodType.methodType(void.class, long.class, long.class, long.class, long.class, long.class, long.class);
 
     private static final java.lang.foreign.FunctionDescriptor callbackDescriptor_OnContactPersisted_custom = java.lang.foreign.FunctionDescriptor.ofVoid(java.lang.foreign.ValueLayout.JAVA_LONG, java.lang.foreign.ValueLayout.JAVA_LONG, java.lang.foreign.ValueLayout.JAVA_LONG, java.lang.foreign.ValueLayout.JAVA_LONG, java.lang.foreign.ValueLayout.JAVA_LONG, java.lang.foreign.ValueLayout.JAVA_LONG);
+
+    private static final java.lang.invoke.MethodType callbackMethodType_OnContactPersistedFull_custom = java.lang.invoke.MethodType.methodType(void.class, long.class, long.class, long.class);
+
+    private static final java.lang.foreign.FunctionDescriptor callbackDescriptor_OnContactPersistedFull_custom = java.lang.foreign.FunctionDescriptor.ofVoid(java.lang.foreign.ValueLayout.JAVA_LONG, java.lang.foreign.ValueLayout.JAVA_LONG, java.lang.foreign.ValueLayout.JAVA_LONG);
 
     private static final java.lang.invoke.MethodType callbackMethodType_OnContactRemoved_custom = java.lang.invoke.MethodType.methodType(void.class, long.class, long.class, long.class);
 
@@ -171,9 +219,17 @@ public class CharacterContactListener extends NativeObject {
 
     private static final java.lang.foreign.FunctionDescriptor callbackDescriptor_OnCharacterContactAdded_custom = java.lang.foreign.FunctionDescriptor.ofVoid(java.lang.foreign.ValueLayout.JAVA_LONG, java.lang.foreign.ValueLayout.JAVA_LONG, java.lang.foreign.ValueLayout.JAVA_LONG, java.lang.foreign.ValueLayout.JAVA_LONG, java.lang.foreign.ValueLayout.JAVA_LONG, java.lang.foreign.ValueLayout.JAVA_LONG);
 
+    private static final java.lang.invoke.MethodType callbackMethodType_OnCharacterContactAddedFull_custom = java.lang.invoke.MethodType.methodType(void.class, long.class, long.class, long.class);
+
+    private static final java.lang.foreign.FunctionDescriptor callbackDescriptor_OnCharacterContactAddedFull_custom = java.lang.foreign.FunctionDescriptor.ofVoid(java.lang.foreign.ValueLayout.JAVA_LONG, java.lang.foreign.ValueLayout.JAVA_LONG, java.lang.foreign.ValueLayout.JAVA_LONG);
+
     private static final java.lang.invoke.MethodType callbackMethodType_OnCharacterContactPersisted_custom = java.lang.invoke.MethodType.methodType(void.class, long.class, long.class, long.class, long.class, long.class, long.class);
 
     private static final java.lang.foreign.FunctionDescriptor callbackDescriptor_OnCharacterContactPersisted_custom = java.lang.foreign.FunctionDescriptor.ofVoid(java.lang.foreign.ValueLayout.JAVA_LONG, java.lang.foreign.ValueLayout.JAVA_LONG, java.lang.foreign.ValueLayout.JAVA_LONG, java.lang.foreign.ValueLayout.JAVA_LONG, java.lang.foreign.ValueLayout.JAVA_LONG, java.lang.foreign.ValueLayout.JAVA_LONG);
+
+    private static final java.lang.invoke.MethodType callbackMethodType_OnCharacterContactPersistedFull_custom = java.lang.invoke.MethodType.methodType(void.class, long.class, long.class, long.class);
+
+    private static final java.lang.foreign.FunctionDescriptor callbackDescriptor_OnCharacterContactPersistedFull_custom = java.lang.foreign.FunctionDescriptor.ofVoid(java.lang.foreign.ValueLayout.JAVA_LONG, java.lang.foreign.ValueLayout.JAVA_LONG, java.lang.foreign.ValueLayout.JAVA_LONG);
 
     private static final java.lang.invoke.MethodType callbackMethodType_OnCharacterContactRemoved_custom = java.lang.invoke.MethodType.methodType(void.class, long.class, long.class, long.class);
 
@@ -261,6 +317,30 @@ public class CharacterContactListener extends NativeObject {
         }
     }
 
+    public boolean get_OnContactValidateFull() {
+        return internal_native_get_OnContactValidateFull(native_address);
+    }
+
+    public static boolean internal_native_get_OnContactValidateFull(long this_addr) {
+        try {
+            return (boolean) FFMHandles.internal_native_get_OnContactValidateFull__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void set_OnContactValidateFull(boolean onContactValidateFull) {
+        internal_native_set_OnContactValidateFull(native_address, onContactValidateFull);
+    }
+
+    public static void internal_native_set_OnContactValidateFull(long this_addr, boolean onContactValidateFull) {
+        try {
+            FFMHandles.internal_native_set_OnContactValidateFull__JZ.invokeExact(this_addr, onContactValidateFull);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
     public boolean get_OnCharacterContactValidate() {
         return internal_native_get_OnCharacterContactValidate(native_address);
     }
@@ -280,6 +360,30 @@ public class CharacterContactListener extends NativeObject {
     public static void internal_native_set_OnCharacterContactValidate(long this_addr, boolean onCharacterContactValidate) {
         try {
             FFMHandles.internal_native_set_OnCharacterContactValidate__JZ.invokeExact(this_addr, onCharacterContactValidate);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public boolean get_OnCharacterContactValidateFull() {
+        return internal_native_get_OnCharacterContactValidateFull(native_address);
+    }
+
+    public static boolean internal_native_get_OnCharacterContactValidateFull(long this_addr) {
+        try {
+            return (boolean) FFMHandles.internal_native_get_OnCharacterContactValidateFull__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void set_OnCharacterContactValidateFull(boolean onCharacterContactValidateFull) {
+        internal_native_set_OnCharacterContactValidateFull(native_address, onCharacterContactValidateFull);
+    }
+
+    public static void internal_native_set_OnCharacterContactValidateFull(long this_addr, boolean onCharacterContactValidateFull) {
+        try {
+            FFMHandles.internal_native_set_OnCharacterContactValidateFull__JZ.invokeExact(this_addr, onCharacterContactValidateFull);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -309,6 +413,30 @@ public class CharacterContactListener extends NativeObject {
         }
     }
 
+    public boolean get_OnContactAddedFull() {
+        return internal_native_get_OnContactAddedFull(native_address);
+    }
+
+    public static boolean internal_native_get_OnContactAddedFull(long this_addr) {
+        try {
+            return (boolean) FFMHandles.internal_native_get_OnContactAddedFull__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void set_OnContactAddedFull(boolean onContactAddedFull) {
+        internal_native_set_OnContactAddedFull(native_address, onContactAddedFull);
+    }
+
+    public static void internal_native_set_OnContactAddedFull(long this_addr, boolean onContactAddedFull) {
+        try {
+            FFMHandles.internal_native_set_OnContactAddedFull__JZ.invokeExact(this_addr, onContactAddedFull);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
     public boolean get_OnContactPersisted() {
         return internal_native_get_OnContactPersisted(native_address);
     }
@@ -328,6 +456,30 @@ public class CharacterContactListener extends NativeObject {
     public static void internal_native_set_OnContactPersisted(long this_addr, boolean onContactPersisted) {
         try {
             FFMHandles.internal_native_set_OnContactPersisted__JZ.invokeExact(this_addr, onContactPersisted);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public boolean get_OnContactPersistedFull() {
+        return internal_native_get_OnContactPersistedFull(native_address);
+    }
+
+    public static boolean internal_native_get_OnContactPersistedFull(long this_addr) {
+        try {
+            return (boolean) FFMHandles.internal_native_get_OnContactPersistedFull__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void set_OnContactPersistedFull(boolean onContactPersistedFull) {
+        internal_native_set_OnContactPersistedFull(native_address, onContactPersistedFull);
+    }
+
+    public static void internal_native_set_OnContactPersistedFull(long this_addr, boolean onContactPersistedFull) {
+        try {
+            FFMHandles.internal_native_set_OnContactPersistedFull__JZ.invokeExact(this_addr, onContactPersistedFull);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -381,6 +533,30 @@ public class CharacterContactListener extends NativeObject {
         }
     }
 
+    public boolean get_OnCharacterContactAddedFull() {
+        return internal_native_get_OnCharacterContactAddedFull(native_address);
+    }
+
+    public static boolean internal_native_get_OnCharacterContactAddedFull(long this_addr) {
+        try {
+            return (boolean) FFMHandles.internal_native_get_OnCharacterContactAddedFull__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void set_OnCharacterContactAddedFull(boolean onCharacterContactAddedFull) {
+        internal_native_set_OnCharacterContactAddedFull(native_address, onCharacterContactAddedFull);
+    }
+
+    public static void internal_native_set_OnCharacterContactAddedFull(long this_addr, boolean onCharacterContactAddedFull) {
+        try {
+            FFMHandles.internal_native_set_OnCharacterContactAddedFull__JZ.invokeExact(this_addr, onCharacterContactAddedFull);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
     public boolean get_OnCharacterContactPersisted() {
         return internal_native_get_OnCharacterContactPersisted(native_address);
     }
@@ -400,6 +576,30 @@ public class CharacterContactListener extends NativeObject {
     public static void internal_native_set_OnCharacterContactPersisted(long this_addr, boolean onCharacterContactPersisted) {
         try {
             FFMHandles.internal_native_set_OnCharacterContactPersisted__JZ.invokeExact(this_addr, onCharacterContactPersisted);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public boolean get_OnCharacterContactPersistedFull() {
+        return internal_native_get_OnCharacterContactPersistedFull(native_address);
+    }
+
+    public static boolean internal_native_get_OnCharacterContactPersistedFull(long this_addr) {
+        try {
+            return (boolean) FFMHandles.internal_native_get_OnCharacterContactPersistedFull__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void set_OnCharacterContactPersistedFull(boolean onCharacterContactPersistedFull) {
+        internal_native_set_OnCharacterContactPersistedFull(native_address, onCharacterContactPersistedFull);
+    }
+
+    public static void internal_native_set_OnCharacterContactPersistedFull(long this_addr, boolean onCharacterContactPersistedFull) {
+        try {
+            FFMHandles.internal_native_set_OnCharacterContactPersistedFull__JZ.invokeExact(this_addr, onCharacterContactPersistedFull);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -491,25 +691,37 @@ public class CharacterContactListener extends NativeObject {
             upcallStub_OnAdjustBodyVelocity_custom = callbackLinker.upcallStub(mh_OnAdjustBodyVelocity_custom, callbackDescriptor_OnAdjustBodyVelocity_custom, upcallArena);
             java.lang.invoke.MethodHandle mh_OnContactValidate_custom = callbackLookup.findVirtual(CharacterContactListener.class, "internal_OnContactValidate_custom", callbackMethodType_OnContactValidate_custom).bindTo(this);
             upcallStub_OnContactValidate_custom = callbackLinker.upcallStub(mh_OnContactValidate_custom, callbackDescriptor_OnContactValidate_custom, upcallArena);
+            java.lang.invoke.MethodHandle mh_OnContactValidateFull_custom = callbackLookup.findVirtual(CharacterContactListener.class, "internal_OnContactValidateFull_custom", callbackMethodType_OnContactValidateFull_custom).bindTo(this);
+            upcallStub_OnContactValidateFull_custom = callbackLinker.upcallStub(mh_OnContactValidateFull_custom, callbackDescriptor_OnContactValidateFull_custom, upcallArena);
             java.lang.invoke.MethodHandle mh_OnCharacterContactValidate_custom = callbackLookup.findVirtual(CharacterContactListener.class, "internal_OnCharacterContactValidate_custom", callbackMethodType_OnCharacterContactValidate_custom).bindTo(this);
             upcallStub_OnCharacterContactValidate_custom = callbackLinker.upcallStub(mh_OnCharacterContactValidate_custom, callbackDescriptor_OnCharacterContactValidate_custom, upcallArena);
+            java.lang.invoke.MethodHandle mh_OnCharacterContactValidateFull_custom = callbackLookup.findVirtual(CharacterContactListener.class, "internal_OnCharacterContactValidateFull_custom", callbackMethodType_OnCharacterContactValidateFull_custom).bindTo(this);
+            upcallStub_OnCharacterContactValidateFull_custom = callbackLinker.upcallStub(mh_OnCharacterContactValidateFull_custom, callbackDescriptor_OnCharacterContactValidateFull_custom, upcallArena);
             java.lang.invoke.MethodHandle mh_OnContactAdded_custom = callbackLookup.findVirtual(CharacterContactListener.class, "internal_OnContactAdded_custom", callbackMethodType_OnContactAdded_custom).bindTo(this);
             upcallStub_OnContactAdded_custom = callbackLinker.upcallStub(mh_OnContactAdded_custom, callbackDescriptor_OnContactAdded_custom, upcallArena);
+            java.lang.invoke.MethodHandle mh_OnContactAddedFull_custom = callbackLookup.findVirtual(CharacterContactListener.class, "internal_OnContactAddedFull_custom", callbackMethodType_OnContactAddedFull_custom).bindTo(this);
+            upcallStub_OnContactAddedFull_custom = callbackLinker.upcallStub(mh_OnContactAddedFull_custom, callbackDescriptor_OnContactAddedFull_custom, upcallArena);
             java.lang.invoke.MethodHandle mh_OnContactPersisted_custom = callbackLookup.findVirtual(CharacterContactListener.class, "internal_OnContactPersisted_custom", callbackMethodType_OnContactPersisted_custom).bindTo(this);
             upcallStub_OnContactPersisted_custom = callbackLinker.upcallStub(mh_OnContactPersisted_custom, callbackDescriptor_OnContactPersisted_custom, upcallArena);
+            java.lang.invoke.MethodHandle mh_OnContactPersistedFull_custom = callbackLookup.findVirtual(CharacterContactListener.class, "internal_OnContactPersistedFull_custom", callbackMethodType_OnContactPersistedFull_custom).bindTo(this);
+            upcallStub_OnContactPersistedFull_custom = callbackLinker.upcallStub(mh_OnContactPersistedFull_custom, callbackDescriptor_OnContactPersistedFull_custom, upcallArena);
             java.lang.invoke.MethodHandle mh_OnContactRemoved_custom = callbackLookup.findVirtual(CharacterContactListener.class, "internal_OnContactRemoved_custom", callbackMethodType_OnContactRemoved_custom).bindTo(this);
             upcallStub_OnContactRemoved_custom = callbackLinker.upcallStub(mh_OnContactRemoved_custom, callbackDescriptor_OnContactRemoved_custom, upcallArena);
             java.lang.invoke.MethodHandle mh_OnCharacterContactAdded_custom = callbackLookup.findVirtual(CharacterContactListener.class, "internal_OnCharacterContactAdded_custom", callbackMethodType_OnCharacterContactAdded_custom).bindTo(this);
             upcallStub_OnCharacterContactAdded_custom = callbackLinker.upcallStub(mh_OnCharacterContactAdded_custom, callbackDescriptor_OnCharacterContactAdded_custom, upcallArena);
+            java.lang.invoke.MethodHandle mh_OnCharacterContactAddedFull_custom = callbackLookup.findVirtual(CharacterContactListener.class, "internal_OnCharacterContactAddedFull_custom", callbackMethodType_OnCharacterContactAddedFull_custom).bindTo(this);
+            upcallStub_OnCharacterContactAddedFull_custom = callbackLinker.upcallStub(mh_OnCharacterContactAddedFull_custom, callbackDescriptor_OnCharacterContactAddedFull_custom, upcallArena);
             java.lang.invoke.MethodHandle mh_OnCharacterContactPersisted_custom = callbackLookup.findVirtual(CharacterContactListener.class, "internal_OnCharacterContactPersisted_custom", callbackMethodType_OnCharacterContactPersisted_custom).bindTo(this);
             upcallStub_OnCharacterContactPersisted_custom = callbackLinker.upcallStub(mh_OnCharacterContactPersisted_custom, callbackDescriptor_OnCharacterContactPersisted_custom, upcallArena);
+            java.lang.invoke.MethodHandle mh_OnCharacterContactPersistedFull_custom = callbackLookup.findVirtual(CharacterContactListener.class, "internal_OnCharacterContactPersistedFull_custom", callbackMethodType_OnCharacterContactPersistedFull_custom).bindTo(this);
+            upcallStub_OnCharacterContactPersistedFull_custom = callbackLinker.upcallStub(mh_OnCharacterContactPersistedFull_custom, callbackDescriptor_OnCharacterContactPersistedFull_custom, upcallArena);
             java.lang.invoke.MethodHandle mh_OnCharacterContactRemoved_custom = callbackLookup.findVirtual(CharacterContactListener.class, "internal_OnCharacterContactRemoved_custom", callbackMethodType_OnCharacterContactRemoved_custom).bindTo(this);
             upcallStub_OnCharacterContactRemoved_custom = callbackLinker.upcallStub(mh_OnCharacterContactRemoved_custom, callbackDescriptor_OnCharacterContactRemoved_custom, upcallArena);
             java.lang.invoke.MethodHandle mh_OnContactSolve_custom = callbackLookup.findVirtual(CharacterContactListener.class, "internal_OnContactSolve_custom", callbackMethodType_OnContactSolve_custom).bindTo(this);
             upcallStub_OnContactSolve_custom = callbackLinker.upcallStub(mh_OnContactSolve_custom, callbackDescriptor_OnContactSolve_custom, upcallArena);
             java.lang.invoke.MethodHandle mh_OnCharacterContactSolve_custom = callbackLookup.findVirtual(CharacterContactListener.class, "internal_OnCharacterContactSolve_custom", callbackMethodType_OnCharacterContactSolve_custom).bindTo(this);
             upcallStub_OnCharacterContactSolve_custom = callbackLinker.upcallStub(mh_OnCharacterContactSolve_custom, callbackDescriptor_OnCharacterContactSolve_custom, upcallArena);
-            internal_native_setupCallback(native_address, upcallStub_OnAdjustBodyVelocity_custom.address(), upcallStub_OnContactValidate_custom.address(), upcallStub_OnCharacterContactValidate_custom.address(), upcallStub_OnContactAdded_custom.address(), upcallStub_OnContactPersisted_custom.address(), upcallStub_OnContactRemoved_custom.address(), upcallStub_OnCharacterContactAdded_custom.address(), upcallStub_OnCharacterContactPersisted_custom.address(), upcallStub_OnCharacterContactRemoved_custom.address(), upcallStub_OnContactSolve_custom.address(), upcallStub_OnCharacterContactSolve_custom.address());
+            internal_native_setupCallback(native_address, upcallStub_OnAdjustBodyVelocity_custom.address(), upcallStub_OnContactValidate_custom.address(), upcallStub_OnContactValidateFull_custom.address(), upcallStub_OnCharacterContactValidate_custom.address(), upcallStub_OnCharacterContactValidateFull_custom.address(), upcallStub_OnContactAdded_custom.address(), upcallStub_OnContactAddedFull_custom.address(), upcallStub_OnContactPersisted_custom.address(), upcallStub_OnContactPersistedFull_custom.address(), upcallStub_OnContactRemoved_custom.address(), upcallStub_OnCharacterContactAdded_custom.address(), upcallStub_OnCharacterContactAddedFull_custom.address(), upcallStub_OnCharacterContactPersisted_custom.address(), upcallStub_OnCharacterContactPersistedFull_custom.address(), upcallStub_OnCharacterContactRemoved_custom.address(), upcallStub_OnContactSolve_custom.address(), upcallStub_OnCharacterContactSolve_custom.address());
         } catch (Throwable e) {
             throw new RuntimeException(e);
         }
@@ -551,30 +763,58 @@ public class CharacterContactListener extends NativeObject {
         return OnContactValidate(CharacterVirtual_TEMP_STATIC_GEN_1, BodyID_TEMP_STATIC_GEN_0, SubShapeID_TEMP_STATIC_GEN_0);
     }
 
+    protected boolean OnContactValidate(CharacterVirtual inCharacter, CharacterVirtualContact inContact) {
+        return false;
+    }
+
+    private boolean internal_OnContactValidateFull_custom(long inCharacter_addr, long inContact_addr) {
+        if (CharacterVirtual_TEMP_STATIC_GEN_2 == null)
+            CharacterVirtual_TEMP_STATIC_GEN_2 = CharacterVirtual.native_new();
+        CharacterVirtual_TEMP_STATIC_GEN_2.internal_reset(inCharacter_addr, false);
+        if (CharacterVirtualContact_TEMP_STATIC_GEN_0 == null)
+            CharacterVirtualContact_TEMP_STATIC_GEN_0 = CharacterVirtualContact.native_new();
+        CharacterVirtualContact_TEMP_STATIC_GEN_0.internal_reset(inContact_addr, false);
+        return OnContactValidate(CharacterVirtual_TEMP_STATIC_GEN_2, CharacterVirtualContact_TEMP_STATIC_GEN_0);
+    }
+
     protected boolean OnCharacterContactValidate(CharacterVirtual inCharacter, CharacterVirtual inOtherCharacter, SubShapeID inSubShapeID2) {
         return false;
     }
 
     private boolean internal_OnCharacterContactValidate_custom(long inCharacter_addr, long inOtherCharacter_addr, long inSubShapeID2_addr) {
-        if (CharacterVirtual_TEMP_STATIC_GEN_2 == null)
-            CharacterVirtual_TEMP_STATIC_GEN_2 = CharacterVirtual.native_new();
-        CharacterVirtual_TEMP_STATIC_GEN_2.internal_reset(inCharacter_addr, false);
         if (CharacterVirtual_TEMP_STATIC_GEN_3 == null)
             CharacterVirtual_TEMP_STATIC_GEN_3 = CharacterVirtual.native_new();
-        CharacterVirtual_TEMP_STATIC_GEN_3.internal_reset(inOtherCharacter_addr, false);
+        CharacterVirtual_TEMP_STATIC_GEN_3.internal_reset(inCharacter_addr, false);
+        if (CharacterVirtual_TEMP_STATIC_GEN_4 == null)
+            CharacterVirtual_TEMP_STATIC_GEN_4 = CharacterVirtual.native_new();
+        CharacterVirtual_TEMP_STATIC_GEN_4.internal_reset(inOtherCharacter_addr, false);
         if (SubShapeID_TEMP_STATIC_GEN_1 == null)
             SubShapeID_TEMP_STATIC_GEN_1 = SubShapeID.native_new();
         SubShapeID_TEMP_STATIC_GEN_1.internal_reset(inSubShapeID2_addr, false);
-        return OnCharacterContactValidate(CharacterVirtual_TEMP_STATIC_GEN_2, CharacterVirtual_TEMP_STATIC_GEN_3, SubShapeID_TEMP_STATIC_GEN_1);
+        return OnCharacterContactValidate(CharacterVirtual_TEMP_STATIC_GEN_3, CharacterVirtual_TEMP_STATIC_GEN_4, SubShapeID_TEMP_STATIC_GEN_1);
+    }
+
+    protected boolean OnCharacterContactValidate(CharacterVirtual inCharacter, CharacterVirtualContact inContact) {
+        return false;
+    }
+
+    private boolean internal_OnCharacterContactValidateFull_custom(long inCharacter_addr, long inContact_addr) {
+        if (CharacterVirtual_TEMP_STATIC_GEN_5 == null)
+            CharacterVirtual_TEMP_STATIC_GEN_5 = CharacterVirtual.native_new();
+        CharacterVirtual_TEMP_STATIC_GEN_5.internal_reset(inCharacter_addr, false);
+        if (CharacterVirtualContact_TEMP_STATIC_GEN_1 == null)
+            CharacterVirtualContact_TEMP_STATIC_GEN_1 = CharacterVirtualContact.native_new();
+        CharacterVirtualContact_TEMP_STATIC_GEN_1.internal_reset(inContact_addr, false);
+        return OnCharacterContactValidate(CharacterVirtual_TEMP_STATIC_GEN_5, CharacterVirtualContact_TEMP_STATIC_GEN_1);
     }
 
     protected void OnContactAdded(CharacterVirtual inCharacter, BodyID inBodyID2, SubShapeID inSubShapeID2, RVec3 inContactPosition, Vec3 inContactNormal, CharacterContactSettings ioSettings) {
     }
 
     private void internal_OnContactAdded_custom(long inCharacter_addr, long inBodyID2_addr, long inSubShapeID2_addr, long inContactPosition_addr, long inContactNormal_addr, long ioSettings_addr) {
-        if (CharacterVirtual_TEMP_STATIC_GEN_4 == null)
-            CharacterVirtual_TEMP_STATIC_GEN_4 = CharacterVirtual.native_new();
-        CharacterVirtual_TEMP_STATIC_GEN_4.internal_reset(inCharacter_addr, false);
+        if (CharacterVirtual_TEMP_STATIC_GEN_6 == null)
+            CharacterVirtual_TEMP_STATIC_GEN_6 = CharacterVirtual.native_new();
+        CharacterVirtual_TEMP_STATIC_GEN_6.internal_reset(inCharacter_addr, false);
         if (BodyID_TEMP_STATIC_GEN_1 == null)
             BodyID_TEMP_STATIC_GEN_1 = BodyID.native_new();
         BodyID_TEMP_STATIC_GEN_1.internal_reset(inBodyID2_addr, false);
@@ -590,16 +830,32 @@ public class CharacterContactListener extends NativeObject {
         if (CharacterContactSettings_TEMP_STATIC_GEN_0 == null)
             CharacterContactSettings_TEMP_STATIC_GEN_0 = CharacterContactSettings.native_new();
         CharacterContactSettings_TEMP_STATIC_GEN_0.internal_reset(ioSettings_addr, false);
-        OnContactAdded(CharacterVirtual_TEMP_STATIC_GEN_4, BodyID_TEMP_STATIC_GEN_1, SubShapeID_TEMP_STATIC_GEN_2, RVec3_TEMP_STATIC_GEN_0, Vec3_TEMP_STATIC_GEN_2, CharacterContactSettings_TEMP_STATIC_GEN_0);
+        OnContactAdded(CharacterVirtual_TEMP_STATIC_GEN_6, BodyID_TEMP_STATIC_GEN_1, SubShapeID_TEMP_STATIC_GEN_2, RVec3_TEMP_STATIC_GEN_0, Vec3_TEMP_STATIC_GEN_2, CharacterContactSettings_TEMP_STATIC_GEN_0);
+    }
+
+    protected void OnContactAdded(CharacterVirtual inCharacter, CharacterVirtualContact inContact, CharacterContactSettings ioSettings) {
+    }
+
+    private void internal_OnContactAddedFull_custom(long inCharacter_addr, long inContact_addr, long ioSettings_addr) {
+        if (CharacterVirtual_TEMP_STATIC_GEN_7 == null)
+            CharacterVirtual_TEMP_STATIC_GEN_7 = CharacterVirtual.native_new();
+        CharacterVirtual_TEMP_STATIC_GEN_7.internal_reset(inCharacter_addr, false);
+        if (CharacterVirtualContact_TEMP_STATIC_GEN_2 == null)
+            CharacterVirtualContact_TEMP_STATIC_GEN_2 = CharacterVirtualContact.native_new();
+        CharacterVirtualContact_TEMP_STATIC_GEN_2.internal_reset(inContact_addr, false);
+        if (CharacterContactSettings_TEMP_STATIC_GEN_1 == null)
+            CharacterContactSettings_TEMP_STATIC_GEN_1 = CharacterContactSettings.native_new();
+        CharacterContactSettings_TEMP_STATIC_GEN_1.internal_reset(ioSettings_addr, false);
+        OnContactAdded(CharacterVirtual_TEMP_STATIC_GEN_7, CharacterVirtualContact_TEMP_STATIC_GEN_2, CharacterContactSettings_TEMP_STATIC_GEN_1);
     }
 
     protected void OnContactPersisted(CharacterVirtual inCharacter, BodyID inBodyID2, SubShapeID inSubShapeID2, RVec3 inContactPosition, Vec3 inContactNormal, CharacterContactSettings ioSettings) {
     }
 
     private void internal_OnContactPersisted_custom(long inCharacter_addr, long inBodyID2_addr, long inSubShapeID2_addr, long inContactPosition_addr, long inContactNormal_addr, long ioSettings_addr) {
-        if (CharacterVirtual_TEMP_STATIC_GEN_5 == null)
-            CharacterVirtual_TEMP_STATIC_GEN_5 = CharacterVirtual.native_new();
-        CharacterVirtual_TEMP_STATIC_GEN_5.internal_reset(inCharacter_addr, false);
+        if (CharacterVirtual_TEMP_STATIC_GEN_8 == null)
+            CharacterVirtual_TEMP_STATIC_GEN_8 = CharacterVirtual.native_new();
+        CharacterVirtual_TEMP_STATIC_GEN_8.internal_reset(inCharacter_addr, false);
         if (BodyID_TEMP_STATIC_GEN_2 == null)
             BodyID_TEMP_STATIC_GEN_2 = BodyID.native_new();
         BodyID_TEMP_STATIC_GEN_2.internal_reset(inBodyID2_addr, false);
@@ -612,38 +868,54 @@ public class CharacterContactListener extends NativeObject {
         if (Vec3_TEMP_STATIC_GEN_3 == null)
             Vec3_TEMP_STATIC_GEN_3 = Vec3.native_new();
         Vec3_TEMP_STATIC_GEN_3.internal_reset(inContactNormal_addr, false);
-        if (CharacterContactSettings_TEMP_STATIC_GEN_1 == null)
-            CharacterContactSettings_TEMP_STATIC_GEN_1 = CharacterContactSettings.native_new();
-        CharacterContactSettings_TEMP_STATIC_GEN_1.internal_reset(ioSettings_addr, false);
-        OnContactPersisted(CharacterVirtual_TEMP_STATIC_GEN_5, BodyID_TEMP_STATIC_GEN_2, SubShapeID_TEMP_STATIC_GEN_3, RVec3_TEMP_STATIC_GEN_1, Vec3_TEMP_STATIC_GEN_3, CharacterContactSettings_TEMP_STATIC_GEN_1);
+        if (CharacterContactSettings_TEMP_STATIC_GEN_2 == null)
+            CharacterContactSettings_TEMP_STATIC_GEN_2 = CharacterContactSettings.native_new();
+        CharacterContactSettings_TEMP_STATIC_GEN_2.internal_reset(ioSettings_addr, false);
+        OnContactPersisted(CharacterVirtual_TEMP_STATIC_GEN_8, BodyID_TEMP_STATIC_GEN_2, SubShapeID_TEMP_STATIC_GEN_3, RVec3_TEMP_STATIC_GEN_1, Vec3_TEMP_STATIC_GEN_3, CharacterContactSettings_TEMP_STATIC_GEN_2);
+    }
+
+    protected void OnContactPersisted(CharacterVirtual inCharacter, CharacterVirtualContact inContact, CharacterContactSettings ioSettings) {
+    }
+
+    private void internal_OnContactPersistedFull_custom(long inCharacter_addr, long inContact_addr, long ioSettings_addr) {
+        if (CharacterVirtual_TEMP_STATIC_GEN_9 == null)
+            CharacterVirtual_TEMP_STATIC_GEN_9 = CharacterVirtual.native_new();
+        CharacterVirtual_TEMP_STATIC_GEN_9.internal_reset(inCharacter_addr, false);
+        if (CharacterVirtualContact_TEMP_STATIC_GEN_3 == null)
+            CharacterVirtualContact_TEMP_STATIC_GEN_3 = CharacterVirtualContact.native_new();
+        CharacterVirtualContact_TEMP_STATIC_GEN_3.internal_reset(inContact_addr, false);
+        if (CharacterContactSettings_TEMP_STATIC_GEN_3 == null)
+            CharacterContactSettings_TEMP_STATIC_GEN_3 = CharacterContactSettings.native_new();
+        CharacterContactSettings_TEMP_STATIC_GEN_3.internal_reset(ioSettings_addr, false);
+        OnContactPersisted(CharacterVirtual_TEMP_STATIC_GEN_9, CharacterVirtualContact_TEMP_STATIC_GEN_3, CharacterContactSettings_TEMP_STATIC_GEN_3);
     }
 
     protected void OnContactRemoved(CharacterVirtual inCharacter, BodyID inBodyID2, SubShapeID inSubShapeID2) {
     }
 
     private void internal_OnContactRemoved_custom(long inCharacter_addr, long inBodyID2_addr, long inSubShapeID2_addr) {
-        if (CharacterVirtual_TEMP_STATIC_GEN_6 == null)
-            CharacterVirtual_TEMP_STATIC_GEN_6 = CharacterVirtual.native_new();
-        CharacterVirtual_TEMP_STATIC_GEN_6.internal_reset(inCharacter_addr, false);
+        if (CharacterVirtual_TEMP_STATIC_GEN_10 == null)
+            CharacterVirtual_TEMP_STATIC_GEN_10 = CharacterVirtual.native_new();
+        CharacterVirtual_TEMP_STATIC_GEN_10.internal_reset(inCharacter_addr, false);
         if (BodyID_TEMP_STATIC_GEN_3 == null)
             BodyID_TEMP_STATIC_GEN_3 = BodyID.native_new();
         BodyID_TEMP_STATIC_GEN_3.internal_reset(inBodyID2_addr, false);
         if (SubShapeID_TEMP_STATIC_GEN_4 == null)
             SubShapeID_TEMP_STATIC_GEN_4 = SubShapeID.native_new();
         SubShapeID_TEMP_STATIC_GEN_4.internal_reset(inSubShapeID2_addr, false);
-        OnContactRemoved(CharacterVirtual_TEMP_STATIC_GEN_6, BodyID_TEMP_STATIC_GEN_3, SubShapeID_TEMP_STATIC_GEN_4);
+        OnContactRemoved(CharacterVirtual_TEMP_STATIC_GEN_10, BodyID_TEMP_STATIC_GEN_3, SubShapeID_TEMP_STATIC_GEN_4);
     }
 
     protected void OnCharacterContactAdded(CharacterVirtual inCharacter, CharacterVirtual inOtherCharacter, SubShapeID inSubShapeID2, RVec3 inContactPosition, Vec3 inContactNormal, CharacterContactSettings ioSettings) {
     }
 
     private void internal_OnCharacterContactAdded_custom(long inCharacter_addr, long inOtherCharacter_addr, long inSubShapeID2_addr, long inContactPosition_addr, long inContactNormal_addr, long ioSettings_addr) {
-        if (CharacterVirtual_TEMP_STATIC_GEN_7 == null)
-            CharacterVirtual_TEMP_STATIC_GEN_7 = CharacterVirtual.native_new();
-        CharacterVirtual_TEMP_STATIC_GEN_7.internal_reset(inCharacter_addr, false);
-        if (CharacterVirtual_TEMP_STATIC_GEN_8 == null)
-            CharacterVirtual_TEMP_STATIC_GEN_8 = CharacterVirtual.native_new();
-        CharacterVirtual_TEMP_STATIC_GEN_8.internal_reset(inOtherCharacter_addr, false);
+        if (CharacterVirtual_TEMP_STATIC_GEN_11 == null)
+            CharacterVirtual_TEMP_STATIC_GEN_11 = CharacterVirtual.native_new();
+        CharacterVirtual_TEMP_STATIC_GEN_11.internal_reset(inCharacter_addr, false);
+        if (CharacterVirtual_TEMP_STATIC_GEN_12 == null)
+            CharacterVirtual_TEMP_STATIC_GEN_12 = CharacterVirtual.native_new();
+        CharacterVirtual_TEMP_STATIC_GEN_12.internal_reset(inOtherCharacter_addr, false);
         if (SubShapeID_TEMP_STATIC_GEN_5 == null)
             SubShapeID_TEMP_STATIC_GEN_5 = SubShapeID.native_new();
         SubShapeID_TEMP_STATIC_GEN_5.internal_reset(inSubShapeID2_addr, false);
@@ -653,22 +925,38 @@ public class CharacterContactListener extends NativeObject {
         if (Vec3_TEMP_STATIC_GEN_4 == null)
             Vec3_TEMP_STATIC_GEN_4 = Vec3.native_new();
         Vec3_TEMP_STATIC_GEN_4.internal_reset(inContactNormal_addr, false);
-        if (CharacterContactSettings_TEMP_STATIC_GEN_2 == null)
-            CharacterContactSettings_TEMP_STATIC_GEN_2 = CharacterContactSettings.native_new();
-        CharacterContactSettings_TEMP_STATIC_GEN_2.internal_reset(ioSettings_addr, false);
-        OnCharacterContactAdded(CharacterVirtual_TEMP_STATIC_GEN_7, CharacterVirtual_TEMP_STATIC_GEN_8, SubShapeID_TEMP_STATIC_GEN_5, RVec3_TEMP_STATIC_GEN_2, Vec3_TEMP_STATIC_GEN_4, CharacterContactSettings_TEMP_STATIC_GEN_2);
+        if (CharacterContactSettings_TEMP_STATIC_GEN_4 == null)
+            CharacterContactSettings_TEMP_STATIC_GEN_4 = CharacterContactSettings.native_new();
+        CharacterContactSettings_TEMP_STATIC_GEN_4.internal_reset(ioSettings_addr, false);
+        OnCharacterContactAdded(CharacterVirtual_TEMP_STATIC_GEN_11, CharacterVirtual_TEMP_STATIC_GEN_12, SubShapeID_TEMP_STATIC_GEN_5, RVec3_TEMP_STATIC_GEN_2, Vec3_TEMP_STATIC_GEN_4, CharacterContactSettings_TEMP_STATIC_GEN_4);
+    }
+
+    protected void OnCharacterContactAdded(CharacterVirtual inCharacter, CharacterVirtualContact inContact, CharacterContactSettings ioSettings) {
+    }
+
+    private void internal_OnCharacterContactAddedFull_custom(long inCharacter_addr, long inContact_addr, long ioSettings_addr) {
+        if (CharacterVirtual_TEMP_STATIC_GEN_13 == null)
+            CharacterVirtual_TEMP_STATIC_GEN_13 = CharacterVirtual.native_new();
+        CharacterVirtual_TEMP_STATIC_GEN_13.internal_reset(inCharacter_addr, false);
+        if (CharacterVirtualContact_TEMP_STATIC_GEN_4 == null)
+            CharacterVirtualContact_TEMP_STATIC_GEN_4 = CharacterVirtualContact.native_new();
+        CharacterVirtualContact_TEMP_STATIC_GEN_4.internal_reset(inContact_addr, false);
+        if (CharacterContactSettings_TEMP_STATIC_GEN_5 == null)
+            CharacterContactSettings_TEMP_STATIC_GEN_5 = CharacterContactSettings.native_new();
+        CharacterContactSettings_TEMP_STATIC_GEN_5.internal_reset(ioSettings_addr, false);
+        OnCharacterContactAdded(CharacterVirtual_TEMP_STATIC_GEN_13, CharacterVirtualContact_TEMP_STATIC_GEN_4, CharacterContactSettings_TEMP_STATIC_GEN_5);
     }
 
     protected void OnCharacterContactPersisted(CharacterVirtual inCharacter, CharacterVirtual inOtherCharacter, SubShapeID inSubShapeID2, Vec3 inContactPosition, Vec3 inContactNormal, CharacterContactSettings ioSettings) {
     }
 
     private void internal_OnCharacterContactPersisted_custom(long inCharacter_addr, long inOtherCharacter_addr, long inSubShapeID2_addr, long inContactPosition_addr, long inContactNormal_addr, long ioSettings_addr) {
-        if (CharacterVirtual_TEMP_STATIC_GEN_9 == null)
-            CharacterVirtual_TEMP_STATIC_GEN_9 = CharacterVirtual.native_new();
-        CharacterVirtual_TEMP_STATIC_GEN_9.internal_reset(inCharacter_addr, false);
-        if (CharacterVirtual_TEMP_STATIC_GEN_10 == null)
-            CharacterVirtual_TEMP_STATIC_GEN_10 = CharacterVirtual.native_new();
-        CharacterVirtual_TEMP_STATIC_GEN_10.internal_reset(inOtherCharacter_addr, false);
+        if (CharacterVirtual_TEMP_STATIC_GEN_14 == null)
+            CharacterVirtual_TEMP_STATIC_GEN_14 = CharacterVirtual.native_new();
+        CharacterVirtual_TEMP_STATIC_GEN_14.internal_reset(inCharacter_addr, false);
+        if (CharacterVirtual_TEMP_STATIC_GEN_15 == null)
+            CharacterVirtual_TEMP_STATIC_GEN_15 = CharacterVirtual.native_new();
+        CharacterVirtual_TEMP_STATIC_GEN_15.internal_reset(inOtherCharacter_addr, false);
         if (SubShapeID_TEMP_STATIC_GEN_6 == null)
             SubShapeID_TEMP_STATIC_GEN_6 = SubShapeID.native_new();
         SubShapeID_TEMP_STATIC_GEN_6.internal_reset(inSubShapeID2_addr, false);
@@ -678,35 +966,51 @@ public class CharacterContactListener extends NativeObject {
         if (Vec3_TEMP_STATIC_GEN_6 == null)
             Vec3_TEMP_STATIC_GEN_6 = Vec3.native_new();
         Vec3_TEMP_STATIC_GEN_6.internal_reset(inContactNormal_addr, false);
-        if (CharacterContactSettings_TEMP_STATIC_GEN_3 == null)
-            CharacterContactSettings_TEMP_STATIC_GEN_3 = CharacterContactSettings.native_new();
-        CharacterContactSettings_TEMP_STATIC_GEN_3.internal_reset(ioSettings_addr, false);
-        OnCharacterContactPersisted(CharacterVirtual_TEMP_STATIC_GEN_9, CharacterVirtual_TEMP_STATIC_GEN_10, SubShapeID_TEMP_STATIC_GEN_6, Vec3_TEMP_STATIC_GEN_5, Vec3_TEMP_STATIC_GEN_6, CharacterContactSettings_TEMP_STATIC_GEN_3);
+        if (CharacterContactSettings_TEMP_STATIC_GEN_6 == null)
+            CharacterContactSettings_TEMP_STATIC_GEN_6 = CharacterContactSettings.native_new();
+        CharacterContactSettings_TEMP_STATIC_GEN_6.internal_reset(ioSettings_addr, false);
+        OnCharacterContactPersisted(CharacterVirtual_TEMP_STATIC_GEN_14, CharacterVirtual_TEMP_STATIC_GEN_15, SubShapeID_TEMP_STATIC_GEN_6, Vec3_TEMP_STATIC_GEN_5, Vec3_TEMP_STATIC_GEN_6, CharacterContactSettings_TEMP_STATIC_GEN_6);
+    }
+
+    protected void OnCharacterContactPersisted(CharacterVirtual inCharacter, CharacterVirtualContact inContact, CharacterContactSettings ioSettings) {
+    }
+
+    private void internal_OnCharacterContactPersistedFull_custom(long inCharacter_addr, long inContact_addr, long ioSettings_addr) {
+        if (CharacterVirtual_TEMP_STATIC_GEN_16 == null)
+            CharacterVirtual_TEMP_STATIC_GEN_16 = CharacterVirtual.native_new();
+        CharacterVirtual_TEMP_STATIC_GEN_16.internal_reset(inCharacter_addr, false);
+        if (CharacterVirtualContact_TEMP_STATIC_GEN_5 == null)
+            CharacterVirtualContact_TEMP_STATIC_GEN_5 = CharacterVirtualContact.native_new();
+        CharacterVirtualContact_TEMP_STATIC_GEN_5.internal_reset(inContact_addr, false);
+        if (CharacterContactSettings_TEMP_STATIC_GEN_7 == null)
+            CharacterContactSettings_TEMP_STATIC_GEN_7 = CharacterContactSettings.native_new();
+        CharacterContactSettings_TEMP_STATIC_GEN_7.internal_reset(ioSettings_addr, false);
+        OnCharacterContactPersisted(CharacterVirtual_TEMP_STATIC_GEN_16, CharacterVirtualContact_TEMP_STATIC_GEN_5, CharacterContactSettings_TEMP_STATIC_GEN_7);
     }
 
     protected void OnCharacterContactRemoved(CharacterVirtual inCharacter, CharacterID inOtherCharacter, SubShapeID inSubShapeID2) {
     }
 
     private void internal_OnCharacterContactRemoved_custom(long inCharacter_addr, long inOtherCharacter_addr, long inSubShapeID2_addr) {
-        if (CharacterVirtual_TEMP_STATIC_GEN_11 == null)
-            CharacterVirtual_TEMP_STATIC_GEN_11 = CharacterVirtual.native_new();
-        CharacterVirtual_TEMP_STATIC_GEN_11.internal_reset(inCharacter_addr, false);
+        if (CharacterVirtual_TEMP_STATIC_GEN_17 == null)
+            CharacterVirtual_TEMP_STATIC_GEN_17 = CharacterVirtual.native_new();
+        CharacterVirtual_TEMP_STATIC_GEN_17.internal_reset(inCharacter_addr, false);
         if (CharacterID_TEMP_STATIC_GEN_0 == null)
             CharacterID_TEMP_STATIC_GEN_0 = CharacterID.native_new();
         CharacterID_TEMP_STATIC_GEN_0.internal_reset(inOtherCharacter_addr, false);
         if (SubShapeID_TEMP_STATIC_GEN_7 == null)
             SubShapeID_TEMP_STATIC_GEN_7 = SubShapeID.native_new();
         SubShapeID_TEMP_STATIC_GEN_7.internal_reset(inSubShapeID2_addr, false);
-        OnCharacterContactRemoved(CharacterVirtual_TEMP_STATIC_GEN_11, CharacterID_TEMP_STATIC_GEN_0, SubShapeID_TEMP_STATIC_GEN_7);
+        OnCharacterContactRemoved(CharacterVirtual_TEMP_STATIC_GEN_17, CharacterID_TEMP_STATIC_GEN_0, SubShapeID_TEMP_STATIC_GEN_7);
     }
 
     protected void OnContactSolve(CharacterVirtual inCharacter, BodyID inBodyID2, SubShapeID inSubShapeID2, RVec3 inContactPosition, Vec3 inContactNormal, Vec3 inContactVelocity, PhysicsMaterial inContactMaterial, Vec3 inCharacterVelocity, Vec3 ioNewCharacterVelocity) {
     }
 
     private void internal_OnContactSolve_custom(long inCharacter_addr, long inBodyID2_addr, long inSubShapeID2_addr, long inContactPosition_addr, long inContactNormal_addr, long inContactVelocity_addr, long inContactMaterial_addr, long inCharacterVelocity_addr, long ioNewCharacterVelocity_addr) {
-        if (CharacterVirtual_TEMP_STATIC_GEN_12 == null)
-            CharacterVirtual_TEMP_STATIC_GEN_12 = CharacterVirtual.native_new();
-        CharacterVirtual_TEMP_STATIC_GEN_12.internal_reset(inCharacter_addr, false);
+        if (CharacterVirtual_TEMP_STATIC_GEN_18 == null)
+            CharacterVirtual_TEMP_STATIC_GEN_18 = CharacterVirtual.native_new();
+        CharacterVirtual_TEMP_STATIC_GEN_18.internal_reset(inCharacter_addr, false);
         if (BodyID_TEMP_STATIC_GEN_4 == null)
             BodyID_TEMP_STATIC_GEN_4 = BodyID.native_new();
         BodyID_TEMP_STATIC_GEN_4.internal_reset(inBodyID2_addr, false);
@@ -731,19 +1035,19 @@ public class CharacterContactListener extends NativeObject {
         if (Vec3_TEMP_STATIC_GEN_10 == null)
             Vec3_TEMP_STATIC_GEN_10 = Vec3.native_new();
         Vec3_TEMP_STATIC_GEN_10.internal_reset(ioNewCharacterVelocity_addr, false);
-        OnContactSolve(CharacterVirtual_TEMP_STATIC_GEN_12, BodyID_TEMP_STATIC_GEN_4, SubShapeID_TEMP_STATIC_GEN_8, RVec3_TEMP_STATIC_GEN_3, Vec3_TEMP_STATIC_GEN_7, Vec3_TEMP_STATIC_GEN_8, PhysicsMaterial_TEMP_STATIC_GEN_0, Vec3_TEMP_STATIC_GEN_9, Vec3_TEMP_STATIC_GEN_10);
+        OnContactSolve(CharacterVirtual_TEMP_STATIC_GEN_18, BodyID_TEMP_STATIC_GEN_4, SubShapeID_TEMP_STATIC_GEN_8, RVec3_TEMP_STATIC_GEN_3, Vec3_TEMP_STATIC_GEN_7, Vec3_TEMP_STATIC_GEN_8, PhysicsMaterial_TEMP_STATIC_GEN_0, Vec3_TEMP_STATIC_GEN_9, Vec3_TEMP_STATIC_GEN_10);
     }
 
     protected void OnCharacterContactSolve(CharacterVirtual inCharacter, CharacterVirtual inOtherCharacter, SubShapeID inSubShapeID2, RVec3 inContactPosition, Vec3 inContactNormal, Vec3 inContactVelocity, PhysicsMaterial inContactMaterial, Vec3 inCharacterVelocity, Vec3 ioNewCharacterVelocity) {
     }
 
     private void internal_OnCharacterContactSolve_custom(long inCharacter_addr, long inOtherCharacter_addr, long inSubShapeID2_addr, long inContactPosition_addr, long inContactNormal_addr, long inContactVelocity_addr, long inContactMaterial_addr, long inCharacterVelocity_addr, long ioNewCharacterVelocity_addr) {
-        if (CharacterVirtual_TEMP_STATIC_GEN_13 == null)
-            CharacterVirtual_TEMP_STATIC_GEN_13 = CharacterVirtual.native_new();
-        CharacterVirtual_TEMP_STATIC_GEN_13.internal_reset(inCharacter_addr, false);
-        if (CharacterVirtual_TEMP_STATIC_GEN_14 == null)
-            CharacterVirtual_TEMP_STATIC_GEN_14 = CharacterVirtual.native_new();
-        CharacterVirtual_TEMP_STATIC_GEN_14.internal_reset(inOtherCharacter_addr, false);
+        if (CharacterVirtual_TEMP_STATIC_GEN_19 == null)
+            CharacterVirtual_TEMP_STATIC_GEN_19 = CharacterVirtual.native_new();
+        CharacterVirtual_TEMP_STATIC_GEN_19.internal_reset(inCharacter_addr, false);
+        if (CharacterVirtual_TEMP_STATIC_GEN_20 == null)
+            CharacterVirtual_TEMP_STATIC_GEN_20 = CharacterVirtual.native_new();
+        CharacterVirtual_TEMP_STATIC_GEN_20.internal_reset(inOtherCharacter_addr, false);
         if (SubShapeID_TEMP_STATIC_GEN_9 == null)
             SubShapeID_TEMP_STATIC_GEN_9 = SubShapeID.native_new();
         SubShapeID_TEMP_STATIC_GEN_9.internal_reset(inSubShapeID2_addr, false);
@@ -765,7 +1069,7 @@ public class CharacterContactListener extends NativeObject {
         if (Vec3_TEMP_STATIC_GEN_14 == null)
             Vec3_TEMP_STATIC_GEN_14 = Vec3.native_new();
         Vec3_TEMP_STATIC_GEN_14.internal_reset(ioNewCharacterVelocity_addr, false);
-        OnCharacterContactSolve(CharacterVirtual_TEMP_STATIC_GEN_13, CharacterVirtual_TEMP_STATIC_GEN_14, SubShapeID_TEMP_STATIC_GEN_9, RVec3_TEMP_STATIC_GEN_4, Vec3_TEMP_STATIC_GEN_11, Vec3_TEMP_STATIC_GEN_12, PhysicsMaterial_TEMP_STATIC_GEN_1, Vec3_TEMP_STATIC_GEN_13, Vec3_TEMP_STATIC_GEN_14);
+        OnCharacterContactSolve(CharacterVirtual_TEMP_STATIC_GEN_19, CharacterVirtual_TEMP_STATIC_GEN_20, SubShapeID_TEMP_STATIC_GEN_9, RVec3_TEMP_STATIC_GEN_4, Vec3_TEMP_STATIC_GEN_11, Vec3_TEMP_STATIC_GEN_12, PhysicsMaterial_TEMP_STATIC_GEN_1, Vec3_TEMP_STATIC_GEN_13, Vec3_TEMP_STATIC_GEN_14);
     }
 
     public static long internal_native_create_addr() {
@@ -782,17 +1086,29 @@ public class CharacterContactListener extends NativeObject {
 
     private MemorySegment upcallStub_OnContactValidate_custom;
 
+    private MemorySegment upcallStub_OnContactValidateFull_custom;
+
     private MemorySegment upcallStub_OnCharacterContactValidate_custom;
+
+    private MemorySegment upcallStub_OnCharacterContactValidateFull_custom;
 
     private MemorySegment upcallStub_OnContactAdded_custom;
 
+    private MemorySegment upcallStub_OnContactAddedFull_custom;
+
     private MemorySegment upcallStub_OnContactPersisted_custom;
+
+    private MemorySegment upcallStub_OnContactPersistedFull_custom;
 
     private MemorySegment upcallStub_OnContactRemoved_custom;
 
     private MemorySegment upcallStub_OnCharacterContactAdded_custom;
 
+    private MemorySegment upcallStub_OnCharacterContactAddedFull_custom;
+
     private MemorySegment upcallStub_OnCharacterContactPersisted_custom;
+
+    private MemorySegment upcallStub_OnCharacterContactPersistedFull_custom;
 
     private MemorySegment upcallStub_OnCharacterContactRemoved_custom;
 
@@ -804,12 +1120,18 @@ public class CharacterContactListener extends NativeObject {
         Arena arena = upcallArena;
         upcallStub_OnAdjustBodyVelocity_custom = null;
         upcallStub_OnContactValidate_custom = null;
+        upcallStub_OnContactValidateFull_custom = null;
         upcallStub_OnCharacterContactValidate_custom = null;
+        upcallStub_OnCharacterContactValidateFull_custom = null;
         upcallStub_OnContactAdded_custom = null;
+        upcallStub_OnContactAddedFull_custom = null;
         upcallStub_OnContactPersisted_custom = null;
+        upcallStub_OnContactPersistedFull_custom = null;
         upcallStub_OnContactRemoved_custom = null;
         upcallStub_OnCharacterContactAdded_custom = null;
+        upcallStub_OnCharacterContactAddedFull_custom = null;
         upcallStub_OnCharacterContactPersisted_custom = null;
+        upcallStub_OnCharacterContactPersistedFull_custom = null;
         upcallStub_OnCharacterContactRemoved_custom = null;
         upcallStub_OnContactSolve_custom = null;
         upcallStub_OnCharacterContactSolve_custom = null;
@@ -822,9 +1144,9 @@ public class CharacterContactListener extends NativeObject {
         }
     }
 
-    public static void internal_native_setupCallback(long this_addr, long OnAdjustBodyVelocity_custom_fp, long OnContactValidate_custom_fp, long OnCharacterContactValidate_custom_fp, long OnContactAdded_custom_fp, long OnContactPersisted_custom_fp, long OnContactRemoved_custom_fp, long OnCharacterContactAdded_custom_fp, long OnCharacterContactPersisted_custom_fp, long OnCharacterContactRemoved_custom_fp, long OnContactSolve_custom_fp, long OnCharacterContactSolve_custom_fp) {
+    public static void internal_native_setupCallback(long this_addr, long OnAdjustBodyVelocity_custom_fp, long OnContactValidate_custom_fp, long OnContactValidateFull_custom_fp, long OnCharacterContactValidate_custom_fp, long OnCharacterContactValidateFull_custom_fp, long OnContactAdded_custom_fp, long OnContactAddedFull_custom_fp, long OnContactPersisted_custom_fp, long OnContactPersistedFull_custom_fp, long OnContactRemoved_custom_fp, long OnCharacterContactAdded_custom_fp, long OnCharacterContactAddedFull_custom_fp, long OnCharacterContactPersisted_custom_fp, long OnCharacterContactPersistedFull_custom_fp, long OnCharacterContactRemoved_custom_fp, long OnContactSolve_custom_fp, long OnCharacterContactSolve_custom_fp) {
         try {
-            FFMHandles.internal_native_setupCallback__JJJJJJJJJJJJ.invokeExact(this_addr, OnAdjustBodyVelocity_custom_fp, OnContactValidate_custom_fp, OnCharacterContactValidate_custom_fp, OnContactAdded_custom_fp, OnContactPersisted_custom_fp, OnContactRemoved_custom_fp, OnCharacterContactAdded_custom_fp, OnCharacterContactPersisted_custom_fp, OnCharacterContactRemoved_custom_fp, OnContactSolve_custom_fp, OnCharacterContactSolve_custom_fp);
+            FFMHandles.internal_native_setupCallback__JJJJJJJJJJJJJJJJJJ.invokeExact(this_addr, OnAdjustBodyVelocity_custom_fp, OnContactValidate_custom_fp, OnContactValidateFull_custom_fp, OnCharacterContactValidate_custom_fp, OnCharacterContactValidateFull_custom_fp, OnContactAdded_custom_fp, OnContactAddedFull_custom_fp, OnContactPersisted_custom_fp, OnContactPersistedFull_custom_fp, OnContactRemoved_custom_fp, OnCharacterContactAdded_custom_fp, OnCharacterContactAddedFull_custom_fp, OnCharacterContactPersisted_custom_fp, OnCharacterContactPersistedFull_custom_fp, OnCharacterContactRemoved_custom_fp, OnContactSolve_custom_fp, OnCharacterContactSolve_custom_fp);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -834,52 +1156,76 @@ public class CharacterContactListener extends NativeObject {
 
         static final java.lang.invoke.MethodHandle internal_native_deleteNative__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_character_charactercontactlistener_deletenative", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG));
 
-        static final java.lang.invoke.MethodHandle internal_native_get_OnAdjustBodyVelocity__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_physics_character_charactercontactlistener_get_onadjustbodyvelocity", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.JAVA_LONG));
+        static final java.lang.invoke.MethodHandle internal_native_get_OnAdjustBodyVelocity__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_character_charactercontactlistener_get_onadjustbodyvelocity", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.JAVA_LONG));
 
-        static final java.lang.invoke.MethodHandle internal_native_set_OnAdjustBodyVelocity__JZ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_physics_character_charactercontactlistener_set_onadjustbodyvelocity", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_BOOLEAN));
+        static final java.lang.invoke.MethodHandle internal_native_set_OnAdjustBodyVelocity__JZ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_character_charactercontactlistener_set_onadjustbodyvelocity", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_BOOLEAN));
 
-        static final java.lang.invoke.MethodHandle internal_native_get_OnContactValidate__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_physics_character_charactercontactlistener_get_oncontactvalidate", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.JAVA_LONG));
+        static final java.lang.invoke.MethodHandle internal_native_get_OnContactValidate__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_character_charactercontactlistener_get_oncontactvalidate", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.JAVA_LONG));
 
-        static final java.lang.invoke.MethodHandle internal_native_set_OnContactValidate__JZ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_physics_character_charactercontactlistener_set_oncontactvalidate", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_BOOLEAN));
+        static final java.lang.invoke.MethodHandle internal_native_set_OnContactValidate__JZ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_character_charactercontactlistener_set_oncontactvalidate", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_BOOLEAN));
 
-        static final java.lang.invoke.MethodHandle internal_native_get_OnCharacterContactValidate__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_physics_character_charactercontactlistener_get_oncharactercontactvalidate", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.JAVA_LONG));
+        static final java.lang.invoke.MethodHandle internal_native_get_OnContactValidateFull__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_character_charactercontactlistener_get_oncontactvalidatefull", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.JAVA_LONG));
 
-        static final java.lang.invoke.MethodHandle internal_native_set_OnCharacterContactValidate__JZ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_physics_character_charactercontactlistener_set_oncharactercontactvalidate", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_BOOLEAN));
+        static final java.lang.invoke.MethodHandle internal_native_set_OnContactValidateFull__JZ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_character_charactercontactlistener_set_oncontactvalidatefull", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_BOOLEAN));
 
-        static final java.lang.invoke.MethodHandle internal_native_get_OnContactAdded__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_physics_character_charactercontactlistener_get_oncontactadded", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.JAVA_LONG));
+        static final java.lang.invoke.MethodHandle internal_native_get_OnCharacterContactValidate__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_character_charactercontactlistener_get_oncharactercontactvalidate", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.JAVA_LONG));
 
-        static final java.lang.invoke.MethodHandle internal_native_set_OnContactAdded__JZ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_physics_character_charactercontactlistener_set_oncontactadded", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_BOOLEAN));
+        static final java.lang.invoke.MethodHandle internal_native_set_OnCharacterContactValidate__JZ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_character_charactercontactlistener_set_oncharactercontactvalidate", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_BOOLEAN));
 
-        static final java.lang.invoke.MethodHandle internal_native_get_OnContactPersisted__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_physics_character_charactercontactlistener_get_oncontactpersisted", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.JAVA_LONG));
+        static final java.lang.invoke.MethodHandle internal_native_get_OnCharacterContactValidateFull__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_character_charactercontactlistener_get_oncharactercontactvalidatefull", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.JAVA_LONG));
 
-        static final java.lang.invoke.MethodHandle internal_native_set_OnContactPersisted__JZ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_physics_character_charactercontactlistener_set_oncontactpersisted", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_BOOLEAN));
+        static final java.lang.invoke.MethodHandle internal_native_set_OnCharacterContactValidateFull__JZ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_character_charactercontactlistener_set_oncharactercontactvalidatefull", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_BOOLEAN));
 
-        static final java.lang.invoke.MethodHandle internal_native_get_OnContactRemoved__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_physics_character_charactercontactlistener_get_oncontactremoved", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.JAVA_LONG));
+        static final java.lang.invoke.MethodHandle internal_native_get_OnContactAdded__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_character_charactercontactlistener_get_oncontactadded", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.JAVA_LONG));
 
-        static final java.lang.invoke.MethodHandle internal_native_set_OnContactRemoved__JZ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_physics_character_charactercontactlistener_set_oncontactremoved", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_BOOLEAN));
+        static final java.lang.invoke.MethodHandle internal_native_set_OnContactAdded__JZ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_character_charactercontactlistener_set_oncontactadded", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_BOOLEAN));
 
-        static final java.lang.invoke.MethodHandle internal_native_get_OnCharacterContactAdded__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_physics_character_charactercontactlistener_get_oncharactercontactadded", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.JAVA_LONG));
+        static final java.lang.invoke.MethodHandle internal_native_get_OnContactAddedFull__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_character_charactercontactlistener_get_oncontactaddedfull", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.JAVA_LONG));
 
-        static final java.lang.invoke.MethodHandle internal_native_set_OnCharacterContactAdded__JZ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_physics_character_charactercontactlistener_set_oncharactercontactadded", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_BOOLEAN));
+        static final java.lang.invoke.MethodHandle internal_native_set_OnContactAddedFull__JZ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_character_charactercontactlistener_set_oncontactaddedfull", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_BOOLEAN));
 
-        static final java.lang.invoke.MethodHandle internal_native_get_OnCharacterContactPersisted__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_physics_character_charactercontactlistener_get_oncharactercontactpersisted", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.JAVA_LONG));
+        static final java.lang.invoke.MethodHandle internal_native_get_OnContactPersisted__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_character_charactercontactlistener_get_oncontactpersisted", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.JAVA_LONG));
 
-        static final java.lang.invoke.MethodHandle internal_native_set_OnCharacterContactPersisted__JZ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_physics_character_charactercontactlistener_set_oncharactercontactpersisted", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_BOOLEAN));
+        static final java.lang.invoke.MethodHandle internal_native_set_OnContactPersisted__JZ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_character_charactercontactlistener_set_oncontactpersisted", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_BOOLEAN));
 
-        static final java.lang.invoke.MethodHandle internal_native_get_OnCharacterContactRemoved__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_physics_character_charactercontactlistener_get_oncharactercontactremoved", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.JAVA_LONG));
+        static final java.lang.invoke.MethodHandle internal_native_get_OnContactPersistedFull__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_character_charactercontactlistener_get_oncontactpersistedfull", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.JAVA_LONG));
 
-        static final java.lang.invoke.MethodHandle internal_native_set_OnCharacterContactRemoved__JZ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_physics_character_charactercontactlistener_set_oncharactercontactremoved", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_BOOLEAN));
+        static final java.lang.invoke.MethodHandle internal_native_set_OnContactPersistedFull__JZ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_character_charactercontactlistener_set_oncontactpersistedfull", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_BOOLEAN));
 
-        static final java.lang.invoke.MethodHandle internal_native_get_OnContactSolve__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_physics_character_charactercontactlistener_get_oncontactsolve", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.JAVA_LONG));
+        static final java.lang.invoke.MethodHandle internal_native_get_OnContactRemoved__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_character_charactercontactlistener_get_oncontactremoved", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.JAVA_LONG));
 
-        static final java.lang.invoke.MethodHandle internal_native_set_OnContactSolve__JZ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_physics_character_charactercontactlistener_set_oncontactsolve", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_BOOLEAN));
+        static final java.lang.invoke.MethodHandle internal_native_set_OnContactRemoved__JZ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_character_charactercontactlistener_set_oncontactremoved", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_BOOLEAN));
 
-        static final java.lang.invoke.MethodHandle internal_native_get_OnCharacterContactSolve__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_physics_character_charactercontactlistener_get_oncharactercontactsolve", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.JAVA_LONG));
+        static final java.lang.invoke.MethodHandle internal_native_get_OnCharacterContactAdded__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_character_charactercontactlistener_get_oncharactercontactadded", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.JAVA_LONG));
 
-        static final java.lang.invoke.MethodHandle internal_native_set_OnCharacterContactSolve__JZ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_physics_character_charactercontactlistener_set_oncharactercontactsolve", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_BOOLEAN));
+        static final java.lang.invoke.MethodHandle internal_native_set_OnCharacterContactAdded__JZ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_character_charactercontactlistener_set_oncharactercontactadded", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_BOOLEAN));
 
-        static final java.lang.invoke.MethodHandle internal_native_create_addr__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_physics_character_charactercontactlistener_create_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG));
+        static final java.lang.invoke.MethodHandle internal_native_get_OnCharacterContactAddedFull__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_character_charactercontactlistener_get_oncharactercontactaddedfull", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.JAVA_LONG));
 
-        static final java.lang.invoke.MethodHandle internal_native_setupCallback__JJJJJJJJJJJJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_character_charactercontactlistener_setupcallback", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+        static final java.lang.invoke.MethodHandle internal_native_set_OnCharacterContactAddedFull__JZ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_character_charactercontactlistener_set_oncharactercontactaddedfull", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_BOOLEAN));
+
+        static final java.lang.invoke.MethodHandle internal_native_get_OnCharacterContactPersisted__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_character_charactercontactlistener_get_oncharactercontactpersisted", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_set_OnCharacterContactPersisted__JZ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_character_charactercontactlistener_set_oncharactercontactpersisted", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_BOOLEAN));
+
+        static final java.lang.invoke.MethodHandle internal_native_get_OnCharacterContactPersistedFull__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_character_charactercontactlistener_get_oncharactercontactpersistedfull", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_set_OnCharacterContactPersistedFull__JZ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_character_charactercontactlistener_set_oncharactercontactpersistedfull", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_BOOLEAN));
+
+        static final java.lang.invoke.MethodHandle internal_native_get_OnCharacterContactRemoved__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_character_charactercontactlistener_get_oncharactercontactremoved", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_set_OnCharacterContactRemoved__JZ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_character_charactercontactlistener_set_oncharactercontactremoved", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_BOOLEAN));
+
+        static final java.lang.invoke.MethodHandle internal_native_get_OnContactSolve__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_character_charactercontactlistener_get_oncontactsolve", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_set_OnContactSolve__JZ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_character_charactercontactlistener_set_oncontactsolve", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_BOOLEAN));
+
+        static final java.lang.invoke.MethodHandle internal_native_get_OnCharacterContactSolve__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_character_charactercontactlistener_get_oncharactercontactsolve", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_set_OnCharacterContactSolve__JZ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_character_charactercontactlistener_set_oncharactercontactsolve", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_BOOLEAN));
+
+        static final java.lang.invoke.MethodHandle internal_native_create_addr__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_character_charactercontactlistener_create_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_setupCallback__JJJJJJJJJJJJJJJJJJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_character_charactercontactlistener_setupcallback", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
     }
 }

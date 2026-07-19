@@ -59,8 +59,8 @@ public enum EMotionQuality implements NativeEnum<EMotionQuality> {
 
     private static final class FFMHandles {
 
-        static final java.lang.invoke.MethodHandle EMotionQuality_Discrete_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_enums_emotionquality_emotionquality_discrete_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
+        static final java.lang.invoke.MethodHandle EMotionQuality_Discrete_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_enums_emotionquality_emotionquality_discrete_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
 
-        static final java.lang.invoke.MethodHandle EMotionQuality_LinearCast_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_enums_emotionquality_emotionquality_linearcast_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
+        static final java.lang.invoke.MethodHandle EMotionQuality_LinearCast_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_enums_emotionquality_emotionquality_linearcast_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
     }
 }

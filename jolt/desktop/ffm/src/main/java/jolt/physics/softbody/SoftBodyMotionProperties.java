@@ -7,6 +7,8 @@
 package jolt.physics.softbody;
 
 import jolt.physics.body.MotionProperties;
+import jolt.math.Quat;
+import jolt.math.Vec3;
 import jolt.physics.collision.PhysicsMaterialList;
 import jolt.geometry.AABox;
 import jolt.physics.body.Body;
@@ -29,6 +31,10 @@ public class SoftBodyMotionProperties extends MotionProperties {
     private ArraySoftBodyVertex ArraySoftBodyVertex_TEMP_GEN_0;
 
     private SoftBodyVertex SoftBodyVertex_TEMP_GEN_0;
+
+    private Quat Quat_TEMP_GEN_0;
+
+    private Vec3 Vec3_TEMP_GEN_0;
 
     private PhysicsMaterialList PhysicsMaterialList_TEMP_GEN_0;
 
@@ -116,6 +122,42 @@ public class SoftBodyMotionProperties extends MotionProperties {
     public static long internal_native_GetVertex_addr(long this_addr, int inIndex) {
         try {
             return (long) FFMHandles.internal_native_GetVertex_addr__JI.invokeExact(this_addr, inIndex);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public Quat GetRodRotation(int inIndex) {
+        long addr = internal_native_GetRodRotation_addr(native_address, inIndex);
+        if (addr == 0)
+            return Quat.NULL;
+        if (Quat_TEMP_GEN_0 == null)
+            Quat_TEMP_GEN_0 = Quat.native_new();
+        Quat_TEMP_GEN_0.internal_reset(addr, false);
+        return Quat_TEMP_GEN_0;
+    }
+
+    public static long internal_native_GetRodRotation_addr(long this_addr, int inIndex) {
+        try {
+            return (long) FFMHandles.internal_native_GetRodRotation_addr__JI.invokeExact(this_addr, inIndex);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public Vec3 GetRodAngularVelocity(int inIndex) {
+        long addr = internal_native_GetRodAngularVelocity_addr(native_address, inIndex);
+        if (addr == 0)
+            return Vec3.NULL;
+        if (Vec3_TEMP_GEN_0 == null)
+            Vec3_TEMP_GEN_0 = Vec3.native_new();
+        Vec3_TEMP_GEN_0.internal_reset(addr, false);
+        return Vec3_TEMP_GEN_0;
+    }
+
+    public static long internal_native_GetRodAngularVelocity_addr(long this_addr, int inIndex) {
+        try {
+            return (long) FFMHandles.internal_native_GetRodAngularVelocity_addr__JI.invokeExact(this_addr, inIndex);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -295,6 +337,30 @@ public class SoftBodyMotionProperties extends MotionProperties {
         }
     }
 
+    public float GetVertexRadius() {
+        return internal_native_GetVertexRadius(native_address);
+    }
+
+    public static float internal_native_GetVertexRadius(long this_addr) {
+        try {
+            return (float) FFMHandles.internal_native_GetVertexRadius__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void SetVertexRadius(float inVertexRadius) {
+        internal_native_SetVertexRadius(native_address, inVertexRadius);
+    }
+
+    public static void internal_native_SetVertexRadius(long this_addr, float inVertexRadius) {
+        try {
+            FFMHandles.internal_native_SetVertexRadius__JF.invokeExact(this_addr, inVertexRadius);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
     public AABox GetLocalBounds() {
         long addr = internal_native_GetLocalBounds_addr(native_address);
         if (addr == 0)
@@ -341,17 +407,21 @@ public class SoftBodyMotionProperties extends MotionProperties {
 
         static final java.lang.invoke.MethodHandle internal_native_deleteNative__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_softbody_softbodymotionproperties_deletenative", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG));
 
-        static final java.lang.invoke.MethodHandle internal_native_GetSettings_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_physics_softbody_softbodymotionproperties_getsettings_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+        static final java.lang.invoke.MethodHandle internal_native_GetSettings_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_softbody_softbodymotionproperties_getsettings_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
 
-        static final java.lang.invoke.MethodHandle internal_native_GetVertices_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_physics_softbody_softbodymotionproperties_getvertices_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+        static final java.lang.invoke.MethodHandle internal_native_GetVertices_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_softbody_softbodymotionproperties_getvertices_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
 
-        static final java.lang.invoke.MethodHandle internal_native_GetVertex_addr__JI = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_physics_softbody_softbodymotionproperties_getvertex_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT));
+        static final java.lang.invoke.MethodHandle internal_native_GetVertex_addr__JI = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_softbody_softbodymotionproperties_getvertex_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT));
 
-        static final java.lang.invoke.MethodHandle internal_native_GetMaterials_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_physics_softbody_softbodymotionproperties_getmaterials_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+        static final java.lang.invoke.MethodHandle internal_native_GetRodRotation_addr__JI = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_softbody_softbodymotionproperties_getrodrotation_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT));
 
-        static final java.lang.invoke.MethodHandle internal_native_GetFaces_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_physics_softbody_softbodymotionproperties_getfaces_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+        static final java.lang.invoke.MethodHandle internal_native_GetRodAngularVelocity_addr__JI = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_softbody_softbodymotionproperties_getrodangularvelocity_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT));
 
-        static final java.lang.invoke.MethodHandle internal_native_GetFace_addr__JI = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_physics_softbody_softbodymotionproperties_getface_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT));
+        static final java.lang.invoke.MethodHandle internal_native_GetMaterials_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_softbody_softbodymotionproperties_getmaterials_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_GetFaces_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_softbody_softbodymotionproperties_getfaces_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_GetFace_addr__JI = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_softbody_softbodymotionproperties_getface_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT));
 
         static final java.lang.invoke.MethodHandle internal_native_GetNumIterations__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_softbody_softbodymotionproperties_getnumiterations", FunctionDescriptor.of(ValueLayout.JAVA_INT, ValueLayout.JAVA_LONG));
 
@@ -373,7 +443,11 @@ public class SoftBodyMotionProperties extends MotionProperties {
 
         static final java.lang.invoke.MethodHandle internal_native_SetSkinnedMaxDistanceMultiplier__JF = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_softbody_softbodymotionproperties_setskinnedmaxdistancemultiplier", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_FLOAT));
 
-        static final java.lang.invoke.MethodHandle internal_native_GetLocalBounds_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_physics_softbody_softbodymotionproperties_getlocalbounds_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+        static final java.lang.invoke.MethodHandle internal_native_GetVertexRadius__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_softbody_softbodymotionproperties_getvertexradius", FunctionDescriptor.of(ValueLayout.JAVA_FLOAT, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_SetVertexRadius__JF = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_softbody_softbodymotionproperties_setvertexradius", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_FLOAT));
+
+        static final java.lang.invoke.MethodHandle internal_native_GetLocalBounds_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_softbody_softbodymotionproperties_getlocalbounds_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
 
         static final java.lang.invoke.MethodHandle internal_native_CustomUpdate__JFJJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_softbody_softbodymotionproperties_customupdate", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_FLOAT, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
 

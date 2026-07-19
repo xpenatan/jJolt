@@ -7,18 +7,25 @@
 package gen.web.jolt.physics.collision;
 
 import gen.web.com.github.xpenatan.jParser.api.NativeObject;
+import gen.web.jolt.physics.body.Body;
+import gen.web.jolt.physics.collision.shape.Shape;
+import gen.web.jolt.physics.collision.shape.SubShapeID;
 
 public class SimShapeFilter extends NativeObject {
 
+    static private Body Body_TEMP_STATIC_GEN_0;
+
+    static private Shape Shape_TEMP_STATIC_GEN_0;
+
+    static private SubShapeID SubShapeID_TEMP_STATIC_GEN_0;
+
+    static private Body Body_TEMP_STATIC_GEN_1;
+
+    static private Shape Shape_TEMP_STATIC_GEN_1;
+
+    static private SubShapeID SubShapeID_TEMP_STATIC_GEN_1;
+
     static public final SimShapeFilter NULL = SimShapeFilter.native_new();
-
-    public SimShapeFilter() {
-        int addr = internal_native_create_addr();
-        internal_reset(addr, true);
-    }
-
-    @org.teavm.jso.JSBody(script = "var jsObj = new jolt.SimShapeFilter();return jolt.getPointer(jsObj);")
-    public static native int internal_native_create_addr();
 
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
@@ -38,6 +45,60 @@ public class SimShapeFilter extends NativeObject {
         internal_native_deleteNative(native_address);
     }
 
-    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.SimShapeFilter);jolt.destroy(jsObj);")
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.SimShapeFilterJS);jolt.destroy(jsObj);")
     public static native void internal_native_deleteNative(int this_addr);
+
+    public SimShapeFilter() {
+        int addr = internal_native_create_addr();
+        internal_reset(addr, true);
+        setupCallback();
+    }
+
+    private void setupCallback() {
+        ShouldCollide ShouldCollide = new ShouldCollide() {
+
+            public boolean ShouldCollide(int inBody1_addr, int inShape1_addr, int inSubShapeIDOfShape1_addr, int inBody2_addr, int inShape2_addr, int inSubShapeIDOfShape2_addr) {
+                return internal_ShouldCollide(inBody1_addr, inShape1_addr, inSubShapeIDOfShape1_addr, inBody2_addr, inShape2_addr, inSubShapeIDOfShape2_addr);
+            }
+        };
+        internal_native_setupCallback(native_address, ShouldCollide);
+    }
+
+    protected boolean ShouldCollide(Body inBody1, Shape inShape1, SubShapeID inSubShapeIDOfShape1, Body inBody2, Shape inShape2, SubShapeID inSubShapeIDOfShape2) {
+        return false;
+    }
+
+    private boolean internal_ShouldCollide(int inBody1_addr, int inShape1_addr, int inSubShapeIDOfShape1_addr, int inBody2_addr, int inShape2_addr, int inSubShapeIDOfShape2_addr) {
+        if (Body_TEMP_STATIC_GEN_0 == null)
+            Body_TEMP_STATIC_GEN_0 = Body.native_new();
+        Body_TEMP_STATIC_GEN_0.internal_reset(inBody1_addr, false);
+        if (Shape_TEMP_STATIC_GEN_0 == null)
+            Shape_TEMP_STATIC_GEN_0 = Shape.native_new();
+        Shape_TEMP_STATIC_GEN_0.internal_reset(inShape1_addr, false);
+        if (SubShapeID_TEMP_STATIC_GEN_0 == null)
+            SubShapeID_TEMP_STATIC_GEN_0 = SubShapeID.native_new();
+        SubShapeID_TEMP_STATIC_GEN_0.internal_reset(inSubShapeIDOfShape1_addr, false);
+        if (Body_TEMP_STATIC_GEN_1 == null)
+            Body_TEMP_STATIC_GEN_1 = Body.native_new();
+        Body_TEMP_STATIC_GEN_1.internal_reset(inBody2_addr, false);
+        if (Shape_TEMP_STATIC_GEN_1 == null)
+            Shape_TEMP_STATIC_GEN_1 = Shape.native_new();
+        Shape_TEMP_STATIC_GEN_1.internal_reset(inShape2_addr, false);
+        if (SubShapeID_TEMP_STATIC_GEN_1 == null)
+            SubShapeID_TEMP_STATIC_GEN_1 = SubShapeID.native_new();
+        SubShapeID_TEMP_STATIC_GEN_1.internal_reset(inSubShapeIDOfShape2_addr, false);
+        return ShouldCollide(Body_TEMP_STATIC_GEN_0, Shape_TEMP_STATIC_GEN_0, SubShapeID_TEMP_STATIC_GEN_0, Body_TEMP_STATIC_GEN_1, Shape_TEMP_STATIC_GEN_1, SubShapeID_TEMP_STATIC_GEN_1);
+    }
+
+    @org.teavm.jso.JSBody(script = "var jsObj = new jolt.SimShapeFilterJS();return jolt.getPointer(jsObj);")
+    public static native int internal_native_create_addr();
+
+    @org.teavm.jso.JSBody(params = { "this_addr", "ShouldCollide" }, script = "var SimShapeFilterJS = jolt.wrapPointer(this_addr, jolt.SimShapeFilterJS); SimShapeFilterJS.ShouldCollide = ShouldCollide;")
+    public static native void internal_native_setupCallback(int this_addr, ShouldCollide ShouldCollide);
+
+    @org.teavm.jso.JSFunctor()
+    public interface ShouldCollide extends org.teavm.jso.JSObject {
+
+        boolean ShouldCollide(int inBody1_addr, int inShape1_addr, int inSubShapeIDOfShape1_addr, int inBody2_addr, int inShape2_addr, int inSubShapeIDOfShape2_addr);
+    }
 }

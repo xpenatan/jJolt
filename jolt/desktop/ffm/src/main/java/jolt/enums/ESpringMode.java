@@ -17,7 +17,7 @@ import java.lang.invoke.MethodHandle;
 
 public enum ESpringMode implements NativeEnum<ESpringMode> {
 
-    CUSTOM(0), FrequencyAndDamping(ESpringMode_FrequencyAndDamping_NATIVE()), StiffnessAndDamping(ESpringMode_StiffnessAndDamping_NATIVE());
+    CUSTOM(0), FrequencyAndDamping(ESpringMode_FrequencyAndDamping_NATIVE()), StiffnessAndDamping(ESpringMode_StiffnessAndDamping_NATIVE()), MassNormalizedStiffnessAndDamping(ESpringMode_MassNormalizedStiffnessAndDamping_NATIVE());
 
     private int value;
 
@@ -57,10 +57,20 @@ public enum ESpringMode implements NativeEnum<ESpringMode> {
         }
     }
 
+    private static int ESpringMode_MassNormalizedStiffnessAndDamping_NATIVE() {
+        try {
+            return (int) FFMHandles.ESpringMode_MassNormalizedStiffnessAndDamping_NATIVE__.invokeExact();
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
     private static final class FFMHandles {
 
-        static final java.lang.invoke.MethodHandle ESpringMode_FrequencyAndDamping_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_enums_espringmode_espringmode_frequencyanddamping_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
+        static final java.lang.invoke.MethodHandle ESpringMode_FrequencyAndDamping_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_enums_espringmode_espringmode_frequencyanddamping_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
 
-        static final java.lang.invoke.MethodHandle ESpringMode_StiffnessAndDamping_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_enums_espringmode_espringmode_stiffnessanddamping_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
+        static final java.lang.invoke.MethodHandle ESpringMode_StiffnessAndDamping_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_enums_espringmode_espringmode_stiffnessanddamping_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
+
+        static final java.lang.invoke.MethodHandle ESpringMode_MassNormalizedStiffnessAndDamping_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_enums_espringmode_espringmode_massnormalizedstiffnessanddamping_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
     }
 }

@@ -10,6 +10,8 @@ import jolt.physics.softbody.*;
 
 final public class JNI_ArraySoftBodySharedSettingsEdge {
 
+    public static native long internal_native_create_addr();
+
     public static native void internal_native_deleteNative(long this_addr);
 
     public static native boolean internal_native_empty(long this_addr);

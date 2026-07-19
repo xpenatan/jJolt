@@ -37,6 +37,18 @@ public class MutableCompoundShape extends CompoundShape {
         return new MutableCompoundShape((byte) 0, (char) 0);
     }
 
+    public int AddShape(Vec3 inPosition, Quat inRotation, Shape inShape, int inUserData, int inIndex) {
+        return internal_native_AddShape(native_address, inPosition.native_address, inRotation.native_address, inShape.native_address, inUserData, inIndex);
+    }
+
+    public static int internal_native_AddShape(long this_addr, long inPosition_addr, long inRotation_addr, long inShape_addr, int inUserData, int inIndex) {
+        try {
+            return (int) FFMHandles.internal_native_AddShape__JJJJII.invokeExact(this_addr, inPosition_addr, inRotation_addr, inShape_addr, inUserData, inIndex);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
     public int AddShape(Vec3 inPosition, Quat inRotation, Shape inShape, int inUserData) {
         return internal_native_AddShape(native_address, inPosition.native_address, inRotation.native_address, inShape.native_address, inUserData);
     }
@@ -111,7 +123,9 @@ public class MutableCompoundShape extends CompoundShape {
 
     private static final class FFMHandles {
 
-        static final java.lang.invoke.MethodHandle internal_native_AddShape__JJJJI = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_collision_shape_mutablecompoundshape_addshape", FunctionDescriptor.of(ValueLayout.JAVA_INT, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT));
+        static final java.lang.invoke.MethodHandle internal_native_AddShape__JJJJII = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_collision_shape_mutablecompoundshape_addshape_l_l_l_l_i_i", FunctionDescriptor.of(ValueLayout.JAVA_INT, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT, ValueLayout.JAVA_INT));
+
+        static final java.lang.invoke.MethodHandle internal_native_AddShape__JJJJI = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_collision_shape_mutablecompoundshape_addshape_l_l_l_l_i", FunctionDescriptor.of(ValueLayout.JAVA_INT, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT));
 
         static final java.lang.invoke.MethodHandle internal_native_RemoveShape__JI = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_collision_shape_mutablecompoundshape_removeshape", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT));
 

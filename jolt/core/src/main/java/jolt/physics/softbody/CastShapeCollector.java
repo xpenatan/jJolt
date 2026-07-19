@@ -33,6 +33,9 @@ public class CastShapeCollector extends NativeObject {
         return new CastShapeCollector((byte) 0, (char) 0);
     }
 
+    public void ResetNative() {
+    }
+
     public void SetContext(TransformedShape inContext) {
     }
 

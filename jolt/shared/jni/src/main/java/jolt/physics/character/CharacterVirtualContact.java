@@ -312,19 +312,19 @@ public class CharacterVirtualContact extends NativeObject {
         jolt.physics.character.natives.JNI_CharacterVirtualContact.internal_native_set_mCharacterB(this_addr, mCharacterB_addr);
     }
 
-    public long get_mUserData() {
+    public int get_mUserData() {
         return internal_native_get_mUserData(native_address);
     }
 
-    public static long internal_native_get_mUserData(long this_addr) {
+    public static int internal_native_get_mUserData(long this_addr) {
         return jolt.physics.character.natives.JNI_CharacterVirtualContact.internal_native_get_mUserData(this_addr);
     }
 
-    public void set_mUserData(long mUserData) {
+    public void set_mUserData(int mUserData) {
         internal_native_set_mUserData(native_address, mUserData);
     }
 
-    public static void internal_native_set_mUserData(long this_addr, long mUserData) {
+    public static void internal_native_set_mUserData(long this_addr, int mUserData) {
         jolt.physics.character.natives.JNI_CharacterVirtualContact.internal_native_set_mUserData(this_addr, mUserData);
     }
 
@@ -396,5 +396,21 @@ public class CharacterVirtualContact extends NativeObject {
 
     public static void internal_native_set_mCanPushCharacter(long this_addr, boolean mCanPushCharacter) {
         jolt.physics.character.natives.JNI_CharacterVirtualContact.internal_native_set_mCanPushCharacter(this_addr, mCanPushCharacter);
+    }
+
+    public boolean get_mIsBackFacingContact() {
+        return internal_native_get_mIsBackFacingContact(native_address);
+    }
+
+    public static boolean internal_native_get_mIsBackFacingContact(long this_addr) {
+        return jolt.physics.character.natives.JNI_CharacterVirtualContact.internal_native_get_mIsBackFacingContact(this_addr);
+    }
+
+    public void set_mIsBackFacingContact(boolean mIsBackFacingContact) {
+        internal_native_set_mIsBackFacingContact(native_address, mIsBackFacingContact);
+    }
+
+    public static void internal_native_set_mIsBackFacingContact(long this_addr, boolean mIsBackFacingContact) {
+        jolt.physics.character.natives.JNI_CharacterVirtualContact.internal_native_set_mIsBackFacingContact(this_addr, mIsBackFacingContact);
     }
 }

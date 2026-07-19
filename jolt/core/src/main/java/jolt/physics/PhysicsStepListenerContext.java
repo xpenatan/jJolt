@@ -46,4 +46,11 @@ public class PhysicsStepListenerContext extends NativeObject {
 
     public void set_mIsLastStep(boolean mIsLastStep) {
     }
+
+    public PhysicsSystem get_mPhysicsSystem() {
+        return null;
+    }
+
+    public void set_mPhysicsSystem(PhysicsSystem mPhysicsSystem) {
+    }
 }

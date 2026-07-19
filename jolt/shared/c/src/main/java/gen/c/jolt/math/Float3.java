@@ -41,6 +41,20 @@ public class Float3 extends NativeObject {
     @org.teavm.interop.Import(name = "jolt_math_float3_deletenative")
     public static native void internal_native_deleteNative(long this_addr);
 
+    public boolean Equals(Float3 inV) {
+        return internal_native_Equals(native_address, inV.native_address);
+    }
+
+    @org.teavm.interop.Import(name = "jolt_math_float3_equals")
+    public static native boolean internal_native_Equals(long this_addr, long inV_addr);
+
+    public boolean NotEquals(Float3 inV) {
+        return internal_native_NotEquals(native_address, inV.native_address);
+    }
+
+    @org.teavm.interop.Import(name = "jolt_math_float3_notequals")
+    public static native boolean internal_native_NotEquals(long this_addr, long inV_addr);
+
     public float get_x() {
         return internal_native_get_x(native_address);
     }

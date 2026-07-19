@@ -267,6 +267,22 @@ public class PhysicsSettings extends NativeObject {
         jolt.physics.natives.JNI_PhysicsSettings.internal_native_set_mContactPointPreserveLambdaMaxDistSq(this_addr, mContactPointPreserveLambdaMaxDistSq);
     }
 
+    public float get_mInternalEdgeRemovalVertexToleranceSq() {
+        return internal_native_get_mInternalEdgeRemovalVertexToleranceSq(native_address);
+    }
+
+    public static float internal_native_get_mInternalEdgeRemovalVertexToleranceSq(long this_addr) {
+        return jolt.physics.natives.JNI_PhysicsSettings.internal_native_get_mInternalEdgeRemovalVertexToleranceSq(this_addr);
+    }
+
+    public void set_mInternalEdgeRemovalVertexToleranceSq(float mInternalEdgeRemovalVertexToleranceSq) {
+        internal_native_set_mInternalEdgeRemovalVertexToleranceSq(native_address, mInternalEdgeRemovalVertexToleranceSq);
+    }
+
+    public static void internal_native_set_mInternalEdgeRemovalVertexToleranceSq(long this_addr, float mInternalEdgeRemovalVertexToleranceSq) {
+        jolt.physics.natives.JNI_PhysicsSettings.internal_native_set_mInternalEdgeRemovalVertexToleranceSq(this_addr, mInternalEdgeRemovalVertexToleranceSq);
+    }
+
     public int get_mNumVelocitySteps() {
         return internal_native_get_mNumVelocitySteps(native_address);
     }

@@ -44,6 +44,20 @@ public class ShapeCastSettings extends CollideSettingsBase {
     @org.teavm.interop.Import(name = "jolt_physics_collision_shape_shapecastsettings_deletenative")
     public static native void internal_native_deleteNative(long this_addr);
 
+    public float get_mExtraConvexRadius() {
+        return internal_native_get_mExtraConvexRadius(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "jolt_physics_collision_shape_shapecastsettings_get_mextraconvexradius")
+    public static native float internal_native_get_mExtraConvexRadius(long this_addr);
+
+    public void set_mExtraConvexRadius(float mExtraConvexRadius) {
+        internal_native_set_mExtraConvexRadius(native_address, mExtraConvexRadius);
+    }
+
+    @org.teavm.interop.Import(name = "jolt_physics_collision_shape_shapecastsettings_set_mextraconvexradius")
+    public static native void internal_native_set_mExtraConvexRadius(long this_addr, float mExtraConvexRadius);
+
     public EBackFaceMode get_mBackFaceModeTriangles() {
         int value = internal_native_get_mBackFaceModeTriangles(native_address);
         EBackFaceMode[] values = EBackFaceMode.values();

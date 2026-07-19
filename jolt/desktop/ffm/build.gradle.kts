@@ -38,6 +38,13 @@ dependencies {
     implementation("com.github.xpenatan.jParser:runtime-desktop-ffm_mac_arm64:${LibExt.jParserVersion}")
     implementation("com.github.xpenatan.jParser:api-core:${LibExt.jParserVersion}")
     implementation("com.github.xpenatan.jParser:loader-core:${LibExt.jParserVersion}")
+    testImplementation("junit:junit:${LibExt.jUnitVersion}")
+}
+
+sourceSets {
+    test {
+        java.srcDir(file("../../tests/src/test/java"))
+    }
 }
 
 val platforms: MutableMap<String, Jar.() -> Unit> = mutableMapOf()
@@ -85,8 +92,28 @@ tasks.named<Jar>("jar") {
     // For in-repo project dependencies, keep classes and native payload in the same jar.
     // During publishing, keep main desktop-ffm artifact classes-only.
     if(!isPublishingTask) {
-        from(nativeFiles)
+        from(provider {
+            listOf(
+                "$libDir/windows/vc/ffm/jolt64.dll", "$libDir/windows/vc/jolt64.dll",
+                "$libDir/linux/ffm/libjolt64.so", "$libDir/linux/libjolt64.so",
+                "$libDir/mac/arm/ffm/libjoltarm64.dylib", "$libDir/mac/arm/libjoltarm64.dylib",
+                "$libDir/mac/ffm/libjolt64.dylib", "$libDir/mac/libjolt64.dylib"
+            ).map(::file).filter { it.exists() }
+        })
     }
+}
+
+val hostFfmBuildTask = when {
+    System.getProperty("os.name").lowercase().contains("win") -> ":jolt:builder:jParser_build_windows64_ffm"
+    System.getProperty("os.name").lowercase().contains("mac") && System.getProperty("os.arch").lowercase().contains("aarch64") -> ":jolt:builder:jParser_build_macArm_ffm"
+    System.getProperty("os.name").lowercase().contains("mac") -> ":jolt:builder:jParser_build_mac64_ffm"
+    else -> ":jolt:builder:jParser_build_linux64_ffm"
+}
+
+tasks.test {
+    dependsOn(hostFfmBuildTask, tasks.jar)
+    classpath = files(tasks.jar) + classpath
+    jvmArgs("--enable-native-access=ALL-UNNAMED")
 }
 
 val nativeRuntime by configurations.creating {

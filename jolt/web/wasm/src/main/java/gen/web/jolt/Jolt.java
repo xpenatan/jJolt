@@ -8,8 +8,12 @@ package gen.web.jolt;
 
 import gen.web.com.github.xpenatan.jParser.api.NativeObject;
 import gen.web.jolt.physics.PhysicsSystem;
+import gen.web.jolt.physics.character.CharacterVirtual;
+import gen.web.jolt.physics.character.CharacterContactListener;
 
 public class Jolt extends NativeObject {
+
+    static private CharacterContactListener CharacterContactListener_TEMP_STATIC_GEN_0;
 
     static public final Jolt NULL = Jolt.native_new();
 
@@ -27,6 +31,7 @@ public class Jolt extends NativeObject {
         return new Jolt((byte) 0, (char) 0);
     }
 
+    @Deprecated
     public static void Init() {
         internal_native_Init();
     }
@@ -34,6 +39,7 @@ public class Jolt extends NativeObject {
     @org.teavm.jso.JSBody(script = "jolt.Jolt.prototype.Init();")
     public static native void internal_native_Init();
 
+    @Deprecated
     public static void RegisterTypes() {
         internal_native_RegisterTypes();
     }
@@ -41,6 +47,7 @@ public class Jolt extends NativeObject {
     @org.teavm.jso.JSBody(script = "jolt.Jolt.prototype.RegisterTypes();")
     public static native void internal_native_RegisterTypes();
 
+    @Deprecated
     public static void UnregisterTypes() {
         internal_native_UnregisterTypes();
     }
@@ -54,4 +61,17 @@ public class Jolt extends NativeObject {
 
     @org.teavm.jso.JSBody(params = {"physicsSystem_addr"}, script = "jolt.Jolt.prototype.ClearWorld(physicsSystem_addr);")
     public static native void internal_native_ClearWorld(int physicsSystem_addr);
+
+    public static CharacterContactListener GetCharacterContactListener(CharacterVirtual inCharacter) {
+        int addr = internal_native_GetCharacterContactListener_addr(inCharacter.native_address);
+        if (addr == 0)
+            return CharacterContactListener.NULL;
+        if (CharacterContactListener_TEMP_STATIC_GEN_0 == null)
+            CharacterContactListener_TEMP_STATIC_GEN_0 = CharacterContactListener.native_new();
+        CharacterContactListener_TEMP_STATIC_GEN_0.internal_reset(addr, false);
+        return CharacterContactListener_TEMP_STATIC_GEN_0;
+    }
+
+    @org.teavm.jso.JSBody(params = {"inCharacter_addr"}, script = "var returnedJSObj = jolt.Jolt.prototype.GetCharacterContactListener(inCharacter_addr);if(!returnedJSObj.hasOwnProperty('ptr')) return 0; return jolt.getPointer(returnedJSObj);")
+    public static native int internal_native_GetCharacterContactListener_addr(int inCharacter_addr);
 }

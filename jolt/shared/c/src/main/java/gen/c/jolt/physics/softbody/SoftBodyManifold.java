@@ -20,6 +20,8 @@ public class SoftBodyManifold extends NativeObject {
 
     private BodyID BodyID_TEMP_GEN_0;
 
+    private BodyID BodyID_TEMP_GEN_1;
+
     static public final SoftBodyManifold NULL = SoftBodyManifold.native_new();
 
     /**
@@ -101,4 +103,24 @@ public class SoftBodyManifold extends NativeObject {
 
     @org.teavm.interop.Import(name = "jolt_physics_softbody_softbodymanifold_getcontactbodyid_addr")
     public static native long internal_native_GetContactBodyID_addr(long this_addr, long inVertex_addr);
+
+    public int GetNumSensorContacts() {
+        return internal_native_GetNumSensorContacts(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "jolt_physics_softbody_softbodymanifold_getnumsensorcontacts")
+    public static native int internal_native_GetNumSensorContacts(long this_addr);
+
+    public BodyID GetSensorContactBodyID(int inIndex) {
+        long addr = internal_native_GetSensorContactBodyID_addr(native_address, inIndex);
+        if (addr == 0)
+            return BodyID.NULL;
+        if (BodyID_TEMP_GEN_1 == null)
+            BodyID_TEMP_GEN_1 = BodyID.native_new();
+        BodyID_TEMP_GEN_1.internal_reset(addr, false);
+        return BodyID_TEMP_GEN_1;
+    }
+
+    @org.teavm.interop.Import(name = "jolt_physics_softbody_softbodymanifold_getsensorcontactbodyid_addr")
+    public static native long internal_native_GetSensorContactBodyID_addr(long this_addr, int inIndex);
 }

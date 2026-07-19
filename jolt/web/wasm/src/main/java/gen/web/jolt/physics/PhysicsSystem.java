@@ -38,7 +38,7 @@ public class PhysicsSystem extends NativeObject {
 
     private AABox AABox_TEMP_GEN_0;
 
-    private NativeObject NativeObject_TEMP_GEN_0;
+    private ContactListener ContactListener_TEMP_GEN_0;
 
     private SoftBodyContactListener SoftBodyContactListener_TEMP_GEN_0;
 
@@ -214,17 +214,17 @@ public class PhysicsSystem extends NativeObject {
     @org.teavm.jso.JSBody(params = {"this_addr", "inListener_addr"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.PhysicsSystem);jsObj.SetContactListener(inListener_addr);")
     public static native void internal_native_SetContactListener(int this_addr, int inListener_addr);
 
-    public NativeObject GetContactListener() {
+    public ContactListener GetContactListener() {
         int addr = internal_native_GetContactListener_addr(native_address);
         if (addr == 0)
-            return NativeObject.NULL;
-        if (NativeObject_TEMP_GEN_0 == null)
-            NativeObject_TEMP_GEN_0 = NativeObject.native_new();
-        NativeObject_TEMP_GEN_0.internal_reset(addr, false);
-        return NativeObject_TEMP_GEN_0;
+            return ContactListener.NULL;
+        if (ContactListener_TEMP_GEN_0 == null)
+            ContactListener_TEMP_GEN_0 = ContactListener.native_new();
+        ContactListener_TEMP_GEN_0.internal_reset(addr, false);
+        return ContactListener_TEMP_GEN_0;
     }
 
-    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.PhysicsSystem);var returnedJSObj = jsObj.GetContactListener();return returnedJSObj;")
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.PhysicsSystem);var returnedJSObj = jsObj.GetContactListener();if(!returnedJSObj.hasOwnProperty('ptr')) return 0; return jolt.getPointer(returnedJSObj);")
     public static native int internal_native_GetContactListener_addr(int this_addr);
 
     public void SetSoftBodyContactListener(SoftBodyContactListener inListener) {

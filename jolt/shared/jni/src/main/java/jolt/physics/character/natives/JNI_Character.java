@@ -10,7 +10,7 @@ import jolt.physics.character.*;
 
 final public class JNI_Character {
 
-    public static native long internal_native_create_CharacterSettings_RVec3_Quat_long_PhysicsSystem_addr(long inSettings_addr, long inPosition_addr, long inRotation_addr, long inUserData, long inSystem_addr);
+    public static native long internal_native_create_CharacterSettings_RVec3_Quat_int_PhysicsSystem_addr(long inSettings_addr, long inPosition_addr, long inRotation_addr, int inUserData, long inSystem_addr);
 
     public static native void internal_native_deleteNative(long this_addr);
 

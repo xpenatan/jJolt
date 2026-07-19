@@ -10,10 +10,6 @@ import com.github.xpenatan.jParser.api.NativeObject;
 
 public class BodyActivationListener extends NativeObject {
 
-    static private BodyID BodyID_TEMP_STATIC_GEN_0;
-
-    static private BodyID BodyID_TEMP_STATIC_GEN_1;
-
     static public final BodyActivationListener NULL = BodyActivationListener.native_new();
 
     /**
@@ -29,35 +25,4 @@ public class BodyActivationListener extends NativeObject {
     public static BodyActivationListener native_new() {
         return new BodyActivationListener((byte) 0, (char) 0);
     }
-
-    public BodyActivationListener() {
-        long addr = internal_native_create_addr();
-        internal_reset(addr, true);
-        setupCallback();
-    }
-
-    private void setupCallback() {
-    }
-
-    protected void OnBodyActivated(BodyID inBodyID, long inBodyUserData) {
-    }
-
-    private void internal_OnBodyActivated(long inBodyID_addr, long inBodyUserData) {
-        if (BodyID_TEMP_STATIC_GEN_0 == null)
-            BodyID_TEMP_STATIC_GEN_0 = BodyID.native_new();
-        BodyID_TEMP_STATIC_GEN_0.internal_reset(inBodyID_addr, false);
-        OnBodyActivated(BodyID_TEMP_STATIC_GEN_0, inBodyUserData);
-    }
-
-    protected void OnBodyDeactivated(BodyID inBodyID, long inBodyUserData) {
-    }
-
-    private void internal_OnBodyDeactivated(long inBodyID_addr, long inBodyUserData) {
-        if (BodyID_TEMP_STATIC_GEN_1 == null)
-            BodyID_TEMP_STATIC_GEN_1 = BodyID.native_new();
-        BodyID_TEMP_STATIC_GEN_1.internal_reset(inBodyID_addr, false);
-        OnBodyDeactivated(BodyID_TEMP_STATIC_GEN_1, inBodyUserData);
-    }
-
-    public static native long internal_native_create_addr();
 }

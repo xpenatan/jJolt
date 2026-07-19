@@ -59,8 +59,8 @@ public enum EBodyType implements NativeEnum<EBodyType> {
 
     private static final class FFMHandles {
 
-        static final java.lang.invoke.MethodHandle EBodyType_RigidBody_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_enums_ebodytype_ebodytype_rigidbody_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
+        static final java.lang.invoke.MethodHandle EBodyType_RigidBody_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_enums_ebodytype_ebodytype_rigidbody_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
 
-        static final java.lang.invoke.MethodHandle EBodyType_SoftBody_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_enums_ebodytype_ebodytype_softbody_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
+        static final java.lang.invoke.MethodHandle EBodyType_SoftBody_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_enums_ebodytype_ebodytype_softbody_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
     }
 }

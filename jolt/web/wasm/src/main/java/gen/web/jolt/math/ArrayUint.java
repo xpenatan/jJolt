@@ -14,6 +14,14 @@ public class ArrayUint extends NativeObject {
 
     static public final ArrayUint NULL = ArrayUint.native_new();
 
+    public ArrayUint() {
+        int addr = internal_native_create_addr();
+        internal_reset(addr, true);
+    }
+
+    @org.teavm.jso.JSBody(script = "var jsObj = new jolt.ArrayUint();return jolt.getPointer(jsObj);")
+    public static native int internal_native_create_addr();
+
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
      */

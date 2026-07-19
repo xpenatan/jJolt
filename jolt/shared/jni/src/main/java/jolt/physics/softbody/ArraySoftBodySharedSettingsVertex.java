@@ -14,6 +14,15 @@ public class ArraySoftBodySharedSettingsVertex extends NativeObject {
 
     static public final ArraySoftBodySharedSettingsVertex NULL = ArraySoftBodySharedSettingsVertex.native_new();
 
+    public ArraySoftBodySharedSettingsVertex() {
+        long addr = internal_native_create_addr();
+        internal_reset(addr, true);
+    }
+
+    public static long internal_native_create_addr() {
+        return jolt.physics.softbody.natives.JNI_ArraySoftBodySharedSettingsVertex.internal_native_create_addr();
+    }
+
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
      */

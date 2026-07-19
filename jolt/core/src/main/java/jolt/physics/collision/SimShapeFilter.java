@@ -7,13 +7,25 @@
 package jolt.physics.collision;
 
 import com.github.xpenatan.jParser.api.NativeObject;
+import jolt.physics.body.Body;
+import jolt.physics.collision.shape.Shape;
+import jolt.physics.collision.shape.SubShapeID;
 
 public class SimShapeFilter extends NativeObject {
 
-    static public final SimShapeFilter NULL = SimShapeFilter.native_new();
+    static private Body Body_TEMP_STATIC_GEN_0;
 
-    public SimShapeFilter() {
-    }
+    static private Shape Shape_TEMP_STATIC_GEN_0;
+
+    static private SubShapeID SubShapeID_TEMP_STATIC_GEN_0;
+
+    static private Body Body_TEMP_STATIC_GEN_1;
+
+    static private Shape Shape_TEMP_STATIC_GEN_1;
+
+    static private SubShapeID SubShapeID_TEMP_STATIC_GEN_1;
+
+    static public final SimShapeFilter NULL = SimShapeFilter.native_new();
 
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
@@ -28,4 +40,41 @@ public class SimShapeFilter extends NativeObject {
     public static SimShapeFilter native_new() {
         return new SimShapeFilter((byte) 0, (char) 0);
     }
+
+    public SimShapeFilter() {
+        long addr = internal_native_create_addr();
+        internal_reset(addr, true);
+        setupCallback();
+    }
+
+    private void setupCallback() {
+    }
+
+    protected boolean ShouldCollide(Body inBody1, Shape inShape1, SubShapeID inSubShapeIDOfShape1, Body inBody2, Shape inShape2, SubShapeID inSubShapeIDOfShape2) {
+        return false;
+    }
+
+    private boolean internal_ShouldCollide(long inBody1_addr, long inShape1_addr, long inSubShapeIDOfShape1_addr, long inBody2_addr, long inShape2_addr, long inSubShapeIDOfShape2_addr) {
+        if (Body_TEMP_STATIC_GEN_0 == null)
+            Body_TEMP_STATIC_GEN_0 = Body.native_new();
+        Body_TEMP_STATIC_GEN_0.internal_reset(inBody1_addr, false);
+        if (Shape_TEMP_STATIC_GEN_0 == null)
+            Shape_TEMP_STATIC_GEN_0 = Shape.native_new();
+        Shape_TEMP_STATIC_GEN_0.internal_reset(inShape1_addr, false);
+        if (SubShapeID_TEMP_STATIC_GEN_0 == null)
+            SubShapeID_TEMP_STATIC_GEN_0 = SubShapeID.native_new();
+        SubShapeID_TEMP_STATIC_GEN_0.internal_reset(inSubShapeIDOfShape1_addr, false);
+        if (Body_TEMP_STATIC_GEN_1 == null)
+            Body_TEMP_STATIC_GEN_1 = Body.native_new();
+        Body_TEMP_STATIC_GEN_1.internal_reset(inBody2_addr, false);
+        if (Shape_TEMP_STATIC_GEN_1 == null)
+            Shape_TEMP_STATIC_GEN_1 = Shape.native_new();
+        Shape_TEMP_STATIC_GEN_1.internal_reset(inShape2_addr, false);
+        if (SubShapeID_TEMP_STATIC_GEN_1 == null)
+            SubShapeID_TEMP_STATIC_GEN_1 = SubShapeID.native_new();
+        SubShapeID_TEMP_STATIC_GEN_1.internal_reset(inSubShapeIDOfShape2_addr, false);
+        return ShouldCollide(Body_TEMP_STATIC_GEN_0, Shape_TEMP_STATIC_GEN_0, SubShapeID_TEMP_STATIC_GEN_0, Body_TEMP_STATIC_GEN_1, Shape_TEMP_STATIC_GEN_1, SubShapeID_TEMP_STATIC_GEN_1);
+    }
+
+    public static native long internal_native_create_addr();
 }

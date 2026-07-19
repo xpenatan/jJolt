@@ -30,6 +30,14 @@ public class MutableCompoundShape extends CompoundShape {
         return new MutableCompoundShape((byte) 0, (char) 0);
     }
 
+    public int AddShape(Vec3 inPosition, Quat inRotation, Shape inShape, int inUserData, int inIndex) {
+        return internal_native_AddShape(native_address, inPosition.native_address, inRotation.native_address, inShape.native_address, inUserData, inIndex);
+    }
+
+    public static int internal_native_AddShape(long this_addr, long inPosition_addr, long inRotation_addr, long inShape_addr, int inUserData, int inIndex) {
+        return jolt.physics.collision.shape.natives.JNI_MutableCompoundShape.internal_native_AddShape(this_addr, inPosition_addr, inRotation_addr, inShape_addr, inUserData, inIndex);
+    }
+
     public int AddShape(Vec3 inPosition, Quat inRotation, Shape inShape, int inUserData) {
         return internal_native_AddShape(native_address, inPosition.native_address, inRotation.native_address, inShape.native_address, inUserData);
     }

@@ -7,6 +7,8 @@
 package gen.c.jolt.physics.softbody;
 
 import gen.c.jolt.physics.body.MotionProperties;
+import gen.c.jolt.math.Quat;
+import gen.c.jolt.math.Vec3;
 import gen.c.jolt.physics.collision.PhysicsMaterialList;
 import gen.c.jolt.geometry.AABox;
 import gen.c.jolt.physics.body.Body;
@@ -22,6 +24,10 @@ public class SoftBodyMotionProperties extends MotionProperties {
     private ArraySoftBodyVertex ArraySoftBodyVertex_TEMP_GEN_0;
 
     private SoftBodyVertex SoftBodyVertex_TEMP_GEN_0;
+
+    private Quat Quat_TEMP_GEN_0;
+
+    private Vec3 Vec3_TEMP_GEN_0;
 
     private PhysicsMaterialList PhysicsMaterialList_TEMP_GEN_0;
 
@@ -93,6 +99,32 @@ public class SoftBodyMotionProperties extends MotionProperties {
 
     @org.teavm.interop.Import(name = "jolt_physics_softbody_softbodymotionproperties_getvertex_addr")
     public static native long internal_native_GetVertex_addr(long this_addr, int inIndex);
+
+    public Quat GetRodRotation(int inIndex) {
+        long addr = internal_native_GetRodRotation_addr(native_address, inIndex);
+        if (addr == 0)
+            return Quat.NULL;
+        if (Quat_TEMP_GEN_0 == null)
+            Quat_TEMP_GEN_0 = Quat.native_new();
+        Quat_TEMP_GEN_0.internal_reset(addr, false);
+        return Quat_TEMP_GEN_0;
+    }
+
+    @org.teavm.interop.Import(name = "jolt_physics_softbody_softbodymotionproperties_getrodrotation_addr")
+    public static native long internal_native_GetRodRotation_addr(long this_addr, int inIndex);
+
+    public Vec3 GetRodAngularVelocity(int inIndex) {
+        long addr = internal_native_GetRodAngularVelocity_addr(native_address, inIndex);
+        if (addr == 0)
+            return Vec3.NULL;
+        if (Vec3_TEMP_GEN_0 == null)
+            Vec3_TEMP_GEN_0 = Vec3.native_new();
+        Vec3_TEMP_GEN_0.internal_reset(addr, false);
+        return Vec3_TEMP_GEN_0;
+    }
+
+    @org.teavm.interop.Import(name = "jolt_physics_softbody_softbodymotionproperties_getrodangularvelocity_addr")
+    public static native long internal_native_GetRodAngularVelocity_addr(long this_addr, int inIndex);
 
     public PhysicsMaterialList GetMaterials() {
         long addr = internal_native_GetMaterials_addr(native_address);
@@ -202,6 +234,20 @@ public class SoftBodyMotionProperties extends MotionProperties {
 
     @org.teavm.interop.Import(name = "jolt_physics_softbody_softbodymotionproperties_setskinnedmaxdistancemultiplier")
     public static native void internal_native_SetSkinnedMaxDistanceMultiplier(long this_addr, float inSkinnedMaxDistanceMultiplier);
+
+    public float GetVertexRadius() {
+        return internal_native_GetVertexRadius(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "jolt_physics_softbody_softbodymotionproperties_getvertexradius")
+    public static native float internal_native_GetVertexRadius(long this_addr);
+
+    public void SetVertexRadius(float inVertexRadius) {
+        internal_native_SetVertexRadius(native_address, inVertexRadius);
+    }
+
+    @org.teavm.interop.Import(name = "jolt_physics_softbody_softbodymotionproperties_setvertexradius")
+    public static native void internal_native_SetVertexRadius(long this_addr, float inVertexRadius);
 
     public AABox GetLocalBounds() {
         long addr = internal_native_GetLocalBounds_addr(native_address);

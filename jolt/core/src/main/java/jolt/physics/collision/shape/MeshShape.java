@@ -24,4 +24,8 @@ public class MeshShape extends Shape {
     public static MeshShape native_new() {
         return new MeshShape((byte) 0, (char) 0);
     }
+
+    public int GetTriangleUserData(SubShapeID inSubShapeID) {
+        return 0;
+    }
 }

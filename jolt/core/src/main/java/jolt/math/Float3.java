@@ -29,6 +29,14 @@ public class Float3 extends NativeObject {
         return new Float3((byte) 0, (char) 0);
     }
 
+    public boolean Equals(Float3 inV) {
+        return false;
+    }
+
+    public boolean NotEquals(Float3 inV) {
+        return false;
+    }
+
     public float get_x() {
         return 0;
     }

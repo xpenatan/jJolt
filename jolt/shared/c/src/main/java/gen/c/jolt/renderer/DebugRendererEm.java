@@ -9,12 +9,16 @@ package gen.c.jolt.renderer;
 import com.github.xpenatan.jparser.runtime.helper.NativeFloatArray;
 import gen.c.jolt.physics.PhysicsSystem;
 import gen.c.jolt.physics.body.BodyManagerDrawSettings;
+import gen.c.jolt.physics.collision.shape.Shape;
 import gen.c.jolt.math.Mat44;
+import gen.c.jolt.math.Vec3;
 import gen.c.jolt.core.Color;
+import gen.c.jolt.physics.body.Body;
+import gen.c.jolt.physics.constraints.Constraint;
 import gen.c.jolt.enums.ECastShadow;
 import gen.c.jolt.enums.EDrawMode;
 import gen.c.jolt.enums.ECullMode;
-import gen.c.jolt.math.Vec3;
+import gen.c.jolt.geometry.AABox;
 import com.github.xpenatan.jParser.api.NativeObject;
 
 public class DebugRendererEm extends DebugRenderer {
@@ -44,6 +48,18 @@ public class DebugRendererEm extends DebugRenderer {
     static private NativeObject NativeObject_TEMP_STATIC_GEN_0;
 
     static private Color Color_TEMP_STATIC_GEN_3;
+
+    static private Mat44 Mat44_TEMP_STATIC_GEN_1;
+
+    static private AABox AABox_TEMP_STATIC_GEN_0;
+
+    static private Color Color_TEMP_STATIC_GEN_4;
+
+    static private NativeObject NativeObject_TEMP_STATIC_GEN_1;
+
+    static private NativeObject NativeObject_TEMP_STATIC_GEN_2;
+
+    static private NativeObject NativeObject_TEMP_STATIC_GEN_3;
 
     private static final java.util.ArrayList<DebugRendererEm> TEAVMC_CALLBACKS = new java.util.ArrayList<>();
 
@@ -99,8 +115,38 @@ public class DebugRendererEm extends DebugRenderer {
         TEAVMC_CALLBACKS.get(callbackId).internal_DrawText3D(inPosition_addr, inString_addr, inStringLen, inColor_addr, inHeight);
     }
 
+    private static abstract class TEAVMC_DrawGeometryWithID_Function extends org.teavm.interop.Function {
+
+        public abstract void call(int callbackId, long inModelMatrix_addr, long inWorldSpaceBounds_addr, float inLODScaleSq, long inModelColor_addr, int inGeometryID, int inCullMode_addr, int inCastShadow_addr, int inDrawMode_addr);
+    }
+
+    @org.teavm.interop.Export(name = "teavmc_DebugRendererEm_DrawGeometryWithID")
+    private static void teavmc_DebugRendererEm_DrawGeometryWithID(int callbackId, long inModelMatrix_addr, long inWorldSpaceBounds_addr, float inLODScaleSq, long inModelColor_addr, int inGeometryID, int inCullMode_addr, int inCastShadow_addr, int inDrawMode_addr) {
+        TEAVMC_CALLBACKS.get(callbackId).internal_DrawGeometryWithID(inModelMatrix_addr, inWorldSpaceBounds_addr, inLODScaleSq, inModelColor_addr, inGeometryID, inCullMode_addr, inCastShadow_addr, inDrawMode_addr);
+    }
+
+    private static abstract class TEAVMC_CreateTriangleBatchID_Function extends org.teavm.interop.Function {
+
+        public abstract int call(int callbackId, long inTriangles_addr, int inTriangleCount);
+    }
+
+    @org.teavm.interop.Export(name = "teavmc_DebugRendererEm_CreateTriangleBatchID")
+    private static int teavmc_DebugRendererEm_CreateTriangleBatchID(int callbackId, long inTriangles_addr, int inTriangleCount) {
+        return TEAVMC_CALLBACKS.get(callbackId).internal_CreateTriangleBatchID(inTriangles_addr, inTriangleCount);
+    }
+
+    private static abstract class TEAVMC_CreateTriangleBatchIDWithIndex_Function extends org.teavm.interop.Function {
+
+        public abstract int call(int callbackId, long inVertices_addr, int inVertexCount, long inIndices_addr, int inIndexCount);
+    }
+
+    @org.teavm.interop.Export(name = "teavmc_DebugRendererEm_CreateTriangleBatchIDWithIndex")
+    private static int teavmc_DebugRendererEm_CreateTriangleBatchIDWithIndex(int callbackId, long inVertices_addr, int inVertexCount, long inIndices_addr, int inIndexCount) {
+        return TEAVMC_CALLBACKS.get(callbackId).internal_CreateTriangleBatchIDWithIndex(inVertices_addr, inVertexCount, inIndices_addr, inIndexCount);
+    }
+
     @org.teavm.interop.Import(name = "teavmc_DebugRendererEm_setupCallback")
-    private static native void setupCallback(long this_addr, int callbackId, TEAVMC_DrawMesh_Function DrawMesh_fp, TEAVMC_DrawLine_Function DrawLine_fp, TEAVMC_DrawTriangle_Function DrawTriangle_fp, TEAVMC_DrawText3D_Function DrawText3D_fp);
+    private static native void setupCallback(long this_addr, int callbackId, TEAVMC_DrawMesh_Function DrawMesh_fp, TEAVMC_DrawLine_Function DrawLine_fp, TEAVMC_DrawTriangle_Function DrawTriangle_fp, TEAVMC_DrawText3D_Function DrawText3D_fp, TEAVMC_DrawGeometryWithID_Function DrawGeometryWithID_fp, TEAVMC_CreateTriangleBatchID_Function CreateTriangleBatchID_fp, TEAVMC_CreateTriangleBatchIDWithIndex_Function CreateTriangleBatchIDWithIndex_fp);
 
     static public final DebugRendererEm NULL = DebugRendererEm.native_new();
 
@@ -126,6 +172,13 @@ public class DebugRendererEm extends DebugRenderer {
     @org.teavm.interop.Import(name = "jolt_renderer_debugrendererem_deletenative")
     public static native void internal_native_deleteNative(long this_addr);
 
+    public void Initialize() {
+        internal_native_Initialize(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "jolt_renderer_debugrendererem_initialize")
+    public static native void internal_native_Initialize(long this_addr);
+
     public void DrawBodies(PhysicsSystem system, BodyManagerDrawSettings inDrawSettings) {
         internal_native_DrawBodies(native_address, system.native_address, inDrawSettings.native_address);
     }
@@ -139,6 +192,48 @@ public class DebugRendererEm extends DebugRenderer {
 
     @org.teavm.interop.Import(name = "jolt_renderer_debugrendererem_drawbodies_l_l")
     public static native void internal_native_DrawBodies(long this_addr, long system_addr);
+
+    public void DrawConstraints(PhysicsSystem system) {
+        internal_native_DrawConstraints(native_address, system.native_address);
+    }
+
+    @org.teavm.interop.Import(name = "jolt_renderer_debugrendererem_drawconstraints")
+    public static native void internal_native_DrawConstraints(long this_addr, long system_addr);
+
+    public void DrawConstraintLimits(PhysicsSystem system) {
+        internal_native_DrawConstraintLimits(native_address, system.native_address);
+    }
+
+    @org.teavm.interop.Import(name = "jolt_renderer_debugrendererem_drawconstraintlimits")
+    public static native void internal_native_DrawConstraintLimits(long this_addr, long system_addr);
+
+    public void DrawConstraintReferenceFrame(PhysicsSystem system) {
+        internal_native_DrawConstraintReferenceFrame(native_address, system.native_address);
+    }
+
+    @org.teavm.interop.Import(name = "jolt_renderer_debugrendererem_drawconstraintreferenceframe")
+    public static native void internal_native_DrawConstraintReferenceFrame(long this_addr, long system_addr);
+
+    public void DrawShape(Shape inShape, Mat44 inModelMatrix, Vec3 inScale, Color inColor, boolean inDrawWireFrame) {
+        internal_native_DrawShape(native_address, inShape.native_address, inModelMatrix.native_address, inScale.native_address, inColor.native_address, inDrawWireFrame);
+    }
+
+    @org.teavm.interop.Import(name = "jolt_renderer_debugrendererem_drawshape")
+    public static native void internal_native_DrawShape(long this_addr, long inShape_addr, long inModelMatrix_addr, long inScale_addr, long inColor_addr, boolean inDrawWireFrame);
+
+    public void DrawBody(Body inBody, Color inColor, boolean inDrawWireFrame) {
+        internal_native_DrawBody(native_address, inBody.native_address, inColor.native_address, inDrawWireFrame);
+    }
+
+    @org.teavm.interop.Import(name = "jolt_renderer_debugrendererem_drawbody")
+    public static native void internal_native_DrawBody(long this_addr, long inBody_addr, long inColor_addr, boolean inDrawWireFrame);
+
+    public void DrawConstraint(Constraint inConstraint) {
+        internal_native_DrawConstraint(native_address, inConstraint.native_address);
+    }
+
+    @org.teavm.interop.Import(name = "jolt_renderer_debugrendererem_drawconstraint")
+    public static native void internal_native_DrawConstraint(long this_addr, long inConstraint_addr);
 
     public void DrawCylinder(Mat44 inMatrix, float inHalfHeight, float inRadius, Color inColor, ECastShadow inCastShadow, EDrawMode inDrawMode) {
         internal_native_DrawCylinder(native_address, inMatrix.native_address, inHalfHeight, inRadius, inColor.native_address, inCastShadow.getValue(), inDrawMode.getValue());
@@ -170,7 +265,7 @@ public class DebugRendererEm extends DebugRenderer {
 
     private void setupCallback() {
         int callbackId = teavmcRegisterCallback();
-        setupCallback(native_address, callbackId, org.teavm.interop.Function.get(TEAVMC_DrawMesh_Function.class, DebugRendererEm.class, "teavmc_DebugRendererEm_DrawMesh"), org.teavm.interop.Function.get(TEAVMC_DrawLine_Function.class, DebugRendererEm.class, "teavmc_DebugRendererEm_DrawLine"), org.teavm.interop.Function.get(TEAVMC_DrawTriangle_Function.class, DebugRendererEm.class, "teavmc_DebugRendererEm_DrawTriangle"), org.teavm.interop.Function.get(TEAVMC_DrawText3D_Function.class, DebugRendererEm.class, "teavmc_DebugRendererEm_DrawText3D"));
+        setupCallback(native_address, callbackId, org.teavm.interop.Function.get(TEAVMC_DrawMesh_Function.class, DebugRendererEm.class, "teavmc_DebugRendererEm_DrawMesh"), org.teavm.interop.Function.get(TEAVMC_DrawLine_Function.class, DebugRendererEm.class, "teavmc_DebugRendererEm_DrawLine"), org.teavm.interop.Function.get(TEAVMC_DrawTriangle_Function.class, DebugRendererEm.class, "teavmc_DebugRendererEm_DrawTriangle"), org.teavm.interop.Function.get(TEAVMC_DrawText3D_Function.class, DebugRendererEm.class, "teavmc_DebugRendererEm_DrawText3D"), org.teavm.interop.Function.get(TEAVMC_DrawGeometryWithID_Function.class, DebugRendererEm.class, "teavmc_DebugRendererEm_DrawGeometryWithID"), org.teavm.interop.Function.get(TEAVMC_CreateTriangleBatchID_Function.class, DebugRendererEm.class, "teavmc_DebugRendererEm_CreateTriangleBatchID"), org.teavm.interop.Function.get(TEAVMC_CreateTriangleBatchIDWithIndex_Function.class, DebugRendererEm.class, "teavmc_DebugRendererEm_CreateTriangleBatchIDWithIndex"));
     }
 
     protected void DrawMesh(int id, Mat44 inModelMatrix, NativeFloatArray vertices, Color inModelColor, ECullMode inCullMode, EDrawMode inDrawMode) {
@@ -265,6 +360,74 @@ public class DebugRendererEm extends DebugRenderer {
             Color_TEMP_STATIC_GEN_3 = Color.native_new();
         Color_TEMP_STATIC_GEN_3.internal_reset(inColor_addr, false);
         DrawText3D(Vec3_TEMP_STATIC_GEN_5, NativeObject_TEMP_STATIC_GEN_0, inStringLen, Color_TEMP_STATIC_GEN_3, inHeight);
+    }
+
+    protected void DrawGeometryWithID(Mat44 inModelMatrix, AABox inWorldSpaceBounds, float inLODScaleSq, Color inModelColor, int inGeometryID, ECullMode inCullMode, ECastShadow inCastShadow, EDrawMode inDrawMode) {
+    }
+
+    private void internal_DrawGeometryWithID(long inModelMatrix_addr, long inWorldSpaceBounds_addr, float inLODScaleSq, long inModelColor_addr, int inGeometryID, int inCullMode_addr, int inCastShadow_addr, int inDrawMode_addr) {
+        if (Mat44_TEMP_STATIC_GEN_1 == null)
+            Mat44_TEMP_STATIC_GEN_1 = Mat44.native_new();
+        Mat44_TEMP_STATIC_GEN_1.internal_reset(inModelMatrix_addr, false);
+        if (AABox_TEMP_STATIC_GEN_0 == null)
+            AABox_TEMP_STATIC_GEN_0 = AABox.native_new();
+        AABox_TEMP_STATIC_GEN_0.internal_reset(inWorldSpaceBounds_addr, false);
+        if (Color_TEMP_STATIC_GEN_4 == null)
+            Color_TEMP_STATIC_GEN_4 = Color.native_new();
+        Color_TEMP_STATIC_GEN_4.internal_reset(inModelColor_addr, false);
+        ECullMode inCullMode_addr_enum = ECullMode.CUSTOM.setValue(inCullMode_addr);
+        ECullMode[] inCullMode_addr_enum_values = ECullMode.values();
+        for (int i = 0; i < inCullMode_addr_enum_values.length; i++) {
+            ECullMode enumVal = inCullMode_addr_enum_values[i];
+            if (enumVal != ECullMode.CUSTOM && enumVal.getValue() == inCullMode_addr) {
+                inCullMode_addr_enum = inCullMode_addr_enum_values[i];
+                break;
+            }
+        }
+        ECastShadow inCastShadow_addr_enum = ECastShadow.CUSTOM.setValue(inCastShadow_addr);
+        ECastShadow[] inCastShadow_addr_enum_values = ECastShadow.values();
+        for (int i = 0; i < inCastShadow_addr_enum_values.length; i++) {
+            ECastShadow enumVal = inCastShadow_addr_enum_values[i];
+            if (enumVal != ECastShadow.CUSTOM && enumVal.getValue() == inCastShadow_addr) {
+                inCastShadow_addr_enum = inCastShadow_addr_enum_values[i];
+                break;
+            }
+        }
+        EDrawMode inDrawMode_addr_enum = EDrawMode.CUSTOM.setValue(inDrawMode_addr);
+        EDrawMode[] inDrawMode_addr_enum_values = EDrawMode.values();
+        for (int i = 0; i < inDrawMode_addr_enum_values.length; i++) {
+            EDrawMode enumVal = inDrawMode_addr_enum_values[i];
+            if (enumVal != EDrawMode.CUSTOM && enumVal.getValue() == inDrawMode_addr) {
+                inDrawMode_addr_enum = inDrawMode_addr_enum_values[i];
+                break;
+            }
+        }
+        DrawGeometryWithID(Mat44_TEMP_STATIC_GEN_1, AABox_TEMP_STATIC_GEN_0, inLODScaleSq, Color_TEMP_STATIC_GEN_4, inGeometryID, inCullMode_addr_enum, inCastShadow_addr_enum, inDrawMode_addr_enum);
+    }
+
+    protected int CreateTriangleBatchID(NativeObject inTriangles, int inTriangleCount) {
+        return 0;
+    }
+
+    private int internal_CreateTriangleBatchID(long inTriangles_addr, int inTriangleCount) {
+        if (NativeObject_TEMP_STATIC_GEN_1 == null)
+            NativeObject_TEMP_STATIC_GEN_1 = NativeObject.native_new();
+        NativeObject_TEMP_STATIC_GEN_1.internal_reset(inTriangles_addr, false);
+        return CreateTriangleBatchID(NativeObject_TEMP_STATIC_GEN_1, inTriangleCount);
+    }
+
+    protected int CreateTriangleBatchIDWithIndex(NativeObject inVertices, int inVertexCount, NativeObject inIndices, int inIndexCount) {
+        return 0;
+    }
+
+    private int internal_CreateTriangleBatchIDWithIndex(long inVertices_addr, int inVertexCount, long inIndices_addr, int inIndexCount) {
+        if (NativeObject_TEMP_STATIC_GEN_2 == null)
+            NativeObject_TEMP_STATIC_GEN_2 = NativeObject.native_new();
+        NativeObject_TEMP_STATIC_GEN_2.internal_reset(inVertices_addr, false);
+        if (NativeObject_TEMP_STATIC_GEN_3 == null)
+            NativeObject_TEMP_STATIC_GEN_3 = NativeObject.native_new();
+        NativeObject_TEMP_STATIC_GEN_3.internal_reset(inIndices_addr, false);
+        return CreateTriangleBatchIDWithIndex(NativeObject_TEMP_STATIC_GEN_2, inVertexCount, NativeObject_TEMP_STATIC_GEN_3, inIndexCount);
     }
 
     @org.teavm.interop.Import(name = "jolt_renderer_debugrendererem_create_addr")

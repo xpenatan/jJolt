@@ -14,6 +14,15 @@ public class ArrayCollidePointResult extends NativeObject {
 
     static public final ArrayCollidePointResult NULL = ArrayCollidePointResult.native_new();
 
+    public ArrayCollidePointResult() {
+        long addr = internal_native_create_addr();
+        internal_reset(addr, true);
+    }
+
+    public static long internal_native_create_addr() {
+        return jolt.physics.collision.natives.JNI_ArrayCollidePointResult.internal_native_create_addr();
+    }
+
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
      */

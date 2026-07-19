@@ -67,10 +67,10 @@ public enum ESoftBodyConstraintColor implements NativeEnum<ESoftBodyConstraintCo
 
     private static final class FFMHandles {
 
-        static final java.lang.invoke.MethodHandle ESoftBodyConstraintColor_ConstraintType_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_enums_esoftbodyconstraintcolor_esoftbodyconstraintcolor_constrainttype_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
+        static final java.lang.invoke.MethodHandle ESoftBodyConstraintColor_ConstraintType_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_enums_esoftbodyconstraintcolor_esoftbodyconstraintcolor_constrainttype_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
 
-        static final java.lang.invoke.MethodHandle ESoftBodyConstraintColor_ConstraintGroup_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_enums_esoftbodyconstraintcolor_esoftbodyconstraintcolor_constraintgroup_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
+        static final java.lang.invoke.MethodHandle ESoftBodyConstraintColor_ConstraintGroup_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_enums_esoftbodyconstraintcolor_esoftbodyconstraintcolor_constraintgroup_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
 
-        static final java.lang.invoke.MethodHandle ESoftBodyConstraintColor_ConstraintOrder_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_enums_esoftbodyconstraintcolor_esoftbodyconstraintcolor_constraintorder_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
+        static final java.lang.invoke.MethodHandle ESoftBodyConstraintColor_ConstraintOrder_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_enums_esoftbodyconstraintcolor_esoftbodyconstraintcolor_constraintorder_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
     }
 }

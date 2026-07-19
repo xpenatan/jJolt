@@ -7,6 +7,8 @@
 package jolt.physics.softbody;
 
 import jolt.physics.body.MotionProperties;
+import jolt.math.Quat;
+import jolt.math.Vec3;
 import jolt.physics.collision.PhysicsMaterialList;
 import jolt.geometry.AABox;
 import jolt.physics.body.Body;
@@ -22,6 +24,10 @@ public class SoftBodyMotionProperties extends MotionProperties {
     private ArraySoftBodyVertex ArraySoftBodyVertex_TEMP_GEN_0;
 
     private SoftBodyVertex SoftBodyVertex_TEMP_GEN_0;
+
+    private Quat Quat_TEMP_GEN_0;
+
+    private Vec3 Vec3_TEMP_GEN_0;
 
     private PhysicsMaterialList PhysicsMaterialList_TEMP_GEN_0;
 
@@ -96,6 +102,34 @@ public class SoftBodyMotionProperties extends MotionProperties {
 
     public static long internal_native_GetVertex_addr(long this_addr, int inIndex) {
         return jolt.physics.softbody.natives.JNI_SoftBodyMotionProperties.internal_native_GetVertex_addr(this_addr, inIndex);
+    }
+
+    public Quat GetRodRotation(int inIndex) {
+        long addr = internal_native_GetRodRotation_addr(native_address, inIndex);
+        if (addr == 0)
+            return Quat.NULL;
+        if (Quat_TEMP_GEN_0 == null)
+            Quat_TEMP_GEN_0 = Quat.native_new();
+        Quat_TEMP_GEN_0.internal_reset(addr, false);
+        return Quat_TEMP_GEN_0;
+    }
+
+    public static long internal_native_GetRodRotation_addr(long this_addr, int inIndex) {
+        return jolt.physics.softbody.natives.JNI_SoftBodyMotionProperties.internal_native_GetRodRotation_addr(this_addr, inIndex);
+    }
+
+    public Vec3 GetRodAngularVelocity(int inIndex) {
+        long addr = internal_native_GetRodAngularVelocity_addr(native_address, inIndex);
+        if (addr == 0)
+            return Vec3.NULL;
+        if (Vec3_TEMP_GEN_0 == null)
+            Vec3_TEMP_GEN_0 = Vec3.native_new();
+        Vec3_TEMP_GEN_0.internal_reset(addr, false);
+        return Vec3_TEMP_GEN_0;
+    }
+
+    public static long internal_native_GetRodAngularVelocity_addr(long this_addr, int inIndex) {
+        return jolt.physics.softbody.natives.JNI_SoftBodyMotionProperties.internal_native_GetRodAngularVelocity_addr(this_addr, inIndex);
     }
 
     public PhysicsMaterialList GetMaterials() {
@@ -218,6 +252,22 @@ public class SoftBodyMotionProperties extends MotionProperties {
 
     public static void internal_native_SetSkinnedMaxDistanceMultiplier(long this_addr, float inSkinnedMaxDistanceMultiplier) {
         jolt.physics.softbody.natives.JNI_SoftBodyMotionProperties.internal_native_SetSkinnedMaxDistanceMultiplier(this_addr, inSkinnedMaxDistanceMultiplier);
+    }
+
+    public float GetVertexRadius() {
+        return internal_native_GetVertexRadius(native_address);
+    }
+
+    public static float internal_native_GetVertexRadius(long this_addr) {
+        return jolt.physics.softbody.natives.JNI_SoftBodyMotionProperties.internal_native_GetVertexRadius(this_addr);
+    }
+
+    public void SetVertexRadius(float inVertexRadius) {
+        internal_native_SetVertexRadius(native_address, inVertexRadius);
+    }
+
+    public static void internal_native_SetVertexRadius(long this_addr, float inVertexRadius) {
+        jolt.physics.softbody.natives.JNI_SoftBodyMotionProperties.internal_native_SetVertexRadius(this_addr, inVertexRadius);
     }
 
     public AABox GetLocalBounds() {

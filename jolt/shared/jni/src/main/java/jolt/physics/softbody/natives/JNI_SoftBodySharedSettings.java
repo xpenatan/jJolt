@@ -30,6 +30,8 @@ final public class JNI_SoftBodySharedSettings {
 
     public static native void internal_native_CalculateEdgeLengths(long this_addr);
 
+    public static native void internal_native_CalculateRodProperties(long this_addr);
+
     public static native void internal_native_CalculateLRALengths(long this_addr);
 
     public static native void internal_native_CalculateBendConstraintConstants(long this_addr);
@@ -74,11 +76,15 @@ final public class JNI_SoftBodySharedSettings {
 
     public static native void internal_native_set_mLRAConstraints(long this_addr, long mLRAConstraints_addr);
 
+    public static native long internal_native_get_mRodStretchShearConstraints_addr(long this_addr);
+
+    public static native void internal_native_set_mRodStretchShearConstraints(long this_addr, long mRodStretchShearConstraints_addr);
+
+    public static native long internal_native_get_mRodBendTwistConstraints_addr(long this_addr);
+
+    public static native void internal_native_set_mRodBendTwistConstraints(long this_addr, long mRodBendTwistConstraints_addr);
+
     public static native long internal_native_get_mMaterials_addr(long this_addr);
 
     public static native void internal_native_set_mMaterials(long this_addr, long mMaterials_addr);
-
-    public static native float internal_native_get_mVertexRadius(long this_addr);
-
-    public static native void internal_native_set_mVertexRadius(long this_addr, float mVertexRadius);
 }

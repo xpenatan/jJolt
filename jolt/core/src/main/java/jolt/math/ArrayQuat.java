@@ -12,6 +12,9 @@ public class ArrayQuat extends NativeObject {
 
     static public final ArrayQuat NULL = ArrayQuat.native_new();
 
+    public ArrayQuat() {
+    }
+
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
      */

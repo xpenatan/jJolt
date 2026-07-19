@@ -6,6 +6,8 @@
 
 package jolt.physics.collision.shape;
 
+import jolt.physics.collision.PhysicsMaterial;
+
 public class ConvexShape extends Shape {
 
     static public final ConvexShape NULL = ConvexShape.native_new();
@@ -39,5 +41,13 @@ public class ConvexShape extends Shape {
 
     public static void internal_native_SetDensity(long this_addr, float inDensity) {
         jolt.physics.collision.shape.natives.JNI_ConvexShape.internal_native_SetDensity(this_addr, inDensity);
+    }
+
+    public void SetMaterial(PhysicsMaterial inMaterial) {
+        internal_native_SetMaterial(native_address, inMaterial.native_address);
+    }
+
+    public static void internal_native_SetMaterial(long this_addr, long inMaterial_addr) {
+        jolt.physics.collision.shape.natives.JNI_ConvexShape.internal_native_SetMaterial(this_addr, inMaterial_addr);
     }
 }

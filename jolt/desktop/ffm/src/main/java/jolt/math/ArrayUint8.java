@@ -21,6 +21,19 @@ public class ArrayUint8 extends NativeObject {
 
     static public final ArrayUint8 NULL = ArrayUint8.native_new();
 
+    public ArrayUint8() {
+        long addr = internal_native_create_addr();
+        internal_reset(addr, true);
+    }
+
+    public static long internal_native_create_addr() {
+        try {
+            return (long) FFMHandles.internal_native_create_addr__.invokeExact();
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
      */
@@ -66,6 +79,30 @@ public class ArrayUint8 extends NativeObject {
     public static int internal_native_size(long this_addr) {
         try {
             return (int) FFMHandles.internal_native_size__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public byte at(int inIndex) {
+        return internal_native_at(native_address, inIndex);
+    }
+
+    public static byte internal_native_at(long this_addr, int inIndex) {
+        try {
+            return (byte) FFMHandles.internal_native_at__JI.invokeExact(this_addr, inIndex);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void push_back(byte inValue) {
+        internal_native_push_back(native_address, inValue);
+    }
+
+    public static void internal_native_push_back(long this_addr, byte inValue) {
+        try {
+            FFMHandles.internal_native_push_back__JB.invokeExact(this_addr, inValue);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -127,11 +164,17 @@ public class ArrayUint8 extends NativeObject {
 
     private static final class FFMHandles {
 
+        static final java.lang.invoke.MethodHandle internal_native_create_addr__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_math_arrayuint8_create_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG));
+
         static final java.lang.invoke.MethodHandle internal_native_deleteNative__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_math_arrayuint8_deletenative", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG));
 
         static final java.lang.invoke.MethodHandle internal_native_empty__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_math_arrayuint8_empty", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.JAVA_LONG));
 
         static final java.lang.invoke.MethodHandle internal_native_size__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_math_arrayuint8_size", FunctionDescriptor.of(ValueLayout.JAVA_INT, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_at__JI = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_math_arrayuint8_at", FunctionDescriptor.of(ValueLayout.JAVA_BYTE, ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT));
+
+        static final java.lang.invoke.MethodHandle internal_native_push_back__JB = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_math_arrayuint8_push_back", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_BYTE));
 
         static final java.lang.invoke.MethodHandle internal_native_reserve__JI = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_math_arrayuint8_reserve", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT));
 
@@ -139,6 +182,6 @@ public class ArrayUint8 extends NativeObject {
 
         static final java.lang.invoke.MethodHandle internal_native_clear__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_math_arrayuint8_clear", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG));
 
-        static final java.lang.invoke.MethodHandle internal_native_data_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_math_arrayuint8_data_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+        static final java.lang.invoke.MethodHandle internal_native_data_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_math_arrayuint8_data_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
     }
 }

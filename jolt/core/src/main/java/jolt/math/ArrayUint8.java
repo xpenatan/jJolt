@@ -12,6 +12,9 @@ public class ArrayUint8 extends NativeObject {
 
     static public final ArrayUint8 NULL = ArrayUint8.native_new();
 
+    public ArrayUint8() {
+    }
+
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
      */
@@ -32,6 +35,13 @@ public class ArrayUint8 extends NativeObject {
 
     public int size() {
         return 0;
+    }
+
+    public byte at(int inIndex) {
+        return 0;
+    }
+
+    public void push_back(byte inValue) {
     }
 
     public void reserve(int inSize) {

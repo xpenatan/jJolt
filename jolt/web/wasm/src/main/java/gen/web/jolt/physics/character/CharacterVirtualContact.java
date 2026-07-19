@@ -286,19 +286,19 @@ public class CharacterVirtualContact extends NativeObject {
     @org.teavm.jso.JSBody(params = {"this_addr", "mCharacterB_addr"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.CharacterVirtualContact);jsObj.set_mCharacterB(mCharacterB_addr);")
     public static native void internal_native_set_mCharacterB(int this_addr, int mCharacterB_addr);
 
-    public long get_mUserData() {
+    public int get_mUserData() {
         return internal_native_get_mUserData(native_address);
     }
 
     @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.CharacterVirtualContact);return jsObj.get_mUserData();")
-    public static native long internal_native_get_mUserData(int this_addr);
+    public static native int internal_native_get_mUserData(int this_addr);
 
-    public void set_mUserData(long mUserData) {
+    public void set_mUserData(int mUserData) {
         internal_native_set_mUserData(native_address, mUserData);
     }
 
     @org.teavm.jso.JSBody(params = {"this_addr", "mUserData"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.CharacterVirtualContact);jsObj.set_mUserData(mUserData);")
-    public static native void internal_native_set_mUserData(int this_addr, long mUserData);
+    public static native void internal_native_set_mUserData(int this_addr, int mUserData);
 
     public PhysicsMaterial get_mMaterial() {
         int addr = internal_native_get_mMaterial_addr(native_address);
@@ -361,4 +361,18 @@ public class CharacterVirtualContact extends NativeObject {
 
     @org.teavm.jso.JSBody(params = {"this_addr", "mCanPushCharacter"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.CharacterVirtualContact);jsObj.set_mCanPushCharacter(mCanPushCharacter);")
     public static native void internal_native_set_mCanPushCharacter(int this_addr, boolean mCanPushCharacter);
+
+    public boolean get_mIsBackFacingContact() {
+        return internal_native_get_mIsBackFacingContact(native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.CharacterVirtualContact);return jsObj.get_mIsBackFacingContact();")
+    public static native boolean internal_native_get_mIsBackFacingContact(int this_addr);
+
+    public void set_mIsBackFacingContact(boolean mIsBackFacingContact) {
+        internal_native_set_mIsBackFacingContact(native_address, mIsBackFacingContact);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "mIsBackFacingContact"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.CharacterVirtualContact);jsObj.set_mIsBackFacingContact(mIsBackFacingContact);")
+    public static native void internal_native_set_mIsBackFacingContact(int this_addr, boolean mIsBackFacingContact);
 }

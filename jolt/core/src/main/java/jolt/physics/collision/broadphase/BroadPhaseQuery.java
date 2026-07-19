@@ -88,4 +88,8 @@ public class BroadPhaseQuery extends NativeObject {
 
     public void CastAABox(AABoxCast inBox, CastShapeBodyCollector ioCollector) {
     }
+
+    public AABox GetBounds() {
+        return null;
+    }
 }

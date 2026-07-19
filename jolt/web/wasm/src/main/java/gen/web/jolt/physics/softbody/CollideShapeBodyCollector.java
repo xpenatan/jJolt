@@ -39,6 +39,13 @@ public class CollideShapeBodyCollector extends NativeObject {
     @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.CollideShapeBodyCollectorJS);jolt.destroy(jsObj);")
     public static native void internal_native_deleteNative(int this_addr);
 
+    public void ResetNative() {
+        internal_native_ResetNative(native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.CollideShapeBodyCollector);jsObj.ResetNative();")
+    public static native void internal_native_ResetNative(int this_addr);
+
     public void SetContext(TransformedShape inContext) {
         internal_native_SetContext(native_address, inContext.native_address);
     }

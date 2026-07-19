@@ -97,16 +97,16 @@ public enum SixDOFConstraintSettings_EAxis implements NativeEnum<SixDOFConstrain
 
     private static final class FFMHandles {
 
-        static final java.lang.invoke.MethodHandle SixDOFConstraintSettings_EAxis_TranslationX_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_enums_sixdofconstraintsettings_eaxis_sixdofconstraintsettings_eaxis_translationx_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
+        static final java.lang.invoke.MethodHandle SixDOFConstraintSettings_EAxis_TranslationX_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_enums_sixdofconstraintsettings_eaxis_sixdofconstraintsettings_eaxis_translationx_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
 
-        static final java.lang.invoke.MethodHandle SixDOFConstraintSettings_EAxis_TranslationY_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_enums_sixdofconstraintsettings_eaxis_sixdofconstraintsettings_eaxis_translationy_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
+        static final java.lang.invoke.MethodHandle SixDOFConstraintSettings_EAxis_TranslationY_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_enums_sixdofconstraintsettings_eaxis_sixdofconstraintsettings_eaxis_translationy_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
 
-        static final java.lang.invoke.MethodHandle SixDOFConstraintSettings_EAxis_TranslationZ_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_enums_sixdofconstraintsettings_eaxis_sixdofconstraintsettings_eaxis_translationz_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
+        static final java.lang.invoke.MethodHandle SixDOFConstraintSettings_EAxis_TranslationZ_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_enums_sixdofconstraintsettings_eaxis_sixdofconstraintsettings_eaxis_translationz_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
 
-        static final java.lang.invoke.MethodHandle SixDOFConstraintSettings_EAxis_RotationX_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_enums_sixdofconstraintsettings_eaxis_sixdofconstraintsettings_eaxis_rotationx_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
+        static final java.lang.invoke.MethodHandle SixDOFConstraintSettings_EAxis_RotationX_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_enums_sixdofconstraintsettings_eaxis_sixdofconstraintsettings_eaxis_rotationx_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
 
-        static final java.lang.invoke.MethodHandle SixDOFConstraintSettings_EAxis_RotationY_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_enums_sixdofconstraintsettings_eaxis_sixdofconstraintsettings_eaxis_rotationy_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
+        static final java.lang.invoke.MethodHandle SixDOFConstraintSettings_EAxis_RotationY_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_enums_sixdofconstraintsettings_eaxis_sixdofconstraintsettings_eaxis_rotationy_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
 
-        static final java.lang.invoke.MethodHandle SixDOFConstraintSettings_EAxis_RotationZ_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_enums_sixdofconstraintsettings_eaxis_sixdofconstraintsettings_eaxis_rotationz_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
+        static final java.lang.invoke.MethodHandle SixDOFConstraintSettings_EAxis_RotationZ_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_enums_sixdofconstraintsettings_eaxis_sixdofconstraintsettings_eaxis_rotationz_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
     }
 }

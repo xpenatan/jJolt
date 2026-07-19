@@ -20,6 +20,8 @@ public class SoftBodyManifold extends NativeObject {
 
     private BodyID BodyID_TEMP_GEN_0;
 
+    private BodyID BodyID_TEMP_GEN_1;
+
     static public final SoftBodyManifold NULL = SoftBodyManifold.native_new();
 
     /**
@@ -101,4 +103,24 @@ public class SoftBodyManifold extends NativeObject {
 
     @org.teavm.jso.JSBody(params = {"this_addr", "inVertex_addr"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.SoftBodyManifold);var returnedJSObj = jsObj.GetContactBodyID(inVertex_addr);if(!returnedJSObj.hasOwnProperty('ptr')) return 0; return jolt.getPointer(returnedJSObj);")
     public static native int internal_native_GetContactBodyID_addr(int this_addr, int inVertex_addr);
+
+    public int GetNumSensorContacts() {
+        return internal_native_GetNumSensorContacts(native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.SoftBodyManifold);var returnedJSObj = jsObj.GetNumSensorContacts();return returnedJSObj;")
+    public static native int internal_native_GetNumSensorContacts(int this_addr);
+
+    public BodyID GetSensorContactBodyID(int inIndex) {
+        int addr = internal_native_GetSensorContactBodyID_addr(native_address, inIndex);
+        if (addr == 0)
+            return BodyID.NULL;
+        if (BodyID_TEMP_GEN_1 == null)
+            BodyID_TEMP_GEN_1 = BodyID.native_new();
+        BodyID_TEMP_GEN_1.internal_reset(addr, false);
+        return BodyID_TEMP_GEN_1;
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "inIndex"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.SoftBodyManifold);var returnedJSObj = jsObj.GetSensorContactBodyID(inIndex);if(!returnedJSObj.hasOwnProperty('ptr')) return 0; return jolt.getPointer(returnedJSObj);")
+    public static native int internal_native_GetSensorContactBodyID_addr(int this_addr, int inIndex);
 }

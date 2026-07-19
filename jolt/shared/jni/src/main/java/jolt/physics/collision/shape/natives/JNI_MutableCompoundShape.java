@@ -10,6 +10,8 @@ import jolt.physics.collision.shape.*;
 
 final public class JNI_MutableCompoundShape {
 
+    public static native int internal_native_AddShape(long this_addr, long inPosition_addr, long inRotation_addr, long inShape_addr, int inUserData, int inIndex);
+
     public static native int internal_native_AddShape(long this_addr, long inPosition_addr, long inRotation_addr, long inShape_addr, int inUserData);
 
     public static native void internal_native_RemoveShape(long this_addr, int inIndex);

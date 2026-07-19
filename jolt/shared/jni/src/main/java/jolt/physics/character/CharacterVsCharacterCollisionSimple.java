@@ -10,6 +10,16 @@ public class CharacterVsCharacterCollisionSimple extends CharacterVsCharacterCol
 
     static public final CharacterVsCharacterCollisionSimple NULL = CharacterVsCharacterCollisionSimple.native_new();
 
+    public CharacterVsCharacterCollisionSimple() {
+        super((byte) 1, (char) 1);
+        long addr = internal_native_create_addr();
+        internal_reset(addr, true);
+    }
+
+    public static long internal_native_create_addr() {
+        return jolt.physics.character.natives.JNI_CharacterVsCharacterCollisionSimple.internal_native_create_addr();
+    }
+
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
      */

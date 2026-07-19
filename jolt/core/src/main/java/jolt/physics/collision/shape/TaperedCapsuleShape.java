@@ -24,4 +24,16 @@ public class TaperedCapsuleShape extends ConvexShape {
     public static TaperedCapsuleShape native_new() {
         return new TaperedCapsuleShape((byte) 0, (char) 0);
     }
+
+    public float GetHalfHeight() {
+        return 0;
+    }
+
+    public float GetTopRadius() {
+        return 0;
+    }
+
+    public float GetBottomRadius() {
+        return 0;
+    }
 }

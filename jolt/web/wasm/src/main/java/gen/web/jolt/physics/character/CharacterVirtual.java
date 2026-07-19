@@ -19,6 +19,7 @@ import gen.web.jolt.core.TempAllocator;
 import gen.web.jolt.physics.collision.shape.Shape;
 import gen.web.jolt.physics.collision.TransformedShape;
 import gen.web.com.github.xpenatan.jParser.api.NativeObject;
+import gen.web.jolt.Jolt;
 
 public class CharacterVirtual extends CharacterBase {
 
@@ -108,8 +109,8 @@ public class CharacterVirtual extends CharacterBase {
     @org.teavm.jso.JSBody(params = {"this_addr", "inCharacterVsCharacterCollision_addr"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.CharacterVirtual);jsObj.SetCharacterVsCharacterCollision(inCharacterVsCharacterCollision_addr);")
     public static native void internal_native_SetCharacterVsCharacterCollision(int this_addr, int inCharacterVsCharacterCollision_addr);
 
-    public NativeObject GetListener() {
-        int addr = internal_native_GetListener_addr(native_address);
+    public NativeObject GetListenerNative() {
+        int addr = internal_native_GetListenerNative_addr(native_address);
         if (addr == 0)
             return NativeObject.NULL;
         if (NativeObject_TEMP_GEN_0 == null)
@@ -118,8 +119,8 @@ public class CharacterVirtual extends CharacterBase {
         return NativeObject_TEMP_GEN_0;
     }
 
-    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.CharacterVirtual);var returnedJSObj = jsObj.GetListener();return returnedJSObj;")
-    public static native int internal_native_GetListener_addr(int this_addr);
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.CharacterVirtual);var returnedJSObj = jsObj.GetListenerNative();return returnedJSObj;")
+    public static native int internal_native_GetListenerNative_addr(int this_addr);
 
     public Vec3 GetLinearVelocity() {
         int addr = internal_native_GetLinearVelocity_addr(native_address);
@@ -324,19 +325,19 @@ public class CharacterVirtual extends CharacterBase {
     @org.teavm.jso.JSBody(params = {"this_addr", "inShapeOffset_addr"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.CharacterVirtual);jsObj.SetShapeOffset(inShapeOffset_addr);")
     public static native void internal_native_SetShapeOffset(int this_addr, int inShapeOffset_addr);
 
-    public long GetUserData() {
+    public int GetUserData() {
         return internal_native_GetUserData(native_address);
     }
 
     @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.CharacterVirtual);var returnedJSObj = jsObj.GetUserData();return returnedJSObj;")
-    public static native long internal_native_GetUserData(int this_addr);
+    public static native int internal_native_GetUserData(int this_addr);
 
-    public void SetUserData(long inUserData) {
+    public void SetUserData(int inUserData) {
         internal_native_SetUserData(native_address, inUserData);
     }
 
     @org.teavm.jso.JSBody(params = {"this_addr", "inUserData"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.CharacterVirtual);jsObj.SetUserData(inUserData);")
-    public static native void internal_native_SetUserData(int this_addr, long inUserData);
+    public static native void internal_native_SetUserData(int this_addr, int inUserData);
 
     public BodyID GetInnerBodyID() {
         int addr = internal_native_GetInnerBodyID_addr(native_address);
@@ -487,4 +488,8 @@ public class CharacterVirtual extends CharacterBase {
 
     @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.CharacterVirtual);var returnedJSObj = jsObj.GetActiveContacts();if(!returnedJSObj.hasOwnProperty('ptr')) return 0; return jolt.getPointer(returnedJSObj);")
     public static native int internal_native_GetActiveContacts_addr(int this_addr);
+
+    public CharacterContactListener GetListener() {
+        return Jolt.GetCharacterContactListener(this);
+    }
 }

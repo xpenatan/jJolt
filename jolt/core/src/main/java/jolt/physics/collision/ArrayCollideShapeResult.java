@@ -12,6 +12,9 @@ public class ArrayCollideShapeResult extends NativeObject {
 
     static public final ArrayCollideShapeResult NULL = ArrayCollideShapeResult.native_new();
 
+    public ArrayCollideShapeResult() {
+    }
+
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
      */

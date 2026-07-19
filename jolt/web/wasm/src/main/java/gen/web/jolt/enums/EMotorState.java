@@ -10,7 +10,7 @@ import com.github.xpenatan.jParser.api.NativeEnum;
 
 public enum EMotorState implements NativeEnum<EMotorState> {
 
-    CUSTOM(0), Off(EMotorState_Off_NATIVE()), Velocity(EMotorState_Velocity_NATIVE()), Position(EMotorState_Position_NATIVE());
+    CUSTOM(0), Off(EMotorState_Off_NATIVE()), Velocity(EMotorState_Velocity_NATIVE()), Position(EMotorState_Position_NATIVE()), PositionAndVelocity(EMotorState_PositionAndVelocity_NATIVE());
 
     private int value;
 
@@ -42,4 +42,7 @@ public enum EMotorState implements NativeEnum<EMotorState> {
 
     @org.teavm.jso.JSBody(script = "return jolt.EMotorState_Position;")
     private static native int EMotorState_Position_NATIVE();
+
+    @org.teavm.jso.JSBody(script = "return jolt.EMotorState_PositionAndVelocity;")
+    private static native int EMotorState_PositionAndVelocity_NATIVE();
 }

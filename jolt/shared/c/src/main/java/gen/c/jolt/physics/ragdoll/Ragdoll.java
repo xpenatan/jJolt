@@ -183,11 +183,18 @@ public class Ragdoll extends NativeObject {
     public static native void internal_native_DriveToPoseUsingKinematics(long this_addr, long inPose_addr, float inDeltaTime);
 
     public void DriveToPoseUsingMotors(SkeletonPose inPose) {
-        internal_native_DriveToPoseUsingMotors(native_address, inPose.native_address);
+        internal_native_DriveToPoseUsingMotors__0(native_address, inPose.native_address);
     }
 
-    @org.teavm.interop.Import(name = "jolt_physics_ragdoll_ragdoll_drivetoposeusingmotors")
-    public static native void internal_native_DriveToPoseUsingMotors(long this_addr, long inPose_addr);
+    @org.teavm.interop.Import(name = "jolt_physics_ragdoll_ragdoll_drivetoposeusingmotors__0")
+    public static native void internal_native_DriveToPoseUsingMotors__0(long this_addr, long inPose_addr);
+
+    public void DriveToPoseUsingMotors(SkeletonPose inPrevPose, SkeletonPose inPose, float inDeltaTime) {
+        internal_native_DriveToPoseUsingMotors__1(native_address, inPrevPose.native_address, inPose.native_address, inDeltaTime);
+    }
+
+    @org.teavm.interop.Import(name = "jolt_physics_ragdoll_ragdoll_drivetoposeusingmotors__1")
+    public static native void internal_native_DriveToPoseUsingMotors__1(long this_addr, long inPrevPose_addr, long inPose_addr, float inDeltaTime);
 
     public void SetLinearAndAngularVelocity(Vec3 inLinearVelocity, Vec3 inAngularVelocity, boolean inLockBodies) {
         internal_native_SetLinearAndAngularVelocity(native_address, inLinearVelocity.native_address, inAngularVelocity.native_address, inLockBodies);

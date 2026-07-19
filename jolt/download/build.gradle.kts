@@ -9,41 +9,55 @@ plugins {
 
 val buildDirFile = layout.buildDirectory.get().asFile
 val joltSourceRoot = buildDirFile.resolve("jolt-source")
-val joltIncludeDir = joltSourceRoot.resolve("Jolt")
 val joltArchiveFile = buildDirFile.resolve("tmp/jolt-source.zip")
+val joltJsSourceRoot = buildDirFile.resolve("jolt-js-source")
+val joltJsArchiveFile = buildDirFile.resolve("tmp/jolt-js-source.zip")
+
+fun downloadAndExtract(url: String, archiveFile: File, outputDir: File) {
+    println("URL: $url")
+    delete(outputDir)
+    archiveFile.parentFile.mkdirs()
+    URL(url).openStream().use { input ->
+        Files.copy(input, archiveFile.toPath(), StandardCopyOption.REPLACE_EXISTING)
+    }
+    copy {
+        from(zipTree(archiveFile)) {
+            eachFile {
+                val strippedSegments = relativePath.segments.drop(1)
+                if(strippedSegments.isEmpty()) {
+                    exclude()
+                }
+                else {
+                    relativePath = RelativePath(!isDirectory, *strippedSegments.toTypedArray())
+                }
+            }
+            includeEmptyDirs = false
+        }
+        into(outputDir)
+    }
+    delete(archiveFile)
+}
 
 tasks.register("jolt_download_source") {
     group = "jolt"
-    description = "Download Jolt Physics ${LibExt.joltVersion} source into the build directory."
+    description = "Download the pinned Jolt Physics and JoltPhysics.js sources into the build directory."
     inputs.property("joltVersion", LibExt.joltVersion)
+    inputs.property("joltCommit", LibExt.joltCommit)
+    inputs.property("joltJsVersion", LibExt.joltJsVersion)
+    inputs.property("joltJsCommit", LibExt.joltJsCommit)
     outputs.dir(joltSourceRoot)
-    onlyIf {
-        !joltIncludeDir.isDirectory
-    }
+    outputs.dir(joltJsSourceRoot)
 
     doLast {
-        val url = "https://github.com/jrouwe/JoltPhysics/archive/refs/tags/v${LibExt.joltVersion}.zip"
-        println("URL: $url")
-        delete(joltSourceRoot)
-        joltArchiveFile.parentFile.mkdirs()
-        URL(url).openStream().use { input ->
-            Files.copy(input, joltArchiveFile.toPath(), StandardCopyOption.REPLACE_EXISTING)
-        }
-        copy {
-            from(zipTree(joltArchiveFile)) {
-                eachFile {
-                    val strippedSegments = relativePath.segments.drop(1)
-                    if(strippedSegments.isEmpty()) {
-                        exclude()
-                    }
-                    else {
-                        relativePath = RelativePath(!isDirectory, *strippedSegments.toTypedArray())
-                    }
-                }
-                includeEmptyDirs = false
-            }
-            into(joltSourceRoot)
-        }
-        delete(joltArchiveFile)
+        downloadAndExtract(
+            "https://github.com/jrouwe/JoltPhysics/archive/${LibExt.joltCommit}.zip",
+            joltArchiveFile,
+            joltSourceRoot
+        )
+        downloadAndExtract(
+            "https://github.com/jrouwe/JoltPhysics.js/archive/${LibExt.joltJsCommit}.zip",
+            joltJsArchiveFile,
+            joltJsSourceRoot
+        )
     }
 }

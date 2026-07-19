@@ -83,4 +83,20 @@ public class CollideShapeSettings extends CollideSettingsBase {
     public static void internal_native_set_mBackFaceMode(long this_addr, int mBackFaceMode) {
         jolt.physics.collision.natives.JNI_CollideShapeSettings.internal_native_set_mBackFaceMode(this_addr, mBackFaceMode);
     }
+
+    public float get_mInternalEdgeRemovalVertexToleranceSq() {
+        return internal_native_get_mInternalEdgeRemovalVertexToleranceSq(native_address);
+    }
+
+    public static float internal_native_get_mInternalEdgeRemovalVertexToleranceSq(long this_addr) {
+        return jolt.physics.collision.natives.JNI_CollideShapeSettings.internal_native_get_mInternalEdgeRemovalVertexToleranceSq(this_addr);
+    }
+
+    public void set_mInternalEdgeRemovalVertexToleranceSq(float mInternalEdgeRemovalVertexToleranceSq) {
+        internal_native_set_mInternalEdgeRemovalVertexToleranceSq(native_address, mInternalEdgeRemovalVertexToleranceSq);
+    }
+
+    public static void internal_native_set_mInternalEdgeRemovalVertexToleranceSq(long this_addr, float mInternalEdgeRemovalVertexToleranceSq) {
+        jolt.physics.collision.natives.JNI_CollideShapeSettings.internal_native_set_mInternalEdgeRemovalVertexToleranceSq(this_addr, mInternalEdgeRemovalVertexToleranceSq);
+    }
 }

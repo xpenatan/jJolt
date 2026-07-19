@@ -77,4 +77,18 @@ public class CollideShapeSettings extends CollideSettingsBase {
 
     @org.teavm.interop.Import(name = "jolt_physics_collision_collideshapesettings_set_mbackfacemode")
     public static native void internal_native_set_mBackFaceMode(long this_addr, int mBackFaceMode);
+
+    public float get_mInternalEdgeRemovalVertexToleranceSq() {
+        return internal_native_get_mInternalEdgeRemovalVertexToleranceSq(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "jolt_physics_collision_collideshapesettings_get_minternaledgeremovalvertextolerancesq")
+    public static native float internal_native_get_mInternalEdgeRemovalVertexToleranceSq(long this_addr);
+
+    public void set_mInternalEdgeRemovalVertexToleranceSq(float mInternalEdgeRemovalVertexToleranceSq) {
+        internal_native_set_mInternalEdgeRemovalVertexToleranceSq(native_address, mInternalEdgeRemovalVertexToleranceSq);
+    }
+
+    @org.teavm.interop.Import(name = "jolt_physics_collision_collideshapesettings_set_minternaledgeremovalvertextolerancesq")
+    public static native void internal_native_set_mInternalEdgeRemovalVertexToleranceSq(long this_addr, float mInternalEdgeRemovalVertexToleranceSq);
 }

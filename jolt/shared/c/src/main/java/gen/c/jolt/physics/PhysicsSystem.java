@@ -38,7 +38,7 @@ public class PhysicsSystem extends NativeObject {
 
     private AABox AABox_TEMP_GEN_0;
 
-    private NativeObject NativeObject_TEMP_GEN_0;
+    private ContactListener ContactListener_TEMP_GEN_0;
 
     private SoftBodyContactListener SoftBodyContactListener_TEMP_GEN_0;
 
@@ -214,14 +214,14 @@ public class PhysicsSystem extends NativeObject {
     @org.teavm.interop.Import(name = "jolt_physics_physicssystem_setcontactlistener")
     public static native void internal_native_SetContactListener(long this_addr, long inListener_addr);
 
-    public NativeObject GetContactListener() {
+    public ContactListener GetContactListener() {
         long addr = internal_native_GetContactListener_addr(native_address);
         if (addr == 0)
-            return NativeObject.NULL;
-        if (NativeObject_TEMP_GEN_0 == null)
-            NativeObject_TEMP_GEN_0 = NativeObject.native_new();
-        NativeObject_TEMP_GEN_0.internal_reset(addr, false);
-        return NativeObject_TEMP_GEN_0;
+            return ContactListener.NULL;
+        if (ContactListener_TEMP_GEN_0 == null)
+            ContactListener_TEMP_GEN_0 = ContactListener.native_new();
+        ContactListener_TEMP_GEN_0.internal_reset(addr, false);
+        return ContactListener_TEMP_GEN_0;
     }
 
     @org.teavm.interop.Import(name = "jolt_physics_physicssystem_getcontactlistener_addr")

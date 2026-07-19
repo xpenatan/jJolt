@@ -16,8 +16,10 @@ import gen.c.jolt.math.Mat44;
 import gen.c.jolt.physics.collision.shape.Shape;
 import gen.c.jolt.geometry.AABox;
 import gen.c.jolt.physics.collision.TransformedShape;
+import gen.c.jolt.physics.collision.broadphase.BroadPhaseLayerInterface;
 import gen.c.jolt.physics.softbody.SoftBodyCreationSettings;
 import gen.c.jolt.physics.collision.shape.SubShapeID;
+import gen.c.jolt.physics.StateRecorder;
 
 public class Body extends NativeObject {
 
@@ -613,6 +615,13 @@ public class Body extends NativeObject {
     @org.teavm.interop.Import(name = "jolt_physics_body_body_getbodycreationsettings_addr")
     public static native long internal_native_GetBodyCreationSettings_addr(long this_addr);
 
+    public void ApplyBodyCreationSettings(BodyCreationSettings inBodyCreationSettings, BroadPhaseLayerInterface inBPLInterface) {
+        internal_native_ApplyBodyCreationSettings(native_address, inBodyCreationSettings.native_address, inBPLInterface.native_address);
+    }
+
+    @org.teavm.interop.Import(name = "jolt_physics_body_body_applybodycreationsettings")
+    public static native void internal_native_ApplyBodyCreationSettings(long this_addr, long inBodyCreationSettings_addr, long inBPLInterface_addr);
+
     public SoftBodyCreationSettings GetSoftBodyCreationSettings() {
         long addr = internal_native_GetSoftBodyCreationSettings_addr(native_address);
         if (addr == 0)
@@ -625,6 +634,13 @@ public class Body extends NativeObject {
 
     @org.teavm.interop.Import(name = "jolt_physics_body_body_getsoftbodycreationsettings_addr")
     public static native long internal_native_GetSoftBodyCreationSettings_addr(long this_addr);
+
+    public void ApplySoftBodyCreationSettings(SoftBodyCreationSettings inSoftBodyCreationSettings, BroadPhaseLayerInterface inBPLInterface) {
+        internal_native_ApplySoftBodyCreationSettings(native_address, inSoftBodyCreationSettings.native_address, inBPLInterface.native_address);
+    }
+
+    @org.teavm.interop.Import(name = "jolt_physics_body_body_applysoftbodycreationsettings")
+    public static native void internal_native_ApplySoftBodyCreationSettings(long this_addr, long inSoftBodyCreationSettings_addr, long inBPLInterface_addr);
 
     public MotionProperties GetMotionProperties() {
         long addr = internal_native_GetMotionProperties_addr(native_address);
@@ -652,19 +668,19 @@ public class Body extends NativeObject {
     @org.teavm.interop.Import(name = "jolt_physics_body_body_getworldspacesurfacenormal_addr")
     public static native long internal_native_GetWorldSpaceSurfaceNormal_addr(long this_addr, long inSubShapeID_addr, long inPosition_addr);
 
-    public long GetUserData() {
+    public int GetUserData() {
         return internal_native_GetUserData(native_address);
     }
 
     @org.teavm.interop.Import(name = "jolt_physics_body_body_getuserdata")
-    public static native long internal_native_GetUserData(long this_addr);
+    public static native int internal_native_GetUserData(long this_addr);
 
-    public void SetUserData(long inUserData) {
+    public void SetUserData(int inUserData) {
         internal_native_SetUserData(native_address, inUserData);
     }
 
     @org.teavm.interop.Import(name = "jolt_physics_body_body_setuserdata")
-    public static native void internal_native_SetUserData(long this_addr, long inUserData);
+    public static native void internal_native_SetUserData(long this_addr, int inUserData);
 
     public void SetCollisionGroup(CollisionGroup inGroup) {
         internal_native_SetCollisionGroup(native_address, inGroup.native_address);
@@ -672,4 +688,18 @@ public class Body extends NativeObject {
 
     @org.teavm.interop.Import(name = "jolt_physics_body_body_setcollisiongroup")
     public static native void internal_native_SetCollisionGroup(long this_addr, long inGroup_addr);
+
+    public void SaveState(StateRecorder inStream) {
+        internal_native_SaveState(native_address, inStream.native_address);
+    }
+
+    @org.teavm.interop.Import(name = "jolt_physics_body_body_savestate")
+    public static native void internal_native_SaveState(long this_addr, long inStream_addr);
+
+    public void RestoreState(StateRecorder inStream) {
+        internal_native_RestoreState(native_address, inStream.native_address);
+    }
+
+    @org.teavm.interop.Import(name = "jolt_physics_body_body_restorestate")
+    public static native void internal_native_RestoreState(long this_addr, long inStream_addr);
 }

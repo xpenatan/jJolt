@@ -70,6 +70,8 @@ final public class JNI_MotionProperties {
 
     public static native void internal_native_SetInverseInertia(long this_addr, long inInvI_addr, long inRotation_addr);
 
+    public static native void internal_native_ScaleToMass(long this_addr, float inMass);
+
     public static native long internal_native_GetLocalSpaceInverseInertia_addr(long this_addr);
 
     public static native long internal_native_GetInverseInertiaForRotation_addr(long this_addr, long inRotation_addr);

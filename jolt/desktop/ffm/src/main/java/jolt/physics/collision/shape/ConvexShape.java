@@ -6,6 +6,7 @@
 
 package jolt.physics.collision.shape;
 
+import jolt.physics.collision.PhysicsMaterial;
 import java.lang.foreign.FunctionDescriptor;
 import java.lang.foreign.ValueLayout;
 import java.lang.foreign.Linker;
@@ -57,10 +58,24 @@ public class ConvexShape extends Shape {
         }
     }
 
+    public void SetMaterial(PhysicsMaterial inMaterial) {
+        internal_native_SetMaterial(native_address, inMaterial.native_address);
+    }
+
+    public static void internal_native_SetMaterial(long this_addr, long inMaterial_addr) {
+        try {
+            FFMHandles.internal_native_SetMaterial__JJ.invokeExact(this_addr, inMaterial_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
     private static final class FFMHandles {
 
         static final java.lang.invoke.MethodHandle internal_native_GetDensity__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_collision_shape_convexshape_getdensity", FunctionDescriptor.of(ValueLayout.JAVA_FLOAT, ValueLayout.JAVA_LONG));
 
         static final java.lang.invoke.MethodHandle internal_native_SetDensity__JF = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_collision_shape_convexshape_setdensity", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_FLOAT));
+
+        static final java.lang.invoke.MethodHandle internal_native_SetMaterial__JJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_collision_shape_convexshape_setmaterial", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
     }
 }

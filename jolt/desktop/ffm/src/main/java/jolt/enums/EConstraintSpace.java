@@ -59,8 +59,8 @@ public enum EConstraintSpace implements NativeEnum<EConstraintSpace> {
 
     private static final class FFMHandles {
 
-        static final java.lang.invoke.MethodHandle EConstraintSpace_LocalToBodyCOM_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_enums_econstraintspace_econstraintspace_localtobodycom_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
+        static final java.lang.invoke.MethodHandle EConstraintSpace_LocalToBodyCOM_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_enums_econstraintspace_econstraintspace_localtobodycom_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
 
-        static final java.lang.invoke.MethodHandle EConstraintSpace_WorldSpace_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_enums_econstraintspace_econstraintspace_worldspace_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
+        static final java.lang.invoke.MethodHandle EConstraintSpace_WorldSpace_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_enums_econstraintspace_econstraintspace_worldspace_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
     }
 }

@@ -8,10 +8,12 @@ package jolt.physics.character;
 
 import com.github.xpenatan.jParser.api.NativeObject;
 import jolt.math.Vec3;
+import jolt.geometry.Plane;
 import jolt.physics.collision.shape.Shape;
 import jolt.enums.EGroundState;
 import jolt.physics.collision.PhysicsMaterial;
 import jolt.physics.body.BodyID;
+import jolt.physics.StateRecorder;
 
 public class CharacterBase extends NativeObject {
 
@@ -55,6 +57,13 @@ public class CharacterBase extends NativeObject {
         return null;
     }
 
+    public void SetSupportingVolume(Plane inVolume) {
+    }
+
+    public Plane GetSupportingVolume() {
+        return null;
+    }
+
     public Shape GetShape() {
         return null;
     }
@@ -89,5 +98,11 @@ public class CharacterBase extends NativeObject {
 
     public BodyID GetGroundBodyID() {
         return null;
+    }
+
+    public void SaveState(StateRecorder inStream) {
+    }
+
+    public void RestoreState(StateRecorder inStream) {
     }
 }

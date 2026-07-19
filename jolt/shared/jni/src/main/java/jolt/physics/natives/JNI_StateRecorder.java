@@ -15,4 +15,8 @@ final public class JNI_StateRecorder {
     public static native void internal_native_SetValidating(long this_addr, boolean inValidating);
 
     public static native boolean internal_native_IsValidating(long this_addr);
+
+    public static native void internal_native_SetIsLastPart(long this_addr, boolean inIsLastPart);
+
+    public static native boolean internal_native_IsLastPart(long this_addr);
 }

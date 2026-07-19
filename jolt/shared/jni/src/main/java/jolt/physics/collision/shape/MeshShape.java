@@ -24,4 +24,12 @@ public class MeshShape extends Shape {
     public static MeshShape native_new() {
         return new MeshShape((byte) 0, (char) 0);
     }
+
+    public int GetTriangleUserData(SubShapeID inSubShapeID) {
+        return internal_native_GetTriangleUserData(native_address, inSubShapeID.native_address);
+    }
+
+    public static int internal_native_GetTriangleUserData(long this_addr, long inSubShapeID_addr) {
+        return jolt.physics.collision.shape.natives.JNI_MeshShape.internal_native_GetTriangleUserData(this_addr, inSubShapeID_addr);
+    }
 }

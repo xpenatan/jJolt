@@ -60,6 +60,13 @@ public class ObjectLayerPairFilter extends NativeObject {
     @org.teavm.interop.Import(name = "jolt_physics_collision_objectlayerpairfilter_deletenative")
     public static native void internal_native_deleteNative(long this_addr);
 
+    public boolean ShouldCollideNative(int inLayer1, int inLayer2) {
+        return internal_native_ShouldCollideNative(native_address, inLayer1, inLayer2);
+    }
+
+    @org.teavm.interop.Import(name = "jolt_physics_collision_objectlayerpairfilter_shouldcollidenative")
+    public static native boolean internal_native_ShouldCollideNative(long this_addr, int inLayer1, int inLayer2);
+
     public ObjectLayerPairFilter() {
         long addr = internal_native_create_addr();
         internal_reset(addr, true);

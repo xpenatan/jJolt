@@ -202,11 +202,19 @@ public class Ragdoll extends NativeObject {
     }
 
     public void DriveToPoseUsingMotors(SkeletonPose inPose) {
-        internal_native_DriveToPoseUsingMotors(native_address, inPose.native_address);
+        internal_native_DriveToPoseUsingMotors__0(native_address, inPose.native_address);
     }
 
-    public static void internal_native_DriveToPoseUsingMotors(long this_addr, long inPose_addr) {
-        jolt.physics.ragdoll.natives.JNI_Ragdoll.internal_native_DriveToPoseUsingMotors(this_addr, inPose_addr);
+    public static void internal_native_DriveToPoseUsingMotors__0(long this_addr, long inPose_addr) {
+        jolt.physics.ragdoll.natives.JNI_Ragdoll.internal_native_DriveToPoseUsingMotors__0(this_addr, inPose_addr);
+    }
+
+    public void DriveToPoseUsingMotors(SkeletonPose inPrevPose, SkeletonPose inPose, float inDeltaTime) {
+        internal_native_DriveToPoseUsingMotors__1(native_address, inPrevPose.native_address, inPose.native_address, inDeltaTime);
+    }
+
+    public static void internal_native_DriveToPoseUsingMotors__1(long this_addr, long inPrevPose_addr, long inPose_addr, float inDeltaTime) {
+        jolt.physics.ragdoll.natives.JNI_Ragdoll.internal_native_DriveToPoseUsingMotors__1(this_addr, inPrevPose_addr, inPose_addr, inDeltaTime);
     }
 
     public void SetLinearAndAngularVelocity(Vec3 inLinearVelocity, Vec3 inAngularVelocity, boolean inLockBodies) {

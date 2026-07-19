@@ -44,6 +44,20 @@ public class ShapeCastSettings extends CollideSettingsBase {
     @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.ShapeCastSettings);jolt.destroy(jsObj);")
     public static native void internal_native_deleteNative(int this_addr);
 
+    public float get_mExtraConvexRadius() {
+        return internal_native_get_mExtraConvexRadius(native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.ShapeCastSettings);return jsObj.get_mExtraConvexRadius();")
+    public static native float internal_native_get_mExtraConvexRadius(int this_addr);
+
+    public void set_mExtraConvexRadius(float mExtraConvexRadius) {
+        internal_native_set_mExtraConvexRadius(native_address, mExtraConvexRadius);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "mExtraConvexRadius"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.ShapeCastSettings);jsObj.set_mExtraConvexRadius(mExtraConvexRadius);")
+    public static native void internal_native_set_mExtraConvexRadius(int this_addr, float mExtraConvexRadius);
+
     public EBackFaceMode get_mBackFaceModeTriangles() {
         int value = internal_native_get_mBackFaceModeTriangles(native_address);
         EBackFaceMode[] values = EBackFaceMode.values();

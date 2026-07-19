@@ -16,6 +16,14 @@ final public class JNI_OrientedBox {
 
     public static native void internal_native_deleteNative(long this_addr);
 
+    public static native boolean internal_native_OverlapsAABox(long this_addr, long inBox_addr, float inEpsilon);
+
+    public static native boolean internal_native_OverlapsAABox(long this_addr, long inBox_addr);
+
+    public static native boolean internal_native_OverlapsOrientedBox(long this_addr, long inBox_addr, float inEpsilon);
+
+    public static native boolean internal_native_OverlapsOrientedBox(long this_addr, long inBox_addr);
+
     public static native long internal_native_get_mOrientation_addr(long this_addr);
 
     public static native void internal_native_set_mOrientation(long this_addr, long mOrientation_addr);

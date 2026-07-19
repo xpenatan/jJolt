@@ -28,6 +28,8 @@ public class Vec4 extends NativeObject {
 
     static private Vec4 Vec4_TEMP_STATIC_GEN_8;
 
+    static private Vec4 Vec4_TEMP_STATIC_GEN_9;
+
     private Vec4 Vec4_TEMP_GEN_0;
 
     private Vec4 Vec4_TEMP_GEN_1;
@@ -49,6 +51,22 @@ public class Vec4 extends NativeObject {
 
     @org.teavm.interop.Import(name = "jolt_math_vec4_create_addr")
     public static native long internal_native_create_addr();
+
+    public Vec4(Vec4 inV) {
+        long addr = internal_native_create_Vec4_addr(inV.native_address);
+        internal_reset(addr, true);
+    }
+
+    @org.teavm.interop.Import(name = "jolt_math_vec4_create_vec4_addr")
+    public static native long internal_native_create_Vec4_addr(long inV_addr);
+
+    public Vec4(Vec3 inV, float inW) {
+        long addr = internal_native_create_Vec3_float_addr(inV.native_address, inW);
+        internal_reset(addr, true);
+    }
+
+    @org.teavm.interop.Import(name = "jolt_math_vec4_create_vec3_float_addr")
+    public static native long internal_native_create_Vec3_float_addr(long inV_addr, float inW);
 
     public Vec4(float inX, float inY, float inZ, float inW) {
         long addr = internal_native_create_float_float_float_float_addr(inX, inY, inZ, inW);
@@ -144,14 +162,27 @@ public class Vec4 extends NativeObject {
     @org.teavm.interop.Import(name = "jolt_math_vec4_smax_addr")
     public static native long internal_native_sMax_addr(long inLHS_addr, long inRHS_addr);
 
-    public static Vec4 sFusedMultiplyAdd(Vec4 inMul1, Vec4 inMul2, Vec4 inAdd) {
-        long addr = internal_native_sFusedMultiplyAdd_addr(inMul1.native_address, inMul2.native_address, inAdd.native_address);
+    public static Vec4 sClamp(Vec4 inValue, Vec4 inMin, Vec4 inMax) {
+        long addr = internal_native_sClamp_addr(inValue.native_address, inMin.native_address, inMax.native_address);
         if (addr == 0)
             return Vec4.NULL;
         if (Vec4_TEMP_STATIC_GEN_5 == null)
             Vec4_TEMP_STATIC_GEN_5 = Vec4.native_new();
         Vec4_TEMP_STATIC_GEN_5.internal_reset(addr, false);
         return Vec4_TEMP_STATIC_GEN_5;
+    }
+
+    @org.teavm.interop.Import(name = "jolt_math_vec4_sclamp_addr")
+    public static native long internal_native_sClamp_addr(long inValue_addr, long inMin_addr, long inMax_addr);
+
+    public static Vec4 sFusedMultiplyAdd(Vec4 inMul1, Vec4 inMul2, Vec4 inAdd) {
+        long addr = internal_native_sFusedMultiplyAdd_addr(inMul1.native_address, inMul2.native_address, inAdd.native_address);
+        if (addr == 0)
+            return Vec4.NULL;
+        if (Vec4_TEMP_STATIC_GEN_6 == null)
+            Vec4_TEMP_STATIC_GEN_6 = Vec4.native_new();
+        Vec4_TEMP_STATIC_GEN_6.internal_reset(addr, false);
+        return Vec4_TEMP_STATIC_GEN_6;
     }
 
     @org.teavm.interop.Import(name = "jolt_math_vec4_sfusedmultiplyadd_addr")
@@ -161,10 +192,10 @@ public class Vec4 extends NativeObject {
         long addr = internal_native_sOr_addr(inV1.native_address, inV2.native_address);
         if (addr == 0)
             return Vec4.NULL;
-        if (Vec4_TEMP_STATIC_GEN_6 == null)
-            Vec4_TEMP_STATIC_GEN_6 = Vec4.native_new();
-        Vec4_TEMP_STATIC_GEN_6.internal_reset(addr, false);
-        return Vec4_TEMP_STATIC_GEN_6;
+        if (Vec4_TEMP_STATIC_GEN_7 == null)
+            Vec4_TEMP_STATIC_GEN_7 = Vec4.native_new();
+        Vec4_TEMP_STATIC_GEN_7.internal_reset(addr, false);
+        return Vec4_TEMP_STATIC_GEN_7;
     }
 
     @org.teavm.interop.Import(name = "jolt_math_vec4_sor_addr")
@@ -174,10 +205,10 @@ public class Vec4 extends NativeObject {
         long addr = internal_native_sXor_addr(inV1.native_address, inV2.native_address);
         if (addr == 0)
             return Vec4.NULL;
-        if (Vec4_TEMP_STATIC_GEN_7 == null)
-            Vec4_TEMP_STATIC_GEN_7 = Vec4.native_new();
-        Vec4_TEMP_STATIC_GEN_7.internal_reset(addr, false);
-        return Vec4_TEMP_STATIC_GEN_7;
+        if (Vec4_TEMP_STATIC_GEN_8 == null)
+            Vec4_TEMP_STATIC_GEN_8 = Vec4.native_new();
+        Vec4_TEMP_STATIC_GEN_8.internal_reset(addr, false);
+        return Vec4_TEMP_STATIC_GEN_8;
     }
 
     @org.teavm.interop.Import(name = "jolt_math_vec4_sxor_addr")
@@ -187,10 +218,10 @@ public class Vec4 extends NativeObject {
         long addr = internal_native_sAnd_addr(inV1.native_address, inV2.native_address);
         if (addr == 0)
             return Vec4.NULL;
-        if (Vec4_TEMP_STATIC_GEN_8 == null)
-            Vec4_TEMP_STATIC_GEN_8 = Vec4.native_new();
-        Vec4_TEMP_STATIC_GEN_8.internal_reset(addr, false);
-        return Vec4_TEMP_STATIC_GEN_8;
+        if (Vec4_TEMP_STATIC_GEN_9 == null)
+            Vec4_TEMP_STATIC_GEN_9 = Vec4.native_new();
+        Vec4_TEMP_STATIC_GEN_9.internal_reset(addr, false);
+        return Vec4_TEMP_STATIC_GEN_9;
     }
 
     @org.teavm.interop.Import(name = "jolt_math_vec4_sand_addr")
@@ -280,6 +311,20 @@ public class Vec4 extends NativeObject {
     @org.teavm.interop.Import(name = "jolt_math_vec4_isclose_l_l")
     public static native boolean internal_native_IsClose(long this_addr, long inV_addr);
 
+    public boolean IsNearZero(float inMaxDistSq) {
+        return internal_native_IsNearZero(native_address, inMaxDistSq);
+    }
+
+    @org.teavm.interop.Import(name = "jolt_math_vec4_isnearzero_l_f")
+    public static native boolean internal_native_IsNearZero(long this_addr, float inMaxDistSq);
+
+    public boolean IsNearZero() {
+        return internal_native_IsNearZero(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "jolt_math_vec4_isnearzero_l")
+    public static native boolean internal_native_IsNearZero(long this_addr);
+
     public boolean IsNormalized(float inTolerance) {
         return internal_native_IsNormalized(native_address, inTolerance);
     }
@@ -293,6 +338,20 @@ public class Vec4 extends NativeObject {
 
     @org.teavm.interop.Import(name = "jolt_math_vec4_isnormalized_l")
     public static native boolean internal_native_IsNormalized(long this_addr);
+
+    public int GetLowestComponentIndex() {
+        return internal_native_GetLowestComponentIndex(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "jolt_math_vec4_getlowestcomponentindex")
+    public static native int internal_native_GetLowestComponentIndex(long this_addr);
+
+    public int GetHighestComponentIndex() {
+        return internal_native_GetHighestComponentIndex(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "jolt_math_vec4_gethighestcomponentindex")
+    public static native int internal_native_GetHighestComponentIndex(long this_addr);
 
     public Vec4 Set(Vec4 other) {
         internal_native_Set__0_addr(native_address, other.native_address);

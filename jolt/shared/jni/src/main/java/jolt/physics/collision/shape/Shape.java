@@ -161,19 +161,19 @@ public class Shape extends NativeObject {
         return jolt.physics.collision.shape.natives.JNI_Shape.internal_native_GetCenterOfMass_addr(this_addr);
     }
 
-    public long GetUserData() {
+    public int GetUserData() {
         return internal_native_GetUserData(native_address);
     }
 
-    public static long internal_native_GetUserData(long this_addr) {
+    public static int internal_native_GetUserData(long this_addr) {
         return jolt.physics.collision.shape.natives.JNI_Shape.internal_native_GetUserData(this_addr);
     }
 
-    public void SetUserData(long inUserData) {
+    public void SetUserData(int inUserData) {
         internal_native_SetUserData(native_address, inUserData);
     }
 
-    public static void internal_native_SetUserData(long this_addr, long inUserData) {
+    public static void internal_native_SetUserData(long this_addr, int inUserData) {
         jolt.physics.collision.shape.natives.JNI_Shape.internal_native_SetUserData(this_addr, inUserData);
     }
 
@@ -249,11 +249,11 @@ public class Shape extends NativeObject {
         return jolt.physics.collision.shape.natives.JNI_Shape.internal_native_GetSurfaceNormal_addr(this_addr, inSubShapeID_addr, inLocalSurfacePosition_addr);
     }
 
-    public long GetSubShapeUserData(SubShapeID inSubShapeID) {
+    public int GetSubShapeUserData(SubShapeID inSubShapeID) {
         return internal_native_GetSubShapeUserData(native_address, inSubShapeID.native_address);
     }
 
-    public static long internal_native_GetSubShapeUserData(long this_addr, long inSubShapeID_addr) {
+    public static int internal_native_GetSubShapeUserData(long this_addr, long inSubShapeID_addr) {
         return jolt.physics.collision.shape.natives.JNI_Shape.internal_native_GetSubShapeUserData(this_addr, inSubShapeID_addr);
     }
 

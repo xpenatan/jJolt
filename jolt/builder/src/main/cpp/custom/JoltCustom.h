@@ -91,7 +91,9 @@
 #include "RuntimeHelper.h"
 #include <cstdarg>
 #include <cstdio>
+#include <algorithm>
 #include <optional>
+#include <thread>
 
 #include <iostream>
 //#include <malloc.h>
@@ -148,6 +150,8 @@ using SoftBodySharedSettingsInvBind = SoftBodySharedSettings::InvBind;
 using SoftBodySharedSettingsSkinWeight = SoftBodySharedSettings::SkinWeight;
 using SoftBodySharedSettingsSkinned = SoftBodySharedSettings::Skinned;
 using SoftBodySharedSettingsLRA = SoftBodySharedSettings::LRA;
+using SoftBodySharedSettingsRodStretchShear = SoftBodySharedSettings::RodStretchShear;
+using SoftBodySharedSettingsRodBendTwist = SoftBodySharedSettings::RodBendTwist;
 using SoftBodySharedSettingsVertexAttributes = SoftBodySharedSettings::VertexAttributes;
 using CollideShapeResultFace = CollideShapeResult::Face;
 using ArraySoftBodySharedSettingsVertex = Array<SoftBodySharedSettingsVertex>;
@@ -159,6 +163,8 @@ using ArraySoftBodySharedSettingsInvBind = Array<SoftBodySharedSettingsInvBind>;
 using ArraySoftBodySharedSettingsSkinWeight = Array<SoftBodySharedSettingsSkinWeight>;
 using ArraySoftBodySharedSettingsSkinned = Array<SoftBodySharedSettingsSkinned>;
 using ArraySoftBodySharedSettingsLRA = Array<SoftBodySharedSettingsLRA>;
+using ArraySoftBodySharedSettingsRodStretchShear = Array<SoftBodySharedSettingsRodStretchShear>;
+using ArraySoftBodySharedSettingsRodBendTwist = Array<SoftBodySharedSettingsRodBendTwist>;
 using ArraySoftBodySharedSettingsVertexAttributes = Array<SoftBodySharedSettingsVertexAttributes>;
 using ArraySoftBodyVertex = Array<SoftBodyVertex>;
 using EGroundState = CharacterBase::EGroundState;
@@ -182,6 +188,18 @@ using CastShapeAnyHitCollisionCollector = AnyHitCollisionCollector<CastShapeColl
 using ArrayWheelSettings = Array<Ref<WheelSettings>>;
 using ArrayVehicleAntiRollBar = Array<VehicleAntiRollBar>;
 using ArrayVehicleDifferentialSettings = Array<VehicleDifferentialSettings>;
+
+/// Borrowed view over TrackedVehicleController's fixed VehicleTracks C array.
+/// This class intentionally has no state: JParser casts the address of the
+/// native array to this view and the accessors reinterpret that same address.
+class ArrayVehicleTrack
+{
+public:
+    bool empty() const { return false; }
+    int size() const { return static_cast<int>(ETrackSide::Num); }
+    VehicleTrack &at(int inIndex) { return reinterpret_cast<VehicleTrack *>(this)[inIndex]; }
+    const VehicleTrack &at(int inIndex) const { return reinterpret_cast<const VehicleTrack *>(this)[inIndex]; }
+};
 using SkeletalAnimationJointState = SkeletalAnimation::JointState;
 using SkeletalAnimationKeyframe = SkeletalAnimation::Keyframe;
 using SkeletalAnimationAnimatedJoint = SkeletalAnimation::AnimatedJoint;
@@ -193,7 +211,7 @@ using ArrayRagdollPart = Array<RagdollPart>;
 using ArrayRagdollAdditionalConstraint = Array<RagdollAdditionalConstraint>;
 using CompoundShapeSubShape = CompoundShape::SubShape;
 using BodyInterface_AddState = void;
-using CharacterVirtualContact = CharacterVirtual::Contact;
+using CharacterVirtualContact = CharacterContact;
 using ArrayCharacterVirtualContact = Array<CharacterVirtualContact>;
 using RefTargetShapeSettings = RefTarget<ShapeSettings>;
 
@@ -248,6 +266,7 @@ constexpr EConstraintSpace EConstraintSpace_WorldSpace = EConstraintSpace::World
 // Alias for ESpringMode values to avoid clashes
 constexpr ESpringMode ESpringMode_FrequencyAndDamping = ESpringMode::FrequencyAndDamping;
 constexpr ESpringMode ESpringMode_StiffnessAndDamping = ESpringMode::StiffnessAndDamping;
+constexpr ESpringMode ESpringMode_MassNormalizedStiffnessAndDamping = ESpringMode::MassNormalizedStiffnessAndDamping;
 
 // Alias for EOverrideMassProperties values to avoid clashes
 constexpr EOverrideMassProperties EOverrideMassProperties_CalculateMassAndInertia = EOverrideMassProperties::CalculateMassAndInertia;
@@ -340,6 +359,7 @@ constexpr SixDOFConstraintSettings_EAxis SixDOFConstraintSettings_EAxis_Rotation
 constexpr EMotorState EMotorState_Off = EMotorState::Off;
 constexpr EMotorState EMotorState_Velocity = EMotorState::Velocity;
 constexpr EMotorState EMotorState_Position = EMotorState::Position;
+constexpr EMotorState EMotorState_PositionAndVelocity = EMotorState::PositionAndVelocity;
 
 // Alias for ETransmissionMode values to avoid clashes
 constexpr ETransmissionMode ETransmissionMode_Auto = ETransmissionMode::Auto;
@@ -400,6 +420,8 @@ static bool AssertFailedImpl(const char* inExpression, const char* inMessage, co
 
 #endif // JPH_ENABLE_ASSERTS
 
+namespace XJPH { class CharacterContactListener; }
+
 // Custom class for setting up Jolt
 class Jolt
 {
@@ -439,6 +461,121 @@ public:
             bodyInterface.DestroyBodies(bodyIDs.data(), bodyIDs.size());
         }
     }
+
+    static XJPH::CharacterContactListener *GetCharacterContactListener(CharacterVirtual *inCharacter);
+};
+
+/// Cross-platform assert callback used by JoltInterface.
+class AssertFailedHandler
+{
+public:
+    virtual ~AssertFailedHandler() = default;
+    virtual void OnAssertFailed(const NativeString *inExpression, const NativeString *inMessage, const NativeString *inFile, uint inLine) = 0;
+};
+
+/// Settings used to construct the high-level cross-platform Jolt interface.
+class JoltSettings
+{
+public:
+    uint mMaxBodies = 10240;
+    uint mMaxBodyPairs = 65536;
+    uint mMaxContactConstraints = 10240;
+    uint mTempAllocatorSize = 10 * 1024 * 1024;
+    uint mMaxWorkerThreads = 16;
+    BroadPhaseLayerInterface *mBroadPhaseLayerInterface = nullptr;
+    ObjectVsBroadPhaseLayerFilter *mObjectVsBroadPhaseLayerFilter = nullptr;
+    ObjectLayerPairFilter *mObjectLayerPairFilter = nullptr;
+    AssertFailedHandler *mAssertFailedHandler = nullptr;
+};
+
+/// Owns the standard Jolt subsystems and the three collision-filter interfaces supplied in JoltSettings.
+class JoltInterface
+{
+public:
+    explicit JoltInterface(const JoltSettings &inSettings)
+    {
+        Trace = TraceImpl;
+
+#ifdef JPH_ENABLE_ASSERTS
+        sAssertFailedHandler = inSettings.mAssertFailedHandler;
+        AssertFailed = [](const char *inExpression, const char *inMessage, const char *inFile, uint inLine)
+        {
+            if (sAssertFailedHandler != nullptr)
+            {
+                NativeString expression(inExpression != nullptr? inExpression : "");
+                NativeString message(inMessage != nullptr? inMessage : "");
+                NativeString file(inFile != nullptr? inFile : "");
+                sAssertFailedHandler->OnAssertFailed(&expression, &message, &file, inLine);
+            }
+            else
+            {
+                cout << inFile << ":" << inLine << ": (" << inExpression << ") " << (inMessage != nullptr? inMessage : "") << endl;
+            }
+            return false;
+        };
+#endif
+
+        Factory::sInstance = new Factory();
+        JPH::RegisterTypes();
+
+        mTempAllocator = new TempAllocatorImpl(inSettings.mTempAllocatorSize);
+        int available_workers = int(thread::hardware_concurrency());
+        available_workers = available_workers > 0? available_workers - 1 : 0;
+        int num_workers = min(available_workers, min<int>(inSettings.mMaxWorkerThreads, 16));
+        mJobSystem = new JobSystemThreadPool(cMaxPhysicsJobs, cMaxPhysicsBarriers, num_workers);
+
+        mBroadPhaseLayerInterface = inSettings.mBroadPhaseLayerInterface;
+        mObjectVsBroadPhaseLayerFilter = inSettings.mObjectVsBroadPhaseLayerFilter;
+        mObjectLayerPairFilter = inSettings.mObjectLayerPairFilter;
+        JPH_ASSERT(mBroadPhaseLayerInterface != nullptr);
+        JPH_ASSERT(mObjectVsBroadPhaseLayerFilter != nullptr);
+        JPH_ASSERT(mObjectLayerPairFilter != nullptr);
+
+        constexpr uint cNumBodyMutexes = 0;
+        mPhysicsSystem = new PhysicsSystem();
+        mPhysicsSystem->Init(inSettings.mMaxBodies, cNumBodyMutexes, inSettings.mMaxBodyPairs, inSettings.mMaxContactConstraints,
+            *mBroadPhaseLayerInterface, *mObjectVsBroadPhaseLayerFilter, *mObjectLayerPairFilter);
+    }
+
+    ~JoltInterface()
+    {
+        delete mPhysicsSystem;
+        delete mBroadPhaseLayerInterface;
+        delete mObjectVsBroadPhaseLayerFilter;
+        delete mObjectLayerPairFilter;
+        delete mJobSystem;
+        delete mTempAllocator;
+        delete Factory::sInstance;
+        Factory::sInstance = nullptr;
+        JPH::UnregisterTypes();
+#ifdef JPH_ENABLE_ASSERTS
+        sAssertFailedHandler = nullptr;
+#endif
+    }
+
+    void Step(float inDeltaTime, int inCollisionSteps)
+    {
+        mPhysicsSystem->Update(inDeltaTime, inCollisionSteps, mTempAllocator, mJobSystem);
+    }
+
+    PhysicsSystem *GetPhysicsSystem() { return mPhysicsSystem; }
+    TempAllocator *GetTempAllocator() { return mTempAllocator; }
+    JobSystemThreadPool *GetJobSystem() { return mJobSystem; }
+    ObjectLayerPairFilter *GetObjectLayerPairFilter() { return mObjectLayerPairFilter; }
+    BroadPhaseLayerInterface *GetBroadPhaseLayerInterface() { return mBroadPhaseLayerInterface; }
+    ObjectVsBroadPhaseLayerFilter *GetObjectVsBroadPhaseLayerFilter() { return mObjectVsBroadPhaseLayerFilter; }
+    static Body *sGetFixedToWorldBody() { return &Body::sFixedToWorld; }
+
+private:
+    TempAllocatorImpl *mTempAllocator = nullptr;
+    JobSystemThreadPool *mJobSystem = nullptr;
+    BroadPhaseLayerInterface *mBroadPhaseLayerInterface = nullptr;
+    ObjectVsBroadPhaseLayerFilter *mObjectVsBroadPhaseLayerFilter = nullptr;
+    ObjectLayerPairFilter *mObjectLayerPairFilter = nullptr;
+    PhysicsSystem *mPhysicsSystem = nullptr;
+#ifdef JPH_ENABLE_ASSERTS
+    inline static AssertFailedHandler *sAssertFailedHandler = nullptr;
+#endif
 };
 
 static Vec3 vec3_temp1;
@@ -585,7 +722,7 @@ public:
     }
 
     static Mat44* Temp_Mat44_1() {
-        mat44_temp1.sIdentity();
+        mat44_temp1 = Mat44::sIdentity();
         return &mat44_temp1;
     }
 
@@ -595,7 +732,7 @@ public:
     }
 
     static Mat44* Temp_Mat44_2() {
-        mat44_temp2.sIdentity();
+        mat44_temp2 = Mat44::sIdentity();
         return &mat44_temp2;
     }
 
@@ -827,6 +964,24 @@ private:
     Array<const PhysicsMaterial *>	mMaterials;
 };
 
+/// Narrows native 64-bit body user data to the common 32-bit Java/WebAssembly surface.
+class BodyActivationListenerEm : public BodyActivationListener
+{
+public:
+    virtual void OnBodyActivated(const BodyID &inBodyID, uint32 inBodyUserData) = 0;
+    virtual void OnBodyDeactivated(const BodyID &inBodyID, uint32 inBodyUserData) = 0;
+
+    virtual void OnBodyActivated(const BodyID &inBodyID, uint64 inBodyUserData) override
+    {
+        OnBodyActivated(inBodyID, uint32(inBodyUserData));
+    }
+
+    virtual void OnBodyDeactivated(const BodyID &inBodyID, uint64 inBodyUserData) override
+    {
+        OnBodyDeactivated(inBodyID, uint32(inBodyUserData));
+    }
+};
+
 /// A wrapper around ContactListener that is compatible with JavaScript
 class ContactListenerEm: public ContactListener
 {
@@ -912,91 +1067,138 @@ namespace XJPH {
 class CharacterContactListener: public JPH::CharacterContactListener
 {
 public:
-
     bool onAdjustBodyVelocity = false;
     bool onContactValidate = false;
+    bool onContactValidateFull = false;
     bool onCharacterContactValidate = false;
+    bool onCharacterContactValidateFull = false;
     bool onContactAdded = false;
+    bool onContactAddedFull = false;
     bool onContactPersisted = false;
+    bool onContactPersistedFull = false;
     bool onContactRemoved = false;
     bool onCharacterContactAdded = false;
+    bool onCharacterContactAddedFull = false;
     bool onCharacterContactPersisted = false;
+    bool onCharacterContactPersistedFull = false;
     bool onCharacterContactRemoved = false;
     bool onContactSolve = false;
     bool onCharacterContactSolve = false;
 
     virtual void OnAdjustBodyVelocity_custom(const CharacterVirtual *inCharacter, const Body &inBody2, Vec3 &ioLinearVelocity, Vec3 &ioAngularVelocity) = 0;
     virtual bool OnContactValidate_custom(const CharacterVirtual *inCharacter, const BodyID &inBodyID2, const SubShapeID &inSubShapeID2) = 0;
+    virtual bool OnContactValidateFull_custom(const CharacterVirtual *inCharacter, const CharacterContact &inContact) = 0;
     virtual bool OnCharacterContactValidate_custom(const CharacterVirtual *inCharacter, const CharacterVirtual *inOtherCharacter, const SubShapeID &inSubShapeID2) = 0;
-    virtual void OnContactAdded_custom(const CharacterVirtual *inCharacter, const BodyID &inBodyID2, const SubShapeID& inSubShapeID2, const RVec3Arg& inContactPosition, const Vec3Arg& inContactNormal, CharacterContactSettings& ioSettings) = 0;
-    virtual void OnContactPersisted_custom(const CharacterVirtual *inCharacter, const BodyID &inBodyID2, const SubShapeID &inSubShapeID2, const RVec3Arg& inContactPosition, const Vec3Arg& inContactNormal, CharacterContactSettings &ioSettings) = 0;
+    virtual bool OnCharacterContactValidateFull_custom(const CharacterVirtual *inCharacter, const CharacterContact &inContact) = 0;
+    virtual void OnContactAdded_custom(const CharacterVirtual *inCharacter, const BodyID &inBodyID2, const SubShapeID &inSubShapeID2, const RVec3Arg &inContactPosition, const Vec3Arg &inContactNormal, CharacterContactSettings &ioSettings) = 0;
+    virtual void OnContactAddedFull_custom(const CharacterVirtual *inCharacter, const CharacterContact &inContact, CharacterContactSettings &ioSettings) = 0;
+    virtual void OnContactPersisted_custom(const CharacterVirtual *inCharacter, const BodyID &inBodyID2, const SubShapeID &inSubShapeID2, const RVec3Arg &inContactPosition, const Vec3Arg &inContactNormal, CharacterContactSettings &ioSettings) = 0;
+    virtual void OnContactPersistedFull_custom(const CharacterVirtual *inCharacter, const CharacterContact &inContact, CharacterContactSettings &ioSettings) = 0;
     virtual void OnContactRemoved_custom(const CharacterVirtual *inCharacter, const BodyID &inBodyID2, const SubShapeID &inSubShapeID2) = 0;
-    virtual void OnCharacterContactAdded_custom(const CharacterVirtual *inCharacter, const CharacterVirtual *inOtherCharacter, const SubShapeID &inSubShapeID2, const RVec3Arg& inContactPosition, const Vec3Arg& inContactNormal, CharacterContactSettings &ioSettings) = 0;
-    virtual void OnCharacterContactPersisted_custom(const CharacterVirtual *inCharacter, const CharacterVirtual *inOtherCharacter, const SubShapeID &inSubShapeID2, const RVec3Arg& inContactPosition, const Vec3Arg& inContactNormal, CharacterContactSettings &ioSettings) = 0;
+    virtual void OnCharacterContactAdded_custom(const CharacterVirtual *inCharacter, const CharacterVirtual *inOtherCharacter, const SubShapeID &inSubShapeID2, const RVec3Arg &inContactPosition, const Vec3Arg &inContactNormal, CharacterContactSettings &ioSettings) = 0;
+    virtual void OnCharacterContactAddedFull_custom(const CharacterVirtual *inCharacter, const CharacterContact &inContact, CharacterContactSettings &ioSettings) = 0;
+    virtual void OnCharacterContactPersisted_custom(const CharacterVirtual *inCharacter, const CharacterVirtual *inOtherCharacter, const SubShapeID &inSubShapeID2, const Vec3Arg &inContactPosition, const Vec3Arg &inContactNormal, CharacterContactSettings &ioSettings) = 0;
+    virtual void OnCharacterContactPersistedFull_custom(const CharacterVirtual *inCharacter, const CharacterContact &inContact, CharacterContactSettings &ioSettings) = 0;
     virtual void OnCharacterContactRemoved_custom(const CharacterVirtual *inCharacter, const CharacterID &inOtherCharacterID, const SubShapeID &inSubShapeID2) = 0;
-    virtual void OnContactSolve_custom(const CharacterVirtual *inCharacter, const BodyID &inBodyID2, const SubShapeID &inSubShapeID2, const RVec3Arg& inContactPosition, const Vec3Arg& inContactNormal, const Vec3Arg& inContactVelocity, const PhysicsMaterial *inContactMaterial, const Vec3Arg& inCharacterVelocity, const Vec3& ioNewCharacterVelocity) = 0;
-    virtual void OnCharacterContactSolve_custom(const CharacterVirtual *inCharacter, const CharacterVirtual *inOtherCharacter, const SubShapeID &inSubShapeID2, const RVec3Arg& inContactPosition, const Vec3Arg& inContactNormal, const Vec3Arg& inContactVelocity, const PhysicsMaterial *inContactMaterial, const Vec3Arg& inCharacterVelocity, const Vec3& ioNewCharacterVelocity) = 0;
+    virtual void OnContactSolve_custom(const CharacterVirtual *inCharacter, const BodyID &inBodyID2, const SubShapeID &inSubShapeID2, const RVec3Arg &inContactPosition, const Vec3Arg &inContactNormal, const Vec3Arg &inContactVelocity, const PhysicsMaterial *inContactMaterial, const Vec3Arg &inCharacterVelocity, const Vec3 &ioNewCharacterVelocity) = 0;
+    virtual void OnCharacterContactSolve_custom(const CharacterVirtual *inCharacter, const CharacterVirtual *inOtherCharacter, const SubShapeID &inSubShapeID2, const RVec3Arg &inContactPosition, const Vec3Arg &inContactNormal, const Vec3Arg &inContactVelocity, const PhysicsMaterial *inContactMaterial, const Vec3Arg &inCharacterVelocity, const Vec3 &ioNewCharacterVelocity) = 0;
 
-    virtual void OnAdjustBodyVelocity(const CharacterVirtual *inCharacter, const Body &inBody2, Vec3 &ioLinearVelocity, Vec3 &ioAngularVelocity) {
-        if(onAdjustBodyVelocity) {
+    void OnAdjustBodyVelocity(const CharacterVirtual *inCharacter, const Body &inBody2, Vec3 &ioLinearVelocity, Vec3 &ioAngularVelocity) override
+    {
+        if (onAdjustBodyVelocity)
             OnAdjustBodyVelocity_custom(inCharacter, inBody2, ioLinearVelocity, ioAngularVelocity);
+    }
+
+    bool OnContactValidate(const CharacterVirtual *inCharacter, const CharacterContact &inContact) override
+    {
+        if (onContactValidateFull && !OnContactValidateFull_custom(inCharacter, inContact))
+            return false;
+        return !onContactValidate || OnContactValidate_custom(inCharacter, inContact.mBodyB, inContact.mSubShapeIDB);
+    }
+
+    bool OnCharacterContactValidate(const CharacterVirtual *inCharacter, const CharacterContact &inContact) override
+    {
+        if (onCharacterContactValidateFull && !OnCharacterContactValidateFull_custom(inCharacter, inContact))
+            return false;
+        return !onCharacterContactValidate || OnCharacterContactValidate_custom(inCharacter, inContact.mCharacterB, inContact.mSubShapeIDB);
+    }
+
+    void OnContactAdded(const CharacterVirtual *inCharacter, const CharacterContact &inContact, CharacterContactSettings &ioSettings) override
+    {
+        if (onContactAddedFull)
+            OnContactAddedFull_custom(inCharacter, inContact, ioSettings);
+        if (onContactAdded)
+        {
+            Vec3 legacy_normal = -inContact.mContactNormal;
+            OnContactAdded_custom(inCharacter, inContact.mBodyB, inContact.mSubShapeIDB, inContact.mPosition, legacy_normal, ioSettings);
         }
     }
-    virtual bool OnContactValidate(const CharacterVirtual *inCharacter, const BodyID &inBodyID2, const SubShapeID &inSubShapeID2) {
-        if(onContactValidate) {
-            return OnContactValidate_custom(inCharacter, inBodyID2, inSubShapeID2);
-        }
-        return true;
-    }
-    virtual bool OnCharacterContactValidate(const CharacterVirtual *inCharacter, const CharacterVirtual *inOtherCharacter, const SubShapeID &inSubShapeID2) {
-        if(onCharacterContactValidate) {
-            return OnCharacterContactValidate_custom(inCharacter, inOtherCharacter, inSubShapeID2);
-        }
-        return true;
-    }
-    virtual void OnContactAdded(const CharacterVirtual *inCharacter, const BodyID &inBodyID2, const SubShapeID &inSubShapeID2, RVec3Arg inContactPosition, Vec3Arg inContactNormal, CharacterContactSettings &ioSettings) {
-        if(onContactAdded) {
-            OnContactAdded_custom(inCharacter, inBodyID2, inSubShapeID2, inContactPosition, inContactNormal, ioSettings);
+
+    void OnContactPersisted(const CharacterVirtual *inCharacter, const CharacterContact &inContact, CharacterContactSettings &ioSettings) override
+    {
+        if (onContactPersistedFull)
+            OnContactPersistedFull_custom(inCharacter, inContact, ioSettings);
+        if (onContactPersisted)
+        {
+            Vec3 legacy_normal = -inContact.mContactNormal;
+            OnContactPersisted_custom(inCharacter, inContact.mBodyB, inContact.mSubShapeIDB, inContact.mPosition, legacy_normal, ioSettings);
         }
     }
-    virtual void OnContactPersisted(const CharacterVirtual *inCharacter, const BodyID &inBodyID2, const SubShapeID &inSubShapeID2, RVec3Arg inContactPosition, Vec3Arg inContactNormal, CharacterContactSettings &ioSettings) {
-        if(onContactPersisted) {
-            OnContactPersisted_custom(inCharacter, inBodyID2, inSubShapeID2, inContactPosition, inContactNormal, ioSettings);
-        }
-    }
-    virtual void OnContactRemoved(const CharacterVirtual *inCharacter, const BodyID &inBodyID2, const SubShapeID &inSubShapeID2) {
-        if(onContactRemoved) {
+
+    void OnContactRemoved(const CharacterVirtual *inCharacter, const BodyID &inBodyID2, const SubShapeID &inSubShapeID2) override
+    {
+        if (onContactRemoved)
             OnContactRemoved_custom(inCharacter, inBodyID2, inSubShapeID2);
+    }
+
+    void OnCharacterContactAdded(const CharacterVirtual *inCharacter, const CharacterContact &inContact, CharacterContactSettings &ioSettings) override
+    {
+        if (onCharacterContactAddedFull)
+            OnCharacterContactAddedFull_custom(inCharacter, inContact, ioSettings);
+        if (onCharacterContactAdded)
+        {
+            Vec3 legacy_normal = -inContact.mContactNormal;
+            OnCharacterContactAdded_custom(inCharacter, inContact.mCharacterB, inContact.mSubShapeIDB, inContact.mPosition, legacy_normal, ioSettings);
         }
     }
-    virtual void OnCharacterContactAdded(const CharacterVirtual *inCharacter, const CharacterVirtual *inOtherCharacter, const SubShapeID &inSubShapeID2, RVec3Arg inContactPosition, Vec3Arg inContactNormal, CharacterContactSettings &ioSettings) {
-        if(onCharacterContactAdded) {
-            OnCharacterContactAdded_custom(inCharacter, inOtherCharacter, inSubShapeID2, inContactPosition, inContactNormal, ioSettings);
+
+    void OnCharacterContactPersisted(const CharacterVirtual *inCharacter, const CharacterContact &inContact, CharacterContactSettings &ioSettings) override
+    {
+        if (onCharacterContactPersistedFull)
+            OnCharacterContactPersistedFull_custom(inCharacter, inContact, ioSettings);
+        if (onCharacterContactPersisted)
+        {
+            Vec3 legacy_position = Vec3(inContact.mPosition);
+            Vec3 legacy_normal = -inContact.mContactNormal;
+            OnCharacterContactPersisted_custom(inCharacter, inContact.mCharacterB, inContact.mSubShapeIDB, legacy_position, legacy_normal, ioSettings);
         }
     }
-    virtual void OnCharacterContactPersisted(const CharacterVirtual *inCharacter, const CharacterVirtual *inOtherCharacter, const SubShapeID &inSubShapeID2, RVec3Arg inContactPosition, Vec3Arg inContactNormal, CharacterContactSettings &ioSettings) {
-        if(onCharacterContactPersisted) {
-            OnCharacterContactPersisted_custom(inCharacter, inOtherCharacter, inSubShapeID2, inContactPosition, inContactNormal, ioSettings);
-        }
-    }
-    virtual void OnCharacterContactRemoved(const CharacterVirtual *inCharacter, const CharacterID &inOtherCharacterID, const SubShapeID &inSubShapeID2) {
-        if(onCharacterContactRemoved) {
+
+    void OnCharacterContactRemoved(const CharacterVirtual *inCharacter, const CharacterID &inOtherCharacterID, const SubShapeID &inSubShapeID2) override
+    {
+        if (onCharacterContactRemoved)
             OnCharacterContactRemoved_custom(inCharacter, inOtherCharacterID, inSubShapeID2);
-        }
     }
-    virtual void OnContactSolve(const CharacterVirtual *inCharacter, const BodyID &inBodyID2, const SubShapeID &inSubShapeID2, RVec3Arg inContactPosition, Vec3Arg inContactNormal, Vec3Arg inContactVelocity, const PhysicsMaterial *inContactMaterial, Vec3Arg inCharacterVelocity, Vec3 &ioNewCharacterVelocity) {
-        if(onContactSolve) {
+
+    void OnContactSolve(const CharacterVirtual *inCharacter, const BodyID &inBodyID2, const SubShapeID &inSubShapeID2, RVec3Arg inContactPosition, Vec3Arg inContactNormal, Vec3Arg inContactVelocity, const PhysicsMaterial *inContactMaterial, Vec3Arg inCharacterVelocity, Vec3 &ioNewCharacterVelocity) override
+    {
+        if (onContactSolve)
             OnContactSolve_custom(inCharacter, inBodyID2, inSubShapeID2, inContactPosition, inContactNormal, inContactVelocity, inContactMaterial, inCharacterVelocity, ioNewCharacterVelocity);
-        }
     }
-    virtual void OnCharacterContactSolve(const CharacterVirtual *inCharacter, const CharacterVirtual *inOtherCharacter, const SubShapeID &inSubShapeID2, RVec3Arg inContactPosition, Vec3Arg inContactNormal, Vec3Arg inContactVelocity, const PhysicsMaterial *inContactMaterial, Vec3Arg inCharacterVelocity, Vec3 &ioNewCharacterVelocity) {
-        if(onCharacterContactSolve) {
+
+    void OnCharacterContactSolve(const CharacterVirtual *inCharacter, const CharacterVirtual *inOtherCharacter, const SubShapeID &inSubShapeID2, RVec3Arg inContactPosition, Vec3Arg inContactNormal, Vec3Arg inContactVelocity, const PhysicsMaterial *inContactMaterial, Vec3Arg inCharacterVelocity, Vec3 &ioNewCharacterVelocity) override
+    {
+        if (onCharacterContactSolve)
             OnCharacterContactSolve_custom(inCharacter, inOtherCharacter, inSubShapeID2, inContactPosition, inContactNormal, inContactVelocity, inContactMaterial, inCharacterVelocity, ioNewCharacterVelocity);
-        }
     }
 };
 
 } // END XJPH namespace
+
+inline XJPH::CharacterContactListener *Jolt::GetCharacterContactListener(CharacterVirtual *inCharacter)
+{
+    return inCharacter == nullptr? nullptr : static_cast<XJPH::CharacterContactListener *>(inCharacter->GetListener());
+}
 
 /// A wrapper around the vehicle constraint callbacks that is compatible with JavaScript
 class VehicleConstraintCallbacksEm
@@ -1077,6 +1279,25 @@ public:
     virtual void GetPointOnPath(float inFraction, Vec3 *outPathPosition, Vec3 *outPathTangent, Vec3 *outPathNormal, Vec3 *outPathBinormal) const = 0;
 };
 
+class StateRecorderEm : public StateRecorder
+{
+public:
+    // WebIDL and the Java backends use a 32-bit byte count while Jolt uses size_t.
+    virtual void WriteBytes(const void *inData, unsigned int inNumBytes) = 0;
+    virtual void ReadBytes(void *outData, unsigned int inNumBytes) = 0;
+
+private:
+    virtual void WriteBytes(const void *inData, size_t inNumBytes) override
+    {
+        WriteBytes(inData, static_cast<unsigned int>(inNumBytes));
+    }
+
+    virtual void ReadBytes(void *outData, size_t inNumBytes) override
+    {
+        ReadBytes(outData, static_cast<unsigned int>(inNumBytes));
+    }
+};
+
 class ShapeFilterCallback: public ShapeFilter
 {
 public:
@@ -1133,6 +1354,22 @@ constexpr ESoftBodyConstraintColor ESoftBodyConstraintColor_ConstraintType = ESo
 constexpr ESoftBodyConstraintColor ESoftBodyConstraintColor_ConstraintGroup = ESoftBodyConstraintColor::ConstraintGroup;
 constexpr ESoftBodyConstraintColor ESoftBodyConstraintColor_ConstraintOrder = ESoftBodyConstraintColor::ConstraintOrder;
 
+class DebugRendererVertexTraits
+{
+public:
+    static constexpr uint mPositionOffset = offsetof(DebugRendererVertex, mPosition);
+    static constexpr uint mNormalOffset = offsetof(DebugRendererVertex, mNormal);
+    static constexpr uint mUVOffset = offsetof(DebugRendererVertex, mUV);
+    static constexpr uint mSize = sizeof(DebugRendererVertex);
+};
+
+class DebugRendererTriangleTraits
+{
+public:
+    static constexpr uint mVOffset = offsetof(DebugRendererTriangle, mV);
+    static constexpr uint mSize = sizeof(DebugRendererTriangle);
+};
+
 int GLOBAL_ID = 0;
 
 class DebugRendererEm : public DebugRenderer
@@ -1147,6 +1384,11 @@ class DebugRendererEm : public DebugRenderer
             DebugRenderer::Initialize();
         }
 
+        void Initialize()
+        {
+            DebugRenderer::Initialize();
+        }
+
         void DrawBodies(PhysicsSystem *inSystem, BodyManager::DrawSettings *inDrawSettings)
         {
            inSystem->DrawBodies(*inDrawSettings, this);
@@ -1156,7 +1398,54 @@ class DebugRendererEm : public DebugRenderer
            inSystem->DrawBodies(BodyManager::DrawSettings(), this);
         }
 
+        void DrawConstraints(PhysicsSystem *inSystem)
+        {
+            inSystem->DrawConstraints(this);
+        }
+
+        void DrawConstraintLimits(PhysicsSystem *inSystem)
+        {
+            inSystem->DrawConstraintLimits(this);
+        }
+
+        void DrawConstraintReferenceFrame(PhysicsSystem *inSystem)
+        {
+            inSystem->DrawConstraintReferenceFrame(this);
+        }
+
+        void DrawShape(Shape *inShape, const RMat44 *inModelMatrix, const Vec3 *inScale, const Color *inColor, bool inDrawWireFrame)
+        {
+            inShape->Draw(this, *inModelMatrix, *inScale, *inColor, false, inDrawWireFrame);
+        }
+
+        void DrawBody(Body *inBody, const Color *inColor, bool inDrawWireFrame)
+        {
+            RMat44 center_of_mass = inBody->GetCenterOfMassTransform();
+            inBody->GetShape()->Draw(this, center_of_mass, Vec3::sReplicate(1.0f), *inColor, false, inDrawWireFrame);
+        }
+
+        void DrawConstraint(Constraint *inConstraint)
+        {
+            inConstraint->DrawConstraint(this);
+        }
+
         virtual void DrawMesh(int id, const RMat44 &inModelMatrix, const IDLFloatArray* vertices, const Color &inModelColor, ECullMode inCullMode, EDrawMode inDrawMode) = 0;
+
+        // Upstream JoltPhysics.js callback surface. Default implementations keep
+        // existing DrawMesh-based renderers source compatible.
+        virtual uint32 CreateTriangleBatchID(const void *, int)
+        {
+            return 0;
+        }
+
+        virtual uint32 CreateTriangleBatchIDWithIndex(const void *, int, const void *, int)
+        {
+            return 0;
+        }
+
+        virtual void DrawGeometryWithID(const RMat44 *, const AABox *, float, Color *, uint32, ECullMode, ECastShadow, EDrawMode)
+        {
+        }
 
         virtual void DrawGeometry(RMat44Arg inModelMatrix, const AABox& inWorldSpaceBounds, float inLODScaleSq, ColorArg inModelColor, const GeometryRef& inGeometry, ECullMode inCullMode, ECastShadow inCastShadow, EDrawMode inDrawMode)
         {
@@ -1167,6 +1456,8 @@ class DebugRendererEm : public DebugRenderer
             const BatchImpl* batch = static_cast<const BatchImpl*>(lod->mTriangleBatch.GetPtr());
 
             DrawMesh(batch->mID, inModelMatrix, batch->vertices, inModelColor, inCullMode, inDrawMode);
+            Color model_color = inModelColor;
+            DrawGeometryWithID(&inModelMatrix, &inWorldSpaceBounds, inLODScaleSq, &model_color, batch->mExternalID, inCullMode, inCastShadow, inDrawMode);
         }
 
         virtual Batch CreateTriangleBatch(const DebugRendererTriangle* inTriangles, int inTriangleCount)
@@ -1176,6 +1467,7 @@ class DebugRendererEm : public DebugRenderer
 
             BatchImpl *batch = new BatchImpl(GLOBAL_ID);
             GLOBAL_ID++;
+            batch->mExternalID = CreateTriangleBatchID(static_cast<const void *>(inTriangles), inTriangleCount);
 
             int vertexSize = (3 + 3 + 2 + 4);
             int inVertexCount = inTriangleCount * 3;
@@ -1211,6 +1503,7 @@ class DebugRendererEm : public DebugRenderer
                 return mEmptyBatch;
             BatchImpl* batch = new BatchImpl(GLOBAL_ID);
             GLOBAL_ID++;
+            batch->mExternalID = CreateTriangleBatchIDWithIndex(static_cast<const void *>(inVertices), inVertexCount, static_cast<const void *>(inIndices), inIndexCount);
 
             int vertexSize = (3 + 3 + 2 + 4);
             int inTriangleCount = inIndexCount / 3;
@@ -1286,6 +1579,7 @@ private:
 
         IDLFloatArray* vertices = NULL;
         int mID;
+        uint32 mExternalID = 0;
 
     private:
         atomic<uint32> mRefCount = 0;

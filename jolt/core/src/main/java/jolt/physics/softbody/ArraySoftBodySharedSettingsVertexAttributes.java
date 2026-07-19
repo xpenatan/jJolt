@@ -12,6 +12,9 @@ public class ArraySoftBodySharedSettingsVertexAttributes extends NativeObject {
 
     static public final ArraySoftBodySharedSettingsVertexAttributes NULL = ArraySoftBodySharedSettingsVertexAttributes.native_new();
 
+    public ArraySoftBodySharedSettingsVertexAttributes() {
+    }
+
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
      */

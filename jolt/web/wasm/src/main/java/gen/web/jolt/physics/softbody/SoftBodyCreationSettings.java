@@ -90,19 +90,19 @@ public class SoftBodyCreationSettings extends NativeObject {
     @org.teavm.jso.JSBody(params = {"this_addr", "mRotation_addr"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.SoftBodyCreationSettings);jsObj.set_mRotation(mRotation_addr);")
     public static native void internal_native_set_mRotation(int this_addr, int mRotation_addr);
 
-    public long get_mUserData() {
+    public int get_mUserData() {
         return internal_native_get_mUserData(native_address);
     }
 
     @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.SoftBodyCreationSettings);return jsObj.get_mUserData();")
-    public static native long internal_native_get_mUserData(int this_addr);
+    public static native int internal_native_get_mUserData(int this_addr);
 
-    public void set_mUserData(long mUserData) {
+    public void set_mUserData(int mUserData) {
         internal_native_set_mUserData(native_address, mUserData);
     }
 
     @org.teavm.jso.JSBody(params = {"this_addr", "mUserData"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.SoftBodyCreationSettings);jsObj.set_mUserData(mUserData);")
-    public static native void internal_native_set_mUserData(int this_addr, long mUserData);
+    public static native void internal_native_set_mUserData(int this_addr, int mUserData);
 
     public int get_mObjectLayer() {
         return internal_native_get_mObjectLayer(native_address);
@@ -236,6 +236,20 @@ public class SoftBodyCreationSettings extends NativeObject {
     @org.teavm.jso.JSBody(params = {"this_addr", "mGravityFactor"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.SoftBodyCreationSettings);jsObj.set_mGravityFactor(mGravityFactor);")
     public static native void internal_native_set_mGravityFactor(int this_addr, float mGravityFactor);
 
+    public float get_mVertexRadius() {
+        return internal_native_get_mVertexRadius(native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.SoftBodyCreationSettings);return jsObj.get_mVertexRadius();")
+    public static native float internal_native_get_mVertexRadius(int this_addr);
+
+    public void set_mVertexRadius(float mVertexRadius) {
+        internal_native_set_mVertexRadius(native_address, mVertexRadius);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "mVertexRadius"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.SoftBodyCreationSettings);jsObj.set_mVertexRadius(mVertexRadius);")
+    public static native void internal_native_set_mVertexRadius(int this_addr, float mVertexRadius);
+
     public boolean get_mUpdatePosition() {
         return internal_native_get_mUpdatePosition(native_address);
     }
@@ -277,4 +291,18 @@ public class SoftBodyCreationSettings extends NativeObject {
 
     @org.teavm.jso.JSBody(params = {"this_addr", "mAllowSleeping"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.SoftBodyCreationSettings);jsObj.set_mAllowSleeping(mAllowSleeping);")
     public static native void internal_native_set_mAllowSleeping(int this_addr, boolean mAllowSleeping);
+
+    public boolean get_mFacesDoubleSided() {
+        return internal_native_get_mFacesDoubleSided(native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.SoftBodyCreationSettings);return jsObj.get_mFacesDoubleSided();")
+    public static native boolean internal_native_get_mFacesDoubleSided(int this_addr);
+
+    public void set_mFacesDoubleSided(boolean mFacesDoubleSided) {
+        internal_native_set_mFacesDoubleSided(native_address, mFacesDoubleSided);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "mFacesDoubleSided"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.SoftBodyCreationSettings);jsObj.set_mFacesDoubleSided(mFacesDoubleSided);")
+    public static native void internal_native_set_mFacesDoubleSided(int this_addr, boolean mFacesDoubleSided);
 }

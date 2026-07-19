@@ -6,17 +6,30 @@
 
 package gen.c.jolt.physics.constraints;
 
-import gen.c.jolt.enums.EMotorState;
 import gen.c.jolt.math.Vec3;
+import gen.c.jolt.enums.EMotorState;
+import gen.c.jolt.math.Quat;
 import gen.c.jolt.math.Vector2;
 
 public class HingeConstraint extends TwoBodyConstraint {
+
+    private Vec3 Vec3_TEMP_GEN_0;
+
+    private Vec3 Vec3_TEMP_GEN_1;
+
+    private Vec3 Vec3_TEMP_GEN_2;
+
+    private Vec3 Vec3_TEMP_GEN_3;
+
+    private Vec3 Vec3_TEMP_GEN_4;
+
+    private Vec3 Vec3_TEMP_GEN_5;
 
     private MotorSettings MotorSettings_TEMP_GEN_0;
 
     private SpringSettings SpringSettings_TEMP_GEN_0;
 
-    private Vec3 Vec3_TEMP_GEN_0;
+    private Vec3 Vec3_TEMP_GEN_6;
 
     private Vector2 Vector2_TEMP_GEN_0;
 
@@ -36,6 +49,84 @@ public class HingeConstraint extends TwoBodyConstraint {
     public static HingeConstraint native_new() {
         return new HingeConstraint((byte) 0, (char) 0);
     }
+
+    public Vec3 GetLocalSpacePoint1() {
+        long addr = internal_native_GetLocalSpacePoint1_addr(native_address);
+        if (addr == 0)
+            return Vec3.NULL;
+        if (Vec3_TEMP_GEN_0 == null)
+            Vec3_TEMP_GEN_0 = Vec3.native_new();
+        Vec3_TEMP_GEN_0.internal_reset(addr, false);
+        return Vec3_TEMP_GEN_0;
+    }
+
+    @org.teavm.interop.Import(name = "jolt_physics_constraints_hingeconstraint_getlocalspacepoint1_addr")
+    public static native long internal_native_GetLocalSpacePoint1_addr(long this_addr);
+
+    public Vec3 GetLocalSpacePoint2() {
+        long addr = internal_native_GetLocalSpacePoint2_addr(native_address);
+        if (addr == 0)
+            return Vec3.NULL;
+        if (Vec3_TEMP_GEN_1 == null)
+            Vec3_TEMP_GEN_1 = Vec3.native_new();
+        Vec3_TEMP_GEN_1.internal_reset(addr, false);
+        return Vec3_TEMP_GEN_1;
+    }
+
+    @org.teavm.interop.Import(name = "jolt_physics_constraints_hingeconstraint_getlocalspacepoint2_addr")
+    public static native long internal_native_GetLocalSpacePoint2_addr(long this_addr);
+
+    public Vec3 GetLocalSpaceHingeAxis1() {
+        long addr = internal_native_GetLocalSpaceHingeAxis1_addr(native_address);
+        if (addr == 0)
+            return Vec3.NULL;
+        if (Vec3_TEMP_GEN_2 == null)
+            Vec3_TEMP_GEN_2 = Vec3.native_new();
+        Vec3_TEMP_GEN_2.internal_reset(addr, false);
+        return Vec3_TEMP_GEN_2;
+    }
+
+    @org.teavm.interop.Import(name = "jolt_physics_constraints_hingeconstraint_getlocalspacehingeaxis1_addr")
+    public static native long internal_native_GetLocalSpaceHingeAxis1_addr(long this_addr);
+
+    public Vec3 GetLocalSpaceHingeAxis2() {
+        long addr = internal_native_GetLocalSpaceHingeAxis2_addr(native_address);
+        if (addr == 0)
+            return Vec3.NULL;
+        if (Vec3_TEMP_GEN_3 == null)
+            Vec3_TEMP_GEN_3 = Vec3.native_new();
+        Vec3_TEMP_GEN_3.internal_reset(addr, false);
+        return Vec3_TEMP_GEN_3;
+    }
+
+    @org.teavm.interop.Import(name = "jolt_physics_constraints_hingeconstraint_getlocalspacehingeaxis2_addr")
+    public static native long internal_native_GetLocalSpaceHingeAxis2_addr(long this_addr);
+
+    public Vec3 GetLocalSpaceNormalAxis1() {
+        long addr = internal_native_GetLocalSpaceNormalAxis1_addr(native_address);
+        if (addr == 0)
+            return Vec3.NULL;
+        if (Vec3_TEMP_GEN_4 == null)
+            Vec3_TEMP_GEN_4 = Vec3.native_new();
+        Vec3_TEMP_GEN_4.internal_reset(addr, false);
+        return Vec3_TEMP_GEN_4;
+    }
+
+    @org.teavm.interop.Import(name = "jolt_physics_constraints_hingeconstraint_getlocalspacenormalaxis1_addr")
+    public static native long internal_native_GetLocalSpaceNormalAxis1_addr(long this_addr);
+
+    public Vec3 GetLocalSpaceNormalAxis2() {
+        long addr = internal_native_GetLocalSpaceNormalAxis2_addr(native_address);
+        if (addr == 0)
+            return Vec3.NULL;
+        if (Vec3_TEMP_GEN_5 == null)
+            Vec3_TEMP_GEN_5 = Vec3.native_new();
+        Vec3_TEMP_GEN_5.internal_reset(addr, false);
+        return Vec3_TEMP_GEN_5;
+    }
+
+    @org.teavm.interop.Import(name = "jolt_physics_constraints_hingeconstraint_getlocalspacenormalaxis2_addr")
+    public static native long internal_native_GetLocalSpaceNormalAxis2_addr(long this_addr);
 
     public float GetCurrentAngle() {
         return internal_native_GetCurrentAngle(native_address);
@@ -120,6 +211,13 @@ public class HingeConstraint extends TwoBodyConstraint {
     @org.teavm.interop.Import(name = "jolt_physics_constraints_hingeconstraint_gettargetangle")
     public static native float internal_native_GetTargetAngle(long this_addr);
 
+    public void SetTargetOrientationBS(Quat inOrientation) {
+        internal_native_SetTargetOrientationBS(native_address, inOrientation.native_address);
+    }
+
+    @org.teavm.interop.Import(name = "jolt_physics_constraints_hingeconstraint_settargetorientationbs")
+    public static native void internal_native_SetTargetOrientationBS(long this_addr, long inOrientation_addr);
+
     public void SetLimits(float inLimitsMin, float inLimitsMax) {
         internal_native_SetLimits(native_address, inLimitsMin, inLimitsMax);
     }
@@ -172,10 +270,10 @@ public class HingeConstraint extends TwoBodyConstraint {
         long addr = internal_native_GetTotalLambdaPosition_addr(native_address);
         if (addr == 0)
             return Vec3.NULL;
-        if (Vec3_TEMP_GEN_0 == null)
-            Vec3_TEMP_GEN_0 = Vec3.native_new();
-        Vec3_TEMP_GEN_0.internal_reset(addr, false);
-        return Vec3_TEMP_GEN_0;
+        if (Vec3_TEMP_GEN_6 == null)
+            Vec3_TEMP_GEN_6 = Vec3.native_new();
+        Vec3_TEMP_GEN_6.internal_reset(addr, false);
+        return Vec3_TEMP_GEN_6;
     }
 
     @org.teavm.interop.Import(name = "jolt_physics_constraints_hingeconstraint_gettotallambdaposition_addr")

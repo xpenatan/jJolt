@@ -12,5 +12,7 @@ final public class JNI_ObjectLayerPairFilter {
 
     public static native void internal_native_deleteNative(long this_addr);
 
+    public static native boolean internal_native_ShouldCollideNative(long this_addr, int inLayer1, int inLayer2);
+
     public static native long internal_native_create_addr();
 }

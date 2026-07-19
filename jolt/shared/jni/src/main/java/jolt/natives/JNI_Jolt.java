@@ -17,4 +17,6 @@ final public class JNI_Jolt {
     public static native void internal_native_UnregisterTypes();
 
     public static native void internal_native_ClearWorld(long physicsSystem_addr);
+
+    public static native long internal_native_GetCharacterContactListener_addr(long inCharacter_addr);
 }

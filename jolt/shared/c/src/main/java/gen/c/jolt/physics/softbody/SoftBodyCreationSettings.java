@@ -90,19 +90,19 @@ public class SoftBodyCreationSettings extends NativeObject {
     @org.teavm.interop.Import(name = "jolt_physics_softbody_softbodycreationsettings_set_mrotation")
     public static native void internal_native_set_mRotation(long this_addr, long mRotation_addr);
 
-    public long get_mUserData() {
+    public int get_mUserData() {
         return internal_native_get_mUserData(native_address);
     }
 
     @org.teavm.interop.Import(name = "jolt_physics_softbody_softbodycreationsettings_get_muserdata")
-    public static native long internal_native_get_mUserData(long this_addr);
+    public static native int internal_native_get_mUserData(long this_addr);
 
-    public void set_mUserData(long mUserData) {
+    public void set_mUserData(int mUserData) {
         internal_native_set_mUserData(native_address, mUserData);
     }
 
     @org.teavm.interop.Import(name = "jolt_physics_softbody_softbodycreationsettings_set_muserdata")
-    public static native void internal_native_set_mUserData(long this_addr, long mUserData);
+    public static native void internal_native_set_mUserData(long this_addr, int mUserData);
 
     public int get_mObjectLayer() {
         return internal_native_get_mObjectLayer(native_address);
@@ -236,6 +236,20 @@ public class SoftBodyCreationSettings extends NativeObject {
     @org.teavm.interop.Import(name = "jolt_physics_softbody_softbodycreationsettings_set_mgravityfactor")
     public static native void internal_native_set_mGravityFactor(long this_addr, float mGravityFactor);
 
+    public float get_mVertexRadius() {
+        return internal_native_get_mVertexRadius(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "jolt_physics_softbody_softbodycreationsettings_get_mvertexradius")
+    public static native float internal_native_get_mVertexRadius(long this_addr);
+
+    public void set_mVertexRadius(float mVertexRadius) {
+        internal_native_set_mVertexRadius(native_address, mVertexRadius);
+    }
+
+    @org.teavm.interop.Import(name = "jolt_physics_softbody_softbodycreationsettings_set_mvertexradius")
+    public static native void internal_native_set_mVertexRadius(long this_addr, float mVertexRadius);
+
     public boolean get_mUpdatePosition() {
         return internal_native_get_mUpdatePosition(native_address);
     }
@@ -277,4 +291,18 @@ public class SoftBodyCreationSettings extends NativeObject {
 
     @org.teavm.interop.Import(name = "jolt_physics_softbody_softbodycreationsettings_set_mallowsleeping")
     public static native void internal_native_set_mAllowSleeping(long this_addr, boolean mAllowSleeping);
+
+    public boolean get_mFacesDoubleSided() {
+        return internal_native_get_mFacesDoubleSided(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "jolt_physics_softbody_softbodycreationsettings_get_mfacesdoublesided")
+    public static native boolean internal_native_get_mFacesDoubleSided(long this_addr);
+
+    public void set_mFacesDoubleSided(boolean mFacesDoubleSided) {
+        internal_native_set_mFacesDoubleSided(native_address, mFacesDoubleSided);
+    }
+
+    @org.teavm.interop.Import(name = "jolt_physics_softbody_softbodycreationsettings_set_mfacesdoublesided")
+    public static native void internal_native_set_mFacesDoubleSided(long this_addr, boolean mFacesDoubleSided);
 }

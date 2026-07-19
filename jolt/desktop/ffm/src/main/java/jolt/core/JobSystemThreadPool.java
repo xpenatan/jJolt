@@ -99,9 +99,9 @@ public class JobSystemThreadPool extends JobSystemWithBarrier {
 
     private static final class FFMHandles {
 
-        static final java.lang.invoke.MethodHandle internal_native_create_int_int_int_addr__III = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_core_jobsystemthreadpool_create_int_int_int_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT, ValueLayout.JAVA_INT, ValueLayout.JAVA_INT));
+        static final java.lang.invoke.MethodHandle internal_native_create_int_int_int_addr__III = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_core_jobsystemthreadpool_create_int_int_int_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT, ValueLayout.JAVA_INT, ValueLayout.JAVA_INT));
 
-        static final java.lang.invoke.MethodHandle internal_native_create_int_int_addr__II = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_core_jobsystemthreadpool_create_int_int_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT, ValueLayout.JAVA_INT));
+        static final java.lang.invoke.MethodHandle internal_native_create_int_int_addr__II = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_core_jobsystemthreadpool_create_int_int_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT, ValueLayout.JAVA_INT));
 
         static final java.lang.invoke.MethodHandle internal_native_deleteNative__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_core_jobsystemthreadpool_deletenative", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG));
 

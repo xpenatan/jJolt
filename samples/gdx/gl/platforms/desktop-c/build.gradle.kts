@@ -14,7 +14,6 @@ val teaVMBuilderMainClass = "jolt.example.samples.app.desktopc.JoltGdxTeaVMBuild
 val glfwBuildRoot = layout.buildDirectory.dir("dist/glfw")
 val joltDesktopCJar = project(joltRuntimeProject).tasks.named<Jar>("jar").flatMap { it.archiveFile }
 val teavmCNativeRuntimeClasspath = files(joltDesktopCJar)
-val joltWindowsTeaVMCBuildTask = ":jolt:builder:jParser_build_windows64_teavm_c"
 
 val joltRuntimeClasspath by configurations.creating {
     isCanBeConsumed = false
@@ -22,10 +21,6 @@ val joltRuntimeClasspath by configurations.creating {
 }
 
 val joltDesktopCNativeJarClasspath = files(joltDesktopCJar)
-
-project(joltRuntimeProject).tasks.named("jar") {
-    mustRunAfter(joltWindowsTeaVMCBuildTask)
-}
 
 dependencies {
     implementation("com.badlogicgames.gdx:gdx:${LibExt.gdxVersion}")
@@ -62,6 +57,13 @@ fun currentHostJoltCBuildTask(): String? {
         osName.contains("mac") -> ":jolt:builder:jParser_build_mac64_teavm_c"
         else -> null
     }
+}
+
+val hostJoltCBuildTask = currentHostJoltCBuildTask()
+    ?: throw GradleException("TeaVM C samples are not configured for ${System.getProperty("os.name")}/${System.getProperty("os.arch")}")
+
+project(joltRuntimeProject).tasks.named("jar") {
+    mustRunAfter(hostJoltCBuildTask)
 }
 
 val prepareGdxTeaVMGlfwBuildRoot = tasks.register("prepareGdxTeaVMGlfwBuildRoot") {
@@ -137,7 +139,7 @@ tasks.register<JavaExec>("samples_build_app_teavm_c") {
     group = "example-desktop"
     description = "Build and run the jJolt headless sample as a TeaVM C native executable"
     dependsOn(
-        joltWindowsTeaVMCBuildTask,
+        hostJoltCBuildTask,
         ":jolt:shared:c:classes",
         ":jolt:shared:c:processResources",
         ":jolt:desktop:c:jar",

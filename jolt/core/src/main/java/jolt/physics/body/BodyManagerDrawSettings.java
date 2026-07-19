@@ -164,6 +164,27 @@ public class BodyManagerDrawSettings extends NativeObject {
     public void set_mDrawSoftBodyLRAConstraints(boolean mDrawSoftBodyLRAConstraints) {
     }
 
+    public boolean get_mDrawSoftBodyRods() {
+        return false;
+    }
+
+    public void set_mDrawSoftBodyRods(boolean mDrawSoftBodyRods) {
+    }
+
+    public boolean get_mDrawSoftBodyRodStates() {
+        return false;
+    }
+
+    public void set_mDrawSoftBodyRodStates(boolean mDrawSoftBodyRodStates) {
+    }
+
+    public boolean get_mDrawSoftBodyRodBendTwistConstraints() {
+        return false;
+    }
+
+    public void set_mDrawSoftBodyRodBendTwistConstraints(boolean mDrawSoftBodyRodBendTwistConstraints) {
+    }
+
     public boolean get_mDrawSoftBodyPredictedBounds() {
         return false;
     }

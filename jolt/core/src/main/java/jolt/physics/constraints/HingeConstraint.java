@@ -6,8 +6,9 @@
 
 package jolt.physics.constraints;
 
-import jolt.enums.EMotorState;
 import jolt.math.Vec3;
+import jolt.enums.EMotorState;
+import jolt.math.Quat;
 import jolt.math.Vector2;
 
 public class HingeConstraint extends TwoBodyConstraint {
@@ -27,6 +28,30 @@ public class HingeConstraint extends TwoBodyConstraint {
      */
     public static HingeConstraint native_new() {
         return new HingeConstraint((byte) 0, (char) 0);
+    }
+
+    public Vec3 GetLocalSpacePoint1() {
+        return null;
+    }
+
+    public Vec3 GetLocalSpacePoint2() {
+        return null;
+    }
+
+    public Vec3 GetLocalSpaceHingeAxis1() {
+        return null;
+    }
+
+    public Vec3 GetLocalSpaceHingeAxis2() {
+        return null;
+    }
+
+    public Vec3 GetLocalSpaceNormalAxis1() {
+        return null;
+    }
+
+    public Vec3 GetLocalSpaceNormalAxis2() {
+        return null;
     }
 
     public float GetCurrentAngle() {
@@ -63,6 +88,9 @@ public class HingeConstraint extends TwoBodyConstraint {
 
     public float GetTargetAngle() {
         return 0;
+    }
+
+    public void SetTargetOrientationBS(Quat inOrientation) {
     }
 
     public void SetLimits(float inLimitsMin, float inLimitsMax) {

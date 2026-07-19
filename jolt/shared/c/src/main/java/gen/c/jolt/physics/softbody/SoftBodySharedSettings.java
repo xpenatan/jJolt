@@ -28,6 +28,10 @@ public class SoftBodySharedSettings extends NativeObject {
 
     private ArraySoftBodySharedSettingsLRA ArraySoftBodySharedSettingsLRA_TEMP_GEN_0;
 
+    private ArraySoftBodySharedSettingsRodStretchShear ArraySoftBodySharedSettingsRodStretchShear_TEMP_GEN_0;
+
+    private ArraySoftBodySharedSettingsRodBendTwist ArraySoftBodySharedSettingsRodBendTwist_TEMP_GEN_0;
+
     private PhysicsMaterialList PhysicsMaterialList_TEMP_GEN_0;
 
     static public final SoftBodySharedSettings NULL = SoftBodySharedSettings.native_new();
@@ -116,6 +120,13 @@ public class SoftBodySharedSettings extends NativeObject {
 
     @org.teavm.interop.Import(name = "jolt_physics_softbody_softbodysharedsettings_calculateedgelengths")
     public static native void internal_native_CalculateEdgeLengths(long this_addr);
+
+    public void CalculateRodProperties() {
+        internal_native_CalculateRodProperties(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "jolt_physics_softbody_softbodysharedsettings_calculaterodproperties")
+    public static native void internal_native_CalculateRodProperties(long this_addr);
 
     public void CalculateLRALengths() {
         internal_native_CalculateLRALengths(native_address);
@@ -324,6 +335,46 @@ public class SoftBodySharedSettings extends NativeObject {
     @org.teavm.interop.Import(name = "jolt_physics_softbody_softbodysharedsettings_set_mlraconstraints")
     public static native void internal_native_set_mLRAConstraints(long this_addr, long mLRAConstraints_addr);
 
+    public ArraySoftBodySharedSettingsRodStretchShear get_mRodStretchShearConstraints() {
+        long addr = internal_native_get_mRodStretchShearConstraints_addr(native_address);
+        if (addr == 0)
+            return ArraySoftBodySharedSettingsRodStretchShear.NULL;
+        if (ArraySoftBodySharedSettingsRodStretchShear_TEMP_GEN_0 == null)
+            ArraySoftBodySharedSettingsRodStretchShear_TEMP_GEN_0 = ArraySoftBodySharedSettingsRodStretchShear.native_new();
+        ArraySoftBodySharedSettingsRodStretchShear_TEMP_GEN_0.internal_reset(addr, false);
+        return ArraySoftBodySharedSettingsRodStretchShear_TEMP_GEN_0;
+    }
+
+    @org.teavm.interop.Import(name = "jolt_physics_softbody_softbodysharedsettings_get_mrodstretchshearconstraints_addr")
+    public static native long internal_native_get_mRodStretchShearConstraints_addr(long this_addr);
+
+    public void set_mRodStretchShearConstraints(ArraySoftBodySharedSettingsRodStretchShear mRodStretchShearConstraints) {
+        internal_native_set_mRodStretchShearConstraints(native_address, mRodStretchShearConstraints.native_address);
+    }
+
+    @org.teavm.interop.Import(name = "jolt_physics_softbody_softbodysharedsettings_set_mrodstretchshearconstraints")
+    public static native void internal_native_set_mRodStretchShearConstraints(long this_addr, long mRodStretchShearConstraints_addr);
+
+    public ArraySoftBodySharedSettingsRodBendTwist get_mRodBendTwistConstraints() {
+        long addr = internal_native_get_mRodBendTwistConstraints_addr(native_address);
+        if (addr == 0)
+            return ArraySoftBodySharedSettingsRodBendTwist.NULL;
+        if (ArraySoftBodySharedSettingsRodBendTwist_TEMP_GEN_0 == null)
+            ArraySoftBodySharedSettingsRodBendTwist_TEMP_GEN_0 = ArraySoftBodySharedSettingsRodBendTwist.native_new();
+        ArraySoftBodySharedSettingsRodBendTwist_TEMP_GEN_0.internal_reset(addr, false);
+        return ArraySoftBodySharedSettingsRodBendTwist_TEMP_GEN_0;
+    }
+
+    @org.teavm.interop.Import(name = "jolt_physics_softbody_softbodysharedsettings_get_mrodbendtwistconstraints_addr")
+    public static native long internal_native_get_mRodBendTwistConstraints_addr(long this_addr);
+
+    public void set_mRodBendTwistConstraints(ArraySoftBodySharedSettingsRodBendTwist mRodBendTwistConstraints) {
+        internal_native_set_mRodBendTwistConstraints(native_address, mRodBendTwistConstraints.native_address);
+    }
+
+    @org.teavm.interop.Import(name = "jolt_physics_softbody_softbodysharedsettings_set_mrodbendtwistconstraints")
+    public static native void internal_native_set_mRodBendTwistConstraints(long this_addr, long mRodBendTwistConstraints_addr);
+
     public PhysicsMaterialList get_mMaterials() {
         long addr = internal_native_get_mMaterials_addr(native_address);
         if (addr == 0)
@@ -343,18 +394,4 @@ public class SoftBodySharedSettings extends NativeObject {
 
     @org.teavm.interop.Import(name = "jolt_physics_softbody_softbodysharedsettings_set_mmaterials")
     public static native void internal_native_set_mMaterials(long this_addr, long mMaterials_addr);
-
-    public float get_mVertexRadius() {
-        return internal_native_get_mVertexRadius(native_address);
-    }
-
-    @org.teavm.interop.Import(name = "jolt_physics_softbody_softbodysharedsettings_get_mvertexradius")
-    public static native float internal_native_get_mVertexRadius(long this_addr);
-
-    public void set_mVertexRadius(float mVertexRadius) {
-        internal_native_set_mVertexRadius(native_address, mVertexRadius);
-    }
-
-    @org.teavm.interop.Import(name = "jolt_physics_softbody_softbodysharedsettings_set_mvertexradius")
-    public static native void internal_native_set_mVertexRadius(long this_addr, float mVertexRadius);
 }

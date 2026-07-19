@@ -6,8 +6,9 @@
 
 package jolt.physics.constraints;
 
-import jolt.enums.EMotorState;
 import jolt.math.Vec3;
+import jolt.enums.EMotorState;
+import jolt.math.Quat;
 import jolt.math.Vector2;
 import java.lang.foreign.FunctionDescriptor;
 import java.lang.foreign.ValueLayout;
@@ -19,11 +20,23 @@ import java.lang.invoke.MethodHandle;
 
 public class HingeConstraint extends TwoBodyConstraint {
 
+    private Vec3 Vec3_TEMP_GEN_0;
+
+    private Vec3 Vec3_TEMP_GEN_1;
+
+    private Vec3 Vec3_TEMP_GEN_2;
+
+    private Vec3 Vec3_TEMP_GEN_3;
+
+    private Vec3 Vec3_TEMP_GEN_4;
+
+    private Vec3 Vec3_TEMP_GEN_5;
+
     private MotorSettings MotorSettings_TEMP_GEN_0;
 
     private SpringSettings SpringSettings_TEMP_GEN_0;
 
-    private Vec3 Vec3_TEMP_GEN_0;
+    private Vec3 Vec3_TEMP_GEN_6;
 
     private Vector2 Vector2_TEMP_GEN_0;
 
@@ -42,6 +55,114 @@ public class HingeConstraint extends TwoBodyConstraint {
      */
     public static HingeConstraint native_new() {
         return new HingeConstraint((byte) 0, (char) 0);
+    }
+
+    public Vec3 GetLocalSpacePoint1() {
+        long addr = internal_native_GetLocalSpacePoint1_addr(native_address);
+        if (addr == 0)
+            return Vec3.NULL;
+        if (Vec3_TEMP_GEN_0 == null)
+            Vec3_TEMP_GEN_0 = Vec3.native_new();
+        Vec3_TEMP_GEN_0.internal_reset(addr, false);
+        return Vec3_TEMP_GEN_0;
+    }
+
+    public static long internal_native_GetLocalSpacePoint1_addr(long this_addr) {
+        try {
+            return (long) FFMHandles.internal_native_GetLocalSpacePoint1_addr__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public Vec3 GetLocalSpacePoint2() {
+        long addr = internal_native_GetLocalSpacePoint2_addr(native_address);
+        if (addr == 0)
+            return Vec3.NULL;
+        if (Vec3_TEMP_GEN_1 == null)
+            Vec3_TEMP_GEN_1 = Vec3.native_new();
+        Vec3_TEMP_GEN_1.internal_reset(addr, false);
+        return Vec3_TEMP_GEN_1;
+    }
+
+    public static long internal_native_GetLocalSpacePoint2_addr(long this_addr) {
+        try {
+            return (long) FFMHandles.internal_native_GetLocalSpacePoint2_addr__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public Vec3 GetLocalSpaceHingeAxis1() {
+        long addr = internal_native_GetLocalSpaceHingeAxis1_addr(native_address);
+        if (addr == 0)
+            return Vec3.NULL;
+        if (Vec3_TEMP_GEN_2 == null)
+            Vec3_TEMP_GEN_2 = Vec3.native_new();
+        Vec3_TEMP_GEN_2.internal_reset(addr, false);
+        return Vec3_TEMP_GEN_2;
+    }
+
+    public static long internal_native_GetLocalSpaceHingeAxis1_addr(long this_addr) {
+        try {
+            return (long) FFMHandles.internal_native_GetLocalSpaceHingeAxis1_addr__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public Vec3 GetLocalSpaceHingeAxis2() {
+        long addr = internal_native_GetLocalSpaceHingeAxis2_addr(native_address);
+        if (addr == 0)
+            return Vec3.NULL;
+        if (Vec3_TEMP_GEN_3 == null)
+            Vec3_TEMP_GEN_3 = Vec3.native_new();
+        Vec3_TEMP_GEN_3.internal_reset(addr, false);
+        return Vec3_TEMP_GEN_3;
+    }
+
+    public static long internal_native_GetLocalSpaceHingeAxis2_addr(long this_addr) {
+        try {
+            return (long) FFMHandles.internal_native_GetLocalSpaceHingeAxis2_addr__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public Vec3 GetLocalSpaceNormalAxis1() {
+        long addr = internal_native_GetLocalSpaceNormalAxis1_addr(native_address);
+        if (addr == 0)
+            return Vec3.NULL;
+        if (Vec3_TEMP_GEN_4 == null)
+            Vec3_TEMP_GEN_4 = Vec3.native_new();
+        Vec3_TEMP_GEN_4.internal_reset(addr, false);
+        return Vec3_TEMP_GEN_4;
+    }
+
+    public static long internal_native_GetLocalSpaceNormalAxis1_addr(long this_addr) {
+        try {
+            return (long) FFMHandles.internal_native_GetLocalSpaceNormalAxis1_addr__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public Vec3 GetLocalSpaceNormalAxis2() {
+        long addr = internal_native_GetLocalSpaceNormalAxis2_addr(native_address);
+        if (addr == 0)
+            return Vec3.NULL;
+        if (Vec3_TEMP_GEN_5 == null)
+            Vec3_TEMP_GEN_5 = Vec3.native_new();
+        Vec3_TEMP_GEN_5.internal_reset(addr, false);
+        return Vec3_TEMP_GEN_5;
+    }
+
+    public static long internal_native_GetLocalSpaceNormalAxis2_addr(long this_addr) {
+        try {
+            return (long) FFMHandles.internal_native_GetLocalSpaceNormalAxis2_addr__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
     }
 
     public float GetCurrentAngle() {
@@ -177,6 +298,18 @@ public class HingeConstraint extends TwoBodyConstraint {
         }
     }
 
+    public void SetTargetOrientationBS(Quat inOrientation) {
+        internal_native_SetTargetOrientationBS(native_address, inOrientation.native_address);
+    }
+
+    public static void internal_native_SetTargetOrientationBS(long this_addr, long inOrientation_addr) {
+        try {
+            FFMHandles.internal_native_SetTargetOrientationBS__JJ.invokeExact(this_addr, inOrientation_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
     public void SetLimits(float inLimitsMin, float inLimitsMax) {
         internal_native_SetLimits(native_address, inLimitsMin, inLimitsMax);
     }
@@ -259,10 +392,10 @@ public class HingeConstraint extends TwoBodyConstraint {
         long addr = internal_native_GetTotalLambdaPosition_addr(native_address);
         if (addr == 0)
             return Vec3.NULL;
-        if (Vec3_TEMP_GEN_0 == null)
-            Vec3_TEMP_GEN_0 = Vec3.native_new();
-        Vec3_TEMP_GEN_0.internal_reset(addr, false);
-        return Vec3_TEMP_GEN_0;
+        if (Vec3_TEMP_GEN_6 == null)
+            Vec3_TEMP_GEN_6 = Vec3.native_new();
+        Vec3_TEMP_GEN_6.internal_reset(addr, false);
+        return Vec3_TEMP_GEN_6;
     }
 
     public static long internal_native_GetTotalLambdaPosition_addr(long this_addr) {
@@ -317,13 +450,25 @@ public class HingeConstraint extends TwoBodyConstraint {
 
     private static final class FFMHandles {
 
+        static final java.lang.invoke.MethodHandle internal_native_GetLocalSpacePoint1_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_constraints_hingeconstraint_getlocalspacepoint1_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_GetLocalSpacePoint2_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_constraints_hingeconstraint_getlocalspacepoint2_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_GetLocalSpaceHingeAxis1_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_constraints_hingeconstraint_getlocalspacehingeaxis1_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_GetLocalSpaceHingeAxis2_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_constraints_hingeconstraint_getlocalspacehingeaxis2_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_GetLocalSpaceNormalAxis1_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_constraints_hingeconstraint_getlocalspacenormalaxis1_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_GetLocalSpaceNormalAxis2_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_constraints_hingeconstraint_getlocalspacenormalaxis2_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+
         static final java.lang.invoke.MethodHandle internal_native_GetCurrentAngle__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_constraints_hingeconstraint_getcurrentangle", FunctionDescriptor.of(ValueLayout.JAVA_FLOAT, ValueLayout.JAVA_LONG));
 
         static final java.lang.invoke.MethodHandle internal_native_SetMaxFrictionTorque__JF = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_constraints_hingeconstraint_setmaxfrictiontorque", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_FLOAT));
 
         static final java.lang.invoke.MethodHandle internal_native_GetMaxFrictionTorque__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_constraints_hingeconstraint_getmaxfrictiontorque", FunctionDescriptor.of(ValueLayout.JAVA_FLOAT, ValueLayout.JAVA_LONG));
 
-        static final java.lang.invoke.MethodHandle internal_native_GetMotorSettings_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_physics_constraints_hingeconstraint_getmotorsettings_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+        static final java.lang.invoke.MethodHandle internal_native_GetMotorSettings_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_constraints_hingeconstraint_getmotorsettings_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
 
         static final java.lang.invoke.MethodHandle internal_native_SetMotorState__JI = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_constraints_hingeconstraint_setmotorstate", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT));
 
@@ -337,6 +482,8 @@ public class HingeConstraint extends TwoBodyConstraint {
 
         static final java.lang.invoke.MethodHandle internal_native_GetTargetAngle__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_constraints_hingeconstraint_gettargetangle", FunctionDescriptor.of(ValueLayout.JAVA_FLOAT, ValueLayout.JAVA_LONG));
 
+        static final java.lang.invoke.MethodHandle internal_native_SetTargetOrientationBS__JJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_constraints_hingeconstraint_settargetorientationbs", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+
         static final java.lang.invoke.MethodHandle internal_native_SetLimits__JFF = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_constraints_hingeconstraint_setlimits", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_FLOAT, ValueLayout.JAVA_FLOAT));
 
         static final java.lang.invoke.MethodHandle internal_native_GetLimitsMin__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_constraints_hingeconstraint_getlimitsmin", FunctionDescriptor.of(ValueLayout.JAVA_FLOAT, ValueLayout.JAVA_LONG));
@@ -345,13 +492,13 @@ public class HingeConstraint extends TwoBodyConstraint {
 
         static final java.lang.invoke.MethodHandle internal_native_HasLimits__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_constraints_hingeconstraint_haslimits", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.JAVA_LONG));
 
-        static final java.lang.invoke.MethodHandle internal_native_GetLimitsSpringSettings_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_physics_constraints_hingeconstraint_getlimitsspringsettings_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+        static final java.lang.invoke.MethodHandle internal_native_GetLimitsSpringSettings_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_constraints_hingeconstraint_getlimitsspringsettings_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
 
         static final java.lang.invoke.MethodHandle internal_native_SetLimitsSpringSettings__JJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_constraints_hingeconstraint_setlimitsspringsettings", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
 
-        static final java.lang.invoke.MethodHandle internal_native_GetTotalLambdaPosition_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_physics_constraints_hingeconstraint_gettotallambdaposition_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+        static final java.lang.invoke.MethodHandle internal_native_GetTotalLambdaPosition_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_constraints_hingeconstraint_gettotallambdaposition_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
 
-        static final java.lang.invoke.MethodHandle internal_native_GetTotalLambdaRotation_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_physics_constraints_hingeconstraint_gettotallambdarotation_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+        static final java.lang.invoke.MethodHandle internal_native_GetTotalLambdaRotation_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_constraints_hingeconstraint_gettotallambdarotation_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
 
         static final java.lang.invoke.MethodHandle internal_native_GetTotalLambdaRotationLimits__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_constraints_hingeconstraint_gettotallambdarotationlimits", FunctionDescriptor.of(ValueLayout.JAVA_FLOAT, ValueLayout.JAVA_LONG));
 

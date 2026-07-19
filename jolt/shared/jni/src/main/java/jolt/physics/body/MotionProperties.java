@@ -333,6 +333,14 @@ public class MotionProperties extends NativeObject {
         jolt.physics.body.natives.JNI_MotionProperties.internal_native_SetInverseInertia(this_addr, inInvI_addr, inRotation_addr);
     }
 
+    public void ScaleToMass(float inMass) {
+        internal_native_ScaleToMass(native_address, inMass);
+    }
+
+    public static void internal_native_ScaleToMass(long this_addr, float inMass) {
+        jolt.physics.body.natives.JNI_MotionProperties.internal_native_ScaleToMass(this_addr, inMass);
+    }
+
     public Mat44 GetLocalSpaceInverseInertia() {
         long addr = internal_native_GetLocalSpaceInverseInertia_addr(native_address);
         if (addr == 0)

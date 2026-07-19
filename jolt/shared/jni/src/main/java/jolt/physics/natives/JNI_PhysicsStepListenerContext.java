@@ -23,4 +23,8 @@ final public class JNI_PhysicsStepListenerContext {
     public static native boolean internal_native_get_mIsLastStep(long this_addr);
 
     public static native void internal_native_set_mIsLastStep(long this_addr, boolean mIsLastStep);
+
+    public static native long internal_native_get_mPhysicsSystem_addr(long this_addr);
+
+    public static native void internal_native_set_mPhysicsSystem(long this_addr, long mPhysicsSystem_addr);
 }

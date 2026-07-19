@@ -148,9 +148,21 @@ final public class JNI_BodyInterface {
 
     public static native float internal_native_GetGravityFactor(long this_addr, long inBodyID_addr);
 
+    public static native void internal_native_SetMaxLinearVelocity(long this_addr, long inBodyID_addr, float inLinearVelocity);
+
+    public static native float internal_native_GetMaxLinearVelocity(long this_addr, long inBodyID_addr);
+
+    public static native void internal_native_SetMaxAngularVelocity(long this_addr, long inBodyID_addr, float inAngularVelocity);
+
+    public static native float internal_native_GetMaxAngularVelocity(long this_addr, long inBodyID_addr);
+
     public static native void internal_native_SetUseManifoldReduction(long this_addr, long inBodyID_addr, boolean inUseReduction);
 
     public static native boolean internal_native_GetUseManifoldReduction(long this_addr, long inBodyID_addr);
+
+    public static native void internal_native_SetIsSensor(long this_addr, long inBodyID_addr, boolean inIsSensor);
+
+    public static native boolean internal_native_IsSensor(long this_addr, long inBodyID_addr);
 
     public static native void internal_native_SetCollisionGroup(long this_addr, long inBodyID_addr, long inCollisionGroup_addr);
 
@@ -174,9 +186,9 @@ final public class JNI_BodyInterface {
 
     public static native long internal_native_GetTransformedShape_addr(long this_addr, long inBodyID_addr);
 
-    public static native long internal_native_GetUserData(long this_addr, long inBodyID_addr);
+    public static native int internal_native_GetUserData(long this_addr, long inBodyID_addr);
 
-    public static native void internal_native_SetUserData(long this_addr, long inBodyID_addr, long inUserData);
+    public static native void internal_native_SetUserData(long this_addr, long inBodyID_addr, int inUserData);
 
     public static native long internal_native_GetMaterial_addr(long this_addr, long inBodyID_addr, long inSubShapeID_addr);
 

@@ -21,6 +21,20 @@ public class OffsetCenterOfMassShapeSettings extends DecoratedShapeSettings {
 
     static public final OffsetCenterOfMassShapeSettings NULL = OffsetCenterOfMassShapeSettings.native_new();
 
+    public OffsetCenterOfMassShapeSettings(Vec3 inOffset, ShapeSettings inShape) {
+        super((byte) 1, (char) 1);
+        long addr = internal_native_create_Vec3_ShapeSettings_addr(inOffset.native_address, inShape.native_address);
+        internal_reset(addr, true);
+    }
+
+    public static long internal_native_create_Vec3_ShapeSettings_addr(long inOffset_addr, long inShape_addr) {
+        try {
+            return (long) FFMHandles.internal_native_create_Vec3_ShapeSettings_addr__JJ.invokeExact(inOffset_addr, inShape_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
     public OffsetCenterOfMassShapeSettings(Vec3 inOffset, Shape inShape) {
         super((byte) 1, (char) 1);
         long addr = internal_native_create_Vec3_Shape_addr(inOffset.native_address, inShape.native_address);
@@ -94,12 +108,14 @@ public class OffsetCenterOfMassShapeSettings extends DecoratedShapeSettings {
 
     private static final class FFMHandles {
 
-        static final java.lang.invoke.MethodHandle internal_native_create_Vec3_Shape_addr__JJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_physics_collision_shape_offsetcenterofmassshapesettings_create_vec3_shape_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+        static final java.lang.invoke.MethodHandle internal_native_create_Vec3_ShapeSettings_addr__JJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_collision_shape_offsetcenterofmassshapesettings_create_vec3_shapesettings_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_create_Vec3_Shape_addr__JJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_collision_shape_offsetcenterofmassshapesettings_create_vec3_shape_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
 
         static final java.lang.invoke.MethodHandle internal_native_deleteNative__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_collision_shape_offsetcenterofmassshapesettings_deletenative", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG));
 
-        static final java.lang.invoke.MethodHandle internal_native_get_mOffset_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_physics_collision_shape_offsetcenterofmassshapesettings_get_moffset_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+        static final java.lang.invoke.MethodHandle internal_native_get_mOffset_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_collision_shape_offsetcenterofmassshapesettings_get_moffset_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
 
-        static final java.lang.invoke.MethodHandle internal_native_set_mOffset__JJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_physics_collision_shape_offsetcenterofmassshapesettings_set_moffset", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+        static final java.lang.invoke.MethodHandle internal_native_set_mOffset__JJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_collision_shape_offsetcenterofmassshapesettings_set_moffset", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
     }
 }

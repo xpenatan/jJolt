@@ -22,7 +22,7 @@ public class Character extends CharacterBase {
 
     static public final Character NULL = Character.native_new();
 
-    public Character(CharacterSettings inSettings, RVec3 inPosition, Quat inRotation, long inUserData, PhysicsSystem inSystem) {
+    public Character(CharacterSettings inSettings, RVec3 inPosition, Quat inRotation, int inUserData, PhysicsSystem inSystem) {
         super((byte) 1, (char) 1);
     }
 

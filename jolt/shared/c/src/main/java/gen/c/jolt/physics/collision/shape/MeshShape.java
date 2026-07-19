@@ -24,4 +24,11 @@ public class MeshShape extends Shape {
     public static MeshShape native_new() {
         return new MeshShape((byte) 0, (char) 0);
     }
+
+    public int GetTriangleUserData(SubShapeID inSubShapeID) {
+        return internal_native_GetTriangleUserData(native_address, inSubShapeID.native_address);
+    }
+
+    @org.teavm.interop.Import(name = "jolt_physics_collision_shape_meshshape_gettriangleuserdata")
+    public static native int internal_native_GetTriangleUserData(long this_addr, long inSubShapeID_addr);
 }

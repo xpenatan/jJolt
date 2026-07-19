@@ -10,6 +10,8 @@ import com.github.xpenatan.jParser.api.NativeObject;
 
 public class PhysicsStepListenerContext extends NativeObject {
 
+    private PhysicsSystem PhysicsSystem_TEMP_GEN_0;
+
     static public final PhysicsStepListenerContext NULL = PhysicsStepListenerContext.native_new();
 
     /**
@@ -80,5 +82,27 @@ public class PhysicsStepListenerContext extends NativeObject {
 
     public static void internal_native_set_mIsLastStep(long this_addr, boolean mIsLastStep) {
         jolt.physics.natives.JNI_PhysicsStepListenerContext.internal_native_set_mIsLastStep(this_addr, mIsLastStep);
+    }
+
+    public PhysicsSystem get_mPhysicsSystem() {
+        long addr = internal_native_get_mPhysicsSystem_addr(native_address);
+        if (addr == 0)
+            return PhysicsSystem.NULL;
+        if (PhysicsSystem_TEMP_GEN_0 == null)
+            PhysicsSystem_TEMP_GEN_0 = PhysicsSystem.native_new();
+        PhysicsSystem_TEMP_GEN_0.internal_reset(addr, false);
+        return PhysicsSystem_TEMP_GEN_0;
+    }
+
+    public static long internal_native_get_mPhysicsSystem_addr(long this_addr) {
+        return jolt.physics.natives.JNI_PhysicsStepListenerContext.internal_native_get_mPhysicsSystem_addr(this_addr);
+    }
+
+    public void set_mPhysicsSystem(PhysicsSystem mPhysicsSystem) {
+        internal_native_set_mPhysicsSystem(native_address, mPhysicsSystem.native_address);
+    }
+
+    public static void internal_native_set_mPhysicsSystem(long this_addr, long mPhysicsSystem_addr) {
+        jolt.physics.natives.JNI_PhysicsStepListenerContext.internal_native_set_mPhysicsSystem(this_addr, mPhysicsSystem_addr);
     }
 }

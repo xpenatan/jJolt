@@ -10,6 +10,8 @@ import gen.web.com.github.xpenatan.jParser.api.NativeObject;
 
 public class PhysicsStepListenerContext extends NativeObject {
 
+    private PhysicsSystem PhysicsSystem_TEMP_GEN_0;
+
     static public final PhysicsStepListenerContext NULL = PhysicsStepListenerContext.native_new();
 
     /**
@@ -74,4 +76,24 @@ public class PhysicsStepListenerContext extends NativeObject {
 
     @org.teavm.jso.JSBody(params = {"this_addr", "mIsLastStep"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.PhysicsStepListenerContext);jsObj.set_mIsLastStep(mIsLastStep);")
     public static native void internal_native_set_mIsLastStep(int this_addr, boolean mIsLastStep);
+
+    public PhysicsSystem get_mPhysicsSystem() {
+        int addr = internal_native_get_mPhysicsSystem_addr(native_address);
+        if (addr == 0)
+            return PhysicsSystem.NULL;
+        if (PhysicsSystem_TEMP_GEN_0 == null)
+            PhysicsSystem_TEMP_GEN_0 = PhysicsSystem.native_new();
+        PhysicsSystem_TEMP_GEN_0.internal_reset(addr, false);
+        return PhysicsSystem_TEMP_GEN_0;
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.PhysicsStepListenerContext);var returnedJSObj = jsObj.get_mPhysicsSystem();if(!returnedJSObj.hasOwnProperty('ptr')) return 0; return jolt.getPointer(returnedJSObj);")
+    public static native int internal_native_get_mPhysicsSystem_addr(int this_addr);
+
+    public void set_mPhysicsSystem(PhysicsSystem mPhysicsSystem) {
+        internal_native_set_mPhysicsSystem(native_address, mPhysicsSystem.native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "mPhysicsSystem_addr"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.PhysicsStepListenerContext);jsObj.set_mPhysicsSystem(mPhysicsSystem_addr);")
+    public static native void internal_native_set_mPhysicsSystem(int this_addr, int mPhysicsSystem_addr);
 }

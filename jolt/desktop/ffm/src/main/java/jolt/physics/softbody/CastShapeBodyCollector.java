@@ -61,6 +61,18 @@ public class CastShapeBodyCollector extends NativeObject {
         }
     }
 
+    public void ResetNative() {
+        internal_native_ResetNative(native_address);
+    }
+
+    public static void internal_native_ResetNative(long this_addr) {
+        try {
+            FFMHandles.internal_native_ResetNative__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
     public void SetContext(TransformedShape inContext) {
         internal_native_SetContext(native_address, inContext.native_address);
     }
@@ -251,9 +263,11 @@ public class CastShapeBodyCollector extends NativeObject {
 
         static final java.lang.invoke.MethodHandle internal_native_deleteNative__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_softbody_castshapebodycollector_deletenative", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG));
 
+        static final java.lang.invoke.MethodHandle internal_native_ResetNative__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_softbody_castshapebodycollector_resetnative", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG));
+
         static final java.lang.invoke.MethodHandle internal_native_SetContext__JJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_softbody_castshapebodycollector_setcontext", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
 
-        static final java.lang.invoke.MethodHandle internal_native_GetContext_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_physics_softbody_castshapebodycollector_getcontext_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+        static final java.lang.invoke.MethodHandle internal_native_GetContext_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_softbody_castshapebodycollector_getcontext_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
 
         static final java.lang.invoke.MethodHandle internal_native_UpdateEarlyOutFraction__JF = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_softbody_castshapebodycollector_updateearlyoutfraction", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_FLOAT));
 
@@ -269,7 +283,7 @@ public class CastShapeBodyCollector extends NativeObject {
 
         static final java.lang.invoke.MethodHandle internal_native_GetPositiveEarlyOutFraction__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_softbody_castshapebodycollector_getpositiveearlyoutfraction", FunctionDescriptor.of(ValueLayout.JAVA_FLOAT, ValueLayout.JAVA_LONG));
 
-        static final java.lang.invoke.MethodHandle internal_native_create_addr__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_physics_softbody_castshapebodycollector_create_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG));
+        static final java.lang.invoke.MethodHandle internal_native_create_addr__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_softbody_castshapebodycollector_create_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG));
 
         static final java.lang.invoke.MethodHandle internal_native_setupCallback__JJJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_softbody_castshapebodycollector_setupcallback", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
     }

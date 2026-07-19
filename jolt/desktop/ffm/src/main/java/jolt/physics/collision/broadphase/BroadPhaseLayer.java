@@ -72,7 +72,7 @@ public class BroadPhaseLayer extends NativeObject {
 
     private static final class FFMHandles {
 
-        static final java.lang.invoke.MethodHandle internal_native_create_short_addr__S = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_physics_collision_broadphase_broadphaselayer_create_short_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_SHORT));
+        static final java.lang.invoke.MethodHandle internal_native_create_short_addr__S = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_collision_broadphase_broadphaselayer_create_short_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_SHORT));
 
         static final java.lang.invoke.MethodHandle internal_native_deleteNative__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_collision_broadphase_broadphaselayer_deletenative", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG));
 

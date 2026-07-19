@@ -43,6 +43,22 @@ public class Float3 extends NativeObject {
         jolt.math.natives.JNI_Float3.internal_native_deleteNative(this_addr);
     }
 
+    public boolean Equals(Float3 inV) {
+        return internal_native_Equals(native_address, inV.native_address);
+    }
+
+    public static boolean internal_native_Equals(long this_addr, long inV_addr) {
+        return jolt.math.natives.JNI_Float3.internal_native_Equals(this_addr, inV_addr);
+    }
+
+    public boolean NotEquals(Float3 inV) {
+        return internal_native_NotEquals(native_address, inV.native_address);
+    }
+
+    public static boolean internal_native_NotEquals(long this_addr, long inV_addr) {
+        return jolt.math.natives.JNI_Float3.internal_native_NotEquals(this_addr, inV_addr);
+    }
+
     public float get_x() {
         return internal_native_get_x(native_address);
     }

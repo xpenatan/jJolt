@@ -13,6 +13,8 @@ import gen.web.jolt.math.Mat44;
 
 public class VehicleConstraint extends Constraint {
 
+    private VehicleCollisionTester VehicleCollisionTester_TEMP_GEN_0;
+
     private Vec3 Vec3_TEMP_GEN_0;
 
     private Vec3 Vec3_TEMP_GEN_1;
@@ -75,12 +77,32 @@ public class VehicleConstraint extends Constraint {
     @org.teavm.jso.JSBody(params = {"this_addr", "inMaxPitchRollAngle"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.VehicleConstraint);jsObj.SetMaxPitchRollAngle(inMaxPitchRollAngle);")
     public static native void internal_native_SetMaxPitchRollAngle(int this_addr, float inMaxPitchRollAngle);
 
+    public float GetMaxPitchRollAngle() {
+        return internal_native_GetMaxPitchRollAngle(native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.VehicleConstraint);var returnedJSObj = jsObj.GetMaxPitchRollAngle();return returnedJSObj;")
+    public static native float internal_native_GetMaxPitchRollAngle(int this_addr);
+
     public void SetVehicleCollisionTester(VehicleCollisionTester inTester) {
         internal_native_SetVehicleCollisionTester(native_address, inTester.native_address);
     }
 
     @org.teavm.jso.JSBody(params = {"this_addr", "inTester_addr"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.VehicleConstraint);jsObj.SetVehicleCollisionTester(inTester_addr);")
     public static native void internal_native_SetVehicleCollisionTester(int this_addr, int inTester_addr);
+
+    public VehicleCollisionTester GetVehicleCollisionTester() {
+        int addr = internal_native_GetVehicleCollisionTester_addr(native_address);
+        if (addr == 0)
+            return VehicleCollisionTester.NULL;
+        if (VehicleCollisionTester_TEMP_GEN_0 == null)
+            VehicleCollisionTester_TEMP_GEN_0 = VehicleCollisionTester.native_new();
+        VehicleCollisionTester_TEMP_GEN_0.internal_reset(addr, false);
+        return VehicleCollisionTester_TEMP_GEN_0;
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.VehicleConstraint);var returnedJSObj = jsObj.GetVehicleCollisionTester();if(!returnedJSObj.hasOwnProperty('ptr')) return 0; return jolt.getPointer(returnedJSObj);")
+    public static native int internal_native_GetVehicleCollisionTester_addr(int this_addr);
 
     public void OverrideGravity(Vec3 inGravity) {
         internal_native_OverrideGravity(native_address, inGravity.native_address);

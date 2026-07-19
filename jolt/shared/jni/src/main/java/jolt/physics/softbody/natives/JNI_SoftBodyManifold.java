@@ -21,4 +21,8 @@ final public class JNI_SoftBodyManifold {
     public static native long internal_native_GetContactNormal_addr(long this_addr, long inVertex_addr);
 
     public static native long internal_native_GetContactBodyID_addr(long this_addr, long inVertex_addr);
+
+    public static native int internal_native_GetNumSensorContacts(long this_addr);
+
+    public static native long internal_native_GetSensorContactBodyID_addr(long this_addr, int inIndex);
 }

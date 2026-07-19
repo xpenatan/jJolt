@@ -8,14 +8,18 @@ package gen.web.jolt.physics.character;
 
 import gen.web.com.github.xpenatan.jParser.api.NativeObject;
 import gen.web.jolt.math.Vec3;
+import gen.web.jolt.geometry.Plane;
 import gen.web.jolt.physics.collision.shape.Shape;
 import gen.web.jolt.enums.EGroundState;
 import gen.web.jolt.physics.collision.PhysicsMaterial;
 import gen.web.jolt.physics.body.BodyID;
+import gen.web.jolt.physics.StateRecorder;
 
 public class CharacterBase extends NativeObject {
 
     private Vec3 Vec3_TEMP_GEN_0;
+
+    private Plane Plane_TEMP_GEN_0;
 
     private Shape Shape_TEMP_GEN_0;
 
@@ -99,6 +103,26 @@ public class CharacterBase extends NativeObject {
 
     @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.CharacterBase);var returnedJSObj = jsObj.GetUp();if(!returnedJSObj.hasOwnProperty('ptr')) return 0; return jolt.getPointer(returnedJSObj);")
     public static native int internal_native_GetUp_addr(int this_addr);
+
+    public void SetSupportingVolume(Plane inVolume) {
+        internal_native_SetSupportingVolume(native_address, inVolume.native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "inVolume_addr"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.CharacterBase);jsObj.SetSupportingVolume(inVolume_addr);")
+    public static native void internal_native_SetSupportingVolume(int this_addr, int inVolume_addr);
+
+    public Plane GetSupportingVolume() {
+        int addr = internal_native_GetSupportingVolume_addr(native_address);
+        if (addr == 0)
+            return Plane.NULL;
+        if (Plane_TEMP_GEN_0 == null)
+            Plane_TEMP_GEN_0 = Plane.native_new();
+        Plane_TEMP_GEN_0.internal_reset(addr, false);
+        return Plane_TEMP_GEN_0;
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.CharacterBase);var returnedJSObj = jsObj.GetSupportingVolume();if(!returnedJSObj.hasOwnProperty('ptr')) return 0; return jolt.getPointer(returnedJSObj);")
+    public static native int internal_native_GetSupportingVolume_addr(int this_addr);
 
     public Shape GetShape() {
         int addr = internal_native_GetShape_addr(native_address);
@@ -205,4 +229,18 @@ public class CharacterBase extends NativeObject {
 
     @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.CharacterBase);var returnedJSObj = jsObj.GetGroundBodyID();if(!returnedJSObj.hasOwnProperty('ptr')) return 0; return jolt.getPointer(returnedJSObj);")
     public static native int internal_native_GetGroundBodyID_addr(int this_addr);
+
+    public void SaveState(StateRecorder inStream) {
+        internal_native_SaveState(native_address, inStream.native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "inStream_addr"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.CharacterBase);jsObj.SaveState(inStream_addr);")
+    public static native void internal_native_SaveState(int this_addr, int inStream_addr);
+
+    public void RestoreState(StateRecorder inStream) {
+        internal_native_RestoreState(native_address, inStream.native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "inStream_addr"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.CharacterBase);jsObj.RestoreState(inStream_addr);")
+    public static native void internal_native_RestoreState(int this_addr, int inStream_addr);
 }

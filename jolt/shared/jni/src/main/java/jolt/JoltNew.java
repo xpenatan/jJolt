@@ -45,6 +45,7 @@ public class JoltNew extends NativeObject {
         return new JoltNew((byte) 0, (char) 0);
     }
 
+    @Deprecated
     public static PhysicsSystem PhysicsSystem() {
         long addr = internal_native_PhysicsSystem__0_addr();
         if (addr == 0)
@@ -58,6 +59,7 @@ public class JoltNew extends NativeObject {
         return jolt.natives.JNI_JoltNew.internal_native_PhysicsSystem__0_addr();
     }
 
+    @Deprecated
     public static Factory Factory() {
         long addr = internal_native_Factory__0_addr();
         if (addr == 0)
@@ -71,6 +73,7 @@ public class JoltNew extends NativeObject {
         return jolt.natives.JNI_JoltNew.internal_native_Factory__0_addr();
     }
 
+    @Deprecated
     public static TempAllocatorImpl TempAllocatorImpl(int inSize) {
         long addr = internal_native_TempAllocatorImpl__0_addr(inSize);
         if (addr == 0)
@@ -84,6 +87,7 @@ public class JoltNew extends NativeObject {
         return jolt.natives.JNI_JoltNew.internal_native_TempAllocatorImpl__0_addr(inSize);
     }
 
+    @Deprecated
     public static JobSystemThreadPool JobSystemThreadPool(int inMaxJobs, int inMaxBarriers, int inNumThreads) {
         long addr = internal_native_JobSystemThreadPool__0_addr(inMaxJobs, inMaxBarriers, inNumThreads);
         if (addr == 0)
@@ -97,6 +101,7 @@ public class JoltNew extends NativeObject {
         return jolt.natives.JNI_JoltNew.internal_native_JobSystemThreadPool__0_addr(inMaxJobs, inMaxBarriers, inNumThreads);
     }
 
+    @Deprecated
     public static JobSystemThreadPool JobSystemThreadPool(int inMaxJobs, int inMaxBarriers) {
         long addr = internal_native_JobSystemThreadPool__0_addr(inMaxJobs, inMaxBarriers);
         if (addr == 0)

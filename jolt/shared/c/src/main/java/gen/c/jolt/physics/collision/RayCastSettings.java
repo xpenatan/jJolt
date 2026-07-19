@@ -42,6 +42,13 @@ public class RayCastSettings extends NativeObject {
     @org.teavm.interop.Import(name = "jolt_physics_collision_raycastsettings_deletenative")
     public static native void internal_native_deleteNative(long this_addr);
 
+    public void SetBackFaceMode(EBackFaceMode inBackFaceMode) {
+        internal_native_SetBackFaceMode(native_address, inBackFaceMode.getValue());
+    }
+
+    @org.teavm.interop.Import(name = "jolt_physics_collision_raycastsettings_setbackfacemode")
+    public static native void internal_native_SetBackFaceMode(long this_addr, int inBackFaceMode);
+
     public EBackFaceMode get_mBackFaceModeTriangles() {
         int value = internal_native_get_mBackFaceModeTriangles(native_address);
         EBackFaceMode[] values = EBackFaceMode.values();

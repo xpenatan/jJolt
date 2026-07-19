@@ -14,6 +14,14 @@ public class ArrayCharacterVirtualContact extends NativeObject {
 
     static public final ArrayCharacterVirtualContact NULL = ArrayCharacterVirtualContact.native_new();
 
+    public ArrayCharacterVirtualContact() {
+        int addr = internal_native_create_addr();
+        internal_reset(addr, true);
+    }
+
+    @org.teavm.jso.JSBody(script = "var jsObj = new jolt.ArrayCharacterVirtualContact();return jolt.getPointer(jsObj);")
+    public static native int internal_native_create_addr();
+
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
      */

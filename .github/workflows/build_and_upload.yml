@@ -59,6 +59,12 @@ jobs:
       - name: Build TeaVM C project
         run: ./gradlew :jolt:builder:jParser_build_windows64_teavm_c
 
+      - name: Run JNI and FFM portable runtime tests
+        run: ./gradlew :jolt:desktop:jni:test :jolt:desktop:ffm:test -x :jolt:builder:jParser_generate -x :jolt:builder:jParser_build_windows64_jni -x :jolt:builder:jParser_build_windows64_ffm
+
+      - name: Run TeaVM C portable runtime test
+        run: ./gradlew :samples:gdx:gl:platforms:desktop-c:samples_build_app_teavm_c -x :jolt:builder:jParser_generate -x :jolt:builder:jParser_build_windows64_teavm_c
+
       - name: Upload natives
         uses: actions/upload-artifact@v7
         with:
@@ -91,6 +97,9 @@ jobs:
       - name: Download sources
         run: ./gradlew :jolt:download:jolt_download_source
 
+      - name: Verify WebIDL and generated backend parity
+        run: ./gradlew :jolt:builder:verifyJoltSourceSelection :jolt:builder:verifyJoltWebIdlParity :jolt:builder:verifyGeneratedBackendParity :jolt:builder:verifyGeneratedSourcesClean
+
       - name: Build JNI project
         run: ./gradlew :jolt:builder:jParser_build_linux64_jni
 
@@ -99,6 +108,26 @@ jobs:
 
       - name: Build TeaVM C project
         run: ./gradlew :jolt:builder:jParser_build_linux64_teavm_c
+
+      - name: Run JNI and FFM portable runtime tests
+        run: ./gradlew :jolt:desktop:jni:test :jolt:desktop:ffm:test -x :jolt:builder:jParser_generate -x :jolt:builder:jParser_build_linux64_jni -x :jolt:builder:jParser_build_linux64_ffm
+
+      - name: Run TeaVM C portable runtime test
+        run: ./gradlew :samples:gdx:gl:platforms:desktop-c:samples_build_app_teavm_c -x :jolt:builder:jParser_generate -x :jolt:builder:jParser_build_linux64_teavm_c
+
+      - name: Build all desktop samples
+        run: >-
+          ./gradlew
+          :samples:gdx:gl:platforms:desktop-jni:classes
+          :samples:gdx:wgpu:platforms:desktop-jni:classes
+          :samples:gdx:gl:platforms:desktop-c:jolt_gdx_desktop_c_build
+          :samples:fdx:platforms:desktop-jni:jolt_sample_desktop_gl_jni_build
+          :samples:fdx:platforms:desktop-jni:jolt_sample_desktop_wgpu_jni_build
+          :samples:fdx:platforms:desktop-jni:jolt_sample_desktop_wgpu_ffm_build
+          :samples:fdx:platforms:desktop-jni:jolt_sample_desktop_vulkan_jni_build
+          :samples:fdx:platforms:desktop-jni:jolt_sample_desktop_vulkan_ffm_build
+          -x :jolt:builder:jParser_generate
+          -x :jolt:builder:jParser_build_linux64_teavm_c
 
       - name: Upload natives
         uses: actions/upload-artifact@v7
@@ -141,6 +170,12 @@ jobs:
       - name: Build TeaVM C project
         run: ./gradlew :jolt:builder:jParser_build_mac64_teavm_c :jolt:builder:jParser_build_macArm_teavm_c
 
+      - name: Run JNI and FFM portable runtime tests
+        run: ./gradlew :jolt:desktop:jni:test :jolt:desktop:ffm:test -x :jolt:builder:jParser_generate -x :jolt:builder:jParser_build_mac64_jni -x :jolt:builder:jParser_build_macArm_jni -x :jolt:builder:jParser_build_mac64_ffm -x :jolt:builder:jParser_build_macArm_ffm
+
+      - name: Run TeaVM C portable runtime test
+        run: ./gradlew :samples:gdx:gl:platforms:desktop-c:samples_build_app_teavm_c -x :jolt:builder:jParser_generate -x :jolt:builder:jParser_build_mac64_teavm_c -x :jolt:builder:jParser_build_macArm_teavm_c
+
       - name: Upload natives
         uses: actions/upload-artifact@v7
         with:
@@ -180,6 +215,18 @@ jobs:
 
       - name: Build Web project
         run: ./gradlew :jolt:builder:jParser_build_web_wasm
+
+      - name: Build all web samples
+        run: >-
+          ./gradlew
+          :samples:fdx:platforms:web:jolt_sample_webgl_js_build
+          :samples:fdx:platforms:web:jolt_sample_webgl_wasm_build
+          :samples:fdx:platforms:web:jolt_sample_webgpu_js_build
+          :samples:fdx:platforms:web:jolt_sample_webgpu_wasm_build
+          :samples:gdx:gl:platforms:web:jolt_samples_run_teavm
+          :samples:gdx:wgpu:platforms:web:jolt_samples_run_teavm_wgpu
+          -x :jolt:builder:jParser_generate
+          -x :jolt:builder:jParser_build_web_wasm
 
       - name: Upload natives
         uses: actions/upload-artifact@v7
@@ -225,6 +272,29 @@ jobs:
         run: ./gradlew :jolt:builder:jParser_build_android_jni
         env:
           ANDROID_NDK_HOME: ${{ steps.setup-ndk.outputs.ndk-path }}
+
+      - name: Verify all Android ABI libraries
+        run: ./gradlew :jolt:android:jni:verifyAndroidNativeAbis -x :jolt:builder:jParser_generate -x :jolt:builder:jParser_build_android_jni
+
+      - name: Build Android library, instrumentation tests, and samples
+        run: >-
+          ./gradlew
+          :jolt:android:jni:assembleDebug
+          :jolt:android:jni:assembleDebugAndroidTest
+          :samples:gdx:gl:platforms:android:assembleDebug
+          :samples:fdx:platforms:android:jolt_sample_android_gles_build
+          :samples:fdx:platforms:android:jolt_sample_android_wgpu_jni_build
+          :samples:fdx:platforms:android:jolt_sample_android_vulkan_build
+          -x :jolt:builder:jParser_generate
+
+      - name: Run Android portable runtime tests
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 35
+          arch: x86_64
+          target: google_apis
+          disable-animations: true
+          script: ./gradlew :jolt:android:jni:connectedDebugAndroidTest -x :jolt:builder:jParser_generate -x :jolt:builder:jParser_build_android_jni
 
       - name: Upload natives
         uses: actions/upload-artifact@v7

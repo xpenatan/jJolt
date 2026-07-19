@@ -67,10 +67,10 @@ public enum SoftBodySharedSettings_EBendType implements NativeEnum<SoftBodyShare
 
     private static final class FFMHandles {
 
-        static final java.lang.invoke.MethodHandle SoftBodySharedSettings_EBendType_None_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_enums_softbodysharedsettings_ebendtype_softbodysharedsettings_ebendtype_none_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
+        static final java.lang.invoke.MethodHandle SoftBodySharedSettings_EBendType_None_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_enums_softbodysharedsettings_ebendtype_softbodysharedsettings_ebendtype_none_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
 
-        static final java.lang.invoke.MethodHandle SoftBodySharedSettings_EBendType_Distance_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_enums_softbodysharedsettings_ebendtype_softbodysharedsettings_ebendtype_distance_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
+        static final java.lang.invoke.MethodHandle SoftBodySharedSettings_EBendType_Distance_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_enums_softbodysharedsettings_ebendtype_softbodysharedsettings_ebendtype_distance_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
 
-        static final java.lang.invoke.MethodHandle SoftBodySharedSettings_EBendType_Dihedral_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_enums_softbodysharedsettings_ebendtype_softbodysharedsettings_ebendtype_dihedral_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
+        static final java.lang.invoke.MethodHandle SoftBodySharedSettings_EBendType_Dihedral_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_enums_softbodysharedsettings_ebendtype_softbodysharedsettings_ebendtype_dihedral_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
     }
 }

@@ -12,6 +12,14 @@ public class Vector2 extends NativeObject {
 
     private Vector2 Vector2_TEMP_GEN_0;
 
+    private Vector2 Vector2_TEMP_GEN_1;
+
+    private Vector2 Vector2_TEMP_GEN_2;
+
+    private Vector2 Vector2_TEMP_GEN_3;
+
+    private Vector2 Vector2_TEMP_GEN_4;
+
     static public final Vector2 NULL = Vector2.native_new();
 
     public Vector2() {
@@ -105,6 +113,106 @@ public class Vector2 extends NativeObject {
 
     public static long internal_native_Normalized_addr(long this_addr) {
         return jolt.math.natives.JNI_Vector2.internal_native_Normalized_addr(this_addr);
+    }
+
+    public float GetComponent(int inCoordinate) {
+        return internal_native_GetComponent(native_address, inCoordinate);
+    }
+
+    public static float internal_native_GetComponent(long this_addr, int inCoordinate) {
+        return jolt.math.natives.JNI_Vector2.internal_native_GetComponent(this_addr, inCoordinate);
+    }
+
+    public Vector2 Add(Vector2 inV) {
+        internal_native_Add_addr(native_address, inV.native_address);
+        return this;
+    }
+
+    public static long internal_native_Add_addr(long this_addr, long inV_addr) {
+        return jolt.math.natives.JNI_Vector2.internal_native_Add_addr(this_addr, inV_addr);
+    }
+
+    public Vector2 Sub(Vector2 inV) {
+        internal_native_Sub_addr(native_address, inV.native_address);
+        return this;
+    }
+
+    public static long internal_native_Sub_addr(long this_addr, long inV_addr) {
+        return jolt.math.natives.JNI_Vector2.internal_native_Sub_addr(this_addr, inV_addr);
+    }
+
+    public Vector2 Mul(float inV) {
+        internal_native_Mul_addr(native_address, inV);
+        return this;
+    }
+
+    public static long internal_native_Mul_addr(long this_addr, float inV) {
+        return jolt.math.natives.JNI_Vector2.internal_native_Mul_addr(this_addr, inV);
+    }
+
+    public Vector2 Div(float inV) {
+        internal_native_Div_addr(native_address, inV);
+        return this;
+    }
+
+    public static long internal_native_Div_addr(long this_addr, float inV) {
+        return jolt.math.natives.JNI_Vector2.internal_native_Div_addr(this_addr, inV);
+    }
+
+    public Vector2 MulFloat(float inV) {
+        long addr = internal_native_MulFloat_addr(native_address, inV);
+        if (addr == 0)
+            return Vector2.NULL;
+        if (Vector2_TEMP_GEN_1 == null)
+            Vector2_TEMP_GEN_1 = Vector2.native_new();
+        Vector2_TEMP_GEN_1.internal_reset(addr, false);
+        return Vector2_TEMP_GEN_1;
+    }
+
+    public static long internal_native_MulFloat_addr(long this_addr, float inV) {
+        return jolt.math.natives.JNI_Vector2.internal_native_MulFloat_addr(this_addr, inV);
+    }
+
+    public Vector2 DivFloat(float inV) {
+        long addr = internal_native_DivFloat_addr(native_address, inV);
+        if (addr == 0)
+            return Vector2.NULL;
+        if (Vector2_TEMP_GEN_2 == null)
+            Vector2_TEMP_GEN_2 = Vector2.native_new();
+        Vector2_TEMP_GEN_2.internal_reset(addr, false);
+        return Vector2_TEMP_GEN_2;
+    }
+
+    public static long internal_native_DivFloat_addr(long this_addr, float inV) {
+        return jolt.math.natives.JNI_Vector2.internal_native_DivFloat_addr(this_addr, inV);
+    }
+
+    public Vector2 AddVector2(Vector2 inV) {
+        long addr = internal_native_AddVector2_addr(native_address, inV.native_address);
+        if (addr == 0)
+            return Vector2.NULL;
+        if (Vector2_TEMP_GEN_3 == null)
+            Vector2_TEMP_GEN_3 = Vector2.native_new();
+        Vector2_TEMP_GEN_3.internal_reset(addr, false);
+        return Vector2_TEMP_GEN_3;
+    }
+
+    public static long internal_native_AddVector2_addr(long this_addr, long inV_addr) {
+        return jolt.math.natives.JNI_Vector2.internal_native_AddVector2_addr(this_addr, inV_addr);
+    }
+
+    public Vector2 SubVector2(Vector2 inV) {
+        long addr = internal_native_SubVector2_addr(native_address, inV.native_address);
+        if (addr == 0)
+            return Vector2.NULL;
+        if (Vector2_TEMP_GEN_4 == null)
+            Vector2_TEMP_GEN_4 = Vector2.native_new();
+        Vector2_TEMP_GEN_4.internal_reset(addr, false);
+        return Vector2_TEMP_GEN_4;
+    }
+
+    public static long internal_native_SubVector2_addr(long this_addr, long inV_addr) {
+        return jolt.math.natives.JNI_Vector2.internal_native_SubVector2_addr(this_addr, inV_addr);
     }
 
     public float Dot(Vector2 inRHS) {

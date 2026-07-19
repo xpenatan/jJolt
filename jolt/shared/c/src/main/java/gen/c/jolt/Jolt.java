@@ -8,8 +8,12 @@ package gen.c.jolt;
 
 import com.github.xpenatan.jParser.api.NativeObject;
 import gen.c.jolt.physics.PhysicsSystem;
+import gen.c.jolt.physics.character.CharacterVirtual;
+import gen.c.jolt.physics.character.CharacterContactListener;
 
 public class Jolt extends NativeObject {
+
+    static private CharacterContactListener CharacterContactListener_TEMP_STATIC_GEN_0;
 
     static public final Jolt NULL = Jolt.native_new();
 
@@ -27,6 +31,7 @@ public class Jolt extends NativeObject {
         return new Jolt((byte) 0, (char) 0);
     }
 
+    @Deprecated
     public static void Init() {
         internal_native_Init();
     }
@@ -34,6 +39,7 @@ public class Jolt extends NativeObject {
     @org.teavm.interop.Import(name = "jolt_jolt_init")
     public static native void internal_native_Init();
 
+    @Deprecated
     public static void RegisterTypes() {
         internal_native_RegisterTypes();
     }
@@ -41,6 +47,7 @@ public class Jolt extends NativeObject {
     @org.teavm.interop.Import(name = "jolt_jolt_registertypes")
     public static native void internal_native_RegisterTypes();
 
+    @Deprecated
     public static void UnregisterTypes() {
         internal_native_UnregisterTypes();
     }
@@ -54,4 +61,17 @@ public class Jolt extends NativeObject {
 
     @org.teavm.interop.Import(name = "jolt_jolt_clearworld")
     public static native void internal_native_ClearWorld(long physicsSystem_addr);
+
+    public static CharacterContactListener GetCharacterContactListener(CharacterVirtual inCharacter) {
+        long addr = internal_native_GetCharacterContactListener_addr(inCharacter.native_address);
+        if (addr == 0)
+            return CharacterContactListener.NULL;
+        if (CharacterContactListener_TEMP_STATIC_GEN_0 == null)
+            CharacterContactListener_TEMP_STATIC_GEN_0 = CharacterContactListener.native_new();
+        CharacterContactListener_TEMP_STATIC_GEN_0.internal_reset(addr, false);
+        return CharacterContactListener_TEMP_STATIC_GEN_0;
+    }
+
+    @org.teavm.interop.Import(name = "jolt_jolt_getcharactercontactlistener_addr")
+    public static native long internal_native_GetCharacterContactListener_addr(long inCharacter_addr);
 }

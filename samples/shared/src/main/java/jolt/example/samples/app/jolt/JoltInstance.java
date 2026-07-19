@@ -1,10 +1,9 @@
 package jolt.example.samples.app.jolt;
 
-import jolt.JoltNew;
+import jolt.JoltInterface;
+import jolt.JoltSettings;
 import jolt.core.TempAllocator;
-import jolt.core.TempAllocatorImpl;
 import jolt.Jolt;
-import jolt.core.Factory;
 import jolt.core.JobSystemThreadPool;
 import jolt.physics.PhysicsSystem;
 import jolt.physics.collision.ObjectLayerPairFilter;
@@ -17,25 +16,20 @@ import jolt.physics.collision.broadphase.ObjectVsBroadPhaseLayerFilterTable;
 public class JoltInstance {
 
     private PhysicsSystem physicsSystem;
-    private Factory factory;
+    private JoltInterface joltInterface;
     private BroadPhaseLayer BP_LAYER_NON_MOVING;
     private BroadPhaseLayer BP_LAYER_MOVING;
     private ObjectVsBroadPhaseLayerFilterTable mObjectVsBroadPhaseLayerFilter;
     private ObjectLayerPairFilterTable mObjectLayerPairFilter;
     private BroadPhaseLayerInterfaceTable mBroadPhaseLayerInterface;
-    private TempAllocatorImpl mTempAllocator;
+    private TempAllocator mTempAllocator;
     private JobSystemThreadPool mJobSystem;
-
-    static {
-        Jolt.Init();
-    }
 
     public JoltInstance() {
         int mMaxBodies = 10240;
         int mMaxBodyPairs = 65536;
         int mMaxContactConstraints = 10240;
         int mTempAllocatorSize = 10 * 1024 * 1024;
-        int cNumBodyMutexes = 0;
 
         // Layer that objects can be in, determines which other objects it can collide with
         // Typically you at least want to have 1 layer for moving bodies and 1 layer for static bodies, but you can have more
@@ -60,18 +54,21 @@ public class JoltInstance {
 
         mObjectVsBroadPhaseLayerFilter = new ObjectVsBroadPhaseLayerFilterTable(mBroadPhaseLayerInterface, NUM_BROAD_PHASE_LAYERS, mObjectLayerPairFilter, Layers.NUM_LAYERS);
 
-        mTempAllocator = JoltNew.TempAllocatorImpl(mTempAllocatorSize);
+        JoltSettings settings = new JoltSettings();
+        settings.set_mMaxBodies(mMaxBodies);
+        settings.set_mMaxBodyPairs(mMaxBodyPairs);
+        settings.set_mMaxContactConstraints(mMaxContactConstraints);
+        settings.set_mTempAllocatorSize(mTempAllocatorSize);
+        settings.set_mMaxWorkerThreads(16);
+        settings.set_mBroadPhaseLayerInterface(mBroadPhaseLayerInterface);
+        settings.set_mObjectVsBroadPhaseLayerFilter(mObjectVsBroadPhaseLayerFilter);
+        settings.set_mObjectLayerPairFilter(mObjectLayerPairFilter);
+        joltInterface = new JoltInterface(settings);
+        settings.dispose();
 
-        int cMaxPhysicsJobs = 2048;
-        int cMaxPhysicsBarriers = 8;
-        int inNumThreads = -1; // Auto-detect number of threads
-        mJobSystem = JoltNew.JobSystemThreadPool(cMaxPhysicsJobs, cMaxPhysicsBarriers, inNumThreads);
-
-        factory = JoltNew.Factory();
-        Factory.set_sInstance(factory);
-        Jolt.RegisterTypes();
-        physicsSystem = JoltNew.PhysicsSystem();
-        physicsSystem.Init(mMaxBodies, cNumBodyMutexes, mMaxBodyPairs, mMaxContactConstraints, mBroadPhaseLayerInterface, mObjectVsBroadPhaseLayerFilter, mObjectLayerPairFilter);
+        physicsSystem = joltInterface.GetPhysicsSystem();
+        mTempAllocator = joltInterface.GetTempAllocator();
+        mJobSystem = joltInterface.GetJobSystem();
     }
 
     public PhysicsSystem getPhysicsSystem() {
@@ -83,7 +80,7 @@ public class JoltInstance {
     }
 
     public void update(float deltaTime, int inCollisionSteps) {
-        physicsSystem.Update(deltaTime, inCollisionSteps, mTempAllocator, mJobSystem);
+        joltInterface.Step(deltaTime, inCollisionSteps);
     }
 
     public void clearWorld() {
@@ -105,13 +102,8 @@ public class JoltInstance {
     public void dispose() {
         clearWorld();
 
-        physicsSystem.dispose();
         BP_LAYER_NON_MOVING.dispose();
         BP_LAYER_MOVING.dispose();
-        mObjectLayerPairFilter.dispose();
-
-        Factory.set_sInstance(Factory.NULL);
-        factory.dispose();
-        Jolt.UnregisterTypes();
+        joltInterface.dispose();
     }
 }

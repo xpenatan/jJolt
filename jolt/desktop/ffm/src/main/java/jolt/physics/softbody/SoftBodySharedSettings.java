@@ -35,6 +35,10 @@ public class SoftBodySharedSettings extends NativeObject {
 
     private ArraySoftBodySharedSettingsLRA ArraySoftBodySharedSettingsLRA_TEMP_GEN_0;
 
+    private ArraySoftBodySharedSettingsRodStretchShear ArraySoftBodySharedSettingsRodStretchShear_TEMP_GEN_0;
+
+    private ArraySoftBodySharedSettingsRodBendTwist ArraySoftBodySharedSettingsRodBendTwist_TEMP_GEN_0;
+
     private PhysicsMaterialList PhysicsMaterialList_TEMP_GEN_0;
 
     static public final SoftBodySharedSettings NULL = SoftBodySharedSettings.native_new();
@@ -169,6 +173,18 @@ public class SoftBodySharedSettings extends NativeObject {
     public static void internal_native_CalculateEdgeLengths(long this_addr) {
         try {
             FFMHandles.internal_native_CalculateEdgeLengths__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void CalculateRodProperties() {
+        internal_native_CalculateRodProperties(native_address);
+    }
+
+    public static void internal_native_CalculateRodProperties(long this_addr) {
+        try {
+            FFMHandles.internal_native_CalculateRodProperties__J.invokeExact(this_addr);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -491,6 +507,66 @@ public class SoftBodySharedSettings extends NativeObject {
         }
     }
 
+    public ArraySoftBodySharedSettingsRodStretchShear get_mRodStretchShearConstraints() {
+        long addr = internal_native_get_mRodStretchShearConstraints_addr(native_address);
+        if (addr == 0)
+            return ArraySoftBodySharedSettingsRodStretchShear.NULL;
+        if (ArraySoftBodySharedSettingsRodStretchShear_TEMP_GEN_0 == null)
+            ArraySoftBodySharedSettingsRodStretchShear_TEMP_GEN_0 = ArraySoftBodySharedSettingsRodStretchShear.native_new();
+        ArraySoftBodySharedSettingsRodStretchShear_TEMP_GEN_0.internal_reset(addr, false);
+        return ArraySoftBodySharedSettingsRodStretchShear_TEMP_GEN_0;
+    }
+
+    public static long internal_native_get_mRodStretchShearConstraints_addr(long this_addr) {
+        try {
+            return (long) FFMHandles.internal_native_get_mRodStretchShearConstraints_addr__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void set_mRodStretchShearConstraints(ArraySoftBodySharedSettingsRodStretchShear mRodStretchShearConstraints) {
+        internal_native_set_mRodStretchShearConstraints(native_address, mRodStretchShearConstraints.native_address);
+    }
+
+    public static void internal_native_set_mRodStretchShearConstraints(long this_addr, long mRodStretchShearConstraints_addr) {
+        try {
+            FFMHandles.internal_native_set_mRodStretchShearConstraints__JJ.invokeExact(this_addr, mRodStretchShearConstraints_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public ArraySoftBodySharedSettingsRodBendTwist get_mRodBendTwistConstraints() {
+        long addr = internal_native_get_mRodBendTwistConstraints_addr(native_address);
+        if (addr == 0)
+            return ArraySoftBodySharedSettingsRodBendTwist.NULL;
+        if (ArraySoftBodySharedSettingsRodBendTwist_TEMP_GEN_0 == null)
+            ArraySoftBodySharedSettingsRodBendTwist_TEMP_GEN_0 = ArraySoftBodySharedSettingsRodBendTwist.native_new();
+        ArraySoftBodySharedSettingsRodBendTwist_TEMP_GEN_0.internal_reset(addr, false);
+        return ArraySoftBodySharedSettingsRodBendTwist_TEMP_GEN_0;
+    }
+
+    public static long internal_native_get_mRodBendTwistConstraints_addr(long this_addr) {
+        try {
+            return (long) FFMHandles.internal_native_get_mRodBendTwistConstraints_addr__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void set_mRodBendTwistConstraints(ArraySoftBodySharedSettingsRodBendTwist mRodBendTwistConstraints) {
+        internal_native_set_mRodBendTwistConstraints(native_address, mRodBendTwistConstraints.native_address);
+    }
+
+    public static void internal_native_set_mRodBendTwistConstraints(long this_addr, long mRodBendTwistConstraints_addr) {
+        try {
+            FFMHandles.internal_native_set_mRodBendTwistConstraints__JJ.invokeExact(this_addr, mRodBendTwistConstraints_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
     public PhysicsMaterialList get_mMaterials() {
         long addr = internal_native_get_mMaterials_addr(native_address);
         if (addr == 0)
@@ -521,33 +597,9 @@ public class SoftBodySharedSettings extends NativeObject {
         }
     }
 
-    public float get_mVertexRadius() {
-        return internal_native_get_mVertexRadius(native_address);
-    }
-
-    public static float internal_native_get_mVertexRadius(long this_addr) {
-        try {
-            return (float) FFMHandles.internal_native_get_mVertexRadius__J.invokeExact(this_addr);
-        } catch (Throwable e) {
-            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
-        }
-    }
-
-    public void set_mVertexRadius(float mVertexRadius) {
-        internal_native_set_mVertexRadius(native_address, mVertexRadius);
-    }
-
-    public static void internal_native_set_mVertexRadius(long this_addr, float mVertexRadius) {
-        try {
-            FFMHandles.internal_native_set_mVertexRadius__JF.invokeExact(this_addr, mVertexRadius);
-        } catch (Throwable e) {
-            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
-        }
-    }
-
     private static final class FFMHandles {
 
-        static final java.lang.invoke.MethodHandle internal_native_create_addr__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_physics_softbody_softbodysharedsettings_create_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG));
+        static final java.lang.invoke.MethodHandle internal_native_create_addr__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_softbody_softbodysharedsettings_create_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG));
 
         static final java.lang.invoke.MethodHandle internal_native_deleteNative__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_softbody_softbodysharedsettings_deletenative", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG));
 
@@ -567,6 +619,8 @@ public class SoftBodySharedSettings extends NativeObject {
 
         static final java.lang.invoke.MethodHandle internal_native_CalculateEdgeLengths__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_softbody_softbodysharedsettings_calculateedgelengths", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG));
 
+        static final java.lang.invoke.MethodHandle internal_native_CalculateRodProperties__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_softbody_softbodysharedsettings_calculaterodproperties", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG));
+
         static final java.lang.invoke.MethodHandle internal_native_CalculateLRALengths__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_softbody_softbodysharedsettings_calculatelralengths", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG));
 
         static final java.lang.invoke.MethodHandle internal_native_CalculateBendConstraintConstants__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_softbody_softbodysharedsettings_calculatebendconstraintconstants", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG));
@@ -577,46 +631,50 @@ public class SoftBodySharedSettings extends NativeObject {
 
         static final java.lang.invoke.MethodHandle internal_native_Optimize__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_softbody_softbodysharedsettings_optimize", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG));
 
-        static final java.lang.invoke.MethodHandle internal_native_Clone_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_physics_softbody_softbodysharedsettings_clone_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+        static final java.lang.invoke.MethodHandle internal_native_Clone_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_softbody_softbodysharedsettings_clone_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
 
-        static final java.lang.invoke.MethodHandle internal_native_get_mVertices_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_physics_softbody_softbodysharedsettings_get_mvertices_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+        static final java.lang.invoke.MethodHandle internal_native_get_mVertices_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_softbody_softbodysharedsettings_get_mvertices_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
 
-        static final java.lang.invoke.MethodHandle internal_native_set_mVertices__JJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_physics_softbody_softbodysharedsettings_set_mvertices", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+        static final java.lang.invoke.MethodHandle internal_native_set_mVertices__JJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_softbody_softbodysharedsettings_set_mvertices", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
 
-        static final java.lang.invoke.MethodHandle internal_native_get_mFaces_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_physics_softbody_softbodysharedsettings_get_mfaces_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+        static final java.lang.invoke.MethodHandle internal_native_get_mFaces_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_softbody_softbodysharedsettings_get_mfaces_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
 
-        static final java.lang.invoke.MethodHandle internal_native_set_mFaces__JJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_physics_softbody_softbodysharedsettings_set_mfaces", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+        static final java.lang.invoke.MethodHandle internal_native_set_mFaces__JJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_softbody_softbodysharedsettings_set_mfaces", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
 
-        static final java.lang.invoke.MethodHandle internal_native_get_mEdgeConstraints_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_physics_softbody_softbodysharedsettings_get_medgeconstraints_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+        static final java.lang.invoke.MethodHandle internal_native_get_mEdgeConstraints_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_softbody_softbodysharedsettings_get_medgeconstraints_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
 
-        static final java.lang.invoke.MethodHandle internal_native_set_mEdgeConstraints__JJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_physics_softbody_softbodysharedsettings_set_medgeconstraints", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+        static final java.lang.invoke.MethodHandle internal_native_set_mEdgeConstraints__JJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_softbody_softbodysharedsettings_set_medgeconstraints", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
 
-        static final java.lang.invoke.MethodHandle internal_native_get_mDihedralBendConstraints_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_physics_softbody_softbodysharedsettings_get_mdihedralbendconstraints_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+        static final java.lang.invoke.MethodHandle internal_native_get_mDihedralBendConstraints_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_softbody_softbodysharedsettings_get_mdihedralbendconstraints_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
 
-        static final java.lang.invoke.MethodHandle internal_native_set_mDihedralBendConstraints__JJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_physics_softbody_softbodysharedsettings_set_mdihedralbendconstraints", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+        static final java.lang.invoke.MethodHandle internal_native_set_mDihedralBendConstraints__JJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_softbody_softbodysharedsettings_set_mdihedralbendconstraints", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
 
-        static final java.lang.invoke.MethodHandle internal_native_get_mVolumeConstraints_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_physics_softbody_softbodysharedsettings_get_mvolumeconstraints_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+        static final java.lang.invoke.MethodHandle internal_native_get_mVolumeConstraints_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_softbody_softbodysharedsettings_get_mvolumeconstraints_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
 
-        static final java.lang.invoke.MethodHandle internal_native_set_mVolumeConstraints__JJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_physics_softbody_softbodysharedsettings_set_mvolumeconstraints", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+        static final java.lang.invoke.MethodHandle internal_native_set_mVolumeConstraints__JJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_softbody_softbodysharedsettings_set_mvolumeconstraints", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
 
-        static final java.lang.invoke.MethodHandle internal_native_get_mSkinnedConstraints_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_physics_softbody_softbodysharedsettings_get_mskinnedconstraints_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+        static final java.lang.invoke.MethodHandle internal_native_get_mSkinnedConstraints_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_softbody_softbodysharedsettings_get_mskinnedconstraints_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
 
-        static final java.lang.invoke.MethodHandle internal_native_set_mSkinnedConstraints__JJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_physics_softbody_softbodysharedsettings_set_mskinnedconstraints", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+        static final java.lang.invoke.MethodHandle internal_native_set_mSkinnedConstraints__JJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_softbody_softbodysharedsettings_set_mskinnedconstraints", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
 
-        static final java.lang.invoke.MethodHandle internal_native_get_mInvBindMatrices_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_physics_softbody_softbodysharedsettings_get_minvbindmatrices_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+        static final java.lang.invoke.MethodHandle internal_native_get_mInvBindMatrices_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_softbody_softbodysharedsettings_get_minvbindmatrices_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
 
-        static final java.lang.invoke.MethodHandle internal_native_set_mInvBindMatrices__JJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_physics_softbody_softbodysharedsettings_set_minvbindmatrices", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+        static final java.lang.invoke.MethodHandle internal_native_set_mInvBindMatrices__JJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_softbody_softbodysharedsettings_set_minvbindmatrices", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
 
-        static final java.lang.invoke.MethodHandle internal_native_get_mLRAConstraints_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_physics_softbody_softbodysharedsettings_get_mlraconstraints_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+        static final java.lang.invoke.MethodHandle internal_native_get_mLRAConstraints_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_softbody_softbodysharedsettings_get_mlraconstraints_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
 
-        static final java.lang.invoke.MethodHandle internal_native_set_mLRAConstraints__JJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_physics_softbody_softbodysharedsettings_set_mlraconstraints", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+        static final java.lang.invoke.MethodHandle internal_native_set_mLRAConstraints__JJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_softbody_softbodysharedsettings_set_mlraconstraints", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
 
-        static final java.lang.invoke.MethodHandle internal_native_get_mMaterials_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_physics_softbody_softbodysharedsettings_get_mmaterials_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+        static final java.lang.invoke.MethodHandle internal_native_get_mRodStretchShearConstraints_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_softbody_softbodysharedsettings_get_mrodstretchshearconstraints_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
 
-        static final java.lang.invoke.MethodHandle internal_native_set_mMaterials__JJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_physics_softbody_softbodysharedsettings_set_mmaterials", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+        static final java.lang.invoke.MethodHandle internal_native_set_mRodStretchShearConstraints__JJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_softbody_softbodysharedsettings_set_mrodstretchshearconstraints", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
 
-        static final java.lang.invoke.MethodHandle internal_native_get_mVertexRadius__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_physics_softbody_softbodysharedsettings_get_mvertexradius", FunctionDescriptor.of(ValueLayout.JAVA_FLOAT, ValueLayout.JAVA_LONG));
+        static final java.lang.invoke.MethodHandle internal_native_get_mRodBendTwistConstraints_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_softbody_softbodysharedsettings_get_mrodbendtwistconstraints_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
 
-        static final java.lang.invoke.MethodHandle internal_native_set_mVertexRadius__JF = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_physics_softbody_softbodysharedsettings_set_mvertexradius", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_FLOAT));
+        static final java.lang.invoke.MethodHandle internal_native_set_mRodBendTwistConstraints__JJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_softbody_softbodysharedsettings_set_mrodbendtwistconstraints", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_get_mMaterials_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_softbody_softbodysharedsettings_get_mmaterials_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_set_mMaterials__JJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_softbody_softbodysharedsettings_set_mmaterials", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
     }
 }

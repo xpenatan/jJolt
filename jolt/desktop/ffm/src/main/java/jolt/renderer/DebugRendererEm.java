@@ -9,12 +9,16 @@ package jolt.renderer;
 import com.github.xpenatan.jparser.runtime.helper.NativeFloatArray;
 import jolt.physics.PhysicsSystem;
 import jolt.physics.body.BodyManagerDrawSettings;
+import jolt.physics.collision.shape.Shape;
 import jolt.math.Mat44;
+import jolt.math.Vec3;
 import jolt.core.Color;
+import jolt.physics.body.Body;
+import jolt.physics.constraints.Constraint;
 import jolt.enums.ECastShadow;
 import jolt.enums.EDrawMode;
 import jolt.enums.ECullMode;
-import jolt.math.Vec3;
+import jolt.geometry.AABox;
 import java.lang.foreign.FunctionDescriptor;
 import java.lang.foreign.ValueLayout;
 import java.lang.foreign.Linker;
@@ -52,6 +56,18 @@ public class DebugRendererEm extends DebugRenderer {
 
     static private Color Color_TEMP_STATIC_GEN_3;
 
+    static private Mat44 Mat44_TEMP_STATIC_GEN_1;
+
+    static private AABox AABox_TEMP_STATIC_GEN_0;
+
+    static private Color Color_TEMP_STATIC_GEN_4;
+
+    static private NativeObject NativeObject_TEMP_STATIC_GEN_1;
+
+    static private NativeObject NativeObject_TEMP_STATIC_GEN_2;
+
+    static private NativeObject NativeObject_TEMP_STATIC_GEN_3;
+
     private static final java.lang.invoke.MethodHandles.Lookup callbackLookup = java.lang.invoke.MethodHandles.lookup();
 
     private static final java.lang.foreign.Linker callbackLinker = java.lang.foreign.Linker.nativeLinker();
@@ -71,6 +87,18 @@ public class DebugRendererEm extends DebugRenderer {
     private static final java.lang.invoke.MethodType callbackMethodType_DrawText3D = java.lang.invoke.MethodType.methodType(void.class, long.class, long.class, int.class, long.class, float.class);
 
     private static final java.lang.foreign.FunctionDescriptor callbackDescriptor_DrawText3D = java.lang.foreign.FunctionDescriptor.ofVoid(java.lang.foreign.ValueLayout.JAVA_LONG, java.lang.foreign.ValueLayout.JAVA_LONG, java.lang.foreign.ValueLayout.JAVA_INT, java.lang.foreign.ValueLayout.JAVA_LONG, java.lang.foreign.ValueLayout.JAVA_FLOAT);
+
+    private static final java.lang.invoke.MethodType callbackMethodType_DrawGeometryWithID = java.lang.invoke.MethodType.methodType(void.class, long.class, long.class, float.class, long.class, int.class, int.class, int.class, int.class);
+
+    private static final java.lang.foreign.FunctionDescriptor callbackDescriptor_DrawGeometryWithID = java.lang.foreign.FunctionDescriptor.ofVoid(java.lang.foreign.ValueLayout.JAVA_LONG, java.lang.foreign.ValueLayout.JAVA_LONG, java.lang.foreign.ValueLayout.JAVA_FLOAT, java.lang.foreign.ValueLayout.JAVA_LONG, java.lang.foreign.ValueLayout.JAVA_INT, java.lang.foreign.ValueLayout.JAVA_INT, java.lang.foreign.ValueLayout.JAVA_INT, java.lang.foreign.ValueLayout.JAVA_INT);
+
+    private static final java.lang.invoke.MethodType callbackMethodType_CreateTriangleBatchID = java.lang.invoke.MethodType.methodType(int.class, long.class, int.class);
+
+    private static final java.lang.foreign.FunctionDescriptor callbackDescriptor_CreateTriangleBatchID = java.lang.foreign.FunctionDescriptor.of(java.lang.foreign.ValueLayout.JAVA_INT, java.lang.foreign.ValueLayout.JAVA_LONG, java.lang.foreign.ValueLayout.JAVA_INT);
+
+    private static final java.lang.invoke.MethodType callbackMethodType_CreateTriangleBatchIDWithIndex = java.lang.invoke.MethodType.methodType(int.class, long.class, int.class, long.class, int.class);
+
+    private static final java.lang.foreign.FunctionDescriptor callbackDescriptor_CreateTriangleBatchIDWithIndex = java.lang.foreign.FunctionDescriptor.of(java.lang.foreign.ValueLayout.JAVA_INT, java.lang.foreign.ValueLayout.JAVA_LONG, java.lang.foreign.ValueLayout.JAVA_INT, java.lang.foreign.ValueLayout.JAVA_LONG, java.lang.foreign.ValueLayout.JAVA_INT);
 
     static public final DebugRendererEm NULL = DebugRendererEm.native_new();
 
@@ -99,6 +127,18 @@ public class DebugRendererEm extends DebugRenderer {
         }
     }
 
+    public void Initialize() {
+        internal_native_Initialize(native_address);
+    }
+
+    public static void internal_native_Initialize(long this_addr) {
+        try {
+            FFMHandles.internal_native_Initialize__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
     public void DrawBodies(PhysicsSystem system, BodyManagerDrawSettings inDrawSettings) {
         internal_native_DrawBodies(native_address, system.native_address, inDrawSettings.native_address);
     }
@@ -118,6 +158,78 @@ public class DebugRendererEm extends DebugRenderer {
     public static void internal_native_DrawBodies(long this_addr, long system_addr) {
         try {
             FFMHandles.internal_native_DrawBodies__JJ.invokeExact(this_addr, system_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void DrawConstraints(PhysicsSystem system) {
+        internal_native_DrawConstraints(native_address, system.native_address);
+    }
+
+    public static void internal_native_DrawConstraints(long this_addr, long system_addr) {
+        try {
+            FFMHandles.internal_native_DrawConstraints__JJ.invokeExact(this_addr, system_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void DrawConstraintLimits(PhysicsSystem system) {
+        internal_native_DrawConstraintLimits(native_address, system.native_address);
+    }
+
+    public static void internal_native_DrawConstraintLimits(long this_addr, long system_addr) {
+        try {
+            FFMHandles.internal_native_DrawConstraintLimits__JJ.invokeExact(this_addr, system_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void DrawConstraintReferenceFrame(PhysicsSystem system) {
+        internal_native_DrawConstraintReferenceFrame(native_address, system.native_address);
+    }
+
+    public static void internal_native_DrawConstraintReferenceFrame(long this_addr, long system_addr) {
+        try {
+            FFMHandles.internal_native_DrawConstraintReferenceFrame__JJ.invokeExact(this_addr, system_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void DrawShape(Shape inShape, Mat44 inModelMatrix, Vec3 inScale, Color inColor, boolean inDrawWireFrame) {
+        internal_native_DrawShape(native_address, inShape.native_address, inModelMatrix.native_address, inScale.native_address, inColor.native_address, inDrawWireFrame);
+    }
+
+    public static void internal_native_DrawShape(long this_addr, long inShape_addr, long inModelMatrix_addr, long inScale_addr, long inColor_addr, boolean inDrawWireFrame) {
+        try {
+            FFMHandles.internal_native_DrawShape__JJJJJZ.invokeExact(this_addr, inShape_addr, inModelMatrix_addr, inScale_addr, inColor_addr, inDrawWireFrame);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void DrawBody(Body inBody, Color inColor, boolean inDrawWireFrame) {
+        internal_native_DrawBody(native_address, inBody.native_address, inColor.native_address, inDrawWireFrame);
+    }
+
+    public static void internal_native_DrawBody(long this_addr, long inBody_addr, long inColor_addr, boolean inDrawWireFrame) {
+        try {
+            FFMHandles.internal_native_DrawBody__JJJZ.invokeExact(this_addr, inBody_addr, inColor_addr, inDrawWireFrame);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void DrawConstraint(Constraint inConstraint) {
+        internal_native_DrawConstraint(native_address, inConstraint.native_address);
+    }
+
+    public static void internal_native_DrawConstraint(long this_addr, long inConstraint_addr) {
+        try {
+            FFMHandles.internal_native_DrawConstraint__JJ.invokeExact(this_addr, inConstraint_addr);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -178,7 +290,13 @@ public class DebugRendererEm extends DebugRenderer {
             upcallStub_DrawTriangle = callbackLinker.upcallStub(mh_DrawTriangle, callbackDescriptor_DrawTriangle, upcallArena);
             java.lang.invoke.MethodHandle mh_DrawText3D = callbackLookup.findVirtual(DebugRendererEm.class, "internal_DrawText3D", callbackMethodType_DrawText3D).bindTo(this);
             upcallStub_DrawText3D = callbackLinker.upcallStub(mh_DrawText3D, callbackDescriptor_DrawText3D, upcallArena);
-            internal_native_setupCallback(native_address, upcallStub_DrawMesh.address(), upcallStub_DrawLine.address(), upcallStub_DrawTriangle.address(), upcallStub_DrawText3D.address());
+            java.lang.invoke.MethodHandle mh_DrawGeometryWithID = callbackLookup.findVirtual(DebugRendererEm.class, "internal_DrawGeometryWithID", callbackMethodType_DrawGeometryWithID).bindTo(this);
+            upcallStub_DrawGeometryWithID = callbackLinker.upcallStub(mh_DrawGeometryWithID, callbackDescriptor_DrawGeometryWithID, upcallArena);
+            java.lang.invoke.MethodHandle mh_CreateTriangleBatchID = callbackLookup.findVirtual(DebugRendererEm.class, "internal_CreateTriangleBatchID", callbackMethodType_CreateTriangleBatchID).bindTo(this);
+            upcallStub_CreateTriangleBatchID = callbackLinker.upcallStub(mh_CreateTriangleBatchID, callbackDescriptor_CreateTriangleBatchID, upcallArena);
+            java.lang.invoke.MethodHandle mh_CreateTriangleBatchIDWithIndex = callbackLookup.findVirtual(DebugRendererEm.class, "internal_CreateTriangleBatchIDWithIndex", callbackMethodType_CreateTriangleBatchIDWithIndex).bindTo(this);
+            upcallStub_CreateTriangleBatchIDWithIndex = callbackLinker.upcallStub(mh_CreateTriangleBatchIDWithIndex, callbackDescriptor_CreateTriangleBatchIDWithIndex, upcallArena);
+            internal_native_setupCallback(native_address, upcallStub_DrawMesh.address(), upcallStub_DrawLine.address(), upcallStub_DrawTriangle.address(), upcallStub_DrawText3D.address(), upcallStub_DrawGeometryWithID.address(), upcallStub_CreateTriangleBatchID.address(), upcallStub_CreateTriangleBatchIDWithIndex.address());
         } catch (Throwable e) {
             throw new RuntimeException(e);
         }
@@ -278,6 +396,74 @@ public class DebugRendererEm extends DebugRenderer {
         DrawText3D(Vec3_TEMP_STATIC_GEN_5, NativeObject_TEMP_STATIC_GEN_0, inStringLen, Color_TEMP_STATIC_GEN_3, inHeight);
     }
 
+    protected void DrawGeometryWithID(Mat44 inModelMatrix, AABox inWorldSpaceBounds, float inLODScaleSq, Color inModelColor, int inGeometryID, ECullMode inCullMode, ECastShadow inCastShadow, EDrawMode inDrawMode) {
+    }
+
+    private void internal_DrawGeometryWithID(long inModelMatrix_addr, long inWorldSpaceBounds_addr, float inLODScaleSq, long inModelColor_addr, int inGeometryID, int inCullMode_addr, int inCastShadow_addr, int inDrawMode_addr) {
+        if (Mat44_TEMP_STATIC_GEN_1 == null)
+            Mat44_TEMP_STATIC_GEN_1 = Mat44.native_new();
+        Mat44_TEMP_STATIC_GEN_1.internal_reset(inModelMatrix_addr, false);
+        if (AABox_TEMP_STATIC_GEN_0 == null)
+            AABox_TEMP_STATIC_GEN_0 = AABox.native_new();
+        AABox_TEMP_STATIC_GEN_0.internal_reset(inWorldSpaceBounds_addr, false);
+        if (Color_TEMP_STATIC_GEN_4 == null)
+            Color_TEMP_STATIC_GEN_4 = Color.native_new();
+        Color_TEMP_STATIC_GEN_4.internal_reset(inModelColor_addr, false);
+        ECullMode inCullMode_addr_enum = ECullMode.CUSTOM.setValue(inCullMode_addr);
+        ECullMode[] inCullMode_addr_enum_values = ECullMode.values();
+        for (int i = 0; i < inCullMode_addr_enum_values.length; i++) {
+            ECullMode enumVal = inCullMode_addr_enum_values[i];
+            if (enumVal != ECullMode.CUSTOM && enumVal.getValue() == inCullMode_addr) {
+                inCullMode_addr_enum = inCullMode_addr_enum_values[i];
+                break;
+            }
+        }
+        ECastShadow inCastShadow_addr_enum = ECastShadow.CUSTOM.setValue(inCastShadow_addr);
+        ECastShadow[] inCastShadow_addr_enum_values = ECastShadow.values();
+        for (int i = 0; i < inCastShadow_addr_enum_values.length; i++) {
+            ECastShadow enumVal = inCastShadow_addr_enum_values[i];
+            if (enumVal != ECastShadow.CUSTOM && enumVal.getValue() == inCastShadow_addr) {
+                inCastShadow_addr_enum = inCastShadow_addr_enum_values[i];
+                break;
+            }
+        }
+        EDrawMode inDrawMode_addr_enum = EDrawMode.CUSTOM.setValue(inDrawMode_addr);
+        EDrawMode[] inDrawMode_addr_enum_values = EDrawMode.values();
+        for (int i = 0; i < inDrawMode_addr_enum_values.length; i++) {
+            EDrawMode enumVal = inDrawMode_addr_enum_values[i];
+            if (enumVal != EDrawMode.CUSTOM && enumVal.getValue() == inDrawMode_addr) {
+                inDrawMode_addr_enum = inDrawMode_addr_enum_values[i];
+                break;
+            }
+        }
+        DrawGeometryWithID(Mat44_TEMP_STATIC_GEN_1, AABox_TEMP_STATIC_GEN_0, inLODScaleSq, Color_TEMP_STATIC_GEN_4, inGeometryID, inCullMode_addr_enum, inCastShadow_addr_enum, inDrawMode_addr_enum);
+    }
+
+    protected int CreateTriangleBatchID(NativeObject inTriangles, int inTriangleCount) {
+        return 0;
+    }
+
+    private int internal_CreateTriangleBatchID(long inTriangles_addr, int inTriangleCount) {
+        if (NativeObject_TEMP_STATIC_GEN_1 == null)
+            NativeObject_TEMP_STATIC_GEN_1 = NativeObject.native_new();
+        NativeObject_TEMP_STATIC_GEN_1.internal_reset(inTriangles_addr, false);
+        return CreateTriangleBatchID(NativeObject_TEMP_STATIC_GEN_1, inTriangleCount);
+    }
+
+    protected int CreateTriangleBatchIDWithIndex(NativeObject inVertices, int inVertexCount, NativeObject inIndices, int inIndexCount) {
+        return 0;
+    }
+
+    private int internal_CreateTriangleBatchIDWithIndex(long inVertices_addr, int inVertexCount, long inIndices_addr, int inIndexCount) {
+        if (NativeObject_TEMP_STATIC_GEN_2 == null)
+            NativeObject_TEMP_STATIC_GEN_2 = NativeObject.native_new();
+        NativeObject_TEMP_STATIC_GEN_2.internal_reset(inVertices_addr, false);
+        if (NativeObject_TEMP_STATIC_GEN_3 == null)
+            NativeObject_TEMP_STATIC_GEN_3 = NativeObject.native_new();
+        NativeObject_TEMP_STATIC_GEN_3.internal_reset(inIndices_addr, false);
+        return CreateTriangleBatchIDWithIndex(NativeObject_TEMP_STATIC_GEN_2, inVertexCount, NativeObject_TEMP_STATIC_GEN_3, inIndexCount);
+    }
+
     public static long internal_native_create_addr() {
         try {
             return (long) FFMHandles.internal_native_create_addr__.invokeExact();
@@ -296,12 +482,21 @@ public class DebugRendererEm extends DebugRenderer {
 
     private MemorySegment upcallStub_DrawText3D;
 
+    private MemorySegment upcallStub_DrawGeometryWithID;
+
+    private MemorySegment upcallStub_CreateTriangleBatchID;
+
+    private MemorySegment upcallStub_CreateTriangleBatchIDWithIndex;
+
     private void releaseUpcallResources() {
         Arena arena = upcallArena;
         upcallStub_DrawMesh = null;
         upcallStub_DrawLine = null;
         upcallStub_DrawTriangle = null;
         upcallStub_DrawText3D = null;
+        upcallStub_DrawGeometryWithID = null;
+        upcallStub_CreateTriangleBatchID = null;
+        upcallStub_CreateTriangleBatchIDWithIndex = null;
         upcallArena = null;
         if (arena != null) {
             try {
@@ -311,9 +506,9 @@ public class DebugRendererEm extends DebugRenderer {
         }
     }
 
-    public static void internal_native_setupCallback(long this_addr, long DrawMesh_fp, long DrawLine_fp, long DrawTriangle_fp, long DrawText3D_fp) {
+    public static void internal_native_setupCallback(long this_addr, long DrawMesh_fp, long DrawLine_fp, long DrawTriangle_fp, long DrawText3D_fp, long DrawGeometryWithID_fp, long CreateTriangleBatchID_fp, long CreateTriangleBatchIDWithIndex_fp) {
         try {
-            FFMHandles.internal_native_setupCallback__JJJJJ.invokeExact(this_addr, DrawMesh_fp, DrawLine_fp, DrawTriangle_fp, DrawText3D_fp);
+            FFMHandles.internal_native_setupCallback__JJJJJJJJ.invokeExact(this_addr, DrawMesh_fp, DrawLine_fp, DrawTriangle_fp, DrawText3D_fp, DrawGeometryWithID_fp, CreateTriangleBatchID_fp, CreateTriangleBatchIDWithIndex_fp);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -323,9 +518,23 @@ public class DebugRendererEm extends DebugRenderer {
 
         static final java.lang.invoke.MethodHandle internal_native_deleteNative__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_renderer_debugrendererem_deletenative", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG));
 
+        static final java.lang.invoke.MethodHandle internal_native_Initialize__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_renderer_debugrendererem_initialize", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG));
+
         static final java.lang.invoke.MethodHandle internal_native_DrawBodies__JJJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_renderer_debugrendererem_drawbodies_l_l_l", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
 
         static final java.lang.invoke.MethodHandle internal_native_DrawBodies__JJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_renderer_debugrendererem_drawbodies_l_l", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_DrawConstraints__JJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_renderer_debugrendererem_drawconstraints", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_DrawConstraintLimits__JJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_renderer_debugrendererem_drawconstraintlimits", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_DrawConstraintReferenceFrame__JJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_renderer_debugrendererem_drawconstraintreferenceframe", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_DrawShape__JJJJJZ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_renderer_debugrendererem_drawshape", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_BOOLEAN));
+
+        static final java.lang.invoke.MethodHandle internal_native_DrawBody__JJJZ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_renderer_debugrendererem_drawbody", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_BOOLEAN));
+
+        static final java.lang.invoke.MethodHandle internal_native_DrawConstraint__JJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_renderer_debugrendererem_drawconstraint", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
 
         static final java.lang.invoke.MethodHandle internal_native_DrawCylinder__JJFFJII = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_renderer_debugrendererem_drawcylinder_l_l_f_f_l_i_i", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_FLOAT, ValueLayout.JAVA_FLOAT, ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT, ValueLayout.JAVA_INT));
 
@@ -333,8 +542,8 @@ public class DebugRendererEm extends DebugRenderer {
 
         static final java.lang.invoke.MethodHandle internal_native_DrawCylinder__JJFFJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_renderer_debugrendererem_drawcylinder_l_l_f_f_l", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_FLOAT, ValueLayout.JAVA_FLOAT, ValueLayout.JAVA_LONG));
 
-        static final java.lang.invoke.MethodHandle internal_native_create_addr__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_renderer_debugrendererem_create_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG));
+        static final java.lang.invoke.MethodHandle internal_native_create_addr__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_renderer_debugrendererem_create_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG));
 
-        static final java.lang.invoke.MethodHandle internal_native_setupCallback__JJJJJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_renderer_debugrendererem_setupcallback", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+        static final java.lang.invoke.MethodHandle internal_native_setupCallback__JJJJJJJJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_renderer_debugrendererem_setupcallback", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
     }
 }

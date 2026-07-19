@@ -16,6 +16,14 @@ public class ArrayMat44 extends NativeObject {
 
     static public final ArrayMat44 NULL = ArrayMat44.native_new();
 
+    public ArrayMat44() {
+        long addr = internal_native_create_addr();
+        internal_reset(addr, true);
+    }
+
+    @org.teavm.interop.Import(name = "jolt_math_arraymat44_create_addr")
+    public static native long internal_native_create_addr();
+
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
      */

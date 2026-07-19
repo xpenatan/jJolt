@@ -69,6 +69,30 @@ public class StateRecorder extends NativeObject {
         }
     }
 
+    public void SetIsLastPart(boolean inIsLastPart) {
+        internal_native_SetIsLastPart(native_address, inIsLastPart);
+    }
+
+    public static void internal_native_SetIsLastPart(long this_addr, boolean inIsLastPart) {
+        try {
+            FFMHandles.internal_native_SetIsLastPart__JZ.invokeExact(this_addr, inIsLastPart);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public boolean IsLastPart() {
+        return internal_native_IsLastPart(native_address);
+    }
+
+    public static boolean internal_native_IsLastPart(long this_addr) {
+        try {
+            return (boolean) FFMHandles.internal_native_IsLastPart__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
     private static final class FFMHandles {
 
         static final java.lang.invoke.MethodHandle internal_native_deleteNative__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_staterecorder_deletenative", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG));
@@ -76,5 +100,9 @@ public class StateRecorder extends NativeObject {
         static final java.lang.invoke.MethodHandle internal_native_SetValidating__JZ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_staterecorder_setvalidating", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_BOOLEAN));
 
         static final java.lang.invoke.MethodHandle internal_native_IsValidating__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_staterecorder_isvalidating", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_SetIsLastPart__JZ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_staterecorder_setislastpart", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_BOOLEAN));
+
+        static final java.lang.invoke.MethodHandle internal_native_IsLastPart__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_staterecorder_islastpart", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.JAVA_LONG));
     }
 }

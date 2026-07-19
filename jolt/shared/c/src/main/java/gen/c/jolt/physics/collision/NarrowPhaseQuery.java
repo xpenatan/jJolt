@@ -123,6 +123,13 @@ public class NarrowPhaseQuery extends NativeObject {
     @org.teavm.interop.Import(name = "jolt_physics_collision_narrowphasequery_collideshape")
     public static native void internal_native_CollideShape(long this_addr, long inShape_addr, long inShapeScale_addr, long inCenterOfMassTransform_addr, long inCollideShapeSettings_addr, long inBaseOffset_addr, long ioCollector_addr, long inBroadPhaseLayerFilter_addr, long inObjectLayerFilter_addr, long inBodyFilter_addr, long inShapeFilter_addr);
 
+    public void CollideShapeWithInternalEdgeRemoval(Shape inShape, Vec3 inShapeScale, Mat44 inCenterOfMassTransform, CollideShapeSettings inCollideShapeSettings, Vec3 inBaseOffset, CollideShapeCollector ioCollector, BroadPhaseLayerFilter inBroadPhaseLayerFilter, ObjectLayerFilter inObjectLayerFilter, BodyFilter inBodyFilter, ShapeFilter inShapeFilter) {
+        internal_native_CollideShapeWithInternalEdgeRemoval(native_address, inShape.native_address, inShapeScale.native_address, inCenterOfMassTransform.native_address, inCollideShapeSettings.native_address, inBaseOffset.native_address, ioCollector.native_address, inBroadPhaseLayerFilter.native_address, inObjectLayerFilter.native_address, inBodyFilter.native_address, inShapeFilter.native_address);
+    }
+
+    @org.teavm.interop.Import(name = "jolt_physics_collision_narrowphasequery_collideshapewithinternaledgeremoval")
+    public static native void internal_native_CollideShapeWithInternalEdgeRemoval(long this_addr, long inShape_addr, long inShapeScale_addr, long inCenterOfMassTransform_addr, long inCollideShapeSettings_addr, long inBaseOffset_addr, long ioCollector_addr, long inBroadPhaseLayerFilter_addr, long inObjectLayerFilter_addr, long inBodyFilter_addr, long inShapeFilter_addr);
+
     public void CastShape(RShapeCast inShapeCast, ShapeCastSettings inShapeCastSettings, Vec3 inBaseOffset, CastShapeCollector ioCollector, BroadPhaseLayerFilter inBroadPhaseLayerFilter, ObjectLayerFilter inObjectLayerFilter, BodyFilter inBodyFilter, ShapeFilter inShapeFilter) {
         internal_native_CastShape(native_address, inShapeCast.native_address, inShapeCastSettings.native_address, inBaseOffset.native_address, ioCollector.native_address, inBroadPhaseLayerFilter.native_address, inObjectLayerFilter.native_address, inBodyFilter.native_address, inShapeFilter.native_address);
     }

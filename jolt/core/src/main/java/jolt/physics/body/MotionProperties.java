@@ -132,6 +132,9 @@ public class MotionProperties extends NativeObject {
     public void SetInverseInertia(Vec3 inInvI, Quat inRotation) {
     }
 
+    public void ScaleToMass(float inMass) {
+    }
+
     public Mat44 GetLocalSpaceInverseInertia() {
         return null;
     }

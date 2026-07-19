@@ -30,11 +30,18 @@ public class MutableCompoundShape extends CompoundShape {
         return new MutableCompoundShape((byte) 0, (char) 0);
     }
 
+    public int AddShape(Vec3 inPosition, Quat inRotation, Shape inShape, int inUserData, int inIndex) {
+        return internal_native_AddShape(native_address, inPosition.native_address, inRotation.native_address, inShape.native_address, inUserData, inIndex);
+    }
+
+    @org.teavm.interop.Import(name = "jolt_physics_collision_shape_mutablecompoundshape_addshape_l_l_l_l_i_i")
+    public static native int internal_native_AddShape(long this_addr, long inPosition_addr, long inRotation_addr, long inShape_addr, int inUserData, int inIndex);
+
     public int AddShape(Vec3 inPosition, Quat inRotation, Shape inShape, int inUserData) {
         return internal_native_AddShape(native_address, inPosition.native_address, inRotation.native_address, inShape.native_address, inUserData);
     }
 
-    @org.teavm.interop.Import(name = "jolt_physics_collision_shape_mutablecompoundshape_addshape")
+    @org.teavm.interop.Import(name = "jolt_physics_collision_shape_mutablecompoundshape_addshape_l_l_l_l_i")
     public static native int internal_native_AddShape(long this_addr, long inPosition_addr, long inRotation_addr, long inShape_addr, int inUserData);
 
     public void RemoveShape(int inIndex) {

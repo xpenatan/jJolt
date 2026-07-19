@@ -7,6 +7,8 @@
 package jolt.physics.softbody;
 
 import jolt.physics.body.MotionProperties;
+import jolt.math.Quat;
+import jolt.math.Vec3;
 import jolt.physics.collision.PhysicsMaterialList;
 import jolt.geometry.AABox;
 import jolt.physics.body.Body;
@@ -43,6 +45,14 @@ public class SoftBodyMotionProperties extends MotionProperties {
     }
 
     public SoftBodyVertex GetVertex(int inIndex) {
+        return null;
+    }
+
+    public Quat GetRodRotation(int inIndex) {
+        return null;
+    }
+
+    public Vec3 GetRodAngularVelocity(int inIndex) {
         return null;
     }
 
@@ -91,6 +101,13 @@ public class SoftBodyMotionProperties extends MotionProperties {
     }
 
     public void SetSkinnedMaxDistanceMultiplier(float inSkinnedMaxDistanceMultiplier) {
+    }
+
+    public float GetVertexRadius() {
+        return 0;
+    }
+
+    public void SetVertexRadius(float inVertexRadius) {
     }
 
     public AABox GetLocalBounds() {

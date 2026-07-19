@@ -28,9 +28,9 @@ final public class JNI_Shape {
 
     public static native long internal_native_GetCenterOfMass_addr(long this_addr);
 
-    public static native long internal_native_GetUserData(long this_addr);
+    public static native int internal_native_GetUserData(long this_addr);
 
-    public static native void internal_native_SetUserData(long this_addr, long inUserData);
+    public static native void internal_native_SetUserData(long this_addr, int inUserData);
 
     public static native int internal_native_GetSubShapeIDBitsRecursive(long this_addr);
 
@@ -44,7 +44,7 @@ final public class JNI_Shape {
 
     public static native long internal_native_GetSurfaceNormal_addr(long this_addr, long inSubShapeID_addr, long inLocalSurfacePosition_addr);
 
-    public static native long internal_native_GetSubShapeUserData(long this_addr, long inSubShapeID_addr);
+    public static native int internal_native_GetSubShapeUserData(long this_addr, long inSubShapeID_addr);
 
     public static native long internal_native_GetSubShapeTransformedShape_addr(long this_addr, long inSubShapeID_addr, long inPositionCOM_addr, long inRotation_addr, long inScale_addr, long outRemainder_addr);
 

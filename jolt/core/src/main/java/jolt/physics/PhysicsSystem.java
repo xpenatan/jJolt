@@ -102,7 +102,7 @@ public class PhysicsSystem extends NativeObject {
     public void SetContactListener(ContactListener inListener) {
     }
 
-    public NativeObject GetContactListener() {
+    public ContactListener GetContactListener() {
         return null;
     }
 

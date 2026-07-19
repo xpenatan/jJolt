@@ -12,6 +12,9 @@ public class ArrayBodyPtr extends NativeObject {
 
     static public final ArrayBodyPtr NULL = ArrayBodyPtr.native_new();
 
+    public ArrayBodyPtr() {
+    }
+
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
      */

@@ -16,6 +16,15 @@ public class ArrayBodyPtr extends NativeObject {
 
     static public final ArrayBodyPtr NULL = ArrayBodyPtr.native_new();
 
+    public ArrayBodyPtr() {
+        long addr = internal_native_create_addr();
+        internal_reset(addr, true);
+    }
+
+    public static long internal_native_create_addr() {
+        return jolt.physics.body.natives.JNI_ArrayBodyPtr.internal_native_create_addr();
+    }
+
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
      */

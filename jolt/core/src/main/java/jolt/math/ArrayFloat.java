@@ -12,6 +12,9 @@ public class ArrayFloat extends NativeObject {
 
     static public final ArrayFloat NULL = ArrayFloat.native_new();
 
+    public ArrayFloat() {
+    }
+
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
      */

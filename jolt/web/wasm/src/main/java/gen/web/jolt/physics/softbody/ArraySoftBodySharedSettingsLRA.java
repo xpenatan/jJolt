@@ -14,6 +14,14 @@ public class ArraySoftBodySharedSettingsLRA extends NativeObject {
 
     static public final ArraySoftBodySharedSettingsLRA NULL = ArraySoftBodySharedSettingsLRA.native_new();
 
+    public ArraySoftBodySharedSettingsLRA() {
+        int addr = internal_native_create_addr();
+        internal_reset(addr, true);
+    }
+
+    @org.teavm.jso.JSBody(script = "var jsObj = new jolt.ArraySoftBodySharedSettingsLRA();return jolt.getPointer(jsObj);")
+    public static native int internal_native_create_addr();
+
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
      */

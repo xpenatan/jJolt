@@ -12,6 +12,9 @@ public class ArraySoftBodySharedSettingsLRA extends NativeObject {
 
     static public final ArraySoftBodySharedSettingsLRA NULL = ArraySoftBodySharedSettingsLRA.native_new();
 
+    public ArraySoftBodySharedSettingsLRA() {
+    }
+
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
      */

@@ -89,6 +89,13 @@ public class CastShapeCollector extends NativeObject {
     @org.teavm.interop.Import(name = "jolt_physics_softbody_castshapecollector_deletenative")
     public static native void internal_native_deleteNative(long this_addr);
 
+    public void ResetNative() {
+        internal_native_ResetNative(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "jolt_physics_softbody_castshapecollector_resetnative")
+    public static native void internal_native_ResetNative(long this_addr);
+
     public void SetContext(TransformedShape inContext) {
         internal_native_SetContext(native_address, inContext.native_address);
     }

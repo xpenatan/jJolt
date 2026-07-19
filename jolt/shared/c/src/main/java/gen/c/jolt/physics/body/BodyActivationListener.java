@@ -10,47 +10,6 @@ import com.github.xpenatan.jParser.api.NativeObject;
 
 public class BodyActivationListener extends NativeObject {
 
-    static private BodyID BodyID_TEMP_STATIC_GEN_0;
-
-    static private BodyID BodyID_TEMP_STATIC_GEN_1;
-
-    private static final java.util.ArrayList<BodyActivationListener> TEAVMC_CALLBACKS = new java.util.ArrayList<>();
-
-    private int teavmcCallbackId = -1;
-
-    private int teavmcRegisterCallback() {
-        if (teavmcCallbackId < 0) {
-            teavmcCallbackId = TEAVMC_CALLBACKS.size();
-            TEAVMC_CALLBACKS.add(this);
-        } else {
-            TEAVMC_CALLBACKS.set(teavmcCallbackId, this);
-        }
-        return teavmcCallbackId;
-    }
-
-    private static abstract class TEAVMC_OnBodyActivated_Function extends org.teavm.interop.Function {
-
-        public abstract void call(int callbackId, long inBodyID_addr, long inBodyUserData);
-    }
-
-    @org.teavm.interop.Export(name = "teavmc_BodyActivationListener_OnBodyActivated")
-    private static void teavmc_BodyActivationListener_OnBodyActivated(int callbackId, long inBodyID_addr, long inBodyUserData) {
-        TEAVMC_CALLBACKS.get(callbackId).internal_OnBodyActivated(inBodyID_addr, inBodyUserData);
-    }
-
-    private static abstract class TEAVMC_OnBodyDeactivated_Function extends org.teavm.interop.Function {
-
-        public abstract void call(int callbackId, long inBodyID_addr, long inBodyUserData);
-    }
-
-    @org.teavm.interop.Export(name = "teavmc_BodyActivationListener_OnBodyDeactivated")
-    private static void teavmc_BodyActivationListener_OnBodyDeactivated(int callbackId, long inBodyID_addr, long inBodyUserData) {
-        TEAVMC_CALLBACKS.get(callbackId).internal_OnBodyDeactivated(inBodyID_addr, inBodyUserData);
-    }
-
-    @org.teavm.interop.Import(name = "teavmc_BodyActivationListener_setupCallback")
-    private static native void setupCallback(long this_addr, int callbackId, TEAVMC_OnBodyActivated_Function OnBodyActivated_fp, TEAVMC_OnBodyDeactivated_Function OnBodyDeactivated_fp);
-
     static public final BodyActivationListener NULL = BodyActivationListener.native_new();
 
     /**
@@ -73,38 +32,4 @@ public class BodyActivationListener extends NativeObject {
 
     @org.teavm.interop.Import(name = "jolt_physics_body_bodyactivationlistener_deletenative")
     public static native void internal_native_deleteNative(long this_addr);
-
-    public BodyActivationListener() {
-        long addr = internal_native_create_addr();
-        internal_reset(addr, true);
-        setupCallback();
-    }
-
-    private void setupCallback() {
-        int callbackId = teavmcRegisterCallback();
-        setupCallback(native_address, callbackId, org.teavm.interop.Function.get(TEAVMC_OnBodyActivated_Function.class, BodyActivationListener.class, "teavmc_BodyActivationListener_OnBodyActivated"), org.teavm.interop.Function.get(TEAVMC_OnBodyDeactivated_Function.class, BodyActivationListener.class, "teavmc_BodyActivationListener_OnBodyDeactivated"));
-    }
-
-    protected void OnBodyActivated(BodyID inBodyID, long inBodyUserData) {
-    }
-
-    private void internal_OnBodyActivated(long inBodyID_addr, long inBodyUserData) {
-        if (BodyID_TEMP_STATIC_GEN_0 == null)
-            BodyID_TEMP_STATIC_GEN_0 = BodyID.native_new();
-        BodyID_TEMP_STATIC_GEN_0.internal_reset(inBodyID_addr, false);
-        OnBodyActivated(BodyID_TEMP_STATIC_GEN_0, inBodyUserData);
-    }
-
-    protected void OnBodyDeactivated(BodyID inBodyID, long inBodyUserData) {
-    }
-
-    private void internal_OnBodyDeactivated(long inBodyID_addr, long inBodyUserData) {
-        if (BodyID_TEMP_STATIC_GEN_1 == null)
-            BodyID_TEMP_STATIC_GEN_1 = BodyID.native_new();
-        BodyID_TEMP_STATIC_GEN_1.internal_reset(inBodyID_addr, false);
-        OnBodyDeactivated(BodyID_TEMP_STATIC_GEN_1, inBodyUserData);
-    }
-
-    @org.teavm.interop.Import(name = "jolt_physics_body_bodyactivationlistener_create_addr")
-    public static native long internal_native_create_addr();
 }

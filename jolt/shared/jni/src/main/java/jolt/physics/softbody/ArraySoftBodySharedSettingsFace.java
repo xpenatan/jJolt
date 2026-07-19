@@ -14,6 +14,15 @@ public class ArraySoftBodySharedSettingsFace extends NativeObject {
 
     static public final ArraySoftBodySharedSettingsFace NULL = ArraySoftBodySharedSettingsFace.native_new();
 
+    public ArraySoftBodySharedSettingsFace() {
+        long addr = internal_native_create_addr();
+        internal_reset(addr, true);
+    }
+
+    public static long internal_native_create_addr() {
+        return jolt.physics.softbody.natives.JNI_ArraySoftBodySharedSettingsFace.internal_native_create_addr();
+    }
+
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
      */

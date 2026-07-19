@@ -51,6 +51,18 @@ public class ObjectLayerPairFilter extends NativeObject {
         }
     }
 
+    public boolean ShouldCollideNative(int inLayer1, int inLayer2) {
+        return internal_native_ShouldCollideNative(native_address, inLayer1, inLayer2);
+    }
+
+    public static boolean internal_native_ShouldCollideNative(long this_addr, int inLayer1, int inLayer2) {
+        try {
+            return (boolean) FFMHandles.internal_native_ShouldCollideNative__JII.invokeExact(this_addr, inLayer1, inLayer2);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
     public ObjectLayerPairFilter() {
         long addr = internal_native_create_addr();
         internal_reset(addr, true);
@@ -113,7 +125,9 @@ public class ObjectLayerPairFilter extends NativeObject {
 
         static final java.lang.invoke.MethodHandle internal_native_deleteNative__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_collision_objectlayerpairfilter_deletenative", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG));
 
-        static final java.lang.invoke.MethodHandle internal_native_create_addr__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_physics_collision_objectlayerpairfilter_create_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG));
+        static final java.lang.invoke.MethodHandle internal_native_ShouldCollideNative__JII = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_collision_objectlayerpairfilter_shouldcollidenative", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT, ValueLayout.JAVA_INT));
+
+        static final java.lang.invoke.MethodHandle internal_native_create_addr__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_collision_objectlayerpairfilter_create_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG));
 
         static final java.lang.invoke.MethodHandle internal_native_setupCallback__JJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_collision_objectlayerpairfilter_setupcallback", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
     }

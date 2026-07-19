@@ -1,0 +1,5 @@
+# kind|symbol|platform reason
+category|Jolt/Compute/**|JoltPhysics.js 1.1.0 publishes no portable WebIDL compute API, and the native GPU backends are platform-specific.
+category|Jolt/Physics/Hair/**|JoltPhysics.js 1.1.0 publishes no portable WebIDL hair API, so it is outside the cross-platform intersection.
+member|JoltInterface.sGetTotalMemory|Emscripten mallinfo reports Wasm heap state and has no consistent JNI, FFM, TeaVM C, or Android equivalent.
+member|JoltInterface.sGetFreeMemory|Emscripten mallinfo reports Wasm heap state and has no consistent JNI, FFM, TeaVM C, or Android equivalent.

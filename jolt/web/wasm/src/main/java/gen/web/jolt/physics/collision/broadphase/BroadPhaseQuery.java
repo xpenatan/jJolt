@@ -19,6 +19,8 @@ import gen.web.jolt.physics.softbody.CastShapeBodyCollector;
 
 public class BroadPhaseQuery extends NativeObject {
 
+    private AABox AABox_TEMP_GEN_0;
+
     static public final BroadPhaseQuery NULL = BroadPhaseQuery.native_new();
 
     /**
@@ -167,4 +169,17 @@ public class BroadPhaseQuery extends NativeObject {
 
     @org.teavm.jso.JSBody(params = {"this_addr", "inBox_addr", "ioCollector_addr"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.BroadPhaseQuery);jsObj.CastAABox(inBox_addr, ioCollector_addr);")
     public static native void internal_native_CastAABox(int this_addr, int inBox_addr, int ioCollector_addr);
+
+    public AABox GetBounds() {
+        int addr = internal_native_GetBounds_addr(native_address);
+        if (addr == 0)
+            return AABox.NULL;
+        if (AABox_TEMP_GEN_0 == null)
+            AABox_TEMP_GEN_0 = AABox.native_new();
+        AABox_TEMP_GEN_0.internal_reset(addr, false);
+        return AABox_TEMP_GEN_0;
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.BroadPhaseQuery);var returnedJSObj = jsObj.GetBounds();if(!returnedJSObj.hasOwnProperty('ptr')) return 0; return jolt.getPointer(returnedJSObj);")
+    public static native int internal_native_GetBounds_addr(int this_addr);
 }

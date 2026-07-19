@@ -14,6 +14,15 @@ public class ArraySoftBodySharedSettingsInvBind extends NativeObject {
 
     static public final ArraySoftBodySharedSettingsInvBind NULL = ArraySoftBodySharedSettingsInvBind.native_new();
 
+    public ArraySoftBodySharedSettingsInvBind() {
+        long addr = internal_native_create_addr();
+        internal_reset(addr, true);
+    }
+
+    public static long internal_native_create_addr() {
+        return jolt.physics.softbody.natives.JNI_ArraySoftBodySharedSettingsInvBind.internal_native_create_addr();
+    }
+
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
      */

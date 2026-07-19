@@ -51,6 +51,42 @@ public class Vector2 extends NativeObject {
         return null;
     }
 
+    public float GetComponent(int inCoordinate) {
+        return 0;
+    }
+
+    public Vector2 Add(Vector2 inV) {
+        return null;
+    }
+
+    public Vector2 Sub(Vector2 inV) {
+        return null;
+    }
+
+    public Vector2 Mul(float inV) {
+        return null;
+    }
+
+    public Vector2 Div(float inV) {
+        return null;
+    }
+
+    public Vector2 MulFloat(float inV) {
+        return null;
+    }
+
+    public Vector2 DivFloat(float inV) {
+        return null;
+    }
+
+    public Vector2 AddVector2(Vector2 inV) {
+        return null;
+    }
+
+    public Vector2 SubVector2(Vector2 inV) {
+        return null;
+    }
+
     public float Dot(Vector2 inRHS) {
         return 0;
     }

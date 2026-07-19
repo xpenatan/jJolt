@@ -59,8 +59,8 @@ public enum EActiveEdgeMode implements NativeEnum<EActiveEdgeMode> {
 
     private static final class FFMHandles {
 
-        static final java.lang.invoke.MethodHandle EActiveEdgeMode_CollideOnlyWithActive_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_enums_eactiveedgemode_eactiveedgemode_collideonlywithactive_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
+        static final java.lang.invoke.MethodHandle EActiveEdgeMode_CollideOnlyWithActive_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_enums_eactiveedgemode_eactiveedgemode_collideonlywithactive_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
 
-        static final java.lang.invoke.MethodHandle EActiveEdgeMode_CollideWithAll_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_enums_eactiveedgemode_eactiveedgemode_collidewithall_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
+        static final java.lang.invoke.MethodHandle EActiveEdgeMode_CollideWithAll_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_enums_eactiveedgemode_eactiveedgemode_collidewithall_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
     }
 }

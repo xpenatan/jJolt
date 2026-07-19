@@ -46,11 +46,11 @@ public class SoftBodyCreationSettings extends NativeObject {
     public void set_mRotation(Quat mRotation) {
     }
 
-    public long get_mUserData() {
+    public int get_mUserData() {
         return 0;
     }
 
-    public void set_mUserData(long mUserData) {
+    public void set_mUserData(int mUserData) {
     }
 
     public int get_mObjectLayer() {
@@ -116,6 +116,13 @@ public class SoftBodyCreationSettings extends NativeObject {
     public void set_mGravityFactor(float mGravityFactor) {
     }
 
+    public float get_mVertexRadius() {
+        return 0;
+    }
+
+    public void set_mVertexRadius(float mVertexRadius) {
+    }
+
     public boolean get_mUpdatePosition() {
         return false;
     }
@@ -135,5 +142,12 @@ public class SoftBodyCreationSettings extends NativeObject {
     }
 
     public void set_mAllowSleeping(boolean mAllowSleeping) {
+    }
+
+    public boolean get_mFacesDoubleSided() {
+        return false;
+    }
+
+    public void set_mFacesDoubleSided(boolean mFacesDoubleSided) {
     }
 }

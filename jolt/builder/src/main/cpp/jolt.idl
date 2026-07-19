@@ -8,6 +8,7 @@ interface Jolt {
     static void RegisterTypes();
     static void UnregisterTypes();
     static void ClearWorld([Ref] PhysicsSystem physicsSystem);
+    static CharacterContactListener GetCharacterContactListener(CharacterVirtual inCharacter);
 };
 
 [NoDelete]
@@ -96,6 +97,7 @@ interface JoltNew {
     [BindTo="New_MeshShapeSettings"] static MeshShapeSettings MeshShapeSettings__0(); //[-NEW_OBJECT]
     [BindTo="New_MeshShapeSettings"] static MeshShapeSettings MeshShapeSettings__1([Ref, Const] TriangleList inTriangleList, [Ref, Const] optional PhysicsMaterialList inMaterialList); //[-NEW_OBJECT]
     [BindTo="New_MeshShapeSettings"] static MeshShapeSettings MeshShapeSettings__2([Ref, Const] VertexList inVertices, [Ref, Const] IndexedTriangleList inTriangles, [Ref, Const] PhysicsMaterialList inMaterialList); //[-NEW_OBJECT]
+
 };
 
 // Custom listener that can prevent unnecessary JNI calls
@@ -103,12 +105,18 @@ interface JoltNew {
 interface CharacterContactListener { //[-SUB_PACKAGE=physics.character]
     attribute boolean onAdjustBodyVelocity;         //[-RENAME=OnAdjustBodyVelocity]
     attribute boolean onContactValidate;            //[-RENAME=OnContactValidate]
+    attribute boolean onContactValidateFull;        //[-RENAME=OnContactValidateFull]
     attribute boolean onCharacterContactValidate;   //[-RENAME=OnCharacterContactValidate]
+    attribute boolean onCharacterContactValidateFull; //[-RENAME=OnCharacterContactValidateFull]
     attribute boolean onContactAdded;               //[-RENAME=OnContactAdded]
+    attribute boolean onContactAddedFull;           //[-RENAME=OnContactAddedFull]
     attribute boolean onContactPersisted;           //[-RENAME=OnContactPersisted]
+    attribute boolean onContactPersistedFull;       //[-RENAME=OnContactPersistedFull]
     attribute boolean onContactRemoved;             //[-RENAME=OnContactRemoved]
     attribute boolean onCharacterContactAdded;      //[-RENAME=OnCharacterContactAdded]
+    attribute boolean onCharacterContactAddedFull;  //[-RENAME=OnCharacterContactAddedFull]
     attribute boolean onCharacterContactPersisted;  //[-RENAME=OnCharacterContactPersisted]
+    attribute boolean onCharacterContactPersistedFull; //[-RENAME=OnCharacterContactPersistedFull]
     attribute boolean onCharacterContactRemoved;    //[-RENAME=OnCharacterContactRemoved]
     attribute boolean onContactSolve;               //[-RENAME=OnContactSolve]
     attribute boolean onCharacterContactSolve;      //[-RENAME=OnCharacterContactSolve]
@@ -135,12 +143,18 @@ interface CharacterContactListenerImpl {
     void CharacterContactListenerImpl();
     void OnAdjustBodyVelocity_custom([Const] CharacterVirtual inCharacter, [Const, Ref] Body inBody2, [Ref] Vec3 ioLinearVelocity, [Ref] Vec3 ioAngularVelocity); //[-RENAME=OnAdjustBodyVelocity]
     boolean OnContactValidate_custom([Const] CharacterVirtual inCharacter, [Const, Ref] BodyID inBodyID2, [Const, Ref] SubShapeID inSubShapeID2); //[-RENAME=OnContactValidate]
+    boolean OnContactValidateFull_custom([Const] CharacterVirtual inCharacter, [Const, Ref] CharacterVirtualContact inContact); //[-RENAME=OnContactValidate]
     boolean OnCharacterContactValidate_custom([Const] CharacterVirtual inCharacter, [Const] CharacterVirtual inOtherCharacter, [Const, Ref] SubShapeID inSubShapeID2); //[-RENAME=OnCharacterContactValidate]
+    boolean OnCharacterContactValidateFull_custom([Const] CharacterVirtual inCharacter, [Const, Ref] CharacterVirtualContact inContact); //[-RENAME=OnCharacterContactValidate]
     void OnContactAdded_custom([Const] CharacterVirtual inCharacter, [Const, Ref] BodyID inBodyID2, [Const, Ref] SubShapeID inSubShapeID2, [Const, Ref] RVec3 inContactPosition, [Const, Ref] Vec3 inContactNormal, [Ref] CharacterContactSettings ioSettings); //[-RENAME=OnContactAdded]
+    void OnContactAddedFull_custom([Const] CharacterVirtual inCharacter, [Const, Ref] CharacterVirtualContact inContact, [Ref] CharacterContactSettings ioSettings); //[-RENAME=OnContactAdded]
     void OnContactPersisted_custom([Const] CharacterVirtual inCharacter, [Const, Ref] BodyID inBodyID2, [Const, Ref] SubShapeID inSubShapeID2, [Const, Ref] RVec3 inContactPosition, [Const, Ref] Vec3 inContactNormal, [Ref] CharacterContactSettings ioSettings); //[-RENAME=OnContactPersisted]
+    void OnContactPersistedFull_custom([Const] CharacterVirtual inCharacter, [Const, Ref] CharacterVirtualContact inContact, [Ref] CharacterContactSettings ioSettings); //[-RENAME=OnContactPersisted]
     void OnContactRemoved_custom([Const] CharacterVirtual inCharacter, [Const, Ref] BodyID inBodyID2, [Const, Ref] SubShapeID inSubShapeID2); //[-RENAME=OnContactRemoved]
     void OnCharacterContactAdded_custom([Const] CharacterVirtual inCharacter, [Const] CharacterVirtual inOtherCharacter, [Const, Ref] SubShapeID inSubShapeID2, [Const, Ref] RVec3 inContactPosition, [Const, Ref] Vec3 inContactNormal, [Ref] CharacterContactSettings ioSettings); //[-RENAME=OnCharacterContactAdded]
+    void OnCharacterContactAddedFull_custom([Const] CharacterVirtual inCharacter, [Const, Ref] CharacterVirtualContact inContact, [Ref] CharacterContactSettings ioSettings); //[-RENAME=OnCharacterContactAdded]
     void OnCharacterContactPersisted_custom([Const] CharacterVirtual inCharacter, [Const] CharacterVirtual inOtherCharacter, [Const, Ref] SubShapeID inSubShapeID2, [Const, Ref] Vec3 inContactPosition, [Const, Ref] Vec3 inContactNormal, [Ref] CharacterContactSettings ioSettings); //[-RENAME=OnCharacterContactPersisted]
+    void OnCharacterContactPersistedFull_custom([Const] CharacterVirtual inCharacter, [Const, Ref] CharacterVirtualContact inContact, [Ref] CharacterContactSettings ioSettings); //[-RENAME=OnCharacterContactPersisted]
     void OnCharacterContactRemoved_custom([Const] CharacterVirtual inCharacter, [Const, Ref] CharacterID inOtherCharacter, [Const, Ref] SubShapeID inSubShapeID2); //[-RENAME=OnCharacterContactRemoved]
     void OnContactSolve_custom([Const] CharacterVirtual inCharacter, [Const, Ref] BodyID inBodyID2, [Const, Ref] SubShapeID inSubShapeID2, [Const, Ref] RVec3 inContactPosition, [Const, Ref] Vec3 inContactNormal, [Const, Ref] Vec3 inContactVelocity, [Const] PhysicsMaterial inContactMaterial, [Const, Ref] Vec3 inCharacterVelocity, [Const, Ref] Vec3 ioNewCharacterVelocity); //[-RENAME=OnContactSolve]
     void OnCharacterContactSolve_custom([Const] CharacterVirtual inCharacter, [Const] CharacterVirtual inOtherCharacter, [Const, Ref] SubShapeID inSubShapeID2, [Const, Ref] RVec3 inContactPosition, [Const, Ref] Vec3 inContactNormal, [Const, Ref] Vec3 inContactVelocity, [Const] PhysicsMaterial inContactMaterial, [Const, Ref] Vec3 inCharacterVelocity, [Const, Ref] Vec3 ioNewCharacterVelocity); //[-RENAME=OnCharacterContactSolve]
@@ -170,6 +184,9 @@ interface BodyManagerDrawSettings { //[-SUB_PACKAGE=physics.body]
     attribute boolean mDrawSoftBodyVolumeConstraints;
     attribute boolean mDrawSoftBodySkinConstraints;
     attribute boolean mDrawSoftBodyLRAConstraints;
+    attribute boolean mDrawSoftBodyRods;
+    attribute boolean mDrawSoftBodyRodStates;
+    attribute boolean mDrawSoftBodyRodBendTwistConstraints;
     attribute boolean mDrawSoftBodyPredictedBounds;
     attribute ESoftBodyConstraintColor mDrawSoftBodyConstraintColor;
 };
@@ -221,12 +238,31 @@ interface DebugRendererVertex { //[-SUB_PACKAGE=renderer]
     [Value] readonly attribute Color mColor;
 };
 
+interface DebugRendererVertexTraits { //[-SUB_PACKAGE=renderer]
+    static readonly attribute unsigned long mPositionOffset;
+    static readonly attribute unsigned long mNormalOffset;
+    static readonly attribute unsigned long mUVOffset;
+    static readonly attribute unsigned long mSize;
+};
+
+interface DebugRendererTriangleTraits { //[-SUB_PACKAGE=renderer]
+    static readonly attribute unsigned long mVOffset;
+    static readonly attribute unsigned long mSize;
+};
+
 interface DebugRenderer { //[-SUB_PACKAGE=renderer]
 };
 
 interface DebugRendererEm { //[-SUB_PACKAGE=renderer]
+    void Initialize();
     void DrawBodies(PhysicsSystem system, BodyManagerDrawSettings inDrawSettings);
     void DrawBodies(PhysicsSystem system);
+    void DrawConstraints(PhysicsSystem system);
+    void DrawConstraintLimits(PhysicsSystem system);
+    void DrawConstraintReferenceFrame(PhysicsSystem system);
+    void DrawShape(Shape inShape, [Const] Mat44 inModelMatrix, [Const] Vec3 inScale, [Const] Color inColor, boolean inDrawWireFrame);
+    void DrawBody(Body inBody, [Const] Color inColor, boolean inDrawWireFrame);
+    void DrawConstraint(Constraint inConstraint);
     void DrawCylinder([Ref] Mat44 inMatrix, float inHalfHeight, float inRadius, [Ref] Color inColor, optional ECastShadow inCastShadow, optional EDrawMode inDrawMode);
 };
 DebugRendererEm implements DebugRenderer;
@@ -238,6 +274,9 @@ interface DebugRendererImplCustom : DebugRendererEm {
     void DrawLine([Const] Vec3 inFrom, [Const] Vec3 inTo, [Const] Color inColor);
     void DrawTriangle([Const] Vec3 inV1, [Const] Vec3 inV2, [Const]  Vec3 inV3, [Const] Color inColor, ECastShadow inCastShadow);
     void DrawText3D([Const] Vec3 inPosition, [Const] any inString, unsigned long inStringLen, [Const] Color inColor, float inHeight);
+    void DrawGeometryWithID([Const] Mat44 inModelMatrix, [Const] AABox inWorldSpaceBounds, float inLODScaleSq, Color inModelColor, unsigned long inGeometryID, ECullMode inCullMode, ECastShadow inCastShadow, EDrawMode inDrawMode);
+    unsigned long CreateTriangleBatchID([Const] any inTriangles, long inTriangleCount);
+    unsigned long CreateTriangleBatchIDWithIndex([Const] any inVertices, long inVertexCount, [Const] any inIndices, long inIndexCount);
 };
 
 // END DEBUG RENDERER
@@ -249,15 +288,15 @@ interface Vector2 { //[-SUB_PACKAGE=math]
     void IsClose([Const, Ref] Vector2 inV, optional float inMaxDistSq);
     void IsNormalized(optional float inTolerance);
     [Const, Value] Vector2 Normalized();
-//    [Operator="[]"] float GetComponent(unsigned long inCoordinate);
-//    [Operator="+=", Ref] Vector2 Add([Const, Ref] Vector2 inV);
-//    [Operator="-=", Ref] Vector2 Sub([Const, Ref] Vector2 inV);
-//    [Operator="*=", Ref] Vector2 Mul(float inV);
-//    [Operator="/=", Ref] Vector2 Div(float inV);
-//    [Operator = "*", Value] Vector2 MulFloat(float inV);
-//    [Operator = "/", Value] Vector2 DivFloat(float inV);
-//    [Operator = "+", Value] Vector2 AddVector2([Const, Ref] Vector2 inV);
-//    [Operator = "-", Value] Vector2 SubVector2([Const, Ref] Vector2 inV);
+    [Operator="[]"] float GetComponent(unsigned long inCoordinate);
+    [Operator="+=", Ref] Vector2 Add([Const, Ref] Vector2 inV);
+    [Operator="-=", Ref] Vector2 Sub([Const, Ref] Vector2 inV);
+    [Operator="*=", Ref] Vector2 Mul(float inV);
+    [Operator="/=", Ref] Vector2 Div(float inV);
+    [Operator = "*", Value] Vector2 MulFloat(float inV);
+    [Operator = "/", Value] Vector2 DivFloat(float inV);
+    [Operator = "+", Value] Vector2 AddVector2([Const, Ref] Vector2 inV);
+    [Operator = "-", Value] Vector2 SubVector2([Const, Ref] Vector2 inV);
     float Dot([Const, Ref] Vector2 inRHS);
 };
 
@@ -347,6 +386,24 @@ interface SoftBodySharedSettingsLRA { //[-SUB_PACKAGE=physics.softbody]
 
     attribute unsigned long[] mVertex;
     attribute float mMaxDistance;
+};
+
+interface SoftBodySharedSettingsRodStretchShear { //[-SUB_PACKAGE=physics.softbody]
+    void SoftBodySharedSettingsRodStretchShear(unsigned long inVertex1, unsigned long inVertex2, float inCompliance);
+
+    attribute unsigned long[] mVertex;
+    attribute float mLength;
+    attribute float mInvMass;
+    attribute float mCompliance;
+    [Value] attribute Quat mBishop;
+};
+
+interface SoftBodySharedSettingsRodBendTwist { //[-SUB_PACKAGE=physics.softbody]
+    void SoftBodySharedSettingsRodBendTwist(unsigned long inRod1, unsigned long inRod2, float inCompliance);
+
+    attribute unsigned long[] mRod;
+    attribute float mCompliance;
+    [Value] attribute Quat mOmega0;
 };
 
 interface CollideShapeResultFace { //[-SUB_PACKAGE=physics.collision]
@@ -602,6 +659,7 @@ interface ArrayVec3 { //[-SUB_PACKAGE=math]
 };
 
 interface ArrayQuat { //[-SUB_PACKAGE=math]
+    void ArrayQuat();
     boolean empty();
     long size();
     [Ref] Quat at(long inIndex);
@@ -613,6 +671,7 @@ interface ArrayQuat { //[-SUB_PACKAGE=math]
 };
 
 interface ArrayMat44 { //[-SUB_PACKAGE=math]
+    void ArrayMat44();
     boolean empty();
     long size();
     [Ref] Mat44 at(long inIndex);
@@ -624,6 +683,7 @@ interface ArrayMat44 { //[-SUB_PACKAGE=math]
 };
 
 interface ArrayFloat { //[-SUB_PACKAGE=math]
+    void ArrayFloat();
     boolean empty();
     long size();
     float at(long inIndex);
@@ -635,6 +695,7 @@ interface ArrayFloat { //[-SUB_PACKAGE=math]
 };
 
 interface ArrayUint { //[-SUB_PACKAGE=math]
+    void ArrayUint();
     boolean empty();
     long size();
     unsigned long at(long inIndex);
@@ -646,10 +707,11 @@ interface ArrayUint { //[-SUB_PACKAGE=math]
 };
 
 interface ArrayUint8 { //[-SUB_PACKAGE=math]
+    void ArrayUint8();
     boolean empty();
     long size();
-//    octet at(long inIndex);
-//    void push_back(octet inValue);
+    octet at(long inIndex);
+    void push_back(octet inValue);
     void reserve(unsigned long inSize);
     void resize(unsigned long inSize);
     void clear();
@@ -657,6 +719,7 @@ interface ArrayUint8 { //[-SUB_PACKAGE=math]
 };
 
 interface ArrayVehicleAntiRollBar { //[-SUB_PACKAGE=physics.vehicle]
+    void ArrayVehicleAntiRollBar();
     boolean empty();
     long size();
     [Ref] VehicleAntiRollBar at(long inIndex);
@@ -676,6 +739,7 @@ interface ArrayWheelSettings { //[-SUB_PACKAGE=physics.vehicle]
 };
 
 interface ArrayVehicleDifferentialSettings { //[-SUB_PACKAGE=physics.vehicle]
+    void ArrayVehicleDifferentialSettings();
     boolean empty();
     long size();
     [Ref] VehicleDifferentialSettings at(long inIndex);
@@ -684,7 +748,15 @@ interface ArrayVehicleDifferentialSettings { //[-SUB_PACKAGE=physics.vehicle]
     void clear();
 };
 
+[NoDelete]
+interface ArrayVehicleTrack { //[-SUB_PACKAGE=physics.vehicle]
+    boolean empty();
+    long size();
+    [Ref] VehicleTrack at(long inIndex);
+};
+
 interface ArraySoftBodySharedSettingsVertex { //[-SUB_PACKAGE=physics.softbody]
+    void ArraySoftBodySharedSettingsVertex();
     boolean empty();
     long size();
     [Ref] SoftBodySharedSettingsVertex at(long inIndex);
@@ -695,6 +767,7 @@ interface ArraySoftBodySharedSettingsVertex { //[-SUB_PACKAGE=physics.softbody]
 };
 
 interface ArraySoftBodySharedSettingsFace { //[-SUB_PACKAGE=physics.softbody]
+    void ArraySoftBodySharedSettingsFace();
     boolean empty();
     long size();
     [Ref] SoftBodySharedSettingsFace at(long inIndex);
@@ -705,6 +778,7 @@ interface ArraySoftBodySharedSettingsFace { //[-SUB_PACKAGE=physics.softbody]
 };
 
 interface ArraySoftBodySharedSettingsEdge { //[-SUB_PACKAGE=physics.softbody]
+    void ArraySoftBodySharedSettingsEdge();
     boolean empty();
     long size();
     [Ref] SoftBodySharedSettingsEdge at(long inIndex);
@@ -715,6 +789,7 @@ interface ArraySoftBodySharedSettingsEdge { //[-SUB_PACKAGE=physics.softbody]
 };
 
 interface ArraySoftBodySharedSettingsDihedralBend { //[-SUB_PACKAGE=physics.softbody]
+    void ArraySoftBodySharedSettingsDihedralBend();
     boolean empty();
     long size();
     [Ref] SoftBodySharedSettingsDihedralBend at(long inIndex);
@@ -725,6 +800,7 @@ interface ArraySoftBodySharedSettingsDihedralBend { //[-SUB_PACKAGE=physics.soft
 };
 
 interface ArraySoftBodySharedSettingsVolume { //[-SUB_PACKAGE=physics.softbody]
+    void ArraySoftBodySharedSettingsVolume();
     boolean empty();
     long size();
     [Ref] SoftBodySharedSettingsVolume at(long inIndex);
@@ -735,6 +811,7 @@ interface ArraySoftBodySharedSettingsVolume { //[-SUB_PACKAGE=physics.softbody]
 };
 
 interface ArraySoftBodySharedSettingsInvBind { //[-SUB_PACKAGE=physics.softbody]
+    void ArraySoftBodySharedSettingsInvBind();
     boolean empty();
     long size();
     [Ref] SoftBodySharedSettingsInvBind at(long inIndex);
@@ -745,6 +822,7 @@ interface ArraySoftBodySharedSettingsInvBind { //[-SUB_PACKAGE=physics.softbody]
 };
 
 interface ArraySoftBodySharedSettingsSkinned { //[-SUB_PACKAGE=physics.softbody]
+    void ArraySoftBodySharedSettingsSkinned();
     boolean empty();
     long size();
     [Ref] SoftBodySharedSettingsSkinned at(long inIndex);
@@ -755,6 +833,7 @@ interface ArraySoftBodySharedSettingsSkinned { //[-SUB_PACKAGE=physics.softbody]
 };
 
 interface ArraySoftBodySharedSettingsLRA { //[-SUB_PACKAGE=physics.softbody]
+    void ArraySoftBodySharedSettingsLRA();
     boolean empty();
     long size();
     [Ref] SoftBodySharedSettingsLRA at(long inIndex);
@@ -764,7 +843,30 @@ interface ArraySoftBodySharedSettingsLRA { //[-SUB_PACKAGE=physics.softbody]
     void clear();
 };
 
+interface ArraySoftBodySharedSettingsRodStretchShear { //[-SUB_PACKAGE=physics.softbody]
+    void ArraySoftBodySharedSettingsRodStretchShear();
+    boolean empty();
+    long size();
+    [Ref] SoftBodySharedSettingsRodStretchShear at(long inIndex);
+    void push_back([Const, Ref] SoftBodySharedSettingsRodStretchShear inValue);
+    void reserve(unsigned long inSize);
+    void resize(unsigned long inSize);
+    void clear();
+};
+
+interface ArraySoftBodySharedSettingsRodBendTwist { //[-SUB_PACKAGE=physics.softbody]
+    void ArraySoftBodySharedSettingsRodBendTwist();
+    boolean empty();
+    long size();
+    [Ref] SoftBodySharedSettingsRodBendTwist at(long inIndex);
+    void push_back([Const, Ref] SoftBodySharedSettingsRodBendTwist inValue);
+    void reserve(unsigned long inSize);
+    void resize(unsigned long inSize);
+    void clear();
+};
+
 interface ArraySoftBodySharedSettingsVertexAttributes { //[-SUB_PACKAGE=physics.softbody]
+    void ArraySoftBodySharedSettingsVertexAttributes();
     boolean empty();
     long size();
     [Ref] SoftBodySharedSettingsVertexAttributes at(long inIndex);
@@ -776,6 +878,7 @@ interface ArraySoftBodySharedSettingsVertexAttributes { //[-SUB_PACKAGE=physics.
 };
 
 interface ArrayRayCastResult { //[-SUB_PACKAGE=physics.collision]
+    void ArrayRayCastResult();
     boolean empty();
     long size();
     [Ref] RayCastResult at(long inIndex);
@@ -830,6 +933,7 @@ interface ArrayRagdollAdditionalConstraint { //[-SUB_PACKAGE=physics.raddoll]
 };
 
 interface ArrayShapeCastResult { //[-SUB_PACKAGE=physics.collision.shape]
+    void ArrayShapeCastResult();
     boolean empty();
     long size();
     [Ref] ShapeCastResult at(long inIndex);
@@ -840,6 +944,7 @@ interface ArrayShapeCastResult { //[-SUB_PACKAGE=physics.collision.shape]
 };
 
 interface ArraySoftBodyVertex { //[-SUB_PACKAGE=physics.softbody]
+    void ArraySoftBodyVertex();
     boolean empty();
     long size();
     [Ref] SoftBodyVertex at(long inIndex);
@@ -850,6 +955,7 @@ interface ArraySoftBodyVertex { //[-SUB_PACKAGE=physics.softbody]
 };
 
 interface ArrayCollideShapeResult { //[-SUB_PACKAGE=physics.collision]
+    void ArrayCollideShapeResult();
     boolean empty();
     long size();
     [Ref] CollideShapeResult at(long inIndex);
@@ -860,6 +966,7 @@ interface ArrayCollideShapeResult { //[-SUB_PACKAGE=physics.collision]
 };
 
 interface ArrayCollidePointResult { //[-SUB_PACKAGE=physics.collision]
+    void ArrayCollidePointResult();
     boolean empty();
     long size();
     [Ref] CollidePointResult at(long inIndex);
@@ -870,6 +977,7 @@ interface ArrayCollidePointResult { //[-SUB_PACKAGE=physics.collision]
 };
 
 interface ArrayBodyID { //[-SUB_PACKAGE=physics.body]
+    void ArrayBodyID();
     boolean empty();
     long size();
     [Ref] BodyID at(long inIndex);
@@ -881,6 +989,7 @@ interface ArrayBodyID { //[-SUB_PACKAGE=physics.body]
 };
 
 interface ArrayBodyPtr { //[-SUB_PACKAGE=physics.body]
+    void ArrayBodyPtr();
     boolean empty();
     long size();
     Body at(long inIndex);
@@ -892,6 +1001,7 @@ interface ArrayBodyPtr { //[-SUB_PACKAGE=physics.body]
 };
 
 interface ArrayCharacterVirtualContact { //[-SUB_PACKAGE=physics.character]
+    void ArrayCharacterVirtualContact();
     boolean empty();
     long size();
     [Const, Ref] CharacterVirtualContact at(long inIndex);
@@ -961,6 +1071,7 @@ enum EConstraintSpace {                                         //[-SUB_PACKAGE=
 enum ESpringMode {                                              //[-SUB_PACKAGE=enums]
     "ESpringMode_FrequencyAndDamping",                          //[-RENAME=FrequencyAndDamping]
     "ESpringMode_StiffnessAndDamping",                          //[-RENAME=StiffnessAndDamping]
+    "ESpringMode_MassNormalizedStiffnessAndDamping"             //[-RENAME=MassNormalizedStiffnessAndDamping]
 };
 
 enum EOverrideMassProperties {                                  //[-SUB_PACKAGE=enums]
@@ -1056,7 +1167,8 @@ enum EConstraintSubType {                                       //[-SUB_PACKAGE=
 enum EMotorState {                                              //[-SUB_PACKAGE=enums]
     "EMotorState_Off",                                          //[-RENAME=Off]
     "EMotorState_Velocity",                                     //[-RENAME=Velocity]
-    "EMotorState_Position"                                      //[-RENAME=Position]
+    "EMotorState_Position",                                     //[-RENAME=Position]
+    "EMotorState_PositionAndVelocity"                           //[-RENAME=PositionAndVelocity]
 };
 
 enum ETransmissionMode {                                        //[-SUB_PACKAGE=enums]
@@ -1148,7 +1260,7 @@ interface PhysicsSystem {
     void AddConstraint(Constraint inConstraint);
     void RemoveConstraint(Constraint inConstraint);
     void SetContactListener(ContactListener inListener);
-    any GetContactListener();
+    ContactListener GetContactListener();
     void SetSoftBodyContactListener(SoftBodyContactListener inListener);
     SoftBodyContactListener GetSoftBodyContactListener();
     void OptimizeBroadPhase();
@@ -1189,6 +1301,7 @@ interface Factory {
 
 interface Vec3 {
     void Vec3();
+    void Vec3([Const, Ref] Float3 inV);
     void Vec3(float inX, float inY, float inZ);
     [Value] static Vec3 sZero();
     [Value] static Vec3 sOne();
@@ -1253,12 +1366,15 @@ interface Vec3 {
 
 interface Vec4 {
     void Vec4();
+    void Vec4([Const, Ref] Vec4 inV);
+    void Vec4([Ref] Vec3 inV, float inW);
     void Vec4(float inX, float inY, float inZ, float inW);
     [Value] static Vec4 sZero();
     [Value] static Vec4 sOne();
     [Value] static Vec4 sReplicate(float inV);
     [Value] static Vec4 sMin([Const, Ref] Vec4 inLHS, [Const, Ref] Vec4 inRHS);
     [Value] static Vec4 sMax([Const, Ref] Vec4 inLHS, [Const, Ref] Vec4 inRHS);
+    [Value] static Vec4 sClamp([Const, Ref] Vec4 inValue, [Const, Ref] Vec4 inMin, [Const, Ref] Vec4 inMax);
     [Value] static Vec4 sFusedMultiplyAdd([Const, Ref] Vec4 inMul1, [Const, Ref] Vec4 inMul2, [Const, Ref] Vec4 inAdd);
     [Value] static Vec4 sOr([Const, Ref] Vec4 inV1, [Const, Ref] Vec4 inV2);
     [Value] static Vec4 sXor([Const, Ref] Vec4 inV1, [Const, Ref] Vec4 inV2);
@@ -1274,7 +1390,10 @@ interface Vec4 {
     void Set(float inX, float inY, float inZ, float inW);
     [Operator="[]"] float GetComponent(unsigned long inCoordinate);
     boolean IsClose([Const, Ref] Vec4 inV, optional float inMaxDistSq);
+    boolean IsNearZero(optional float inMaxDistSq);
     boolean IsNormalized(optional float inTolerance);
+    long GetLowestComponentIndex();
+    long GetHighestComponentIndex();
     [Operator="=", Ref] Vec4 Set__0([Const, Ref] Vec4 other);
     [Operator="+=", Ref] Vec4 Add([Const, Ref] Vec4 inV);
     [Operator="-=", Ref] Vec4 Sub([Const, Ref] Vec4 inV);
@@ -1294,6 +1413,7 @@ interface Quat {
     [Value] static Quat sZero();
     [Value] static Quat sIdentity();
     [Value] static Quat sRotation([Const, Ref] Vec3 inRotation, float inAngle);
+    [Value] Vec3 GetAngularVelocity(float inDeltaTime);
     [Value] static Quat sFromTo([Const, Ref] Vec3 inFrom, [Const, Ref] Vec3 inTo);
     [Operator="=="] boolean Equals([Const, Ref] Quat inQ);
     [Operator="!="] boolean NotEquals([Const, Ref] Quat inQ);
@@ -1318,6 +1438,7 @@ interface Quat {
     void SetZ(float inZ);
     void SetW(float inW);
     void Set(float inX, float inY, float inZ, float inW);
+    [Const, Value] static Quat sMultiplyImaginary([Const, Ref] Vec3 inLHS, [Const, Ref] Quat inRHS);
     [Const, Value] Vec3 InverseRotate([Const, Ref] Vec3 inV);
     [Const, Value] Vec3 RotateAxisX();
     [Const, Value] Vec3 RotateAxisY();
@@ -1336,8 +1457,8 @@ interface Quat {
 
 interface Float3 {
     void Float3(float inX, float inY, float inZ);
-//    [Operator="=="] boolean Equals([Const, Ref] Float3 inV);
-//    [Operator="!="] boolean NotEquals([Const, Ref] Float3 inV);
+    [Operator="=="] boolean Equals([Const, Ref] Float3 inV);
+    [Operator="!="] boolean NotEquals([Const, Ref] Float3 inV);
 
     attribute float x;
     attribute float y;
@@ -1461,6 +1582,9 @@ interface OrientedBox {
     void OrientedBox();
     void OrientedBox([Const, Ref] Mat44 inOrientation, [Const, Ref] Vec3 inHalfExtents);
 
+    [BindTo="Overlaps"] boolean OverlapsAABox([Const, Ref] AABox inBox, optional float inEpsilon);
+    [BindTo="Overlaps"] boolean OverlapsOrientedBox([Const, Ref] OrientedBox inBox, optional float inEpsilon);
+
     [Value] attribute Mat44 mOrientation;
     [Value] attribute Vec3 mHalfExtents;
 };
@@ -1538,7 +1662,9 @@ interface Plane {
     [Const, Value] Plane sFromPointAndNormal([Const, Ref] Vec3 inPoint, [Const, Ref] Vec3 inNormal);
     [Const, Value] Plane sFromPointsCCW([Const, Ref] Vec3 inPoint1, [Const, Ref] Vec3 inPoint2, [Const, Ref] Vec3 inPoint3);
     [Const, Value] Plane Offset(float inDistance);
+    [Const, Value] Plane Scaled([Const, Ref] Vec3 inScale);
     [Const, Value] Plane GetTransformed([Const, Ref] Mat44 inTransform);
+    [Const, Value] Vec3 ProjectPointOnPlane([Const, Ref] Vec3 inPoint);
     float SignedDistance([Const, Ref] Vec3 inPoint);
 };
 
@@ -1660,7 +1786,7 @@ interface ShapeSettings { //[-SUB_PACKAGE=physics.collision.shape]
     [Value] ShapeResult Create();
     void ClearCachedResult();
 
-    attribute unsigned long long mUserData;
+    attribute unsigned long mUserData;
 };
 ShapeSettings implements RefTargetShapeSettings;
 
@@ -1675,15 +1801,15 @@ interface Shape {
     [Value] AABox GetLocalBounds();
     [Value] AABox GetWorldSpaceBounds([Const, Ref] Mat44 inCenterOfMassTransform, [Const, Ref] Vec3 inScale);
     [Value] Vec3 GetCenterOfMass();
-    unsigned long long GetUserData();
-    void SetUserData(unsigned long long inUserData);
+    unsigned long GetUserData();
+    void SetUserData(unsigned long inUserData);
     unsigned long GetSubShapeIDBitsRecursive();
     float GetInnerRadius();
     [Value] MassProperties GetMassProperties();
     [Const] Shape GetLeafShape([Const, Ref] SubShapeID inSubShapeID, [Ref] SubShapeID outRemainder);
     [Const] PhysicsMaterial GetMaterial([Const, Ref] SubShapeID inSubShapeID);
     [Value] Vec3 GetSurfaceNormal([Const, Ref] SubShapeID inSubShapeID, [Const, Ref] Vec3 inLocalSurfacePosition);
-    unsigned long long GetSubShapeUserData([Const, Ref] SubShapeID inSubShapeID);
+    unsigned long GetSubShapeUserData([Const, Ref] SubShapeID inSubShapeID);
     [Value] TransformedShape GetSubShapeTransformedShape([Const, Ref] SubShapeID inSubShapeID, [Const, Ref] Vec3 inPositionCOM, [Const, Ref] Quat inRotation, [Const, Ref] Vec3 inScale, [Ref] SubShapeID outRemainder);
     float GetVolume();
     boolean IsValidScale([Const, Ref] Vec3 inScale);
@@ -1704,6 +1830,7 @@ ConvexShapeSettings implements ShapeSettings;
 interface ConvexShape {
     float GetDensity();
     void SetDensity(float inDensity);
+    void SetMaterial([Const] PhysicsMaterial inMaterial);
 };
 ConvexShape implements Shape;
 
@@ -1753,6 +1880,26 @@ interface CylinderShape {
 };
 CylinderShape implements ConvexShape;
 
+// Tapered cylinder
+interface TaperedCylinderShapeSettings { //[-SUB_PACKAGE=physics.collision.shape]
+    void TaperedCylinderShapeSettings(float inHalfHeightOfTaperedCylinder, float inTopRadius, float inBottomRadius, optional float inConvexRadius, [Const] optional PhysicsMaterial inMaterial);
+
+    attribute float mHalfHeight;
+    attribute float mTopRadius;
+    attribute float mBottomRadius;
+    attribute float mConvexRadius;
+};
+TaperedCylinderShapeSettings implements ConvexShapeSettings;
+
+[NoDelete]
+interface TaperedCylinderShape {
+    float GetHalfHeight();
+    float GetTopRadius();
+    float GetBottomRadius();
+    float GetConvexRadius();
+};
+TaperedCylinderShape implements ConvexShape;
+
 // Capsule
 interface CapsuleShapeSettings { //[-SUB_PACKAGE=physics.collision.shape]
     void CapsuleShapeSettings(float inHalfHeight, float inRadius, [Const] optional PhysicsMaterial inMaterial);
@@ -1781,6 +1928,9 @@ TaperedCapsuleShapeSettings implements ConvexShapeSettings;
 
 [NoDelete]
 interface TaperedCapsuleShape {
+    float GetHalfHeight();
+    float GetTopRadius();
+    float GetBottomRadius();
 };
 TaperedCapsuleShape implements ConvexShape;
 
@@ -1834,7 +1984,7 @@ MutableCompoundShapeSettings implements CompoundShapeSettings;
 
 [NoDelete]
 interface MutableCompoundShape {
-    unsigned long AddShape([Const, Ref] Vec3 inPosition, [Const, Ref] Quat inRotation, Shape inShape, unsigned long inUserData);
+    unsigned long AddShape([Const, Ref] Vec3 inPosition, [Const, Ref] Quat inRotation, Shape inShape, unsigned long inUserData, optional long inIndex);
     void RemoveShape(unsigned long inIndex);
     void ModifyShape(unsigned long inIndex, [Const, Ref] Vec3 inPosition, [Const, Ref] Quat inRotation);
     void ModifyShape(unsigned long inIndex, [Const, Ref] Vec3 inPosition, [Const, Ref] Quat inRotation, Shape inShape);
@@ -1871,7 +2021,7 @@ ScaledShape implements DecoratedShape;
 
 // Offset COM
 interface OffsetCenterOfMassShapeSettings { //[-SUB_PACKAGE=physics.collision.shape]
-//    void OffsetCenterOfMassShapeSettings([Ref, Const] Vec3 inOffset, ShapeSettings inShape);
+    void OffsetCenterOfMassShapeSettings([Ref, Const] Vec3 inOffset, ShapeSettings inShape);
     void OffsetCenterOfMassShapeSettings([Ref, Const] Vec3 inOffset, [Const] Shape inShape);
 
     [Value] attribute Vec3 mOffset;
@@ -1918,6 +2068,7 @@ MeshShapeSettings implements ShapeSettings;
 
 [NoDelete]
 interface MeshShape {
+    unsigned long GetTriangleUserData([Const, Ref] SubShapeID inSubShapeID);
 };
 MeshShape implements Shape;
 
@@ -2014,9 +2165,11 @@ interface Constraint {
     void SetEnabled(boolean inEnabled);
     boolean GetEnabled();
     boolean IsActive();
-    unsigned long long GetUserData();
-    void SetUserData(unsigned long long inUserData);
+    unsigned long GetUserData();
+    void SetUserData(unsigned long inUserData);
     void ResetWarmStart();
+    void SaveState([Ref] StateRecorder inStream);
+    void RestoreState([Ref] StateRecorder inStream);
 };
 
 // Two body constraint
@@ -2137,6 +2290,12 @@ HingeConstraintSettings implements TwoBodyConstraintSettings;
 
 [NoDelete]
 interface HingeConstraint {
+    [Value] Vec3 GetLocalSpacePoint1();
+    [Value] Vec3 GetLocalSpacePoint2();
+    [Value] Vec3 GetLocalSpaceHingeAxis1();
+    [Value] Vec3 GetLocalSpaceHingeAxis2();
+    [Value] Vec3 GetLocalSpaceNormalAxis1();
+    [Value] Vec3 GetLocalSpaceNormalAxis2();
     float GetCurrentAngle();
     void SetMaxFrictionTorque(float inFrictionTorque);
     float GetMaxFrictionTorque();
@@ -2147,6 +2306,7 @@ interface HingeConstraint {
     float GetTargetAngularVelocity();
     void SetTargetAngle(float inAngle);
     float GetTargetAngle();
+    void SetTargetOrientationBS([Const, Ref] Quat inOrientation);
     void SetLimits(float inLimitsMin, float inLimitsMax);
     float GetLimitsMin();
     float GetLimitsMax();
@@ -2367,6 +2527,12 @@ interface PathConstraintPath {
     void Release();
 };
 
+interface PathConstraintPathHermite { //[-SUB_PACKAGE=physics.constraints]
+    void PathConstraintPathHermite();
+    void AddPoint([Const, Ref] Vec3 inPosition, [Const, Ref] Vec3 inTangent, [Const, Ref] Vec3 inNormal);
+};
+PathConstraintPathHermite implements PathConstraintPath;
+
 [NoDelete]
 interface PathConstraint {
     void SetPath([Const] PathConstraintPath inPath, float inPathFraction);
@@ -2485,6 +2651,7 @@ interface MotionProperties {
     [Value] Vec3 GetInverseInertiaDiagonal();
     [Value] Quat GetInertiaRotation();
     void SetInverseInertia([Const, Ref] Vec3 inInvI, [Const, Ref] Quat inRotation);
+    void ScaleToMass(float inMass);
     [Value] Mat44 GetLocalSpaceInverseInertia();
     [Value] Mat44 GetInverseInertiaForRotation([Const, Ref] Mat44 inRotation);
     [Value] Vec3 MultiplyWorldSpaceInverseInertiaByVector([Const, Ref] Quat inRotation, [Const, Ref] Vec3 inV);
@@ -2595,12 +2762,16 @@ interface Body {
     [Value] AABox GetWorldSpaceBounds();
     [Value] TransformedShape GetTransformedShape();
     [Value] BodyCreationSettings GetBodyCreationSettings();
+    void ApplyBodyCreationSettings([Const, Ref] BodyCreationSettings inBodyCreationSettings, [Const, Ref] BroadPhaseLayerInterface inBPLInterface);
     [Value] SoftBodyCreationSettings GetSoftBodyCreationSettings();
+    void ApplySoftBodyCreationSettings([Const, Ref] SoftBodyCreationSettings inSoftBodyCreationSettings, [Const, Ref] BroadPhaseLayerInterface inBPLInterface);
     MotionProperties GetMotionProperties();
     [Const, Value] Vec3 GetWorldSpaceSurfaceNormal([Const, Ref] SubShapeID inSubShapeID, [Const, Ref] Vec3 inPosition);
-    unsigned long long GetUserData();
-    void SetUserData(unsigned long long inUserData);
+    unsigned long GetUserData();
+    void SetUserData(unsigned long inUserData);
     void SetCollisionGroup([Const, Ref] CollisionGroup inGroup);
+    void SaveState([Ref] StateRecorder inStream);
+    void RestoreState([Ref] StateRecorder inStream);
 };
 
 interface BodyInterface {
@@ -2672,8 +2843,14 @@ interface BodyInterface {
     float GetFriction([Const, Ref] BodyID inBodyID);
     void SetGravityFactor([Const, Ref] BodyID inBodyID, float inFactor);
     float GetGravityFactor([Const, Ref] BodyID inBodyID);
+    void SetMaxLinearVelocity([Const, Ref] BodyID inBodyID, float inLinearVelocity);
+    float GetMaxLinearVelocity([Const, Ref] BodyID inBodyID);
+    void SetMaxAngularVelocity([Const, Ref] BodyID inBodyID, float inAngularVelocity);
+    float GetMaxAngularVelocity([Const, Ref] BodyID inBodyID);
     void SetUseManifoldReduction([Const, Ref] BodyID inBodyID, boolean inUseReduction);
     boolean GetUseManifoldReduction([Const, Ref] BodyID inBodyID);
+    void SetIsSensor([Const, Ref] BodyID inBodyID, boolean inIsSensor);
+    boolean IsSensor([Const, Ref] BodyID inBodyID);
     void SetCollisionGroup([Const, Ref] BodyID inBodyID, [Const, Ref] CollisionGroup inCollisionGroup);
     [Const, Ref] CollisionGroup GetCollisionGroup([Const, Ref] BodyID inBodyID);
     void AddForce([Const, Ref] BodyID inBodyID, [Const, Ref] Vec3 inForce, EActivation inActivationMode);
@@ -2685,8 +2862,8 @@ interface BodyInterface {
     void AddImpulse([Const, Ref] BodyID inBodyID, [Const, Ref] Vec3 inImpulse, [Const, Ref] Vec3 inPosition);
     void AddAngularImpulse([Const, Ref] BodyID inBodyID, [Const, Ref] Vec3 inAngularImpulse);
     [Value] TransformedShape GetTransformedShape([Const, Ref] BodyID inBodyID);
-    unsigned long long GetUserData([Const, Ref] BodyID inBodyID);
-    void SetUserData([Const, Ref] BodyID inBodyID, unsigned long long inUserData);
+    unsigned long GetUserData([Const, Ref] BodyID inBodyID);
+    void SetUserData([Const, Ref] BodyID inBodyID, unsigned long inUserData);
     [Const] PhysicsMaterial GetMaterial([Const, Ref] BodyID inBodyID, [Const, Ref] SubShapeID inSubShapeID);
     void InvalidateContactCache([Const, Ref] BodyID inBodyID);
 };
@@ -2706,6 +2883,21 @@ interface StateRecorderFilterJS {
 interface StateRecorder {
     void SetValidating(boolean inValidating);
     boolean IsValidating();
+    void SetIsLastPart(boolean inIsLastPart);
+    boolean IsLastPart();
+};
+
+interface StateRecorderEm {
+};
+StateRecorderEm implements StateRecorder;
+
+[JSImplementation="StateRecorderEm"]
+interface StateRecorderJS {
+    void StateRecorderJS();
+    void ReadBytes(any outData, unsigned long inNumBytes);
+    void WriteBytes([Const] any inData, unsigned long inNumBytes);
+    [Const] boolean IsEOF();
+    [Const] boolean IsFailed();
 };
 
 interface StateRecorderImpl {
@@ -2763,6 +2955,7 @@ interface PhysicsSettings {
     attribute float mBodyPairCacheCosMaxDeltaRotationDiv2;
     attribute float mContactNormalCosMaxDeltaRotation;
     attribute float mContactPointPreserveLambdaMaxDistSq;
+    attribute float mInternalEdgeRemovalVertexToleranceSq;
     attribute long mNumVelocitySteps;
     attribute long mNumPositionSteps;
     attribute float mMinVelocityForRestitution;
@@ -2843,6 +3036,8 @@ interface SoftBodyManifold {
     [Value] Vec3 GetLocalContactPoint([Const, Ref] SoftBodyVertex inVertex);
     [Value] Vec3 GetContactNormal([Const, Ref] SoftBodyVertex inVertex);
     [Value] BodyID GetContactBodyID([Const, Ref] SoftBodyVertex inVertex);
+    unsigned long GetNumSensorContacts();
+    [Value] BodyID GetSensorContactBodyID(unsigned long inIndex);
 };
 
 interface SoftBodyContactSettings { //[-SUB_PACKAGE=physics.softbody]
@@ -2856,7 +3051,7 @@ interface SoftBodyContactListener { //[-SUB_PACKAGE=physics.softbody]
 };
 
 interface RayCastBodyCollector { //[-SUB_PACKAGE=physics.softbody]
-//    void Reset();
+    [BindTo="Reset"] void ResetNative();
     void SetContext([Const] TransformedShape inContext);
     [Const] TransformedShape GetContext();
     void UpdateEarlyOutFraction(float inFraction);
@@ -2875,7 +3070,7 @@ interface RayCastBodyCollectorJS {
 };
 
 interface CollideShapeBodyCollector { //[-SUB_PACKAGE=physics.softbody]
-//    void Reset();
+    [BindTo="Reset"] void ResetNative();
     void SetContext([Const] TransformedShape inContext);
     [Const] TransformedShape GetContext();
     void UpdateEarlyOutFraction(float inFraction);
@@ -2894,7 +3089,7 @@ interface CollideShapeBodyCollectorJS {
 };
 
 interface CastShapeBodyCollector { //[-SUB_PACKAGE=physics.softbody]
-//    void Reset();
+    [BindTo="Reset"] void ResetNative();
     void SetContext([Const] TransformedShape inContext);
     [Const] TransformedShape GetContext();
     void UpdateEarlyOutFraction(float inFraction);
@@ -2919,10 +3114,12 @@ interface BroadPhaseQuery {
     void CollidePoint([Const, Ref] Vec3 inPoint, [Ref] CollideShapeBodyCollector ioCollector, [Const, Ref] optional BroadPhaseLayerFilter inBroadPhaseFilter, [Const, Ref] optional ObjectLayerFilter inObjectLayerFilter);
     void CollideOrientedBox([Const, Ref] OrientedBox inBox, [Ref] CollideShapeBodyCollector ioCollector, [Const, Ref] optional BroadPhaseLayerFilter inBroadPhaseFilter, [Const, Ref] optional ObjectLayerFilter inObjectLayerFilter);
     void CastAABox([Const, Ref] AABoxCast inBox, [Ref] CastShapeBodyCollector ioCollector, [Const, Ref] optional BroadPhaseLayerFilter inBroadPhaseFilter, [Const, Ref] optional ObjectLayerFilter inObjectLayerFilter);
+    [Const, Value] AABox GetBounds();
 };
 
 interface RayCastSettings { //[-SUB_PACKAGE=physics.collision]
     void RayCastSettings();
+    void SetBackFaceMode(EBackFaceMode inBackFaceMode);
 
     attribute EBackFaceMode mBackFaceModeTriangles;
     attribute EBackFaceMode mBackFaceModeConvex;
@@ -2930,7 +3127,7 @@ interface RayCastSettings { //[-SUB_PACKAGE=physics.collision]
 };
 
 interface CastRayCollector { //[-SUB_PACKAGE=physics.softbody]
-//    void Reset();
+    [BindTo="Reset"] void ResetNative();
     void SetContext([Const] TransformedShape inContext);
     [Const] TransformedShape GetContext();
     void UpdateEarlyOutFraction(float inFraction);
@@ -2957,7 +3154,7 @@ interface CollidePointResult {
 };
 
 interface CollidePointCollector { //[-SUB_PACKAGE=physics.softbody]
-//    void Reset();
+    [BindTo="Reset"] void ResetNative();
     void SetContext([Const] TransformedShape inContext);
     [Const] TransformedShape GetContext();
     void UpdateEarlyOutFraction(float inFraction);
@@ -2989,11 +3186,12 @@ interface CollideShapeSettings { //[-SUB_PACKAGE=physics.collision]
 
     attribute float mMaxSeparationDistance;
     attribute EBackFaceMode mBackFaceMode;
+    attribute float mInternalEdgeRemovalVertexToleranceSq;
 };
 CollideShapeSettings implements CollideSettingsBase;
 
 interface CollideShapeCollector { //[-SUB_PACKAGE=physics.softbody]
-//    void Reset();
+    [BindTo="Reset"] void ResetNative();
     void SetContext([Const] TransformedShape inContext);
     [Const] TransformedShape GetContext();
     void UpdateEarlyOutFraction(float inFraction);
@@ -3015,6 +3213,7 @@ interface CollideShapeCollectorJS {
 interface ShapeCastSettings { //[-SUB_PACKAGE=physics.collision.shape]
     void ShapeCastSettings();
 
+    attribute float mExtraConvexRadius;
     attribute EBackFaceMode mBackFaceModeTriangles;
     attribute EBackFaceMode mBackFaceModeConvex;
     attribute boolean mUseShrunkenShapeAndConvexRadius;
@@ -3031,7 +3230,7 @@ interface ShapeCastResult { //[-SUB_PACKAGE=physics.collision.shape]
 ShapeCastResult implements CollideShapeResult;
 
 interface CastShapeCollector { //[-SUB_PACKAGE=physics.softbody]
-//    void Reset();
+    [BindTo="Reset"] void ResetNative();
     void SetContext([Const] TransformedShape inContext);
     [Const] TransformedShape GetContext();
     void UpdateEarlyOutFraction(float inFraction);
@@ -3050,7 +3249,7 @@ interface CastShapeCollectorJS {
     void AddHit([Const, Ref] ShapeCastResult inResult);
 };
 interface TransformedShapeCollector { //[-SUB_PACKAGE=physics.softbody]
-//    void Reset();
+    [BindTo="Reset"] void ResetNative();
     void SetContext([Const] TransformedShape inContext);
     [Const] TransformedShape GetContext();
     void UpdateEarlyOutFraction(float inFraction);
@@ -3074,6 +3273,7 @@ interface NarrowPhaseQuery {
     [BindTo="CastRay"] void CastRay__2([Const, Ref] RRayCast inRay, [Const, Ref] RayCastSettings inRayCastSettings, [Ref] CastRayCollector ioCollector, [Const, Ref] optional BroadPhaseLayerFilter inBroadPhaseLayerFilter, [Const, Ref] optional ObjectLayerFilter inObjectLayerFilter, [Const, Ref] optional BodyFilter inBodyFilter, [Const, Ref] optional ShapeFilter inShapeFilter);
     void CollidePoint([Const, Ref] Vec3 inPoint, [Ref] CollidePointCollector ioCollector, [Const, Ref] BroadPhaseLayerFilter inBroadPhaseLayerFilter, [Const, Ref] ObjectLayerFilter inObjectLayerFilter, [Const, Ref] BodyFilter inBodyFilter, [Const, Ref] ShapeFilter inShapeFilter);
     void CollideShape([Const] Shape inShape, [Const, Ref] Vec3 inShapeScale, [Const, Ref] Mat44 inCenterOfMassTransform, [Const, Ref] CollideShapeSettings inCollideShapeSettings, [Const, Ref] Vec3 inBaseOffset, [Ref] CollideShapeCollector ioCollector, [Const, Ref] BroadPhaseLayerFilter inBroadPhaseLayerFilter, [Const, Ref] ObjectLayerFilter inObjectLayerFilter, [Const, Ref] BodyFilter inBodyFilter, [Const, Ref] ShapeFilter inShapeFilter);
+    void CollideShapeWithInternalEdgeRemoval([Const] Shape inShape, [Const, Ref] Vec3 inShapeScale, [Const, Ref] Mat44 inCenterOfMassTransform, [Const, Ref] CollideShapeSettings inCollideShapeSettings, [Const, Ref] Vec3 inBaseOffset, [Ref] CollideShapeCollector ioCollector, [Const, Ref] BroadPhaseLayerFilter inBroadPhaseLayerFilter, [Const, Ref] ObjectLayerFilter inObjectLayerFilter, [Const, Ref] BodyFilter inBodyFilter, [Const, Ref] ShapeFilter inShapeFilter);
     void CastShape([Const, Ref] RShapeCast inShapeCast, [Const, Ref] ShapeCastSettings inShapeCastSettings, [Const, Ref] Vec3 inBaseOffset, [Ref] CastShapeCollector ioCollector, [Const, Ref] BroadPhaseLayerFilter inBroadPhaseLayerFilter, [Const, Ref] ObjectLayerFilter inObjectLayerFilter, [Const, Ref] BodyFilter inBodyFilter, [Const, Ref] ShapeFilter inShapeFilter);
     void CollectTransformedShapes([Const, Ref] AABox inBox, [Ref] TransformedShapeCollector ioCollector, [Const, Ref] BroadPhaseLayerFilter inBroadPhaseLayerFilter, [Const, Ref] ObjectLayerFilter inObjectLayerFilter, [Const, Ref] BodyFilter inBodyFilter, [Const, Ref] ShapeFilter inShapeFilter);
 };
@@ -3082,7 +3282,7 @@ interface PhysicsStepListenerContext { //[-SUB_PACKAGE=physics]
     attribute float mDeltaTime;
     attribute boolean mIsFirstStep;
     attribute boolean mIsLastStep;
-//    attribute PhysicsSystem mPhysicsSystem; // Dont think we need this
+    attribute PhysicsSystem mPhysicsSystem;
 };
 
 interface PhysicsStepListener {
@@ -3097,11 +3297,15 @@ interface PhysicsStepListenerJS {
 interface BodyActivationListener {
 };
 
-[JSImplementation="BodyActivationListener"]
+interface BodyActivationListenerEm {
+};
+BodyActivationListenerEm implements BodyActivationListener;
+
+[JSImplementation="BodyActivationListenerEm"]
 interface BodyActivationListenerJS {
     void BodyActivationListenerJS();
-    void OnBodyActivated([Const, Ref] BodyID inBodyID, unsigned long long inBodyUserData);
-    void OnBodyDeactivated([Const, Ref] BodyID inBodyID, unsigned long long inBodyUserData);
+    void OnBodyActivated([Const, Ref] BodyID inBodyID, unsigned long inBodyUserData);
+    void OnBodyDeactivated([Const, Ref] BodyID inBodyID, unsigned long inBodyUserData);
 };
 
 interface BodyIDVector { //[-SUB_PACKAGE=physics.body]
@@ -3129,6 +3333,8 @@ interface MassProperties {
 };
 
 interface BodyCreationSettings {
+    void BodyCreationSettings();
+    void BodyCreationSettings([Const] Shape inShape, [Ref] Vec3 inPosition, [Ref] Quat inRotation, EMotionType inMotionType, unsigned long inObjectLayer);
     [Const] ShapeSettings GetShapeSettings();
     void SetShapeSettings([Const] ShapeSettings inShape);
     [Value] ShapeResult ConvertShapeSettings();
@@ -3141,7 +3347,7 @@ interface BodyCreationSettings {
     [Value] attribute Quat mRotation;
     [Value] attribute Vec3 mLinearVelocity;
     [Value] attribute Vec3 mAngularVelocity;
-    attribute unsigned long long mUserData;
+    attribute unsigned long mUserData;
     attribute unsigned long mObjectLayer;
     [Value] attribute CollisionGroup mCollisionGroup;
     attribute EMotionType mMotionType;
@@ -3176,6 +3382,7 @@ interface SoftBodySharedSettings { //[-SUB_PACKAGE=physics.softbody]
     void CreateConstraints(SoftBodySharedSettingsVertexAttributes inVertexAttributes, unsigned long inVertexAttributesLength, optional SoftBodySharedSettings_EBendType inBendType, optional float inAngleTolerance);
     void AddFace([Const, Ref] SoftBodySharedSettingsFace inFace);
     void CalculateEdgeLengths();
+    void CalculateRodProperties();
     void CalculateLRALengths();
     void CalculateBendConstraintConstants();
     void CalculateVolumeConstraintVolumes();
@@ -3191,8 +3398,9 @@ interface SoftBodySharedSettings { //[-SUB_PACKAGE=physics.softbody]
     [Value] attribute ArraySoftBodySharedSettingsSkinned mSkinnedConstraints;
     [Value] attribute ArraySoftBodySharedSettingsInvBind mInvBindMatrices;
     [Value] attribute ArraySoftBodySharedSettingsLRA mLRAConstraints;
+    [Value] attribute ArraySoftBodySharedSettingsRodStretchShear mRodStretchShearConstraints;
+    [Value] attribute ArraySoftBodySharedSettingsRodBendTwist mRodBendTwistConstraints;
     [Value] attribute PhysicsMaterialList mMaterials;
-    attribute float mVertexRadius;
 };
 
 interface SoftBodyCreationSettings { //[-SUB_PACKAGE=physics.softbody]
@@ -3200,7 +3408,7 @@ interface SoftBodyCreationSettings { //[-SUB_PACKAGE=physics.softbody]
 
     [Value] attribute Vec3 mPosition;
     [Value] attribute Quat mRotation;
-    attribute unsigned long long mUserData;
+    attribute unsigned long mUserData;
     attribute unsigned long mObjectLayer;
     [Value] attribute CollisionGroup mCollisionGroup;
     attribute unsigned long mNumIterations;
@@ -3210,9 +3418,11 @@ interface SoftBodyCreationSettings { //[-SUB_PACKAGE=physics.softbody]
     attribute float mFriction;
     attribute float mPressure;
     attribute float mGravityFactor;
+    attribute float mVertexRadius;
     attribute boolean mUpdatePosition;
     attribute boolean mMakeRotationIdentity;
     attribute boolean mAllowSleeping;
+    attribute boolean mFacesDoubleSided;
 };
 
 interface SoftBodyVertex {
@@ -3226,6 +3436,8 @@ interface SoftBodyMotionProperties {
     [Const] SoftBodySharedSettings GetSettings();
     [Ref] ArraySoftBodyVertex GetVertices();
     [Ref] SoftBodyVertex GetVertex(unsigned long inIndex);
+    [Value] Quat GetRodRotation(unsigned long inIndex);
+    [Value] Vec3 GetRodAngularVelocity(unsigned long inIndex);
     [Const, Ref] PhysicsMaterialList GetMaterials();
     [Const, Ref] ArraySoftBodySharedSettingsFace GetFaces();
     [Const, Ref] SoftBodySharedSettingsFace GetFace(unsigned long inIndex);
@@ -3239,6 +3451,8 @@ interface SoftBodyMotionProperties {
     void SetEnableSkinConstraints(boolean inEnableSkinConstraints);
     float GetSkinnedMaxDistanceMultiplier();
     void SetSkinnedMaxDistanceMultiplier(float inSkinnedMaxDistanceMultiplier);
+    float GetVertexRadius();
+    void SetVertexRadius(float inVertexRadius);
     [Const, Ref] AABox GetLocalBounds();
     void CustomUpdate(float inDeltaTime, [Ref] Body ioSoftBody, [Ref] PhysicsSystem inSystem);
     void SkinVertices([Const, Ref] Mat44 inRootTransform, Mat44MemRef inJointMatrices, unsigned long inNumJoints, boolean inHardSkinAll, [Ref] TempAllocator ioTempAllocator);
@@ -3307,6 +3521,7 @@ interface CharacterVsCharacterCollision { //[-SUB_PACKAGE=physics.character]
 };
 
 interface CharacterVsCharacterCollisionSimple { //[-SUB_PACKAGE=physics.character]
+    void CharacterVsCharacterCollisionSimple();
     void Add(CharacterVirtual inCharacter);
     void Remove(CharacterVirtual inCharacter);
 };
@@ -3339,11 +3554,12 @@ interface CharacterVirtualContact { //[-SUB_PACKAGE=physics.character]
     attribute EMotionType mMotionTypeB;
     attribute boolean mIsSensorB;
     [Const] attribute CharacterVirtual mCharacterB;
-    attribute unsigned long long mUserData;
+    attribute unsigned long mUserData;
     [Const] attribute PhysicsMaterial mMaterial;
     attribute boolean mHadCollision;
     attribute boolean mWasDiscarded;
     attribute boolean mCanPushCharacter;
+    attribute boolean mIsBackFacingContact;
 };
 
 [NoDelete]
@@ -3355,6 +3571,8 @@ interface CharacterBase {
     float GetCosMaxSlopeAngle();
     void SetUp([Const, Ref] Vec3 inUp);
     [Value] Vec3 GetUp();
+    void SetSupportingVolume([Const, Ref] Plane inVolume);
+    [Value] Plane GetSupportingVolume();
     [Const] Shape GetShape();
     EGroundState GetGroundState();
     boolean IsSlopeTooSteep([Ref] Vec3 inNormal);
@@ -3364,6 +3582,8 @@ interface CharacterBase {
     [Value] Vec3 GetGroundVelocity();
     [Const] PhysicsMaterial GetGroundMaterial();
     [Value] BodyID GetGroundBodyID();
+    void SaveState([Ref] StateRecorder inStream);
+    void RestoreState([Ref] StateRecorder inStream);
 };
 
 interface CharacterVirtual {
@@ -3371,7 +3591,7 @@ interface CharacterVirtual {
     [Const, Ref] CharacterID GetID();
     void SetListener(CharacterContactListener inListener);
     void SetCharacterVsCharacterCollision(CharacterVsCharacterCollision inCharacterVsCharacterCollision);
-    any GetListener();
+    [BindTo="GetListener"] any GetListenerNative();
     [Value] Vec3 GetLinearVelocity();
     void SetLinearVelocity([Const, Ref] Vec3 inLinearVelocity);
     [Value] Vec3 GetPosition();
@@ -3395,8 +3615,8 @@ interface CharacterVirtual {
     boolean GetMaxHitsExceeded();
     [Value] Vec3 GetShapeOffset();
     void SetShapeOffset([Const, Ref] Vec3 inShapeOffset);
-    unsigned long long GetUserData();
-    void SetUserData(unsigned long long inUserData);
+    unsigned long GetUserData();
+    void SetUserData(unsigned long inUserData);
     [Value] BodyID GetInnerBodyID();
     void StartTrackingContactChanges();
     void FinishTrackingContactChanges();
@@ -3429,7 +3649,7 @@ interface CharacterSettings {
 CharacterSettings implements CharacterBaseSettings;
 
 interface Character {
-    void Character([Const] CharacterSettings inSettings, [Const, Ref] RVec3 inPosition, [Const, Ref] Quat inRotation, unsigned long long inUserData, PhysicsSystem inSystem);
+    void Character([Const] CharacterSettings inSettings, [Const, Ref] RVec3 inPosition, [Const, Ref] Quat inRotation, unsigned long inUserData, PhysicsSystem inSystem);
     void AddToPhysicsSystem(optional EActivation inActivationMode, optional boolean inLockBodies);
     void RemoveFromPhysicsSystem(optional boolean inLockBodies);
     void Activate(optional boolean inLockBodies);
@@ -3491,6 +3711,11 @@ interface DefaultBroadPhaseLayerFilter { //[-SUB_PACKAGE=physics.collision.broad
 };
 DefaultBroadPhaseLayerFilter implements BroadPhaseLayerFilter;
 
+interface SpecifiedBroadPhaseLayerFilter { //[-SUB_PACKAGE=physics.collision.broadphase]
+    void SpecifiedBroadPhaseLayerFilter([Const, Ref] BroadPhaseLayer inBroadPhaseLayer);
+};
+SpecifiedBroadPhaseLayerFilter implements BroadPhaseLayerFilter;
+
 interface ObjectLayerFilter { //[-SUB_PACKAGE=physics.collision]
     void ObjectLayerFilter();
 };
@@ -3503,7 +3728,7 @@ interface ObjectLayerFilterJS {
 
 interface ObjectLayerPairFilter { //[-SUB_PACKAGE=physics.collision]
     void ObjectLayerPairFilter();
-//    boolean ShouldCollide(unsigned long inLayer1, unsigned long inLayer2);
+    [BindTo="ShouldCollide"] boolean ShouldCollideNative(unsigned long inLayer1, unsigned long inLayer2);
 };
 
 [JSImplementation="ObjectLayerPairFilter"]
@@ -3561,6 +3786,12 @@ interface ShapeFilterCallbackImpl {
     [Const] boolean ShouldCollide_Shape([Const] Shape inShape1, [Const, Ref] SubShapeID inSubShapeIDOfShape1, [Const] Shape inShape2, [Const, Ref] SubShapeID inSubShapeIDOfShape2);
 };
 
+[JSImplementation="SimShapeFilter"]
+interface SimShapeFilterJS {
+    void SimShapeFilterJS();
+    [Const] boolean ShouldCollide([Const, Ref] Body inBody1, [Const] Shape inShape1, [Const, Ref] SubShapeID inSubShapeIDOfShape1, [Const, Ref] Body inBody2, [Const] Shape inShape2, [Const, Ref] SubShapeID inSubShapeIDOfShape2);
+};
+
 interface LinearCurve {
     void LinearCurve();
     void Clear();
@@ -3609,7 +3840,9 @@ VehicleConstraintSettings implements ConstraintSettings;
 interface VehicleConstraint {
     void VehicleConstraint([Ref] Body inVehicleBody, [Const, Ref] VehicleConstraintSettings inSettings);
     void SetMaxPitchRollAngle(float inMaxPitchRollAngle);
+    float GetMaxPitchRollAngle();
     void SetVehicleCollisionTester([Const] VehicleCollisionTester inTester);
+    [Const] VehicleCollisionTester GetVehicleCollisionTester();
     void OverrideGravity([Const, Ref] Vec3 inGravity);
     boolean IsGravityOverridden();
     [Value] Vec3 GetGravityOverride();
@@ -3784,7 +4017,7 @@ interface TrackedVehicleController {
     float GetBrakeInput();
     [Ref] VehicleEngine GetEngine();
     [Ref] VehicleTransmission GetTransmission();
-//    VehicleTrack[] GetTracks();
+    [Ref] ArrayVehicleTrack GetTracks();
 };
 TrackedVehicleController implements VehicleController;
 
@@ -3901,6 +4134,8 @@ interface SkeletalAnimation {
     void ScaleJoints(float inScale);
     void Sample(float inTime, [Ref] SkeletonPose ioPose);
     [Ref] ArraySkeletonAnimatedJoint GetAnimatedJoints();
+    boolean IsLooping();
+    void SetIsLooping(boolean inIsLooping);
 };
 
 interface SkeletonPose {
@@ -3920,13 +4155,14 @@ interface SkeletonPose {
 interface RagdollSettings { //[-SUB_PACKAGE=physics.raddoll]
     void RagdollSettings();
     boolean Stabilize();
-    Ragdoll CreateRagdoll(long inCollisionGroup, long inUserData, PhysicsSystem inSystem);
+    Ragdoll CreateRagdoll(long inCollisionGroup, unsigned long inUserData, PhysicsSystem inSystem);
     Skeleton GetSkeleton();
     void DisableParentChildCollisions([Const] optional Mat44MemRef inJointMatrices, optional float inMinSeparationDistance);
+    void CalculateConstraintPriorities(optional long inBasePriority);
     void CalculateBodyIndexToConstraintIndex();
     void CalculateConstraintIndexToBodyIdxPair();
 
-//    attribute Skeleton mSkeleton;
+    attribute Skeleton mSkeleton;
     [Value] attribute ArrayRagdollPart mParts;
     [Value] attribute ArrayRagdollAdditionalConstraint mAdditionalConstraints;
 };
@@ -3942,7 +4178,8 @@ interface Ragdoll {
     void GetPose([Ref] SkeletonPose outPose, optional boolean inLockBodies);
     void ResetWarmStart();
     void DriveToPoseUsingKinematics([Const, Ref] SkeletonPose inPose, float inDeltaTime, optional boolean inLockBodies);
-    void DriveToPoseUsingMotors([Const, Ref] SkeletonPose inPose);
+    [BindTo="DriveToPoseUsingMotors"] void DriveToPoseUsingMotors__0([Const, Ref] SkeletonPose inPose);
+    [BindTo="DriveToPoseUsingMotors"] void DriveToPoseUsingMotors__1([Const, Ref] SkeletonPose inPrevPose, [Const, Ref] SkeletonPose inPose, float inDeltaTime);
     void SetLinearAndAngularVelocity([Const, Ref] Vec3 inLinearVelocity, [Const, Ref] Vec3 inAngularVelocity, optional boolean inLockBodies);
     void SetLinearVelocity([Const, Ref] Vec3 inLinearVelocity, optional boolean inLockBodies);
     void AddLinearVelocity([Const, Ref] Vec3 inLinearVelocity, optional boolean inLockBodies);
@@ -3966,17 +4203,16 @@ interface BroadPhaseLayer {
     unsigned short GetValue();
 };
 
-// TODO is this needed?
-//interface BroadPhaseLayerInterfaceEm {
-//};
-//BroadPhaseLayerInterfaceEm implements BroadPhaseLayerInterface;
-//
-//[JSImplementation="BroadPhaseLayerInterfaceEm"]
-//interface BroadPhaseLayerInterfaceJS {
-//    void BroadPhaseLayerInterfaceJS();
-//    [Const] unsigned long GetNumBroadPhaseLayers();
-//    [Const] unsigned short GetBPLayer(unsigned long inLayer); // Unfortunately the C++ version of GetBroadPhaseLayer is not compatible with JS so we have to use a different name and use an unsigned short instead of a BroadPhaseLayer
-//};
+interface BroadPhaseLayerInterfaceEm {
+};
+BroadPhaseLayerInterfaceEm implements BroadPhaseLayerInterface;
+
+[JSImplementation="BroadPhaseLayerInterfaceEm"]
+interface BroadPhaseLayerInterfaceJS {
+    void BroadPhaseLayerInterfaceJS();
+    [BindTo="GetNumBroadPhaseLayers", Const] unsigned long GetNumBroadPhaseLayersCallback();
+    [Const] unsigned short GetBPLayer(unsigned long inLayer);
+};
 
 interface BroadPhaseLayerInterfaceTable {
     void BroadPhaseLayerInterfaceTable(unsigned long inNumObjectLayers, unsigned long inNumBroadPhaseLayers);
@@ -4015,3 +4251,38 @@ interface ObjectLayerPairFilterMask {
     static unsigned long sGetMask(unsigned long inObjectLayer);
 };
 ObjectLayerPairFilterMask implements ObjectLayerPairFilter;
+
+interface AssertFailedHandler {
+};
+
+[JSImplementation="AssertFailedHandler"]
+interface AssertFailedHandlerImpl {
+    void AssertFailedHandlerImpl();
+    void OnAssertFailed([Const] NativeString inExpression, [Const] NativeString inMessage, [Const] NativeString inFile, unsigned long inLine);
+};
+
+interface JoltSettings {
+    void JoltSettings();
+
+    attribute unsigned long mMaxBodies;
+    attribute unsigned long mMaxBodyPairs;
+    attribute unsigned long mMaxContactConstraints;
+    attribute unsigned long mTempAllocatorSize;
+    attribute unsigned long mMaxWorkerThreads;
+    attribute BroadPhaseLayerInterface mBroadPhaseLayerInterface;
+    attribute ObjectVsBroadPhaseLayerFilter mObjectVsBroadPhaseLayerFilter;
+    attribute ObjectLayerPairFilter mObjectLayerPairFilter;
+    attribute AssertFailedHandler mAssertFailedHandler;
+};
+
+interface JoltInterface {
+    void JoltInterface([Const, Ref] JoltSettings inSettings);
+    void Step(float inDeltaTime, long inCollisionSteps);
+    PhysicsSystem GetPhysicsSystem();
+    TempAllocator GetTempAllocator();
+    JobSystemThreadPool GetJobSystem();
+    ObjectLayerPairFilter GetObjectLayerPairFilter();
+    BroadPhaseLayerInterface GetBroadPhaseLayerInterface();
+    ObjectVsBroadPhaseLayerFilter GetObjectVsBroadPhaseLayerFilter();
+    static Body sGetFixedToWorldBody();
+};

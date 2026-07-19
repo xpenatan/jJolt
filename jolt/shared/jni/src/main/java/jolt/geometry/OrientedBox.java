@@ -58,6 +58,38 @@ public class OrientedBox extends NativeObject {
         jolt.geometry.natives.JNI_OrientedBox.internal_native_deleteNative(this_addr);
     }
 
+    public boolean OverlapsAABox(AABox inBox, float inEpsilon) {
+        return internal_native_OverlapsAABox(native_address, inBox.native_address, inEpsilon);
+    }
+
+    public static boolean internal_native_OverlapsAABox(long this_addr, long inBox_addr, float inEpsilon) {
+        return jolt.geometry.natives.JNI_OrientedBox.internal_native_OverlapsAABox(this_addr, inBox_addr, inEpsilon);
+    }
+
+    public boolean OverlapsAABox(AABox inBox) {
+        return internal_native_OverlapsAABox(native_address, inBox.native_address);
+    }
+
+    public static boolean internal_native_OverlapsAABox(long this_addr, long inBox_addr) {
+        return jolt.geometry.natives.JNI_OrientedBox.internal_native_OverlapsAABox(this_addr, inBox_addr);
+    }
+
+    public boolean OverlapsOrientedBox(OrientedBox inBox, float inEpsilon) {
+        return internal_native_OverlapsOrientedBox(native_address, inBox.native_address, inEpsilon);
+    }
+
+    public static boolean internal_native_OverlapsOrientedBox(long this_addr, long inBox_addr, float inEpsilon) {
+        return jolt.geometry.natives.JNI_OrientedBox.internal_native_OverlapsOrientedBox(this_addr, inBox_addr, inEpsilon);
+    }
+
+    public boolean OverlapsOrientedBox(OrientedBox inBox) {
+        return internal_native_OverlapsOrientedBox(native_address, inBox.native_address);
+    }
+
+    public static boolean internal_native_OverlapsOrientedBox(long this_addr, long inBox_addr) {
+        return jolt.geometry.natives.JNI_OrientedBox.internal_native_OverlapsOrientedBox(this_addr, inBox_addr);
+    }
+
     public Mat44 get_mOrientation() {
         long addr = internal_native_get_mOrientation_addr(native_address);
         if (addr == 0)

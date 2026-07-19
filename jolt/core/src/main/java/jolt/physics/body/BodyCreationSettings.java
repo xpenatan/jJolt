@@ -7,13 +7,13 @@
 package jolt.physics.body;
 
 import com.github.xpenatan.jParser.api.NativeObject;
-import jolt.physics.collision.shape.ShapeSettings;
-import jolt.physics.collision.shape.ShapeResult;
 import jolt.physics.collision.shape.Shape;
 import jolt.math.Vec3;
 import jolt.math.Quat;
-import jolt.physics.collision.CollisionGroup;
 import jolt.enums.EMotionType;
+import jolt.physics.collision.shape.ShapeSettings;
+import jolt.physics.collision.shape.ShapeResult;
+import jolt.physics.collision.CollisionGroup;
 import jolt.enums.EAllowedDOFs;
 import jolt.enums.EMotionQuality;
 import jolt.enums.EOverrideMassProperties;
@@ -21,6 +21,12 @@ import jolt.enums.EOverrideMassProperties;
 public class BodyCreationSettings extends NativeObject {
 
     static public final BodyCreationSettings NULL = BodyCreationSettings.native_new();
+
+    public BodyCreationSettings() {
+    }
+
+    public BodyCreationSettings(Shape inShape, Vec3 inPosition, Quat inRotation, EMotionType inMotionType, int inObjectLayer) {
+    }
 
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
@@ -90,11 +96,11 @@ public class BodyCreationSettings extends NativeObject {
     public void set_mAngularVelocity(Vec3 mAngularVelocity) {
     }
 
-    public long get_mUserData() {
+    public int get_mUserData() {
         return 0;
     }
 
-    public void set_mUserData(long mUserData) {
+    public void set_mUserData(int mUserData) {
     }
 
     public int get_mObjectLayer() {

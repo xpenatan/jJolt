@@ -32,4 +32,11 @@ public class StateRecorder extends NativeObject {
     public boolean IsValidating() {
         return false;
     }
+
+    public void SetIsLastPart(boolean inIsLastPart) {
+    }
+
+    public boolean IsLastPart() {
+        return false;
+    }
 }

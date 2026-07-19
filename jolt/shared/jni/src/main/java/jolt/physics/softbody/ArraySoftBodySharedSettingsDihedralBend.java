@@ -14,6 +14,15 @@ public class ArraySoftBodySharedSettingsDihedralBend extends NativeObject {
 
     static public final ArraySoftBodySharedSettingsDihedralBend NULL = ArraySoftBodySharedSettingsDihedralBend.native_new();
 
+    public ArraySoftBodySharedSettingsDihedralBend() {
+        long addr = internal_native_create_addr();
+        internal_reset(addr, true);
+    }
+
+    public static long internal_native_create_addr() {
+        return jolt.physics.softbody.natives.JNI_ArraySoftBodySharedSettingsDihedralBend.internal_native_create_addr();
+    }
+
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
      */

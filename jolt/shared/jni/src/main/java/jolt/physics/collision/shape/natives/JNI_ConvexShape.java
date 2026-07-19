@@ -13,4 +13,6 @@ final public class JNI_ConvexShape {
     public static native float internal_native_GetDensity(long this_addr);
 
     public static native void internal_native_SetDensity(long this_addr, float inDensity);
+
+    public static native void internal_native_SetMaterial(long this_addr, long inMaterial_addr);
 }

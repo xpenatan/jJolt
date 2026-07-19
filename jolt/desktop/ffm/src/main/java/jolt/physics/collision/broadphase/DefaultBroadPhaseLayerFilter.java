@@ -61,7 +61,7 @@ public class DefaultBroadPhaseLayerFilter extends BroadPhaseLayerFilter {
 
     private static final class FFMHandles {
 
-        static final java.lang.invoke.MethodHandle internal_native_create_ObjectVsBroadPhaseLayerFilter_int_addr__JI = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_physics_collision_broadphase_defaultbroadphaselayerfilter_create_objectvsbroadphaselayerfilter_int_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT));
+        static final java.lang.invoke.MethodHandle internal_native_create_ObjectVsBroadPhaseLayerFilter_int_addr__JI = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_collision_broadphase_defaultbroadphaselayerfilter_create_objectvsbroadphaselayerfilter_int_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT));
 
         static final java.lang.invoke.MethodHandle internal_native_deleteNative__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_collision_broadphase_defaultbroadphaselayerfilter_deletenative", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG));
     }

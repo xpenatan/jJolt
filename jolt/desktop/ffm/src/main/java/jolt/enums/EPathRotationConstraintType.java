@@ -97,16 +97,16 @@ public enum EPathRotationConstraintType implements NativeEnum<EPathRotationConst
 
     private static final class FFMHandles {
 
-        static final java.lang.invoke.MethodHandle EPathRotationConstraintType_Free_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_enums_epathrotationconstrainttype_epathrotationconstrainttype_free_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
+        static final java.lang.invoke.MethodHandle EPathRotationConstraintType_Free_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_enums_epathrotationconstrainttype_epathrotationconstrainttype_free_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
 
-        static final java.lang.invoke.MethodHandle EPathRotationConstraintType_ConstrainAroundTangent_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_enums_epathrotationconstrainttype_epathrotationconstrainttype_constrainaroundtangent_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
+        static final java.lang.invoke.MethodHandle EPathRotationConstraintType_ConstrainAroundTangent_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_enums_epathrotationconstrainttype_epathrotationconstrainttype_constrainaroundtangent_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
 
-        static final java.lang.invoke.MethodHandle EPathRotationConstraintType_ConstrainAroundNormal_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_enums_epathrotationconstrainttype_epathrotationconstrainttype_constrainaroundnormal_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
+        static final java.lang.invoke.MethodHandle EPathRotationConstraintType_ConstrainAroundNormal_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_enums_epathrotationconstrainttype_epathrotationconstrainttype_constrainaroundnormal_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
 
-        static final java.lang.invoke.MethodHandle EPathRotationConstraintType_ConstrainAroundBinormal_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_enums_epathrotationconstrainttype_epathrotationconstrainttype_constrainaroundbinormal_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
+        static final java.lang.invoke.MethodHandle EPathRotationConstraintType_ConstrainAroundBinormal_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_enums_epathrotationconstrainttype_epathrotationconstrainttype_constrainaroundbinormal_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
 
-        static final java.lang.invoke.MethodHandle EPathRotationConstraintType_ConstrainToPath_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_enums_epathrotationconstrainttype_epathrotationconstrainttype_constraintopath_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
+        static final java.lang.invoke.MethodHandle EPathRotationConstraintType_ConstrainToPath_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_enums_epathrotationconstrainttype_epathrotationconstrainttype_constraintopath_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
 
-        static final java.lang.invoke.MethodHandle EPathRotationConstraintType_FullyConstrained_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_enums_epathrotationconstrainttype_epathrotationconstrainttype_fullyconstrained_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
+        static final java.lang.invoke.MethodHandle EPathRotationConstraintType_FullyConstrained_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_enums_epathrotationconstrainttype_epathrotationconstrainttype_fullyconstrained_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
     }
 }

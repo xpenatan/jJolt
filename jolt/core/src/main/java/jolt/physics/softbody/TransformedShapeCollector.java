@@ -32,6 +32,9 @@ public class TransformedShapeCollector extends NativeObject {
         return new TransformedShapeCollector((byte) 0, (char) 0);
     }
 
+    public void ResetNative() {
+    }
+
     public void SetContext(TransformedShape inContext) {
     }
 

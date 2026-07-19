@@ -75,12 +75,12 @@ public enum ValidateResult implements NativeEnum<ValidateResult> {
 
     private static final class FFMHandles {
 
-        static final java.lang.invoke.MethodHandle ValidateResult_AcceptAllContactsForThisBodyPair_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_enums_validateresult_validateresult_acceptallcontactsforthisbodypair_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
+        static final java.lang.invoke.MethodHandle ValidateResult_AcceptAllContactsForThisBodyPair_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_enums_validateresult_validateresult_acceptallcontactsforthisbodypair_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
 
-        static final java.lang.invoke.MethodHandle ValidateResult_AcceptContact_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_enums_validateresult_validateresult_acceptcontact_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
+        static final java.lang.invoke.MethodHandle ValidateResult_AcceptContact_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_enums_validateresult_validateresult_acceptcontact_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
 
-        static final java.lang.invoke.MethodHandle ValidateResult_RejectContact_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_enums_validateresult_validateresult_rejectcontact_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
+        static final java.lang.invoke.MethodHandle ValidateResult_RejectContact_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_enums_validateresult_validateresult_rejectcontact_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
 
-        static final java.lang.invoke.MethodHandle ValidateResult_RejectAllContactsForThisBodyPair_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_enums_validateresult_validateresult_rejectallcontactsforthisbodypair_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
+        static final java.lang.invoke.MethodHandle ValidateResult_RejectAllContactsForThisBodyPair_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_enums_validateresult_validateresult_rejectallcontactsforthisbodypair_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
     }
 }

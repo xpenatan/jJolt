@@ -61,7 +61,7 @@ public class DefaultObjectLayerFilter extends ObjectLayerFilter {
 
     private static final class FFMHandles {
 
-        static final java.lang.invoke.MethodHandle internal_native_create_ObjectLayerPairFilter_int_addr__JI = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_physics_collision_defaultobjectlayerfilter_create_objectlayerpairfilter_int_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT));
+        static final java.lang.invoke.MethodHandle internal_native_create_ObjectLayerPairFilter_int_addr__JI = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_collision_defaultobjectlayerfilter_create_objectlayerpairfilter_int_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT));
 
         static final java.lang.invoke.MethodHandle internal_native_deleteNative__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_collision_defaultobjectlayerfilter_deletenative", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG));
     }

@@ -57,7 +57,15 @@ public class Plane extends NativeObject {
         return null;
     }
 
+    public Plane Scaled(Vec3 inScale) {
+        return null;
+    }
+
     public Plane GetTransformed(Mat44 inTransform) {
+        return null;
+    }
+
+    public Vec3 ProjectPointOnPlane(Vec3 inPoint) {
         return null;
     }
 

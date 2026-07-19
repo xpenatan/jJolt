@@ -42,4 +42,11 @@ public class SkeletalAnimation extends NativeObject {
     public ArraySkeletonAnimatedJoint GetAnimatedJoints() {
         return null;
     }
+
+    public boolean IsLooping() {
+        return false;
+    }
+
+    public void SetIsLooping(boolean inIsLooping) {
+    }
 }

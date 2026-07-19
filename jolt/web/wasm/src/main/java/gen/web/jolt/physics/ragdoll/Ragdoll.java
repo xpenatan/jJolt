@@ -183,11 +183,18 @@ public class Ragdoll extends NativeObject {
     public static native void internal_native_DriveToPoseUsingKinematics(int this_addr, int inPose_addr, float inDeltaTime);
 
     public void DriveToPoseUsingMotors(SkeletonPose inPose) {
-        internal_native_DriveToPoseUsingMotors(native_address, inPose.native_address);
+        internal_native_DriveToPoseUsingMotors__0(native_address, inPose.native_address);
     }
 
-    @org.teavm.jso.JSBody(params = {"this_addr", "inPose_addr"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.Ragdoll);jsObj.DriveToPoseUsingMotors(inPose_addr);")
-    public static native void internal_native_DriveToPoseUsingMotors(int this_addr, int inPose_addr);
+    @org.teavm.jso.JSBody(params = {"this_addr", "inPose_addr"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.Ragdoll);jsObj.DriveToPoseUsingMotors__0(inPose_addr);")
+    public static native void internal_native_DriveToPoseUsingMotors__0(int this_addr, int inPose_addr);
+
+    public void DriveToPoseUsingMotors(SkeletonPose inPrevPose, SkeletonPose inPose, float inDeltaTime) {
+        internal_native_DriveToPoseUsingMotors__1(native_address, inPrevPose.native_address, inPose.native_address, inDeltaTime);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "inPrevPose_addr", "inPose_addr", "inDeltaTime"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.Ragdoll);jsObj.DriveToPoseUsingMotors__1(inPrevPose_addr, inPose_addr, inDeltaTime);")
+    public static native void internal_native_DriveToPoseUsingMotors__1(int this_addr, int inPrevPose_addr, int inPose_addr, float inDeltaTime);
 
     public void SetLinearAndAngularVelocity(Vec3 inLinearVelocity, Vec3 inAngularVelocity, boolean inLockBodies) {
         internal_native_SetLinearAndAngularVelocity(native_address, inLinearVelocity.native_address, inAngularVelocity.native_address, inLockBodies);

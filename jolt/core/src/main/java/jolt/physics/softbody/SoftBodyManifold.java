@@ -47,4 +47,12 @@ public class SoftBodyManifold extends NativeObject {
     public BodyID GetContactBodyID(SoftBodyVertex inVertex) {
         return null;
     }
+
+    public int GetNumSensorContacts() {
+        return 0;
+    }
+
+    public BodyID GetSensorContactBodyID(int inIndex) {
+        return null;
+    }
 }

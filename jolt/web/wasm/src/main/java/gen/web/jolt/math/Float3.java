@@ -41,6 +41,20 @@ public class Float3 extends NativeObject {
     @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.Float3);jolt.destroy(jsObj);")
     public static native void internal_native_deleteNative(int this_addr);
 
+    public boolean Equals(Float3 inV) {
+        return internal_native_Equals(native_address, inV.native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "inV_addr"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.Float3);var returnedJSObj = jsObj.Equals(inV_addr);return returnedJSObj;")
+    public static native boolean internal_native_Equals(int this_addr, int inV_addr);
+
+    public boolean NotEquals(Float3 inV) {
+        return internal_native_NotEquals(native_address, inV.native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "inV_addr"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.Float3);var returnedJSObj = jsObj.NotEquals(inV_addr);return returnedJSObj;")
+    public static native boolean internal_native_NotEquals(int this_addr, int inV_addr);
+
     public float get_x() {
         return internal_native_get_x(native_address);
     }

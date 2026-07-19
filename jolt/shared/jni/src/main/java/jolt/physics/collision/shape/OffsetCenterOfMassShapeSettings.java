@@ -14,6 +14,16 @@ public class OffsetCenterOfMassShapeSettings extends DecoratedShapeSettings {
 
     static public final OffsetCenterOfMassShapeSettings NULL = OffsetCenterOfMassShapeSettings.native_new();
 
+    public OffsetCenterOfMassShapeSettings(Vec3 inOffset, ShapeSettings inShape) {
+        super((byte) 1, (char) 1);
+        long addr = internal_native_create_Vec3_ShapeSettings_addr(inOffset.native_address, inShape.native_address);
+        internal_reset(addr, true);
+    }
+
+    public static long internal_native_create_Vec3_ShapeSettings_addr(long inOffset_addr, long inShape_addr) {
+        return jolt.physics.collision.shape.natives.JNI_OffsetCenterOfMassShapeSettings.internal_native_create_Vec3_ShapeSettings_addr(inOffset_addr, inShape_addr);
+    }
+
     public OffsetCenterOfMassShapeSettings(Vec3 inOffset, Shape inShape) {
         super((byte) 1, (char) 1);
         long addr = internal_native_create_Vec3_Shape_addr(inOffset.native_address, inShape.native_address);

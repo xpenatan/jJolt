@@ -19,6 +19,7 @@ import jolt.core.TempAllocator;
 import jolt.physics.collision.shape.Shape;
 import jolt.physics.collision.TransformedShape;
 import com.github.xpenatan.jParser.api.NativeObject;
+import jolt.Jolt;
 
 public class CharacterVirtual extends CharacterBase {
 
@@ -53,7 +54,7 @@ public class CharacterVirtual extends CharacterBase {
     public void SetCharacterVsCharacterCollision(CharacterVsCharacterCollision inCharacterVsCharacterCollision) {
     }
 
-    public NativeObject GetListener() {
+    public NativeObject GetListenerNative() {
         return null;
     }
 
@@ -140,11 +141,11 @@ public class CharacterVirtual extends CharacterBase {
     public void SetShapeOffset(Vec3 inShapeOffset) {
     }
 
-    public long GetUserData() {
+    public int GetUserData() {
         return 0;
     }
 
-    public void SetUserData(long inUserData) {
+    public void SetUserData(int inUserData) {
     }
 
     public BodyID GetInnerBodyID() {
@@ -210,5 +211,9 @@ public class CharacterVirtual extends CharacterBase {
 
     public ArrayCharacterVirtualContact GetActiveContacts() {
         return null;
+    }
+
+    public CharacterContactListener GetListener() {
+        return Jolt.GetCharacterContactListener(this);
     }
 }

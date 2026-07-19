@@ -32,6 +32,13 @@ public class ShapeCastSettings extends CollideSettingsBase {
         return new ShapeCastSettings((byte) 0, (char) 0);
     }
 
+    public float get_mExtraConvexRadius() {
+        return 0;
+    }
+
+    public void set_mExtraConvexRadius(float mExtraConvexRadius) {
+    }
+
     public EBackFaceMode get_mBackFaceModeTriangles() {
         return null;
     }

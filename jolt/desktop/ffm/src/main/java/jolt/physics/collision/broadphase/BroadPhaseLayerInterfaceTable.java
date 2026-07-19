@@ -73,7 +73,7 @@ public class BroadPhaseLayerInterfaceTable extends BroadPhaseLayerInterface {
 
     private static final class FFMHandles {
 
-        static final java.lang.invoke.MethodHandle internal_native_create_int_int_addr__II = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_physics_collision_broadphase_broadphaselayerinterfacetable_create_int_int_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT, ValueLayout.JAVA_INT));
+        static final java.lang.invoke.MethodHandle internal_native_create_int_int_addr__II = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_collision_broadphase_broadphaselayerinterfacetable_create_int_int_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT, ValueLayout.JAVA_INT));
 
         static final java.lang.invoke.MethodHandle internal_native_deleteNative__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_collision_broadphase_broadphaselayerinterfacetable_deletenative", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG));
 

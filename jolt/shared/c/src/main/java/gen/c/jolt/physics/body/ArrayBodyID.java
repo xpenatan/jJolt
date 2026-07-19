@@ -16,6 +16,14 @@ public class ArrayBodyID extends NativeObject {
 
     static public final ArrayBodyID NULL = ArrayBodyID.native_new();
 
+    public ArrayBodyID() {
+        long addr = internal_native_create_addr();
+        internal_reset(addr, true);
+    }
+
+    @org.teavm.interop.Import(name = "jolt_physics_body_arraybodyid_create_addr")
+    public static native long internal_native_create_addr();
+
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
      */

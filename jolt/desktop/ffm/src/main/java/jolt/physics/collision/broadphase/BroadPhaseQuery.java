@@ -26,6 +26,8 @@ import java.lang.invoke.MethodHandle;
 
 public class BroadPhaseQuery extends NativeObject {
 
+    private AABox AABox_TEMP_GEN_0;
+
     static public final BroadPhaseQuery NULL = BroadPhaseQuery.native_new();
 
     /**
@@ -270,6 +272,24 @@ public class BroadPhaseQuery extends NativeObject {
         }
     }
 
+    public AABox GetBounds() {
+        long addr = internal_native_GetBounds_addr(native_address);
+        if (addr == 0)
+            return AABox.NULL;
+        if (AABox_TEMP_GEN_0 == null)
+            AABox_TEMP_GEN_0 = AABox.native_new();
+        AABox_TEMP_GEN_0.internal_reset(addr, false);
+        return AABox_TEMP_GEN_0;
+    }
+
+    public static long internal_native_GetBounds_addr(long this_addr) {
+        try {
+            return (long) FFMHandles.internal_native_GetBounds_addr__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
     private static final class FFMHandles {
 
         static final java.lang.invoke.MethodHandle internal_native_deleteNative__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_collision_broadphase_broadphasequery_deletenative", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG));
@@ -309,5 +329,7 @@ public class BroadPhaseQuery extends NativeObject {
         static final java.lang.invoke.MethodHandle internal_native_CastAABox__JJJJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_collision_broadphase_broadphasequery_castaabox_l_l_l_l", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
 
         static final java.lang.invoke.MethodHandle internal_native_CastAABox__JJJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_collision_broadphase_broadphasequery_castaabox_l_l_l", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_GetBounds_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_collision_broadphase_broadphasequery_getbounds_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
     }
 }

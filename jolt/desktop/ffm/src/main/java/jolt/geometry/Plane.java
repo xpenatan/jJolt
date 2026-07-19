@@ -29,6 +29,10 @@ public class Plane extends NativeObject {
 
     private Plane Plane_TEMP_GEN_3;
 
+    private Plane Plane_TEMP_GEN_4;
+
+    private Vec3 Vec3_TEMP_GEN_1;
+
     static public final Plane NULL = Plane.native_new();
 
     public Plane(Vec3 inNormal, float inConstant) {
@@ -178,8 +182,8 @@ public class Plane extends NativeObject {
         }
     }
 
-    public Plane GetTransformed(Mat44 inTransform) {
-        long addr = internal_native_GetTransformed_addr(native_address, inTransform.native_address);
+    public Plane Scaled(Vec3 inScale) {
+        long addr = internal_native_Scaled_addr(native_address, inScale.native_address);
         if (addr == 0)
             return Plane.NULL;
         if (Plane_TEMP_GEN_3 == null)
@@ -188,9 +192,45 @@ public class Plane extends NativeObject {
         return Plane_TEMP_GEN_3;
     }
 
+    public static long internal_native_Scaled_addr(long this_addr, long inScale_addr) {
+        try {
+            return (long) FFMHandles.internal_native_Scaled_addr__JJ.invokeExact(this_addr, inScale_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public Plane GetTransformed(Mat44 inTransform) {
+        long addr = internal_native_GetTransformed_addr(native_address, inTransform.native_address);
+        if (addr == 0)
+            return Plane.NULL;
+        if (Plane_TEMP_GEN_4 == null)
+            Plane_TEMP_GEN_4 = Plane.native_new();
+        Plane_TEMP_GEN_4.internal_reset(addr, false);
+        return Plane_TEMP_GEN_4;
+    }
+
     public static long internal_native_GetTransformed_addr(long this_addr, long inTransform_addr) {
         try {
             return (long) FFMHandles.internal_native_GetTransformed_addr__JJ.invokeExact(this_addr, inTransform_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public Vec3 ProjectPointOnPlane(Vec3 inPoint) {
+        long addr = internal_native_ProjectPointOnPlane_addr(native_address, inPoint.native_address);
+        if (addr == 0)
+            return Vec3.NULL;
+        if (Vec3_TEMP_GEN_1 == null)
+            Vec3_TEMP_GEN_1 = Vec3.native_new();
+        Vec3_TEMP_GEN_1.internal_reset(addr, false);
+        return Vec3_TEMP_GEN_1;
+    }
+
+    public static long internal_native_ProjectPointOnPlane_addr(long this_addr, long inPoint_addr) {
+        try {
+            return (long) FFMHandles.internal_native_ProjectPointOnPlane_addr__JJ.invokeExact(this_addr, inPoint_addr);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }
@@ -210,11 +250,11 @@ public class Plane extends NativeObject {
 
     private static final class FFMHandles {
 
-        static final java.lang.invoke.MethodHandle internal_native_create_Vec3_float_addr__JF = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_geometry_plane_create_vec3_float_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_FLOAT));
+        static final java.lang.invoke.MethodHandle internal_native_create_Vec3_float_addr__JF = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_geometry_plane_create_vec3_float_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_FLOAT));
 
         static final java.lang.invoke.MethodHandle internal_native_deleteNative__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_geometry_plane_deletenative", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG));
 
-        static final java.lang.invoke.MethodHandle internal_native_GetNormal_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_geometry_plane_getnormal_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+        static final java.lang.invoke.MethodHandle internal_native_GetNormal_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_geometry_plane_getnormal_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
 
         static final java.lang.invoke.MethodHandle internal_native_SetNormal__JJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_geometry_plane_setnormal", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
 
@@ -222,13 +262,17 @@ public class Plane extends NativeObject {
 
         static final java.lang.invoke.MethodHandle internal_native_SetConstant__JF = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_geometry_plane_setconstant", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_FLOAT));
 
-        static final java.lang.invoke.MethodHandle internal_native_sFromPointAndNormal_addr__JJJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_geometry_plane_sfrompointandnormal_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+        static final java.lang.invoke.MethodHandle internal_native_sFromPointAndNormal_addr__JJJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_geometry_plane_sfrompointandnormal_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
 
-        static final java.lang.invoke.MethodHandle internal_native_sFromPointsCCW_addr__JJJJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_geometry_plane_sfrompointsccw_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+        static final java.lang.invoke.MethodHandle internal_native_sFromPointsCCW_addr__JJJJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_geometry_plane_sfrompointsccw_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
 
-        static final java.lang.invoke.MethodHandle internal_native_Offset_addr__JF = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_geometry_plane_offset_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_FLOAT));
+        static final java.lang.invoke.MethodHandle internal_native_Offset_addr__JF = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_geometry_plane_offset_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_FLOAT));
 
-        static final java.lang.invoke.MethodHandle internal_native_GetTransformed_addr__JJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_geometry_plane_gettransformed_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+        static final java.lang.invoke.MethodHandle internal_native_Scaled_addr__JJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_geometry_plane_scaled_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_GetTransformed_addr__JJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_geometry_plane_gettransformed_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_ProjectPointOnPlane_addr__JJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_geometry_plane_projectpointonplane_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
 
         static final java.lang.invoke.MethodHandle internal_native_SignedDistance__JJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_geometry_plane_signeddistance", FunctionDescriptor.of(ValueLayout.JAVA_FLOAT, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
     }

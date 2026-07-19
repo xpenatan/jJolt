@@ -7,13 +7,13 @@
 package gen.web.jolt.physics.body;
 
 import gen.web.com.github.xpenatan.jParser.api.NativeObject;
-import gen.web.jolt.physics.collision.shape.ShapeSettings;
-import gen.web.jolt.physics.collision.shape.ShapeResult;
 import gen.web.jolt.physics.collision.shape.Shape;
 import gen.web.jolt.math.Vec3;
 import gen.web.jolt.math.Quat;
-import gen.web.jolt.physics.collision.CollisionGroup;
 import gen.web.jolt.enums.EMotionType;
+import gen.web.jolt.physics.collision.shape.ShapeSettings;
+import gen.web.jolt.physics.collision.shape.ShapeResult;
+import gen.web.jolt.physics.collision.CollisionGroup;
 import gen.web.jolt.enums.EAllowedDOFs;
 import gen.web.jolt.enums.EMotionQuality;
 import gen.web.jolt.enums.EOverrideMassProperties;
@@ -41,6 +41,22 @@ public class BodyCreationSettings extends NativeObject {
     private MassProperties MassProperties_TEMP_GEN_1;
 
     static public final BodyCreationSettings NULL = BodyCreationSettings.native_new();
+
+    public BodyCreationSettings() {
+        int addr = internal_native_create_addr();
+        internal_reset(addr, true);
+    }
+
+    @org.teavm.jso.JSBody(script = "var jsObj = new jolt.BodyCreationSettings();return jolt.getPointer(jsObj);")
+    public static native int internal_native_create_addr();
+
+    public BodyCreationSettings(Shape inShape, Vec3 inPosition, Quat inRotation, EMotionType inMotionType, int inObjectLayer) {
+        int addr = internal_native_create_Shape_Vec3_Quat_EMotionType_int_addr(inShape.native_address, inPosition.native_address, inRotation.native_address, inMotionType.getValue(), inObjectLayer);
+        internal_reset(addr, true);
+    }
+
+    @org.teavm.jso.JSBody(params = {"inShape_addr", "inPosition_addr", "inRotation_addr", "inMotionType", "inObjectLayer"}, script = "var jsObj = new jolt.BodyCreationSettings(inShape_addr, inPosition_addr, inRotation_addr, inMotionType, inObjectLayer);return jolt.getPointer(jsObj);")
+    public static native int internal_native_create_Shape_Vec3_Quat_EMotionType_int_addr(int inShape_addr, int inPosition_addr, int inRotation_addr, int inMotionType, int inObjectLayer);
 
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
@@ -216,19 +232,19 @@ public class BodyCreationSettings extends NativeObject {
     @org.teavm.jso.JSBody(params = {"this_addr", "mAngularVelocity_addr"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.BodyCreationSettings);jsObj.set_mAngularVelocity(mAngularVelocity_addr);")
     public static native void internal_native_set_mAngularVelocity(int this_addr, int mAngularVelocity_addr);
 
-    public long get_mUserData() {
+    public int get_mUserData() {
         return internal_native_get_mUserData(native_address);
     }
 
     @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.BodyCreationSettings);return jsObj.get_mUserData();")
-    public static native long internal_native_get_mUserData(int this_addr);
+    public static native int internal_native_get_mUserData(int this_addr);
 
-    public void set_mUserData(long mUserData) {
+    public void set_mUserData(int mUserData) {
         internal_native_set_mUserData(native_address, mUserData);
     }
 
     @org.teavm.jso.JSBody(params = {"this_addr", "mUserData"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.BodyCreationSettings);jsObj.set_mUserData(mUserData);")
-    public static native void internal_native_set_mUserData(int this_addr, long mUserData);
+    public static native void internal_native_set_mUserData(int this_addr, int mUserData);
 
     public int get_mObjectLayer() {
         return internal_native_get_mObjectLayer(native_address);

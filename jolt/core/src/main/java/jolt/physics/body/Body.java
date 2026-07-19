@@ -16,8 +16,10 @@ import jolt.math.Mat44;
 import jolt.physics.collision.shape.Shape;
 import jolt.geometry.AABox;
 import jolt.physics.collision.TransformedShape;
+import jolt.physics.collision.broadphase.BroadPhaseLayerInterface;
 import jolt.physics.softbody.SoftBodyCreationSettings;
 import jolt.physics.collision.shape.SubShapeID;
+import jolt.physics.StateRecorder;
 
 public class Body extends NativeObject {
 
@@ -254,8 +256,14 @@ public class Body extends NativeObject {
         return null;
     }
 
+    public void ApplyBodyCreationSettings(BodyCreationSettings inBodyCreationSettings, BroadPhaseLayerInterface inBPLInterface) {
+    }
+
     public SoftBodyCreationSettings GetSoftBodyCreationSettings() {
         return null;
+    }
+
+    public void ApplySoftBodyCreationSettings(SoftBodyCreationSettings inSoftBodyCreationSettings, BroadPhaseLayerInterface inBPLInterface) {
     }
 
     public MotionProperties GetMotionProperties() {
@@ -266,13 +274,19 @@ public class Body extends NativeObject {
         return null;
     }
 
-    public long GetUserData() {
+    public int GetUserData() {
         return 0;
     }
 
-    public void SetUserData(long inUserData) {
+    public void SetUserData(int inUserData) {
     }
 
     public void SetCollisionGroup(CollisionGroup inGroup) {
+    }
+
+    public void SaveState(StateRecorder inStream) {
+    }
+
+    public void RestoreState(StateRecorder inStream) {
     }
 }

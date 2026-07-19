@@ -45,22 +45,27 @@ public class JoltNew extends NativeObject {
         return new JoltNew((byte) 0, (char) 0);
     }
 
+    @Deprecated
     public static PhysicsSystem PhysicsSystem() {
         return null;
     }
 
+    @Deprecated
     public static Factory Factory() {
         return null;
     }
 
+    @Deprecated
     public static TempAllocatorImpl TempAllocatorImpl(int inSize) {
         return null;
     }
 
+    @Deprecated
     public static JobSystemThreadPool JobSystemThreadPool(int inMaxJobs, int inMaxBarriers, int inNumThreads) {
         return null;
     }
 
+    @Deprecated
     public static JobSystemThreadPool JobSystemThreadPool(int inMaxJobs, int inMaxBarriers) {
         return null;
     }

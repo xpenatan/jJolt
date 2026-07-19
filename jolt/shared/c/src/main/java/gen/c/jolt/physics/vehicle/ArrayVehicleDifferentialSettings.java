@@ -14,6 +14,14 @@ public class ArrayVehicleDifferentialSettings extends NativeObject {
 
     static public final ArrayVehicleDifferentialSettings NULL = ArrayVehicleDifferentialSettings.native_new();
 
+    public ArrayVehicleDifferentialSettings() {
+        long addr = internal_native_create_addr();
+        internal_reset(addr, true);
+    }
+
+    @org.teavm.interop.Import(name = "jolt_physics_vehicle_arrayvehicledifferentialsettings_create_addr")
+    public static native long internal_native_create_addr();
+
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
      */

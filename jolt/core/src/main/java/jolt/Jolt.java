@@ -8,6 +8,8 @@ package jolt;
 
 import com.github.xpenatan.jParser.api.NativeObject;
 import jolt.physics.PhysicsSystem;
+import jolt.physics.character.CharacterVirtual;
+import jolt.physics.character.CharacterContactListener;
 
 public class Jolt extends NativeObject {
 
@@ -27,15 +29,22 @@ public class Jolt extends NativeObject {
         return new Jolt((byte) 0, (char) 0);
     }
 
+    @Deprecated
     public static void Init() {
     }
 
+    @Deprecated
     public static void RegisterTypes() {
     }
 
+    @Deprecated
     public static void UnregisterTypes() {
     }
 
     public static void ClearWorld(PhysicsSystem physicsSystem) {
+    }
+
+    public static CharacterContactListener GetCharacterContactListener(CharacterVirtual inCharacter) {
+        return null;
     }
 }

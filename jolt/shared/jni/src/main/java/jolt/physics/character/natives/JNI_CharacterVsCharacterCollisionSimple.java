@@ -10,6 +10,8 @@ import jolt.physics.character.*;
 
 final public class JNI_CharacterVsCharacterCollisionSimple {
 
+    public static native long internal_native_create_addr();
+
     public static native void internal_native_deleteNative(long this_addr);
 
     public static native void internal_native_Add(long this_addr, long inCharacter_addr);

@@ -18,6 +18,8 @@ public class RagdollSettings extends NativeObject {
 
     private Skeleton Skeleton_TEMP_GEN_0;
 
+    private Skeleton Skeleton_TEMP_GEN_1;
+
     private ArrayRagdollPart ArrayRagdollPart_TEMP_GEN_0;
 
     private ArrayRagdollAdditionalConstraint ArrayRagdollAdditionalConstraint_TEMP_GEN_0;
@@ -107,6 +109,20 @@ public class RagdollSettings extends NativeObject {
     @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.RagdollSettings);jsObj.DisableParentChildCollisions();")
     public static native void internal_native_DisableParentChildCollisions(int this_addr);
 
+    public void CalculateConstraintPriorities(int inBasePriority) {
+        internal_native_CalculateConstraintPriorities(native_address, inBasePriority);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "inBasePriority"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.RagdollSettings);jsObj.CalculateConstraintPriorities(inBasePriority);")
+    public static native void internal_native_CalculateConstraintPriorities(int this_addr, int inBasePriority);
+
+    public void CalculateConstraintPriorities() {
+        internal_native_CalculateConstraintPriorities(native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.RagdollSettings);jsObj.CalculateConstraintPriorities();")
+    public static native void internal_native_CalculateConstraintPriorities(int this_addr);
+
     public void CalculateBodyIndexToConstraintIndex() {
         internal_native_CalculateBodyIndexToConstraintIndex(native_address);
     }
@@ -120,6 +136,26 @@ public class RagdollSettings extends NativeObject {
 
     @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.RagdollSettings);jsObj.CalculateConstraintIndexToBodyIdxPair();")
     public static native void internal_native_CalculateConstraintIndexToBodyIdxPair(int this_addr);
+
+    public Skeleton get_mSkeleton() {
+        int addr = internal_native_get_mSkeleton_addr(native_address);
+        if (addr == 0)
+            return Skeleton.NULL;
+        if (Skeleton_TEMP_GEN_1 == null)
+            Skeleton_TEMP_GEN_1 = Skeleton.native_new();
+        Skeleton_TEMP_GEN_1.internal_reset(addr, false);
+        return Skeleton_TEMP_GEN_1;
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.RagdollSettings);var returnedJSObj = jsObj.get_mSkeleton();if(!returnedJSObj.hasOwnProperty('ptr')) return 0; return jolt.getPointer(returnedJSObj);")
+    public static native int internal_native_get_mSkeleton_addr(int this_addr);
+
+    public void set_mSkeleton(Skeleton mSkeleton) {
+        internal_native_set_mSkeleton(native_address, mSkeleton.native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "mSkeleton_addr"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.RagdollSettings);jsObj.set_mSkeleton(mSkeleton_addr);")
+    public static native void internal_native_set_mSkeleton(int this_addr, int mSkeleton_addr);
 
     public ArrayRagdollPart get_mParts() {
         int addr = internal_native_get_mParts_addr(native_address);

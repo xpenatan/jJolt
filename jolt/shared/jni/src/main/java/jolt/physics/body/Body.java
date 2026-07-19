@@ -16,8 +16,10 @@ import jolt.math.Mat44;
 import jolt.physics.collision.shape.Shape;
 import jolt.geometry.AABox;
 import jolt.physics.collision.TransformedShape;
+import jolt.physics.collision.broadphase.BroadPhaseLayerInterface;
 import jolt.physics.softbody.SoftBodyCreationSettings;
 import jolt.physics.collision.shape.SubShapeID;
+import jolt.physics.StateRecorder;
 
 public class Body extends NativeObject {
 
@@ -673,6 +675,14 @@ public class Body extends NativeObject {
         return jolt.physics.body.natives.JNI_Body.internal_native_GetBodyCreationSettings_addr(this_addr);
     }
 
+    public void ApplyBodyCreationSettings(BodyCreationSettings inBodyCreationSettings, BroadPhaseLayerInterface inBPLInterface) {
+        internal_native_ApplyBodyCreationSettings(native_address, inBodyCreationSettings.native_address, inBPLInterface.native_address);
+    }
+
+    public static void internal_native_ApplyBodyCreationSettings(long this_addr, long inBodyCreationSettings_addr, long inBPLInterface_addr) {
+        jolt.physics.body.natives.JNI_Body.internal_native_ApplyBodyCreationSettings(this_addr, inBodyCreationSettings_addr, inBPLInterface_addr);
+    }
+
     public SoftBodyCreationSettings GetSoftBodyCreationSettings() {
         long addr = internal_native_GetSoftBodyCreationSettings_addr(native_address);
         if (addr == 0)
@@ -685,6 +695,14 @@ public class Body extends NativeObject {
 
     public static long internal_native_GetSoftBodyCreationSettings_addr(long this_addr) {
         return jolt.physics.body.natives.JNI_Body.internal_native_GetSoftBodyCreationSettings_addr(this_addr);
+    }
+
+    public void ApplySoftBodyCreationSettings(SoftBodyCreationSettings inSoftBodyCreationSettings, BroadPhaseLayerInterface inBPLInterface) {
+        internal_native_ApplySoftBodyCreationSettings(native_address, inSoftBodyCreationSettings.native_address, inBPLInterface.native_address);
+    }
+
+    public static void internal_native_ApplySoftBodyCreationSettings(long this_addr, long inSoftBodyCreationSettings_addr, long inBPLInterface_addr) {
+        jolt.physics.body.natives.JNI_Body.internal_native_ApplySoftBodyCreationSettings(this_addr, inSoftBodyCreationSettings_addr, inBPLInterface_addr);
     }
 
     public MotionProperties GetMotionProperties() {
@@ -715,19 +733,19 @@ public class Body extends NativeObject {
         return jolt.physics.body.natives.JNI_Body.internal_native_GetWorldSpaceSurfaceNormal_addr(this_addr, inSubShapeID_addr, inPosition_addr);
     }
 
-    public long GetUserData() {
+    public int GetUserData() {
         return internal_native_GetUserData(native_address);
     }
 
-    public static long internal_native_GetUserData(long this_addr) {
+    public static int internal_native_GetUserData(long this_addr) {
         return jolt.physics.body.natives.JNI_Body.internal_native_GetUserData(this_addr);
     }
 
-    public void SetUserData(long inUserData) {
+    public void SetUserData(int inUserData) {
         internal_native_SetUserData(native_address, inUserData);
     }
 
-    public static void internal_native_SetUserData(long this_addr, long inUserData) {
+    public static void internal_native_SetUserData(long this_addr, int inUserData) {
         jolt.physics.body.natives.JNI_Body.internal_native_SetUserData(this_addr, inUserData);
     }
 
@@ -737,5 +755,21 @@ public class Body extends NativeObject {
 
     public static void internal_native_SetCollisionGroup(long this_addr, long inGroup_addr) {
         jolt.physics.body.natives.JNI_Body.internal_native_SetCollisionGroup(this_addr, inGroup_addr);
+    }
+
+    public void SaveState(StateRecorder inStream) {
+        internal_native_SaveState(native_address, inStream.native_address);
+    }
+
+    public static void internal_native_SaveState(long this_addr, long inStream_addr) {
+        jolt.physics.body.natives.JNI_Body.internal_native_SaveState(this_addr, inStream_addr);
+    }
+
+    public void RestoreState(StateRecorder inStream) {
+        internal_native_RestoreState(native_address, inStream.native_address);
+    }
+
+    public static void internal_native_RestoreState(long this_addr, long inStream_addr) {
+        jolt.physics.body.natives.JNI_Body.internal_native_RestoreState(this_addr, inStream_addr);
     }
 }

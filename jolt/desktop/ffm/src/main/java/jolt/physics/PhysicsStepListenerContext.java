@@ -17,6 +17,8 @@ import java.lang.invoke.MethodHandle;
 
 public class PhysicsStepListenerContext extends NativeObject {
 
+    private PhysicsSystem PhysicsSystem_TEMP_GEN_0;
+
     static public final PhysicsStepListenerContext NULL = PhysicsStepListenerContext.native_new();
 
     /**
@@ -117,20 +119,54 @@ public class PhysicsStepListenerContext extends NativeObject {
         }
     }
 
+    public PhysicsSystem get_mPhysicsSystem() {
+        long addr = internal_native_get_mPhysicsSystem_addr(native_address);
+        if (addr == 0)
+            return PhysicsSystem.NULL;
+        if (PhysicsSystem_TEMP_GEN_0 == null)
+            PhysicsSystem_TEMP_GEN_0 = PhysicsSystem.native_new();
+        PhysicsSystem_TEMP_GEN_0.internal_reset(addr, false);
+        return PhysicsSystem_TEMP_GEN_0;
+    }
+
+    public static long internal_native_get_mPhysicsSystem_addr(long this_addr) {
+        try {
+            return (long) FFMHandles.internal_native_get_mPhysicsSystem_addr__J.invokeExact(this_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public void set_mPhysicsSystem(PhysicsSystem mPhysicsSystem) {
+        internal_native_set_mPhysicsSystem(native_address, mPhysicsSystem.native_address);
+    }
+
+    public static void internal_native_set_mPhysicsSystem(long this_addr, long mPhysicsSystem_addr) {
+        try {
+            FFMHandles.internal_native_set_mPhysicsSystem__JJ.invokeExact(this_addr, mPhysicsSystem_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
     private static final class FFMHandles {
 
         static final java.lang.invoke.MethodHandle internal_native_deleteNative__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_physicssteplistenercontext_deletenative", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG));
 
-        static final java.lang.invoke.MethodHandle internal_native_get_mDeltaTime__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_physics_physicssteplistenercontext_get_mdeltatime", FunctionDescriptor.of(ValueLayout.JAVA_FLOAT, ValueLayout.JAVA_LONG));
+        static final java.lang.invoke.MethodHandle internal_native_get_mDeltaTime__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_physicssteplistenercontext_get_mdeltatime", FunctionDescriptor.of(ValueLayout.JAVA_FLOAT, ValueLayout.JAVA_LONG));
 
-        static final java.lang.invoke.MethodHandle internal_native_set_mDeltaTime__JF = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_physics_physicssteplistenercontext_set_mdeltatime", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_FLOAT));
+        static final java.lang.invoke.MethodHandle internal_native_set_mDeltaTime__JF = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_physicssteplistenercontext_set_mdeltatime", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_FLOAT));
 
-        static final java.lang.invoke.MethodHandle internal_native_get_mIsFirstStep__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_physics_physicssteplistenercontext_get_misfirststep", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.JAVA_LONG));
+        static final java.lang.invoke.MethodHandle internal_native_get_mIsFirstStep__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_physicssteplistenercontext_get_misfirststep", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.JAVA_LONG));
 
-        static final java.lang.invoke.MethodHandle internal_native_set_mIsFirstStep__JZ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_physics_physicssteplistenercontext_set_misfirststep", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_BOOLEAN));
+        static final java.lang.invoke.MethodHandle internal_native_set_mIsFirstStep__JZ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_physicssteplistenercontext_set_misfirststep", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_BOOLEAN));
 
-        static final java.lang.invoke.MethodHandle internal_native_get_mIsLastStep__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_physics_physicssteplistenercontext_get_mislaststep", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.JAVA_LONG));
+        static final java.lang.invoke.MethodHandle internal_native_get_mIsLastStep__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_physicssteplistenercontext_get_mislaststep", FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.JAVA_LONG));
 
-        static final java.lang.invoke.MethodHandle internal_native_set_mIsLastStep__JZ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_physics_physicssteplistenercontext_set_mislaststep", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_BOOLEAN));
+        static final java.lang.invoke.MethodHandle internal_native_set_mIsLastStep__JZ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_physicssteplistenercontext_set_mislaststep", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_BOOLEAN));
+
+        static final java.lang.invoke.MethodHandle internal_native_get_mPhysicsSystem_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_physicssteplistenercontext_get_mphysicssystem_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_set_mPhysicsSystem__JJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_physicssteplistenercontext_set_mphysicssystem", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
     }
 }

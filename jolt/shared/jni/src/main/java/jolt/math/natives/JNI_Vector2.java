@@ -28,5 +28,23 @@ final public class JNI_Vector2 {
 
     public static native long internal_native_Normalized_addr(long this_addr);
 
+    public static native float internal_native_GetComponent(long this_addr, int inCoordinate);
+
+    public static native long internal_native_Add_addr(long this_addr, long inV_addr);
+
+    public static native long internal_native_Sub_addr(long this_addr, long inV_addr);
+
+    public static native long internal_native_Mul_addr(long this_addr, float inV);
+
+    public static native long internal_native_Div_addr(long this_addr, float inV);
+
+    public static native long internal_native_MulFloat_addr(long this_addr, float inV);
+
+    public static native long internal_native_DivFloat_addr(long this_addr, float inV);
+
+    public static native long internal_native_AddVector2_addr(long this_addr, long inV_addr);
+
+    public static native long internal_native_SubVector2_addr(long this_addr, long inV_addr);
+
     public static native float internal_native_Dot(long this_addr, long inRHS_addr);
 }

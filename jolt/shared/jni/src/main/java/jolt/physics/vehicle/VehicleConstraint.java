@@ -13,6 +13,8 @@ import jolt.math.Mat44;
 
 public class VehicleConstraint extends Constraint {
 
+    private VehicleCollisionTester VehicleCollisionTester_TEMP_GEN_0;
+
     private Vec3 Vec3_TEMP_GEN_0;
 
     private Vec3 Vec3_TEMP_GEN_1;
@@ -78,12 +80,34 @@ public class VehicleConstraint extends Constraint {
         jolt.physics.vehicle.natives.JNI_VehicleConstraint.internal_native_SetMaxPitchRollAngle(this_addr, inMaxPitchRollAngle);
     }
 
+    public float GetMaxPitchRollAngle() {
+        return internal_native_GetMaxPitchRollAngle(native_address);
+    }
+
+    public static float internal_native_GetMaxPitchRollAngle(long this_addr) {
+        return jolt.physics.vehicle.natives.JNI_VehicleConstraint.internal_native_GetMaxPitchRollAngle(this_addr);
+    }
+
     public void SetVehicleCollisionTester(VehicleCollisionTester inTester) {
         internal_native_SetVehicleCollisionTester(native_address, inTester.native_address);
     }
 
     public static void internal_native_SetVehicleCollisionTester(long this_addr, long inTester_addr) {
         jolt.physics.vehicle.natives.JNI_VehicleConstraint.internal_native_SetVehicleCollisionTester(this_addr, inTester_addr);
+    }
+
+    public VehicleCollisionTester GetVehicleCollisionTester() {
+        long addr = internal_native_GetVehicleCollisionTester_addr(native_address);
+        if (addr == 0)
+            return VehicleCollisionTester.NULL;
+        if (VehicleCollisionTester_TEMP_GEN_0 == null)
+            VehicleCollisionTester_TEMP_GEN_0 = VehicleCollisionTester.native_new();
+        VehicleCollisionTester_TEMP_GEN_0.internal_reset(addr, false);
+        return VehicleCollisionTester_TEMP_GEN_0;
+    }
+
+    public static long internal_native_GetVehicleCollisionTester_addr(long this_addr) {
+        return jolt.physics.vehicle.natives.JNI_VehicleConstraint.internal_native_GetVehicleCollisionTester_addr(this_addr);
     }
 
     public void OverrideGravity(Vec3 inGravity) {

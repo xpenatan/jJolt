@@ -10,7 +10,7 @@ import com.github.xpenatan.jParser.api.NativeEnum;
 
 public enum ESpringMode implements NativeEnum<ESpringMode> {
 
-    CUSTOM(0), FrequencyAndDamping(ESpringMode_FrequencyAndDamping_NATIVE()), StiffnessAndDamping(ESpringMode_StiffnessAndDamping_NATIVE());
+    CUSTOM(0), FrequencyAndDamping(ESpringMode_FrequencyAndDamping_NATIVE()), StiffnessAndDamping(ESpringMode_StiffnessAndDamping_NATIVE()), MassNormalizedStiffnessAndDamping(ESpringMode_MassNormalizedStiffnessAndDamping_NATIVE());
 
     private int value;
 
@@ -39,4 +39,7 @@ public enum ESpringMode implements NativeEnum<ESpringMode> {
 
     @org.teavm.interop.Import(name = "jolt_enums_espringmode_espringmode_stiffnessanddamping_native")
     private static native int ESpringMode_StiffnessAndDamping_NATIVE();
+
+    @org.teavm.interop.Import(name = "jolt_enums_espringmode_espringmode_massnormalizedstiffnessanddamping_native")
+    private static native int ESpringMode_MassNormalizedStiffnessAndDamping_NATIVE();
 }

@@ -59,8 +59,8 @@ public enum ETireFrictionDirection implements NativeEnum<ETireFrictionDirection>
 
     private static final class FFMHandles {
 
-        static final java.lang.invoke.MethodHandle ETireFrictionDirection_Longitudinal_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_enums_etirefrictiondirection_etirefrictiondirection_longitudinal_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
+        static final java.lang.invoke.MethodHandle ETireFrictionDirection_Longitudinal_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_enums_etirefrictiondirection_etirefrictiondirection_longitudinal_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
 
-        static final java.lang.invoke.MethodHandle ETireFrictionDirection_Lateral_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_enums_etirefrictiondirection_etirefrictiondirection_lateral_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
+        static final java.lang.invoke.MethodHandle ETireFrictionDirection_Lateral_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_enums_etirefrictiondirection_etirefrictiondirection_lateral_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
     }
 }

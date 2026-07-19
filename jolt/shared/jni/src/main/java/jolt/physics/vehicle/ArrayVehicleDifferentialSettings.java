@@ -14,6 +14,15 @@ public class ArrayVehicleDifferentialSettings extends NativeObject {
 
     static public final ArrayVehicleDifferentialSettings NULL = ArrayVehicleDifferentialSettings.native_new();
 
+    public ArrayVehicleDifferentialSettings() {
+        long addr = internal_native_create_addr();
+        internal_reset(addr, true);
+    }
+
+    public static long internal_native_create_addr() {
+        return jolt.physics.vehicle.natives.JNI_ArrayVehicleDifferentialSettings.internal_native_create_addr();
+    }
+
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
      */

@@ -15,4 +15,6 @@ final public class JNI_EMotorState {
     static native public int EMotorState_Velocity_NATIVE();
 
     static native public int EMotorState_Position_NATIVE();
+
+    static native public int EMotorState_PositionAndVelocity_NATIVE();
 }

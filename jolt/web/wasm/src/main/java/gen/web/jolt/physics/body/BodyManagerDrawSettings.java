@@ -316,6 +316,48 @@ public class BodyManagerDrawSettings extends NativeObject {
     @org.teavm.jso.JSBody(params = {"this_addr", "mDrawSoftBodyLRAConstraints"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.BodyManagerDrawSettings);jsObj.set_mDrawSoftBodyLRAConstraints(mDrawSoftBodyLRAConstraints);")
     public static native void internal_native_set_mDrawSoftBodyLRAConstraints(int this_addr, boolean mDrawSoftBodyLRAConstraints);
 
+    public boolean get_mDrawSoftBodyRods() {
+        return internal_native_get_mDrawSoftBodyRods(native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.BodyManagerDrawSettings);return jsObj.get_mDrawSoftBodyRods();")
+    public static native boolean internal_native_get_mDrawSoftBodyRods(int this_addr);
+
+    public void set_mDrawSoftBodyRods(boolean mDrawSoftBodyRods) {
+        internal_native_set_mDrawSoftBodyRods(native_address, mDrawSoftBodyRods);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "mDrawSoftBodyRods"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.BodyManagerDrawSettings);jsObj.set_mDrawSoftBodyRods(mDrawSoftBodyRods);")
+    public static native void internal_native_set_mDrawSoftBodyRods(int this_addr, boolean mDrawSoftBodyRods);
+
+    public boolean get_mDrawSoftBodyRodStates() {
+        return internal_native_get_mDrawSoftBodyRodStates(native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.BodyManagerDrawSettings);return jsObj.get_mDrawSoftBodyRodStates();")
+    public static native boolean internal_native_get_mDrawSoftBodyRodStates(int this_addr);
+
+    public void set_mDrawSoftBodyRodStates(boolean mDrawSoftBodyRodStates) {
+        internal_native_set_mDrawSoftBodyRodStates(native_address, mDrawSoftBodyRodStates);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "mDrawSoftBodyRodStates"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.BodyManagerDrawSettings);jsObj.set_mDrawSoftBodyRodStates(mDrawSoftBodyRodStates);")
+    public static native void internal_native_set_mDrawSoftBodyRodStates(int this_addr, boolean mDrawSoftBodyRodStates);
+
+    public boolean get_mDrawSoftBodyRodBendTwistConstraints() {
+        return internal_native_get_mDrawSoftBodyRodBendTwistConstraints(native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.BodyManagerDrawSettings);return jsObj.get_mDrawSoftBodyRodBendTwistConstraints();")
+    public static native boolean internal_native_get_mDrawSoftBodyRodBendTwistConstraints(int this_addr);
+
+    public void set_mDrawSoftBodyRodBendTwistConstraints(boolean mDrawSoftBodyRodBendTwistConstraints) {
+        internal_native_set_mDrawSoftBodyRodBendTwistConstraints(native_address, mDrawSoftBodyRodBendTwistConstraints);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "mDrawSoftBodyRodBendTwistConstraints"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.BodyManagerDrawSettings);jsObj.set_mDrawSoftBodyRodBendTwistConstraints(mDrawSoftBodyRodBendTwistConstraints);")
+    public static native void internal_native_set_mDrawSoftBodyRodBendTwistConstraints(int this_addr, boolean mDrawSoftBodyRodBendTwistConstraints);
+
     public boolean get_mDrawSoftBodyPredictedBounds() {
         return internal_native_get_mDrawSoftBodyPredictedBounds(native_address);
     }

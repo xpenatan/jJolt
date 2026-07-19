@@ -22,6 +22,8 @@ final public class JNI_Quat {
 
     public static native long internal_native_sRotation_addr(long inRotation_addr, float inAngle);
 
+    public static native long internal_native_GetAngularVelocity_addr(long this_addr, float inDeltaTime);
+
     public static native long internal_native_sFromTo_addr(long inFrom_addr, long inTo_addr);
 
     public static native boolean internal_native_Equals(long this_addr, long inQ_addr);
@@ -73,6 +75,8 @@ final public class JNI_Quat {
     public static native void internal_native_SetW(long this_addr, float inW);
 
     public static native void internal_native_Set(long this_addr, float inX, float inY, float inZ, float inW);
+
+    public static native long internal_native_sMultiplyImaginary_addr(long inLHS_addr, long inRHS_addr);
 
     public static native long internal_native_InverseRotate_addr(long this_addr, long inV_addr);
 

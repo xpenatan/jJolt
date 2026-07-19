@@ -95,6 +95,9 @@ public class Ragdoll extends NativeObject {
     public void DriveToPoseUsingMotors(SkeletonPose inPose) {
     }
 
+    public void DriveToPoseUsingMotors(SkeletonPose inPrevPose, SkeletonPose inPose, float inDeltaTime) {
+    }
+
     public void SetLinearAndAngularVelocity(Vec3 inLinearVelocity, Vec3 inAngularVelocity, boolean inLockBodies) {
     }
 

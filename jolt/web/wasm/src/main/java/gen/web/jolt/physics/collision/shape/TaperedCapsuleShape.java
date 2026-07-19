@@ -24,4 +24,25 @@ public class TaperedCapsuleShape extends ConvexShape {
     public static TaperedCapsuleShape native_new() {
         return new TaperedCapsuleShape((byte) 0, (char) 0);
     }
+
+    public float GetHalfHeight() {
+        return internal_native_GetHalfHeight(native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.TaperedCapsuleShape);var returnedJSObj = jsObj.GetHalfHeight();return returnedJSObj;")
+    public static native float internal_native_GetHalfHeight(int this_addr);
+
+    public float GetTopRadius() {
+        return internal_native_GetTopRadius(native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.TaperedCapsuleShape);var returnedJSObj = jsObj.GetTopRadius();return returnedJSObj;")
+    public static native float internal_native_GetTopRadius(int this_addr);
+
+    public float GetBottomRadius() {
+        return internal_native_GetBottomRadius(native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.TaperedCapsuleShape);var returnedJSObj = jsObj.GetBottomRadius();return returnedJSObj;")
+    public static native float internal_native_GetBottomRadius(int this_addr);
 }

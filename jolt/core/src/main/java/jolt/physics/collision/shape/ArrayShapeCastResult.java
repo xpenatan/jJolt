@@ -12,6 +12,9 @@ public class ArrayShapeCastResult extends NativeObject {
 
     static public final ArrayShapeCastResult NULL = ArrayShapeCastResult.native_new();
 
+    public ArrayShapeCastResult() {
+    }
+
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
      */

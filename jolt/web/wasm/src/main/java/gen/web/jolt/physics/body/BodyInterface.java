@@ -697,6 +697,34 @@ public class BodyInterface extends NativeObject {
     @org.teavm.jso.JSBody(params = {"this_addr", "inBodyID_addr"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.BodyInterface);var returnedJSObj = jsObj.GetGravityFactor(inBodyID_addr);return returnedJSObj;")
     public static native float internal_native_GetGravityFactor(int this_addr, int inBodyID_addr);
 
+    public void SetMaxLinearVelocity(BodyID inBodyID, float inLinearVelocity) {
+        internal_native_SetMaxLinearVelocity(native_address, inBodyID.native_address, inLinearVelocity);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "inBodyID_addr", "inLinearVelocity"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.BodyInterface);jsObj.SetMaxLinearVelocity(inBodyID_addr, inLinearVelocity);")
+    public static native void internal_native_SetMaxLinearVelocity(int this_addr, int inBodyID_addr, float inLinearVelocity);
+
+    public float GetMaxLinearVelocity(BodyID inBodyID) {
+        return internal_native_GetMaxLinearVelocity(native_address, inBodyID.native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "inBodyID_addr"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.BodyInterface);var returnedJSObj = jsObj.GetMaxLinearVelocity(inBodyID_addr);return returnedJSObj;")
+    public static native float internal_native_GetMaxLinearVelocity(int this_addr, int inBodyID_addr);
+
+    public void SetMaxAngularVelocity(BodyID inBodyID, float inAngularVelocity) {
+        internal_native_SetMaxAngularVelocity(native_address, inBodyID.native_address, inAngularVelocity);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "inBodyID_addr", "inAngularVelocity"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.BodyInterface);jsObj.SetMaxAngularVelocity(inBodyID_addr, inAngularVelocity);")
+    public static native void internal_native_SetMaxAngularVelocity(int this_addr, int inBodyID_addr, float inAngularVelocity);
+
+    public float GetMaxAngularVelocity(BodyID inBodyID) {
+        return internal_native_GetMaxAngularVelocity(native_address, inBodyID.native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "inBodyID_addr"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.BodyInterface);var returnedJSObj = jsObj.GetMaxAngularVelocity(inBodyID_addr);return returnedJSObj;")
+    public static native float internal_native_GetMaxAngularVelocity(int this_addr, int inBodyID_addr);
+
     public void SetUseManifoldReduction(BodyID inBodyID, boolean inUseReduction) {
         internal_native_SetUseManifoldReduction(native_address, inBodyID.native_address, inUseReduction);
     }
@@ -710,6 +738,20 @@ public class BodyInterface extends NativeObject {
 
     @org.teavm.jso.JSBody(params = {"this_addr", "inBodyID_addr"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.BodyInterface);var returnedJSObj = jsObj.GetUseManifoldReduction(inBodyID_addr);return returnedJSObj;")
     public static native boolean internal_native_GetUseManifoldReduction(int this_addr, int inBodyID_addr);
+
+    public void SetIsSensor(BodyID inBodyID, boolean inIsSensor) {
+        internal_native_SetIsSensor(native_address, inBodyID.native_address, inIsSensor);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "inBodyID_addr", "inIsSensor"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.BodyInterface);jsObj.SetIsSensor(inBodyID_addr, inIsSensor);")
+    public static native void internal_native_SetIsSensor(int this_addr, int inBodyID_addr, boolean inIsSensor);
+
+    public boolean IsSensor(BodyID inBodyID) {
+        return internal_native_IsSensor(native_address, inBodyID.native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "inBodyID_addr"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.BodyInterface);var returnedJSObj = jsObj.IsSensor(inBodyID_addr);return returnedJSObj;")
+    public static native boolean internal_native_IsSensor(int this_addr, int inBodyID_addr);
 
     public void SetCollisionGroup(BodyID inBodyID, CollisionGroup inCollisionGroup) {
         internal_native_SetCollisionGroup(native_address, inBodyID.native_address, inCollisionGroup.native_address);
@@ -800,19 +842,19 @@ public class BodyInterface extends NativeObject {
     @org.teavm.jso.JSBody(params = {"this_addr", "inBodyID_addr"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.BodyInterface);var returnedJSObj = jsObj.GetTransformedShape(inBodyID_addr);if(!returnedJSObj.hasOwnProperty('ptr')) return 0; return jolt.getPointer(returnedJSObj);")
     public static native int internal_native_GetTransformedShape_addr(int this_addr, int inBodyID_addr);
 
-    public long GetUserData(BodyID inBodyID) {
+    public int GetUserData(BodyID inBodyID) {
         return internal_native_GetUserData(native_address, inBodyID.native_address);
     }
 
     @org.teavm.jso.JSBody(params = {"this_addr", "inBodyID_addr"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.BodyInterface);var returnedJSObj = jsObj.GetUserData(inBodyID_addr);return returnedJSObj;")
-    public static native long internal_native_GetUserData(int this_addr, int inBodyID_addr);
+    public static native int internal_native_GetUserData(int this_addr, int inBodyID_addr);
 
-    public void SetUserData(BodyID inBodyID, long inUserData) {
+    public void SetUserData(BodyID inBodyID, int inUserData) {
         internal_native_SetUserData(native_address, inBodyID.native_address, inUserData);
     }
 
     @org.teavm.jso.JSBody(params = {"this_addr", "inBodyID_addr", "inUserData"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.BodyInterface);jsObj.SetUserData(inBodyID_addr, inUserData);")
-    public static native void internal_native_SetUserData(int this_addr, int inBodyID_addr, long inUserData);
+    public static native void internal_native_SetUserData(int this_addr, int inBodyID_addr, int inUserData);
 
     public PhysicsMaterial GetMaterial(BodyID inBodyID, SubShapeID inSubShapeID) {
         int addr = internal_native_GetMaterial_addr(native_address, inBodyID.native_address, inSubShapeID.native_address);

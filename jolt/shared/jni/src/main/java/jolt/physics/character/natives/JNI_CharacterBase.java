@@ -24,6 +24,10 @@ final public class JNI_CharacterBase {
 
     public static native long internal_native_GetUp_addr(long this_addr);
 
+    public static native void internal_native_SetSupportingVolume(long this_addr, long inVolume_addr);
+
+    public static native long internal_native_GetSupportingVolume_addr(long this_addr);
+
     public static native long internal_native_GetShape_addr(long this_addr);
 
     public static native int internal_native_GetGroundState(long this_addr);
@@ -41,4 +45,8 @@ final public class JNI_CharacterBase {
     public static native long internal_native_GetGroundMaterial_addr(long this_addr);
 
     public static native long internal_native_GetGroundBodyID_addr(long this_addr);
+
+    public static native void internal_native_SaveState(long this_addr, long inStream_addr);
+
+    public static native void internal_native_RestoreState(long this_addr, long inStream_addr);
 }

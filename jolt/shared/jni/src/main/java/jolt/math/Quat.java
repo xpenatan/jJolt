@@ -16,11 +16,13 @@ public class Quat extends NativeObject {
 
     static private Quat Quat_TEMP_STATIC_GEN_2;
 
+    private Vec3 Vec3_TEMP_GEN_0;
+
     static private Quat Quat_TEMP_STATIC_GEN_3;
 
     private Quat Quat_TEMP_GEN_0;
 
-    private Vec3 Vec3_TEMP_GEN_0;
+    private Vec3 Vec3_TEMP_GEN_1;
 
     private Quat Quat_TEMP_GEN_1;
 
@@ -28,17 +30,19 @@ public class Quat extends NativeObject {
 
     static private Quat Quat_TEMP_STATIC_GEN_4;
 
-    private Vec3 Vec3_TEMP_GEN_1;
-
     private Vec3 Vec3_TEMP_GEN_2;
 
     private Vec3 Vec3_TEMP_GEN_3;
+
+    static private Quat Quat_TEMP_STATIC_GEN_5;
 
     private Vec3 Vec3_TEMP_GEN_4;
 
     private Vec3 Vec3_TEMP_GEN_5;
 
     private Vec3 Vec3_TEMP_GEN_6;
+
+    private Vec3 Vec3_TEMP_GEN_7;
 
     private Quat Quat_TEMP_GEN_3;
 
@@ -138,6 +142,20 @@ public class Quat extends NativeObject {
         return jolt.math.natives.JNI_Quat.internal_native_sRotation_addr(inRotation_addr, inAngle);
     }
 
+    public Vec3 GetAngularVelocity(float inDeltaTime) {
+        long addr = internal_native_GetAngularVelocity_addr(native_address, inDeltaTime);
+        if (addr == 0)
+            return Vec3.NULL;
+        if (Vec3_TEMP_GEN_0 == null)
+            Vec3_TEMP_GEN_0 = Vec3.native_new();
+        Vec3_TEMP_GEN_0.internal_reset(addr, false);
+        return Vec3_TEMP_GEN_0;
+    }
+
+    public static long internal_native_GetAngularVelocity_addr(long this_addr, float inDeltaTime) {
+        return jolt.math.natives.JNI_Quat.internal_native_GetAngularVelocity_addr(this_addr, inDeltaTime);
+    }
+
     public static Quat sFromTo(Vec3 inFrom, Vec3 inTo) {
         long addr = internal_native_sFromTo_addr(inFrom.native_address, inTo.native_address);
         if (addr == 0)
@@ -195,10 +213,10 @@ public class Quat extends NativeObject {
         long addr = internal_native_MulVec3_addr(native_address, inV.native_address);
         if (addr == 0)
             return Vec3.NULL;
-        if (Vec3_TEMP_GEN_0 == null)
-            Vec3_TEMP_GEN_0 = Vec3.native_new();
-        Vec3_TEMP_GEN_0.internal_reset(addr, false);
-        return Vec3_TEMP_GEN_0;
+        if (Vec3_TEMP_GEN_1 == null)
+            Vec3_TEMP_GEN_1 = Vec3.native_new();
+        Vec3_TEMP_GEN_1.internal_reset(addr, false);
+        return Vec3_TEMP_GEN_1;
     }
 
     public static long internal_native_MulVec3_addr(long this_addr, long inV_addr) {
@@ -299,10 +317,10 @@ public class Quat extends NativeObject {
         long addr = internal_native_GetEulerAngles_addr(native_address);
         if (addr == 0)
             return Vec3.NULL;
-        if (Vec3_TEMP_GEN_1 == null)
-            Vec3_TEMP_GEN_1 = Vec3.native_new();
-        Vec3_TEMP_GEN_1.internal_reset(addr, false);
-        return Vec3_TEMP_GEN_1;
+        if (Vec3_TEMP_GEN_2 == null)
+            Vec3_TEMP_GEN_2 = Vec3.native_new();
+        Vec3_TEMP_GEN_2.internal_reset(addr, false);
+        return Vec3_TEMP_GEN_2;
     }
 
     public static long internal_native_GetEulerAngles_addr(long this_addr) {
@@ -345,10 +363,10 @@ public class Quat extends NativeObject {
         long addr = internal_native_GetXYZ_addr(native_address);
         if (addr == 0)
             return Vec3.NULL;
-        if (Vec3_TEMP_GEN_2 == null)
-            Vec3_TEMP_GEN_2 = Vec3.native_new();
-        Vec3_TEMP_GEN_2.internal_reset(addr, false);
-        return Vec3_TEMP_GEN_2;
+        if (Vec3_TEMP_GEN_3 == null)
+            Vec3_TEMP_GEN_3 = Vec3.native_new();
+        Vec3_TEMP_GEN_3.internal_reset(addr, false);
+        return Vec3_TEMP_GEN_3;
     }
 
     public static long internal_native_GetXYZ_addr(long this_addr) {
@@ -395,14 +413,28 @@ public class Quat extends NativeObject {
         jolt.math.natives.JNI_Quat.internal_native_Set(this_addr, inX, inY, inZ, inW);
     }
 
+    public static Quat sMultiplyImaginary(Vec3 inLHS, Quat inRHS) {
+        long addr = internal_native_sMultiplyImaginary_addr(inLHS.native_address, inRHS.native_address);
+        if (addr == 0)
+            return Quat.NULL;
+        if (Quat_TEMP_STATIC_GEN_5 == null)
+            Quat_TEMP_STATIC_GEN_5 = Quat.native_new();
+        Quat_TEMP_STATIC_GEN_5.internal_reset(addr, false);
+        return Quat_TEMP_STATIC_GEN_5;
+    }
+
+    public static long internal_native_sMultiplyImaginary_addr(long inLHS_addr, long inRHS_addr) {
+        return jolt.math.natives.JNI_Quat.internal_native_sMultiplyImaginary_addr(inLHS_addr, inRHS_addr);
+    }
+
     public Vec3 InverseRotate(Vec3 inV) {
         long addr = internal_native_InverseRotate_addr(native_address, inV.native_address);
         if (addr == 0)
             return Vec3.NULL;
-        if (Vec3_TEMP_GEN_3 == null)
-            Vec3_TEMP_GEN_3 = Vec3.native_new();
-        Vec3_TEMP_GEN_3.internal_reset(addr, false);
-        return Vec3_TEMP_GEN_3;
+        if (Vec3_TEMP_GEN_4 == null)
+            Vec3_TEMP_GEN_4 = Vec3.native_new();
+        Vec3_TEMP_GEN_4.internal_reset(addr, false);
+        return Vec3_TEMP_GEN_4;
     }
 
     public static long internal_native_InverseRotate_addr(long this_addr, long inV_addr) {
@@ -413,10 +445,10 @@ public class Quat extends NativeObject {
         long addr = internal_native_RotateAxisX_addr(native_address);
         if (addr == 0)
             return Vec3.NULL;
-        if (Vec3_TEMP_GEN_4 == null)
-            Vec3_TEMP_GEN_4 = Vec3.native_new();
-        Vec3_TEMP_GEN_4.internal_reset(addr, false);
-        return Vec3_TEMP_GEN_4;
+        if (Vec3_TEMP_GEN_5 == null)
+            Vec3_TEMP_GEN_5 = Vec3.native_new();
+        Vec3_TEMP_GEN_5.internal_reset(addr, false);
+        return Vec3_TEMP_GEN_5;
     }
 
     public static long internal_native_RotateAxisX_addr(long this_addr) {
@@ -427,10 +459,10 @@ public class Quat extends NativeObject {
         long addr = internal_native_RotateAxisY_addr(native_address);
         if (addr == 0)
             return Vec3.NULL;
-        if (Vec3_TEMP_GEN_5 == null)
-            Vec3_TEMP_GEN_5 = Vec3.native_new();
-        Vec3_TEMP_GEN_5.internal_reset(addr, false);
-        return Vec3_TEMP_GEN_5;
+        if (Vec3_TEMP_GEN_6 == null)
+            Vec3_TEMP_GEN_6 = Vec3.native_new();
+        Vec3_TEMP_GEN_6.internal_reset(addr, false);
+        return Vec3_TEMP_GEN_6;
     }
 
     public static long internal_native_RotateAxisY_addr(long this_addr) {
@@ -441,10 +473,10 @@ public class Quat extends NativeObject {
         long addr = internal_native_RotateAxisZ_addr(native_address);
         if (addr == 0)
             return Vec3.NULL;
-        if (Vec3_TEMP_GEN_6 == null)
-            Vec3_TEMP_GEN_6 = Vec3.native_new();
-        Vec3_TEMP_GEN_6.internal_reset(addr, false);
-        return Vec3_TEMP_GEN_6;
+        if (Vec3_TEMP_GEN_7 == null)
+            Vec3_TEMP_GEN_7 = Vec3.native_new();
+        Vec3_TEMP_GEN_7.internal_reset(addr, false);
+        return Vec3_TEMP_GEN_7;
     }
 
     public static long internal_native_RotateAxisZ_addr(long this_addr) {

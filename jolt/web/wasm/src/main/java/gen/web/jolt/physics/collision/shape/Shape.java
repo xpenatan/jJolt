@@ -152,19 +152,19 @@ public class Shape extends NativeObject {
     @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.Shape);var returnedJSObj = jsObj.GetCenterOfMass();if(!returnedJSObj.hasOwnProperty('ptr')) return 0; return jolt.getPointer(returnedJSObj);")
     public static native int internal_native_GetCenterOfMass_addr(int this_addr);
 
-    public long GetUserData() {
+    public int GetUserData() {
         return internal_native_GetUserData(native_address);
     }
 
     @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.Shape);var returnedJSObj = jsObj.GetUserData();return returnedJSObj;")
-    public static native long internal_native_GetUserData(int this_addr);
+    public static native int internal_native_GetUserData(int this_addr);
 
-    public void SetUserData(long inUserData) {
+    public void SetUserData(int inUserData) {
         internal_native_SetUserData(native_address, inUserData);
     }
 
     @org.teavm.jso.JSBody(params = {"this_addr", "inUserData"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.Shape);jsObj.SetUserData(inUserData);")
-    public static native void internal_native_SetUserData(int this_addr, long inUserData);
+    public static native void internal_native_SetUserData(int this_addr, int inUserData);
 
     public int GetSubShapeIDBitsRecursive() {
         return internal_native_GetSubShapeIDBitsRecursive(native_address);
@@ -232,12 +232,12 @@ public class Shape extends NativeObject {
     @org.teavm.jso.JSBody(params = {"this_addr", "inSubShapeID_addr", "inLocalSurfacePosition_addr"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.Shape);var returnedJSObj = jsObj.GetSurfaceNormal(inSubShapeID_addr, inLocalSurfacePosition_addr);if(!returnedJSObj.hasOwnProperty('ptr')) return 0; return jolt.getPointer(returnedJSObj);")
     public static native int internal_native_GetSurfaceNormal_addr(int this_addr, int inSubShapeID_addr, int inLocalSurfacePosition_addr);
 
-    public long GetSubShapeUserData(SubShapeID inSubShapeID) {
+    public int GetSubShapeUserData(SubShapeID inSubShapeID) {
         return internal_native_GetSubShapeUserData(native_address, inSubShapeID.native_address);
     }
 
     @org.teavm.jso.JSBody(params = {"this_addr", "inSubShapeID_addr"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.Shape);var returnedJSObj = jsObj.GetSubShapeUserData(inSubShapeID_addr);return returnedJSObj;")
-    public static native long internal_native_GetSubShapeUserData(int this_addr, int inSubShapeID_addr);
+    public static native int internal_native_GetSubShapeUserData(int this_addr, int inSubShapeID_addr);
 
     public TransformedShape GetSubShapeTransformedShape(SubShapeID inSubShapeID, Vec3 inPositionCOM, Quat inRotation, Vec3 inScale, SubShapeID outRemainder) {
         int addr = internal_native_GetSubShapeTransformedShape_addr(native_address, inSubShapeID.native_address, inPositionCOM.native_address, inRotation.native_address, inScale.native_address, outRemainder.native_address);

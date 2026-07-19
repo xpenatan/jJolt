@@ -46,4 +46,18 @@ public class StateRecorder extends NativeObject {
 
     @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.StateRecorder);var returnedJSObj = jsObj.IsValidating();return returnedJSObj;")
     public static native boolean internal_native_IsValidating(int this_addr);
+
+    public void SetIsLastPart(boolean inIsLastPart) {
+        internal_native_SetIsLastPart(native_address, inIsLastPart);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "inIsLastPart"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.StateRecorder);jsObj.SetIsLastPart(inIsLastPart);")
+    public static native void internal_native_SetIsLastPart(int this_addr, boolean inIsLastPart);
+
+    public boolean IsLastPart() {
+        return internal_native_IsLastPart(native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.StateRecorder);var returnedJSObj = jsObj.IsLastPart();return returnedJSObj;")
+    public static native boolean internal_native_IsLastPart(int this_addr);
 }

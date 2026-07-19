@@ -7,13 +7,13 @@
 package jolt.physics.body;
 
 import com.github.xpenatan.jParser.api.NativeObject;
-import jolt.physics.collision.shape.ShapeSettings;
-import jolt.physics.collision.shape.ShapeResult;
 import jolt.physics.collision.shape.Shape;
 import jolt.math.Vec3;
 import jolt.math.Quat;
-import jolt.physics.collision.CollisionGroup;
 import jolt.enums.EMotionType;
+import jolt.physics.collision.shape.ShapeSettings;
+import jolt.physics.collision.shape.ShapeResult;
+import jolt.physics.collision.CollisionGroup;
 import jolt.enums.EAllowedDOFs;
 import jolt.enums.EMotionQuality;
 import jolt.enums.EOverrideMassProperties;
@@ -41,6 +41,24 @@ public class BodyCreationSettings extends NativeObject {
     private MassProperties MassProperties_TEMP_GEN_1;
 
     static public final BodyCreationSettings NULL = BodyCreationSettings.native_new();
+
+    public BodyCreationSettings() {
+        long addr = internal_native_create_addr();
+        internal_reset(addr, true);
+    }
+
+    public static long internal_native_create_addr() {
+        return jolt.physics.body.natives.JNI_BodyCreationSettings.internal_native_create_addr();
+    }
+
+    public BodyCreationSettings(Shape inShape, Vec3 inPosition, Quat inRotation, EMotionType inMotionType, int inObjectLayer) {
+        long addr = internal_native_create_Shape_Vec3_Quat_EMotionType_int_addr(inShape.native_address, inPosition.native_address, inRotation.native_address, inMotionType.getValue(), inObjectLayer);
+        internal_reset(addr, true);
+    }
+
+    public static long internal_native_create_Shape_Vec3_Quat_EMotionType_int_addr(long inShape_addr, long inPosition_addr, long inRotation_addr, int inMotionType, int inObjectLayer) {
+        return jolt.physics.body.natives.JNI_BodyCreationSettings.internal_native_create_Shape_Vec3_Quat_EMotionType_int_addr(inShape_addr, inPosition_addr, inRotation_addr, inMotionType, inObjectLayer);
+    }
 
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
@@ -232,19 +250,19 @@ public class BodyCreationSettings extends NativeObject {
         jolt.physics.body.natives.JNI_BodyCreationSettings.internal_native_set_mAngularVelocity(this_addr, mAngularVelocity_addr);
     }
 
-    public long get_mUserData() {
+    public int get_mUserData() {
         return internal_native_get_mUserData(native_address);
     }
 
-    public static long internal_native_get_mUserData(long this_addr) {
+    public static int internal_native_get_mUserData(long this_addr) {
         return jolt.physics.body.natives.JNI_BodyCreationSettings.internal_native_get_mUserData(this_addr);
     }
 
-    public void set_mUserData(long mUserData) {
+    public void set_mUserData(int mUserData) {
         internal_native_set_mUserData(native_address, mUserData);
     }
 
-    public static void internal_native_set_mUserData(long this_addr, long mUserData) {
+    public static void internal_native_set_mUserData(long this_addr, int mUserData) {
         jolt.physics.body.natives.JNI_BodyCreationSettings.internal_native_set_mUserData(this_addr, mUserData);
     }
 

@@ -12,6 +12,9 @@ public class ArraySoftBodySharedSettingsSkinned extends NativeObject {
 
     static public final ArraySoftBodySharedSettingsSkinned NULL = ArraySoftBodySharedSettingsSkinned.native_new();
 
+    public ArraySoftBodySharedSettingsSkinned() {
+    }
+
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
      */

@@ -42,6 +42,13 @@ public class RayCastSettings extends NativeObject {
     @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.RayCastSettings);jolt.destroy(jsObj);")
     public static native void internal_native_deleteNative(int this_addr);
 
+    public void SetBackFaceMode(EBackFaceMode inBackFaceMode) {
+        internal_native_SetBackFaceMode(native_address, inBackFaceMode.getValue());
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "inBackFaceMode"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.RayCastSettings);jsObj.SetBackFaceMode(inBackFaceMode);")
+    public static native void internal_native_SetBackFaceMode(int this_addr, int inBackFaceMode);
+
     public EBackFaceMode get_mBackFaceModeTriangles() {
         int value = internal_native_get_mBackFaceModeTriangles(native_address);
         EBackFaceMode[] values = EBackFaceMode.values();

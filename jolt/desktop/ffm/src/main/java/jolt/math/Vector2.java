@@ -19,6 +19,14 @@ public class Vector2 extends NativeObject {
 
     private Vector2 Vector2_TEMP_GEN_0;
 
+    private Vector2 Vector2_TEMP_GEN_1;
+
+    private Vector2 Vector2_TEMP_GEN_2;
+
+    private Vector2 Vector2_TEMP_GEN_3;
+
+    private Vector2 Vector2_TEMP_GEN_4;
+
     static public final Vector2 NULL = Vector2.native_new();
 
     public Vector2() {
@@ -150,6 +158,142 @@ public class Vector2 extends NativeObject {
         }
     }
 
+    public float GetComponent(int inCoordinate) {
+        return internal_native_GetComponent(native_address, inCoordinate);
+    }
+
+    public static float internal_native_GetComponent(long this_addr, int inCoordinate) {
+        try {
+            return (float) FFMHandles.internal_native_GetComponent__JI.invokeExact(this_addr, inCoordinate);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public Vector2 Add(Vector2 inV) {
+        internal_native_Add_addr(native_address, inV.native_address);
+        return this;
+    }
+
+    public static long internal_native_Add_addr(long this_addr, long inV_addr) {
+        try {
+            return (long) FFMHandles.internal_native_Add_addr__JJ.invokeExact(this_addr, inV_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public Vector2 Sub(Vector2 inV) {
+        internal_native_Sub_addr(native_address, inV.native_address);
+        return this;
+    }
+
+    public static long internal_native_Sub_addr(long this_addr, long inV_addr) {
+        try {
+            return (long) FFMHandles.internal_native_Sub_addr__JJ.invokeExact(this_addr, inV_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public Vector2 Mul(float inV) {
+        internal_native_Mul_addr(native_address, inV);
+        return this;
+    }
+
+    public static long internal_native_Mul_addr(long this_addr, float inV) {
+        try {
+            return (long) FFMHandles.internal_native_Mul_addr__JF.invokeExact(this_addr, inV);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public Vector2 Div(float inV) {
+        internal_native_Div_addr(native_address, inV);
+        return this;
+    }
+
+    public static long internal_native_Div_addr(long this_addr, float inV) {
+        try {
+            return (long) FFMHandles.internal_native_Div_addr__JF.invokeExact(this_addr, inV);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public Vector2 MulFloat(float inV) {
+        long addr = internal_native_MulFloat_addr(native_address, inV);
+        if (addr == 0)
+            return Vector2.NULL;
+        if (Vector2_TEMP_GEN_1 == null)
+            Vector2_TEMP_GEN_1 = Vector2.native_new();
+        Vector2_TEMP_GEN_1.internal_reset(addr, false);
+        return Vector2_TEMP_GEN_1;
+    }
+
+    public static long internal_native_MulFloat_addr(long this_addr, float inV) {
+        try {
+            return (long) FFMHandles.internal_native_MulFloat_addr__JF.invokeExact(this_addr, inV);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public Vector2 DivFloat(float inV) {
+        long addr = internal_native_DivFloat_addr(native_address, inV);
+        if (addr == 0)
+            return Vector2.NULL;
+        if (Vector2_TEMP_GEN_2 == null)
+            Vector2_TEMP_GEN_2 = Vector2.native_new();
+        Vector2_TEMP_GEN_2.internal_reset(addr, false);
+        return Vector2_TEMP_GEN_2;
+    }
+
+    public static long internal_native_DivFloat_addr(long this_addr, float inV) {
+        try {
+            return (long) FFMHandles.internal_native_DivFloat_addr__JF.invokeExact(this_addr, inV);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public Vector2 AddVector2(Vector2 inV) {
+        long addr = internal_native_AddVector2_addr(native_address, inV.native_address);
+        if (addr == 0)
+            return Vector2.NULL;
+        if (Vector2_TEMP_GEN_3 == null)
+            Vector2_TEMP_GEN_3 = Vector2.native_new();
+        Vector2_TEMP_GEN_3.internal_reset(addr, false);
+        return Vector2_TEMP_GEN_3;
+    }
+
+    public static long internal_native_AddVector2_addr(long this_addr, long inV_addr) {
+        try {
+            return (long) FFMHandles.internal_native_AddVector2_addr__JJ.invokeExact(this_addr, inV_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public Vector2 SubVector2(Vector2 inV) {
+        long addr = internal_native_SubVector2_addr(native_address, inV.native_address);
+        if (addr == 0)
+            return Vector2.NULL;
+        if (Vector2_TEMP_GEN_4 == null)
+            Vector2_TEMP_GEN_4 = Vector2.native_new();
+        Vector2_TEMP_GEN_4.internal_reset(addr, false);
+        return Vector2_TEMP_GEN_4;
+    }
+
+    public static long internal_native_SubVector2_addr(long this_addr, long inV_addr) {
+        try {
+            return (long) FFMHandles.internal_native_SubVector2_addr__JJ.invokeExact(this_addr, inV_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
     public float Dot(Vector2 inRHS) {
         return internal_native_Dot(native_address, inRHS.native_address);
     }
@@ -164,7 +308,7 @@ public class Vector2 extends NativeObject {
 
     private static final class FFMHandles {
 
-        static final java.lang.invoke.MethodHandle internal_native_create_addr__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_math_vector2_create_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG));
+        static final java.lang.invoke.MethodHandle internal_native_create_addr__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_math_vector2_create_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG));
 
         static final java.lang.invoke.MethodHandle internal_native_deleteNative__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_math_vector2_deletenative", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG));
 
@@ -180,7 +324,25 @@ public class Vector2 extends NativeObject {
 
         static final java.lang.invoke.MethodHandle internal_native_IsNormalized__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_math_vector2_isnormalized_l", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG));
 
-        static final java.lang.invoke.MethodHandle internal_native_Normalized_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_math_vector2_normalized_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+        static final java.lang.invoke.MethodHandle internal_native_Normalized_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_math_vector2_normalized_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_GetComponent__JI = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_math_vector2_getcomponent", FunctionDescriptor.of(ValueLayout.JAVA_FLOAT, ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT));
+
+        static final java.lang.invoke.MethodHandle internal_native_Add_addr__JJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_math_vector2_add_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_Sub_addr__JJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_math_vector2_sub_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_Mul_addr__JF = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_math_vector2_mul_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_FLOAT));
+
+        static final java.lang.invoke.MethodHandle internal_native_Div_addr__JF = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_math_vector2_div_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_FLOAT));
+
+        static final java.lang.invoke.MethodHandle internal_native_MulFloat_addr__JF = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_math_vector2_mulfloat_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_FLOAT));
+
+        static final java.lang.invoke.MethodHandle internal_native_DivFloat_addr__JF = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_math_vector2_divfloat_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_FLOAT));
+
+        static final java.lang.invoke.MethodHandle internal_native_AddVector2_addr__JJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_math_vector2_addvector2_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_SubVector2_addr__JJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_math_vector2_subvector2_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
 
         static final java.lang.invoke.MethodHandle internal_native_Dot__JJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_math_vector2_dot", FunctionDescriptor.of(ValueLayout.JAVA_FLOAT, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
     }

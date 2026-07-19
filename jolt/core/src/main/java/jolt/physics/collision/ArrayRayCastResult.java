@@ -12,6 +12,9 @@ public class ArrayRayCastResult extends NativeObject {
 
     static public final ArrayRayCastResult NULL = ArrayRayCastResult.native_new();
 
+    public ArrayRayCastResult() {
+    }
+
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
      */

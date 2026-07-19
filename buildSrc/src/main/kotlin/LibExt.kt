@@ -17,8 +17,11 @@ object LibExt {
     const val java11Target = "11"
 
     // Library dependencies
-    const val joltVersion = "5.3.0"
-    const val jParserVersion = "1.2.4"
+    const val joltVersion = "5.6.0"
+    const val joltCommit = "e77f175595e64cb44218cc9d9d56fc365ad0e36a"
+    const val joltJsVersion = "1.1.0"
+    const val joltJsCommit = "c9c122bcd48e92885fbee7d267c928c3781d581c"
+    const val jParserVersion = "-SNAPSHOT"
     const val fdxGroup = "io.github.libfdx"
     const val fdxVersion = "-SNAPSHOT"
     const val gdxVersion = "1.14.2"

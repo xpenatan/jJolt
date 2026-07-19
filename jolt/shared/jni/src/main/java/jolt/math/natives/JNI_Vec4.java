@@ -12,6 +12,10 @@ final public class JNI_Vec4 {
 
     public static native long internal_native_create_addr();
 
+    public static native long internal_native_create_Vec4_addr(long inV_addr);
+
+    public static native long internal_native_create_Vec3_float_addr(long inV_addr, float inW);
+
     public static native long internal_native_create_float_float_float_float_addr(float inX, float inY, float inZ, float inW);
 
     public static native void internal_native_deleteNative(long this_addr);
@@ -25,6 +29,8 @@ final public class JNI_Vec4 {
     public static native long internal_native_sMin_addr(long inLHS_addr, long inRHS_addr);
 
     public static native long internal_native_sMax_addr(long inLHS_addr, long inRHS_addr);
+
+    public static native long internal_native_sClamp_addr(long inValue_addr, long inMin_addr, long inMax_addr);
 
     public static native long internal_native_sFusedMultiplyAdd_addr(long inMul1_addr, long inMul2_addr, long inAdd_addr);
 
@@ -58,9 +64,17 @@ final public class JNI_Vec4 {
 
     public static native boolean internal_native_IsClose(long this_addr, long inV_addr);
 
+    public static native boolean internal_native_IsNearZero(long this_addr, float inMaxDistSq);
+
+    public static native boolean internal_native_IsNearZero(long this_addr);
+
     public static native boolean internal_native_IsNormalized(long this_addr, float inTolerance);
 
     public static native boolean internal_native_IsNormalized(long this_addr);
+
+    public static native int internal_native_GetLowestComponentIndex(long this_addr);
+
+    public static native int internal_native_GetHighestComponentIndex(long this_addr);
 
     public static native long internal_native_Set__0_addr(long this_addr, long other_addr);
 

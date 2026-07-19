@@ -45,7 +45,7 @@ public class NarrowPhaseQueryCastRayTest extends RayCastTest {
                 float mFraction = result.get_mFraction();
                 Vec3 vec3 = ray.GetPointOnRay(mFraction);
                 BodyID mBodyID = result.get_mBodyID();
-                long userData = mBodyInterface.GetUserData(mBodyID);
+                int userData = mBodyInterface.GetUserData(mBodyID);
                 RayCastData rayCastData = new RayCastData();
                 rayCastData.hitPosition.set(vec3.GetX(), vec3.GetY(), vec3.GetZ());
                 rayCastData.userData = userData;

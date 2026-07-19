@@ -12,6 +12,10 @@ public class OffsetCenterOfMassShapeSettings extends DecoratedShapeSettings {
 
     static public final OffsetCenterOfMassShapeSettings NULL = OffsetCenterOfMassShapeSettings.native_new();
 
+    public OffsetCenterOfMassShapeSettings(Vec3 inOffset, ShapeSettings inShape) {
+        super((byte) 1, (char) 1);
+    }
+
     public OffsetCenterOfMassShapeSettings(Vec3 inOffset, Shape inShape) {
         super((byte) 1, (char) 1);
     }

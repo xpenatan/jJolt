@@ -16,6 +16,15 @@ public class ArrayMat44 extends NativeObject {
 
     static public final ArrayMat44 NULL = ArrayMat44.native_new();
 
+    public ArrayMat44() {
+        long addr = internal_native_create_addr();
+        internal_reset(addr, true);
+    }
+
+    public static long internal_native_create_addr() {
+        return jolt.math.natives.JNI_ArrayMat44.internal_native_create_addr();
+    }
+
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
      */

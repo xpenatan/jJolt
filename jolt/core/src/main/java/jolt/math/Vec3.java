@@ -15,6 +15,9 @@ public class Vec3 extends NativeObject {
     public Vec3() {
     }
 
+    public Vec3(Float3 inV) {
+    }
+
     public Vec3(float inX, float inY, float inZ) {
     }
 

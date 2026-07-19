@@ -14,6 +14,10 @@ final public class JNI_ShapeCastSettings {
 
     public static native void internal_native_deleteNative(long this_addr);
 
+    public static native float internal_native_get_mExtraConvexRadius(long this_addr);
+
+    public static native void internal_native_set_mExtraConvexRadius(long this_addr, float mExtraConvexRadius);
+
     public static native int internal_native_get_mBackFaceModeTriangles(long this_addr);
 
     public static native void internal_native_set_mBackFaceModeTriangles(long this_addr, int mBackFaceModeTriangles);

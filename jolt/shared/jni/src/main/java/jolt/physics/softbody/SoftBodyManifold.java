@@ -20,6 +20,8 @@ public class SoftBodyManifold extends NativeObject {
 
     private BodyID BodyID_TEMP_GEN_0;
 
+    private BodyID BodyID_TEMP_GEN_1;
+
     static public final SoftBodyManifold NULL = SoftBodyManifold.native_new();
 
     /**
@@ -106,5 +108,27 @@ public class SoftBodyManifold extends NativeObject {
 
     public static long internal_native_GetContactBodyID_addr(long this_addr, long inVertex_addr) {
         return jolt.physics.softbody.natives.JNI_SoftBodyManifold.internal_native_GetContactBodyID_addr(this_addr, inVertex_addr);
+    }
+
+    public int GetNumSensorContacts() {
+        return internal_native_GetNumSensorContacts(native_address);
+    }
+
+    public static int internal_native_GetNumSensorContacts(long this_addr) {
+        return jolt.physics.softbody.natives.JNI_SoftBodyManifold.internal_native_GetNumSensorContacts(this_addr);
+    }
+
+    public BodyID GetSensorContactBodyID(int inIndex) {
+        long addr = internal_native_GetSensorContactBodyID_addr(native_address, inIndex);
+        if (addr == 0)
+            return BodyID.NULL;
+        if (BodyID_TEMP_GEN_1 == null)
+            BodyID_TEMP_GEN_1 = BodyID.native_new();
+        BodyID_TEMP_GEN_1.internal_reset(addr, false);
+        return BodyID_TEMP_GEN_1;
+    }
+
+    public static long internal_native_GetSensorContactBodyID_addr(long this_addr, int inIndex) {
+        return jolt.physics.softbody.natives.JNI_SoftBodyManifold.internal_native_GetSensorContactBodyID_addr(this_addr, inIndex);
     }
 }

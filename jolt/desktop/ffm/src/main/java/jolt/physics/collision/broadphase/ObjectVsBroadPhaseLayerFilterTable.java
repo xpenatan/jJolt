@@ -62,7 +62,7 @@ public class ObjectVsBroadPhaseLayerFilterTable extends ObjectVsBroadPhaseLayerF
 
     private static final class FFMHandles {
 
-        static final java.lang.invoke.MethodHandle internal_native_create_BroadPhaseLayerInterface_int_ObjectLayerPairFilter_int_addr__JIJI = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_physics_collision_broadphase_objectvsbroadphaselayerfiltertable_create_broadphaselayerinterface_int_objectlayerpairfilter_int_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT, ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT));
+        static final java.lang.invoke.MethodHandle internal_native_create_BroadPhaseLayerInterface_int_ObjectLayerPairFilter_int_addr__JIJI = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_collision_broadphase_objectvsbroadphaselayerfiltertable_create_broadphaselayerinterface_int_objectlayerpairfilter_int_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT, ValueLayout.JAVA_LONG, ValueLayout.JAVA_INT));
 
         static final java.lang.invoke.MethodHandle internal_native_deleteNative__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_collision_broadphase_objectvsbroadphaselayerfiltertable_deletenative", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG));
     }

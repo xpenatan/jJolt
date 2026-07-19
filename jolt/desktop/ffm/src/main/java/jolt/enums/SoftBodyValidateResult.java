@@ -59,8 +59,8 @@ public enum SoftBodyValidateResult implements NativeEnum<SoftBodyValidateResult>
 
     private static final class FFMHandles {
 
-        static final java.lang.invoke.MethodHandle SoftBodyValidateResult_AcceptContact_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_enums_softbodyvalidateresult_softbodyvalidateresult_acceptcontact_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
+        static final java.lang.invoke.MethodHandle SoftBodyValidateResult_AcceptContact_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_enums_softbodyvalidateresult_softbodyvalidateresult_acceptcontact_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
 
-        static final java.lang.invoke.MethodHandle SoftBodyValidateResult_RejectContact_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_enums_softbodyvalidateresult_softbodyvalidateresult_rejectcontact_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
+        static final java.lang.invoke.MethodHandle SoftBodyValidateResult_RejectContact_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_enums_softbodyvalidateresult_softbodyvalidateresult_rejectcontact_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
     }
 }

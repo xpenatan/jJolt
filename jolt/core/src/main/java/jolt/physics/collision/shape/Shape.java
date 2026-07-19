@@ -71,11 +71,11 @@ public class Shape extends NativeObject {
         return null;
     }
 
-    public long GetUserData() {
+    public int GetUserData() {
         return 0;
     }
 
-    public void SetUserData(long inUserData) {
+    public void SetUserData(int inUserData) {
     }
 
     public int GetSubShapeIDBitsRecursive() {
@@ -102,7 +102,7 @@ public class Shape extends NativeObject {
         return null;
     }
 
-    public long GetSubShapeUserData(SubShapeID inSubShapeID) {
+    public int GetSubShapeUserData(SubShapeID inSubShapeID) {
         return 0;
     }
 

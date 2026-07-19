@@ -9,6 +9,7 @@ package gen.c.jolt.physics.constraints;
 import com.github.xpenatan.jParser.api.NativeObject;
 import gen.c.jolt.enums.EConstraintType;
 import gen.c.jolt.enums.EConstraintSubType;
+import gen.c.jolt.physics.StateRecorder;
 
 public class Constraint extends NativeObject {
 
@@ -140,19 +141,19 @@ public class Constraint extends NativeObject {
     @org.teavm.interop.Import(name = "jolt_physics_constraints_constraint_isactive")
     public static native boolean internal_native_IsActive(long this_addr);
 
-    public long GetUserData() {
+    public int GetUserData() {
         return internal_native_GetUserData(native_address);
     }
 
     @org.teavm.interop.Import(name = "jolt_physics_constraints_constraint_getuserdata")
-    public static native long internal_native_GetUserData(long this_addr);
+    public static native int internal_native_GetUserData(long this_addr);
 
-    public void SetUserData(long inUserData) {
+    public void SetUserData(int inUserData) {
         internal_native_SetUserData(native_address, inUserData);
     }
 
     @org.teavm.interop.Import(name = "jolt_physics_constraints_constraint_setuserdata")
-    public static native void internal_native_SetUserData(long this_addr, long inUserData);
+    public static native void internal_native_SetUserData(long this_addr, int inUserData);
 
     public void ResetWarmStart() {
         internal_native_ResetWarmStart(native_address);
@@ -160,4 +161,18 @@ public class Constraint extends NativeObject {
 
     @org.teavm.interop.Import(name = "jolt_physics_constraints_constraint_resetwarmstart")
     public static native void internal_native_ResetWarmStart(long this_addr);
+
+    public void SaveState(StateRecorder inStream) {
+        internal_native_SaveState(native_address, inStream.native_address);
+    }
+
+    @org.teavm.interop.Import(name = "jolt_physics_constraints_constraint_savestate")
+    public static native void internal_native_SaveState(long this_addr, long inStream_addr);
+
+    public void RestoreState(StateRecorder inStream) {
+        internal_native_RestoreState(native_address, inStream.native_address);
+    }
+
+    @org.teavm.interop.Import(name = "jolt_physics_constraints_constraint_restorestate")
+    public static native void internal_native_RestoreState(long this_addr, long inStream_addr);
 }

@@ -59,8 +59,8 @@ public enum ECollectFacesMode implements NativeEnum<ECollectFacesMode> {
 
     private static final class FFMHandles {
 
-        static final java.lang.invoke.MethodHandle ECollectFacesMode_CollectFaces_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_enums_ecollectfacesmode_ecollectfacesmode_collectfaces_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
+        static final java.lang.invoke.MethodHandle ECollectFacesMode_CollectFaces_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_enums_ecollectfacesmode_ecollectfacesmode_collectfaces_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
 
-        static final java.lang.invoke.MethodHandle ECollectFacesMode_NoFaces_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_enums_ecollectfacesmode_ecollectfacesmode_nofaces_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
+        static final java.lang.invoke.MethodHandle ECollectFacesMode_NoFaces_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_enums_ecollectfacesmode_ecollectfacesmode_nofaces_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
     }
 }

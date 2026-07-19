@@ -33,6 +33,13 @@ public class ObjectLayerPairFilter extends NativeObject {
     @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.ObjectLayerPairFilterJS);jolt.destroy(jsObj);")
     public static native void internal_native_deleteNative(int this_addr);
 
+    public boolean ShouldCollideNative(int inLayer1, int inLayer2) {
+        return internal_native_ShouldCollideNative(native_address, inLayer1, inLayer2);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "inLayer1", "inLayer2"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.ObjectLayerPairFilter);var returnedJSObj = jsObj.ShouldCollideNative(inLayer1, inLayer2);return returnedJSObj;")
+    public static native boolean internal_native_ShouldCollideNative(int this_addr, int inLayer1, int inLayer2);
+
     public ObjectLayerPairFilter() {
         int addr = internal_native_create_addr();
         internal_reset(addr, true);

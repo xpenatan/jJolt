@@ -19,6 +19,8 @@ import jolt.physics.softbody.CastShapeBodyCollector;
 
 public class BroadPhaseQuery extends NativeObject {
 
+    private AABox AABox_TEMP_GEN_0;
+
     static public final BroadPhaseQuery NULL = BroadPhaseQuery.native_new();
 
     /**
@@ -185,5 +187,19 @@ public class BroadPhaseQuery extends NativeObject {
 
     public static void internal_native_CastAABox(long this_addr, long inBox_addr, long ioCollector_addr) {
         jolt.physics.collision.broadphase.natives.JNI_BroadPhaseQuery.internal_native_CastAABox(this_addr, inBox_addr, ioCollector_addr);
+    }
+
+    public AABox GetBounds() {
+        long addr = internal_native_GetBounds_addr(native_address);
+        if (addr == 0)
+            return AABox.NULL;
+        if (AABox_TEMP_GEN_0 == null)
+            AABox_TEMP_GEN_0 = AABox.native_new();
+        AABox_TEMP_GEN_0.internal_reset(addr, false);
+        return AABox_TEMP_GEN_0;
+    }
+
+    public static long internal_native_GetBounds_addr(long this_addr) {
+        return jolt.physics.collision.broadphase.natives.JNI_BroadPhaseQuery.internal_native_GetBounds_addr(this_addr);
     }
 }

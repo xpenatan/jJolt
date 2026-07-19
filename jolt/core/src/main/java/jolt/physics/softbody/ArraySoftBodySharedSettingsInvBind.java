@@ -12,6 +12,9 @@ public class ArraySoftBodySharedSettingsInvBind extends NativeObject {
 
     static public final ArraySoftBodySharedSettingsInvBind NULL = ArraySoftBodySharedSettingsInvBind.native_new();
 
+    public ArraySoftBodySharedSettingsInvBind() {
+    }
+
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
      */

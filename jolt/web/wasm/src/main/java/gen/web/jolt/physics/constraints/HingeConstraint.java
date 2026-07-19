@@ -6,17 +6,30 @@
 
 package gen.web.jolt.physics.constraints;
 
-import gen.web.jolt.enums.EMotorState;
 import gen.web.jolt.math.Vec3;
+import gen.web.jolt.enums.EMotorState;
+import gen.web.jolt.math.Quat;
 import gen.web.jolt.math.Vector2;
 
 public class HingeConstraint extends TwoBodyConstraint {
+
+    private Vec3 Vec3_TEMP_GEN_0;
+
+    private Vec3 Vec3_TEMP_GEN_1;
+
+    private Vec3 Vec3_TEMP_GEN_2;
+
+    private Vec3 Vec3_TEMP_GEN_3;
+
+    private Vec3 Vec3_TEMP_GEN_4;
+
+    private Vec3 Vec3_TEMP_GEN_5;
 
     private MotorSettings MotorSettings_TEMP_GEN_0;
 
     private SpringSettings SpringSettings_TEMP_GEN_0;
 
-    private Vec3 Vec3_TEMP_GEN_0;
+    private Vec3 Vec3_TEMP_GEN_6;
 
     private Vector2 Vector2_TEMP_GEN_0;
 
@@ -36,6 +49,84 @@ public class HingeConstraint extends TwoBodyConstraint {
     public static HingeConstraint native_new() {
         return new HingeConstraint((byte) 0, (char) 0);
     }
+
+    public Vec3 GetLocalSpacePoint1() {
+        int addr = internal_native_GetLocalSpacePoint1_addr(native_address);
+        if (addr == 0)
+            return Vec3.NULL;
+        if (Vec3_TEMP_GEN_0 == null)
+            Vec3_TEMP_GEN_0 = Vec3.native_new();
+        Vec3_TEMP_GEN_0.internal_reset(addr, false);
+        return Vec3_TEMP_GEN_0;
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.HingeConstraint);var returnedJSObj = jsObj.GetLocalSpacePoint1();if(!returnedJSObj.hasOwnProperty('ptr')) return 0; return jolt.getPointer(returnedJSObj);")
+    public static native int internal_native_GetLocalSpacePoint1_addr(int this_addr);
+
+    public Vec3 GetLocalSpacePoint2() {
+        int addr = internal_native_GetLocalSpacePoint2_addr(native_address);
+        if (addr == 0)
+            return Vec3.NULL;
+        if (Vec3_TEMP_GEN_1 == null)
+            Vec3_TEMP_GEN_1 = Vec3.native_new();
+        Vec3_TEMP_GEN_1.internal_reset(addr, false);
+        return Vec3_TEMP_GEN_1;
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.HingeConstraint);var returnedJSObj = jsObj.GetLocalSpacePoint2();if(!returnedJSObj.hasOwnProperty('ptr')) return 0; return jolt.getPointer(returnedJSObj);")
+    public static native int internal_native_GetLocalSpacePoint2_addr(int this_addr);
+
+    public Vec3 GetLocalSpaceHingeAxis1() {
+        int addr = internal_native_GetLocalSpaceHingeAxis1_addr(native_address);
+        if (addr == 0)
+            return Vec3.NULL;
+        if (Vec3_TEMP_GEN_2 == null)
+            Vec3_TEMP_GEN_2 = Vec3.native_new();
+        Vec3_TEMP_GEN_2.internal_reset(addr, false);
+        return Vec3_TEMP_GEN_2;
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.HingeConstraint);var returnedJSObj = jsObj.GetLocalSpaceHingeAxis1();if(!returnedJSObj.hasOwnProperty('ptr')) return 0; return jolt.getPointer(returnedJSObj);")
+    public static native int internal_native_GetLocalSpaceHingeAxis1_addr(int this_addr);
+
+    public Vec3 GetLocalSpaceHingeAxis2() {
+        int addr = internal_native_GetLocalSpaceHingeAxis2_addr(native_address);
+        if (addr == 0)
+            return Vec3.NULL;
+        if (Vec3_TEMP_GEN_3 == null)
+            Vec3_TEMP_GEN_3 = Vec3.native_new();
+        Vec3_TEMP_GEN_3.internal_reset(addr, false);
+        return Vec3_TEMP_GEN_3;
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.HingeConstraint);var returnedJSObj = jsObj.GetLocalSpaceHingeAxis2();if(!returnedJSObj.hasOwnProperty('ptr')) return 0; return jolt.getPointer(returnedJSObj);")
+    public static native int internal_native_GetLocalSpaceHingeAxis2_addr(int this_addr);
+
+    public Vec3 GetLocalSpaceNormalAxis1() {
+        int addr = internal_native_GetLocalSpaceNormalAxis1_addr(native_address);
+        if (addr == 0)
+            return Vec3.NULL;
+        if (Vec3_TEMP_GEN_4 == null)
+            Vec3_TEMP_GEN_4 = Vec3.native_new();
+        Vec3_TEMP_GEN_4.internal_reset(addr, false);
+        return Vec3_TEMP_GEN_4;
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.HingeConstraint);var returnedJSObj = jsObj.GetLocalSpaceNormalAxis1();if(!returnedJSObj.hasOwnProperty('ptr')) return 0; return jolt.getPointer(returnedJSObj);")
+    public static native int internal_native_GetLocalSpaceNormalAxis1_addr(int this_addr);
+
+    public Vec3 GetLocalSpaceNormalAxis2() {
+        int addr = internal_native_GetLocalSpaceNormalAxis2_addr(native_address);
+        if (addr == 0)
+            return Vec3.NULL;
+        if (Vec3_TEMP_GEN_5 == null)
+            Vec3_TEMP_GEN_5 = Vec3.native_new();
+        Vec3_TEMP_GEN_5.internal_reset(addr, false);
+        return Vec3_TEMP_GEN_5;
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.HingeConstraint);var returnedJSObj = jsObj.GetLocalSpaceNormalAxis2();if(!returnedJSObj.hasOwnProperty('ptr')) return 0; return jolt.getPointer(returnedJSObj);")
+    public static native int internal_native_GetLocalSpaceNormalAxis2_addr(int this_addr);
 
     public float GetCurrentAngle() {
         return internal_native_GetCurrentAngle(native_address);
@@ -120,6 +211,13 @@ public class HingeConstraint extends TwoBodyConstraint {
     @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.HingeConstraint);var returnedJSObj = jsObj.GetTargetAngle();return returnedJSObj;")
     public static native float internal_native_GetTargetAngle(int this_addr);
 
+    public void SetTargetOrientationBS(Quat inOrientation) {
+        internal_native_SetTargetOrientationBS(native_address, inOrientation.native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "inOrientation_addr"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.HingeConstraint);jsObj.SetTargetOrientationBS(inOrientation_addr);")
+    public static native void internal_native_SetTargetOrientationBS(int this_addr, int inOrientation_addr);
+
     public void SetLimits(float inLimitsMin, float inLimitsMax) {
         internal_native_SetLimits(native_address, inLimitsMin, inLimitsMax);
     }
@@ -172,10 +270,10 @@ public class HingeConstraint extends TwoBodyConstraint {
         int addr = internal_native_GetTotalLambdaPosition_addr(native_address);
         if (addr == 0)
             return Vec3.NULL;
-        if (Vec3_TEMP_GEN_0 == null)
-            Vec3_TEMP_GEN_0 = Vec3.native_new();
-        Vec3_TEMP_GEN_0.internal_reset(addr, false);
-        return Vec3_TEMP_GEN_0;
+        if (Vec3_TEMP_GEN_6 == null)
+            Vec3_TEMP_GEN_6 = Vec3.native_new();
+        Vec3_TEMP_GEN_6.internal_reset(addr, false);
+        return Vec3_TEMP_GEN_6;
     }
 
     @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.HingeConstraint);var returnedJSObj = jsObj.GetTotalLambdaPosition();if(!returnedJSObj.hasOwnProperty('ptr')) return 0; return jolt.getPointer(returnedJSObj);")

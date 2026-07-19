@@ -67,10 +67,10 @@ public enum EMotionType implements NativeEnum<EMotionType> {
 
     private static final class FFMHandles {
 
-        static final java.lang.invoke.MethodHandle EMotionType_Static_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_enums_emotiontype_emotiontype_static_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
+        static final java.lang.invoke.MethodHandle EMotionType_Static_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_enums_emotiontype_emotiontype_static_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
 
-        static final java.lang.invoke.MethodHandle EMotionType_Kinematic_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_enums_emotiontype_emotiontype_kinematic_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
+        static final java.lang.invoke.MethodHandle EMotionType_Kinematic_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_enums_emotiontype_emotiontype_kinematic_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
 
-        static final java.lang.invoke.MethodHandle EMotionType_Dynamic_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_enums_emotiontype_emotiontype_dynamic_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
+        static final java.lang.invoke.MethodHandle EMotionType_Dynamic_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_enums_emotiontype_emotiontype_dynamic_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
     }
 }

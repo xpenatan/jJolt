@@ -21,4 +21,8 @@ final public class JNI_CollideShapeSettings {
     public static native int internal_native_get_mBackFaceMode(long this_addr);
 
     public static native void internal_native_set_mBackFaceMode(long this_addr, int mBackFaceMode);
+
+    public static native float internal_native_get_mInternalEdgeRemovalVertexToleranceSq(long this_addr);
+
+    public static native void internal_native_set_mInternalEdgeRemovalVertexToleranceSq(long this_addr, float mInternalEdgeRemovalVertexToleranceSq);
 }

@@ -76,4 +76,18 @@ public class SkeletalAnimation extends NativeObject {
 
     @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.SkeletalAnimation);var returnedJSObj = jsObj.GetAnimatedJoints();if(!returnedJSObj.hasOwnProperty('ptr')) return 0; return jolt.getPointer(returnedJSObj);")
     public static native int internal_native_GetAnimatedJoints_addr(int this_addr);
+
+    public boolean IsLooping() {
+        return internal_native_IsLooping(native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.SkeletalAnimation);var returnedJSObj = jsObj.IsLooping();return returnedJSObj;")
+    public static native boolean internal_native_IsLooping(int this_addr);
+
+    public void SetIsLooping(boolean inIsLooping) {
+        internal_native_SetIsLooping(native_address, inIsLooping);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "inIsLooping"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.SkeletalAnimation);jsObj.SetIsLooping(inIsLooping);")
+    public static native void internal_native_SetIsLooping(int this_addr, boolean inIsLooping);
 }

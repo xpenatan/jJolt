@@ -70,17 +70,17 @@ public class ShapeSettings extends RefTargetShapeSettings {
     @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.ShapeSettings);jsObj.ClearCachedResult();")
     public static native void internal_native_ClearCachedResult(int this_addr);
 
-    public long get_mUserData() {
+    public int get_mUserData() {
         return internal_native_get_mUserData(native_address);
     }
 
     @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.ShapeSettings);return jsObj.get_mUserData();")
-    public static native long internal_native_get_mUserData(int this_addr);
+    public static native int internal_native_get_mUserData(int this_addr);
 
-    public void set_mUserData(long mUserData) {
+    public void set_mUserData(int mUserData) {
         internal_native_set_mUserData(native_address, mUserData);
     }
 
     @org.teavm.jso.JSBody(params = {"this_addr", "mUserData"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.ShapeSettings);jsObj.set_mUserData(mUserData);")
-    public static native void internal_native_set_mUserData(int this_addr, long mUserData);
+    public static native void internal_native_set_mUserData(int this_addr, int mUserData);
 }

@@ -10,6 +10,15 @@ public class CharacterVsCharacterCollisionSimple extends CharacterVsCharacterCol
 
     static public final CharacterVsCharacterCollisionSimple NULL = CharacterVsCharacterCollisionSimple.native_new();
 
+    public CharacterVsCharacterCollisionSimple() {
+        super((byte) 1, (char) 1);
+        long addr = internal_native_create_addr();
+        internal_reset(addr, true);
+    }
+
+    @org.teavm.interop.Import(name = "jolt_physics_character_charactervscharactercollisionsimple_create_addr")
+    public static native long internal_native_create_addr();
+
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
      */

@@ -48,14 +48,14 @@ public class Character extends CharacterBase {
 
     static public final Character NULL = Character.native_new();
 
-    public Character(CharacterSettings inSettings, RVec3 inPosition, Quat inRotation, long inUserData, PhysicsSystem inSystem) {
+    public Character(CharacterSettings inSettings, RVec3 inPosition, Quat inRotation, int inUserData, PhysicsSystem inSystem) {
         super((byte) 1, (char) 1);
-        long addr = internal_native_create_CharacterSettings_RVec3_Quat_long_PhysicsSystem_addr(inSettings.native_address, inPosition.native_address, inRotation.native_address, inUserData, inSystem.native_address);
+        long addr = internal_native_create_CharacterSettings_RVec3_Quat_int_PhysicsSystem_addr(inSettings.native_address, inPosition.native_address, inRotation.native_address, inUserData, inSystem.native_address);
         internal_reset(addr, true);
     }
 
-    @org.teavm.interop.Import(name = "jolt_physics_character_character_create_charactersettings_rvec3_quat_long_physicssystem_addr")
-    public static native long internal_native_create_CharacterSettings_RVec3_Quat_long_PhysicsSystem_addr(long inSettings_addr, long inPosition_addr, long inRotation_addr, long inUserData, long inSystem_addr);
+    @org.teavm.interop.Import(name = "jolt_physics_character_character_create_charactersettings_rvec3_quat_int_physicssystem_addr")
+    public static native long internal_native_create_CharacterSettings_RVec3_Quat_int_PhysicsSystem_addr(long inSettings_addr, long inPosition_addr, long inRotation_addr, int inUserData, long inSystem_addr);
 
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer

@@ -30,6 +30,9 @@ public class CastShapeBodyCollector extends NativeObject {
         return new CastShapeBodyCollector((byte) 0, (char) 0);
     }
 
+    public void ResetNative() {
+    }
+
     public void SetContext(TransformedShape inContext) {
     }
 

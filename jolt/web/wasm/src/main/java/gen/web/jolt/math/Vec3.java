@@ -86,6 +86,14 @@ public class Vec3 extends NativeObject {
     @org.teavm.jso.JSBody(script = "var jsObj = new jolt.Vec3();return jolt.getPointer(jsObj);")
     public static native int internal_native_create_addr();
 
+    public Vec3(Float3 inV) {
+        int addr = internal_native_create_Float3_addr(inV.native_address);
+        internal_reset(addr, true);
+    }
+
+    @org.teavm.jso.JSBody(params = {"inV_addr"}, script = "var jsObj = new jolt.Vec3(inV_addr);return jolt.getPointer(jsObj);")
+    public static native int internal_native_create_Float3_addr(int inV_addr);
+
     public Vec3(float inX, float inY, float inZ) {
         int addr = internal_native_create_float_float_float_addr(inX, inY, inZ);
         internal_reset(addr, true);

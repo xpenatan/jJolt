@@ -67,10 +67,10 @@ public enum ECullMode implements NativeEnum<ECullMode> {
 
     private static final class FFMHandles {
 
-        static final java.lang.invoke.MethodHandle ECullMode_CullBackFace_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_enums_ecullmode_ecullmode_cullbackface_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
+        static final java.lang.invoke.MethodHandle ECullMode_CullBackFace_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_enums_ecullmode_ecullmode_cullbackface_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
 
-        static final java.lang.invoke.MethodHandle ECullMode_CullFrontFace_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_enums_ecullmode_ecullmode_cullfrontface_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
+        static final java.lang.invoke.MethodHandle ECullMode_CullFrontFace_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_enums_ecullmode_ecullmode_cullfrontface_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
 
-        static final java.lang.invoke.MethodHandle ECullMode_Off_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_enums_ecullmode_ecullmode_off_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
+        static final java.lang.invoke.MethodHandle ECullMode_Off_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_enums_ecullmode_ecullmode_off_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
     }
 }

@@ -44,6 +44,14 @@ public class RayCastSettings extends NativeObject {
         jolt.physics.collision.natives.JNI_RayCastSettings.internal_native_deleteNative(this_addr);
     }
 
+    public void SetBackFaceMode(EBackFaceMode inBackFaceMode) {
+        internal_native_SetBackFaceMode(native_address, inBackFaceMode.getValue());
+    }
+
+    public static void internal_native_SetBackFaceMode(long this_addr, int inBackFaceMode) {
+        jolt.physics.collision.natives.JNI_RayCastSettings.internal_native_SetBackFaceMode(this_addr, inBackFaceMode);
+    }
+
     public EBackFaceMode get_mBackFaceModeTriangles() {
         int value = internal_native_get_mBackFaceModeTriangles(native_address);
         EBackFaceMode[] values = EBackFaceMode.values();

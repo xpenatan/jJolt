@@ -9,6 +9,7 @@ package gen.web.jolt.physics.constraints;
 import gen.web.com.github.xpenatan.jParser.api.NativeObject;
 import gen.web.jolt.enums.EConstraintType;
 import gen.web.jolt.enums.EConstraintSubType;
+import gen.web.jolt.physics.StateRecorder;
 
 public class Constraint extends NativeObject {
 
@@ -140,19 +141,19 @@ public class Constraint extends NativeObject {
     @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.Constraint);var returnedJSObj = jsObj.IsActive();return returnedJSObj;")
     public static native boolean internal_native_IsActive(int this_addr);
 
-    public long GetUserData() {
+    public int GetUserData() {
         return internal_native_GetUserData(native_address);
     }
 
     @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.Constraint);var returnedJSObj = jsObj.GetUserData();return returnedJSObj;")
-    public static native long internal_native_GetUserData(int this_addr);
+    public static native int internal_native_GetUserData(int this_addr);
 
-    public void SetUserData(long inUserData) {
+    public void SetUserData(int inUserData) {
         internal_native_SetUserData(native_address, inUserData);
     }
 
     @org.teavm.jso.JSBody(params = {"this_addr", "inUserData"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.Constraint);jsObj.SetUserData(inUserData);")
-    public static native void internal_native_SetUserData(int this_addr, long inUserData);
+    public static native void internal_native_SetUserData(int this_addr, int inUserData);
 
     public void ResetWarmStart() {
         internal_native_ResetWarmStart(native_address);
@@ -160,4 +161,18 @@ public class Constraint extends NativeObject {
 
     @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.Constraint);jsObj.ResetWarmStart();")
     public static native void internal_native_ResetWarmStart(int this_addr);
+
+    public void SaveState(StateRecorder inStream) {
+        internal_native_SaveState(native_address, inStream.native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "inStream_addr"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.Constraint);jsObj.SaveState(inStream_addr);")
+    public static native void internal_native_SaveState(int this_addr, int inStream_addr);
+
+    public void RestoreState(StateRecorder inStream) {
+        internal_native_RestoreState(native_address, inStream.native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "inStream_addr"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.Constraint);jsObj.RestoreState(inStream_addr);")
+    public static native void internal_native_RestoreState(int this_addr, int inStream_addr);
 }

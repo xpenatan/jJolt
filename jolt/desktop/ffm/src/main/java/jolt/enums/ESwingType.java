@@ -59,8 +59,8 @@ public enum ESwingType implements NativeEnum<ESwingType> {
 
     private static final class FFMHandles {
 
-        static final java.lang.invoke.MethodHandle ESwingType_Cone_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_enums_eswingtype_eswingtype_cone_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
+        static final java.lang.invoke.MethodHandle ESwingType_Cone_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_enums_eswingtype_eswingtype_cone_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
 
-        static final java.lang.invoke.MethodHandle ESwingType_Pyramid_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_enums_eswingtype_eswingtype_pyramid_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
+        static final java.lang.invoke.MethodHandle ESwingType_Pyramid_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_enums_eswingtype_eswingtype_pyramid_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
     }
 }

@@ -8,14 +8,18 @@ package gen.c.jolt.physics.character;
 
 import com.github.xpenatan.jParser.api.NativeObject;
 import gen.c.jolt.math.Vec3;
+import gen.c.jolt.geometry.Plane;
 import gen.c.jolt.physics.collision.shape.Shape;
 import gen.c.jolt.enums.EGroundState;
 import gen.c.jolt.physics.collision.PhysicsMaterial;
 import gen.c.jolt.physics.body.BodyID;
+import gen.c.jolt.physics.StateRecorder;
 
 public class CharacterBase extends NativeObject {
 
     private Vec3 Vec3_TEMP_GEN_0;
+
+    private Plane Plane_TEMP_GEN_0;
 
     private Shape Shape_TEMP_GEN_0;
 
@@ -99,6 +103,26 @@ public class CharacterBase extends NativeObject {
 
     @org.teavm.interop.Import(name = "jolt_physics_character_characterbase_getup_addr")
     public static native long internal_native_GetUp_addr(long this_addr);
+
+    public void SetSupportingVolume(Plane inVolume) {
+        internal_native_SetSupportingVolume(native_address, inVolume.native_address);
+    }
+
+    @org.teavm.interop.Import(name = "jolt_physics_character_characterbase_setsupportingvolume")
+    public static native void internal_native_SetSupportingVolume(long this_addr, long inVolume_addr);
+
+    public Plane GetSupportingVolume() {
+        long addr = internal_native_GetSupportingVolume_addr(native_address);
+        if (addr == 0)
+            return Plane.NULL;
+        if (Plane_TEMP_GEN_0 == null)
+            Plane_TEMP_GEN_0 = Plane.native_new();
+        Plane_TEMP_GEN_0.internal_reset(addr, false);
+        return Plane_TEMP_GEN_0;
+    }
+
+    @org.teavm.interop.Import(name = "jolt_physics_character_characterbase_getsupportingvolume_addr")
+    public static native long internal_native_GetSupportingVolume_addr(long this_addr);
 
     public Shape GetShape() {
         long addr = internal_native_GetShape_addr(native_address);
@@ -205,4 +229,18 @@ public class CharacterBase extends NativeObject {
 
     @org.teavm.interop.Import(name = "jolt_physics_character_characterbase_getgroundbodyid_addr")
     public static native long internal_native_GetGroundBodyID_addr(long this_addr);
+
+    public void SaveState(StateRecorder inStream) {
+        internal_native_SaveState(native_address, inStream.native_address);
+    }
+
+    @org.teavm.interop.Import(name = "jolt_physics_character_characterbase_savestate")
+    public static native void internal_native_SaveState(long this_addr, long inStream_addr);
+
+    public void RestoreState(StateRecorder inStream) {
+        internal_native_RestoreState(native_address, inStream.native_address);
+    }
+
+    @org.teavm.interop.Import(name = "jolt_physics_character_characterbase_restorestate")
+    public static native void internal_native_RestoreState(long this_addr, long inStream_addr);
 }

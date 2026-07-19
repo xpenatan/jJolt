@@ -280,10 +280,31 @@ public class BodyInterface extends NativeObject {
         return 0;
     }
 
+    public void SetMaxLinearVelocity(BodyID inBodyID, float inLinearVelocity) {
+    }
+
+    public float GetMaxLinearVelocity(BodyID inBodyID) {
+        return 0;
+    }
+
+    public void SetMaxAngularVelocity(BodyID inBodyID, float inAngularVelocity) {
+    }
+
+    public float GetMaxAngularVelocity(BodyID inBodyID) {
+        return 0;
+    }
+
     public void SetUseManifoldReduction(BodyID inBodyID, boolean inUseReduction) {
     }
 
     public boolean GetUseManifoldReduction(BodyID inBodyID) {
+        return false;
+    }
+
+    public void SetIsSensor(BodyID inBodyID, boolean inIsSensor) {
+    }
+
+    public boolean IsSensor(BodyID inBodyID) {
         return false;
     }
 
@@ -323,11 +344,11 @@ public class BodyInterface extends NativeObject {
         return null;
     }
 
-    public long GetUserData(BodyID inBodyID) {
+    public int GetUserData(BodyID inBodyID) {
         return 0;
     }
 
-    public void SetUserData(BodyID inBodyID, long inUserData) {
+    public void SetUserData(BodyID inBodyID, int inUserData) {
     }
 
     public PhysicsMaterial GetMaterial(BodyID inBodyID, SubShapeID inSubShapeID) {

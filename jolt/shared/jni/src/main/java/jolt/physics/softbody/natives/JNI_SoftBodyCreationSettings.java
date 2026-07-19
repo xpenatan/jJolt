@@ -22,9 +22,9 @@ final public class JNI_SoftBodyCreationSettings {
 
     public static native void internal_native_set_mRotation(long this_addr, long mRotation_addr);
 
-    public static native long internal_native_get_mUserData(long this_addr);
+    public static native int internal_native_get_mUserData(long this_addr);
 
-    public static native void internal_native_set_mUserData(long this_addr, long mUserData);
+    public static native void internal_native_set_mUserData(long this_addr, int mUserData);
 
     public static native int internal_native_get_mObjectLayer(long this_addr);
 
@@ -62,6 +62,10 @@ final public class JNI_SoftBodyCreationSettings {
 
     public static native void internal_native_set_mGravityFactor(long this_addr, float mGravityFactor);
 
+    public static native float internal_native_get_mVertexRadius(long this_addr);
+
+    public static native void internal_native_set_mVertexRadius(long this_addr, float mVertexRadius);
+
     public static native boolean internal_native_get_mUpdatePosition(long this_addr);
 
     public static native void internal_native_set_mUpdatePosition(long this_addr, boolean mUpdatePosition);
@@ -73,4 +77,8 @@ final public class JNI_SoftBodyCreationSettings {
     public static native boolean internal_native_get_mAllowSleeping(long this_addr);
 
     public static native void internal_native_set_mAllowSleeping(long this_addr, boolean mAllowSleeping);
+
+    public static native boolean internal_native_get_mFacesDoubleSided(long this_addr);
+
+    public static native void internal_native_set_mFacesDoubleSided(long this_addr, boolean mFacesDoubleSided);
 }

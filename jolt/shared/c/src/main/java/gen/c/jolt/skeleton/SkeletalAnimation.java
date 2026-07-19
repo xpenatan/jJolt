@@ -76,4 +76,18 @@ public class SkeletalAnimation extends NativeObject {
 
     @org.teavm.interop.Import(name = "jolt_skeleton_skeletalanimation_getanimatedjoints_addr")
     public static native long internal_native_GetAnimatedJoints_addr(long this_addr);
+
+    public boolean IsLooping() {
+        return internal_native_IsLooping(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "jolt_skeleton_skeletalanimation_islooping")
+    public static native boolean internal_native_IsLooping(long this_addr);
+
+    public void SetIsLooping(boolean inIsLooping) {
+        internal_native_SetIsLooping(native_address, inIsLooping);
+    }
+
+    @org.teavm.interop.Import(name = "jolt_skeleton_skeletalanimation_setislooping")
+    public static native void internal_native_SetIsLooping(long this_addr, boolean inIsLooping);
 }

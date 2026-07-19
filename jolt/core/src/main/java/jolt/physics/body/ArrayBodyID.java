@@ -12,6 +12,9 @@ public class ArrayBodyID extends NativeObject {
 
     static public final ArrayBodyID NULL = ArrayBodyID.native_new();
 
+    public ArrayBodyID() {
+    }
+
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
      */

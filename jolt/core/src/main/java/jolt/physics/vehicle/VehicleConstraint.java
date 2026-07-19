@@ -37,7 +37,15 @@ public class VehicleConstraint extends Constraint {
     public void SetMaxPitchRollAngle(float inMaxPitchRollAngle) {
     }
 
+    public float GetMaxPitchRollAngle() {
+        return 0;
+    }
+
     public void SetVehicleCollisionTester(VehicleCollisionTester inTester) {
+    }
+
+    public VehicleCollisionTester GetVehicleCollisionTester() {
+        return null;
     }
 
     public void OverrideGravity(Vec3 inGravity) {

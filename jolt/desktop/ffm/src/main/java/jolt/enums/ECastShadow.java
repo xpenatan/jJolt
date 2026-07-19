@@ -59,8 +59,8 @@ public enum ECastShadow implements NativeEnum<ECastShadow> {
 
     private static final class FFMHandles {
 
-        static final java.lang.invoke.MethodHandle ECastShadow_On_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_enums_ecastshadow_ecastshadow_on_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
+        static final java.lang.invoke.MethodHandle ECastShadow_On_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_enums_ecastshadow_ecastshadow_on_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
 
-        static final java.lang.invoke.MethodHandle ECastShadow_Off_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_enums_ecastshadow_ecastshadow_off_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
+        static final java.lang.invoke.MethodHandle ECastShadow_Off_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_enums_ecastshadow_ecastshadow_off_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
     }
 }

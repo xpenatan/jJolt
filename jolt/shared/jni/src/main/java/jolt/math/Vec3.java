@@ -87,6 +87,15 @@ public class Vec3 extends NativeObject {
         return jolt.math.natives.JNI_Vec3.internal_native_create_addr();
     }
 
+    public Vec3(Float3 inV) {
+        long addr = internal_native_create_Float3_addr(inV.native_address);
+        internal_reset(addr, true);
+    }
+
+    public static long internal_native_create_Float3_addr(long inV_addr) {
+        return jolt.math.natives.JNI_Vec3.internal_native_create_Float3_addr(inV_addr);
+    }
+
     public Vec3(float inX, float inY, float inZ) {
         long addr = internal_native_create_float_float_float_addr(inX, inY, inZ);
         internal_reset(addr, true);

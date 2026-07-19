@@ -316,6 +316,48 @@ public class BodyManagerDrawSettings extends NativeObject {
     @org.teavm.interop.Import(name = "jolt_physics_body_bodymanagerdrawsettings_set_mdrawsoftbodylraconstraints")
     public static native void internal_native_set_mDrawSoftBodyLRAConstraints(long this_addr, boolean mDrawSoftBodyLRAConstraints);
 
+    public boolean get_mDrawSoftBodyRods() {
+        return internal_native_get_mDrawSoftBodyRods(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "jolt_physics_body_bodymanagerdrawsettings_get_mdrawsoftbodyrods")
+    public static native boolean internal_native_get_mDrawSoftBodyRods(long this_addr);
+
+    public void set_mDrawSoftBodyRods(boolean mDrawSoftBodyRods) {
+        internal_native_set_mDrawSoftBodyRods(native_address, mDrawSoftBodyRods);
+    }
+
+    @org.teavm.interop.Import(name = "jolt_physics_body_bodymanagerdrawsettings_set_mdrawsoftbodyrods")
+    public static native void internal_native_set_mDrawSoftBodyRods(long this_addr, boolean mDrawSoftBodyRods);
+
+    public boolean get_mDrawSoftBodyRodStates() {
+        return internal_native_get_mDrawSoftBodyRodStates(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "jolt_physics_body_bodymanagerdrawsettings_get_mdrawsoftbodyrodstates")
+    public static native boolean internal_native_get_mDrawSoftBodyRodStates(long this_addr);
+
+    public void set_mDrawSoftBodyRodStates(boolean mDrawSoftBodyRodStates) {
+        internal_native_set_mDrawSoftBodyRodStates(native_address, mDrawSoftBodyRodStates);
+    }
+
+    @org.teavm.interop.Import(name = "jolt_physics_body_bodymanagerdrawsettings_set_mdrawsoftbodyrodstates")
+    public static native void internal_native_set_mDrawSoftBodyRodStates(long this_addr, boolean mDrawSoftBodyRodStates);
+
+    public boolean get_mDrawSoftBodyRodBendTwistConstraints() {
+        return internal_native_get_mDrawSoftBodyRodBendTwistConstraints(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "jolt_physics_body_bodymanagerdrawsettings_get_mdrawsoftbodyrodbendtwistconstraints")
+    public static native boolean internal_native_get_mDrawSoftBodyRodBendTwistConstraints(long this_addr);
+
+    public void set_mDrawSoftBodyRodBendTwistConstraints(boolean mDrawSoftBodyRodBendTwistConstraints) {
+        internal_native_set_mDrawSoftBodyRodBendTwistConstraints(native_address, mDrawSoftBodyRodBendTwistConstraints);
+    }
+
+    @org.teavm.interop.Import(name = "jolt_physics_body_bodymanagerdrawsettings_set_mdrawsoftbodyrodbendtwistconstraints")
+    public static native void internal_native_set_mDrawSoftBodyRodBendTwistConstraints(long this_addr, boolean mDrawSoftBodyRodBendTwistConstraints);
+
     public boolean get_mDrawSoftBodyPredictedBounds() {
         return internal_native_get_mDrawSoftBodyPredictedBounds(native_address);
     }

@@ -7,6 +7,9 @@
 package jolt.physics.collision;
 
 import com.github.xpenatan.jParser.api.NativeObject;
+import jolt.physics.body.Body;
+import jolt.physics.collision.shape.Shape;
+import jolt.physics.collision.shape.SubShapeID;
 import java.lang.foreign.FunctionDescriptor;
 import java.lang.foreign.ValueLayout;
 import java.lang.foreign.Linker;
@@ -17,24 +20,28 @@ import java.lang.invoke.MethodHandle;
 
 public class SimShapeFilter extends NativeObject {
 
+    static private Body Body_TEMP_STATIC_GEN_0;
+
+    static private Shape Shape_TEMP_STATIC_GEN_0;
+
+    static private SubShapeID SubShapeID_TEMP_STATIC_GEN_0;
+
+    static private Body Body_TEMP_STATIC_GEN_1;
+
+    static private Shape Shape_TEMP_STATIC_GEN_1;
+
+    static private SubShapeID SubShapeID_TEMP_STATIC_GEN_1;
+
+    private static final java.lang.invoke.MethodHandles.Lookup callbackLookup = java.lang.invoke.MethodHandles.lookup();
+
+    private static final java.lang.foreign.Linker callbackLinker = java.lang.foreign.Linker.nativeLinker();
+
+    private static final java.lang.invoke.MethodType callbackMethodType_ShouldCollide = java.lang.invoke.MethodType.methodType(boolean.class, long.class, long.class, long.class, long.class, long.class, long.class);
+
+    private static final java.lang.foreign.FunctionDescriptor callbackDescriptor_ShouldCollide = java.lang.foreign.FunctionDescriptor.of(java.lang.foreign.ValueLayout.JAVA_BOOLEAN, java.lang.foreign.ValueLayout.JAVA_LONG, java.lang.foreign.ValueLayout.JAVA_LONG, java.lang.foreign.ValueLayout.JAVA_LONG, java.lang.foreign.ValueLayout.JAVA_LONG, java.lang.foreign.ValueLayout.JAVA_LONG, java.lang.foreign.ValueLayout.JAVA_LONG);
+
     static public final SimShapeFilter NULL = SimShapeFilter.native_new();
 
-    public SimShapeFilter() {
-        long addr = internal_native_create_addr();
-        internal_reset(addr, true);
-    }
-
-    public static long internal_native_create_addr() {
-        try {
-            return (long) FFMHandles.internal_native_create_addr__.invokeExact();
-        } catch (Throwable e) {
-            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
-        }
-    }
-
-    /**
-     * Dummy constructor, used internally to creates objects without C++ pointer
-     */
     @Deprecated()
     protected SimShapeFilter(byte b, char c) {
     }
@@ -48,6 +55,7 @@ public class SimShapeFilter extends NativeObject {
 
     protected void deleteNative() {
         internal_native_deleteNative(native_address);
+        releaseUpcallResources();
     }
 
     public static void internal_native_deleteNative(long this_addr) {
@@ -58,10 +66,88 @@ public class SimShapeFilter extends NativeObject {
         }
     }
 
+    public SimShapeFilter() {
+        long addr = internal_native_create_addr();
+        internal_reset(addr, true);
+        setupCallback();
+    }
+
+    private void setupCallback() {
+        try {
+            releaseUpcallResources();
+            upcallArena = java.lang.foreign.Arena.ofShared();
+            java.lang.invoke.MethodHandle mh_ShouldCollide = callbackLookup.findVirtual(SimShapeFilter.class, "internal_ShouldCollide", callbackMethodType_ShouldCollide).bindTo(this);
+            upcallStub_ShouldCollide = callbackLinker.upcallStub(mh_ShouldCollide, callbackDescriptor_ShouldCollide, upcallArena);
+            internal_native_setupCallback(native_address, upcallStub_ShouldCollide.address());
+        } catch (Throwable e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    protected boolean ShouldCollide(Body inBody1, Shape inShape1, SubShapeID inSubShapeIDOfShape1, Body inBody2, Shape inShape2, SubShapeID inSubShapeIDOfShape2) {
+        return false;
+    }
+
+    private boolean internal_ShouldCollide(long inBody1_addr, long inShape1_addr, long inSubShapeIDOfShape1_addr, long inBody2_addr, long inShape2_addr, long inSubShapeIDOfShape2_addr) {
+        if (Body_TEMP_STATIC_GEN_0 == null)
+            Body_TEMP_STATIC_GEN_0 = Body.native_new();
+        Body_TEMP_STATIC_GEN_0.internal_reset(inBody1_addr, false);
+        if (Shape_TEMP_STATIC_GEN_0 == null)
+            Shape_TEMP_STATIC_GEN_0 = Shape.native_new();
+        Shape_TEMP_STATIC_GEN_0.internal_reset(inShape1_addr, false);
+        if (SubShapeID_TEMP_STATIC_GEN_0 == null)
+            SubShapeID_TEMP_STATIC_GEN_0 = SubShapeID.native_new();
+        SubShapeID_TEMP_STATIC_GEN_0.internal_reset(inSubShapeIDOfShape1_addr, false);
+        if (Body_TEMP_STATIC_GEN_1 == null)
+            Body_TEMP_STATIC_GEN_1 = Body.native_new();
+        Body_TEMP_STATIC_GEN_1.internal_reset(inBody2_addr, false);
+        if (Shape_TEMP_STATIC_GEN_1 == null)
+            Shape_TEMP_STATIC_GEN_1 = Shape.native_new();
+        Shape_TEMP_STATIC_GEN_1.internal_reset(inShape2_addr, false);
+        if (SubShapeID_TEMP_STATIC_GEN_1 == null)
+            SubShapeID_TEMP_STATIC_GEN_1 = SubShapeID.native_new();
+        SubShapeID_TEMP_STATIC_GEN_1.internal_reset(inSubShapeIDOfShape2_addr, false);
+        return ShouldCollide(Body_TEMP_STATIC_GEN_0, Shape_TEMP_STATIC_GEN_0, SubShapeID_TEMP_STATIC_GEN_0, Body_TEMP_STATIC_GEN_1, Shape_TEMP_STATIC_GEN_1, SubShapeID_TEMP_STATIC_GEN_1);
+    }
+
+    public static long internal_native_create_addr() {
+        try {
+            return (long) FFMHandles.internal_native_create_addr__.invokeExact();
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    private Arena upcallArena;
+
+    private MemorySegment upcallStub_ShouldCollide;
+
+    private void releaseUpcallResources() {
+        Arena arena = upcallArena;
+        upcallStub_ShouldCollide = null;
+        upcallArena = null;
+        if (arena != null) {
+            try {
+                arena.close();
+            } catch (Exception ignored) {
+            }
+        }
+    }
+
+    public static void internal_native_setupCallback(long this_addr, long ShouldCollide_fp) {
+        try {
+            FFMHandles.internal_native_setupCallback__JJ.invokeExact(this_addr, ShouldCollide_fp);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
     private static final class FFMHandles {
 
-        static final java.lang.invoke.MethodHandle internal_native_create_addr__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_physics_collision_simshapefilter_create_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG));
-
         static final java.lang.invoke.MethodHandle internal_native_deleteNative__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_collision_simshapefilter_deletenative", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_create_addr__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_collision_simshapefilter_create_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_setupCallback__JJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_collision_simshapefilter_setupcallback", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
     }
 }

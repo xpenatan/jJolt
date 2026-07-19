@@ -34,6 +34,22 @@ public class OrientedBox extends NativeObject {
         return new OrientedBox((byte) 0, (char) 0);
     }
 
+    public boolean OverlapsAABox(AABox inBox, float inEpsilon) {
+        return false;
+    }
+
+    public boolean OverlapsAABox(AABox inBox) {
+        return false;
+    }
+
+    public boolean OverlapsOrientedBox(OrientedBox inBox, float inEpsilon) {
+        return false;
+    }
+
+    public boolean OverlapsOrientedBox(OrientedBox inBox) {
+        return false;
+    }
+
     public Mat44 get_mOrientation() {
         return null;
     }

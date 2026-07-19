@@ -13,4 +13,6 @@ final public class JNI_ESpringMode {
     static native public int ESpringMode_FrequencyAndDamping_NATIVE();
 
     static native public int ESpringMode_StiffnessAndDamping_NATIVE();
+
+    static native public int ESpringMode_MassNormalizedStiffnessAndDamping_NATIVE();
 }

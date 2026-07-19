@@ -46,4 +46,18 @@ public class StateRecorder extends NativeObject {
 
     @org.teavm.interop.Import(name = "jolt_physics_staterecorder_isvalidating")
     public static native boolean internal_native_IsValidating(long this_addr);
+
+    public void SetIsLastPart(boolean inIsLastPart) {
+        internal_native_SetIsLastPart(native_address, inIsLastPart);
+    }
+
+    @org.teavm.interop.Import(name = "jolt_physics_staterecorder_setislastpart")
+    public static native void internal_native_SetIsLastPart(long this_addr, boolean inIsLastPart);
+
+    public boolean IsLastPart() {
+        return internal_native_IsLastPart(native_address);
+    }
+
+    @org.teavm.interop.Import(name = "jolt_physics_staterecorder_islastpart")
+    public static native boolean internal_native_IsLastPart(long this_addr);
 }

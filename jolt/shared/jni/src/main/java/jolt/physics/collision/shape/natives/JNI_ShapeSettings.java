@@ -20,7 +20,7 @@ final public class JNI_ShapeSettings {
 
     public static native void internal_native_ClearCachedResult(long this_addr);
 
-    public static native long internal_native_get_mUserData(long this_addr);
+    public static native int internal_native_get_mUserData(long this_addr);
 
-    public static native void internal_native_set_mUserData(long this_addr, long mUserData);
+    public static native void internal_native_set_mUserData(long this_addr, int mUserData);
 }

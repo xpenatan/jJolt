@@ -28,6 +28,10 @@ public class SoftBodySharedSettings extends NativeObject {
 
     private ArraySoftBodySharedSettingsLRA ArraySoftBodySharedSettingsLRA_TEMP_GEN_0;
 
+    private ArraySoftBodySharedSettingsRodStretchShear ArraySoftBodySharedSettingsRodStretchShear_TEMP_GEN_0;
+
+    private ArraySoftBodySharedSettingsRodBendTwist ArraySoftBodySharedSettingsRodBendTwist_TEMP_GEN_0;
+
     private PhysicsMaterialList PhysicsMaterialList_TEMP_GEN_0;
 
     static public final SoftBodySharedSettings NULL = SoftBodySharedSettings.native_new();
@@ -116,6 +120,13 @@ public class SoftBodySharedSettings extends NativeObject {
 
     @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.SoftBodySharedSettings);jsObj.CalculateEdgeLengths();")
     public static native void internal_native_CalculateEdgeLengths(int this_addr);
+
+    public void CalculateRodProperties() {
+        internal_native_CalculateRodProperties(native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.SoftBodySharedSettings);jsObj.CalculateRodProperties();")
+    public static native void internal_native_CalculateRodProperties(int this_addr);
 
     public void CalculateLRALengths() {
         internal_native_CalculateLRALengths(native_address);
@@ -324,6 +335,46 @@ public class SoftBodySharedSettings extends NativeObject {
     @org.teavm.jso.JSBody(params = {"this_addr", "mLRAConstraints_addr"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.SoftBodySharedSettings);jsObj.set_mLRAConstraints(mLRAConstraints_addr);")
     public static native void internal_native_set_mLRAConstraints(int this_addr, int mLRAConstraints_addr);
 
+    public ArraySoftBodySharedSettingsRodStretchShear get_mRodStretchShearConstraints() {
+        int addr = internal_native_get_mRodStretchShearConstraints_addr(native_address);
+        if (addr == 0)
+            return ArraySoftBodySharedSettingsRodStretchShear.NULL;
+        if (ArraySoftBodySharedSettingsRodStretchShear_TEMP_GEN_0 == null)
+            ArraySoftBodySharedSettingsRodStretchShear_TEMP_GEN_0 = ArraySoftBodySharedSettingsRodStretchShear.native_new();
+        ArraySoftBodySharedSettingsRodStretchShear_TEMP_GEN_0.internal_reset(addr, false);
+        return ArraySoftBodySharedSettingsRodStretchShear_TEMP_GEN_0;
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.SoftBodySharedSettings);var returnedJSObj = jsObj.get_mRodStretchShearConstraints();if(!returnedJSObj.hasOwnProperty('ptr')) return 0; return jolt.getPointer(returnedJSObj);")
+    public static native int internal_native_get_mRodStretchShearConstraints_addr(int this_addr);
+
+    public void set_mRodStretchShearConstraints(ArraySoftBodySharedSettingsRodStretchShear mRodStretchShearConstraints) {
+        internal_native_set_mRodStretchShearConstraints(native_address, mRodStretchShearConstraints.native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "mRodStretchShearConstraints_addr"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.SoftBodySharedSettings);jsObj.set_mRodStretchShearConstraints(mRodStretchShearConstraints_addr);")
+    public static native void internal_native_set_mRodStretchShearConstraints(int this_addr, int mRodStretchShearConstraints_addr);
+
+    public ArraySoftBodySharedSettingsRodBendTwist get_mRodBendTwistConstraints() {
+        int addr = internal_native_get_mRodBendTwistConstraints_addr(native_address);
+        if (addr == 0)
+            return ArraySoftBodySharedSettingsRodBendTwist.NULL;
+        if (ArraySoftBodySharedSettingsRodBendTwist_TEMP_GEN_0 == null)
+            ArraySoftBodySharedSettingsRodBendTwist_TEMP_GEN_0 = ArraySoftBodySharedSettingsRodBendTwist.native_new();
+        ArraySoftBodySharedSettingsRodBendTwist_TEMP_GEN_0.internal_reset(addr, false);
+        return ArraySoftBodySharedSettingsRodBendTwist_TEMP_GEN_0;
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.SoftBodySharedSettings);var returnedJSObj = jsObj.get_mRodBendTwistConstraints();if(!returnedJSObj.hasOwnProperty('ptr')) return 0; return jolt.getPointer(returnedJSObj);")
+    public static native int internal_native_get_mRodBendTwistConstraints_addr(int this_addr);
+
+    public void set_mRodBendTwistConstraints(ArraySoftBodySharedSettingsRodBendTwist mRodBendTwistConstraints) {
+        internal_native_set_mRodBendTwistConstraints(native_address, mRodBendTwistConstraints.native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "mRodBendTwistConstraints_addr"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.SoftBodySharedSettings);jsObj.set_mRodBendTwistConstraints(mRodBendTwistConstraints_addr);")
+    public static native void internal_native_set_mRodBendTwistConstraints(int this_addr, int mRodBendTwistConstraints_addr);
+
     public PhysicsMaterialList get_mMaterials() {
         int addr = internal_native_get_mMaterials_addr(native_address);
         if (addr == 0)
@@ -343,18 +394,4 @@ public class SoftBodySharedSettings extends NativeObject {
 
     @org.teavm.jso.JSBody(params = {"this_addr", "mMaterials_addr"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.SoftBodySharedSettings);jsObj.set_mMaterials(mMaterials_addr);")
     public static native void internal_native_set_mMaterials(int this_addr, int mMaterials_addr);
-
-    public float get_mVertexRadius() {
-        return internal_native_get_mVertexRadius(native_address);
-    }
-
-    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.SoftBodySharedSettings);return jsObj.get_mVertexRadius();")
-    public static native float internal_native_get_mVertexRadius(int this_addr);
-
-    public void set_mVertexRadius(float mVertexRadius) {
-        internal_native_set_mVertexRadius(native_address, mVertexRadius);
-    }
-
-    @org.teavm.jso.JSBody(params = {"this_addr", "mVertexRadius"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.SoftBodySharedSettings);jsObj.set_mVertexRadius(mVertexRadius);")
-    public static native void internal_native_set_mVertexRadius(int this_addr, float mVertexRadius);
 }

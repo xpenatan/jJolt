@@ -10,6 +10,10 @@ public class CharacterVsCharacterCollisionSimple extends CharacterVsCharacterCol
 
     static public final CharacterVsCharacterCollisionSimple NULL = CharacterVsCharacterCollisionSimple.native_new();
 
+    public CharacterVsCharacterCollisionSimple() {
+        super((byte) 1, (char) 1);
+    }
+
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
      */

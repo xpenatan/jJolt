@@ -6,6 +6,8 @@
 
 package gen.c.jolt.physics.collision.shape;
 
+import gen.c.jolt.physics.collision.PhysicsMaterial;
+
 public class ConvexShape extends Shape {
 
     static public final ConvexShape NULL = ConvexShape.native_new();
@@ -38,4 +40,11 @@ public class ConvexShape extends Shape {
 
     @org.teavm.interop.Import(name = "jolt_physics_collision_shape_convexshape_setdensity")
     public static native void internal_native_SetDensity(long this_addr, float inDensity);
+
+    public void SetMaterial(PhysicsMaterial inMaterial) {
+        internal_native_SetMaterial(native_address, inMaterial.native_address);
+    }
+
+    @org.teavm.interop.Import(name = "jolt_physics_collision_shape_convexshape_setmaterial")
+    public static native void internal_native_SetMaterial(long this_addr, long inMaterial_addr);
 }

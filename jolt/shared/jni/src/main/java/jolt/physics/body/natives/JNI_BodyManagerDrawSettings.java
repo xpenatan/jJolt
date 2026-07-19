@@ -90,6 +90,18 @@ final public class JNI_BodyManagerDrawSettings {
 
     public static native void internal_native_set_mDrawSoftBodyLRAConstraints(long this_addr, boolean mDrawSoftBodyLRAConstraints);
 
+    public static native boolean internal_native_get_mDrawSoftBodyRods(long this_addr);
+
+    public static native void internal_native_set_mDrawSoftBodyRods(long this_addr, boolean mDrawSoftBodyRods);
+
+    public static native boolean internal_native_get_mDrawSoftBodyRodStates(long this_addr);
+
+    public static native void internal_native_set_mDrawSoftBodyRodStates(long this_addr, boolean mDrawSoftBodyRodStates);
+
+    public static native boolean internal_native_get_mDrawSoftBodyRodBendTwistConstraints(long this_addr);
+
+    public static native void internal_native_set_mDrawSoftBodyRodBendTwistConstraints(long this_addr, boolean mDrawSoftBodyRodBendTwistConstraints);
+
     public static native boolean internal_native_get_mDrawSoftBodyPredictedBounds(long this_addr);
 
     public static native void internal_native_set_mDrawSoftBodyPredictedBounds(long this_addr, boolean mDrawSoftBodyPredictedBounds);

@@ -4,6 +4,8 @@ plugins {
 
 val moduleName = "android-jni"
 group = "${LibExt.groupId}.android"
+val supportedAndroidAbis = listOf("armeabi-v7a", "arm64-v8a", "x86", "x86_64")
+val androidNativeRoot = file("$projectDir/../../builder/build/c++/libs/android")
 val desktopJParserRuntimeModules = listOf(
     "runtime-desktop-jni",
     "runtime-desktop-jni_windows_x64",
@@ -22,11 +24,18 @@ android {
 
     defaultConfig {
         minSdk = 21
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        ndk {
+            abiFilters += supportedAndroidAbis
+        }
     }
 
     sourceSets {
         named("main") {
             jniLibs.srcDirs("$projectDir/../../builder/build/c++/libs/android")
+        }
+        named("androidTest") {
+            java.srcDir(file("../../tests/src/test/java"))
         }
     }
     compileOptions {
@@ -56,6 +65,9 @@ dependencies {
     api("com.github.xpenatan.jParser:runtime-android:${LibExt.jParserVersion}")
     api("com.github.xpenatan.jParser:api-core:${LibExt.jParserVersion}")
     api("com.github.xpenatan.jParser:loader-core:${LibExt.jParserVersion}")
+
+    androidTestImplementation("androidx.test.ext:junit:1.2.1")
+    androidTestImplementation("androidx.test:runner:1.6.2")
 }
 
 publishing {
@@ -85,4 +97,23 @@ tasks.named("clean") {
 
 tasks.matching { it.name.endsWith("JavaWithJavac") || it.name == "preBuild" }.configureEach {
     dependsOn(":jolt:builder:jParser_generate")
+}
+
+tasks.register("verifyAndroidNativeAbis") {
+    group = "verification"
+    description = "Verifies that the Android JNI build linked every supported ABI."
+    dependsOn(":jolt:builder:jParser_build_android_jni")
+    inputs.dir(androidNativeRoot)
+
+    doLast {
+        val missing = supportedAndroidAbis.filterNot { abi ->
+            fileTree(File(androidNativeRoot, abi)) {
+                include("*.so")
+            }.files.any { it.name.contains("jolt", ignoreCase = true) }
+        }
+        if(missing.isNotEmpty()) {
+            throw GradleException("Missing linked jJolt Android JNI libraries for: ${missing.joinToString()}")
+        }
+        logger.lifecycle("Verified jJolt Android JNI libraries for ${supportedAndroidAbis.joinToString()}.")
+    }
 }

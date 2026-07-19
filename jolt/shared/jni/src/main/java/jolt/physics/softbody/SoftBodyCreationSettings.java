@@ -96,19 +96,19 @@ public class SoftBodyCreationSettings extends NativeObject {
         jolt.physics.softbody.natives.JNI_SoftBodyCreationSettings.internal_native_set_mRotation(this_addr, mRotation_addr);
     }
 
-    public long get_mUserData() {
+    public int get_mUserData() {
         return internal_native_get_mUserData(native_address);
     }
 
-    public static long internal_native_get_mUserData(long this_addr) {
+    public static int internal_native_get_mUserData(long this_addr) {
         return jolt.physics.softbody.natives.JNI_SoftBodyCreationSettings.internal_native_get_mUserData(this_addr);
     }
 
-    public void set_mUserData(long mUserData) {
+    public void set_mUserData(int mUserData) {
         internal_native_set_mUserData(native_address, mUserData);
     }
 
-    public static void internal_native_set_mUserData(long this_addr, long mUserData) {
+    public static void internal_native_set_mUserData(long this_addr, int mUserData) {
         jolt.physics.softbody.natives.JNI_SoftBodyCreationSettings.internal_native_set_mUserData(this_addr, mUserData);
     }
 
@@ -262,6 +262,22 @@ public class SoftBodyCreationSettings extends NativeObject {
         jolt.physics.softbody.natives.JNI_SoftBodyCreationSettings.internal_native_set_mGravityFactor(this_addr, mGravityFactor);
     }
 
+    public float get_mVertexRadius() {
+        return internal_native_get_mVertexRadius(native_address);
+    }
+
+    public static float internal_native_get_mVertexRadius(long this_addr) {
+        return jolt.physics.softbody.natives.JNI_SoftBodyCreationSettings.internal_native_get_mVertexRadius(this_addr);
+    }
+
+    public void set_mVertexRadius(float mVertexRadius) {
+        internal_native_set_mVertexRadius(native_address, mVertexRadius);
+    }
+
+    public static void internal_native_set_mVertexRadius(long this_addr, float mVertexRadius) {
+        jolt.physics.softbody.natives.JNI_SoftBodyCreationSettings.internal_native_set_mVertexRadius(this_addr, mVertexRadius);
+    }
+
     public boolean get_mUpdatePosition() {
         return internal_native_get_mUpdatePosition(native_address);
     }
@@ -308,5 +324,21 @@ public class SoftBodyCreationSettings extends NativeObject {
 
     public static void internal_native_set_mAllowSleeping(long this_addr, boolean mAllowSleeping) {
         jolt.physics.softbody.natives.JNI_SoftBodyCreationSettings.internal_native_set_mAllowSleeping(this_addr, mAllowSleeping);
+    }
+
+    public boolean get_mFacesDoubleSided() {
+        return internal_native_get_mFacesDoubleSided(native_address);
+    }
+
+    public static boolean internal_native_get_mFacesDoubleSided(long this_addr) {
+        return jolt.physics.softbody.natives.JNI_SoftBodyCreationSettings.internal_native_get_mFacesDoubleSided(this_addr);
+    }
+
+    public void set_mFacesDoubleSided(boolean mFacesDoubleSided) {
+        internal_native_set_mFacesDoubleSided(native_address, mFacesDoubleSided);
+    }
+
+    public static void internal_native_set_mFacesDoubleSided(long this_addr, boolean mFacesDoubleSided) {
+        jolt.physics.softbody.natives.JNI_SoftBodyCreationSettings.internal_native_set_mFacesDoubleSided(this_addr, mFacesDoubleSided);
     }
 }

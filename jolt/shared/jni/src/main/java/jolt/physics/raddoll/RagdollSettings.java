@@ -18,6 +18,8 @@ public class RagdollSettings extends NativeObject {
 
     private Skeleton Skeleton_TEMP_GEN_0;
 
+    private Skeleton Skeleton_TEMP_GEN_1;
+
     private ArrayRagdollPart ArrayRagdollPart_TEMP_GEN_0;
 
     private ArrayRagdollAdditionalConstraint ArrayRagdollAdditionalConstraint_TEMP_GEN_0;
@@ -115,6 +117,22 @@ public class RagdollSettings extends NativeObject {
         jolt.physics.raddoll.natives.JNI_RagdollSettings.internal_native_DisableParentChildCollisions(this_addr);
     }
 
+    public void CalculateConstraintPriorities(int inBasePriority) {
+        internal_native_CalculateConstraintPriorities(native_address, inBasePriority);
+    }
+
+    public static void internal_native_CalculateConstraintPriorities(long this_addr, int inBasePriority) {
+        jolt.physics.raddoll.natives.JNI_RagdollSettings.internal_native_CalculateConstraintPriorities(this_addr, inBasePriority);
+    }
+
+    public void CalculateConstraintPriorities() {
+        internal_native_CalculateConstraintPriorities(native_address);
+    }
+
+    public static void internal_native_CalculateConstraintPriorities(long this_addr) {
+        jolt.physics.raddoll.natives.JNI_RagdollSettings.internal_native_CalculateConstraintPriorities(this_addr);
+    }
+
     public void CalculateBodyIndexToConstraintIndex() {
         internal_native_CalculateBodyIndexToConstraintIndex(native_address);
     }
@@ -129,6 +147,28 @@ public class RagdollSettings extends NativeObject {
 
     public static void internal_native_CalculateConstraintIndexToBodyIdxPair(long this_addr) {
         jolt.physics.raddoll.natives.JNI_RagdollSettings.internal_native_CalculateConstraintIndexToBodyIdxPair(this_addr);
+    }
+
+    public Skeleton get_mSkeleton() {
+        long addr = internal_native_get_mSkeleton_addr(native_address);
+        if (addr == 0)
+            return Skeleton.NULL;
+        if (Skeleton_TEMP_GEN_1 == null)
+            Skeleton_TEMP_GEN_1 = Skeleton.native_new();
+        Skeleton_TEMP_GEN_1.internal_reset(addr, false);
+        return Skeleton_TEMP_GEN_1;
+    }
+
+    public static long internal_native_get_mSkeleton_addr(long this_addr) {
+        return jolt.physics.raddoll.natives.JNI_RagdollSettings.internal_native_get_mSkeleton_addr(this_addr);
+    }
+
+    public void set_mSkeleton(Skeleton mSkeleton) {
+        internal_native_set_mSkeleton(native_address, mSkeleton.native_address);
+    }
+
+    public static void internal_native_set_mSkeleton(long this_addr, long mSkeleton_addr) {
+        jolt.physics.raddoll.natives.JNI_RagdollSettings.internal_native_set_mSkeleton(this_addr, mSkeleton_addr);
     }
 
     public ArrayRagdollPart get_mParts() {

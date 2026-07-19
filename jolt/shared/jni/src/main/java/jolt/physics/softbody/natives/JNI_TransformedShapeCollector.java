@@ -12,6 +12,8 @@ final public class JNI_TransformedShapeCollector {
 
     public static native void internal_native_deleteNative(long this_addr);
 
+    public static native void internal_native_ResetNative(long this_addr);
+
     public static native void internal_native_SetContext(long this_addr, long inContext_addr);
 
     public static native long internal_native_GetContext_addr(long this_addr);

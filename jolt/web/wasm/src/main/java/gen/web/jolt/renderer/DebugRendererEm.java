@@ -9,12 +9,16 @@ package gen.web.jolt.renderer;
 import gen.web.com.github.xpenatan.jparser.runtime.helper.NativeFloatArray;
 import gen.web.jolt.physics.PhysicsSystem;
 import gen.web.jolt.physics.body.BodyManagerDrawSettings;
+import gen.web.jolt.physics.collision.shape.Shape;
 import gen.web.jolt.math.Mat44;
+import gen.web.jolt.math.Vec3;
 import gen.web.jolt.core.Color;
+import gen.web.jolt.physics.body.Body;
+import gen.web.jolt.physics.constraints.Constraint;
 import gen.web.jolt.enums.ECastShadow;
 import gen.web.jolt.enums.EDrawMode;
 import gen.web.jolt.enums.ECullMode;
-import gen.web.jolt.math.Vec3;
+import gen.web.jolt.geometry.AABox;
 import gen.web.com.github.xpenatan.jParser.api.NativeObject;
 
 public class DebugRendererEm extends DebugRenderer {
@@ -45,6 +49,18 @@ public class DebugRendererEm extends DebugRenderer {
 
     static private Color Color_TEMP_STATIC_GEN_3;
 
+    static private Mat44 Mat44_TEMP_STATIC_GEN_1;
+
+    static private AABox AABox_TEMP_STATIC_GEN_0;
+
+    static private Color Color_TEMP_STATIC_GEN_4;
+
+    static private NativeObject NativeObject_TEMP_STATIC_GEN_1;
+
+    static private NativeObject NativeObject_TEMP_STATIC_GEN_2;
+
+    static private NativeObject NativeObject_TEMP_STATIC_GEN_3;
+
     static public final DebugRendererEm NULL = DebugRendererEm.native_new();
 
     /**
@@ -69,6 +85,13 @@ public class DebugRendererEm extends DebugRenderer {
     @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.DebugRendererImplCustom);jolt.destroy(jsObj);")
     public static native void internal_native_deleteNative(int this_addr);
 
+    public void Initialize() {
+        internal_native_Initialize(native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.DebugRendererEm);jsObj.Initialize();")
+    public static native void internal_native_Initialize(int this_addr);
+
     public void DrawBodies(PhysicsSystem system, BodyManagerDrawSettings inDrawSettings) {
         internal_native_DrawBodies(native_address, system.native_address, inDrawSettings.native_address);
     }
@@ -82,6 +105,48 @@ public class DebugRendererEm extends DebugRenderer {
 
     @org.teavm.jso.JSBody(params = {"this_addr", "system_addr"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.DebugRendererEm);jsObj.DrawBodies(system_addr);")
     public static native void internal_native_DrawBodies(int this_addr, int system_addr);
+
+    public void DrawConstraints(PhysicsSystem system) {
+        internal_native_DrawConstraints(native_address, system.native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "system_addr"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.DebugRendererEm);jsObj.DrawConstraints(system_addr);")
+    public static native void internal_native_DrawConstraints(int this_addr, int system_addr);
+
+    public void DrawConstraintLimits(PhysicsSystem system) {
+        internal_native_DrawConstraintLimits(native_address, system.native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "system_addr"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.DebugRendererEm);jsObj.DrawConstraintLimits(system_addr);")
+    public static native void internal_native_DrawConstraintLimits(int this_addr, int system_addr);
+
+    public void DrawConstraintReferenceFrame(PhysicsSystem system) {
+        internal_native_DrawConstraintReferenceFrame(native_address, system.native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "system_addr"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.DebugRendererEm);jsObj.DrawConstraintReferenceFrame(system_addr);")
+    public static native void internal_native_DrawConstraintReferenceFrame(int this_addr, int system_addr);
+
+    public void DrawShape(Shape inShape, Mat44 inModelMatrix, Vec3 inScale, Color inColor, boolean inDrawWireFrame) {
+        internal_native_DrawShape(native_address, inShape.native_address, inModelMatrix.native_address, inScale.native_address, inColor.native_address, inDrawWireFrame);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "inShape_addr", "inModelMatrix_addr", "inScale_addr", "inColor_addr", "inDrawWireFrame"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.DebugRendererEm);jsObj.DrawShape(inShape_addr, inModelMatrix_addr, inScale_addr, inColor_addr, inDrawWireFrame);")
+    public static native void internal_native_DrawShape(int this_addr, int inShape_addr, int inModelMatrix_addr, int inScale_addr, int inColor_addr, boolean inDrawWireFrame);
+
+    public void DrawBody(Body inBody, Color inColor, boolean inDrawWireFrame) {
+        internal_native_DrawBody(native_address, inBody.native_address, inColor.native_address, inDrawWireFrame);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "inBody_addr", "inColor_addr", "inDrawWireFrame"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.DebugRendererEm);jsObj.DrawBody(inBody_addr, inColor_addr, inDrawWireFrame);")
+    public static native void internal_native_DrawBody(int this_addr, int inBody_addr, int inColor_addr, boolean inDrawWireFrame);
+
+    public void DrawConstraint(Constraint inConstraint) {
+        internal_native_DrawConstraint(native_address, inConstraint.native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "inConstraint_addr"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.DebugRendererEm);jsObj.DrawConstraint(inConstraint_addr);")
+    public static native void internal_native_DrawConstraint(int this_addr, int inConstraint_addr);
 
     public void DrawCylinder(Mat44 inMatrix, float inHalfHeight, float inRadius, Color inColor, ECastShadow inCastShadow, EDrawMode inDrawMode) {
         internal_native_DrawCylinder(native_address, inMatrix.native_address, inHalfHeight, inRadius, inColor.native_address, inCastShadow.getValue(), inDrawMode.getValue());
@@ -136,7 +201,25 @@ public class DebugRendererEm extends DebugRenderer {
                 internal_DrawText3D(inPosition_addr, inString_addr, inStringLen, inColor_addr, inHeight);
             }
         };
-        internal_native_setupCallback(native_address, DrawMesh, DrawLine, DrawTriangle, DrawText3D);
+        DrawGeometryWithID DrawGeometryWithID = new DrawGeometryWithID() {
+
+            public void DrawGeometryWithID(int inModelMatrix_addr, int inWorldSpaceBounds_addr, float inLODScaleSq, int inModelColor_addr, int inGeometryID, int inCullMode_addr, int inCastShadow_addr, int inDrawMode_addr) {
+                internal_DrawGeometryWithID(inModelMatrix_addr, inWorldSpaceBounds_addr, inLODScaleSq, inModelColor_addr, inGeometryID, inCullMode_addr, inCastShadow_addr, inDrawMode_addr);
+            }
+        };
+        CreateTriangleBatchID CreateTriangleBatchID = new CreateTriangleBatchID() {
+
+            public int CreateTriangleBatchID(int inTriangles_addr, int inTriangleCount) {
+                return internal_CreateTriangleBatchID(inTriangles_addr, inTriangleCount);
+            }
+        };
+        CreateTriangleBatchIDWithIndex CreateTriangleBatchIDWithIndex = new CreateTriangleBatchIDWithIndex() {
+
+            public int CreateTriangleBatchIDWithIndex(int inVertices_addr, int inVertexCount, int inIndices_addr, int inIndexCount) {
+                return internal_CreateTriangleBatchIDWithIndex(inVertices_addr, inVertexCount, inIndices_addr, inIndexCount);
+            }
+        };
+        internal_native_setupCallback(native_address, DrawMesh, DrawLine, DrawTriangle, DrawText3D, DrawGeometryWithID, CreateTriangleBatchID, CreateTriangleBatchIDWithIndex);
     }
 
     protected void DrawMesh(int id, Mat44 inModelMatrix, NativeFloatArray vertices, Color inModelColor, ECullMode inCullMode, EDrawMode inDrawMode) {
@@ -233,11 +316,79 @@ public class DebugRendererEm extends DebugRenderer {
         DrawText3D(Vec3_TEMP_STATIC_GEN_5, NativeObject_TEMP_STATIC_GEN_0, inStringLen, Color_TEMP_STATIC_GEN_3, inHeight);
     }
 
+    protected void DrawGeometryWithID(Mat44 inModelMatrix, AABox inWorldSpaceBounds, float inLODScaleSq, Color inModelColor, int inGeometryID, ECullMode inCullMode, ECastShadow inCastShadow, EDrawMode inDrawMode) {
+    }
+
+    private void internal_DrawGeometryWithID(int inModelMatrix_addr, int inWorldSpaceBounds_addr, float inLODScaleSq, int inModelColor_addr, int inGeometryID, int inCullMode_addr, int inCastShadow_addr, int inDrawMode_addr) {
+        if (Mat44_TEMP_STATIC_GEN_1 == null)
+            Mat44_TEMP_STATIC_GEN_1 = Mat44.native_new();
+        Mat44_TEMP_STATIC_GEN_1.internal_reset(inModelMatrix_addr, false);
+        if (AABox_TEMP_STATIC_GEN_0 == null)
+            AABox_TEMP_STATIC_GEN_0 = AABox.native_new();
+        AABox_TEMP_STATIC_GEN_0.internal_reset(inWorldSpaceBounds_addr, false);
+        if (Color_TEMP_STATIC_GEN_4 == null)
+            Color_TEMP_STATIC_GEN_4 = Color.native_new();
+        Color_TEMP_STATIC_GEN_4.internal_reset(inModelColor_addr, false);
+        ECullMode inCullMode_addr_enum = ECullMode.CUSTOM.setValue(inCullMode_addr);
+        ECullMode[] inCullMode_addr_enum_values = ECullMode.values();
+        for (int i = 0; i < inCullMode_addr_enum_values.length; i++) {
+            ECullMode enumVal = inCullMode_addr_enum_values[i];
+            if (enumVal != ECullMode.CUSTOM && enumVal.getValue() == inCullMode_addr) {
+                inCullMode_addr_enum = inCullMode_addr_enum_values[i];
+                break;
+            }
+        }
+        ECastShadow inCastShadow_addr_enum = ECastShadow.CUSTOM.setValue(inCastShadow_addr);
+        ECastShadow[] inCastShadow_addr_enum_values = ECastShadow.values();
+        for (int i = 0; i < inCastShadow_addr_enum_values.length; i++) {
+            ECastShadow enumVal = inCastShadow_addr_enum_values[i];
+            if (enumVal != ECastShadow.CUSTOM && enumVal.getValue() == inCastShadow_addr) {
+                inCastShadow_addr_enum = inCastShadow_addr_enum_values[i];
+                break;
+            }
+        }
+        EDrawMode inDrawMode_addr_enum = EDrawMode.CUSTOM.setValue(inDrawMode_addr);
+        EDrawMode[] inDrawMode_addr_enum_values = EDrawMode.values();
+        for (int i = 0; i < inDrawMode_addr_enum_values.length; i++) {
+            EDrawMode enumVal = inDrawMode_addr_enum_values[i];
+            if (enumVal != EDrawMode.CUSTOM && enumVal.getValue() == inDrawMode_addr) {
+                inDrawMode_addr_enum = inDrawMode_addr_enum_values[i];
+                break;
+            }
+        }
+        DrawGeometryWithID(Mat44_TEMP_STATIC_GEN_1, AABox_TEMP_STATIC_GEN_0, inLODScaleSq, Color_TEMP_STATIC_GEN_4, inGeometryID, inCullMode_addr_enum, inCastShadow_addr_enum, inDrawMode_addr_enum);
+    }
+
+    protected int CreateTriangleBatchID(NativeObject inTriangles, int inTriangleCount) {
+        return 0;
+    }
+
+    private int internal_CreateTriangleBatchID(int inTriangles_addr, int inTriangleCount) {
+        if (NativeObject_TEMP_STATIC_GEN_1 == null)
+            NativeObject_TEMP_STATIC_GEN_1 = NativeObject.native_new();
+        NativeObject_TEMP_STATIC_GEN_1.internal_reset(inTriangles_addr, false);
+        return CreateTriangleBatchID(NativeObject_TEMP_STATIC_GEN_1, inTriangleCount);
+    }
+
+    protected int CreateTriangleBatchIDWithIndex(NativeObject inVertices, int inVertexCount, NativeObject inIndices, int inIndexCount) {
+        return 0;
+    }
+
+    private int internal_CreateTriangleBatchIDWithIndex(int inVertices_addr, int inVertexCount, int inIndices_addr, int inIndexCount) {
+        if (NativeObject_TEMP_STATIC_GEN_2 == null)
+            NativeObject_TEMP_STATIC_GEN_2 = NativeObject.native_new();
+        NativeObject_TEMP_STATIC_GEN_2.internal_reset(inVertices_addr, false);
+        if (NativeObject_TEMP_STATIC_GEN_3 == null)
+            NativeObject_TEMP_STATIC_GEN_3 = NativeObject.native_new();
+        NativeObject_TEMP_STATIC_GEN_3.internal_reset(inIndices_addr, false);
+        return CreateTriangleBatchIDWithIndex(NativeObject_TEMP_STATIC_GEN_2, inVertexCount, NativeObject_TEMP_STATIC_GEN_3, inIndexCount);
+    }
+
     @org.teavm.jso.JSBody(script = "var jsObj = new jolt.DebugRendererImplCustom();return jolt.getPointer(jsObj);")
     public static native int internal_native_create_addr();
 
-    @org.teavm.jso.JSBody(params = { "this_addr", "DrawMesh", "DrawLine", "DrawTriangle", "DrawText3D" }, script = "var DebugRendererImplCustom = jolt.wrapPointer(this_addr, jolt.DebugRendererImplCustom); DebugRendererImplCustom.DrawMesh = DrawMesh; DebugRendererImplCustom.DrawLine = DrawLine; DebugRendererImplCustom.DrawTriangle = DrawTriangle; DebugRendererImplCustom.DrawText3D = DrawText3D;")
-    public static native void internal_native_setupCallback(int this_addr, DrawMesh DrawMesh, DrawLine DrawLine, DrawTriangle DrawTriangle, DrawText3D DrawText3D);
+    @org.teavm.jso.JSBody(params = { "this_addr", "DrawMesh", "DrawLine", "DrawTriangle", "DrawText3D", "DrawGeometryWithID", "CreateTriangleBatchID", "CreateTriangleBatchIDWithIndex" }, script = "var DebugRendererImplCustom = jolt.wrapPointer(this_addr, jolt.DebugRendererImplCustom); DebugRendererImplCustom.DrawMesh = DrawMesh; DebugRendererImplCustom.DrawLine = DrawLine; DebugRendererImplCustom.DrawTriangle = DrawTriangle; DebugRendererImplCustom.DrawText3D = DrawText3D; DebugRendererImplCustom.DrawGeometryWithID = DrawGeometryWithID; DebugRendererImplCustom.CreateTriangleBatchID = CreateTriangleBatchID; DebugRendererImplCustom.CreateTriangleBatchIDWithIndex = CreateTriangleBatchIDWithIndex;")
+    public static native void internal_native_setupCallback(int this_addr, DrawMesh DrawMesh, DrawLine DrawLine, DrawTriangle DrawTriangle, DrawText3D DrawText3D, DrawGeometryWithID DrawGeometryWithID, CreateTriangleBatchID CreateTriangleBatchID, CreateTriangleBatchIDWithIndex CreateTriangleBatchIDWithIndex);
 
     @org.teavm.jso.JSFunctor()
     public interface DrawMesh extends org.teavm.jso.JSObject {
@@ -261,5 +412,23 @@ public class DebugRendererEm extends DebugRenderer {
     public interface DrawText3D extends org.teavm.jso.JSObject {
 
         void DrawText3D(int inPosition_addr, int inString_addr, int inStringLen, int inColor_addr, float inHeight);
+    }
+
+    @org.teavm.jso.JSFunctor()
+    public interface DrawGeometryWithID extends org.teavm.jso.JSObject {
+
+        void DrawGeometryWithID(int inModelMatrix_addr, int inWorldSpaceBounds_addr, float inLODScaleSq, int inModelColor_addr, int inGeometryID, int inCullMode_addr, int inCastShadow_addr, int inDrawMode_addr);
+    }
+
+    @org.teavm.jso.JSFunctor()
+    public interface CreateTriangleBatchID extends org.teavm.jso.JSObject {
+
+        int CreateTriangleBatchID(int inTriangles_addr, int inTriangleCount);
+    }
+
+    @org.teavm.jso.JSFunctor()
+    public interface CreateTriangleBatchIDWithIndex extends org.teavm.jso.JSObject {
+
+        int CreateTriangleBatchIDWithIndex(int inVertices_addr, int inVertexCount, int inIndices_addr, int inIndexCount);
     }
 }

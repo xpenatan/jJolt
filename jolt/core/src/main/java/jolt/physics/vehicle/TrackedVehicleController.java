@@ -67,4 +67,8 @@ public class TrackedVehicleController extends VehicleController {
     public VehicleTransmission GetTransmission() {
         return null;
     }
+
+    public ArrayVehicleTrack GetTracks() {
+        return null;
+    }
 }

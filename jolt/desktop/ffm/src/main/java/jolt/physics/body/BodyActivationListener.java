@@ -17,24 +17,11 @@ import java.lang.invoke.MethodHandle;
 
 public class BodyActivationListener extends NativeObject {
 
-    static private BodyID BodyID_TEMP_STATIC_GEN_0;
-
-    static private BodyID BodyID_TEMP_STATIC_GEN_1;
-
-    private static final java.lang.invoke.MethodHandles.Lookup callbackLookup = java.lang.invoke.MethodHandles.lookup();
-
-    private static final java.lang.foreign.Linker callbackLinker = java.lang.foreign.Linker.nativeLinker();
-
-    private static final java.lang.invoke.MethodType callbackMethodType_OnBodyActivated = java.lang.invoke.MethodType.methodType(void.class, long.class, long.class);
-
-    private static final java.lang.foreign.FunctionDescriptor callbackDescriptor_OnBodyActivated = java.lang.foreign.FunctionDescriptor.ofVoid(java.lang.foreign.ValueLayout.JAVA_LONG, java.lang.foreign.ValueLayout.JAVA_LONG);
-
-    private static final java.lang.invoke.MethodType callbackMethodType_OnBodyDeactivated = java.lang.invoke.MethodType.methodType(void.class, long.class, long.class);
-
-    private static final java.lang.foreign.FunctionDescriptor callbackDescriptor_OnBodyDeactivated = java.lang.foreign.FunctionDescriptor.ofVoid(java.lang.foreign.ValueLayout.JAVA_LONG, java.lang.foreign.ValueLayout.JAVA_LONG);
-
     static public final BodyActivationListener NULL = BodyActivationListener.native_new();
 
+    /**
+     * Dummy constructor, used internally to creates objects without C++ pointer
+     */
     @Deprecated()
     protected BodyActivationListener(byte b, char c) {
     }
@@ -48,7 +35,6 @@ public class BodyActivationListener extends NativeObject {
 
     protected void deleteNative() {
         internal_native_deleteNative(native_address);
-        releaseUpcallResources();
     }
 
     public static void internal_native_deleteNative(long this_addr) {
@@ -59,87 +45,8 @@ public class BodyActivationListener extends NativeObject {
         }
     }
 
-    public BodyActivationListener() {
-        long addr = internal_native_create_addr();
-        internal_reset(addr, true);
-        setupCallback();
-    }
-
-    private void setupCallback() {
-        try {
-            releaseUpcallResources();
-            upcallArena = java.lang.foreign.Arena.ofShared();
-            java.lang.invoke.MethodHandle mh_OnBodyActivated = callbackLookup.findVirtual(BodyActivationListener.class, "internal_OnBodyActivated", callbackMethodType_OnBodyActivated).bindTo(this);
-            upcallStub_OnBodyActivated = callbackLinker.upcallStub(mh_OnBodyActivated, callbackDescriptor_OnBodyActivated, upcallArena);
-            java.lang.invoke.MethodHandle mh_OnBodyDeactivated = callbackLookup.findVirtual(BodyActivationListener.class, "internal_OnBodyDeactivated", callbackMethodType_OnBodyDeactivated).bindTo(this);
-            upcallStub_OnBodyDeactivated = callbackLinker.upcallStub(mh_OnBodyDeactivated, callbackDescriptor_OnBodyDeactivated, upcallArena);
-            internal_native_setupCallback(native_address, upcallStub_OnBodyActivated.address(), upcallStub_OnBodyDeactivated.address());
-        } catch (Throwable e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-    protected void OnBodyActivated(BodyID inBodyID, long inBodyUserData) {
-    }
-
-    private void internal_OnBodyActivated(long inBodyID_addr, long inBodyUserData) {
-        if (BodyID_TEMP_STATIC_GEN_0 == null)
-            BodyID_TEMP_STATIC_GEN_0 = BodyID.native_new();
-        BodyID_TEMP_STATIC_GEN_0.internal_reset(inBodyID_addr, false);
-        OnBodyActivated(BodyID_TEMP_STATIC_GEN_0, inBodyUserData);
-    }
-
-    protected void OnBodyDeactivated(BodyID inBodyID, long inBodyUserData) {
-    }
-
-    private void internal_OnBodyDeactivated(long inBodyID_addr, long inBodyUserData) {
-        if (BodyID_TEMP_STATIC_GEN_1 == null)
-            BodyID_TEMP_STATIC_GEN_1 = BodyID.native_new();
-        BodyID_TEMP_STATIC_GEN_1.internal_reset(inBodyID_addr, false);
-        OnBodyDeactivated(BodyID_TEMP_STATIC_GEN_1, inBodyUserData);
-    }
-
-    public static long internal_native_create_addr() {
-        try {
-            return (long) FFMHandles.internal_native_create_addr__.invokeExact();
-        } catch (Throwable e) {
-            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
-        }
-    }
-
-    private Arena upcallArena;
-
-    private MemorySegment upcallStub_OnBodyActivated;
-
-    private MemorySegment upcallStub_OnBodyDeactivated;
-
-    private void releaseUpcallResources() {
-        Arena arena = upcallArena;
-        upcallStub_OnBodyActivated = null;
-        upcallStub_OnBodyDeactivated = null;
-        upcallArena = null;
-        if (arena != null) {
-            try {
-                arena.close();
-            } catch (Exception ignored) {
-            }
-        }
-    }
-
-    public static void internal_native_setupCallback(long this_addr, long OnBodyActivated_fp, long OnBodyDeactivated_fp) {
-        try {
-            FFMHandles.internal_native_setupCallback__JJJ.invokeExact(this_addr, OnBodyActivated_fp, OnBodyDeactivated_fp);
-        } catch (Throwable e) {
-            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
-        }
-    }
-
     private static final class FFMHandles {
 
         static final java.lang.invoke.MethodHandle internal_native_deleteNative__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_body_bodyactivationlistener_deletenative", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG));
-
-        static final java.lang.invoke.MethodHandle internal_native_create_addr__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_physics_body_bodyactivationlistener_create_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG));
-
-        static final java.lang.invoke.MethodHandle internal_native_setupCallback__JJJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_body_bodyactivationlistener_setupcallback", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
     }
 }

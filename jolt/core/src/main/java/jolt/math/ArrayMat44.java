@@ -12,6 +12,9 @@ public class ArrayMat44 extends NativeObject {
 
     static public final ArrayMat44 NULL = ArrayMat44.native_new();
 
+    public ArrayMat44() {
+    }
+
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
      */

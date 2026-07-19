@@ -46,6 +46,22 @@ public class ShapeCastSettings extends CollideSettingsBase {
         jolt.physics.collision.shape.natives.JNI_ShapeCastSettings.internal_native_deleteNative(this_addr);
     }
 
+    public float get_mExtraConvexRadius() {
+        return internal_native_get_mExtraConvexRadius(native_address);
+    }
+
+    public static float internal_native_get_mExtraConvexRadius(long this_addr) {
+        return jolt.physics.collision.shape.natives.JNI_ShapeCastSettings.internal_native_get_mExtraConvexRadius(this_addr);
+    }
+
+    public void set_mExtraConvexRadius(float mExtraConvexRadius) {
+        internal_native_set_mExtraConvexRadius(native_address, mExtraConvexRadius);
+    }
+
+    public static void internal_native_set_mExtraConvexRadius(long this_addr, float mExtraConvexRadius) {
+        jolt.physics.collision.shape.natives.JNI_ShapeCastSettings.internal_native_set_mExtraConvexRadius(this_addr, mExtraConvexRadius);
+    }
+
     public EBackFaceMode get_mBackFaceModeTriangles() {
         int value = internal_native_get_mBackFaceModeTriangles(native_address);
         EBackFaceMode[] values = EBackFaceMode.values();

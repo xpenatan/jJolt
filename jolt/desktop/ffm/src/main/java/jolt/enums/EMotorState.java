@@ -17,7 +17,7 @@ import java.lang.invoke.MethodHandle;
 
 public enum EMotorState implements NativeEnum<EMotorState> {
 
-    CUSTOM(0), Off(EMotorState_Off_NATIVE()), Velocity(EMotorState_Velocity_NATIVE()), Position(EMotorState_Position_NATIVE());
+    CUSTOM(0), Off(EMotorState_Off_NATIVE()), Velocity(EMotorState_Velocity_NATIVE()), Position(EMotorState_Position_NATIVE()), PositionAndVelocity(EMotorState_PositionAndVelocity_NATIVE());
 
     private int value;
 
@@ -65,12 +65,22 @@ public enum EMotorState implements NativeEnum<EMotorState> {
         }
     }
 
+    private static int EMotorState_PositionAndVelocity_NATIVE() {
+        try {
+            return (int) FFMHandles.EMotorState_PositionAndVelocity_NATIVE__.invokeExact();
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
     private static final class FFMHandles {
 
-        static final java.lang.invoke.MethodHandle EMotorState_Off_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_enums_emotorstate_emotorstate_off_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
+        static final java.lang.invoke.MethodHandle EMotorState_Off_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_enums_emotorstate_emotorstate_off_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
 
-        static final java.lang.invoke.MethodHandle EMotorState_Velocity_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_enums_emotorstate_emotorstate_velocity_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
+        static final java.lang.invoke.MethodHandle EMotorState_Velocity_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_enums_emotorstate_emotorstate_velocity_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
 
-        static final java.lang.invoke.MethodHandle EMotorState_Position_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_enums_emotorstate_emotorstate_position_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
+        static final java.lang.invoke.MethodHandle EMotorState_Position_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_enums_emotorstate_emotorstate_position_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
+
+        static final java.lang.invoke.MethodHandle EMotorState_PositionAndVelocity_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_enums_emotorstate_emotorstate_positionandvelocity_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
     }
 }

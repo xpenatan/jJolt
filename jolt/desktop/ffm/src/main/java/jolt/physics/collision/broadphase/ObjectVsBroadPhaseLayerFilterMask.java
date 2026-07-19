@@ -61,7 +61,7 @@ public class ObjectVsBroadPhaseLayerFilterMask extends ObjectVsBroadPhaseLayerFi
 
     private static final class FFMHandles {
 
-        static final java.lang.invoke.MethodHandle internal_native_create_BroadPhaseLayerInterfaceMask_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_physics_collision_broadphase_objectvsbroadphaselayerfiltermask_create_broadphaselayerinterfacemask_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+        static final java.lang.invoke.MethodHandle internal_native_create_BroadPhaseLayerInterfaceMask_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_collision_broadphase_objectvsbroadphaselayerfiltermask_create_broadphaselayerinterfacemask_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
 
         static final java.lang.invoke.MethodHandle internal_native_deleteNative__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_physics_collision_broadphase_objectvsbroadphaselayerfiltermask_deletenative", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG));
     }

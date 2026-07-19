@@ -67,10 +67,10 @@ public enum EOverrideMassProperties implements NativeEnum<EOverrideMassPropertie
 
     private static final class FFMHandles {
 
-        static final java.lang.invoke.MethodHandle EOverrideMassProperties_CalculateMassAndInertia_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_enums_eoverridemassproperties_eoverridemassproperties_calculatemassandinertia_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
+        static final java.lang.invoke.MethodHandle EOverrideMassProperties_CalculateMassAndInertia_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_enums_eoverridemassproperties_eoverridemassproperties_calculatemassandinertia_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
 
-        static final java.lang.invoke.MethodHandle EOverrideMassProperties_CalculateInertia_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_enums_eoverridemassproperties_eoverridemassproperties_calculateinertia_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
+        static final java.lang.invoke.MethodHandle EOverrideMassProperties_CalculateInertia_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_enums_eoverridemassproperties_eoverridemassproperties_calculateinertia_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
 
-        static final java.lang.invoke.MethodHandle EOverrideMassProperties_MassAndInertiaProvided_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_enums_eoverridemassproperties_eoverridemassproperties_massandinertiaprovided_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
+        static final java.lang.invoke.MethodHandle EOverrideMassProperties_MassAndInertiaProvided_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_enums_eoverridemassproperties_eoverridemassproperties_massandinertiaprovided_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
     }
 }

@@ -33,6 +33,9 @@ public class CollidePointCollector extends NativeObject {
         return new CollidePointCollector((byte) 0, (char) 0);
     }
 
+    public void ResetNative() {
+    }
+
     public void SetContext(TransformedShape inContext) {
     }
 

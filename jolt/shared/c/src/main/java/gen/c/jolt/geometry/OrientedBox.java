@@ -55,6 +55,34 @@ public class OrientedBox extends NativeObject {
     @org.teavm.interop.Import(name = "jolt_geometry_orientedbox_deletenative")
     public static native void internal_native_deleteNative(long this_addr);
 
+    public boolean OverlapsAABox(AABox inBox, float inEpsilon) {
+        return internal_native_OverlapsAABox(native_address, inBox.native_address, inEpsilon);
+    }
+
+    @org.teavm.interop.Import(name = "jolt_geometry_orientedbox_overlapsaabox_l_l_f")
+    public static native boolean internal_native_OverlapsAABox(long this_addr, long inBox_addr, float inEpsilon);
+
+    public boolean OverlapsAABox(AABox inBox) {
+        return internal_native_OverlapsAABox(native_address, inBox.native_address);
+    }
+
+    @org.teavm.interop.Import(name = "jolt_geometry_orientedbox_overlapsaabox_l_l")
+    public static native boolean internal_native_OverlapsAABox(long this_addr, long inBox_addr);
+
+    public boolean OverlapsOrientedBox(OrientedBox inBox, float inEpsilon) {
+        return internal_native_OverlapsOrientedBox(native_address, inBox.native_address, inEpsilon);
+    }
+
+    @org.teavm.interop.Import(name = "jolt_geometry_orientedbox_overlapsorientedbox_l_l_f")
+    public static native boolean internal_native_OverlapsOrientedBox(long this_addr, long inBox_addr, float inEpsilon);
+
+    public boolean OverlapsOrientedBox(OrientedBox inBox) {
+        return internal_native_OverlapsOrientedBox(native_address, inBox.native_address);
+    }
+
+    @org.teavm.interop.Import(name = "jolt_geometry_orientedbox_overlapsorientedbox_l_l")
+    public static native boolean internal_native_OverlapsOrientedBox(long this_addr, long inBox_addr);
+
     public Mat44 get_mOrientation() {
         long addr = internal_native_get_mOrientation_addr(native_address);
         if (addr == 0)

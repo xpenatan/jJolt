@@ -12,6 +12,9 @@ public class ArrayUint extends NativeObject {
 
     static public final ArrayUint NULL = ArrayUint.native_new();
 
+    public ArrayUint() {
+    }
+
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
      */

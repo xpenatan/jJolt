@@ -16,8 +16,10 @@ import gen.web.jolt.math.Mat44;
 import gen.web.jolt.physics.collision.shape.Shape;
 import gen.web.jolt.geometry.AABox;
 import gen.web.jolt.physics.collision.TransformedShape;
+import gen.web.jolt.physics.collision.broadphase.BroadPhaseLayerInterface;
 import gen.web.jolt.physics.softbody.SoftBodyCreationSettings;
 import gen.web.jolt.physics.collision.shape.SubShapeID;
+import gen.web.jolt.physics.StateRecorder;
 
 public class Body extends NativeObject {
 
@@ -613,6 +615,13 @@ public class Body extends NativeObject {
     @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.Body);var returnedJSObj = jsObj.GetBodyCreationSettings();if(!returnedJSObj.hasOwnProperty('ptr')) return 0; return jolt.getPointer(returnedJSObj);")
     public static native int internal_native_GetBodyCreationSettings_addr(int this_addr);
 
+    public void ApplyBodyCreationSettings(BodyCreationSettings inBodyCreationSettings, BroadPhaseLayerInterface inBPLInterface) {
+        internal_native_ApplyBodyCreationSettings(native_address, inBodyCreationSettings.native_address, inBPLInterface.native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "inBodyCreationSettings_addr", "inBPLInterface_addr"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.Body);jsObj.ApplyBodyCreationSettings(inBodyCreationSettings_addr, inBPLInterface_addr);")
+    public static native void internal_native_ApplyBodyCreationSettings(int this_addr, int inBodyCreationSettings_addr, int inBPLInterface_addr);
+
     public SoftBodyCreationSettings GetSoftBodyCreationSettings() {
         int addr = internal_native_GetSoftBodyCreationSettings_addr(native_address);
         if (addr == 0)
@@ -625,6 +634,13 @@ public class Body extends NativeObject {
 
     @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.Body);var returnedJSObj = jsObj.GetSoftBodyCreationSettings();if(!returnedJSObj.hasOwnProperty('ptr')) return 0; return jolt.getPointer(returnedJSObj);")
     public static native int internal_native_GetSoftBodyCreationSettings_addr(int this_addr);
+
+    public void ApplySoftBodyCreationSettings(SoftBodyCreationSettings inSoftBodyCreationSettings, BroadPhaseLayerInterface inBPLInterface) {
+        internal_native_ApplySoftBodyCreationSettings(native_address, inSoftBodyCreationSettings.native_address, inBPLInterface.native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "inSoftBodyCreationSettings_addr", "inBPLInterface_addr"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.Body);jsObj.ApplySoftBodyCreationSettings(inSoftBodyCreationSettings_addr, inBPLInterface_addr);")
+    public static native void internal_native_ApplySoftBodyCreationSettings(int this_addr, int inSoftBodyCreationSettings_addr, int inBPLInterface_addr);
 
     public MotionProperties GetMotionProperties() {
         int addr = internal_native_GetMotionProperties_addr(native_address);
@@ -652,19 +668,19 @@ public class Body extends NativeObject {
     @org.teavm.jso.JSBody(params = {"this_addr", "inSubShapeID_addr", "inPosition_addr"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.Body);var returnedJSObj = jsObj.GetWorldSpaceSurfaceNormal(inSubShapeID_addr, inPosition_addr);if(!returnedJSObj.hasOwnProperty('ptr')) return 0; return jolt.getPointer(returnedJSObj);")
     public static native int internal_native_GetWorldSpaceSurfaceNormal_addr(int this_addr, int inSubShapeID_addr, int inPosition_addr);
 
-    public long GetUserData() {
+    public int GetUserData() {
         return internal_native_GetUserData(native_address);
     }
 
     @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.Body);var returnedJSObj = jsObj.GetUserData();return returnedJSObj;")
-    public static native long internal_native_GetUserData(int this_addr);
+    public static native int internal_native_GetUserData(int this_addr);
 
-    public void SetUserData(long inUserData) {
+    public void SetUserData(int inUserData) {
         internal_native_SetUserData(native_address, inUserData);
     }
 
     @org.teavm.jso.JSBody(params = {"this_addr", "inUserData"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.Body);jsObj.SetUserData(inUserData);")
-    public static native void internal_native_SetUserData(int this_addr, long inUserData);
+    public static native void internal_native_SetUserData(int this_addr, int inUserData);
 
     public void SetCollisionGroup(CollisionGroup inGroup) {
         internal_native_SetCollisionGroup(native_address, inGroup.native_address);
@@ -672,4 +688,18 @@ public class Body extends NativeObject {
 
     @org.teavm.jso.JSBody(params = {"this_addr", "inGroup_addr"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.Body);jsObj.SetCollisionGroup(inGroup_addr);")
     public static native void internal_native_SetCollisionGroup(int this_addr, int inGroup_addr);
+
+    public void SaveState(StateRecorder inStream) {
+        internal_native_SaveState(native_address, inStream.native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "inStream_addr"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.Body);jsObj.SaveState(inStream_addr);")
+    public static native void internal_native_SaveState(int this_addr, int inStream_addr);
+
+    public void RestoreState(StateRecorder inStream) {
+        internal_native_RestoreState(native_address, inStream.native_address);
+    }
+
+    @org.teavm.jso.JSBody(params = {"this_addr", "inStream_addr"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.Body);jsObj.RestoreState(inStream_addr);")
+    public static native void internal_native_RestoreState(int this_addr, int inStream_addr);
 }

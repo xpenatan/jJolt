@@ -59,8 +59,8 @@ public enum EConstraintType implements NativeEnum<EConstraintType> {
 
     private static final class FFMHandles {
 
-        static final java.lang.invoke.MethodHandle EConstraintType_Constraint_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_enums_econstrainttype_econstrainttype_constraint_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
+        static final java.lang.invoke.MethodHandle EConstraintType_Constraint_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_enums_econstrainttype_econstrainttype_constraint_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
 
-        static final java.lang.invoke.MethodHandle EConstraintType_TwoBodyConstraint_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallCritical("jolt_enums_econstrainttype_econstrainttype_twobodyconstraint_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
+        static final java.lang.invoke.MethodHandle EConstraintType_TwoBodyConstraint_NATIVE__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_enums_econstrainttype_econstrainttype_twobodyconstraint_native", FunctionDescriptor.of(ValueLayout.JAVA_INT));
     }
 }

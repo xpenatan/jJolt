@@ -303,6 +303,13 @@ public class MotionProperties extends NativeObject {
     @org.teavm.interop.Import(name = "jolt_physics_body_motionproperties_setinverseinertia")
     public static native void internal_native_SetInverseInertia(long this_addr, long inInvI_addr, long inRotation_addr);
 
+    public void ScaleToMass(float inMass) {
+        internal_native_ScaleToMass(native_address, inMass);
+    }
+
+    @org.teavm.interop.Import(name = "jolt_physics_body_motionproperties_scaletomass")
+    public static native void internal_native_ScaleToMass(long this_addr, float inMass);
+
     public Mat44 GetLocalSpaceInverseInertia() {
         long addr = internal_native_GetLocalSpaceInverseInertia_addr(native_address);
         if (addr == 0)

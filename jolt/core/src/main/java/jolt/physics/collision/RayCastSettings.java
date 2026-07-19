@@ -30,6 +30,9 @@ public class RayCastSettings extends NativeObject {
         return new RayCastSettings((byte) 0, (char) 0);
     }
 
+    public void SetBackFaceMode(EBackFaceMode inBackFaceMode) {
+    }
+
     public EBackFaceMode get_mBackFaceModeTriangles() {
         return null;
     }

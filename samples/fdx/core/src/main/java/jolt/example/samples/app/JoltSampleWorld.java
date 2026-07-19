@@ -1,11 +1,9 @@
 package jolt.example.samples.app;
 
 import io.github.libfdx.math.Matrix4;
-import jolt.Jolt;
+import jolt.JoltInterface;
 import jolt.JoltNew;
-import jolt.core.Factory;
-import jolt.core.JobSystemThreadPool;
-import jolt.core.TempAllocatorImpl;
+import jolt.JoltSettings;
 import jolt.enums.EActivation;
 import jolt.enums.EMotionType;
 import jolt.math.Quat;
@@ -28,20 +26,14 @@ final class JoltSampleWorld {
     private static final int BROAD_PHASE_LAYER_COUNT = 2;
 
     private final PhysicsSystem physicsSystem;
-    private final Factory factory;
+    private final JoltInterface joltInterface;
     private final BroadPhaseLayer broadPhaseNonMoving;
     private final BroadPhaseLayer broadPhaseMoving;
     private final BroadPhaseLayerInterfaceTable broadPhaseLayerInterface;
     private final ObjectLayerPairFilterTable objectLayerPairFilter;
     private final ObjectVsBroadPhaseLayerFilterTable objectVsBroadPhaseLayerFilter;
-    private final TempAllocatorImpl tempAllocator;
-    private final JobSystemThreadPool jobSystem;
     private final Body floorBody;
     private final Body dynamicBoxBody;
-
-    static {
-        Jolt.Init();
-    }
 
     JoltSampleWorld() {
         objectLayerPairFilter = new ObjectLayerPairFilterTable(LAYER_COUNT);
@@ -56,15 +48,19 @@ final class JoltSampleWorld {
         objectVsBroadPhaseLayerFilter = new ObjectVsBroadPhaseLayerFilterTable(
                 broadPhaseLayerInterface, BROAD_PHASE_LAYER_COUNT, objectLayerPairFilter, LAYER_COUNT);
 
-        tempAllocator = JoltNew.TempAllocatorImpl(10 * 1024 * 1024);
-        jobSystem = JoltNew.JobSystemThreadPool(2048, 8, -1);
-        factory = JoltNew.Factory();
-        Factory.set_sInstance(factory);
-        Jolt.RegisterTypes();
+        JoltSettings settings = new JoltSettings();
+        settings.set_mMaxBodies(1024);
+        settings.set_mMaxBodyPairs(2048);
+        settings.set_mMaxContactConstraints(1024);
+        settings.set_mTempAllocatorSize(10 * 1024 * 1024);
+        settings.set_mMaxWorkerThreads(16);
+        settings.set_mBroadPhaseLayerInterface(broadPhaseLayerInterface);
+        settings.set_mObjectVsBroadPhaseLayerFilter(objectVsBroadPhaseLayerFilter);
+        settings.set_mObjectLayerPairFilter(objectLayerPairFilter);
+        joltInterface = new JoltInterface(settings);
+        settings.dispose();
 
-        physicsSystem = JoltNew.PhysicsSystem();
-        physicsSystem.Init(1024, 0, 2048, 1024, broadPhaseLayerInterface,
-                objectVsBroadPhaseLayerFilter, objectLayerPairFilter);
+        physicsSystem = joltInterface.GetPhysicsSystem();
         floorBody = createBox(0.0f, -0.25f, 0.0f, 11.0f, 0.25f, 11.0f, EMotionType.Static, LAYER_NON_MOVING);
         dynamicBoxBody = createBox(0.0f, 6.0f, 0.0f, 0.5f, 0.5f, 0.5f, EMotionType.Dynamic, LAYER_MOVING);
     }
@@ -72,7 +68,7 @@ final class JoltSampleWorld {
     void update(float deltaSeconds) {
         float step = deltaSeconds > 0.0f ? deltaSeconds : 1.0f / 60.0f;
         int collisionSteps = step > 1.0f / 55.0f ? 2 : 1;
-        physicsSystem.Update(step, collisionSteps, tempAllocator, jobSystem);
+        joltInterface.Step(step, collisionSteps);
         Vec3 position = dynamicBoxBody.GetPosition();
         if (position.GetY() < -10.0f) {
             resetDynamicBox();
@@ -128,17 +124,9 @@ final class JoltSampleWorld {
         BodyInterface bodyInterface = physicsSystem.GetBodyInterface();
         destroyBody(bodyInterface, dynamicBoxBody);
         destroyBody(bodyInterface, floorBody);
-        physicsSystem.dispose();
         broadPhaseNonMoving.dispose();
         broadPhaseMoving.dispose();
-        broadPhaseLayerInterface.dispose();
-        objectVsBroadPhaseLayerFilter.dispose();
-        objectLayerPairFilter.dispose();
-        tempAllocator.dispose();
-        jobSystem.dispose();
-        Factory.set_sInstance(Factory.NULL);
-        factory.dispose();
-        Jolt.UnregisterTypes();
+        joltInterface.dispose();
     }
 
     private void destroyBody(BodyInterface bodyInterface, Body body) {

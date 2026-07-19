@@ -9,12 +9,16 @@ package jolt.renderer;
 import com.github.xpenatan.jparser.runtime.helper.NativeFloatArray;
 import jolt.physics.PhysicsSystem;
 import jolt.physics.body.BodyManagerDrawSettings;
+import jolt.physics.collision.shape.Shape;
 import jolt.math.Mat44;
+import jolt.math.Vec3;
 import jolt.core.Color;
+import jolt.physics.body.Body;
+import jolt.physics.constraints.Constraint;
 import jolt.enums.ECastShadow;
 import jolt.enums.EDrawMode;
 import jolt.enums.ECullMode;
-import jolt.math.Vec3;
+import jolt.geometry.AABox;
 import com.github.xpenatan.jParser.api.NativeObject;
 
 public class DebugRendererEm extends DebugRenderer {
@@ -45,6 +49,18 @@ public class DebugRendererEm extends DebugRenderer {
 
     static private Color Color_TEMP_STATIC_GEN_3;
 
+    static private Mat44 Mat44_TEMP_STATIC_GEN_1;
+
+    static private AABox AABox_TEMP_STATIC_GEN_0;
+
+    static private Color Color_TEMP_STATIC_GEN_4;
+
+    static private NativeObject NativeObject_TEMP_STATIC_GEN_1;
+
+    static private NativeObject NativeObject_TEMP_STATIC_GEN_2;
+
+    static private NativeObject NativeObject_TEMP_STATIC_GEN_3;
+
     static public final DebugRendererEm NULL = DebugRendererEm.native_new();
 
     /**
@@ -62,10 +78,31 @@ public class DebugRendererEm extends DebugRenderer {
         return new DebugRendererEm((byte) 0, (char) 0);
     }
 
+    public void Initialize() {
+    }
+
     public void DrawBodies(PhysicsSystem system, BodyManagerDrawSettings inDrawSettings) {
     }
 
     public void DrawBodies(PhysicsSystem system) {
+    }
+
+    public void DrawConstraints(PhysicsSystem system) {
+    }
+
+    public void DrawConstraintLimits(PhysicsSystem system) {
+    }
+
+    public void DrawConstraintReferenceFrame(PhysicsSystem system) {
+    }
+
+    public void DrawShape(Shape inShape, Mat44 inModelMatrix, Vec3 inScale, Color inColor, boolean inDrawWireFrame) {
+    }
+
+    public void DrawBody(Body inBody, Color inColor, boolean inDrawWireFrame) {
+    }
+
+    public void DrawConstraint(Constraint inConstraint) {
     }
 
     public void DrawCylinder(Mat44 inMatrix, float inHalfHeight, float inRadius, Color inColor, ECastShadow inCastShadow, EDrawMode inDrawMode) {
@@ -179,6 +216,74 @@ public class DebugRendererEm extends DebugRenderer {
             Color_TEMP_STATIC_GEN_3 = Color.native_new();
         Color_TEMP_STATIC_GEN_3.internal_reset(inColor_addr, false);
         DrawText3D(Vec3_TEMP_STATIC_GEN_5, NativeObject_TEMP_STATIC_GEN_0, inStringLen, Color_TEMP_STATIC_GEN_3, inHeight);
+    }
+
+    protected void DrawGeometryWithID(Mat44 inModelMatrix, AABox inWorldSpaceBounds, float inLODScaleSq, Color inModelColor, int inGeometryID, ECullMode inCullMode, ECastShadow inCastShadow, EDrawMode inDrawMode) {
+    }
+
+    private void internal_DrawGeometryWithID(long inModelMatrix_addr, long inWorldSpaceBounds_addr, float inLODScaleSq, long inModelColor_addr, int inGeometryID, int inCullMode_addr, int inCastShadow_addr, int inDrawMode_addr) {
+        if (Mat44_TEMP_STATIC_GEN_1 == null)
+            Mat44_TEMP_STATIC_GEN_1 = Mat44.native_new();
+        Mat44_TEMP_STATIC_GEN_1.internal_reset(inModelMatrix_addr, false);
+        if (AABox_TEMP_STATIC_GEN_0 == null)
+            AABox_TEMP_STATIC_GEN_0 = AABox.native_new();
+        AABox_TEMP_STATIC_GEN_0.internal_reset(inWorldSpaceBounds_addr, false);
+        if (Color_TEMP_STATIC_GEN_4 == null)
+            Color_TEMP_STATIC_GEN_4 = Color.native_new();
+        Color_TEMP_STATIC_GEN_4.internal_reset(inModelColor_addr, false);
+        ECullMode inCullMode_addr_enum = ECullMode.CUSTOM.setValue(inCullMode_addr);
+        ECullMode[] inCullMode_addr_enum_values = ECullMode.values();
+        for (int i = 0; i < inCullMode_addr_enum_values.length; i++) {
+            ECullMode enumVal = inCullMode_addr_enum_values[i];
+            if (enumVal != ECullMode.CUSTOM && enumVal.getValue() == inCullMode_addr) {
+                inCullMode_addr_enum = inCullMode_addr_enum_values[i];
+                break;
+            }
+        }
+        ECastShadow inCastShadow_addr_enum = ECastShadow.CUSTOM.setValue(inCastShadow_addr);
+        ECastShadow[] inCastShadow_addr_enum_values = ECastShadow.values();
+        for (int i = 0; i < inCastShadow_addr_enum_values.length; i++) {
+            ECastShadow enumVal = inCastShadow_addr_enum_values[i];
+            if (enumVal != ECastShadow.CUSTOM && enumVal.getValue() == inCastShadow_addr) {
+                inCastShadow_addr_enum = inCastShadow_addr_enum_values[i];
+                break;
+            }
+        }
+        EDrawMode inDrawMode_addr_enum = EDrawMode.CUSTOM.setValue(inDrawMode_addr);
+        EDrawMode[] inDrawMode_addr_enum_values = EDrawMode.values();
+        for (int i = 0; i < inDrawMode_addr_enum_values.length; i++) {
+            EDrawMode enumVal = inDrawMode_addr_enum_values[i];
+            if (enumVal != EDrawMode.CUSTOM && enumVal.getValue() == inDrawMode_addr) {
+                inDrawMode_addr_enum = inDrawMode_addr_enum_values[i];
+                break;
+            }
+        }
+        DrawGeometryWithID(Mat44_TEMP_STATIC_GEN_1, AABox_TEMP_STATIC_GEN_0, inLODScaleSq, Color_TEMP_STATIC_GEN_4, inGeometryID, inCullMode_addr_enum, inCastShadow_addr_enum, inDrawMode_addr_enum);
+    }
+
+    protected int CreateTriangleBatchID(NativeObject inTriangles, int inTriangleCount) {
+        return 0;
+    }
+
+    private int internal_CreateTriangleBatchID(long inTriangles_addr, int inTriangleCount) {
+        if (NativeObject_TEMP_STATIC_GEN_1 == null)
+            NativeObject_TEMP_STATIC_GEN_1 = NativeObject.native_new();
+        NativeObject_TEMP_STATIC_GEN_1.internal_reset(inTriangles_addr, false);
+        return CreateTriangleBatchID(NativeObject_TEMP_STATIC_GEN_1, inTriangleCount);
+    }
+
+    protected int CreateTriangleBatchIDWithIndex(NativeObject inVertices, int inVertexCount, NativeObject inIndices, int inIndexCount) {
+        return 0;
+    }
+
+    private int internal_CreateTriangleBatchIDWithIndex(long inVertices_addr, int inVertexCount, long inIndices_addr, int inIndexCount) {
+        if (NativeObject_TEMP_STATIC_GEN_2 == null)
+            NativeObject_TEMP_STATIC_GEN_2 = NativeObject.native_new();
+        NativeObject_TEMP_STATIC_GEN_2.internal_reset(inVertices_addr, false);
+        if (NativeObject_TEMP_STATIC_GEN_3 == null)
+            NativeObject_TEMP_STATIC_GEN_3 = NativeObject.native_new();
+        NativeObject_TEMP_STATIC_GEN_3.internal_reset(inIndices_addr, false);
+        return CreateTriangleBatchIDWithIndex(NativeObject_TEMP_STATIC_GEN_2, inVertexCount, NativeObject_TEMP_STATIC_GEN_3, inIndexCount);
     }
 
     public static native long internal_native_create_addr();

@@ -72,6 +72,7 @@ dependencies {
 
 ## Notes
 
+* Use `JoltSettings` and `JoltInterface` for lifecycle management. `JoltInterface` initializes Jolt, owns the physics system, allocator, job system, and the three collision-filter objects supplied through settings, and shuts them down in the correct order. Objects returned by its getters are borrowed.
 * In most classes, new instances are created using `JoltNew.[TYPE]` instead of standard Java constructors. This approach is necessary due to limitations in constructor overloading within WebIDL when targeting Emscripten.
 * Methods that return an object typically return a temporary object. You should not retain a reference to it, as calling the method again with another instance will overwrite the previously returned object.
 * Classes are not disposed automatically; the dispose method must be called when they are no longer in use. However, classes in a WebIDL file marked with `NoDelete` do not require disposal.
@@ -104,6 +105,9 @@ To try the samples with your build, change `LibExt.useRepoLibs` to `false` in `b
 
 # Generate binding sources for JNI, FFM, and web.
 ./gradlew :jolt:builder:jParser_generate
+
+# Verify upstream WebIDL coverage, every generated backend, and reproducible generation.
+./gradlew :jolt:builder:verifyJoltWebIdlParity :jolt:builder:verifyGeneratedBackendParity :jolt:builder:verifyGeneratedSourcesClean
 
 # Generate and build native platform targets.
 ./gradlew :jolt:builder:jParser_build_windows64_jni :jolt:builder:jParser_build_windows64_ffm :jolt:builder:jParser_build_windows64_teavm_c
