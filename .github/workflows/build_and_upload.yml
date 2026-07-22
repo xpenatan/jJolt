@@ -113,7 +113,7 @@ jobs:
         run: ./gradlew :samples:gdx:gl:platforms:desktop-c:samples_build_app_teavm_c -x :jolt:builder:jParser_generate -x :jolt:builder:jParser_build_linux64_teavm_c
 
       - name: Install desktop sample dependencies
-        run: sudo apt-get update && sudo apt-get install --no-install-recommends -y libgl1-mesa-dev xorg-dev
+        run: sudo apt-get update && sudo apt-get install --no-install-recommends -y libgl1-mesa-dev libwayland-bin libwayland-dev libxkbcommon-dev wayland-protocols xorg-dev
 
       - name: Build all desktop samples
         run: >-
