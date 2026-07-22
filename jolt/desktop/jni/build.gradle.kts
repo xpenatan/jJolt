@@ -3,7 +3,6 @@ plugins {
 }
 
 val moduleName = "desktop-jni"
-group = "${LibExt.groupId}.desktop"
 
 base {
     archivesName.set(moduleName)
@@ -67,8 +66,6 @@ publishing {
     publications {
         create<MavenPublication>("maven") {
             artifactId = moduleName
-            groupId = LibExt.groupId
-            version = LibExt.libVersion
             from(components["java"])
         }
     }

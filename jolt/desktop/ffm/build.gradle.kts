@@ -3,7 +3,6 @@ plugins {
 }
 
 val moduleName = "desktop-ffm"
-group = "${LibExt.groupId}.desktop"
 
 base {
     archivesName.set(moduleName)
@@ -85,7 +84,10 @@ val nativeDesktopJar = tasks.register<Jar>("nativeJarDesktop") {
     }
 }
 
-val isPublishingTask = gradle.startParameter.taskNames.any { it.contains("publish", ignoreCase = true) }
+val publishingPreparationTasks = setOf("prepareSnapshot", "prepareRelease")
+val isPublishingTask = gradle.startParameter.taskNames.any {
+    it.contains("publish", ignoreCase = true) || it.substringAfterLast(':') in publishingPreparationTasks
+}
 val nativeFiles = listOf(windowsFile, linuxFile, macFile, macArmFile).map(::file).filter { it.exists() }
 
 tasks.named<Jar>("jar") {
@@ -151,8 +153,6 @@ publishing {
     publications {
         create<MavenPublication>("maven") {
             artifactId = moduleName
-            groupId = LibExt.groupId
-            version = LibExt.libVersion
             from(components["java"])
             artifact(nativeDesktopJar)
             // publishing will attach the native jars created earlier

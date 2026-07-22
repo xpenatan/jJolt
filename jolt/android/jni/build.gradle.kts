@@ -3,7 +3,6 @@ plugins {
 }
 
 val moduleName = "android-jni"
-group = "${LibExt.groupId}.android"
 val supportedAndroidAbis = listOf("armeabi-v7a", "arm64-v8a", "x86", "x86_64")
 val androidNativeRoot = file("$projectDir/../../builder/build/c++/libs/android")
 val desktopJParserRuntimeModules = listOf(
@@ -74,8 +73,6 @@ publishing {
     publications {
         create<MavenPublication>("maven") {
             artifactId = moduleName
-            groupId = LibExt.groupId
-            version = LibExt.libVersion
         }
     }
 }

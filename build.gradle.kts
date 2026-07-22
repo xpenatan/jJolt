@@ -1,7 +1,6 @@
 plugins {
     id("java")
-    id("maven-publish")
-    id("signing")
+    id("com.github.xpenatan.easy-publishing") version "-SNAPSHOT"
     id("org.jetbrains.kotlin.android") version "1.8.21" apply false
 }
 
@@ -52,4 +51,40 @@ allprojects  {
     }
 }
 
-apply(plugin = "publish")
+easyPublishing {
+    modules(
+        ":jolt:core",
+        ":jolt:shared:jni",
+        ":jolt:shared:c",
+        ":jolt:desktop:jni",
+        ":jolt:desktop:ffm",
+        ":jolt:desktop:c",
+        ":jolt:web:wasm",
+        ":jolt:android:jni",
+        ":extensions:gdx:gl",
+        ":extensions:gdx:wgpu",
+        ":extensions:fdx"
+    )
+
+    groupId.set(LibExt.groupId)
+    releaseVersion.set(providers.gradleProperty("version"))
+    snapshotVersion.set("-SNAPSHOT")
+
+    snapshotRepositoryUrl.set("https://central.sonatype.com/repository/maven-snapshots/")
+    releaseRepositoryUrl.set("https://central.sonatype.com")
+    username.set(providers.environmentVariable("CENTRAL_PORTAL_USERNAME"))
+    password.set(providers.environmentVariable("CENTRAL_PORTAL_PASSWORD"))
+    signingKey.set(providers.environmentVariable("SIGNING_KEY"))
+    signingPassword.set(providers.environmentVariable("SIGNING_PASSWORD"))
+
+    pomName.set(LibExt.libName)
+    pomDescription.set("Jolt Physics Java Bindings")
+    projectUrl.set("https://github.com/xpenatan/jJolt")
+
+    developerId.set("Xpe")
+    developerName.set("Natan")
+
+    scmUrl.set("https://github.com/xpenatan/jJolt")
+    scmConnection.set("scm:git:https://github.com/xpenatan/jJolt.git")
+    scmDeveloperConnection.set("scm:git:ssh://git@github.com/xpenatan/jJolt.git")
+}

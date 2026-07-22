@@ -3,7 +3,6 @@ plugins {
 }
 
 val moduleName = "desktop-c"
-group = "${LibExt.groupId}.desktop"
 val nativeResourceRoot = "external_cpp/jparser/jolt/native"
 
 base {
@@ -55,8 +54,6 @@ publishing {
     publications {
         create<MavenPublication>("maven") {
             artifactId = moduleName
-            groupId = LibExt.groupId
-            version = LibExt.libVersion
             from(components["java"])
         }
     }

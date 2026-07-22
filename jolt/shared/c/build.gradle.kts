@@ -3,7 +3,6 @@ plugins {
 }
 
 val moduleName = "shared-c"
-group = "${LibExt.groupId}.shared"
 val generatedTeaVMCResourcesDir = layout.buildDirectory.dir("generated/jparser/resources/main")
 
 base {
@@ -53,8 +52,6 @@ publishing {
     publications {
         create<MavenPublication>("maven") {
             artifactId = moduleName
-            groupId = LibExt.groupId
-            version = LibExt.libVersion
             from(components["java"])
         }
     }
