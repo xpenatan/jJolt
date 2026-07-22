@@ -112,6 +112,9 @@ jobs:
       - name: Run TeaVM C portable runtime test
         run: ./gradlew :samples:gdx:gl:platforms:desktop-c:samples_build_app_teavm_c -x :jolt:builder:jParser_generate -x :jolt:builder:jParser_build_linux64_teavm_c
 
+      - name: Install desktop sample dependencies
+        run: sudo apt-get update && sudo apt-get install --no-install-recommends -y libgl1-mesa-dev xorg-dev
+
       - name: Build all desktop samples
         run: >-
           ./gradlew
@@ -213,15 +216,13 @@ jobs:
       - name: Build Web project
         run: ./gradlew :jolt:builder:jParser_build_web_wasm
 
-      - name: Build all web samples
+      - name: Build supported web samples
         run: >-
           ./gradlew
           :samples:fdx:platforms:web:jolt_sample_webgl_js_build
           :samples:fdx:platforms:web:jolt_sample_webgl_wasm_build
           :samples:fdx:platforms:web:jolt_sample_webgpu_js_build
-          :samples:fdx:platforms:web:jolt_sample_webgpu_wasm_build
           :samples:gdx:gl:platforms:web:jolt_samples_run_teavm
-          :samples:gdx:wgpu:platforms:web:jolt_samples_run_teavm_wgpu
           -x :jolt:builder:jParser_generate
           -x :jolt:builder:jParser_build_web_wasm
 

@@ -116,13 +116,6 @@ tasks.register("jolt_sample_webgpu_js_build") {
     configureWebGpuPage("dist/web-js/webapp", "jJolt libfdx - JS WebGPU")
 }
 
-tasks.register("jolt_sample_webgpu_wasm_build") {
-    group = "application"
-    description = "Builds the jJolt libfdx WebGPU Wasm sample."
-    dependsOn("libfdx_web_wasm_build", copyJoltWasmRuntimeScripts)
-    configureWebGpuPage("dist/web-wasm/webapp", "jJolt libfdx - Wasm WebGPU")
-}
-
 tasks.register<io.github.libfdx.gradle.LibfdxRunWebTask>("jolt_sample_webgl_js_run") {
     group = "application"
     description = "Builds and serves the jJolt libfdx WebGL JavaScript sample."
@@ -150,41 +143,38 @@ tasks.register<io.github.libfdx.gradle.LibfdxRunWebTask>("jolt_sample_webgpu_js_
     defaultPath.set("/webgpu.html")
 }
 
-tasks.register<io.github.libfdx.gradle.LibfdxRunWebTask>("jolt_sample_webgpu_wasm_run") {
-    group = "application"
-    description = "Builds and serves the jJolt libfdx WebGPU Wasm sample."
-    dependsOn("jolt_sample_webgpu_wasm_build")
-    webappDir.set(wasmWebappDir)
-    port.set(libfdx.wasm.serverPort)
-    defaultPath.set("/webgpu.html")
-}
-
 fun Task.configureWebGpuPage(webappPath: String, title: String) {
     val webappDir = layout.buildDirectory.dir(webappPath)
     val indexFile = webappDir.map { it.file("index.html") }
+    val loaderFile = webappDir.map { it.file("scripts/fdx-loader.js") }
     val outputFile = webappDir.map { it.file("webgpu.html") }
-    inputs.file(indexFile)
-    outputs.file(outputFile)
+    val outputLoaderFile = webappDir.map { it.file("scripts/fdx-loader-webgpu.js") }
+    inputs.files(indexFile, loaderFile)
+    outputs.files(outputFile, outputLoaderFile)
     doLast {
-        writeWebGpuPage(indexFile.get().asFile, outputFile.get().asFile, title)
+        writeWebGpuPage(
+            indexFile.get().asFile,
+            loaderFile.get().asFile,
+            outputFile.get().asFile,
+            outputLoaderFile.get().asFile,
+            title
+        )
     }
 }
 
-fun writeWebGpuPage(indexFile: File, outputFile: File, title: String) {
+fun writeWebGpuPage(indexFile: File, loaderFile: File, outputFile: File, outputLoaderFile: File, title: String) {
     val source = indexFile.readText()
     val withTitle = source.replace(Regex("<title>.*</title>"), "<title>$title</title>")
-    val rewritten = when {
-        withTitle.contains("main();") -> withTitle.replace(
-            "main();",
-            "main([\"--graphics=webgpu\"]);"
-        )
-        withTitle.contains("teavm.exports.main([]);") -> withTitle.replace(
-            "teavm.exports.main([]);",
-            "teavm.exports.main([\"--graphics=webgpu\"]);"
-        )
-        else -> throw org.gradle.api.GradleException(
-            "Could not create WebGPU launch page from ${indexFile.absolutePath}"
-        )
+    val rewrittenPage = withTitle.replace("scripts/fdx-loader.js", "scripts/fdx-loader-webgpu.js")
+    if(rewrittenPage == withTitle) {
+        throw GradleException("Could not create WebGPU launch page from ${indexFile.absolutePath}")
     }
-    outputFile.writeText(rewritten)
+    outputFile.writeText(rewrittenPage)
+
+    val loaderSource = loaderFile.readText()
+    val rewrittenLoader = loaderSource.replace("mainClassArgs: []", "mainClassArgs: [\"--graphics=webgpu\"]")
+    if(rewrittenLoader == loaderSource) {
+        throw GradleException("Could not configure WebGPU arguments in ${loaderFile.absolutePath}")
+    }
+    outputLoaderFile.writeText(rewrittenLoader)
 }

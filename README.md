@@ -95,7 +95,7 @@ To try the samples with your build, change `LibExt.useRepoLibs` to `false` in `b
 - Desktop Vulkan/JNI: `./gradlew :samples:gdx:gl:platforms:desktop-jni:jolt_sample_desktop_vulkan_jni_run`
 - Desktop Vulkan/FFM: `./gradlew :samples:gdx:gl:platforms:desktop-jni:jolt_sample_desktop_vulkan_ffm_run`
 - WebGL JS/Wasm: `./gradlew :samples:fdx:platforms:web:jolt_sample_webgl_js_build :samples:fdx:platforms:web:jolt_sample_webgl_wasm_build`
-- WebGPU JS/Wasm: `./gradlew :samples:fdx:platforms:web:jolt_sample_webgpu_js_build :samples:fdx:platforms:web:jolt_sample_webgpu_wasm_build`
+- WebGPU JS: `./gradlew :samples:fdx:platforms:web:jolt_sample_webgpu_js_build`
 - Android GLES/WGPU/Vulkan: `./gradlew :samples:gdx:gl:platforms:android:jolt_sample_android_gles_build :samples:gdx:gl:platforms:android:jolt_sample_android_wgpu_jni_build :samples:gdx:gl:platforms:android:jolt_sample_android_vulkan_build`
 
 ## How To Build From Source

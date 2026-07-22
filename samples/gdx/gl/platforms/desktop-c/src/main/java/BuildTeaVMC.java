@@ -51,8 +51,8 @@ public class BuildTeaVMC {
 
         System.out.println("Generating jJolt TeaVM C sample");
         generateTeaVMC(generatedDir);
+        patchGeneratedUCharHeader(generatedDir);
         if(isWindows()) {
-            patchGeneratedUCharHeader(generatedDir);
             patchGeneratedMSVCTimeFunctions(generatedDir);
         }
 
@@ -109,7 +109,7 @@ public class BuildTeaVMC {
         String text = Files.readString(header.toPath(), StandardCharsets.UTF_8).replace("\r\n", "\n");
         String original = "#else\n\n#include <uchar.h>\n\n#endif\n";
         String replacement = "#else\n\n"
-                + "#if defined(_MSC_VER)\n"
+                + "#if defined(_MSC_VER) || defined(__APPLE__)\n"
                 + "#include <stdint.h>\n"
                 + "typedef uint16_t char16_t;\n"
                 + "typedef int char32_t;\n"
@@ -118,7 +118,7 @@ public class BuildTeaVMC {
                 + "#endif\n\n"
                 + "#endif\n";
         if(!text.contains(original)) {
-            throw new IllegalStateException("Unable to patch generated TeaVM uchar.h for MSVC: " + header.getAbsolutePath());
+            throw new IllegalStateException("Unable to patch generated TeaVM uchar.h: " + header.getAbsolutePath());
         }
         Files.writeString(header.toPath(), text.replace(original, replacement), StandardCharsets.UTF_8);
     }
