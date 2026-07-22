@@ -707,6 +707,19 @@ tasks.register("verifyJoltWebIdlParity") {
                     // GetListenerNative is the generated Java-side spelling.
                     expected = expected.copy(name = "GetListener", returnOrPropertyType = "any")
                 }
+                if(upstreamName == "StateRecorderJS"
+                    && expected.name in setOf("ReadBytes", "WriteBytes")
+                    && expected.parameterTypes == listOf("any", "unsigned_long")) {
+                    // JoltPhysics.js is wasm32, so its size_t byte count is an unsigned long.
+                    // jJolt widens only this portable callback boundary to uint64/Java long;
+                    // the native StateRecorder override still receives the platform size_t.
+                    // BindTo gives the widened native bridge a distinct name so it cannot
+                    // collide with the size_t override on a 32-bit target.
+                    expected = expected.copy(
+                        name = "${expected.name}Java",
+                        parameterTypes = listOf("any", "unsigned_long_long")
+                    )
+                }
                 if(upstreamName == "RVec3" || upstreamName == "RMat44") {
                     // The upstream IDL fixes RVec storage to double. jJolt emits
                     // precision-specific IDLs, so compare its float build to the
