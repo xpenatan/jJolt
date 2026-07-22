@@ -29,23 +29,23 @@ public class StateRecorderEm extends StateRecorder {
         return teavmcCallbackId;
     }
 
-    private static abstract class TEAVMC_ReadBytes_Function extends org.teavm.interop.Function {
+    private static abstract class TEAVMC_ReadBytesJava_Function extends org.teavm.interop.Function {
 
-        public abstract void call(int callbackId, long outData_addr, int inNumBytes);
+        public abstract void call(int callbackId, long outData_addr, long inNumBytes);
     }
 
-    @org.teavm.interop.Export(name = "teavmc_StateRecorderEm_ReadBytes")
-    private static void teavmc_StateRecorderEm_ReadBytes(int callbackId, long outData_addr, int inNumBytes) {
+    @org.teavm.interop.Export(name = "teavmc_StateRecorderEm_ReadBytesJava")
+    private static void teavmc_StateRecorderEm_ReadBytesJava(int callbackId, long outData_addr, long inNumBytes) {
         TEAVMC_CALLBACKS.get(callbackId).internal_ReadBytes(outData_addr, inNumBytes);
     }
 
-    private static abstract class TEAVMC_WriteBytes_Function extends org.teavm.interop.Function {
+    private static abstract class TEAVMC_WriteBytesJava_Function extends org.teavm.interop.Function {
 
-        public abstract void call(int callbackId, long inData_addr, int inNumBytes);
+        public abstract void call(int callbackId, long inData_addr, long inNumBytes);
     }
 
-    @org.teavm.interop.Export(name = "teavmc_StateRecorderEm_WriteBytes")
-    private static void teavmc_StateRecorderEm_WriteBytes(int callbackId, long inData_addr, int inNumBytes) {
+    @org.teavm.interop.Export(name = "teavmc_StateRecorderEm_WriteBytesJava")
+    private static void teavmc_StateRecorderEm_WriteBytesJava(int callbackId, long inData_addr, long inNumBytes) {
         TEAVMC_CALLBACKS.get(callbackId).internal_WriteBytes(inData_addr, inNumBytes);
     }
 
@@ -70,7 +70,7 @@ public class StateRecorderEm extends StateRecorder {
     }
 
     @org.teavm.interop.Import(name = "teavmc_StateRecorderEm_setupCallback")
-    private static native void setupCallback(long this_addr, int callbackId, TEAVMC_ReadBytes_Function ReadBytes_fp, TEAVMC_WriteBytes_Function WriteBytes_fp, TEAVMC_IsEOF_Function IsEOF_fp, TEAVMC_IsFailed_Function IsFailed_fp);
+    private static native void setupCallback(long this_addr, int callbackId, TEAVMC_ReadBytesJava_Function ReadBytesJava_fp, TEAVMC_WriteBytesJava_Function WriteBytesJava_fp, TEAVMC_IsEOF_Function IsEOF_fp, TEAVMC_IsFailed_Function IsFailed_fp);
 
     static public final StateRecorderEm NULL = StateRecorderEm.native_new();
 
@@ -105,23 +105,23 @@ public class StateRecorderEm extends StateRecorder {
 
     private void setupCallback() {
         int callbackId = teavmcRegisterCallback();
-        setupCallback(native_address, callbackId, org.teavm.interop.Function.get(TEAVMC_ReadBytes_Function.class, StateRecorderEm.class, "teavmc_StateRecorderEm_ReadBytes"), org.teavm.interop.Function.get(TEAVMC_WriteBytes_Function.class, StateRecorderEm.class, "teavmc_StateRecorderEm_WriteBytes"), org.teavm.interop.Function.get(TEAVMC_IsEOF_Function.class, StateRecorderEm.class, "teavmc_StateRecorderEm_IsEOF"), org.teavm.interop.Function.get(TEAVMC_IsFailed_Function.class, StateRecorderEm.class, "teavmc_StateRecorderEm_IsFailed"));
+        setupCallback(native_address, callbackId, org.teavm.interop.Function.get(TEAVMC_ReadBytesJava_Function.class, StateRecorderEm.class, "teavmc_StateRecorderEm_ReadBytesJava"), org.teavm.interop.Function.get(TEAVMC_WriteBytesJava_Function.class, StateRecorderEm.class, "teavmc_StateRecorderEm_WriteBytesJava"), org.teavm.interop.Function.get(TEAVMC_IsEOF_Function.class, StateRecorderEm.class, "teavmc_StateRecorderEm_IsEOF"), org.teavm.interop.Function.get(TEAVMC_IsFailed_Function.class, StateRecorderEm.class, "teavmc_StateRecorderEm_IsFailed"));
     }
 
-    protected void ReadBytes(NativeObject outData, int inNumBytes) {
+    protected void ReadBytes(NativeObject outData, long inNumBytes) {
     }
 
-    private void internal_ReadBytes(long outData_addr, int inNumBytes) {
+    private void internal_ReadBytes(long outData_addr, long inNumBytes) {
         if (NativeObject_TEMP_STATIC_GEN_0 == null)
             NativeObject_TEMP_STATIC_GEN_0 = NativeObject.native_new();
         NativeObject_TEMP_STATIC_GEN_0.internal_reset(outData_addr, false);
         ReadBytes(NativeObject_TEMP_STATIC_GEN_0, inNumBytes);
     }
 
-    protected void WriteBytes(NativeObject inData, int inNumBytes) {
+    protected void WriteBytes(NativeObject inData, long inNumBytes) {
     }
 
-    private void internal_WriteBytes(long inData_addr, int inNumBytes) {
+    private void internal_WriteBytes(long inData_addr, long inNumBytes) {
         if (NativeObject_TEMP_STATIC_GEN_1 == null)
             NativeObject_TEMP_STATIC_GEN_1 = NativeObject.native_new();
         NativeObject_TEMP_STATIC_GEN_1.internal_reset(inData_addr, false);

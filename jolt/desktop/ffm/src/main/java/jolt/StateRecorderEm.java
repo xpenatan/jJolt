@@ -26,13 +26,13 @@ public class StateRecorderEm extends StateRecorder {
 
     private static final java.lang.foreign.Linker callbackLinker = java.lang.foreign.Linker.nativeLinker();
 
-    private static final java.lang.invoke.MethodType callbackMethodType_ReadBytes = java.lang.invoke.MethodType.methodType(void.class, long.class, int.class);
+    private static final java.lang.invoke.MethodType callbackMethodType_ReadBytesJava = java.lang.invoke.MethodType.methodType(void.class, long.class, long.class);
 
-    private static final java.lang.foreign.FunctionDescriptor callbackDescriptor_ReadBytes = java.lang.foreign.FunctionDescriptor.ofVoid(java.lang.foreign.ValueLayout.JAVA_LONG, java.lang.foreign.ValueLayout.JAVA_INT);
+    private static final java.lang.foreign.FunctionDescriptor callbackDescriptor_ReadBytesJava = java.lang.foreign.FunctionDescriptor.ofVoid(java.lang.foreign.ValueLayout.JAVA_LONG, java.lang.foreign.ValueLayout.JAVA_LONG);
 
-    private static final java.lang.invoke.MethodType callbackMethodType_WriteBytes = java.lang.invoke.MethodType.methodType(void.class, long.class, int.class);
+    private static final java.lang.invoke.MethodType callbackMethodType_WriteBytesJava = java.lang.invoke.MethodType.methodType(void.class, long.class, long.class);
 
-    private static final java.lang.foreign.FunctionDescriptor callbackDescriptor_WriteBytes = java.lang.foreign.FunctionDescriptor.ofVoid(java.lang.foreign.ValueLayout.JAVA_LONG, java.lang.foreign.ValueLayout.JAVA_INT);
+    private static final java.lang.foreign.FunctionDescriptor callbackDescriptor_WriteBytesJava = java.lang.foreign.FunctionDescriptor.ofVoid(java.lang.foreign.ValueLayout.JAVA_LONG, java.lang.foreign.ValueLayout.JAVA_LONG);
 
     private static final java.lang.invoke.MethodType callbackMethodType_IsEOF = java.lang.invoke.MethodType.methodType(boolean.class);
 
@@ -80,34 +80,34 @@ public class StateRecorderEm extends StateRecorder {
         try {
             releaseUpcallResources();
             upcallArena = java.lang.foreign.Arena.ofShared();
-            java.lang.invoke.MethodHandle mh_ReadBytes = callbackLookup.findVirtual(StateRecorderEm.class, "internal_ReadBytes", callbackMethodType_ReadBytes).bindTo(this);
-            upcallStub_ReadBytes = callbackLinker.upcallStub(mh_ReadBytes, callbackDescriptor_ReadBytes, upcallArena);
-            java.lang.invoke.MethodHandle mh_WriteBytes = callbackLookup.findVirtual(StateRecorderEm.class, "internal_WriteBytes", callbackMethodType_WriteBytes).bindTo(this);
-            upcallStub_WriteBytes = callbackLinker.upcallStub(mh_WriteBytes, callbackDescriptor_WriteBytes, upcallArena);
+            java.lang.invoke.MethodHandle mh_ReadBytesJava = callbackLookup.findVirtual(StateRecorderEm.class, "internal_ReadBytes", callbackMethodType_ReadBytesJava).bindTo(this);
+            upcallStub_ReadBytesJava = callbackLinker.upcallStub(mh_ReadBytesJava, callbackDescriptor_ReadBytesJava, upcallArena);
+            java.lang.invoke.MethodHandle mh_WriteBytesJava = callbackLookup.findVirtual(StateRecorderEm.class, "internal_WriteBytes", callbackMethodType_WriteBytesJava).bindTo(this);
+            upcallStub_WriteBytesJava = callbackLinker.upcallStub(mh_WriteBytesJava, callbackDescriptor_WriteBytesJava, upcallArena);
             java.lang.invoke.MethodHandle mh_IsEOF = callbackLookup.findVirtual(StateRecorderEm.class, "internal_IsEOF", callbackMethodType_IsEOF).bindTo(this);
             upcallStub_IsEOF = callbackLinker.upcallStub(mh_IsEOF, callbackDescriptor_IsEOF, upcallArena);
             java.lang.invoke.MethodHandle mh_IsFailed = callbackLookup.findVirtual(StateRecorderEm.class, "internal_IsFailed", callbackMethodType_IsFailed).bindTo(this);
             upcallStub_IsFailed = callbackLinker.upcallStub(mh_IsFailed, callbackDescriptor_IsFailed, upcallArena);
-            internal_native_setupCallback(native_address, upcallStub_ReadBytes.address(), upcallStub_WriteBytes.address(), upcallStub_IsEOF.address(), upcallStub_IsFailed.address());
+            internal_native_setupCallback(native_address, upcallStub_ReadBytesJava.address(), upcallStub_WriteBytesJava.address(), upcallStub_IsEOF.address(), upcallStub_IsFailed.address());
         } catch (Throwable e) {
             throw new RuntimeException(e);
         }
     }
 
-    protected void ReadBytes(NativeObject outData, int inNumBytes) {
+    protected void ReadBytes(NativeObject outData, long inNumBytes) {
     }
 
-    private void internal_ReadBytes(long outData_addr, int inNumBytes) {
+    private void internal_ReadBytes(long outData_addr, long inNumBytes) {
         if (NativeObject_TEMP_STATIC_GEN_0 == null)
             NativeObject_TEMP_STATIC_GEN_0 = NativeObject.native_new();
         NativeObject_TEMP_STATIC_GEN_0.internal_reset(outData_addr, false);
         ReadBytes(NativeObject_TEMP_STATIC_GEN_0, inNumBytes);
     }
 
-    protected void WriteBytes(NativeObject inData, int inNumBytes) {
+    protected void WriteBytes(NativeObject inData, long inNumBytes) {
     }
 
-    private void internal_WriteBytes(long inData_addr, int inNumBytes) {
+    private void internal_WriteBytes(long inData_addr, long inNumBytes) {
         if (NativeObject_TEMP_STATIC_GEN_1 == null)
             NativeObject_TEMP_STATIC_GEN_1 = NativeObject.native_new();
         NativeObject_TEMP_STATIC_GEN_1.internal_reset(inData_addr, false);
@@ -140,9 +140,9 @@ public class StateRecorderEm extends StateRecorder {
 
     private Arena upcallArena;
 
-    private MemorySegment upcallStub_ReadBytes;
+    private MemorySegment upcallStub_ReadBytesJava;
 
-    private MemorySegment upcallStub_WriteBytes;
+    private MemorySegment upcallStub_WriteBytesJava;
 
     private MemorySegment upcallStub_IsEOF;
 
@@ -150,8 +150,8 @@ public class StateRecorderEm extends StateRecorder {
 
     private void releaseUpcallResources() {
         Arena arena = upcallArena;
-        upcallStub_ReadBytes = null;
-        upcallStub_WriteBytes = null;
+        upcallStub_ReadBytesJava = null;
+        upcallStub_WriteBytesJava = null;
         upcallStub_IsEOF = null;
         upcallStub_IsFailed = null;
         upcallArena = null;
@@ -163,9 +163,9 @@ public class StateRecorderEm extends StateRecorder {
         }
     }
 
-    public static void internal_native_setupCallback(long this_addr, long ReadBytes_fp, long WriteBytes_fp, long IsEOF_fp, long IsFailed_fp) {
+    public static void internal_native_setupCallback(long this_addr, long ReadBytesJava_fp, long WriteBytesJava_fp, long IsEOF_fp, long IsFailed_fp) {
         try {
-            FFMHandles.internal_native_setupCallback__JJJJJ.invokeExact(this_addr, ReadBytes_fp, WriteBytes_fp, IsEOF_fp, IsFailed_fp);
+            FFMHandles.internal_native_setupCallback__JJJJJ.invokeExact(this_addr, ReadBytesJava_fp, WriteBytesJava_fp, IsEOF_fp, IsFailed_fp);
         } catch (Throwable e) {
             throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
         }

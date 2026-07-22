@@ -1282,19 +1282,19 @@ public:
 class StateRecorderEm : public StateRecorder
 {
 public:
-    // WebIDL and the Java backends use a 32-bit byte count while Jolt uses size_t.
-    virtual void WriteBytes(const void *inData, unsigned int inNumBytes) = 0;
-    virtual void ReadBytes(void *outData, unsigned int inNumBytes) = 0;
+    // Keep the Java-facing byte count platform-independent while Jolt uses size_t.
+    virtual void WriteBytesJava(const void *inData, uint64 inNumBytes) = 0;
+    virtual void ReadBytesJava(void *outData, uint64 inNumBytes) = 0;
 
 private:
     virtual void WriteBytes(const void *inData, size_t inNumBytes) override
     {
-        WriteBytes(inData, static_cast<unsigned int>(inNumBytes));
+        WriteBytesJava(inData, static_cast<uint64>(inNumBytes));
     }
 
     virtual void ReadBytes(void *outData, size_t inNumBytes) override
     {
-        ReadBytes(outData, static_cast<unsigned int>(inNumBytes));
+        ReadBytesJava(outData, static_cast<uint64>(inNumBytes));
     }
 };
 

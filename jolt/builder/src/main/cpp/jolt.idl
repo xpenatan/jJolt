@@ -2894,8 +2894,8 @@ StateRecorderEm implements StateRecorder;
 [JSImplementation="StateRecorderEm"]
 interface StateRecorderJS {
     void StateRecorderJS();
-    void ReadBytes(any outData, unsigned long inNumBytes);
-    void WriteBytes([Const] any inData, unsigned long inNumBytes);
+    [BindTo="ReadBytesJava"] void ReadBytes(any outData, unsigned long long inNumBytes);
+    [BindTo="WriteBytesJava"] void WriteBytes([Const] any inData, unsigned long long inNumBytes);
     [Const] boolean IsEOF();
     [Const] boolean IsFailed();
 };
