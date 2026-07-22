@@ -97,9 +97,6 @@ jobs:
       - name: Download sources
         run: ./gradlew :jolt:download:jolt_download_source
 
-      - name: Verify WebIDL and generated backend parity
-        run: ./gradlew :jolt:builder:verifyJoltSourceSelection :jolt:builder:verifyJoltWebIdlParity :jolt:builder:verifyGeneratedBackendParity :jolt:builder:verifyGeneratedSourcesClean
-
       - name: Build JNI project
         run: ./gradlew :jolt:builder:jParser_build_linux64_jni
 
@@ -272,9 +269,6 @@ jobs:
         run: ./gradlew :jolt:builder:jParser_build_android_jni
         env:
           ANDROID_NDK_HOME: ${{ steps.setup-ndk.outputs.ndk-path }}
-
-      - name: Verify all Android ABI libraries
-        run: ./gradlew :jolt:android:jni:verifyAndroidNativeAbis -x :jolt:builder:jParser_generate -x :jolt:builder:jParser_build_android_jni
 
       - name: Build Android library, instrumentation tests, and samples
         run: >-

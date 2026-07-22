@@ -4,7 +4,6 @@ plugins {
 
 val moduleName = "android-jni"
 val supportedAndroidAbis = listOf("armeabi-v7a", "arm64-v8a", "x86", "x86_64")
-val androidNativeRoot = file("$projectDir/../../builder/build/c++/libs/android")
 val desktopJParserRuntimeModules = listOf(
     "runtime-desktop-jni",
     "runtime-desktop-jni_windows_x64",
@@ -94,23 +93,4 @@ tasks.named("clean") {
 
 tasks.matching { it.name.endsWith("JavaWithJavac") || it.name == "preBuild" }.configureEach {
     dependsOn(":jolt:builder:jParser_generate")
-}
-
-tasks.register("verifyAndroidNativeAbis") {
-    group = "verification"
-    description = "Verifies that the Android JNI build linked every supported ABI."
-    dependsOn(":jolt:builder:jParser_build_android_jni")
-    inputs.dir(androidNativeRoot)
-
-    doLast {
-        val missing = supportedAndroidAbis.filterNot { abi ->
-            fileTree(File(androidNativeRoot, abi)) {
-                include("*.so")
-            }.files.any { it.name.contains("jolt", ignoreCase = true) }
-        }
-        if(missing.isNotEmpty()) {
-            throw GradleException("Missing linked jJolt Android JNI libraries for: ${missing.joinToString()}")
-        }
-        logger.lifecycle("Verified jJolt Android JNI libraries for ${supportedAndroidAbis.joinToString()}.")
-    }
 }

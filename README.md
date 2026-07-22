@@ -106,9 +106,6 @@ To try the samples with your build, change `LibExt.useRepoLibs` to `false` in `b
 # Generate binding sources for JNI, FFM, and web.
 ./gradlew :jolt:builder:jParser_generate
 
-# Verify upstream WebIDL coverage, every generated backend, and reproducible generation.
-./gradlew :jolt:builder:verifyJoltWebIdlParity :jolt:builder:verifyGeneratedBackendParity :jolt:builder:verifyGeneratedSourcesClean
-
 # Generate and build native platform targets.
 ./gradlew :jolt:builder:jParser_build_windows64_jni :jolt:builder:jParser_build_windows64_ffm :jolt:builder:jParser_build_windows64_teavm_c
 ./gradlew :jolt:builder:jParser_build_linux64_jni :jolt:builder:jParser_build_linux64_ffm :jolt:builder:jParser_build_linux64_teavm_c
