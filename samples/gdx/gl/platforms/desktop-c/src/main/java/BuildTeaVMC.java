@@ -52,6 +52,7 @@ public class BuildTeaVMC {
         System.out.println("Generating jJolt TeaVM C sample");
         generateTeaVMC(generatedDir);
         patchGeneratedUCharHeader(generatedDir);
+        patchGeneratedAppleRuntime(generatedDir);
         if(isWindows()) {
             patchGeneratedMSVCTimeFunctions(generatedDir);
         }
@@ -107,20 +108,167 @@ public class BuildTeaVMC {
     private static void patchGeneratedUCharHeader(File outputDir) throws IOException {
         File header = new File(outputDir, "uchar.h");
         String text = Files.readString(header.toPath(), StandardCharsets.UTF_8).replace("\r\n", "\n");
-        String original = "#else\n\n#include <uchar.h>\n\n#endif\n";
-        String replacement = "#else\n\n"
-                + "#if defined(_MSC_VER) || defined(__APPLE__)\n"
-                + "#include <stdint.h>\n"
+        String original = "#if TEAVM_PSP\n\n"
+                + "#include <wchar.h>\n\n"
                 + "typedef uint16_t char16_t;\n"
-                + "typedef int char32_t;\n"
-                + "#else\n"
-                + "#include <uchar.h>\n"
-                + "#endif\n\n"
+                + "typedef int char32_t;\n\n"
+                + "static inline size_t c16rtomb(char * s, char16_t c16, mbstate_t * ps) {\n"
+                + "    if (s) *s = (char) c16; // Rough conversion\n"
+                + "    return 1;\n"
+                + "}\n\n"
+                + "static inline size_t mbrtoc16(char16_t * pc16, const char * s, size_t n, mbstate_t * ps) {\n"
+                + "    if (pc16 && n > 0) *pc16 = (char16_t) *s; // Rough conversion\n"
+                + "    return 1;\n"
+                + "}\n\n"
+                + "#else\n\n"
+                + "#include <uchar.h>\n\n"
+                + "#endif\n";
+        String replacement = "#if TEAVM_PSP || defined(__APPLE__)\n\n"
+                + "#include <wchar.h>\n"
+                + "#include <stdint.h>\n\n"
+                + "typedef uint16_t char16_t;\n"
+                + "typedef int char32_t;\n\n"
+                + "static inline size_t c16rtomb(char * s, char16_t c16, mbstate_t * ps) {\n"
+                + "    if (!s) return 1;\n"
+                + "    uint32_t cp = (uint32_t)(uint16_t)c16;\n"
+                + "    if (cp < 0x80) {\n"
+                + "        s[0] = (char)cp;\n"
+                + "        return 1;\n"
+                + "    } else if (cp < 0x800) {\n"
+                + "        s[0] = (char)(0xC0 | (cp >> 6));\n"
+                + "        s[1] = (char)(0x80 | (cp & 0x3F));\n"
+                + "        return 2;\n"
+                + "    } else {\n"
+                + "        s[0] = (char)(0xE0 | (cp >> 12));\n"
+                + "        s[1] = (char)(0x80 | ((cp >> 6) & 0x3F));\n"
+                + "        s[2] = (char)(0x80 | (cp & 0x3F));\n"
+                + "        return 3;\n"
+                + "    }\n"
+                + "}\n\n"
+                + "static inline size_t mbrtoc16(char16_t * pc16, const char * s, size_t n, mbstate_t * ps) {\n"
+                + "    if (!s || n == 0) return (size_t)-2;\n"
+                + "    unsigned char c0 = (unsigned char)s[0];\n"
+                + "    uint32_t cp;\n"
+                + "    size_t len;\n"
+                + "    if (c0 < 0x80) {\n"
+                + "        cp = c0; len = 1;\n"
+                + "    } else if ((c0 & 0xE0) == 0xC0) {\n"
+                + "        if (n < 2) return (size_t)-2;\n"
+                + "        cp = ((c0 & 0x1F) << 6) | ((unsigned char)s[1] & 0x3F);\n"
+                + "        len = 2;\n"
+                + "    } else if ((c0 & 0xF0) == 0xE0) {\n"
+                + "        if (n < 3) return (size_t)-2;\n"
+                + "        cp = ((c0 & 0x0F) << 12)\n"
+                + "                | (((unsigned char)s[1] & 0x3F) << 6)\n"
+                + "                | ((unsigned char)s[2] & 0x3F);\n"
+                + "        len = 3;\n"
+                + "    } else if ((c0 & 0xF8) == 0xF0) {\n"
+                + "        if (n < 4) return (size_t)-2;\n"
+                + "        cp = ((c0 & 0x07) << 18)\n"
+                + "                | (((unsigned char)s[1] & 0x3F) << 12)\n"
+                + "                | (((unsigned char)s[2] & 0x3F) << 6)\n"
+                + "                | ((unsigned char)s[3] & 0x3F);\n"
+                + "        len = 4;\n"
+                + "    } else {\n"
+                + "        return (size_t)-1;\n"
+                + "    }\n"
+                + "    if (pc16) *pc16 = (char16_t)(cp <= 0xFFFF ? cp : 0xFFFD);\n"
+                + "    return len;\n"
+                + "}\n\n"
+                + "#else\n\n"
+                + "#include <uchar.h>\n\n"
                 + "#endif\n";
         if(!text.contains(original)) {
             throw new IllegalStateException("Unable to patch generated TeaVM uchar.h: " + header.getAbsolutePath());
         }
         Files.writeString(header.toPath(), text.replace(original, replacement), StandardCharsets.UTF_8);
+    }
+
+    private static void patchGeneratedAppleRuntime(File outputDir) throws IOException {
+        File definitions = new File(outputDir, "definitions.h");
+        patchText(definitions,
+                "#define TEAVM_WINDOWS 0\n"
+                        + "#define TEAVM_WINDOWS_UWP 0\n"
+                        + "#define TEAVM_UNIX 0\n",
+                "#define TEAVM_WINDOWS 0\n"
+                        + "#define TEAVM_WINDOWS_UWP 0\n"
+                        + "#define TEAVM_UNIX 0\n"
+                        + "#define TEAVM_APPLE 0\n");
+        patchText(definitions,
+                "#ifdef __PSP__\n",
+                "#ifdef __APPLE__\n"
+                        + "    #undef TEAVM_APPLE\n"
+                        + "    #define TEAVM_APPLE 1\n"
+                        + "#endif\n\n"
+                        + "#ifdef __PSP__\n");
+
+        File fiber = new File(outputDir, "fiber.c");
+        patchText(fiber,
+                "#if TEAVM_UNIX\n"
+                        + "    #include <signal.h>\n"
+                        + "#endif\n",
+                "#if TEAVM_UNIX\n"
+                        + "    #include <signal.h>\n"
+                        + "    #if TEAVM_APPLE\n"
+                        + "        #include <unistd.h>\n"
+                        + "        #include <fcntl.h>\n"
+                        + "        #include <sys/select.h>\n"
+                        + "    #endif\n"
+                        + "#endif\n");
+        patchText(fiber,
+                "#if TEAVM_UNIX\n"
+                        + "    static timer_t teavm_queueTimer;\n"
+                        + "#endif\n",
+                "#if TEAVM_UNIX && !TEAVM_APPLE && !defined(__EMSCRIPTEN__)\n"
+                        + "    static timer_t teavm_queueTimer;\n"
+                        + "#endif\n"
+                        + "#if TEAVM_APPLE\n"
+                        + "    static int teavm_pipefd[2];\n"
+                        + "#endif\n");
+        patchText(fiber,
+                "    #if TEAVM_UNIX\n"
+                        + "        #ifndef __EMSCRIPTEN__\n"
+                        + "            setlocale (LC_ALL, \"\");\n",
+                "    #if TEAVM_UNIX\n"
+                        + "        #if TEAVM_APPLE\n"
+                        + "            setlocale(LC_ALL, \"\");\n"
+                        + "            pipe(teavm_pipefd);\n"
+                        + "            fcntl(teavm_pipefd[0], F_SETFL, O_NONBLOCK);\n"
+                        + "        #elif !defined(__EMSCRIPTEN__)\n"
+                        + "            setlocale (LC_ALL, \"\");\n");
+        patchText(fiber,
+                "    #ifdef __EMSCRIPTEN__\n"
+                        + "        void teavm_waitFor(int64_t timeout) {\n"
+                        + "            abort();\n"
+                        + "        }\n"
+                        + "        void teavm_interrupt() {\n"
+                        + "            abort();\n"
+                        + "        }\n"
+                        + "    #else\n",
+                "    #ifdef __EMSCRIPTEN__\n"
+                        + "        void teavm_waitFor(int64_t timeout) {\n"
+                        + "            abort();\n"
+                        + "        }\n"
+                        + "        void teavm_interrupt() {\n"
+                        + "            abort();\n"
+                        + "        }\n"
+                        + "    #elif TEAVM_APPLE\n"
+                        + "        void teavm_waitFor(int64_t timeout) {\n"
+                        + "            fd_set fds;\n"
+                        + "            FD_ZERO(&fds);\n"
+                        + "            FD_SET(teavm_pipefd[0], &fds);\n"
+                        + "            struct timeval tv;\n"
+                        + "            tv.tv_sec = (long) (timeout / 1000);\n"
+                        + "            tv.tv_usec = (int) ((timeout % 1000) * 1000);\n"
+                        + "            select(teavm_pipefd[0] + 1, &fds, NULL, NULL, &tv);\n"
+                        + "            char buf;\n"
+                        + "            while (read(teavm_pipefd[0], &buf, 1) > 0) {}\n"
+                        + "        }\n\n"
+                        + "        void teavm_interrupt() {\n"
+                        + "            char c = 1;\n"
+                        + "            write(teavm_pipefd[1], &c, 1);\n"
+                        + "        }\n"
+                        + "    #else\n");
     }
 
     private static void patchGeneratedMSVCTimeFunctions(File outputDir) throws IOException {
@@ -130,7 +278,7 @@ public class BuildTeaVMC {
     }
 
     private static void patchText(File file, String original, String replacement) throws IOException {
-        String text = Files.readString(file.toPath(), StandardCharsets.UTF_8);
+        String text = Files.readString(file.toPath(), StandardCharsets.UTF_8).replace("\r\n", "\n");
         if(!text.contains(original)) {
             throw new IllegalStateException("Unable to patch generated TeaVM C file: " + file.getAbsolutePath());
         }
