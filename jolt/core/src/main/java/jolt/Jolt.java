@@ -10,6 +10,8 @@ import com.github.xpenatan.jParser.api.NativeObject;
 import jolt.physics.PhysicsSystem;
 import jolt.physics.character.CharacterVirtual;
 import jolt.physics.character.CharacterContactListener;
+import jolt.physics.vehicle.TrackedVehicleController;
+import jolt.physics.vehicle.ArrayVehicleTrack;
 
 public class Jolt extends NativeObject {
 
@@ -45,6 +47,10 @@ public class Jolt extends NativeObject {
     }
 
     public static CharacterContactListener GetCharacterContactListener(CharacterVirtual inCharacter) {
+        return null;
+    }
+
+    public static ArrayVehicleTrack GetTrackedVehicleTracks(TrackedVehicleController inController) {
         return null;
     }
 }

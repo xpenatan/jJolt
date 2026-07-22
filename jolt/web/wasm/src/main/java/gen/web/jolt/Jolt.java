@@ -10,10 +10,14 @@ import gen.web.com.github.xpenatan.jParser.api.NativeObject;
 import gen.web.jolt.physics.PhysicsSystem;
 import gen.web.jolt.physics.character.CharacterVirtual;
 import gen.web.jolt.physics.character.CharacterContactListener;
+import gen.web.jolt.physics.vehicle.TrackedVehicleController;
+import gen.web.jolt.physics.vehicle.ArrayVehicleTrack;
 
 public class Jolt extends NativeObject {
 
     static private CharacterContactListener CharacterContactListener_TEMP_STATIC_GEN_0;
+
+    static private ArrayVehicleTrack ArrayVehicleTrack_TEMP_STATIC_GEN_0;
 
     static public final Jolt NULL = Jolt.native_new();
 
@@ -74,4 +78,17 @@ public class Jolt extends NativeObject {
 
     @org.teavm.jso.JSBody(params = {"inCharacter_addr"}, script = "var returnedJSObj = jolt.Jolt.prototype.GetCharacterContactListener(inCharacter_addr);if(!returnedJSObj.hasOwnProperty('ptr')) return 0; return jolt.getPointer(returnedJSObj);")
     public static native int internal_native_GetCharacterContactListener_addr(int inCharacter_addr);
+
+    public static ArrayVehicleTrack GetTrackedVehicleTracks(TrackedVehicleController inController) {
+        int addr = internal_native_GetTrackedVehicleTracks_addr(inController.native_address);
+        if (addr == 0)
+            return ArrayVehicleTrack.NULL;
+        if (ArrayVehicleTrack_TEMP_STATIC_GEN_0 == null)
+            ArrayVehicleTrack_TEMP_STATIC_GEN_0 = ArrayVehicleTrack.native_new();
+        ArrayVehicleTrack_TEMP_STATIC_GEN_0.internal_reset(addr, false);
+        return ArrayVehicleTrack_TEMP_STATIC_GEN_0;
+    }
+
+    @org.teavm.jso.JSBody(params = {"inController_addr"}, script = "var returnedJSObj = jolt.Jolt.prototype.GetTrackedVehicleTracks(inController_addr);if(!returnedJSObj.hasOwnProperty('ptr')) return 0; return jolt.getPointer(returnedJSObj);")
+    public static native int internal_native_GetTrackedVehicleTracks_addr(int inController_addr);
 }

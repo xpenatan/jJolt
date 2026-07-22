@@ -10,6 +10,8 @@ import com.github.xpenatan.jParser.api.NativeObject;
 import jolt.physics.PhysicsSystem;
 import jolt.physics.character.CharacterVirtual;
 import jolt.physics.character.CharacterContactListener;
+import jolt.physics.vehicle.TrackedVehicleController;
+import jolt.physics.vehicle.ArrayVehicleTrack;
 import java.lang.foreign.FunctionDescriptor;
 import java.lang.foreign.ValueLayout;
 import java.lang.foreign.Linker;
@@ -21,6 +23,8 @@ import java.lang.invoke.MethodHandle;
 public class Jolt extends NativeObject {
 
     static private CharacterContactListener CharacterContactListener_TEMP_STATIC_GEN_0;
+
+    static private ArrayVehicleTrack ArrayVehicleTrack_TEMP_STATIC_GEN_0;
 
     static public final Jolt NULL = Jolt.native_new();
 
@@ -107,6 +111,24 @@ public class Jolt extends NativeObject {
         }
     }
 
+    public static ArrayVehicleTrack GetTrackedVehicleTracks(TrackedVehicleController inController) {
+        long addr = internal_native_GetTrackedVehicleTracks_addr(inController.native_address);
+        if (addr == 0)
+            return ArrayVehicleTrack.NULL;
+        if (ArrayVehicleTrack_TEMP_STATIC_GEN_0 == null)
+            ArrayVehicleTrack_TEMP_STATIC_GEN_0 = ArrayVehicleTrack.native_new();
+        ArrayVehicleTrack_TEMP_STATIC_GEN_0.internal_reset(addr, false);
+        return ArrayVehicleTrack_TEMP_STATIC_GEN_0;
+    }
+
+    public static long internal_native_GetTrackedVehicleTracks_addr(long inController_addr) {
+        try {
+            return (long) FFMHandles.internal_native_GetTrackedVehicleTracks_addr__J.invokeExact(inController_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
     private static final class FFMHandles {
 
         static final java.lang.invoke.MethodHandle internal_native_Init__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_jolt_init", FunctionDescriptor.ofVoid());
@@ -118,5 +140,7 @@ public class Jolt extends NativeObject {
         static final java.lang.invoke.MethodHandle internal_native_ClearWorld__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_jolt_clearworld", FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG));
 
         static final java.lang.invoke.MethodHandle internal_native_GetCharacterContactListener_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_jolt_getcharactercontactlistener_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_GetTrackedVehicleTracks_addr__J = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_jolt_gettrackedvehicletracks_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
     }
 }

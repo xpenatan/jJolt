@@ -23,15 +23,6 @@ public class OffsetCenterOfMassShapeSettings extends DecoratedShapeSettings {
     @org.teavm.interop.Import(name = "jolt_physics_collision_shape_offsetcenterofmassshapesettings_create_vec3_shapesettings_addr")
     public static native long internal_native_create_Vec3_ShapeSettings_addr(long inOffset_addr, long inShape_addr);
 
-    public OffsetCenterOfMassShapeSettings(Vec3 inOffset, Shape inShape) {
-        super((byte) 1, (char) 1);
-        long addr = internal_native_create_Vec3_Shape_addr(inOffset.native_address, inShape.native_address);
-        internal_reset(addr, true);
-    }
-
-    @org.teavm.interop.Import(name = "jolt_physics_collision_shape_offsetcenterofmassshapesettings_create_vec3_shape_addr")
-    public static native long internal_native_create_Vec3_Shape_addr(long inOffset_addr, long inShape_addr);
-
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
      */

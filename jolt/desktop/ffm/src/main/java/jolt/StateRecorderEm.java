@@ -80,9 +80,9 @@ public class StateRecorderEm extends StateRecorder {
         try {
             releaseUpcallResources();
             upcallArena = java.lang.foreign.Arena.ofShared();
-            java.lang.invoke.MethodHandle mh_ReadBytesJava = callbackLookup.findVirtual(StateRecorderEm.class, "internal_ReadBytes", callbackMethodType_ReadBytesJava).bindTo(this);
+            java.lang.invoke.MethodHandle mh_ReadBytesJava = callbackLookup.findVirtual(StateRecorderEm.class, "internal_ReadBytesCallback", callbackMethodType_ReadBytesJava).bindTo(this);
             upcallStub_ReadBytesJava = callbackLinker.upcallStub(mh_ReadBytesJava, callbackDescriptor_ReadBytesJava, upcallArena);
-            java.lang.invoke.MethodHandle mh_WriteBytesJava = callbackLookup.findVirtual(StateRecorderEm.class, "internal_WriteBytes", callbackMethodType_WriteBytesJava).bindTo(this);
+            java.lang.invoke.MethodHandle mh_WriteBytesJava = callbackLookup.findVirtual(StateRecorderEm.class, "internal_WriteBytesCallback", callbackMethodType_WriteBytesJava).bindTo(this);
             upcallStub_WriteBytesJava = callbackLinker.upcallStub(mh_WriteBytesJava, callbackDescriptor_WriteBytesJava, upcallArena);
             java.lang.invoke.MethodHandle mh_IsEOF = callbackLookup.findVirtual(StateRecorderEm.class, "internal_IsEOF", callbackMethodType_IsEOF).bindTo(this);
             upcallStub_IsEOF = callbackLinker.upcallStub(mh_IsEOF, callbackDescriptor_IsEOF, upcallArena);
@@ -97,7 +97,7 @@ public class StateRecorderEm extends StateRecorder {
     protected void ReadBytes(NativeObject outData, long inNumBytes) {
     }
 
-    private void internal_ReadBytes(long outData_addr, long inNumBytes) {
+    private void internal_ReadBytesCallback(long outData_addr, long inNumBytes) {
         if (NativeObject_TEMP_STATIC_GEN_0 == null)
             NativeObject_TEMP_STATIC_GEN_0 = NativeObject.native_new();
         NativeObject_TEMP_STATIC_GEN_0.internal_reset(outData_addr, false);
@@ -107,7 +107,7 @@ public class StateRecorderEm extends StateRecorder {
     protected void WriteBytes(NativeObject inData, long inNumBytes) {
     }
 
-    private void internal_WriteBytes(long inData_addr, long inNumBytes) {
+    private void internal_WriteBytesCallback(long inData_addr, long inNumBytes) {
         if (NativeObject_TEMP_STATIC_GEN_1 == null)
             NativeObject_TEMP_STATIC_GEN_1 = NativeObject.native_new();
         NativeObject_TEMP_STATIC_GEN_1.internal_reset(inData_addr, false);

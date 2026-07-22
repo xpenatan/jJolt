@@ -12,8 +12,6 @@ final public class JNI_OffsetCenterOfMassShapeSettings {
 
     public static native long internal_native_create_Vec3_ShapeSettings_addr(long inOffset_addr, long inShape_addr);
 
-    public static native long internal_native_create_Vec3_Shape_addr(long inOffset_addr, long inShape_addr);
-
     public static native void internal_native_deleteNative(long this_addr);
 
     public static native long internal_native_get_mOffset_addr(long this_addr);

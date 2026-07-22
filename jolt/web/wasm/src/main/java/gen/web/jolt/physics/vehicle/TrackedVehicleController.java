@@ -5,14 +5,14 @@
  *-------------------------------------------------------*/
 
 package gen.web.jolt.physics.vehicle;
+import gen.web.jolt.Jolt;
+
 
 public class TrackedVehicleController extends VehicleController {
 
     private VehicleEngine VehicleEngine_TEMP_GEN_0;
 
     private VehicleTransmission VehicleTransmission_TEMP_GEN_0;
-
-    private ArrayVehicleTrack ArrayVehicleTrack_TEMP_GEN_0;
 
     static public final TrackedVehicleController NULL = TrackedVehicleController.native_new();
 
@@ -137,15 +137,6 @@ public class TrackedVehicleController extends VehicleController {
     public static native int internal_native_GetTransmission_addr(int this_addr);
 
     public ArrayVehicleTrack GetTracks() {
-        int addr = internal_native_GetTracks_addr(native_address);
-        if (addr == 0)
-            return ArrayVehicleTrack.NULL;
-        if (ArrayVehicleTrack_TEMP_GEN_0 == null)
-            ArrayVehicleTrack_TEMP_GEN_0 = ArrayVehicleTrack.native_new();
-        ArrayVehicleTrack_TEMP_GEN_0.internal_reset(addr, false);
-        return ArrayVehicleTrack_TEMP_GEN_0;
+        return Jolt.GetTrackedVehicleTracks(this);
     }
-
-    @org.teavm.jso.JSBody(params = {"this_addr"}, script = "var jsObj = jolt.wrapPointer(this_addr, jolt.TrackedVehicleController);var returnedJSObj = jsObj.GetTracks();if(!returnedJSObj.hasOwnProperty('ptr')) return 0; return jolt.getPointer(returnedJSObj);")
-    public static native int internal_native_GetTracks_addr(int this_addr);
 }

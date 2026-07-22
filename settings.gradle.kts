@@ -1,5 +1,5 @@
 pluginManagement {
-    val jParserPluginVersion = "1.2.4"
+    val jParserPluginVersion = "-SNAPSHOT"
 
     resolutionStrategy {
         eachPlugin {

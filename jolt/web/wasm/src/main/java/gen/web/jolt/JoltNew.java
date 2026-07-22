@@ -21,6 +21,7 @@ import gen.web.jolt.physics.collision.shape.ShapeSettings;
 import gen.web.jolt.enums.EMotionType;
 import gen.web.jolt.physics.collision.shape.Shape;
 import gen.web.jolt.physics.collision.shape.RotatedTranslatedShapeSettings;
+import gen.web.jolt.physics.collision.shape.OffsetCenterOfMassShapeSettings;
 import gen.web.jolt.physics.collision.shape.MeshShapeSettings;
 import gen.web.jolt.geometry.TriangleList;
 import gen.web.jolt.physics.collision.PhysicsMaterialList;
@@ -337,6 +338,42 @@ public class JoltNew extends NativeObject {
 
     @org.teavm.jso.JSBody(params = {"inPosition_addr", "inRotation_addr", "inShape_addr"}, script = "var returnedJSObj = jolt.JoltNew.prototype.RotatedTranslatedShapeSettings__2(inPosition_addr, inRotation_addr, inShape_addr);if(!returnedJSObj.hasOwnProperty('ptr')) return 0; return jolt.getPointer(returnedJSObj);")
     public static native int internal_native_RotatedTranslatedShapeSettings__2_addr(int inPosition_addr, int inRotation_addr, int inShape_addr);
+
+    public static OffsetCenterOfMassShapeSettings OffsetCenterOfMassShapeSettings() {
+        int addr = internal_native_OffsetCenterOfMassShapeSettings__0_addr();
+        if (addr == 0)
+            return OffsetCenterOfMassShapeSettings.NULL;
+        OffsetCenterOfMassShapeSettings OffsetCenterOfMassShapeSettings_NEW = OffsetCenterOfMassShapeSettings.native_new();
+        OffsetCenterOfMassShapeSettings_NEW.internal_reset(addr, true);
+        return OffsetCenterOfMassShapeSettings_NEW;
+    }
+
+    @org.teavm.jso.JSBody(script = "var returnedJSObj = jolt.JoltNew.prototype.OffsetCenterOfMassShapeSettings__0();if(!returnedJSObj.hasOwnProperty('ptr')) return 0; return jolt.getPointer(returnedJSObj);")
+    public static native int internal_native_OffsetCenterOfMassShapeSettings__0_addr();
+
+    public static OffsetCenterOfMassShapeSettings OffsetCenterOfMassShapeSettings(Vec3 inOffset, ShapeSettings inShape) {
+        int addr = internal_native_OffsetCenterOfMassShapeSettings__1_addr(inOffset.native_address, inShape.native_address);
+        if (addr == 0)
+            return OffsetCenterOfMassShapeSettings.NULL;
+        OffsetCenterOfMassShapeSettings OffsetCenterOfMassShapeSettings_NEW = OffsetCenterOfMassShapeSettings.native_new();
+        OffsetCenterOfMassShapeSettings_NEW.internal_reset(addr, true);
+        return OffsetCenterOfMassShapeSettings_NEW;
+    }
+
+    @org.teavm.jso.JSBody(params = {"inOffset_addr", "inShape_addr"}, script = "var returnedJSObj = jolt.JoltNew.prototype.OffsetCenterOfMassShapeSettings__1(inOffset_addr, inShape_addr);if(!returnedJSObj.hasOwnProperty('ptr')) return 0; return jolt.getPointer(returnedJSObj);")
+    public static native int internal_native_OffsetCenterOfMassShapeSettings__1_addr(int inOffset_addr, int inShape_addr);
+
+    public static OffsetCenterOfMassShapeSettings OffsetCenterOfMassShapeSettings(Vec3 inOffset, Shape inShape) {
+        int addr = internal_native_OffsetCenterOfMassShapeSettings__2_addr(inOffset.native_address, inShape.native_address);
+        if (addr == 0)
+            return OffsetCenterOfMassShapeSettings.NULL;
+        OffsetCenterOfMassShapeSettings OffsetCenterOfMassShapeSettings_NEW = OffsetCenterOfMassShapeSettings.native_new();
+        OffsetCenterOfMassShapeSettings_NEW.internal_reset(addr, true);
+        return OffsetCenterOfMassShapeSettings_NEW;
+    }
+
+    @org.teavm.jso.JSBody(params = {"inOffset_addr", "inShape_addr"}, script = "var returnedJSObj = jolt.JoltNew.prototype.OffsetCenterOfMassShapeSettings__2(inOffset_addr, inShape_addr);if(!returnedJSObj.hasOwnProperty('ptr')) return 0; return jolt.getPointer(returnedJSObj);")
+    public static native int internal_native_OffsetCenterOfMassShapeSettings__2_addr(int inOffset_addr, int inShape_addr);
 
     public static MeshShapeSettings MeshShapeSettings() {
         int addr = internal_native_MeshShapeSettings__0_addr();

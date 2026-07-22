@@ -35,6 +35,4 @@ final public class JNI_TrackedVehicleController {
     public static native long internal_native_GetEngine_addr(long this_addr);
 
     public static native long internal_native_GetTransmission_addr(long this_addr);
-
-    public static native long internal_native_GetTracks_addr(long this_addr);
 }

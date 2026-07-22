@@ -45,7 +45,7 @@ public class StateRecorderEm extends StateRecorder {
     protected void ReadBytes(NativeObject outData, long inNumBytes) {
     }
 
-    private void internal_ReadBytes(long outData_addr, long inNumBytes) {
+    private void internal_ReadBytesCallback(long outData_addr, long inNumBytes) {
         if (NativeObject_TEMP_STATIC_GEN_0 == null)
             NativeObject_TEMP_STATIC_GEN_0 = NativeObject.native_new();
         NativeObject_TEMP_STATIC_GEN_0.internal_reset(outData_addr, false);
@@ -55,7 +55,7 @@ public class StateRecorderEm extends StateRecorder {
     protected void WriteBytes(NativeObject inData, long inNumBytes) {
     }
 
-    private void internal_WriteBytes(long inData_addr, long inNumBytes) {
+    private void internal_WriteBytesCallback(long inData_addr, long inNumBytes) {
         if (NativeObject_TEMP_STATIC_GEN_1 == null)
             NativeObject_TEMP_STATIC_GEN_1 = NativeObject.native_new();
         NativeObject_TEMP_STATIC_GEN_1.internal_reset(inData_addr, false);

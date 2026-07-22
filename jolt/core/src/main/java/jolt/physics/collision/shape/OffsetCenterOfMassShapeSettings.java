@@ -16,10 +16,6 @@ public class OffsetCenterOfMassShapeSettings extends DecoratedShapeSettings {
         super((byte) 1, (char) 1);
     }
 
-    public OffsetCenterOfMassShapeSettings(Vec3 inOffset, Shape inShape) {
-        super((byte) 1, (char) 1);
-    }
-
     /**
      * Dummy constructor, used internally to creates objects without C++ pointer
      */

@@ -21,7 +21,6 @@ import jolt.math.Vec4;
 import jolt.physics.body.Body;
 import jolt.physics.body.BodyCreationSettings;
 import jolt.physics.collision.shape.BoxShape;
-import jolt.physics.collision.shape.OffsetCenterOfMassShapeSettings;
 import jolt.physics.collision.shape.Shape;
 import jolt.physics.vehicle.ArrayVehicleAntiRollBar;
 import jolt.physics.vehicle.ArrayWheelSettings;
@@ -112,7 +111,10 @@ public class VehicleConstraintTest extends VehicleTest {
 
         // Create vehicle body
         Vec3 position = JoltNew.Vec3(0, 5, 0);
-        Shape car_shape = new OffsetCenterOfMassShapeSettings(JoltNew.Vec3(0, -half_vehicle_height, 0), new BoxShape(JoltNew.Vec3(half_vehicle_width, half_vehicle_height, half_vehicle_length))).Create().Get();
+        Shape car_shape = JoltNew.OffsetCenterOfMassShapeSettings(
+                JoltNew.Vec3(0, -half_vehicle_height, 0),
+                new BoxShape(JoltNew.Vec3(half_vehicle_width, half_vehicle_height, half_vehicle_length)))
+                .Create().Get();
         BodyCreationSettings car_body_settings = JoltNew.BodyCreationSettings(car_shape, position, Quat.sRotation(Vec3.sAxisZ(), sInitialRollAngle), EMotionType.Dynamic, Layers.MOVING);
         car_body_settings.set_mOverrideMassProperties(EOverrideMassProperties.CalculateInertia);
         car_body_settings.get_mMassPropertiesOverride().set_mMass(1500.0f);

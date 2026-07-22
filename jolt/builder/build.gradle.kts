@@ -147,10 +147,16 @@ jParser {
                     compileFlag("/MP2")
                     compileFlag("/EHsc")
                 }
-                if(targetName == JParserTargets.WINDOWS64_TEAVM_C) {
-                    compileFlag("/MT")
-                }
             }
+        }
+
+        targetVariant(JParserTargets.WINDOWS64_TEAVM_C, "mt") {
+            includeBaseTargetHooks.set(true)
+            compileFlag("/MT")
+        }
+        targetVariant(JParserTargets.WINDOWS64_TEAVM_C, "md") {
+            includeBaseTargetHooks.set(true)
+            compileFlag("/MD")
         }
 
         target(JParserTargets.WEB_WASM) {
@@ -177,6 +183,15 @@ jParser {
     })
 }
 
+tasks.register("jParser_build_windows64_teavm_c") {
+    group = "jParser"
+    description = "Build both MT and MD Windows x64 TeaVM C native libraries."
+    dependsOn(
+        "jParser_build_windows64_teavm_c_mt",
+        "jParser_build_windows64_teavm_c_md"
+    )
+}
+
 tasks.withType(JParserBuildTask::class.java).configureEach {
     doFirst {
         IDLHelper.cppConverter = IDLTypeConverterListener { idlType ->
@@ -199,7 +214,9 @@ tasks.withType(JParserBuildTask::class.java).configureEach {
                 include("**/*.java")
             }.forEach javaFileLoop@ { javaFile ->
                 val source = javaFile.readText()
-                if(!Regex("\\bNativeObject\\b").containsMatchIn(source)) {
+                val usesNativeObject = Regex("\\bNativeObject\\b").containsMatchIn(source)
+                val needsTrackedVehicleAdapter = javaFile.nameWithoutExtension == "TrackedVehicleController"
+                if(!usesNativeObject && !needsTrackedVehicleAdapter) {
                     return@javaFileLoop
                 }
 
@@ -207,7 +224,7 @@ tasks.withType(JParserBuildTask::class.java).configureEach {
                 LexicalPreservingPrinter.setup(unit)
                 var changed = false
 
-                if(unit.imports.none { it.nameAsString.endsWith(".NativeObject") }) {
+                if(usesNativeObject && unit.imports.none { it.nameAsString.endsWith(".NativeObject") }) {
                     val packageName = unit.packageDeclaration
                         .map { it.nameAsString }
                         .orElse("")
@@ -360,6 +377,18 @@ tasks.withType(JParserBuildTask::class.java).configureEach {
                     declaration.addMember(StaticJavaParser.parseBodyDeclaration("""
                         public CharacterContactListener GetListener() {
                             return Jolt.GetCharacterContactListener(this);
+                        }
+                    """.trimIndent()))
+                    changed = true
+                }
+
+                if(declaration != null && declaration.nameAsString == "TrackedVehicleController"
+                    && declaration.getMethodsByName("GetTracks").isEmpty()) {
+                    val packageName = unit.packageDeclaration.map { it.nameAsString }.orElse("")
+                    unit.addImport(packageName.substringBefore(".physics") + ".Jolt")
+                    declaration.addMember(StaticJavaParser.parseBodyDeclaration("""
+                        public ArrayVehicleTrack GetTracks() {
+                            return Jolt.GetTrackedVehicleTracks(this);
                         }
                     """.trimIndent()))
                     changed = true

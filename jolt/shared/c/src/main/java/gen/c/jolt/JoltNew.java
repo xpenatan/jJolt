@@ -21,6 +21,7 @@ import gen.c.jolt.physics.collision.shape.ShapeSettings;
 import gen.c.jolt.enums.EMotionType;
 import gen.c.jolt.physics.collision.shape.Shape;
 import gen.c.jolt.physics.collision.shape.RotatedTranslatedShapeSettings;
+import gen.c.jolt.physics.collision.shape.OffsetCenterOfMassShapeSettings;
 import gen.c.jolt.physics.collision.shape.MeshShapeSettings;
 import gen.c.jolt.geometry.TriangleList;
 import gen.c.jolt.physics.collision.PhysicsMaterialList;
@@ -337,6 +338,42 @@ public class JoltNew extends NativeObject {
 
     @org.teavm.interop.Import(name = "jolt_joltnew_rotatedtranslatedshapesettings__2_addr")
     public static native long internal_native_RotatedTranslatedShapeSettings__2_addr(long inPosition_addr, long inRotation_addr, long inShape_addr);
+
+    public static OffsetCenterOfMassShapeSettings OffsetCenterOfMassShapeSettings() {
+        long addr = internal_native_OffsetCenterOfMassShapeSettings__0_addr();
+        if (addr == 0)
+            return OffsetCenterOfMassShapeSettings.NULL;
+        OffsetCenterOfMassShapeSettings OffsetCenterOfMassShapeSettings_NEW = OffsetCenterOfMassShapeSettings.native_new();
+        OffsetCenterOfMassShapeSettings_NEW.internal_reset(addr, true);
+        return OffsetCenterOfMassShapeSettings_NEW;
+    }
+
+    @org.teavm.interop.Import(name = "jolt_joltnew_offsetcenterofmassshapesettings__0_addr")
+    public static native long internal_native_OffsetCenterOfMassShapeSettings__0_addr();
+
+    public static OffsetCenterOfMassShapeSettings OffsetCenterOfMassShapeSettings(Vec3 inOffset, ShapeSettings inShape) {
+        long addr = internal_native_OffsetCenterOfMassShapeSettings__1_addr(inOffset.native_address, inShape.native_address);
+        if (addr == 0)
+            return OffsetCenterOfMassShapeSettings.NULL;
+        OffsetCenterOfMassShapeSettings OffsetCenterOfMassShapeSettings_NEW = OffsetCenterOfMassShapeSettings.native_new();
+        OffsetCenterOfMassShapeSettings_NEW.internal_reset(addr, true);
+        return OffsetCenterOfMassShapeSettings_NEW;
+    }
+
+    @org.teavm.interop.Import(name = "jolt_joltnew_offsetcenterofmassshapesettings__1_addr")
+    public static native long internal_native_OffsetCenterOfMassShapeSettings__1_addr(long inOffset_addr, long inShape_addr);
+
+    public static OffsetCenterOfMassShapeSettings OffsetCenterOfMassShapeSettings(Vec3 inOffset, Shape inShape) {
+        long addr = internal_native_OffsetCenterOfMassShapeSettings__2_addr(inOffset.native_address, inShape.native_address);
+        if (addr == 0)
+            return OffsetCenterOfMassShapeSettings.NULL;
+        OffsetCenterOfMassShapeSettings OffsetCenterOfMassShapeSettings_NEW = OffsetCenterOfMassShapeSettings.native_new();
+        OffsetCenterOfMassShapeSettings_NEW.internal_reset(addr, true);
+        return OffsetCenterOfMassShapeSettings_NEW;
+    }
+
+    @org.teavm.interop.Import(name = "jolt_joltnew_offsetcenterofmassshapesettings__2_addr")
+    public static native long internal_native_OffsetCenterOfMassShapeSettings__2_addr(long inOffset_addr, long inShape_addr);
 
     public static MeshShapeSettings MeshShapeSettings() {
         long addr = internal_native_MeshShapeSettings__0_addr();

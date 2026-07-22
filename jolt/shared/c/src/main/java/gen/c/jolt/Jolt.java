@@ -10,10 +10,14 @@ import com.github.xpenatan.jParser.api.NativeObject;
 import gen.c.jolt.physics.PhysicsSystem;
 import gen.c.jolt.physics.character.CharacterVirtual;
 import gen.c.jolt.physics.character.CharacterContactListener;
+import gen.c.jolt.physics.vehicle.TrackedVehicleController;
+import gen.c.jolt.physics.vehicle.ArrayVehicleTrack;
 
 public class Jolt extends NativeObject {
 
     static private CharacterContactListener CharacterContactListener_TEMP_STATIC_GEN_0;
+
+    static private ArrayVehicleTrack ArrayVehicleTrack_TEMP_STATIC_GEN_0;
 
     static public final Jolt NULL = Jolt.native_new();
 
@@ -74,4 +78,17 @@ public class Jolt extends NativeObject {
 
     @org.teavm.interop.Import(name = "jolt_jolt_getcharactercontactlistener_addr")
     public static native long internal_native_GetCharacterContactListener_addr(long inCharacter_addr);
+
+    public static ArrayVehicleTrack GetTrackedVehicleTracks(TrackedVehicleController inController) {
+        long addr = internal_native_GetTrackedVehicleTracks_addr(inController.native_address);
+        if (addr == 0)
+            return ArrayVehicleTrack.NULL;
+        if (ArrayVehicleTrack_TEMP_STATIC_GEN_0 == null)
+            ArrayVehicleTrack_TEMP_STATIC_GEN_0 = ArrayVehicleTrack.native_new();
+        ArrayVehicleTrack_TEMP_STATIC_GEN_0.internal_reset(addr, false);
+        return ArrayVehicleTrack_TEMP_STATIC_GEN_0;
+    }
+
+    @org.teavm.interop.Import(name = "jolt_jolt_gettrackedvehicletracks_addr")
+    public static native long internal_native_GetTrackedVehicleTracks_addr(long inController_addr);
 }

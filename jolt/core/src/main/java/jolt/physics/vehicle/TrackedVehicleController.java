@@ -5,6 +5,8 @@
  *-------------------------------------------------------*/
 
 package jolt.physics.vehicle;
+import jolt.Jolt;
+
 
 public class TrackedVehicleController extends VehicleController {
 
@@ -69,6 +71,6 @@ public class TrackedVehicleController extends VehicleController {
     }
 
     public ArrayVehicleTrack GetTracks() {
-        return null;
+        return Jolt.GetTrackedVehicleTracks(this);
     }
 }

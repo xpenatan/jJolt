@@ -14,9 +14,16 @@ val nativeRoot = file("$projectDir/../../builder/build/c++/libs")
 data class NativeResource(val sourcePath: String, val platform: String)
 
 val nativeResources = listOf(
-    NativeResource("$nativeRoot/windows/vc/teavm_c/jolt64_.lib", "windows_x64"),
-    NativeResource("$nativeRoot/windows/vc/teavm_c/jolt64.lib", "windows_x64"),
-    NativeResource("$nativeRoot/windows/vc/teavm_c/jolt64.dll", "windows_x64"),
+    NativeResource("$nativeRoot/mt/windows/vc/teavm_c/jolt64_.lib", "windows_x64/mt/static"),
+    NativeResource("$nativeRoot/mt/windows/vc/teavm_c/jolt64.lib", "windows_x64/mt/shared"),
+    NativeResource("$nativeRoot/mt/windows/vc/teavm_c/jolt64.dll", "windows_x64/mt/shared"),
+    NativeResource("$nativeRoot/md/windows/vc/teavm_c/jolt64_.lib", "windows_x64/md/static"),
+    NativeResource("$nativeRoot/md/windows/vc/teavm_c/jolt64.lib", "windows_x64/md/shared"),
+    NativeResource("$nativeRoot/md/windows/vc/teavm_c/jolt64.dll", "windows_x64/md/shared"),
+    // Preserve the previous layout as an MT compatibility fallback.
+    NativeResource("$nativeRoot/mt/windows/vc/teavm_c/jolt64_.lib", "windows_x64"),
+    NativeResource("$nativeRoot/mt/windows/vc/teavm_c/jolt64.lib", "windows_x64"),
+    NativeResource("$nativeRoot/mt/windows/vc/teavm_c/jolt64.dll", "windows_x64"),
     NativeResource("$nativeRoot/linux/teavm_c/libjolt64_.a", "linux_x64"),
     NativeResource("$nativeRoot/linux/teavm_c/libjolt64.so", "linux_x64"),
     NativeResource("$nativeRoot/mac/teavm_c/libjolt64_.a", "mac_x64"),

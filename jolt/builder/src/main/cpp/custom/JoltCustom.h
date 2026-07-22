@@ -190,8 +190,9 @@ using ArrayVehicleAntiRollBar = Array<VehicleAntiRollBar>;
 using ArrayVehicleDifferentialSettings = Array<VehicleDifferentialSettings>;
 
 /// Borrowed view over TrackedVehicleController's fixed VehicleTracks C array.
-/// This class intentionally has no state: JParser casts the address of the
-/// native array to this view and the accessors reinterpret that same address.
+/// This class intentionally has no state: Jolt::GetTrackedVehicleTracks casts
+/// the native array's address to this view, and the accessors reinterpret that
+/// same address.
 class ArrayVehicleTrack
 {
 public:
@@ -463,6 +464,11 @@ public:
     }
 
     static XJPH::CharacterContactListener *GetCharacterContactListener(CharacterVirtual *inCharacter);
+
+    static ArrayVehicleTrack *GetTrackedVehicleTracks(TrackedVehicleController *inController)
+    {
+        return inController == nullptr? nullptr : reinterpret_cast<ArrayVehicleTrack *>(&inController->GetTracks());
+    }
 };
 
 /// Cross-platform assert callback used by JoltInterface.
@@ -867,6 +873,17 @@ public:
         return new RotatedTranslatedShapeSettings(inPosition, inRotation, inShape);
     }
 
+    // OffsetCenterOfMassShapeSettings
+    static OffsetCenterOfMassShapeSettings* New_OffsetCenterOfMassShapeSettings() {
+        return new OffsetCenterOfMassShapeSettings();
+    }
+    static OffsetCenterOfMassShapeSettings* New_OffsetCenterOfMassShapeSettings(Vec3Arg inOffset, const ShapeSettings *inShape) {
+        return new OffsetCenterOfMassShapeSettings(inOffset, inShape);
+    }
+    static OffsetCenterOfMassShapeSettings* New_OffsetCenterOfMassShapeSettings(Vec3Arg inOffset, const Shape *inShape) {
+        return new OffsetCenterOfMassShapeSettings(inOffset, inShape);
+    }
+
     // MeshShapeSettings
     static MeshShapeSettings* New_MeshShapeSettings() {
         return new MeshShapeSettings();
@@ -1045,6 +1062,16 @@ public:
 class BroadPhaseLayerInterfaceEm : public BroadPhaseLayerInterface
 {
 public:
+    // jParser's native generators bind this callback directly to
+    // GetNumBroadPhaseLayers, while WebIDL Binder implements the IDL method
+    // name. This bridge supports both generated callback shapes.
+    virtual uint GetNumBroadPhaseLayersCallback() const { return 0; }
+
+    virtual uint GetNumBroadPhaseLayers() const override
+    {
+        return GetNumBroadPhaseLayersCallback();
+    }
+
     virtual unsigned short GetBPLayer(ObjectLayer inLayer) const = 0;
 
     virtual BroadPhaseLayer GetBroadPhaseLayer(ObjectLayer inLayer) const override
@@ -1282,9 +1309,22 @@ public:
 class StateRecorderEm : public StateRecorder
 {
 public:
-    // Keep the Java-facing byte count platform-independent while Jolt uses size_t.
-    virtual void WriteBytesJava(const void *inData, uint64 inNumBytes) = 0;
-    virtual void ReadBytesJava(void *outData, uint64 inNumBytes) = 0;
+    // jParser's native generators override the BindTo names below. WebIDL
+    // Binder overrides the IDL callback names instead, so route its callbacks
+    // through virtual bridge methods. The fixed-width Java count remains
+    // platform-independent while Jolt's native override uses size_t.
+    virtual void WriteBytesCallback(const void *inData, uint64 inNumBytes) { }
+    virtual void ReadBytesCallback(void *outData, uint64 inNumBytes) { }
+
+    virtual void WriteBytesJava(const void *inData, uint64 inNumBytes)
+    {
+        WriteBytesCallback(inData, inNumBytes);
+    }
+
+    virtual void ReadBytesJava(void *outData, uint64 inNumBytes)
+    {
+        ReadBytesCallback(outData, inNumBytes);
+    }
 
 private:
     virtual void WriteBytes(const void *inData, size_t inNumBytes) override

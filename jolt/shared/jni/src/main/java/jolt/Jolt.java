@@ -10,10 +10,14 @@ import com.github.xpenatan.jParser.api.NativeObject;
 import jolt.physics.PhysicsSystem;
 import jolt.physics.character.CharacterVirtual;
 import jolt.physics.character.CharacterContactListener;
+import jolt.physics.vehicle.TrackedVehicleController;
+import jolt.physics.vehicle.ArrayVehicleTrack;
 
 public class Jolt extends NativeObject {
 
     static private CharacterContactListener CharacterContactListener_TEMP_STATIC_GEN_0;
+
+    static private ArrayVehicleTrack ArrayVehicleTrack_TEMP_STATIC_GEN_0;
 
     static public final Jolt NULL = Jolt.native_new();
 
@@ -78,5 +82,19 @@ public class Jolt extends NativeObject {
 
     public static long internal_native_GetCharacterContactListener_addr(long inCharacter_addr) {
         return jolt.natives.JNI_Jolt.internal_native_GetCharacterContactListener_addr(inCharacter_addr);
+    }
+
+    public static ArrayVehicleTrack GetTrackedVehicleTracks(TrackedVehicleController inController) {
+        long addr = internal_native_GetTrackedVehicleTracks_addr(inController.native_address);
+        if (addr == 0)
+            return ArrayVehicleTrack.NULL;
+        if (ArrayVehicleTrack_TEMP_STATIC_GEN_0 == null)
+            ArrayVehicleTrack_TEMP_STATIC_GEN_0 = ArrayVehicleTrack.native_new();
+        ArrayVehicleTrack_TEMP_STATIC_GEN_0.internal_reset(addr, false);
+        return ArrayVehicleTrack_TEMP_STATIC_GEN_0;
+    }
+
+    public static long internal_native_GetTrackedVehicleTracks_addr(long inController_addr) {
+        return jolt.natives.JNI_Jolt.internal_native_GetTrackedVehicleTracks_addr(inController_addr);
     }
 }

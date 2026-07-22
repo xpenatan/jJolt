@@ -58,6 +58,12 @@ final public class JNI_JoltNew {
 
     public static native long internal_native_RotatedTranslatedShapeSettings__2_addr(long inPosition_addr, long inRotation_addr, long inShape_addr);
 
+    public static native long internal_native_OffsetCenterOfMassShapeSettings__0_addr();
+
+    public static native long internal_native_OffsetCenterOfMassShapeSettings__1_addr(long inOffset_addr, long inShape_addr);
+
+    public static native long internal_native_OffsetCenterOfMassShapeSettings__2_addr(long inOffset_addr, long inShape_addr);
+
     public static native long internal_native_MeshShapeSettings__0_addr();
 
     public static native long internal_native_MeshShapeSettings__1_addr(long inTriangleList_addr, long inMaterialList_addr);

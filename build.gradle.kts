@@ -1,6 +1,6 @@
 plugins {
     id("java")
-    id("com.github.xpenatan.easy-publishing") version "-SNAPSHOT"
+    id("com.github.xpenatan.easy-publishing") version "0.1.0"
     id("org.jetbrains.kotlin.android") version "1.8.21" apply false
 }
 

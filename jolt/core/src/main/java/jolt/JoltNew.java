@@ -21,6 +21,7 @@ import jolt.physics.collision.shape.ShapeSettings;
 import jolt.enums.EMotionType;
 import jolt.physics.collision.shape.Shape;
 import jolt.physics.collision.shape.RotatedTranslatedShapeSettings;
+import jolt.physics.collision.shape.OffsetCenterOfMassShapeSettings;
 import jolt.physics.collision.shape.MeshShapeSettings;
 import jolt.geometry.TriangleList;
 import jolt.physics.collision.PhysicsMaterialList;
@@ -143,6 +144,18 @@ public class JoltNew extends NativeObject {
     }
 
     public static RotatedTranslatedShapeSettings RotatedTranslatedShapeSettings(Vec3 inPosition, Quat inRotation, Shape inShape) {
+        return null;
+    }
+
+    public static OffsetCenterOfMassShapeSettings OffsetCenterOfMassShapeSettings() {
+        return null;
+    }
+
+    public static OffsetCenterOfMassShapeSettings OffsetCenterOfMassShapeSettings(Vec3 inOffset, ShapeSettings inShape) {
+        return null;
+    }
+
+    public static OffsetCenterOfMassShapeSettings OffsetCenterOfMassShapeSettings(Vec3 inOffset, Shape inShape) {
         return null;
     }
 

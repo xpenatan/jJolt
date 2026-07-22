@@ -9,6 +9,7 @@ interface Jolt {
     static void UnregisterTypes();
     static void ClearWorld([Ref] PhysicsSystem physicsSystem);
     static CharacterContactListener GetCharacterContactListener(CharacterVirtual inCharacter);
+    static ArrayVehicleTrack GetTrackedVehicleTracks(TrackedVehicleController inController);
 };
 
 [NoDelete]
@@ -93,6 +94,10 @@ interface JoltNew {
     [BindTo="New_RotatedTranslatedShapeSettings"] static RotatedTranslatedShapeSettings RotatedTranslatedShapeSettings__0(); //[-NEW_OBJECT]
     [BindTo="New_RotatedTranslatedShapeSettings"] static RotatedTranslatedShapeSettings RotatedTranslatedShapeSettings__1([Ref, Const] Vec3 inPosition, [Ref, Const] Quat inRotation, ShapeSettings inShape); //[-NEW_OBJECT]
     [BindTo="New_RotatedTranslatedShapeSettings"] static RotatedTranslatedShapeSettings RotatedTranslatedShapeSettings__2([Ref, Const] Vec3 inPosition, [Ref, Const] Quat inRotation, Shape inShape); //[-NEW_OBJECT]
+
+    [BindTo="New_OffsetCenterOfMassShapeSettings"] static OffsetCenterOfMassShapeSettings OffsetCenterOfMassShapeSettings__0(); //[-NEW_OBJECT]
+    [BindTo="New_OffsetCenterOfMassShapeSettings"] static OffsetCenterOfMassShapeSettings OffsetCenterOfMassShapeSettings__1([Ref, Const] Vec3 inOffset, ShapeSettings inShape); //[-NEW_OBJECT]
+    [BindTo="New_OffsetCenterOfMassShapeSettings"] static OffsetCenterOfMassShapeSettings OffsetCenterOfMassShapeSettings__2([Ref, Const] Vec3 inOffset, Shape inShape); //[-NEW_OBJECT]
 
     [BindTo="New_MeshShapeSettings"] static MeshShapeSettings MeshShapeSettings__0(); //[-NEW_OBJECT]
     [BindTo="New_MeshShapeSettings"] static MeshShapeSettings MeshShapeSettings__1([Ref, Const] TriangleList inTriangleList, [Ref, Const] optional PhysicsMaterialList inMaterialList); //[-NEW_OBJECT]
@@ -2022,7 +2027,6 @@ ScaledShape implements DecoratedShape;
 // Offset COM
 interface OffsetCenterOfMassShapeSettings { //[-SUB_PACKAGE=physics.collision.shape]
     void OffsetCenterOfMassShapeSettings([Ref, Const] Vec3 inOffset, ShapeSettings inShape);
-    void OffsetCenterOfMassShapeSettings([Ref, Const] Vec3 inOffset, [Const] Shape inShape);
 
     [Value] attribute Vec3 mOffset;
 };
@@ -2894,8 +2898,8 @@ StateRecorderEm implements StateRecorder;
 [JSImplementation="StateRecorderEm"]
 interface StateRecorderJS {
     void StateRecorderJS();
-    [BindTo="ReadBytesJava"] void ReadBytes(any outData, unsigned long long inNumBytes);
-    [BindTo="WriteBytesJava"] void WriteBytes([Const] any inData, unsigned long long inNumBytes);
+    [BindTo="ReadBytesJava"] void ReadBytesCallback(any outData, unsigned long long inNumBytes); //[-RENAME=ReadBytes]
+    [BindTo="WriteBytesJava"] void WriteBytesCallback([Const] any inData, unsigned long long inNumBytes); //[-RENAME=WriteBytes]
     [Const] boolean IsEOF();
     [Const] boolean IsFailed();
 };
@@ -4017,7 +4021,6 @@ interface TrackedVehicleController {
     float GetBrakeInput();
     [Ref] VehicleEngine GetEngine();
     [Ref] VehicleTransmission GetTransmission();
-    [Ref] ArrayVehicleTrack GetTracks();
 };
 TrackedVehicleController implements VehicleController;
 

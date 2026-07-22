@@ -21,6 +21,7 @@ import jolt.physics.collision.shape.ShapeSettings;
 import jolt.enums.EMotionType;
 import jolt.physics.collision.shape.Shape;
 import jolt.physics.collision.shape.RotatedTranslatedShapeSettings;
+import jolt.physics.collision.shape.OffsetCenterOfMassShapeSettings;
 import jolt.physics.collision.shape.MeshShapeSettings;
 import jolt.geometry.TriangleList;
 import jolt.physics.collision.PhysicsMaterialList;
@@ -360,6 +361,45 @@ public class JoltNew extends NativeObject {
 
     public static long internal_native_RotatedTranslatedShapeSettings__2_addr(long inPosition_addr, long inRotation_addr, long inShape_addr) {
         return jolt.natives.JNI_JoltNew.internal_native_RotatedTranslatedShapeSettings__2_addr(inPosition_addr, inRotation_addr, inShape_addr);
+    }
+
+    public static OffsetCenterOfMassShapeSettings OffsetCenterOfMassShapeSettings() {
+        long addr = internal_native_OffsetCenterOfMassShapeSettings__0_addr();
+        if (addr == 0)
+            return OffsetCenterOfMassShapeSettings.NULL;
+        OffsetCenterOfMassShapeSettings OffsetCenterOfMassShapeSettings_NEW = OffsetCenterOfMassShapeSettings.native_new();
+        OffsetCenterOfMassShapeSettings_NEW.internal_reset(addr, true);
+        return OffsetCenterOfMassShapeSettings_NEW;
+    }
+
+    public static long internal_native_OffsetCenterOfMassShapeSettings__0_addr() {
+        return jolt.natives.JNI_JoltNew.internal_native_OffsetCenterOfMassShapeSettings__0_addr();
+    }
+
+    public static OffsetCenterOfMassShapeSettings OffsetCenterOfMassShapeSettings(Vec3 inOffset, ShapeSettings inShape) {
+        long addr = internal_native_OffsetCenterOfMassShapeSettings__1_addr(inOffset.native_address, inShape.native_address);
+        if (addr == 0)
+            return OffsetCenterOfMassShapeSettings.NULL;
+        OffsetCenterOfMassShapeSettings OffsetCenterOfMassShapeSettings_NEW = OffsetCenterOfMassShapeSettings.native_new();
+        OffsetCenterOfMassShapeSettings_NEW.internal_reset(addr, true);
+        return OffsetCenterOfMassShapeSettings_NEW;
+    }
+
+    public static long internal_native_OffsetCenterOfMassShapeSettings__1_addr(long inOffset_addr, long inShape_addr) {
+        return jolt.natives.JNI_JoltNew.internal_native_OffsetCenterOfMassShapeSettings__1_addr(inOffset_addr, inShape_addr);
+    }
+
+    public static OffsetCenterOfMassShapeSettings OffsetCenterOfMassShapeSettings(Vec3 inOffset, Shape inShape) {
+        long addr = internal_native_OffsetCenterOfMassShapeSettings__2_addr(inOffset.native_address, inShape.native_address);
+        if (addr == 0)
+            return OffsetCenterOfMassShapeSettings.NULL;
+        OffsetCenterOfMassShapeSettings OffsetCenterOfMassShapeSettings_NEW = OffsetCenterOfMassShapeSettings.native_new();
+        OffsetCenterOfMassShapeSettings_NEW.internal_reset(addr, true);
+        return OffsetCenterOfMassShapeSettings_NEW;
+    }
+
+    public static long internal_native_OffsetCenterOfMassShapeSettings__2_addr(long inOffset_addr, long inShape_addr) {
+        return jolt.natives.JNI_JoltNew.internal_native_OffsetCenterOfMassShapeSettings__2_addr(inOffset_addr, inShape_addr);
     }
 
     public static MeshShapeSettings MeshShapeSettings() {

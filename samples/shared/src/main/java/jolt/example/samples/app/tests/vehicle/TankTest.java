@@ -20,7 +20,6 @@ import jolt.physics.collision.GroupFilter;
 import jolt.physics.collision.GroupFilterTable;
 import jolt.physics.collision.shape.BoxShape;
 import jolt.physics.collision.shape.CylinderShape;
-import jolt.physics.collision.shape.OffsetCenterOfMassShapeSettings;
 import jolt.physics.collision.shape.Shape;
 import jolt.physics.constraints.HingeConstraint;
 import jolt.physics.constraints.HingeConstraintSettings;
@@ -101,7 +100,10 @@ public class TankTest extends VehicleTest {
 
         // Create tank body
         Vec3 body_position = JoltNew.Vec3(0, 2, 0);
-        Shape tank_body_shape = new OffsetCenterOfMassShapeSettings(JoltNew.Vec3(0, -half_vehicle_height, 0), new BoxShape(JoltNew.Vec3(half_vehicle_width, half_vehicle_height, half_vehicle_length))).Create().Get();
+        Shape tank_body_shape = JoltNew.OffsetCenterOfMassShapeSettings(
+                JoltNew.Vec3(0, -half_vehicle_height, 0),
+                new BoxShape(JoltNew.Vec3(half_vehicle_width, half_vehicle_height, half_vehicle_length)))
+                .Create().Get();
         BodyCreationSettings tank_body_settings = JoltNew.BodyCreationSettings(tank_body_shape, body_position, Quat.sIdentity(), EMotionType.Dynamic, Layers.MOVING);
         tank_body_settings.get_mCollisionGroup().SetGroupFilter(filter);
         tank_body_settings.get_mCollisionGroup().SetGroupID(0);

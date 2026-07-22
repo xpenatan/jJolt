@@ -47,16 +47,16 @@ public class StateRecorderEm extends StateRecorder {
     }
 
     private void setupCallback() {
-        ReadBytes ReadBytes = new ReadBytes() {
+        ReadBytesCallback ReadBytesCallback = new ReadBytesCallback() {
 
-            public void ReadBytes(int outData_addr, int inNumBytes) {
-                internal_ReadBytes(outData_addr, inNumBytes);
+            public void ReadBytesCallback(int outData_addr, int inNumBytes) {
+                internal_ReadBytesCallback(outData_addr, inNumBytes);
             }
         };
-        WriteBytes WriteBytes = new WriteBytes() {
+        WriteBytesCallback WriteBytesCallback = new WriteBytesCallback() {
 
-            public void WriteBytes(int inData_addr, int inNumBytes) {
-                internal_WriteBytes(inData_addr, inNumBytes);
+            public void WriteBytesCallback(int inData_addr, int inNumBytes) {
+                internal_WriteBytesCallback(inData_addr, inNumBytes);
             }
         };
         IsEOF IsEOF = new IsEOF() {
@@ -71,13 +71,13 @@ public class StateRecorderEm extends StateRecorder {
                 return internal_IsFailed();
             }
         };
-        internal_native_setupCallback(native_address, ReadBytes, WriteBytes, IsEOF, IsFailed);
+        internal_native_setupCallback(native_address, ReadBytesCallback, WriteBytesCallback, IsEOF, IsFailed);
     }
 
     protected void ReadBytes(NativeObject outData, long inNumBytes) {
     }
 
-    private void internal_ReadBytes(int outData_addr, long inNumBytes) {
+    private void internal_ReadBytesCallback(int outData_addr, long inNumBytes) {
         if (NativeObject_TEMP_STATIC_GEN_0 == null)
             NativeObject_TEMP_STATIC_GEN_0 = NativeObject.native_new();
         NativeObject_TEMP_STATIC_GEN_0.internal_reset(outData_addr, false);
@@ -87,7 +87,7 @@ public class StateRecorderEm extends StateRecorder {
     protected void WriteBytes(NativeObject inData, long inNumBytes) {
     }
 
-    private void internal_WriteBytes(int inData_addr, long inNumBytes) {
+    private void internal_WriteBytesCallback(int inData_addr, long inNumBytes) {
         if (NativeObject_TEMP_STATIC_GEN_1 == null)
             NativeObject_TEMP_STATIC_GEN_1 = NativeObject.native_new();
         NativeObject_TEMP_STATIC_GEN_1.internal_reset(inData_addr, false);
@@ -113,19 +113,19 @@ public class StateRecorderEm extends StateRecorder {
     @org.teavm.jso.JSBody(script = "var jsObj = new jolt.StateRecorderJS();return jolt.getPointer(jsObj);")
     public static native int internal_native_create_addr();
 
-    @org.teavm.jso.JSBody(params = { "this_addr", "ReadBytes", "WriteBytes", "IsEOF", "IsFailed" }, script = "var StateRecorderJS = jolt.wrapPointer(this_addr, jolt.StateRecorderJS); StateRecorderJS.ReadBytes = ReadBytes; StateRecorderJS.WriteBytes = WriteBytes; StateRecorderJS.IsEOF = IsEOF; StateRecorderJS.IsFailed = IsFailed;")
-    public static native void internal_native_setupCallback(int this_addr, ReadBytes ReadBytes, WriteBytes WriteBytes, IsEOF IsEOF, IsFailed IsFailed);
+    @org.teavm.jso.JSBody(params = { "this_addr", "ReadBytesCallback", "WriteBytesCallback", "IsEOF", "IsFailed" }, script = "var StateRecorderJS = jolt.wrapPointer(this_addr, jolt.StateRecorderJS); StateRecorderJS.ReadBytesCallback = ReadBytesCallback; StateRecorderJS.WriteBytesCallback = WriteBytesCallback; StateRecorderJS.IsEOF = IsEOF; StateRecorderJS.IsFailed = IsFailed;")
+    public static native void internal_native_setupCallback(int this_addr, ReadBytesCallback ReadBytesCallback, WriteBytesCallback WriteBytesCallback, IsEOF IsEOF, IsFailed IsFailed);
 
     @org.teavm.jso.JSFunctor()
-    public interface ReadBytes extends org.teavm.jso.JSObject {
+    public interface ReadBytesCallback extends org.teavm.jso.JSObject {
 
-        void ReadBytes(int outData_addr, int inNumBytes);
+        void ReadBytesCallback(int outData_addr, int inNumBytes);
     }
 
     @org.teavm.jso.JSFunctor()
-    public interface WriteBytes extends org.teavm.jso.JSObject {
+    public interface WriteBytesCallback extends org.teavm.jso.JSObject {
 
-        void WriteBytes(int inData_addr, int inNumBytes);
+        void WriteBytesCallback(int inData_addr, int inNumBytes);
     }
 
     @org.teavm.jso.JSFunctor()

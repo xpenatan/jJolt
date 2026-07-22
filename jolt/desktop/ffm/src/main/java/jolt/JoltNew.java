@@ -21,6 +21,7 @@ import jolt.physics.collision.shape.ShapeSettings;
 import jolt.enums.EMotionType;
 import jolt.physics.collision.shape.Shape;
 import jolt.physics.collision.shape.RotatedTranslatedShapeSettings;
+import jolt.physics.collision.shape.OffsetCenterOfMassShapeSettings;
 import jolt.physics.collision.shape.MeshShapeSettings;
 import jolt.geometry.TriangleList;
 import jolt.physics.collision.PhysicsMaterialList;
@@ -465,6 +466,57 @@ public class JoltNew extends NativeObject {
         }
     }
 
+    public static OffsetCenterOfMassShapeSettings OffsetCenterOfMassShapeSettings() {
+        long addr = internal_native_OffsetCenterOfMassShapeSettings__0_addr();
+        if (addr == 0)
+            return OffsetCenterOfMassShapeSettings.NULL;
+        OffsetCenterOfMassShapeSettings OffsetCenterOfMassShapeSettings_NEW = OffsetCenterOfMassShapeSettings.native_new();
+        OffsetCenterOfMassShapeSettings_NEW.internal_reset(addr, true);
+        return OffsetCenterOfMassShapeSettings_NEW;
+    }
+
+    public static long internal_native_OffsetCenterOfMassShapeSettings__0_addr() {
+        try {
+            return (long) FFMHandles.internal_native_OffsetCenterOfMassShapeSettings__0_addr__.invokeExact();
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public static OffsetCenterOfMassShapeSettings OffsetCenterOfMassShapeSettings(Vec3 inOffset, ShapeSettings inShape) {
+        long addr = internal_native_OffsetCenterOfMassShapeSettings__1_addr(inOffset.native_address, inShape.native_address);
+        if (addr == 0)
+            return OffsetCenterOfMassShapeSettings.NULL;
+        OffsetCenterOfMassShapeSettings OffsetCenterOfMassShapeSettings_NEW = OffsetCenterOfMassShapeSettings.native_new();
+        OffsetCenterOfMassShapeSettings_NEW.internal_reset(addr, true);
+        return OffsetCenterOfMassShapeSettings_NEW;
+    }
+
+    public static long internal_native_OffsetCenterOfMassShapeSettings__1_addr(long inOffset_addr, long inShape_addr) {
+        try {
+            return (long) FFMHandles.internal_native_OffsetCenterOfMassShapeSettings__1_addr__JJ.invokeExact(inOffset_addr, inShape_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
+    public static OffsetCenterOfMassShapeSettings OffsetCenterOfMassShapeSettings(Vec3 inOffset, Shape inShape) {
+        long addr = internal_native_OffsetCenterOfMassShapeSettings__2_addr(inOffset.native_address, inShape.native_address);
+        if (addr == 0)
+            return OffsetCenterOfMassShapeSettings.NULL;
+        OffsetCenterOfMassShapeSettings OffsetCenterOfMassShapeSettings_NEW = OffsetCenterOfMassShapeSettings.native_new();
+        OffsetCenterOfMassShapeSettings_NEW.internal_reset(addr, true);
+        return OffsetCenterOfMassShapeSettings_NEW;
+    }
+
+    public static long internal_native_OffsetCenterOfMassShapeSettings__2_addr(long inOffset_addr, long inShape_addr) {
+        try {
+            return (long) FFMHandles.internal_native_OffsetCenterOfMassShapeSettings__2_addr__JJ.invokeExact(inOffset_addr, inShape_addr);
+        } catch (Throwable e) {
+            throw com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.rethrow(e);
+        }
+    }
+
     public static MeshShapeSettings MeshShapeSettings() {
         long addr = internal_native_MeshShapeSettings__0_addr();
         if (addr == 0)
@@ -582,6 +634,12 @@ public class JoltNew extends NativeObject {
         static final java.lang.invoke.MethodHandle internal_native_RotatedTranslatedShapeSettings__1_addr__JJJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_joltnew_rotatedtranslatedshapesettings__1_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
 
         static final java.lang.invoke.MethodHandle internal_native_RotatedTranslatedShapeSettings__2_addr__JJJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_joltnew_rotatedtranslatedshapesettings__2_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_OffsetCenterOfMassShapeSettings__0_addr__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_joltnew_offsetcenterofmassshapesettings__0_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_OffsetCenterOfMassShapeSettings__1_addr__JJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_joltnew_offsetcenterofmassshapesettings__1_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
+
+        static final java.lang.invoke.MethodHandle internal_native_OffsetCenterOfMassShapeSettings__2_addr__JJ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_joltnew_offsetcenterofmassshapesettings__2_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG));
 
         static final java.lang.invoke.MethodHandle internal_native_MeshShapeSettings__0_addr__ = com.github.xpenatan.jparser.runtime.helper.FFMDowncallHelper.downcallDefault("jolt_joltnew_meshshapesettings__0_addr", FunctionDescriptor.of(ValueLayout.JAVA_LONG));
 
