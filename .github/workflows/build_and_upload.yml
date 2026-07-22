@@ -282,6 +282,12 @@ jobs:
           :samples:fdx:platforms:android:jolt_sample_android_vulkan_build
           -x :jolt:builder:jParser_generate
 
+      - name: Enable KVM access
+        run: |
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+          sudo udevadm control --reload-rules
+          sudo udevadm trigger --name-match=kvm
+
       - name: Run Android portable runtime tests
         uses: reactivecircus/android-emulator-runner@v2
         with:
