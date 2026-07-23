@@ -14,7 +14,6 @@ joltJsCommit = "c9c122bcd48e92885fbee7d267c928c3781d581c"
 jparserVersion = "1.2.5"
 fdxVersion = "-SNAPSHOT"
 gdxVersion = "1.14.2"
-gdxWebgpuVersion = "0.8"
 teavmVersion = "0.15.0"
 
 gdxTeavmVersion = "-SNAPSHOT"
@@ -92,23 +91,18 @@ gdxBackendLwjgl3 = { module = "com.badlogicgames.gdx:gdx-backend-lwjgl3", versio
 gdxPlatform = { module = "com.badlogicgames.gdx:gdx-platform", version.ref = "gdxVersion" }
 gdxTeavmBackendGlfw = { module = "com.github.xpenatan.gdx-teavm:backend-glfw", version.ref = "gdxTeavmVersion" }
 gdxTeavmBackendWeb = { module = "com.github.xpenatan.gdx-teavm:backend-web", version.ref = "gdxTeavmVersion" }
-gdxWebgpuBackendDesktop = { module = "io.github.monstroussoftware.gdx-webgpu:backend-desktop", version.ref = "gdxWebgpuVersion" }
-gdxWebgpuBackendTeavm = { module = "io.github.monstroussoftware.gdx-webgpu:backend-teavm", version.ref = "gdxWebgpuVersion" }
-gdxWebgpuCore = { module = "io.github.monstroussoftware.gdx-webgpu:gdx-webgpu", version.ref = "gdxWebgpuVersion" }
 gdxGltfCore = { module = "com.github.mgsx-dev.gdx-gltf:core", version.ref = "gdxGltfVersion" }
 
 imguiCore = { module = "com.github.xpenatan.xImGui:imgui-core", version.ref = "gdxImguiVersion" }
 imguiDesktop = { module = "com.github.xpenatan.xImGui:imgui-desktop", version.ref = "gdxImguiVersion" }
 imguiGdxGl = { module = "com.github.xpenatan.xImGui:gdx-gl-impl", version.ref = "gdxImguiVersion" }
 imguiGdxShared = { module = "com.github.xpenatan.xImGui:gdx-shared-impl", version.ref = "gdxImguiVersion" }
-imguiGdxWgpu = { module = "com.github.xpenatan.xImGui:gdx-wgpu-impl", version.ref = "gdxImguiVersion" }
 
 jjoltAndroidJni = { module = "com.github.xpenatan.jJolt:android-jni", version.ref = "exampleVersion" }
 jjoltCore = { module = "com.github.xpenatan.jJolt:core", version.ref = "exampleVersion" }
 jjoltDesktopFfm = { module = "com.github.xpenatan.jJolt:desktop-ffm", version.ref = "exampleVersion" }
 jjoltDesktopJni = { module = "com.github.xpenatan.jJolt:desktop-jni", version.ref = "exampleVersion" }
 jjoltGdxGl = { module = "com.github.xpenatan.jJolt:gdx-gl", version.ref = "exampleVersion" }
-jjoltGdxWgpu = { module = "com.github.xpenatan.jJolt:gdx-wgpu", version.ref = "exampleVersion" }
 jjoltJoltFdx = { module = "com.github.xpenatan.jJolt:jolt-fdx", version.ref = "exampleVersion" }
 jjoltWebWasm = { module = "com.github.xpenatan.jJolt:web-wasm", version.ref = "exampleVersion" }
 

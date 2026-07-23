@@ -47,7 +47,6 @@ easyPublishing {
         ":jolt:web:wasm",
         ":jolt:android:jni",
         ":extensions:gdx:gl",
-        ":extensions:gdx:wgpu",
         ":extensions:fdx"
     )
 

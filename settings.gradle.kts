@@ -39,20 +39,16 @@ include(":jolt:android:jni")
 
 // Extensions
 include(":extensions:gdx:gl")
-include(":extensions:gdx:wgpu")
 include(":extensions:fdx")
 
 // Examples
 include(":samples:gdx:shared")
 include(":samples:gdx:gl:core")
-include(":samples:gdx:wgpu:core")
 
 include(":samples:shared")
 include(":samples:gdx:gl:platforms:desktop-jni")
-include(":samples:gdx:wgpu:platforms:desktop-jni")
 include(":samples:gdx:gl:platforms:desktop-c")
 include(":samples:gdx:gl:platforms:web")
-include(":samples:gdx:wgpu:platforms:web")
 include(":samples:gdx:gl:platforms:android")
 
 include(":samples:fdx:core")

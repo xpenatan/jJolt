@@ -119,7 +119,6 @@ jobs:
         run: >-
           ./gradlew
           :samples:gdx:gl:platforms:desktop-jni:classes
-          :samples:gdx:wgpu:platforms:desktop-jni:classes
           :samples:gdx:gl:platforms:desktop-c:jolt_gdx_desktop_c_build
           :samples:fdx:platforms:desktop-jni:jolt_sample_desktop_gl_jni_build
           :samples:fdx:platforms:desktop-jni:jolt_sample_desktop_wgpu_jni_build

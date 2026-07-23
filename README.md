@@ -14,7 +14,6 @@ The binding leverages [jParser](https://github.com/xpenatan/jParser), a custom C
 ## Web/TeaVM Examples
 
 * [Jolt-Samples-GL](https://xpenatan.github.io/jJolt/snapshot/gl/samples/)
-* [Jolt-Samples-WGPU](https://xpenatan.github.io/jJolt/snapshot/wgpu/samples/)
 
 ## Platform Status
 

@@ -40,22 +40,10 @@ jobs:
         run: |
           ./gradlew :examples:samples:teavm:jolt_samples_build
 
-      - name: Build WGPU Web Samples
-        run: |
-          ./gradlew :examples:samples:teavm-wgpu:jolt_samples_build_wgpu
-
       - name: Upload OpenGL Samples to gh-pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./examples/samples/teavm/build/dist/webapp
           destination_dir: ./snapshot/gl/samples
-          publish_branch: gh-pages
-
-      - name: Upload WGPU Samples to gh-pages
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./examples/samples/teavm-wgpu/build/dist/webapp
-          destination_dir: ./snapshot/wgpu/samples
           publish_branch: gh-pages
