@@ -12,7 +12,7 @@ import java.io.File
 
 plugins {
     id("java-library")
-    id("com.github.xpenatan.jparser")
+    alias(libs.plugins.jparser)
 }
 
 fun File.normalizedPath(): String {
@@ -98,8 +98,8 @@ val windowsTargets = setOf(
 )
 
 java {
-    sourceCompatibility = JavaVersion.toVersion(LibExt.javaMainTarget)
-    targetCompatibility = JavaVersion.toVersion(LibExt.javaMainTarget)
+    sourceCompatibility = JavaVersion.toVersion(libs.versions.javaMainTarget.get())
+    targetCompatibility = JavaVersion.toVersion(libs.versions.javaMainTarget.get())
 }
 
 jParser {

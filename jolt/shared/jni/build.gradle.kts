@@ -9,9 +9,9 @@ base {
 }
 
 dependencies {
-    api("com.github.xpenatan.jParser:runtime-jni:${LibExt.jParserVersion}")
-    api("com.github.xpenatan.jParser:api-core:${LibExt.jParserVersion}")
-    api("com.github.xpenatan.jParser:loader-core:${LibExt.jParserVersion}")
+    api(libs.jparserRuntimeJni)
+    api(libs.jparserApiCore)
+    api(libs.jparserLoaderCore)
 }
 
 sourceSets {
@@ -32,8 +32,8 @@ tasks.named("compileJava") {
 }
 
 java {
-    sourceCompatibility = JavaVersion.toVersion(LibExt.javaMainTarget)
-    targetCompatibility = JavaVersion.toVersion(LibExt.javaMainTarget)
+    sourceCompatibility = JavaVersion.toVersion(libs.versions.javaMainTarget.get())
+    targetCompatibility = JavaVersion.toVersion(libs.versions.javaMainTarget.get())
 }
 
 java {

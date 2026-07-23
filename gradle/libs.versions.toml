@@ -1,0 +1,122 @@
+[versions]
+projectGroup = "com.github.xpenatan.jJolt"
+projectName = "jJolt"
+
+javaMainTarget = "1.8"
+javaWebTarget = "17"
+javaFfmTarget = "25"
+java11Target = "11"
+
+joltVersion = "5.6.0"
+joltCommit = "e77f175595e64cb44218cc9d9d56fc365ad0e36a"
+joltJsVersion = "1.1.0"
+joltJsCommit = "c9c122bcd48e92885fbee7d267c928c3781d581c"
+jparserVersion = "1.2.5"
+fdxVersion = "-SNAPSHOT"
+gdxVersion = "1.14.2"
+gdxWebgpuVersion = "0.8"
+teavmVersion = "0.15.0"
+
+gdxTeavmVersion = "-SNAPSHOT"
+gdxImguiVersion = "1.92.4.0"
+junitVersion = "4.12"
+useRepoLibs = "false"
+exampleVersion = "-SNAPSHOT"
+snapshotVersion = "-SNAPSHOT"
+
+easyPublishingVersion = "0.1.0"
+androidGradlePluginVersion = "9.1.1"
+kotlinVersion = "2.1.10"
+androidxTestJunitVersion = "1.2.1"
+androidxTestRunnerVersion = "1.6.2"
+androidDesugarVersion = "2.0.3"
+gdxGltfVersion = "2.2.1"
+
+[plugins]
+easyPublishing = { id = "com.github.xpenatan.easy-publishing", version.ref = "easyPublishingVersion" }
+androidApplication = { id = "com.android.application", version.ref = "androidGradlePluginVersion" }
+androidLibrary = { id = "com.android.library", version.ref = "androidGradlePluginVersion" }
+kotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlinVersion" }
+jparser = { id = "com.github.xpenatan.jparser", version.ref = "jparserVersion" }
+libfdx = { id = "io.github.libfdx", version.ref = "fdxVersion" }
+
+[libraries]
+jparserApiCore = { module = "com.github.xpenatan.jParser:api-core", version.ref = "jparserVersion" }
+jparserApiWeb = { module = "com.github.xpenatan.jParser:api-web", version.ref = "jparserVersion" }
+jparserLoaderC = { module = "com.github.xpenatan.jParser:loader-c", version.ref = "jparserVersion" }
+jparserLoaderCore = { module = "com.github.xpenatan.jParser:loader-core", version.ref = "jparserVersion" }
+jparserLoaderWeb = { module = "com.github.xpenatan.jParser:loader-web", version.ref = "jparserVersion" }
+jparserRuntimeAndroid = { module = "com.github.xpenatan.jParser:runtime-android", version.ref = "jparserVersion" }
+jparserRuntimeBase = { module = "com.github.xpenatan.jParser:runtime-base", version.ref = "jparserVersion" }
+jparserRuntimeC = { module = "com.github.xpenatan.jParser:runtime-c", version.ref = "jparserVersion" }
+jparserRuntimeCore = { module = "com.github.xpenatan.jParser:runtime-core", version.ref = "jparserVersion" }
+jparserRuntimeJni = { module = "com.github.xpenatan.jParser:runtime-jni", version.ref = "jparserVersion" }
+jparserRuntimeWeb = { module = "com.github.xpenatan.jParser:runtime-web", version.ref = "jparserVersion" }
+jparserRuntimeWebWasm = { module = "com.github.xpenatan.jParser:runtime-web_wasm", version.ref = "jparserVersion" }
+jparserRuntimeDesktopCWindowsX64 = { module = "com.github.xpenatan.jParser:runtime-desktop-c_windows_x64", version.ref = "jparserVersion" }
+jparserRuntimeDesktopCLinuxX64 = { module = "com.github.xpenatan.jParser:runtime-desktop-c_linux_x64", version.ref = "jparserVersion" }
+jparserRuntimeDesktopCMacX64 = { module = "com.github.xpenatan.jParser:runtime-desktop-c_mac_x64", version.ref = "jparserVersion" }
+jparserRuntimeDesktopCMacArm64 = { module = "com.github.xpenatan.jParser:runtime-desktop-c_mac_arm64", version.ref = "jparserVersion" }
+jparserRuntimeDesktopJni = { module = "com.github.xpenatan.jParser:runtime-desktop-jni", version.ref = "jparserVersion" }
+jparserRuntimeDesktopJniWindowsX64 = { module = "com.github.xpenatan.jParser:runtime-desktop-jni_windows_x64", version.ref = "jparserVersion" }
+jparserRuntimeDesktopJniLinuxX64 = { module = "com.github.xpenatan.jParser:runtime-desktop-jni_linux_x64", version.ref = "jparserVersion" }
+jparserRuntimeDesktopJniMacX64 = { module = "com.github.xpenatan.jParser:runtime-desktop-jni_mac_x64", version.ref = "jparserVersion" }
+jparserRuntimeDesktopJniMacArm64 = { module = "com.github.xpenatan.jParser:runtime-desktop-jni_mac_arm64", version.ref = "jparserVersion" }
+jparserRuntimeDesktopFfm = { module = "com.github.xpenatan.jParser:runtime-desktop-ffm", version.ref = "jparserVersion" }
+jparserRuntimeDesktopFfmWindowsX64 = { module = "com.github.xpenatan.jParser:runtime-desktop-ffm_windows_x64", version.ref = "jparserVersion" }
+jparserRuntimeDesktopFfmLinuxX64 = { module = "com.github.xpenatan.jParser:runtime-desktop-ffm_linux_x64", version.ref = "jparserVersion" }
+jparserRuntimeDesktopFfmMacX64 = { module = "com.github.xpenatan.jParser:runtime-desktop-ffm_mac_x64", version.ref = "jparserVersion" }
+jparserRuntimeDesktopFfmMacArm64 = { module = "com.github.xpenatan.jParser:runtime-desktop-ffm_mac_arm64", version.ref = "jparserVersion" }
+
+fdxApplication = { module = "io.github.libfdx:application", version.ref = "fdxVersion" }
+fdxAssetManager = { module = "io.github.libfdx:asset_manager", version.ref = "fdxVersion" }
+fdxBackendAndroid = { module = "io.github.libfdx:backend_android", version.ref = "fdxVersion" }
+fdxBackendDesktop = { module = "io.github.libfdx:backend_desktop", version.ref = "fdxVersion" }
+fdxBackendWeb = { module = "io.github.libfdx:backend_web", version.ref = "fdxVersion" }
+fdxDisplay = { module = "io.github.libfdx:display", version.ref = "fdxVersion" }
+fdxG3d = { module = "io.github.libfdx:g3d", version.ref = "fdxVersion" }
+fdxGlDesktop = { module = "io.github.libfdx:gl_desktop", version.ref = "fdxVersion" }
+fdxGlWeb = { module = "io.github.libfdx:gl_web", version.ref = "fdxVersion" }
+fdxGraphics = { module = "io.github.libfdx:graphics", version.ref = "fdxVersion" }
+fdxVulkanAndroidJni = { module = "io.github.libfdx:vulkan_android_jni", version.ref = "fdxVersion" }
+fdxVulkanDesktop = { module = "io.github.libfdx:vulkan_desktop", version.ref = "fdxVersion" }
+fdxWgpuAndroidJni = { module = "io.github.libfdx:wgpu_android_jni", version.ref = "fdxVersion" }
+fdxWgpuCore = { module = "io.github.libfdx:wgpu_core", version.ref = "fdxVersion" }
+fdxWgpuDesktopFfm = { module = "io.github.libfdx:wgpu_desktop_ffm", version.ref = "fdxVersion" }
+fdxWgpuDesktopJni = { module = "io.github.libfdx:wgpu_desktop_jni", version.ref = "fdxVersion" }
+fdxWgpuWeb = { module = "io.github.libfdx:wgpu_web", version.ref = "fdxVersion" }
+
+gdxCore = { module = "com.badlogicgames.gdx:gdx", version.ref = "gdxVersion" }
+gdxBackendAndroid = { module = "com.badlogicgames.gdx:gdx-backend-android", version.ref = "gdxVersion" }
+gdxBackendLwjgl3 = { module = "com.badlogicgames.gdx:gdx-backend-lwjgl3", version.ref = "gdxVersion" }
+gdxPlatform = { module = "com.badlogicgames.gdx:gdx-platform", version.ref = "gdxVersion" }
+gdxTeavmBackendGlfw = { module = "com.github.xpenatan.gdx-teavm:backend-glfw", version.ref = "gdxTeavmVersion" }
+gdxTeavmBackendWeb = { module = "com.github.xpenatan.gdx-teavm:backend-web", version.ref = "gdxTeavmVersion" }
+gdxWebgpuBackendDesktop = { module = "io.github.monstroussoftware.gdx-webgpu:backend-desktop", version.ref = "gdxWebgpuVersion" }
+gdxWebgpuBackendTeavm = { module = "io.github.monstroussoftware.gdx-webgpu:backend-teavm", version.ref = "gdxWebgpuVersion" }
+gdxWebgpuCore = { module = "io.github.monstroussoftware.gdx-webgpu:gdx-webgpu", version.ref = "gdxWebgpuVersion" }
+gdxGltfCore = { module = "com.github.mgsx-dev.gdx-gltf:core", version.ref = "gdxGltfVersion" }
+
+imguiCore = { module = "com.github.xpenatan.xImGui:imgui-core", version.ref = "gdxImguiVersion" }
+imguiDesktop = { module = "com.github.xpenatan.xImGui:imgui-desktop", version.ref = "gdxImguiVersion" }
+imguiGdxGl = { module = "com.github.xpenatan.xImGui:gdx-gl-impl", version.ref = "gdxImguiVersion" }
+imguiGdxShared = { module = "com.github.xpenatan.xImGui:gdx-shared-impl", version.ref = "gdxImguiVersion" }
+imguiGdxWgpu = { module = "com.github.xpenatan.xImGui:gdx-wgpu-impl", version.ref = "gdxImguiVersion" }
+
+jjoltAndroidJni = { module = "com.github.xpenatan.jJolt:android-jni", version.ref = "exampleVersion" }
+jjoltCore = { module = "com.github.xpenatan.jJolt:core", version.ref = "exampleVersion" }
+jjoltDesktopFfm = { module = "com.github.xpenatan.jJolt:desktop-ffm", version.ref = "exampleVersion" }
+jjoltDesktopJni = { module = "com.github.xpenatan.jJolt:desktop-jni", version.ref = "exampleVersion" }
+jjoltGdxGl = { module = "com.github.xpenatan.jJolt:gdx-gl", version.ref = "exampleVersion" }
+jjoltGdxWgpu = { module = "com.github.xpenatan.jJolt:gdx-wgpu", version.ref = "exampleVersion" }
+jjoltJoltFdx = { module = "com.github.xpenatan.jJolt:jolt-fdx", version.ref = "exampleVersion" }
+jjoltWebWasm = { module = "com.github.xpenatan.jJolt:web-wasm", version.ref = "exampleVersion" }
+
+teavmClasslib = { module = "org.teavm:teavm-classlib", version.ref = "teavmVersion" }
+teavmCore = { module = "org.teavm:teavm-core", version.ref = "teavmVersion" }
+teavmTooling = { module = "org.teavm:teavm-tooling", version.ref = "teavmVersion" }
+
+androidDesugar = { module = "com.android.tools:desugar_jdk_libs", version.ref = "androidDesugarVersion" }
+androidxTestJunit = { module = "androidx.test.ext:junit", version.ref = "androidxTestJunitVersion" }
+androidxTestRunner = { module = "androidx.test:runner", version.ref = "androidxTestRunnerVersion" }
+junit = { module = "junit:junit", version.ref = "junitVersion" }

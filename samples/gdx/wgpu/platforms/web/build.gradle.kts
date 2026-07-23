@@ -6,26 +6,26 @@ dependencies {
     implementation(project(":samples:gdx:wgpu:core"))
     implementation(project(":samples:shared"))
 
-    implementation("com.badlogicgames.gdx:gdx:${LibExt.gdxVersion}:sources")
+    implementation(variantOf(libs.gdxCore) { classifier("sources") })
 
-    if(LibExt.useRepoLibs) {
-        implementation("com.github.xpenatan.jJolt:web-wasm:${LibExt.exampleVersion}")
-        implementation("com.github.xpenatan.jJolt:gdx-wgpu:${LibExt.exampleVersion}")
+    if(libs.versions.useRepoLibs.get().toBooleanStrict()) {
+        implementation(libs.jjoltWebWasm)
+        implementation(libs.jjoltGdxWgpu)
     }
     else {
         implementation(project(":jolt:web:wasm"))
         implementation(project(":extensions:gdx:wgpu"))
     }
 
-    implementation("com.badlogicgames.gdx:gdx:${LibExt.gdxVersion}")
-    implementation("com.github.xpenatan.gdx-teavm:backend-web:${LibExt.gdxTeaVMVersion}")
-    implementation("com.github.xpenatan.gdx-teavm:backend-web:${LibExt.gdxTeaVMVersion}:sources")
-    implementation("io.github.monstroussoftware.gdx-webgpu:backend-teavm:${LibExt.gdxWebGPUVersion}")
+    implementation(libs.gdxCore)
+    implementation(libs.gdxTeavmBackendWeb)
+    implementation(variantOf(libs.gdxTeavmBackendWeb) { classifier("sources") })
+    implementation(libs.gdxWebgpuBackendTeavm)
 }
 
 java {
-    sourceCompatibility = JavaVersion.toVersion(LibExt.javaWebTarget)
-    targetCompatibility = JavaVersion.toVersion(LibExt.javaWebTarget)
+    sourceCompatibility = JavaVersion.toVersion(libs.versions.javaWebTarget.get())
+    targetCompatibility = JavaVersion.toVersion(libs.versions.javaWebTarget.get())
 }
 
 val mainClassName = "jolt.example.samples.app.Build"

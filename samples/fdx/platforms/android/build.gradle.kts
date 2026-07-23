@@ -2,7 +2,7 @@ import java.io.File
 import java.util.Properties
 
 plugins {
-    id("com.android.application")
+    alias(libs.plugins.androidApplication)
 }
 
 group = "jolt.example.samples.app.android"
@@ -31,18 +31,18 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.toVersion(LibExt.javaFFMTarget)
-        targetCompatibility = JavaVersion.toVersion(LibExt.javaFFMTarget)
+        sourceCompatibility = JavaVersion.toVersion(libs.versions.javaFfmTarget.get())
+        targetCompatibility = JavaVersion.toVersion(libs.versions.javaFfmTarget.get())
         isCoreLibraryDesugaringEnabled = true
     }
 }
 
 dependencies {
-    coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.0.3")
+    coreLibraryDesugaring(libs.androidDesugar)
 
-    if(LibExt.useRepoLibs) {
-        implementation("com.github.xpenatan.jJolt:android-jni:${LibExt.exampleVersion}")
-        implementation("com.github.xpenatan.jJolt:jolt-fdx:${LibExt.exampleVersion}")
+    if(libs.versions.useRepoLibs.get().toBooleanStrict()) {
+        implementation(libs.jjoltAndroidJni)
+        implementation(libs.jjoltJoltFdx)
     }
     else {
         implementation(project(":jolt:android:jni"))
@@ -50,9 +50,9 @@ dependencies {
     }
 
     implementation(project(":samples:fdx:core"))
-    implementation("${LibExt.fdxGroup}:backend_android:${LibExt.fdxVersion}")
-    implementation("${LibExt.fdxGroup}:wgpu_android_jni:${LibExt.fdxVersion}")
-    implementation("${LibExt.fdxGroup}:vulkan_android_jni:${LibExt.fdxVersion}")
+    implementation(libs.fdxBackendAndroid)
+    implementation(libs.fdxWgpuAndroidJni)
+    implementation(libs.fdxVulkanAndroidJni)
 }
 
 val androidExcludedJParserModules = listOf(

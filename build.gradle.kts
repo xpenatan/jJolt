@@ -1,21 +1,6 @@
 plugins {
     id("java")
-    id("com.github.xpenatan.easy-publishing") version "0.1.0"
-    id("org.jetbrains.kotlin.android") version "1.8.21" apply false
-}
-
-buildscript {
-    repositories {
-        mavenCentral()
-        google()
-    }
-
-    val kotlinVersion = "2.1.10"
-
-    dependencies {
-        classpath("com.android.tools.build:gradle:8.12.3")
-        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion")
-    }
+    alias(libs.plugins.easyPublishing)
 }
 
 allprojects  {
@@ -42,10 +27,10 @@ allprojects  {
                     requested.name.startsWith("runtime-")
             )
             if(isJParserRuntime) {
-                useVersion(LibExt.jParserVersion)
+                useVersion(libs.versions.jparserVersion.get())
             }
             else if(requested.group == "com.github.xpenatan.gdx-teavm") {
-                useVersion(LibExt.gdxTeaVMVersion)
+                useVersion(libs.versions.gdxTeavmVersion.get())
             }
         }
     }
@@ -66,9 +51,9 @@ easyPublishing {
         ":extensions:fdx"
     )
 
-    groupId.set(LibExt.groupId)
+    groupId.set(libs.versions.projectGroup.get())
     releaseVersion.set(providers.gradleProperty("version"))
-    snapshotVersion.set("-SNAPSHOT")
+    snapshotVersion.set(libs.versions.snapshotVersion.get())
 
     snapshotRepositoryUrl.set("https://central.sonatype.com/repository/maven-snapshots/")
     releaseRepositoryUrl.set("https://central.sonatype.com")
@@ -77,7 +62,7 @@ easyPublishing {
     signingKey.set(providers.environmentVariable("SIGNING_KEY"))
     signingPassword.set(providers.environmentVariable("SIGNING_PASSWORD"))
 
-    pomName.set(LibExt.libName)
+    pomName.set(libs.versions.projectName.get())
     pomDescription.set("Jolt Physics Java Bindings")
     projectUrl.set("https://github.com/xpenatan/jJolt")
 

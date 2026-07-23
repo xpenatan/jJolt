@@ -3,8 +3,8 @@ plugins {
 }
 
 java {
-    sourceCompatibility = JavaVersion.toVersion(LibExt.javaWebTarget)
-    targetCompatibility = JavaVersion.toVersion(LibExt.javaWebTarget)
+    sourceCompatibility = JavaVersion.toVersion(libs.versions.javaWebTarget.get())
+    targetCompatibility = JavaVersion.toVersion(libs.versions.javaWebTarget.get())
 }
 
 val joltRuntimeName = "c"
@@ -23,27 +23,27 @@ val joltRuntimeClasspath by configurations.creating {
 val joltDesktopCNativeJarClasspath = files(joltDesktopCJar)
 
 dependencies {
-    implementation("com.badlogicgames.gdx:gdx:${LibExt.gdxVersion}")
+    implementation(libs.gdxCore)
     implementation(project(":samples:gdx:gl:core"))
     implementation(project(":samples:shared"))
     implementation(project(joltSharedCProject))
     implementation(project(joltRuntimeProject))
-    implementation("com.github.xpenatan.gdx-teavm:backend-glfw:${LibExt.gdxTeaVMVersion}")
+    implementation(libs.gdxTeavmBackendGlfw)
 
-    runtimeOnly("com.github.xpenatan.jParser:runtime-desktop-c_windows_x64:${LibExt.jParserVersion}")
-    runtimeOnly("com.github.xpenatan.jParser:runtime-desktop-c_linux_x64:${LibExt.jParserVersion}")
-    runtimeOnly("com.github.xpenatan.jParser:runtime-desktop-c_mac_x64:${LibExt.jParserVersion}")
-    runtimeOnly("com.github.xpenatan.jParser:runtime-desktop-c_mac_arm64:${LibExt.jParserVersion}")
-    joltRuntimeClasspath("com.github.xpenatan.jParser:runtime-desktop-c_windows_x64:${LibExt.jParserVersion}")
-    joltRuntimeClasspath("com.github.xpenatan.jParser:runtime-desktop-c_linux_x64:${LibExt.jParserVersion}")
-    joltRuntimeClasspath("com.github.xpenatan.jParser:runtime-desktop-c_mac_x64:${LibExt.jParserVersion}")
-    joltRuntimeClasspath("com.github.xpenatan.jParser:runtime-desktop-c_mac_arm64:${LibExt.jParserVersion}")
+    runtimeOnly(libs.jparserRuntimeDesktopCWindowsX64)
+    runtimeOnly(libs.jparserRuntimeDesktopCLinuxX64)
+    runtimeOnly(libs.jparserRuntimeDesktopCMacX64)
+    runtimeOnly(libs.jparserRuntimeDesktopCMacArm64)
+    joltRuntimeClasspath(libs.jparserRuntimeDesktopCWindowsX64)
+    joltRuntimeClasspath(libs.jparserRuntimeDesktopCLinuxX64)
+    joltRuntimeClasspath(libs.jparserRuntimeDesktopCMacX64)
+    joltRuntimeClasspath(libs.jparserRuntimeDesktopCMacArm64)
     runtimeOnly(joltDesktopCNativeJarClasspath)
     joltRuntimeClasspath(project(joltRuntimeProject))
     joltRuntimeClasspath(joltDesktopCNativeJarClasspath)
 
-    implementation("org.teavm:teavm-tooling:${LibExt.teaVMVersion}")
-    implementation("org.teavm:teavm-classlib:${LibExt.teaVMVersion}")
+    implementation(libs.teavmTooling)
+    implementation(libs.teavmClasslib)
 }
 
 fun currentHostJoltCBuildTask(): String? {

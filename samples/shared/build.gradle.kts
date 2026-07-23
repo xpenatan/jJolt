@@ -3,11 +3,11 @@ plugins {
 }
 
 dependencies {
-    implementation("com.github.mgsx-dev.gdx-gltf:core:2.2.1")
+    implementation(libs.gdxGltfCore)
 
-    if(LibExt.useRepoLibs) {
-        compileOnly("com.github.xpenatan.jJolt:core:${LibExt.exampleVersion}")
-        implementation("com.github.xpenatan.jJolt:gdx-gl:${LibExt.exampleVersion}")
+    if(libs.versions.useRepoLibs.get().toBooleanStrict()) {
+        compileOnly(libs.jjoltCore)
+        implementation(libs.jjoltGdxGl)
     }
     else {
         compileOnly(project(":jolt:core"))
@@ -15,11 +15,11 @@ dependencies {
     }
 
     implementation(project(":samples:gdx:shared"))
-    api("com.badlogicgames.gdx:gdx:${LibExt.gdxVersion}")
-    implementation("com.github.xpenatan.xImGui:imgui-core:${LibExt.gdxImGuiVersion}")
+    api(libs.gdxCore)
+    implementation(libs.imguiCore)
 }
 
 java {
-    sourceCompatibility = JavaVersion.toVersion(LibExt.java8Target)
-    targetCompatibility = JavaVersion.toVersion(LibExt.java8Target)
+    sourceCompatibility = JavaVersion.toVersion(libs.versions.javaMainTarget.get())
+    targetCompatibility = JavaVersion.toVersion(libs.versions.javaMainTarget.get())
 }

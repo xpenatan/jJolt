@@ -1,6 +1,6 @@
 plugins {
-    id("com.android.application")
-    id("kotlin-android")
+    alias(libs.plugins.androidApplication)
+    alias(libs.plugins.kotlinAndroid)
 }
 
 group = "jolt.example.samples.app.android"
@@ -30,31 +30,31 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.toVersion(LibExt.java8Target)
-        targetCompatibility = JavaVersion.toVersion(LibExt.java8Target)
+        sourceCompatibility = JavaVersion.toVersion(libs.versions.javaMainTarget.get())
+        targetCompatibility = JavaVersion.toVersion(libs.versions.javaMainTarget.get())
     }
     kotlinOptions {
-        jvmTarget = LibExt.java8Target
+        jvmTarget = libs.versions.javaMainTarget.get()
     }
 }
 val natives: Configuration by configurations.creating
 
 dependencies {
-    coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.0.3")
+    coreLibraryDesugaring(libs.androidDesugar)
 
-    if(LibExt.useRepoLibs) {
-        implementation("com.github.xpenatan.jJolt:android-jni:${LibExt.exampleVersion}")
+    if(libs.versions.useRepoLibs.get().toBooleanStrict()) {
+        implementation(libs.jjoltAndroidJni)
     }
     else {
         implementation(project(":jolt:android:jni"))
     }
 
-    implementation("com.badlogicgames.gdx:gdx:${LibExt.gdxVersion}")
-    implementation("com.badlogicgames.gdx:gdx-backend-android:${LibExt.gdxVersion}")
-    natives("com.badlogicgames.gdx:gdx-platform:${LibExt.gdxVersion}:natives-armeabi-v7a")
-    natives("com.badlogicgames.gdx:gdx-platform:${LibExt.gdxVersion}:natives-arm64-v8a")
-    natives("com.badlogicgames.gdx:gdx-platform:${LibExt.gdxVersion}:natives-x86_64")
-    natives("com.badlogicgames.gdx:gdx-platform:${LibExt.gdxVersion}:natives-x86")
+    implementation(libs.gdxCore)
+    implementation(libs.gdxBackendAndroid)
+    natives(variantOf(libs.gdxPlatform) { classifier("natives-armeabi-v7a") })
+    natives(variantOf(libs.gdxPlatform) { classifier("natives-arm64-v8a") })
+    natives(variantOf(libs.gdxPlatform) { classifier("natives-x86_64") })
+    natives(variantOf(libs.gdxPlatform) { classifier("natives-x86") })
 
     implementation(project(":samples:shared"))
 }

@@ -3,13 +3,13 @@ plugins {
 }
 
 dependencies {
-    implementation("com.badlogicgames.gdx:gdx:${LibExt.gdxVersion}")
+    implementation(libs.gdxCore)
     compileOnly(project(":jolt:core"))
-    api("com.github.xpenatan.xImGui:gdx-shared-impl:${LibExt.gdxImGuiVersion}")
+    api(libs.imguiGdxShared)
     implementation(project(":extensions:gdx:gl"))
 }
 
 java {
-    sourceCompatibility = JavaVersion.toVersion(LibExt.java8Target)
-    targetCompatibility = JavaVersion.toVersion(LibExt.java8Target)
+    sourceCompatibility = JavaVersion.toVersion(libs.versions.javaMainTarget.get())
+    targetCompatibility = JavaVersion.toVersion(libs.versions.javaMainTarget.get())
 }

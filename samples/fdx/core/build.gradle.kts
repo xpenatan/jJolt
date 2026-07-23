@@ -3,23 +3,23 @@ plugins {
 }
 
 dependencies {
-    if(LibExt.useRepoLibs) {
-        compileOnly("com.github.xpenatan.jJolt:core:${LibExt.exampleVersion}")
-        compileOnly("com.github.xpenatan.jJolt:jolt-fdx:${LibExt.exampleVersion}")
+    if(libs.versions.useRepoLibs.get().toBooleanStrict()) {
+        compileOnly(libs.jjoltCore)
+        compileOnly(libs.jjoltJoltFdx)
     }
     else {
         compileOnly(project(":jolt:core"))
         compileOnly(project(":extensions:fdx"))
     }
 
-    api("${LibExt.fdxGroup}:application:${LibExt.fdxVersion}")
-    api("${LibExt.fdxGroup}:display:${LibExt.fdxVersion}")
-    api("${LibExt.fdxGroup}:graphics:${LibExt.fdxVersion}")
-    api("${LibExt.fdxGroup}:g3d:${LibExt.fdxVersion}")
-    api("${LibExt.fdxGroup}:asset_manager:${LibExt.fdxVersion}")
+    api(libs.fdxApplication)
+    api(libs.fdxDisplay)
+    api(libs.fdxGraphics)
+    api(libs.fdxG3d)
+    api(libs.fdxAssetManager)
 }
 
 java {
-    sourceCompatibility = JavaVersion.toVersion(LibExt.javaFFMTarget)
-    targetCompatibility = JavaVersion.toVersion(LibExt.javaFFMTarget)
+    sourceCompatibility = JavaVersion.toVersion(libs.versions.javaFfmTarget.get())
+    targetCompatibility = JavaVersion.toVersion(libs.versions.javaFfmTarget.get())
 }

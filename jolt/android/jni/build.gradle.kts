@@ -1,5 +1,5 @@
 plugins {
-    id("com.android.library")
+    alias(libs.plugins.androidLibrary)
 }
 
 val moduleName = "android-jni"
@@ -37,8 +37,8 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.toVersion(LibExt.javaMainTarget)
-        targetCompatibility = JavaVersion.toVersion(LibExt.javaMainTarget)
+        sourceCompatibility = JavaVersion.toVersion(libs.versions.javaMainTarget.get())
+        targetCompatibility = JavaVersion.toVersion(libs.versions.javaMainTarget.get())
     }
 
     buildTypes {
@@ -59,13 +59,13 @@ dependencies {
             exclude(group = "com.github.xpenatan.jParser", module = it)
         }
     }
-    api("com.github.xpenatan.jParser:runtime-jni:${LibExt.jParserVersion}")
-    api("com.github.xpenatan.jParser:runtime-android:${LibExt.jParserVersion}")
-    api("com.github.xpenatan.jParser:api-core:${LibExt.jParserVersion}")
-    api("com.github.xpenatan.jParser:loader-core:${LibExt.jParserVersion}")
+    api(libs.jparserRuntimeJni)
+    api(libs.jparserRuntimeAndroid)
+    api(libs.jparserApiCore)
+    api(libs.jparserLoaderCore)
 
-    androidTestImplementation("androidx.test.ext:junit:1.2.1")
-    androidTestImplementation("androidx.test:runner:1.6.2")
+    androidTestImplementation(libs.androidxTestJunit)
+    androidTestImplementation(libs.androidxTestRunner)
 }
 
 publishing {

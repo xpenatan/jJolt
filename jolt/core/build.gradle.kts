@@ -5,9 +5,9 @@ plugins {
 val moduleName = "core"
 
 dependencies {
-    api("com.github.xpenatan.jParser:loader-core:${LibExt.jParserVersion}")
-    api("com.github.xpenatan.jParser:api-core:${LibExt.jParserVersion}")
-    api("com.github.xpenatan.jParser:runtime-core:${LibExt.jParserVersion}")
+    api(libs.jparserLoaderCore)
+    api(libs.jparserApiCore)
+    api(libs.jparserRuntimeCore)
 }
 
 tasks.named("clean") {
@@ -22,8 +22,8 @@ tasks.named("compileJava") {
 }
 
 java {
-    sourceCompatibility = JavaVersion.toVersion(LibExt.javaMainTarget)
-    targetCompatibility = JavaVersion.toVersion(LibExt.javaMainTarget)
+    sourceCompatibility = JavaVersion.toVersion(libs.versions.javaMainTarget.get())
+    targetCompatibility = JavaVersion.toVersion(libs.versions.javaMainTarget.get())
 }
 
 java {

@@ -85,7 +85,7 @@ dependencies {
 - [Mingw64](https://github.com/niXman/mingw-builds-binaries/releases) or [Visual Studio C++](https://visualstudio.microsoft.com/vs/community/) (only needed for desktop native artifacts)
 - [Emscripten](https://emscripten.org/) (only needed for WebAssembly native artifacts)
 
-To try the samples with your build, change `LibExt.useRepoLibs` to `false` in `buildSrc/src/main/kotlin/LibExt.kt`. This will allow you to use the local jJolt source code instead of the remote repository.
+To try the samples with your build, set `useRepoLibs = "false"` in `gradle/libs.versions.toml`. This will use the local jJolt source code instead of the remote repository.
 
 ## How To Run The Samples
 

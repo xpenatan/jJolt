@@ -8,23 +8,23 @@ dependencies {
     implementation(project(":samples:gdx:wgpu:core"))
     implementation(project(":samples:shared"))
 
-    if(LibExt.useRepoLibs) {
-        implementation("com.github.xpenatan.jJolt:desktop-jni:${LibExt.exampleVersion}")
-        implementation("com.github.xpenatan.jJolt:gdx-wgpu:${LibExt.exampleVersion}")
+    if(libs.versions.useRepoLibs.get().toBooleanStrict()) {
+        implementation(libs.jjoltDesktopJni)
+        implementation(libs.jjoltGdxWgpu)
     }
     else {
         implementation(project(":jolt:desktop:jni"))
         implementation(project(":extensions:gdx:wgpu"))
     }
 
-    implementation("io.github.monstroussoftware.gdx-webgpu:backend-desktop:${LibExt.gdxWebGPUVersion}")
-    implementation("com.badlogicgames.gdx:gdx-platform:${LibExt.gdxVersion}:natives-desktop")
-    implementation("com.github.xpenatan.xImGui:imgui-desktop:${LibExt.gdxImGuiVersion}")
+    implementation(libs.gdxWebgpuBackendDesktop)
+    implementation(variantOf(libs.gdxPlatform) { classifier("natives-desktop") })
+    implementation(libs.imguiDesktop)
 }
 
 java {
-    sourceCompatibility = JavaVersion.toVersion(LibExt.java11Target)
-    targetCompatibility = JavaVersion.toVersion(LibExt.java11Target)
+    sourceCompatibility = JavaVersion.toVersion(libs.versions.java11Target.get())
+    targetCompatibility = JavaVersion.toVersion(libs.versions.java11Target.get())
 }
 
 val mainClassName = "jolt.example.samples.app.Main"

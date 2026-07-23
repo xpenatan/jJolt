@@ -11,12 +11,12 @@ base {
 dependencies {
     compileOnly(project(":jolt:core"))
     api(project(":extensions:gdx:gl"))
-    api("io.github.monstroussoftware.gdx-webgpu:gdx-webgpu:${LibExt.gdxWebGPUVersion}")
+    api(libs.gdxWebgpuCore)
 }
 
 java {
-    sourceCompatibility = JavaVersion.toVersion(LibExt.java11Target)
-    targetCompatibility = JavaVersion.toVersion(LibExt.java11Target)
+    sourceCompatibility = JavaVersion.toVersion(libs.versions.java11Target.get())
+    targetCompatibility = JavaVersion.toVersion(libs.versions.java11Target.get())
     withJavadocJar()
     withSourcesJar()
 }

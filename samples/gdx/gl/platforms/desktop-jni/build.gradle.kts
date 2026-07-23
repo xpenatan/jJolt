@@ -8,23 +8,23 @@ dependencies {
     implementation(project(":samples:gdx:gl:core"))
     implementation(project(":samples:shared"))
 
-    if(LibExt.useRepoLibs) {
-        implementation("com.github.xpenatan.jJolt:desktop-jni:${LibExt.exampleVersion}")
-        implementation("com.github.xpenatan.jJolt:gdx-gl:${LibExt.exampleVersion}")
+    if(libs.versions.useRepoLibs.get().toBooleanStrict()) {
+        implementation(libs.jjoltDesktopJni)
+        implementation(libs.jjoltGdxGl)
     }
     else {
         implementation(project(":jolt:desktop:jni"))
         implementation(project(":extensions:gdx:gl"))
     }
 
-    implementation("com.badlogicgames.gdx:gdx-backend-lwjgl3:${LibExt.gdxVersion}")
-    implementation("com.badlogicgames.gdx:gdx-platform:${LibExt.gdxVersion}:natives-desktop")
-    implementation("com.github.xpenatan.xImGui:imgui-desktop:${LibExt.gdxImGuiVersion}")
+    implementation(libs.gdxBackendLwjgl3)
+    implementation(variantOf(libs.gdxPlatform) { classifier("natives-desktop") })
+    implementation(libs.imguiDesktop)
 }
 
 java {
-    sourceCompatibility = JavaVersion.toVersion(LibExt.java8Target)
-    targetCompatibility = JavaVersion.toVersion(LibExt.java8Target)
+    sourceCompatibility = JavaVersion.toVersion(libs.versions.javaMainTarget.get())
+    targetCompatibility = JavaVersion.toVersion(libs.versions.javaMainTarget.get())
 }
 
 val mainClassName = "jolt.example.samples.app.Main"

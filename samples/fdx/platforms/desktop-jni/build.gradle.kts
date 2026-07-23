@@ -5,9 +5,11 @@ plugins {
     id("java")
 }
 
+val javaFfmTarget = libs.versions.javaFfmTarget.get()
+
 java {
-    sourceCompatibility = JavaVersion.toVersion(LibExt.javaFFMTarget)
-    targetCompatibility = JavaVersion.toVersion(LibExt.javaFFMTarget)
+    sourceCompatibility = JavaVersion.toVersion(javaFfmTarget)
+    targetCompatibility = JavaVersion.toVersion(javaFfmTarget)
 }
 
 val glRuntimeClasspath by configurations.creating {
@@ -24,7 +26,7 @@ val wgpuJniRuntimeClasspath by configurations.creating {
     isCanBeConsumed = false
     isCanBeResolved = true
     attributes {
-        attribute(TargetJvmVersion.TARGET_JVM_VERSION_ATTRIBUTE, LibExt.javaFFMTarget.toInt())
+        attribute(TargetJvmVersion.TARGET_JVM_VERSION_ATTRIBUTE, javaFfmTarget.toInt())
     }
 }
 
@@ -32,7 +34,7 @@ val wgpuFfmRuntimeClasspath by configurations.creating {
     isCanBeConsumed = false
     isCanBeResolved = true
     attributes {
-        attribute(TargetJvmVersion.TARGET_JVM_VERSION_ATTRIBUTE, LibExt.javaFFMTarget.toInt())
+        attribute(TargetJvmVersion.TARGET_JVM_VERSION_ATTRIBUTE, javaFfmTarget.toInt())
     }
 }
 
@@ -45,19 +47,19 @@ val joltFfmRuntimeClasspath by configurations.creating {
     isCanBeConsumed = false
     isCanBeResolved = true
     attributes {
-        attribute(TargetJvmVersion.TARGET_JVM_VERSION_ATTRIBUTE, LibExt.javaFFMTarget.toInt())
+        attribute(TargetJvmVersion.TARGET_JVM_VERSION_ATTRIBUTE, javaFfmTarget.toInt())
     }
 }
 
 dependencies {
     implementation(project(":samples:fdx:core"))
-    implementation("${LibExt.fdxGroup}:backend_desktop:${LibExt.fdxVersion}")
-    implementation("${LibExt.fdxGroup}:wgpu_core:${LibExt.fdxVersion}")
+    implementation(libs.fdxBackendDesktop)
+    implementation(libs.fdxWgpuCore)
 
-    if(LibExt.useRepoLibs) {
-        joltJniRuntimeClasspath("com.github.xpenatan.jJolt:desktop-jni:${LibExt.exampleVersion}")
-        joltFfmRuntimeClasspath("com.github.xpenatan.jJolt:desktop-ffm:${LibExt.exampleVersion}")
-        implementation("com.github.xpenatan.jJolt:jolt-fdx:${LibExt.exampleVersion}")
+    if(libs.versions.useRepoLibs.get().toBooleanStrict()) {
+        joltJniRuntimeClasspath(libs.jjoltDesktopJni)
+        joltFfmRuntimeClasspath(libs.jjoltDesktopFfm)
+        implementation(libs.jjoltJoltFdx)
     }
     else {
         joltJniRuntimeClasspath(project(":jolt:desktop:jni"))
@@ -65,10 +67,10 @@ dependencies {
         implementation(project(":extensions:fdx"))
     }
 
-    glRuntimeClasspath("${LibExt.fdxGroup}:gl_desktop:${LibExt.fdxVersion}")
-    vulkanRuntimeClasspath("${LibExt.fdxGroup}:vulkan_desktop:${LibExt.fdxVersion}")
-    wgpuJniRuntimeClasspath("${LibExt.fdxGroup}:wgpu_desktop_jni:${LibExt.fdxVersion}")
-    wgpuFfmRuntimeClasspath("${LibExt.fdxGroup}:wgpu_desktop_ffm:${LibExt.fdxVersion}")
+    glRuntimeClasspath(libs.fdxGlDesktop)
+    vulkanRuntimeClasspath(libs.fdxVulkanDesktop)
+    wgpuJniRuntimeClasspath(libs.fdxWgpuDesktopJni)
+    wgpuFfmRuntimeClasspath(libs.fdxWgpuDesktopFfm)
 }
 
 val sampleMainClass = "jolt.example.samples.app.desktop.JoltDesktopLauncher"
@@ -102,7 +104,7 @@ fun JavaExec.configureSampleRun(
 
 fun JavaExec.useJava25Launcher() {
     javaLauncher.set(javaToolchains.launcherFor {
-        languageVersion.set(JavaLanguageVersion.of(LibExt.javaFFMTarget.toInt()))
+        languageVersion.set(JavaLanguageVersion.of(javaFfmTarget.toInt()))
     })
     jvmArgs("--enable-native-access=ALL-UNNAMED")
 }

@@ -5,14 +5,14 @@ plugins {
 dependencies {
     api(project(":samples:gdx:shared"))
 
-    implementation("com.badlogicgames.gdx:gdx:${LibExt.gdxVersion}")
-    api("io.github.monstroussoftware.gdx-webgpu:gdx-webgpu:${LibExt.gdxWebGPUVersion}")
-    api("com.github.xpenatan.xImGui:gdx-wgpu-impl:${LibExt.gdxImGuiVersion}")
+    implementation(libs.gdxCore)
+    api(libs.gdxWebgpuCore)
+    api(libs.imguiGdxWgpu)
 
     api(project(":extensions:gdx:wgpu"))
 }
 
 java {
-    sourceCompatibility = JavaVersion.toVersion(LibExt.java11Target)
-    targetCompatibility = JavaVersion.toVersion(LibExt.java11Target)
+    sourceCompatibility = JavaVersion.toVersion(libs.versions.java11Target.get())
+    targetCompatibility = JavaVersion.toVersion(libs.versions.java11Target.get())
 }

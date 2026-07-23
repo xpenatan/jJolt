@@ -1,28 +1,28 @@
 plugins {
     id("java")
-    id("io.github.libfdx")
+    alias(libs.plugins.libfdx)
 }
 
 java {
-    sourceCompatibility = JavaVersion.toVersion(LibExt.javaFFMTarget)
-    targetCompatibility = JavaVersion.toVersion(LibExt.javaFFMTarget)
+    sourceCompatibility = JavaVersion.toVersion(libs.versions.javaFfmTarget.get())
+    targetCompatibility = JavaVersion.toVersion(libs.versions.javaFfmTarget.get())
 }
 
 dependencies {
     implementation(project(":samples:fdx:core"))
 
-    if(LibExt.useRepoLibs) {
-        implementation("com.github.xpenatan.jJolt:web-wasm:${LibExt.exampleVersion}")
-        implementation("com.github.xpenatan.jJolt:jolt-fdx:${LibExt.exampleVersion}")
+    if(libs.versions.useRepoLibs.get().toBooleanStrict()) {
+        implementation(libs.jjoltWebWasm)
+        implementation(libs.jjoltJoltFdx)
     }
     else {
         implementation(project(":jolt:web:wasm"))
         implementation(project(":extensions:fdx"))
     }
 
-    implementation("${LibExt.fdxGroup}:backend_web:${LibExt.fdxVersion}")
-    implementation("${LibExt.fdxGroup}:gl_web:${LibExt.fdxVersion}")
-    implementation("${LibExt.fdxGroup}:wgpu_web:${LibExt.fdxVersion}")
+    implementation(libs.fdxBackendWeb)
+    implementation(libs.fdxGlWeb)
+    implementation(libs.fdxWgpuWeb)
 }
 
 libfdx {

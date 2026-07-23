@@ -10,13 +10,13 @@ base {
 }
 
 dependencies {
-    api("com.github.xpenatan.jParser:runtime-core:${LibExt.jParserVersion}")
-    api("com.github.xpenatan.jParser:runtime-c:${LibExt.jParserVersion}")
-    api("com.github.xpenatan.jParser:api-core:${LibExt.jParserVersion}")
-    api("com.github.xpenatan.jParser:loader-core:${LibExt.jParserVersion}")
-    api("com.github.xpenatan.jParser:loader-c:${LibExt.jParserVersion}")
-    api("org.teavm:teavm-core:${LibExt.teaVMVersion}")
-    api("org.teavm:teavm-classlib:${LibExt.teaVMVersion}")
+    api(libs.jparserRuntimeCore)
+    api(libs.jparserRuntimeC)
+    api(libs.jparserApiCore)
+    api(libs.jparserLoaderCore)
+    api(libs.jparserLoaderC)
+    api(libs.teavmCore)
+    api(libs.teavmClasslib)
 }
 
 sourceSets {
@@ -42,8 +42,8 @@ tasks.named("processResources") {
 }
 
 java {
-    sourceCompatibility = JavaVersion.toVersion(LibExt.javaWebTarget)
-    targetCompatibility = JavaVersion.toVersion(LibExt.javaWebTarget)
+    sourceCompatibility = JavaVersion.toVersion(libs.versions.javaWebTarget.get())
+    targetCompatibility = JavaVersion.toVersion(libs.versions.javaWebTarget.get())
     withJavadocJar()
     withSourcesJar()
 }

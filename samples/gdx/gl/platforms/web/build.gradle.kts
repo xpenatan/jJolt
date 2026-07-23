@@ -6,25 +6,25 @@ dependencies {
     implementation(project(":samples:gdx:gl:core"))
     implementation(project(":samples:shared"))
 
-    implementation("com.badlogicgames.gdx:gdx:${LibExt.gdxVersion}:sources")
+    implementation(variantOf(libs.gdxCore) { classifier("sources") })
 
-    if(LibExt.useRepoLibs) {
-        implementation("com.github.xpenatan.jJolt:web-wasm:${LibExt.exampleVersion}")
-        implementation("com.github.xpenatan.jJolt:gdx-gl:${LibExt.exampleVersion}")
+    if(libs.versions.useRepoLibs.get().toBooleanStrict()) {
+        implementation(libs.jjoltWebWasm)
+        implementation(libs.jjoltGdxGl)
     }
     else {
         implementation(project(":jolt:web:wasm"))
         implementation(project(":extensions:gdx:gl"))
     }
 
-    implementation("com.badlogicgames.gdx:gdx:${LibExt.gdxVersion}")
-    implementation("com.github.xpenatan.gdx-teavm:backend-web:${LibExt.gdxTeaVMVersion}")
-    implementation("com.github.xpenatan.gdx-teavm:backend-web:${LibExt.gdxTeaVMVersion}:sources")
+    implementation(libs.gdxCore)
+    implementation(libs.gdxTeavmBackendWeb)
+    implementation(variantOf(libs.gdxTeavmBackendWeb) { classifier("sources") })
 }
 
 java {
-    sourceCompatibility = JavaVersion.toVersion(LibExt.javaWebTarget)
-    targetCompatibility = JavaVersion.toVersion(LibExt.javaWebTarget)
+    sourceCompatibility = JavaVersion.toVersion(libs.versions.javaWebTarget.get())
+    targetCompatibility = JavaVersion.toVersion(libs.versions.javaWebTarget.get())
 }
 
 val mainClassName = "jolt.example.samples.app.Build"

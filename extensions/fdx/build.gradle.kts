@@ -6,12 +6,12 @@ val moduleName = "jolt-fdx"
 
 dependencies {
     compileOnly(project(":jolt:core"))
-    api("${LibExt.fdxGroup}:graphics:${LibExt.fdxVersion}")
+    api(libs.fdxGraphics)
 }
 
 java {
-    sourceCompatibility = JavaVersion.toVersion(LibExt.javaFFMTarget)
-    targetCompatibility = JavaVersion.toVersion(LibExt.javaFFMTarget)
+    sourceCompatibility = JavaVersion.toVersion(libs.versions.javaFfmTarget.get())
+    targetCompatibility = JavaVersion.toVersion(libs.versions.javaFfmTarget.get())
 }
 
 java {
