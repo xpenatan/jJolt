@@ -1,6 +1,5 @@
 plugins {
     alias(libs.plugins.androidApplication)
-    alias(libs.plugins.kotlinAndroid)
 }
 
 group = "jolt.example.samples.app.android"
@@ -32,9 +31,6 @@ android {
     compileOptions {
         sourceCompatibility = JavaVersion.toVersion(libs.versions.javaMainTarget.get())
         targetCompatibility = JavaVersion.toVersion(libs.versions.javaMainTarget.get())
-    }
-    kotlinOptions {
-        jvmTarget = libs.versions.javaMainTarget.get()
     }
 }
 val natives: Configuration by configurations.creating

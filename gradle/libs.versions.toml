@@ -24,7 +24,6 @@ snapshotVersion = "-SNAPSHOT"
 
 easyPublishingVersion = "0.1.0"
 androidGradlePluginVersion = "9.1.1"
-kotlinVersion = "2.1.10"
 androidxTestJunitVersion = "1.2.1"
 androidxTestRunnerVersion = "1.6.2"
 androidDesugarVersion = "2.0.3"
@@ -34,7 +33,6 @@ gdxGltfVersion = "2.2.1"
 easyPublishing = { id = "com.github.xpenatan.easy-publishing", version.ref = "easyPublishingVersion" }
 androidApplication = { id = "com.android.application", version.ref = "androidGradlePluginVersion" }
 androidLibrary = { id = "com.android.library", version.ref = "androidGradlePluginVersion" }
-kotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlinVersion" }
 jparser = { id = "com.github.xpenatan.jparser", version.ref = "jparserVersion" }
 libfdx = { id = "io.github.libfdx", version.ref = "fdxVersion" }
 
