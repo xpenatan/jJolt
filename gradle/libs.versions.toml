@@ -5,7 +5,6 @@ projectName = "jJolt"
 javaMainTarget = "1.8"
 javaWebTarget = "17"
 javaFfmTarget = "25"
-java11Target = "11"
 
 joltVersion = "5.6.0"
 joltCommit = "e77f175595e64cb44218cc9d9d56fc365ad0e36a"
