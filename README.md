@@ -5,7 +5,7 @@
 [![Maven Central Version](https://img.shields.io/maven-central/v/com.github.xpenatan.jJolt/core)](https://central.sonatype.com/namespace/com.github.xpenatan.jJolt)
 [![Static Badge](https://img.shields.io/badge/snapshot---SNAPSHOT-red)](https://central.sonatype.com/service/rest/repository/browse/maven-snapshots/com/github/xpenatan/jJolt/)
 
-jJolt is a Java binding for the C++ library [Jolt Physics](https://github.com/jrouwe/JoltPhysics), utilizing JNI/FFM for desktop, JNI for Android, and Emscripten for web platforms. It provides a one-to-one correspondence with the C++ code, meaning it mirrors the exact same class and method names. Its libfdx samples consume the `jolt_ext` adapter owned and published by [libFDX](https://github.com/libfdx/libfdx).
+jJolt is a Java binding for the C++ library [Jolt Physics](https://github.com/jrouwe/JoltPhysics), utilizing JNI/FFM for desktop, JNI for Android, and Emscripten for web platforms. It provides a one-to-one correspondence with the C++ code, meaning it mirrors the exact same class and method names.
 
 The binding leverages [jParser](https://github.com/xpenatan/jParser), a custom C/C++ build tool and WebIDL Java code generator, which automatically generates 99% of all classes. Only a small number of essential classes are coded manually, making updates to new Jolt Physics versions quick and efficient.
 
@@ -38,35 +38,21 @@ repositories {
 
 // Core module
 implementation("com.github.xpenatan.jJolt:core:-SNAPSHOT")
-implementation("io.github.libfdx:jolt_ext:-SNAPSHOT")
-implementation("io.github.libfdx:application:-SNAPSHOT")
-implementation("io.github.libfdx:g3d:-SNAPSHOT")
 
 // Desktop module
 dependencies {
    implementation("com.github.xpenatan.jJolt:desktop-jni:-SNAPSHOT")
    implementation("com.github.xpenatan.jJolt:desktop-ffm:-SNAPSHOT")
-   implementation("io.github.libfdx:backend_desktop:-SNAPSHOT")
-   implementation("io.github.libfdx:gl_desktop:-SNAPSHOT")
-   implementation("io.github.libfdx:vulkan_desktop:-SNAPSHOT")
-   implementation("io.github.libfdx:wgpu_desktop_jni:-SNAPSHOT")
-   implementation("io.github.libfdx:wgpu_desktop_ffm:-SNAPSHOT")
 }
 
 // TeaVM module
 dependencies {
    implementation("com.github.xpenatan.jJolt:web-wasm:-SNAPSHOT")
-   implementation("io.github.libfdx:backend_web:-SNAPSHOT")
-   implementation("io.github.libfdx:gl_web:-SNAPSHOT")
-   implementation("io.github.libfdx:wgpu_web:-SNAPSHOT")
 }
 
 // Android module
 dependencies {
    implementation("com.github.xpenatan.jJolt:android-jni:-SNAPSHOT")
-   implementation("io.github.libfdx:backend_android:-SNAPSHOT")
-   implementation("io.github.libfdx:wgpu_android_jni:-SNAPSHOT")
-   implementation("io.github.libfdx:vulkan_android_jni:-SNAPSHOT")
 }
 ```
 
@@ -85,10 +71,13 @@ dependencies {
 - [Mingw64](https://github.com/niXman/mingw-builds-binaries/releases) or [Visual Studio C++](https://visualstudio.microsoft.com/vs/community/) (only needed for desktop native artifacts)
 - [Emscripten](https://emscripten.org/) (only needed for WebAssembly native artifacts)
 
-The samples use the local jJolt projects by default. To run either the libGDX or libfdx samples with published artifacts instead, add the override to the root `local.properties` file:
+The samples use the published jJolt artifacts by default, as configured by
+`examplesUseMavenArtifacts = "true"` in `gradle/libs.versions.toml`. To use
+the local jJolt projects instead, add the override to the root
+`local.properties` file:
 
 ```properties
-examplesUseMavenArtifacts=true
+examplesUseMavenArtifacts=false
 ```
 
 Then run the desired sample. It uses the version configured by `exampleVersion` in `gradle/libs.versions.toml`:
@@ -97,10 +86,10 @@ Then run the desired sample. It uses the version configured by `exampleVersion` 
 ./gradlew :samples:gdx:gl:platforms:desktop-jni:jolt_samples_run_desktop
 
 # Test a release without editing the version catalog.
-./gradlew -PexampleVersion=RELEASE_VERSION :samples:fdx:platforms:desktop-jni:jolt_sample_desktop_gl_jni_run
+./gradlew -PexampleVersion=RELEASE_VERSION :samples:gdx:gl:platforms:desktop-jni:jolt_samples_run_desktop
 ```
 
-When `local.properties` contains `examplesUseMavenArtifacts`, that value takes precedence. If the property or file is absent, the value from `gradle/libs.versions.toml` is used. Published mode uses Maven artifacts for Jolt core and platform natives. The libfdx samples always consume the separately published `io.github.libfdx:jolt_ext` snapshot.
+When `local.properties` contains `examplesUseMavenArtifacts`, that value takes precedence. If the property or file is absent, the value from `gradle/libs.versions.toml` is used. Published mode uses Maven artifacts for Jolt core and platform natives.
 
 ## How To Run The Samples
 
@@ -110,17 +99,6 @@ When `local.properties` contains `examplesUseMavenArtifacts`, that value takes p
 - Desktop TeaVM/C: `./gradlew :samples:gdx:gl:platforms:desktop-c:jolt_gdx_desktop_c_run`
 - Web: `./gradlew :samples:gdx:gl:platforms:web:jolt_samples_run_teavm`
 - Android: `./gradlew :samples:gdx:gl:platforms:android:assembleDebug`
-
-### libfdx
-
-- Desktop OpenGL/JNI: `./gradlew :samples:fdx:platforms:desktop-jni:jolt_sample_desktop_gl_jni_run`
-- Desktop WGPU/JNI: `./gradlew :samples:fdx:platforms:desktop-jni:jolt_sample_desktop_wgpu_jni_run`
-- Desktop WGPU/FFM: `./gradlew :samples:fdx:platforms:desktop-jni:jolt_sample_desktop_wgpu_ffm_run`
-- Desktop Vulkan/JNI: `./gradlew :samples:fdx:platforms:desktop-jni:jolt_sample_desktop_vulkan_jni_run`
-- Desktop Vulkan/FFM: `./gradlew :samples:fdx:platforms:desktop-jni:jolt_sample_desktop_vulkan_ffm_run`
-- WebGL JS/Wasm: `./gradlew :samples:fdx:platforms:web:jolt_sample_webgl_js_build :samples:fdx:platforms:web:jolt_sample_webgl_wasm_build`
-- WebGPU JS: `./gradlew :samples:fdx:platforms:web:jolt_sample_webgpu_js_build`
-- Android GLES/WGPU/Vulkan: `./gradlew :samples:fdx:platforms:android:jolt_sample_android_gles_build :samples:fdx:platforms:android:jolt_sample_android_wgpu_jni_build :samples:fdx:platforms:android:jolt_sample_android_vulkan_build`
 
 ## How To Build From Source
 

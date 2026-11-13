@@ -10,7 +10,6 @@ javaWebTarget = "17"
 javaFfmTarget = "25"
 
 jParser = "1.2.8"
-libfdx = "-SNAPSHOT"
 libgdx = "1.14.2"
 
 gdxTeavmVersion = "1.6.1"
@@ -32,7 +31,6 @@ easyPublishing = { id = "com.github.xpenatan.easy-publishing", version.ref = "ea
 androidApplication = { id = "com.android.application", version.ref = "androidGradlePluginVersion" }
 androidLibrary = { id = "com.android.library", version.ref = "androidGradlePluginVersion" }
 jparser = { id = "com.github.xpenatan.jParser", version.ref = "jParser" }
-libfdx = { id = "io.github.libfdx", version.ref = "libfdx" }
 
 [libraries]
 jparserApiCore = { module = "com.github.xpenatan.jParser:api-core", version.ref = "jParser" }
@@ -62,24 +60,6 @@ jparserRuntimeDesktopFfmLinuxX64 = { module = "com.github.xpenatan.jParser:runti
 jparserRuntimeDesktopFfmMacX64 = { module = "com.github.xpenatan.jParser:runtime-desktop-ffm_mac_x64", version.ref = "jParser" }
 jparserRuntimeDesktopFfmMacArm64 = { module = "com.github.xpenatan.jParser:runtime-desktop-ffm_mac_arm64", version.ref = "jParser" }
 
-fdxApplication = { module = "io.github.libfdx:application", version.ref = "libfdx" }
-fdxAssetManager = { module = "io.github.libfdx:asset_manager", version.ref = "libfdx" }
-fdxBackendAndroid = { module = "io.github.libfdx:backend_android", version.ref = "libfdx" }
-fdxBackendDesktop = { module = "io.github.libfdx:backend_desktop", version.ref = "libfdx" }
-fdxBackendWeb = { module = "io.github.libfdx:backend_web", version.ref = "libfdx" }
-fdxDisplay = { module = "io.github.libfdx:display", version.ref = "libfdx" }
-fdxG3d = { module = "io.github.libfdx:g3d", version.ref = "libfdx" }
-fdxGlDesktop = { module = "io.github.libfdx:gl_desktop", version.ref = "libfdx" }
-fdxGlWeb = { module = "io.github.libfdx:gl_web", version.ref = "libfdx" }
-fdxGraphics = { module = "io.github.libfdx:graphics", version.ref = "libfdx" }
-fdxVulkanAndroidJni = { module = "io.github.libfdx:vulkan_android_jni", version.ref = "libfdx" }
-fdxVulkanDesktop = { module = "io.github.libfdx:vulkan_desktop", version.ref = "libfdx" }
-fdxWgpuAndroidJni = { module = "io.github.libfdx:wgpu_android_jni", version.ref = "libfdx" }
-fdxWgpuCore = { module = "io.github.libfdx:wgpu_core", version.ref = "libfdx" }
-fdxWgpuDesktopFfm = { module = "io.github.libfdx:wgpu_desktop_ffm", version.ref = "libfdx" }
-fdxWgpuDesktopJni = { module = "io.github.libfdx:wgpu_desktop_jni", version.ref = "libfdx" }
-fdxWgpuWeb = { module = "io.github.libfdx:wgpu_web", version.ref = "libfdx" }
-
 gdxCore = { module = "com.badlogicgames.gdx:gdx", version.ref = "libgdx" }
 gdxBackendAndroid = { module = "com.badlogicgames.gdx:gdx-backend-android", version.ref = "libgdx" }
 gdxBackendLwjgl3 = { module = "com.badlogicgames.gdx:gdx-backend-lwjgl3", version.ref = "libgdx" }
@@ -99,7 +79,6 @@ jjoltDesktopC = { module = "com.github.xpenatan.jJolt:desktop-c", version.ref = 
 jjoltDesktopFfm = { module = "com.github.xpenatan.jJolt:desktop-ffm", version.ref = "exampleVersion" }
 jjoltDesktopJni = { module = "com.github.xpenatan.jJolt:desktop-jni", version.ref = "exampleVersion" }
 jjoltGdxGl = { module = "com.github.xpenatan.jJolt:gdx-gl", version.ref = "exampleVersion" }
-fdxJoltExt = { module = "io.github.libfdx:jolt_ext", version.ref = "libfdx" }
 jjoltWebWasm = { module = "com.github.xpenatan.jJolt:web-wasm", version.ref = "exampleVersion" }
 
 androidDesugar = { module = "com.android.tools:desugar_jdk_libs", version.ref = "androidDesugarVersion" }

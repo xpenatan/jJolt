@@ -34,8 +34,3 @@ include(":samples:gdx:gl:platforms:desktop-jni")
 include(":samples:gdx:gl:platforms:desktop-c")
 include(":samples:gdx:gl:platforms:web")
 include(":samples:gdx:gl:platforms:android")
-
-include(":samples:fdx:core")
-include(":samples:fdx:platforms:desktop-jni")
-include(":samples:fdx:platforms:web")
-include(":samples:fdx:platforms:android")

@@ -34,22 +34,6 @@ allprojects  {
     configurations.configureEach {
         // Check for updates every sync
         resolutionStrategy.cacheChangingModulesFor(0, "seconds")
-        resolutionStrategy.eachDependency {
-            val isJParserRuntime = requested.group == "com.github.xpenatan.jParser" && (
-                    requested.name.startsWith("api-") ||
-                    requested.name.startsWith("loader-") ||
-                    requested.name.startsWith("runtime-")
-            )
-            if(isJParserRuntime) {
-                useVersion(libs.versions.jParser.get())
-            }
-            else if(requested.group == "com.github.xpenatan.gdx-teavm") {
-                useVersion(libs.versions.gdxTeavmVersion.get())
-            }
-            else if(isSampleProject && examplesUseMavenArtifacts && requested.group == jJoltGroup) {
-                useVersion(samplesRepoVersion)
-            }
-        }
     }
 }
 

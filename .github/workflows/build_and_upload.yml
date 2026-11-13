@@ -120,11 +120,6 @@ jobs:
           ./gradlew
           :samples:gdx:gl:platforms:desktop-jni:classes
           :samples:gdx:gl:platforms:desktop-c:jolt_gdx_desktop_c_build
-          :samples:fdx:platforms:desktop-jni:jolt_sample_desktop_gl_jni_build
-          :samples:fdx:platforms:desktop-jni:jolt_sample_desktop_wgpu_jni_build
-          :samples:fdx:platforms:desktop-jni:jolt_sample_desktop_wgpu_ffm_build
-          :samples:fdx:platforms:desktop-jni:jolt_sample_desktop_vulkan_jni_build
-          :samples:fdx:platforms:desktop-jni:jolt_sample_desktop_vulkan_ffm_build
           -x :jolt:builder:jParser_generate
           -x :jolt:builder:jParser_build_linux64_teavm_c
 
@@ -218,9 +213,6 @@ jobs:
       - name: Build supported web samples
         run: >-
           ./gradlew
-          :samples:fdx:platforms:web:jolt_sample_webgl_js_build
-          :samples:fdx:platforms:web:jolt_sample_webgl_wasm_build
-          :samples:fdx:platforms:web:jolt_sample_webgpu_js_build
           :samples:gdx:gl:platforms:web:jolt_samples_run_teavm
           -x :jolt:builder:jParser_generate
           -x :jolt:builder:jParser_build_web_wasm
@@ -276,9 +268,6 @@ jobs:
           :jolt:android:jni:assembleDebug
           :jolt:android:jni:assembleDebugAndroidTest
           :samples:gdx:gl:platforms:android:assembleDebug
-          :samples:fdx:platforms:android:jolt_sample_android_gles_build
-          :samples:fdx:platforms:android:jolt_sample_android_wgpu_jni_build
-          :samples:fdx:platforms:android:jolt_sample_android_vulkan_build
           -x :jolt:builder:jParser_generate
 
       - name: Enable KVM access
