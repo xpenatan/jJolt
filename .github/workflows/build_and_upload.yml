@@ -424,6 +424,7 @@ jobs:
         if: ${{ inputs.shouldUpload && !inputs.isRelease }}
         with:
           max_attempts: 3
+          retry_wait_seconds: 180
           timeout_minutes: 10
           retry_on: error
           command: ./gradlew publishSnapshot
